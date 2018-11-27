@@ -1,0 +1,5 @@
+AM_DEFAULT_SOURCE_EXT = .m
+bin_PROGRAMS = ok
+noinst_PROGRAMS = ko
+TESTS = $(bin_PROGRAMS) $(XFAIL_TESTS)
+XFAIL_TESTS = $(noinst_PROGRAMS)

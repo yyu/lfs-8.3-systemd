@@ -1,0 +1,589 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-driver-strip-vpath.dir
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir
++ mkdir src build
++ mv install-sh missing configure.ac src
++ rm -f depcomp
++ cd src
++ cat
++ cat
++ cat
++ chmod a+x checkstrip-driver
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ cd ..
++ mkdir build1
++ cd build1
++ ../src/configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make -n check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+list='foo.log src/bar.log ./src/baz.log';           test -z "$list" || rm -f $list
+list='foo.trs src/bar.trs ./src/baz.trs'; test -z "$list" || rm -f $list
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log src/bar.log ./src/baz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+trs_list=`for i in $bases; do echo $i.trs; done`; \
+log_list=`echo $log_list`; trs_list=`echo $trs_list`; \
+make  test-suite.log TEST_LOGS="$log_list"; \
+exit $?;
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "../src" | sed 's|.|.|g'`; case $p in ../src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=../src; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="../src/"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   ../src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/bar.test'; \
+case 'src/bar.log' in */*) case 'src/bar' in */*) b='src/bar';; *) b=`echo 'src/bar.log' | sed 's/\.log$//'`; esac;; *) b='src/bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "../src" | sed 's|.|.|g'`; case $p in ../src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=../src; export srcdir; case "src/bar.log" in */*) am__odir=`echo "./src/bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="../src/"; fi; tst=$dir$f; log='src/bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   ../src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/baz.test'; \
+case 'src/baz.log' in */*) case 'src/baz' in */*) b='src/baz';; *) b=`echo 'src/baz.log' | sed 's/\.log$//'`; esac;; *) b='src/baz';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "../src" | sed 's|.|.|g'`; case $p in ../src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=../src; export srcdir; case "src/baz.log" in */*) am__odir=`echo "./src/baz.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="../src/"; fi; tst=$dir$f; log='src/baz.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   ../src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='foo.log src/bar.log ./src/baz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "../src" | sed 's|.|.|g'`; case $p in ../src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=../src; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="../src/"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   ../src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/bar.test'; \
+case 'src/bar.log' in */*) case 'src/bar' in */*) b='src/bar';; *) b=`echo 'src/bar.log' | sed 's/\.log$//'`; esac;; *) b='src/bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "../src" | sed 's|.|.|g'`; case $p in ../src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=../src; export srcdir; case "src/bar.log" in */*) am__odir=`echo "./src/bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="../src/"; fi; tst=$dir$f; log='src/bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   ../src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/baz.test'; \
+case 'src/baz.log' in */*) case 'src/baz' in */*) b='src/baz';; *) b=`echo 'src/baz.log' | sed 's/\.log$//'`; esac;; *) b='src/baz';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "../src" | sed 's|.|.|g'`; case $p in ../src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=../src; export srcdir; case "src/baz.log" in */*) am__odir=`echo "./src/baz.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="../src/"; fi; tst=$dir$f; log='src/baz.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   ../src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+make[3]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='foo.log src/bar.log ./src/baz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "test-driver-strip-vpath 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for test-driver-strip-vpath 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+test name: foo.test
+test name: src/bar.test
+test name: src/baz.test
+============================================================================
+Testsuite summary for test-driver-strip-vpath 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build1'
++ cd ..
++ mkdir build2
++ cd build2
++ /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make -n check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+list='foo.log src/bar.log ./src/baz.log';           test -z "$list" || rm -f $list
+list='foo.trs src/bar.trs ./src/baz.trs'; test -z "$list" || rm -f $list
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log src/bar.log ./src/baz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+trs_list=`for i in $bases; do echo $i.trs; done`; \
+log_list=`echo $log_list`; trs_list=`echo $trs_list`; \
+make  test-suite.log TEST_LOGS="$log_list"; \
+exit $?;
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src" | sed 's|.|.|g'`; case $p in /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/bar.test'; \
+case 'src/bar.log' in */*) case 'src/bar' in */*) b='src/bar';; *) b=`echo 'src/bar.log' | sed 's/\.log$//'`; esac;; *) b='src/bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src" | sed 's|.|.|g'`; case $p in /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src; export srcdir; case "src/bar.log" in */*) am__odir=`echo "./src/bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/"; fi; tst=$dir$f; log='src/bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/baz.test'; \
+case 'src/baz.log' in */*) case 'src/baz' in */*) b='src/baz';; *) b=`echo 'src/baz.log' | sed 's/\.log$//'`; esac;; *) b='src/baz';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src" | sed 's|.|.|g'`; case $p in /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src; export srcdir; case "src/baz.log" in */*) am__odir=`echo "./src/baz.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/"; fi; tst=$dir$f; log='src/baz.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='foo.log src/bar.log ./src/baz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src" | sed 's|.|.|g'`; case $p in /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/bar.test'; \
+case 'src/bar.log' in */*) case 'src/bar' in */*) b='src/bar';; *) b=`echo 'src/bar.log' | sed 's/\.log$//'`; esac;; *) b='src/bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src" | sed 's|.|.|g'`; case $p in /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src; export srcdir; case "src/bar.log" in */*) am__odir=`echo "./src/bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/"; fi; tst=$dir$f; log='src/bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='src/baz.test'; \
+case 'src/baz.log' in */*) case 'src/baz' in */*) b='src/baz';; *) b=`echo 'src/baz.log' | sed 's/\.log$//'`; esac;; *) b='src/baz';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src" | sed 's|.|.|g'`; case $p in /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src; export srcdir; case "src/baz.log" in */*) am__odir=`echo "./src/baz.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/"; fi; tst=$dir$f; log='src/baz.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/checkstrip-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+make[3]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='foo.log src/bar.log ./src/baz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "test-driver-strip-vpath 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for test-driver-strip-vpath 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+test name: foo.test
+test name: src/bar.test
+test name: src/baz.test
+============================================================================
+Testsuite summary for test-driver-strip-vpath 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/build2'
++ cd ..
++ cd src
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src'
+if test -d "test-driver-strip-vpath-1.0"; then find "test-driver-strip-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "test-driver-strip-vpath-1.0" || { sleep 5 && rm -rf "test-driver-strip-vpath-1.0"; }; else :; fi
+test -d "test-driver-strip-vpath-1.0" || mkdir "test-driver-strip-vpath-1.0"
+test -n "" \
+|| find "test-driver-strip-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "test-driver-strip-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src'
+tardir=test-driver-strip-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >test-driver-strip-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src'
+if test -d "test-driver-strip-vpath-1.0"; then find "test-driver-strip-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "test-driver-strip-vpath-1.0" || { sleep 5 && rm -rf "test-driver-strip-vpath-1.0"; }; else :; fi
+case 'test-driver-strip-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc test-driver-strip-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc test-driver-strip-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc test-driver-strip-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc test-driver-strip-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c test-driver-strip-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc test-driver-strip-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip test-driver-strip-vpath-1.0.zip ;;\
+esac
+chmod -R a-w test-driver-strip-vpath-1.0
+chmod u+w test-driver-strip-vpath-1.0
+mkdir test-driver-strip-vpath-1.0/_build test-driver-strip-vpath-1.0/_build/sub test-driver-strip-vpath-1.0/_inst
+chmod a-w test-driver-strip-vpath-1.0
+test -d test-driver-strip-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd test-driver-strip-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd test-driver-strip-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf test-driver-strip-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+test name: foo.test
+test name: src/bar.test
+test name: src/baz.test
+============================================================================
+Testsuite summary for test-driver-strip-vpath 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+if test -d "test-driver-strip-vpath-1.0"; then find "test-driver-strip-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "test-driver-strip-vpath-1.0" || { sleep 5 && rm -rf "test-driver-strip-vpath-1.0"; }; else :; fi
+test -d "test-driver-strip-vpath-1.0" || mkdir "test-driver-strip-vpath-1.0"
+test -n "" \
+|| find "test-driver-strip-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "test-driver-strip-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+tardir=test-driver-strip-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >test-driver-strip-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+if test -d "test-driver-strip-vpath-1.0"; then find "test-driver-strip-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "test-driver-strip-vpath-1.0" || { sleep 5 && rm -rf "test-driver-strip-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+test -z "foo.log src/bar.log ./src/baz.log" || rm -f foo.log src/bar.log ./src/baz.log
+test -z "foo.trs src/bar.trs ./src/baz.trs" || rm -f foo.trs src/bar.trs ./src/baz.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-strip-vpath.dir/src/test-driver-strip-vpath-1.0/_build/sub'
+if test -d "test-driver-strip-vpath-1.0"; then find "test-driver-strip-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "test-driver-strip-vpath-1.0" || { sleep 5 && rm -rf "test-driver-strip-vpath-1.0"; }; else :; fi
+=============================================================
+test-driver-strip-vpath-1.0 archives ready for distribution: 
+test-driver-strip-vpath-1.0.tar.gz
+=============================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-driver-strip-vpath.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-driver-strip-vpath.dir
++ set +x
+PASS t/test-driver-strip-vpath.sh (exit status: 0)

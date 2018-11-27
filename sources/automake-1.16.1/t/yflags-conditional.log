@@ -1,0 +1,191 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yflags-conditional.dir
++ cat
++ aclocal-1.16 -Werror
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ :
++ LC_ALL=C
++ export LC_ALL
++ AUTOMAKE_fails -Wnone -Wunsupported Makefile
++ AUTOMAKE_run -e 1 -Wnone -Wunsupported Makefile
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wunsupported Makefile
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:5: warning: 'AM_YFLAGS' cannot have conditional contents
+Makefile.am:6: warning: 'zardoz_YFLAGS' cannot have conditional contents
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:5:.*AM_YFLAGS.* conditional contents' stderr
+Makefile.am:5: warning: 'AM_YFLAGS' cannot have conditional contents
++ grep '^Makefile\.am:6:.*zardoz_YFLAGS.* conditional contents' stderr
+Makefile.am:6: warning: 'zardoz_YFLAGS' cannot have conditional contents
++ for i in 1 2 3
++ AUTOMAKE_fails -Wnone -Wunsupported Makefile1
++ AUTOMAKE_run -e 1 -Wnone -Wunsupported Makefile1
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wunsupported Makefile1
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile1.am:5: warning: 'YFLAGS' cannot have conditional contents
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile1\.am:5:.*[^a-zA-Z0-9_]YFLAGS.* conditional contents' stderr
+Makefile1.am:5: warning: 'YFLAGS' cannot have conditional contents
++ for i in 1 2 3
++ AUTOMAKE_fails -Wnone -Wunsupported Makefile2
++ AUTOMAKE_run -e 1 -Wnone -Wunsupported Makefile2
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wunsupported Makefile2
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile2.am:5: warning: 'YFLAGS' cannot have conditional contents
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile2\.am:5:.*[^a-zA-Z0-9_]YFLAGS.* conditional contents' stderr
+Makefile2.am:5: warning: 'YFLAGS' cannot have conditional contents
++ for i in 1 2 3
++ AUTOMAKE_fails -Wnone -Wunsupported Makefile3
++ AUTOMAKE_run -e 1 -Wnone -Wunsupported Makefile3
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wunsupported Makefile3
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile3.am:5: warning: 'YFLAGS' cannot have conditional contents
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile3\.am:5:.*[^a-zA-Z0-9_]YFLAGS.* conditional contents' stderr
+Makefile3.am:5: warning: 'YFLAGS' cannot have conditional contents
++ AUTOMAKE_fails -Wnone -Wunsupported Makefile4
++ AUTOMAKE_run -e 1 -Wnone -Wunsupported Makefile4
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wunsupported Makefile4
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile4.am:6: warning: 'YFLAGS' cannot have conditional contents
+Makefile4.am:7: warning: 'AM_YFLAGS' cannot have conditional contents
+Makefile4.am:8: warning: 'zardoz_YFLAGS' cannot have conditional contents
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile4\.am:6:.*[^a-zA-Z0-9_]YFLAGS.* conditional contents' stderr
+Makefile4.am:6: warning: 'YFLAGS' cannot have conditional contents
++ grep '^Makefile4\.am:7:.*AM_YFLAGS.* conditional contents' stderr
+Makefile4.am:7: warning: 'AM_YFLAGS' cannot have conditional contents
++ grep '^Makefile4\.am:8:.*zardoz_YFLAGS.* conditional contents' stderr
+Makefile4.am:8: warning: 'zardoz_YFLAGS' cannot have conditional contents
++ AUTOMAKE_fails -Wno-gnu Makefile5
++ AUTOMAKE_run -e 1 -Wno-gnu Makefile5
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu Makefile5
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile5.am:7: warning: 'zardoz_YFLAGS' cannot have conditional contents
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep -v '^Makefile5\.am:.*zardoz_YFLAGS' stderr
++ grep -v ': warnings are treated as errors'
++ grep .
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu Makefile6
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yflags-conditional.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yflags-conditional.dir
++ set +x
+PASS t/yflags-conditional.sh (exit status: 0)

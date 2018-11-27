@@ -1,0 +1,177 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/recurs-user-keep-going.dir
++ cat
++ mkdir sub1 sub1/subsub1 sub2 sub2/subsub2 sub3
++ cat
++ cat
++ cat
++ echo 'foo-local:; @FAIL@'
++ echo 'foo-local:; @PASS@'
++ echo 'foo-local:; @PASS@'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub1/subsub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub2/subsub2/Makefile
+config.status: creating sub3/Makefile
++ cat
++ make foo
+Making foo in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+Making foo in subsub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1
+make[2]: *** [Makefile:387: foo-local] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1'
+make[1]: *** [Makefile:296: foo-recursive] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+make: *** [Makefile:321: foo-recursive] Error 1
++ find . -name foo
++ grep .
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make -k foo
+Making foo in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+Making foo in subsub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1
+make[2]: *** [Makefile:387: foo-local] Error 1
+make[2]: Target 'foo' not remade because of errors.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+PASS foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+make[1]: *** [Makefile:296: foo-recursive] Error 1
+make[1]: Target 'foo' not remade because of errors.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+Making foo in .
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir
+make[1]: *** [Makefile:740: foo-local] Error 1
+make[1]: Target 'foo-am' not remade because of errors.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir'
+Making foo in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+Making foo in subsub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2/subsub2'
+PASS foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2/subsub2
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2/subsub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2
+make[2]: *** [Makefile:569: foo-local] Error 1
+make[2]: Target 'foo-am' not remade because of errors.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+make[1]: *** [Makefile:296: foo-recursive] Error 1
+make[1]: Target 'foo' not remade because of errors.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+Making foo in sub3
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub3'
+PASS foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub3
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub3'
+make: *** [Makefile:321: foo-recursive] Error 1
+make: Target 'foo' not remade because of errors.
++ as_expected
++ find . -name foo
++ LC_ALL=C
++ sort t
++ cat exp
+./sub1/foo
+./sub2/subsub2/foo
+./sub3/foo
++ cat got
+./sub1/foo
+./sub2/subsub2/foo
+./sub3/foo
++ diff exp got
++ make --keep-going foo
+Making foo in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+Making foo in subsub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1
+make[2]: *** [Makefile:387: foo-local] Error 1
+make[2]: Target 'foo' not remade because of errors.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1/subsub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+PASS foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+make[1]: *** [Makefile:296: foo-recursive] Error 1
+make[1]: Target 'foo' not remade because of errors.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub1'
+Making foo in .
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir
+make[1]: *** [Makefile:740: foo-local] Error 1
+make[1]: Target 'foo-am' not remade because of errors.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir'
+Making foo in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+Making foo in subsub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2/subsub2'
+PASS foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2/subsub2
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2/subsub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+FAIL foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2
+make[2]: *** [Makefile:569: foo-local] Error 1
+make[2]: Target 'foo-am' not remade because of errors.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+make[1]: *** [Makefile:296: foo-recursive] Error 1
+make[1]: Target 'foo' not remade because of errors.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub2'
+Making foo in sub3
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub3'
+PASS foo-local in /sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub3
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-keep-going.dir/sub3'
+make: *** [Makefile:321: foo-recursive] Error 1
+make: Target 'foo' not remade because of errors.
++ as_expected
++ find . -name foo
++ LC_ALL=C
++ sort t
++ cat exp
+./sub1/foo
+./sub2/subsub2/foo
+./sub3/foo
++ cat got
+./sub1/foo
+./sub2/subsub2/foo
+./sub3/foo
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/recurs-user-keep-going.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/recurs-user-keep-going.dir
++ set +x
+PASS t/recurs-user-keep-going.sh (exit status: 0)

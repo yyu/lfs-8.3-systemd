@@ -1,0 +1,526 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/suffix11.dir
++ plan_ 10
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x10 = xunknown
++ test x10 = xlater
++ test x10 = xlazy
++ test x10 = xnow
++ test 10 -ge 0
++ planned_=10
++ echo 1..10
+1..10
++ cat
++ cat
++ echo 'INTEGER main(void) { return 0; }'
++ echo 'INTEGER main(void) { return 0; }'
++ echo 'INTEGER main(void) { INTEGER baz(void); return baz(); }'
++ echo 'INTEGER baz(void) { return 0; }'
++ command_ok_ aclocal aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=aclocal
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- aclocal
++ set +x
+ok 1 - aclocal
+PASS: t/suffix11.tap 1 - aclocal
++ command_ok_ autoconf autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_=autoconf
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- autoconf
++ set +x
+ok 2 - autoconf
+PASS: t/suffix11.tap 2 - autoconf
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:6: warning: inference rules can have only one target before the colon (POSIX)
++ cat stdout
++ test tap = none
++ test -z ''
++ test 1 -eq 1
++ am__desc='automake exited 1'
++ command_ok_ 'automake exited 1' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake exited 1'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'automake exited 1'
++ set +x
+ok 3 - automake exited 1
+PASS: t/suffix11.tap 3 - automake exited 1
++ command_ok_ 'warn about unportable make usage' grep '[iI]nference rules can have only one target before the colon' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='warn about unportable make usage'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep '[iI]nference rules can have only one target before the colon' stderr
+Makefile.am:6: warning: inference rules can have only one target before the colon (POSIX)
++ result_ ok -D '' -r '' -- 'warn about unportable make usage'
++ set +x
+ok 4 - warn about unportable make usage
+PASS: t/suffix11.tap 4 - warn about unportable make usage
++ command_ok_ automake automake-1.16 --foreign -Werror -Wall -a -Wno-portability
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_=automake
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall -a -Wno-portability
++ result_ ok -D '' -r '' -- automake
++ set +x
+ok 5 - automake
+PASS: t/suffix11.tap 5 - automake
++ command_ok_ configure ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_=configure
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ result_ ok -D '' -r '' -- configure
++ set +x
+ok 6 - configure
+PASS: t/suffix11.tap 6 - configure
++ command_ok_ 'make test-fake' run_make OBJEXT=foo test-fake
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='make test-fake'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ run_make OBJEXT=foo test-fake
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make OBJEXT=foo test-fake
++ set +x
+echo foo.foo | grep '^foo\.foo$'
+foo.foo
+echo bar.foo | grep '^bar\.foo$'
+bar.foo
+echo baz1.foo baz2.foo | grep '^baz1\.foo baz2\.foo$'
+baz1.foo baz2.foo
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'make test-fake'
++ set +x
+ok 7 - make test-fake
+PASS: t/suffix11.tap 7 - make test-fake
++ command_ok_ 'make test-real' make test-real
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='make test-real'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make test-real
+echo foo.o | grep '^foo\.o$'
+foo.o
+echo bar.o | grep '^bar\.o$'
+bar.o
+echo baz1.o baz2.o | grep '^baz1\.o baz2\.o$'
+baz1.o baz2.o
++ result_ ok -D '' -r '' -- 'make test-real'
++ set +x
+ok 8 - make test-real
+PASS: t/suffix11.tap 8 - make test-real
++ directive=
++ make_can_chain_suffix_rules
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ am__can_chain_suffix_rules=yes
++ return 0
++ for target in '' distcheck
++ command_ok_ 'make ' -D '' -r 'suffix rules not chained' make
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='make '
++ shift
++ test 5 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make
+sed 's/INTEGER/int/g' `test -f 'foo.x_' || echo ./`foo.x_ >foo.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+sed 's/INTEGER/int/g' `test -f 'bar.y-z' || echo ./`bar.y-z >bar.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+cc  -g -O2   -o bar bar.o  
+sed 's/INTEGER/int/g' `test -f 'baz1.x_' || echo ./`baz1.x_ >baz1.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz1.o -MD -MP -MF .deps/baz1.Tpo -c -o baz1.o baz1.c
+mv -f .deps/baz1.Tpo .deps/baz1.Po
+sed 's/INTEGER/int/g' `test -f 'baz2.y-z' || echo ./`baz2.y-z >baz2.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz2.o -MD -MP -MF .deps/baz2.Tpo -c -o baz2.o baz2.c
+mv -f .deps/baz2.Tpo .deps/baz2.Po
+cc  -g -O2   -o baz baz1.o baz2.o  
+rm baz2.c bar.c foo.c baz1.c
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make '
++ set +x
+ok 9 - make 
+PASS: t/suffix11.tap 9 - make
++ for target in '' distcheck
++ command_ok_ 'make distcheck' -D '' -r 'suffix rules not chained' make distcheck
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='make distcheck'
++ shift
++ test 6 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir'
+if test -d "suffix11-1.0"; then find "suffix11-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix11-1.0" || { sleep 5 && rm -rf "suffix11-1.0"; }; else :; fi
+test -d "suffix11-1.0" || mkdir "suffix11-1.0"
+test -n "" \
+|| find "suffix11-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix11.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "suffix11-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir'
+tardir=suffix11-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >suffix11-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir'
+if test -d "suffix11-1.0"; then find "suffix11-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix11-1.0" || { sleep 5 && rm -rf "suffix11-1.0"; }; else :; fi
+case 'suffix11-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc suffix11-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc suffix11-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc suffix11-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc suffix11-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c suffix11-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc suffix11-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip suffix11-1.0.zip ;;\
+esac
+chmod -R a-w suffix11-1.0
+chmod u+w suffix11-1.0
+mkdir suffix11-1.0/_build suffix11-1.0/_build/sub suffix11-1.0/_inst
+chmod a-w suffix11-1.0
+test -d suffix11-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd suffix11-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd suffix11-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf suffix11-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+sed 's/INTEGER/int/g' `test -f '../../foo.x_' || echo ../../`../../foo.x_ >foo.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+sed 's/INTEGER/int/g' `test -f '../../bar.y-z' || echo ../../`../../bar.y-z >bar.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+cc  -g -O2   -o bar bar.o  
+sed 's/INTEGER/int/g' `test -f '../../baz1.x_' || echo ../../`../../baz1.x_ >baz1.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT baz1.o -MD -MP -MF .deps/baz1.Tpo -c -o baz1.o baz1.c
+mv -f .deps/baz1.Tpo .deps/baz1.Po
+sed 's/INTEGER/int/g' `test -f '../../baz2.y-z' || echo ../../`../../baz2.y-z >baz2.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT baz2.o -MD -MP -MF .deps/baz2.Tpo -c -o baz2.o baz2.c
+mv -f .deps/baz2.Tpo .deps/baz2.Po
+cc  -g -O2   -o baz baz1.o baz2.o  
+rm baz2.c bar.c foo.c baz1.c
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+sed 's/INTEGER/int/g' `test -f '../../foo.x_' || echo ../../`../../foo.x_ >foo.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+sed 's/INTEGER/int/g' `test -f '../../bar.y-z' || echo ../../`../../bar.y-z >bar.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+cc  -g -O2   -o bar bar.o  
+sed 's/INTEGER/int/g' `test -f '../../baz1.x_' || echo ../../`../../baz1.x_ >baz1.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT baz1.o -MD -MP -MF .deps/baz1.Tpo -c -o baz1.o baz1.c
+mv -f .deps/baz1.Tpo .deps/baz1.Po
+sed 's/INTEGER/int/g' `test -f '../../baz2.y-z' || echo ../../`../../baz2.y-z >baz2.c
+cc -DPACKAGE_NAME=\"suffix11\" -DPACKAGE_TARNAME=\"suffix11\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix11\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix11\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT baz2.o -MD -MP -MF .deps/baz2.Tpo -c -o baz2.o baz2.c
+mv -f .deps/baz2.Tpo .deps/baz2.Po
+cc  -g -O2   -o baz baz1.o baz2.o  
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+echo foo.o | grep '^foo\.o$'
+foo.o
+echo bar.o | grep '^bar\.o$'
+bar.o
+echo baz1.o baz2.o | grep '^baz1\.o baz2\.o$'
+baz1.o baz2.o
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_inst/bin'
+  /usr/bin/install -c foo bar baz '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_inst/bin' && rm -f foo bar baz )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-1714//sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_inst/bin'
+  /usr/bin/install -c foo bar baz '/tmp/am-dc-1714//sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+ ( cd '/tmp/am-dc-1714//sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_inst/bin' && rm -f foo bar baz )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+if test -d "suffix11-1.0"; then find "suffix11-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix11-1.0" || { sleep 5 && rm -rf "suffix11-1.0"; }; else :; fi
+test -d "suffix11-1.0" || mkdir "suffix11-1.0"
+test -n "" \
+|| find "suffix11-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "suffix11-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+tardir=suffix11-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >suffix11-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+if test -d "suffix11-1.0"; then find "suffix11-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix11-1.0" || { sleep 5 && rm -rf "suffix11-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+test -z "foo bar baz" || rm -f foo bar baz
+test -z "foo.c bar.c baz1.c baz2.c" || rm -f foo.c bar.c baz1.c baz2.c
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f ./.deps/baz1.Po
+rm -f ./.deps/baz2.Po
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix11.dir/suffix11-1.0/_build/sub'
+if test -d "suffix11-1.0"; then find "suffix11-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix11-1.0" || { sleep 5 && rm -rf "suffix11-1.0"; }; else :; fi
+==============================================
+suffix11-1.0 archives ready for distribution: 
+suffix11-1.0.tar.gz
+==============================================
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make distcheck'
++ set +x
+ok 10 - make distcheck
+PASS: t/suffix11.tap 10 - make distcheck
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 10 = later
++ test 0 -eq 0
++ test 10 -eq 10
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/suffix11.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/suffix11.dir
++ set +x

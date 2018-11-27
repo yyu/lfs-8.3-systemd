@@ -1,0 +1,370 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-line.dir
++ cat
++ mkdir dir sub sub/dir
++ cat
++ cat
++ cat
++ cp zardoz.y dir/quux.y
++ cp zardoz.y sub/zardoz.y
++ cp zardoz.y sub/dir/quux.y
++ c_outputs='zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a -Wno-unsupported
+configure.ac: installing './ylwrap'
++ for vpath in : false
++ :
++ srcdir=..
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-line.dir/build/sub'
+\
+ \
+/bin/sh ../../ylwrap `test -f 'zardoz.y' || echo '../../sub/'`zardoz.y y.tab.c foo-zardoz.c y.tab.h `echo foo-zardoz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo-zardoz.output -- yacc -d 
+updating foo-zardoz.h
+depbase=`echo foo-zardoz.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I. -I../../sub     -g -O2 -MT foo-zardoz.o -MD -MP -MF $depbase.Tpo -c -o foo-zardoz.o foo-zardoz.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o foo foo-zardoz.o  
+/bin/sh ../../ylwrap ../../sub/dir/quux.y y.tab.c dir/quux.c y.tab.h `echo dir/quux.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output dir/quux.output -- yacc  
+depbase=`echo dir/quux.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I. -I../../sub     -g -O2 -MT dir/quux.o -MD -MP -MF $depbase.Tpo -c -o dir/quux.o dir/quux.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o bar dir/quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-line.dir/build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-line.dir/build'
+/bin/sh ../ylwrap ../zardoz.y y.tab.c zardoz.c y.tab.h `echo zardoz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output zardoz.output -- yacc -d 
+updating zardoz.h
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT zardoz.o -MD -MP -MF .deps/zardoz.Tpo -c -o zardoz.o zardoz.c
+mv -f .deps/zardoz.Tpo .deps/zardoz.Po
+cc  -g -O2   -o foo zardoz.o  
+\
+ \
+/bin/sh ../ylwrap `test -f 'dir/quux.y' || echo '../'`dir/quux.y y.tab.c bar-quux.c y.tab.h `echo bar-quux.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-quux.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT bar-quux.o -MD -MP -MF .deps/bar-quux.Tpo -c -o bar-quux.o bar-quux.c
+mv -f .deps/bar-quux.Tpo .deps/bar-quux.Po
+cc  -g -O2   -o bar bar-quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-line.dir/build'
++ ls -l . sub sub/dir
+.:
+total 268
+-rw-r--r-- 1 root root 29658 Nov 27 06:51 Makefile
+-rwxr-xr-x 1 root root 27968 Nov 27 06:51 bar
+-rw-r--r-- 1 root root 42261 Nov 27 06:51 bar-quux.c
+-rw-r--r-- 1 root root 17408 Nov 27 06:51 bar-quux.o
+-rw-r--r-- 1 root root  9052 Nov 27 06:51 config.log
+-rwxr-xr-x 1 root root 29112 Nov 27 06:51 config.status
+-rwxr-xr-x 1 root root 27944 Nov 27 06:51 foo
+drwxr-xr-x 4 root root  4096 Nov 27 06:51 sub
+-rw-r--r-- 1 root root 42442 Nov 27 06:51 zardoz.c
+-rw-r--r-- 1 root root  1938 Nov 27 06:51 zardoz.h
+-rw-r--r-- 1 root root 17400 Nov 27 06:51 zardoz.o
+
+sub:
+total 148
+-rw-r--r-- 1 root root 17800 Nov 27 06:51 Makefile
+-rwxr-xr-x 1 root root 27960 Nov 27 06:51 bar
+drwxr-xr-x 3 root root  4096 Nov 27 06:51 dir
+-rwxr-xr-x 1 root root 27984 Nov 27 06:51 foo
+-rw-r--r-- 1 root root 42491 Nov 27 06:51 foo-zardoz.c
+-rw-r--r-- 1 root root  1950 Nov 27 06:51 foo-zardoz.h
+-rw-r--r-- 1 root root 17424 Nov 27 06:51 foo-zardoz.o
+
+sub/dir:
+total 64
+-rw-r--r-- 1 root root 42282 Nov 27 06:51 quux.c
+-rw-r--r-- 1 root root 17416 Nov 27 06:51 quux.o
++ /bin/grep -E 'line|\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
+zardoz.c:#line 1 "../zardoz.y" /* yacc.c:339  */
+zardoz.c:#line 71 "zardoz.c" /* yacc.c:339  */
+zardoz.c:#line 118 "zardoz.c" /* yacc.c:358  */
+zardoz.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+zardoz.c:static const yytype_uint8 yyrline[] =
+zardoz.c:  unsigned long int yylno = yyrline[yyrule];
+zardoz.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+zardoz.c:     Otherwise, the following line sets YYVAL to garbage.
+zardoz.c:#line 6 "../zardoz.y" /* yacc.c:1648  */
+zardoz.c:#line 1183 "zardoz.c" /* yacc.c:1648  */
+zardoz.c:#line 1187 "zardoz.c" /* yacc.c:1648  */
+zardoz.c:#line 7 "../zardoz.y" /* yacc.c:1907  */
+bar-quux.c:#line 1 "../dir/quux.y" /* yacc.c:339  */
+bar-quux.c:#line 71 "bar-quux.c" /* yacc.c:339  */
+bar-quux.c:#line 115 "bar-quux.c" /* yacc.c:358  */
+bar-quux.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+bar-quux.c:static const yytype_uint8 yyrline[] =
+bar-quux.c:  unsigned long int yylno = yyrline[yyrule];
+bar-quux.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+bar-quux.c:     Otherwise, the following line sets YYVAL to garbage.
+bar-quux.c:#line 6 "../dir/quux.y" /* yacc.c:1648  */
+bar-quux.c:#line 1180 "bar-quux.c" /* yacc.c:1648  */
+bar-quux.c:#line 1184 "bar-quux.c" /* yacc.c:1648  */
+bar-quux.c:#line 7 "../dir/quux.y" /* yacc.c:1907  */
+sub/foo-zardoz.c:#line 1 "../../sub/zardoz.y" /* yacc.c:339  */
+sub/foo-zardoz.c:#line 71 "foo-zardoz.c" /* yacc.c:339  */
+sub/foo-zardoz.c:#line 118 "foo-zardoz.c" /* yacc.c:358  */
+sub/foo-zardoz.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+sub/foo-zardoz.c:static const yytype_uint8 yyrline[] =
+sub/foo-zardoz.c:  unsigned long int yylno = yyrline[yyrule];
+sub/foo-zardoz.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+sub/foo-zardoz.c:     Otherwise, the following line sets YYVAL to garbage.
+sub/foo-zardoz.c:#line 6 "../../sub/zardoz.y" /* yacc.c:1648  */
+sub/foo-zardoz.c:#line 1183 "foo-zardoz.c" /* yacc.c:1648  */
+sub/foo-zardoz.c:#line 1187 "foo-zardoz.c" /* yacc.c:1648  */
+sub/foo-zardoz.c:#line 7 "../../sub/zardoz.y" /* yacc.c:1907  */
+sub/dir/quux.c:#line 1 "../../sub/dir/quux.y" /* yacc.c:339  */
+sub/dir/quux.c:#line 71 "dir/quux.c" /* yacc.c:339  */
+sub/dir/quux.c:#line 115 "dir/quux.c" /* yacc.c:358  */
+sub/dir/quux.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+sub/dir/quux.c:static const yytype_uint8 yyrline[] =
+sub/dir/quux.c:  unsigned long int yylno = yyrline[yyrule];
+sub/dir/quux.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+sub/dir/quux.c:     Otherwise, the following line sets YYVAL to garbage.
+sub/dir/quux.c:#line 6 "../../sub/dir/quux.y" /* yacc.c:1648  */
+sub/dir/quux.c:#line 1180 "dir/quux.c" /* yacc.c:1648  */
+sub/dir/quux.c:#line 1184 "dir/quux.c" /* yacc.c:1648  */
+sub/dir/quux.c:#line 7 "../../sub/dir/quux.y" /* yacc.c:1907  */
++ grep '#.*line.*build.*\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ /bin/grep -E '#.*line *"?/.*\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*line.*y\.tab\.' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*\.y.*\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ :
++ grep '#.*line.*"\.\./zardoz\.y"' zardoz.c
+#line 1 "../zardoz.y" /* yacc.c:339  */
+#line 6 "../zardoz.y" /* yacc.c:1648  */
+#line 7 "../zardoz.y" /* yacc.c:1907  */
++ grep '#.*line.*"\.\./dir/quux\.y"' bar-quux.c
+#line 1 "../dir/quux.y" /* yacc.c:339  */
+#line 6 "../dir/quux.y" /* yacc.c:1648  */
+#line 7 "../dir/quux.y" /* yacc.c:1907  */
++ grep '#.*line.*"\.\./\.\./sub/zardoz\.y"' sub/foo-zardoz.c
+#line 1 "../../sub/zardoz.y" /* yacc.c:339  */
+#line 6 "../../sub/zardoz.y" /* yacc.c:1648  */
+#line 7 "../../sub/zardoz.y" /* yacc.c:1907  */
++ grep '#.*line.*"\.\./\.\./sub/dir/quux\.y"' sub/dir/quux.c
+#line 1 "../../sub/dir/quux.y" /* yacc.c:339  */
+#line 6 "../../sub/dir/quux.y" /* yacc.c:1648  */
+#line 7 "../../sub/dir/quux.y" /* yacc.c:1907  */
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-line.dir/sub'
+\
+ \
+/bin/sh ../ylwrap `test -f 'zardoz.y' || echo './'`zardoz.y y.tab.c foo-zardoz.c y.tab.h `echo foo-zardoz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo-zardoz.output -- yacc -d 
+updating foo-zardoz.h
+depbase=`echo foo-zardoz.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo-zardoz.o -MD -MP -MF $depbase.Tpo -c -o foo-zardoz.o foo-zardoz.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o foo foo-zardoz.o  
+/bin/sh ../ylwrap dir/quux.y y.tab.c dir/quux.c y.tab.h `echo dir/quux.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output dir/quux.output -- yacc  
+depbase=`echo dir/quux.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I.     -g -O2 -MT dir/quux.o -MD -MP -MF $depbase.Tpo -c -o dir/quux.o dir/quux.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o bar dir/quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-line.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-line.dir'
+/bin/sh ./ylwrap zardoz.y y.tab.c zardoz.c y.tab.h `echo zardoz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output zardoz.output -- yacc -d 
+updating zardoz.h
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I.     -g -O2 -MT zardoz.o -MD -MP -MF .deps/zardoz.Tpo -c -o zardoz.o zardoz.c
+mv -f .deps/zardoz.Tpo .deps/zardoz.Po
+cc  -g -O2   -o foo zardoz.o  
+\
+ \
+/bin/sh ./ylwrap `test -f 'dir/quux.y' || echo './'`dir/quux.y y.tab.c bar-quux.c y.tab.h `echo bar-quux.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-quux.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-line\" -DPACKAGE_TARNAME=\"yacc-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-line\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar-quux.o -MD -MP -MF .deps/bar-quux.Tpo -c -o bar-quux.o bar-quux.c
+mv -f .deps/bar-quux.Tpo .deps/bar-quux.Po
+cc  -g -O2   -o bar bar-quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-line.dir'
++ ls -l . sub sub/dir
+.:
+total 564
+-rw-r--r-- 1 root root  29604 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root    215 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root  29576 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:51 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 autom4te.cache
+-rwxr-xr-x 1 root root  27952 Nov 27 06:51 bar
+-rw-r--r-- 1 root root  42252 Nov 27 06:51 bar-quux.c
+-rw-r--r-- 1 root root  17400 Nov 27 06:51 bar-quux.o
+drwxr-xr-x 4 root root   4096 Nov 27 06:51 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:51 compile
+-rw-r--r-- 1 root root   9039 Nov 27 06:51 config.log
+-rwxr-xr-x 1 root root  29263 Nov 27 06:51 config.status
+-rwxr-xr-x 1 root root 142723 Nov 27 06:51 configure
+-rw-r--r-- 1 root root    139 Nov 27 06:51 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:51 depcomp
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 dir
+-rwxr-xr-x 1 root root  27944 Nov 27 06:51 foo
+-rwxr-xr-x 1 root root  15368 Nov 27 06:51 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:51 missing
+drwxr-xr-x 4 root root   4096 Nov 27 06:51 sub
+lrwxrwxrwx 1 root root     35 Nov 27 06:51 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+-rw-r--r-- 1 root root  42433 Nov 27 06:51 zardoz.c
+-rw-r--r-- 1 root root   1938 Nov 27 06:51 zardoz.h
+-rw-r--r-- 1 root root  17392 Nov 27 06:51 zardoz.o
+-rw-r--r-- 1 root root    126 Nov 27 06:51 zardoz.y
+
+sub:
+total 176
+-rw-r--r-- 1 root root 17730 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root   234 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root 17725 Nov 27 06:51 Makefile.in
+-rwxr-xr-x 1 root root 27944 Nov 27 06:51 bar
+drwxr-xr-x 3 root root  4096 Nov 27 06:51 dir
+-rwxr-xr-x 1 root root 27968 Nov 27 06:51 foo
+-rw-r--r-- 1 root root 42461 Nov 27 06:51 foo-zardoz.c
+-rw-r--r-- 1 root root  1950 Nov 27 06:51 foo-zardoz.h
+-rw-r--r-- 1 root root 17416 Nov 27 06:51 foo-zardoz.o
+-rw-r--r-- 1 root root   126 Nov 27 06:51 zardoz.y
+
+sub/dir:
+total 68
+-rw-r--r-- 1 root root 42252 Nov 27 06:51 quux.c
+-rw-r--r-- 1 root root 17400 Nov 27 06:51 quux.o
+-rw-r--r-- 1 root root   126 Nov 27 06:51 quux.y
++ /bin/grep -E 'line|\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
+zardoz.c:#line 1 "zardoz.y" /* yacc.c:339  */
+zardoz.c:#line 71 "zardoz.c" /* yacc.c:339  */
+zardoz.c:#line 118 "zardoz.c" /* yacc.c:358  */
+zardoz.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+zardoz.c:static const yytype_uint8 yyrline[] =
+zardoz.c:  unsigned long int yylno = yyrline[yyrule];
+zardoz.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+zardoz.c:     Otherwise, the following line sets YYVAL to garbage.
+zardoz.c:#line 6 "zardoz.y" /* yacc.c:1648  */
+zardoz.c:#line 1183 "zardoz.c" /* yacc.c:1648  */
+zardoz.c:#line 1187 "zardoz.c" /* yacc.c:1648  */
+zardoz.c:#line 7 "zardoz.y" /* yacc.c:1907  */
+bar-quux.c:#line 1 "dir/quux.y" /* yacc.c:339  */
+bar-quux.c:#line 71 "bar-quux.c" /* yacc.c:339  */
+bar-quux.c:#line 115 "bar-quux.c" /* yacc.c:358  */
+bar-quux.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+bar-quux.c:static const yytype_uint8 yyrline[] =
+bar-quux.c:  unsigned long int yylno = yyrline[yyrule];
+bar-quux.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+bar-quux.c:     Otherwise, the following line sets YYVAL to garbage.
+bar-quux.c:#line 6 "dir/quux.y" /* yacc.c:1648  */
+bar-quux.c:#line 1180 "bar-quux.c" /* yacc.c:1648  */
+bar-quux.c:#line 1184 "bar-quux.c" /* yacc.c:1648  */
+bar-quux.c:#line 7 "dir/quux.y" /* yacc.c:1907  */
+sub/foo-zardoz.c:#line 1 "zardoz.y" /* yacc.c:339  */
+sub/foo-zardoz.c:#line 71 "foo-zardoz.c" /* yacc.c:339  */
+sub/foo-zardoz.c:#line 118 "foo-zardoz.c" /* yacc.c:358  */
+sub/foo-zardoz.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+sub/foo-zardoz.c:static const yytype_uint8 yyrline[] =
+sub/foo-zardoz.c:  unsigned long int yylno = yyrline[yyrule];
+sub/foo-zardoz.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+sub/foo-zardoz.c:     Otherwise, the following line sets YYVAL to garbage.
+sub/foo-zardoz.c:#line 6 "zardoz.y" /* yacc.c:1648  */
+sub/foo-zardoz.c:#line 1183 "foo-zardoz.c" /* yacc.c:1648  */
+sub/foo-zardoz.c:#line 1187 "foo-zardoz.c" /* yacc.c:1648  */
+sub/foo-zardoz.c:#line 7 "zardoz.y" /* yacc.c:1907  */
+sub/dir/quux.c:#line 1 "dir/quux.y" /* yacc.c:339  */
+sub/dir/quux.c:#line 71 "dir/quux.c" /* yacc.c:339  */
+sub/dir/quux.c:#line 115 "dir/quux.c" /* yacc.c:358  */
+sub/dir/quux.c:  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+sub/dir/quux.c:static const yytype_uint8 yyrline[] =
+sub/dir/quux.c:  unsigned long int yylno = yyrline[yyrule];
+sub/dir/quux.c:  YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
+sub/dir/quux.c:     Otherwise, the following line sets YYVAL to garbage.
+sub/dir/quux.c:#line 6 "dir/quux.y" /* yacc.c:1648  */
+sub/dir/quux.c:#line 1180 "dir/quux.c" /* yacc.c:1648  */
+sub/dir/quux.c:#line 1184 "dir/quux.c" /* yacc.c:1648  */
+sub/dir/quux.c:#line 7 "dir/quux.y" /* yacc.c:1907  */
++ grep '#.*line.*build.*\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ /bin/grep -E '#.*line *"?/.*\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*line.*y\.tab\.' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*\.y.*\.y' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ false
++ grep '#.*line.*"zardoz\.y"' zardoz.c
+#line 1 "zardoz.y" /* yacc.c:339  */
+#line 6 "zardoz.y" /* yacc.c:1648  */
+#line 7 "zardoz.y" /* yacc.c:1907  */
++ grep '#.*line.*"dir/quux\.y"' bar-quux.c
+#line 1 "dir/quux.y" /* yacc.c:339  */
+#line 6 "dir/quux.y" /* yacc.c:1648  */
+#line 7 "dir/quux.y" /* yacc.c:1907  */
++ grep '#.*line.*"zardoz\.y"' sub/foo-zardoz.c
+#line 1 "zardoz.y" /* yacc.c:339  */
+#line 6 "zardoz.y" /* yacc.c:1648  */
+#line 7 "zardoz.y" /* yacc.c:1907  */
++ grep '#.*line.*"dir/quux\.y"' sub/dir/quux.c
+#line 1 "dir/quux.y" /* yacc.c:339  */
+#line 6 "dir/quux.y" /* yacc.c:1648  */
+#line 7 "dir/quux.y" /* yacc.c:1907  */
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-line.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-line.dir
++ set +x
+PASS t/yacc-line.sh (exit status: 0)

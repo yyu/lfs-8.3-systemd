@@ -1,0 +1,20 @@
+./backtrace ./backtrace.ppc.exec ./backtrace.ppc.core
+0x100000	0x110000	linux-vdso32.so.1
+0x10000000	0x100e0000	/home/mark/elfutils/tests/backtrace.ppc.exec
+TID 17198:
+# 0 0x1000e1f0    	raise
+# 1 0x10001f78 - 1	sigusr2
+# 2 0x10002104 - 1	stdarg
+# 3 0x10002144 - 1	backtracegen
+# 4 0x1000217c - 1	start
+# 5 0x1000406c - 1	start_thread
+# 6 0x100347a0 - 1	__clone
+TID 17197:
+# 0 0x10005534    	pthread_join
+# 1 0x1000241c - 1	main
+# 2 0x10010094 - 1	generic_start_main
+# 3 0x100101f0 - 1	__libc_start_main
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: no matching address range
+# 1 0x1000241c - 1	main
+# 3 0x10002144 - 1	backtracegen
+PASS run-backtrace-core-ppc.sh (exit status: 0)

@@ -1,0 +1,50 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/fort1.dir
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: Fortran 77 source seen but 'F77' is undefined
+Makefile.am:   The usual way to define 'F77' is to add 'AC_PROG_F77'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+Makefile.am: error: Fortran source seen but 'FC' is undefined
+Makefile.am:   The usual way to define 'FC' is to add 'AC_PROG_FC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep AC_PROG_F77 stderr
+Makefile.am:   The usual way to define 'F77' is to add 'AC_PROG_F77'
++ grep AC_PROG_FC stderr
+Makefile.am:   The usual way to define 'FC' is to add 'AC_PROG_FC'
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/fort1.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/fort1.dir
++ set +x
+PASS t/fort1.sh (exit status: 0)

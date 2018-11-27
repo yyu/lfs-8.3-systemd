@@ -1,0 +1,71 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/amopts-location.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile1.am:1: error: option 'tar-pax' can only be used as argument to AM_INIT_AUTOMAKE
+Makefile1.am:1: but not in AUTOMAKE_OPTIONS makefile statements
+Makefile.am:3:   'Makefile0.am' included from here
+Makefile0.am:4:   'Makefile1.am' included from here
+Makefile2.am:6: error: option 'tar-ustar' can only be used as argument to AM_INIT_AUTOMAKE
+Makefile2.am:6: but not in AUTOMAKE_OPTIONS makefile statements
+Makefile3.am:2: error: option 'tar-v7' can only be used as argument to AM_INIT_AUTOMAKE
+Makefile3.am:2: but not in AUTOMAKE_OPTIONS makefile statements
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile1\.am:1:.*tar-pax' stderr
+Makefile1.am:1: error: option 'tar-pax' can only be used as argument to AM_INIT_AUTOMAKE
++ grep '^Makefile2\.am:6:.*tar-ustar' stderr
+Makefile2.am:6: error: option 'tar-ustar' can only be used as argument to AM_INIT_AUTOMAKE
++ grep '^Makefile3\.am:2:.*tar-v7' stderr
+Makefile3.am:2: error: option 'tar-v7' can only be used as argument to AM_INIT_AUTOMAKE
++ grep '^Makefile\.am:3:.*Makefile0\.am.*included from here' stderr
+Makefile.am:3:   'Makefile0.am' included from here
++ grep '^Makefile0\.am:4:.*Makefile1\.am.*included from here' stderr
+Makefile0.am:4:   'Makefile1.am' included from here
++ cat stderr
++ grep -v '^Makefile\.am:3:'
++ grep -v '^Makefile0\.am:4:'
++ grep -v '^Makefile1\.am:1:'
++ grep -v '^Makefile2\.am:6:'
++ grep -v '^Makefile3\.am:2:'
++ grep .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/amopts-location.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/amopts-location.dir
++ set +x
+PASS t/amopts-location.sh (exit status: 0)

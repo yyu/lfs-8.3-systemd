@@ -1,0 +1,2715 @@
+multilib: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/contrib/t/multilib.dir
++ mldir=/sources/automake-1.16.1/contrib/multilib
++ mkdir m4
++ cp /sources/automake-1.16.1/contrib/multilib/config-ml.in /sources/automake-1.16.1/contrib/multilib/symlink-tree .
++ cp /sources/automake-1.16.1/contrib/multilib/multi.m4 m4
+++ pwd
++ ACLOCAL_PATH=/sources/automake-1.16.1/m4/acdir:/sources/automake-1.16.1/contrib/t/multilib.dir/m4
++ export ACLOCAL_PATH
++ cat
++ cat
++ chmod +x mycc
+++ pwd
++ PATH=/sources/automake-1.16.1/contrib/t/multilib.dir:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ cat
++ mkdir libfoo
++ cp /sources/automake-1.16.1/contrib/multilib/multilib.am libfoo/
++ cat
++ cat
++ :
++ mkdir libbar
++ cp /sources/automake-1.16.1/contrib/multilib/multilib.am libbar/
++ cat
++ cat
++ mkdir libbar/sub
++ echo 'include $(top_srcdir)/multilib.am'
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cd libfoo
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:9: installing './ar-lib'
+configure.ac:8: installing './compile'
+configure.ac:7: installing './install-sh'
+configure.ac:7: installing './missing'
+Makefile.am: installing './depcomp'
++ cd ..
++ cd libbar
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:8: installing './ar-lib'
+configure.ac:7: installing './compile'
+configure.ac:6: installing './install-sh'
+configure.ac:6: installing './missing'
+Makefile.am: installing './depcomp'
++ cd ..
++ mkdir build
++ cd build
++ ../configure --enable-multilib CC=mycc
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+=== configuring in libfoo (/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo)
+configure: running /bin/sh ../../libfoo/configure --disable-option-checking '--prefix=/usr/local'  '--enable-multilib' 'CC=mycc' 'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=../../libfoo
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc accepts -g... yes
+checking for mycc option to accept ISO C89... none needed
+checking whether mycc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../libfoo
+multidirs=debug
+with_multisubdir=
+Running configure in multilib subdirs debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo
+Running configure in multilib subdir debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/build
+mkdir debug
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc  -g
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc  -g accepts -g... yes
+checking for mycc  -g option to accept ISO C89... none needed
+checking whether mycc  -g understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc  -g... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../../libfoo
+with_multisubdir=debug
+=== configuring in libbar (/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar)
+configure: running /bin/sh ../../libbar/configure --disable-option-checking '--prefix=/usr/local'  '--enable-multilib' 'CC=mycc' 'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=../../libbar
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc accepts -g... yes
+checking for mycc option to accept ISO C89... none needed
+checking whether mycc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../libbar
+multidirs=debug
+with_multisubdir=
+Running configure in multilib subdirs debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar
+Running configure in multilib subdir debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/build
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc  -g
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc  -g accepts -g... yes
+checking for mycc  -g option to accept ISO C89... none needed
+checking whether mycc  -g understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc  -g... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../../libbar
+with_multisubdir=debug
++ make
+Making all in libfoo
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+mycc -DPACKAGE_NAME=\"libfoo\" -DPACKAGE_TARNAME=\"libfoo\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libfoo\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libfoo\" -DVERSION=\"0.1\" -I. -I../../libfoo     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../libfoo/foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+rm -f libfoo.a
+ar cru libfoo.a foo.o 
+ranlib libfoo.a
+make  DO=all multi-do # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+mycc  -g -DPACKAGE_NAME=\"libfoo\" -DPACKAGE_TARNAME=\"libfoo\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libfoo\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libfoo\" -DVERSION=\"0.1\" -I. -I../../../libfoo     -g -O2  -g -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../../libfoo/foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+rm -f libfoo.a
+ar cru libfoo.a foo.o 
+ranlib libfoo.a
+true  DO=all multi-do # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+Making all in libbar
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+Making all in sub
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+true  DO=all multi-do # make
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+mycc -DPACKAGE_NAME=\"libbar\" -DPACKAGE_TARNAME=\"libbar\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libbar\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libbar\" -DVERSION=\"0.1\" -I. -I../../libbar     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../libbar/bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f libbar.a
+ar cru libbar.a bar.o 
+ranlib libbar.a
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+Making all in sub
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=all multi-do # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+mycc  -g -DPACKAGE_NAME=\"libbar\" -DPACKAGE_TARNAME=\"libbar\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libbar\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libbar\" -DVERSION=\"0.1\" -I. -I../../../libbar     -g -O2  -g -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../../libbar/bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f libbar.a
+ar cru libbar.a bar.o 
+ranlib libbar.a
+true  DO=all multi-do # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
++ test -f debug/libfoo/libfoo.a
++ test -f debug/libbar/libbar.a
++ test -f libfoo/libfoo.a
++ test -f libbar/libbar.a
++ make install
+Making install in libfoo
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make  DO=all multi-do # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+true  DO=all multi-do # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make  DO=install multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			install); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+true  DO=all multi-do # make
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+true  DO=install multi-do # make
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+Making install in libbar
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+true  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+true  DO=install multi-do # make
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+Making all in sub
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=all multi-do # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+true  DO=all multi-do # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make  DO=install multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			install); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+Making install in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=all multi-do # make
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=install multi-do # make
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+true  DO=all multi-do # make
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+true  DO=install multi-do # make
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
++ make distcleancheck
+Making distclean in libfoo
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+make  DO=clean multi-clean # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  clean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+true  DO=clean multi-clean # make
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+make  DO=mostlyclean multi-clean # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  mostlyclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../libfoo" || test -z "" || rm -f 
+make  DO=distclean multi-clean # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  distclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+true  DO=clean multi-clean # make
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../libfoo" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libfoo'
+Making distclean in libbar
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+Making distclean in sub
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+test -z "" || rm -f 
+test . = "../../../libbar/sub" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make  DO=clean multi-clean # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  clean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+Making clean in sub
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+true  DO=clean multi-clean # make
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+make  DO=mostlyclean multi-clean # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  mostlyclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+Making mostlyclean in sub
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=mostlyclean multi-clean # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../libbar" || test -z "" || rm -f 
+make  DO=distclean multi-clean # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  distclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+Making distclean in sub
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+test -z "" || rm -f 
+test . = "../../../../libbar/sub" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f Makefile
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar/sub'
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+true  DO=clean multi-clean # make
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../libbar" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f Makefile
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/debug/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build/libbar'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/build'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd ..
++ ./configure --enable-multilib --with-target-subdir=. CC=mycc
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+=== configuring in libfoo (/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/usr/local'  '--enable-multilib' '--with-target-subdir=.' 'CC=mycc' 'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc accepts -g... yes
+checking for mycc option to accept ISO C89... none needed
+checking whether mycc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in .
+multidirs=debug
+with_multisubdir=
+Running configure in multilib subdirs debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/libfoo
+Running configure in multilib subdir debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir
+mkdir debug
+Building symlink tree in /sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo
+.deps		..working in
+foo.Po		..linked
+Makefile		..linked
+Makefile.am		..linked
+Makefile.in		..linked
+aclocal.m4		..linked
+ar-lib		..linked
+autom4te.cache		..working in
+output.0		..linked
+output.1		..linked
+requests		..linked
+traces.0		..linked
+traces.1		..linked
+compile		..linked
+confF8KFXn		..working in
+subs.awk		..linked
+subs1.awk		..linked
+confdefs.h		..linked
+config.log		..linked
+config.status		..linked
+configure		..linked
+configure.ac		..linked
+depcomp		..linked
+foo.c		..linked
+install-sh		..linked
+missing		..linked
+multilib.am		..linked
+make  DO=clean multi-clean # make
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  clean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+make  DO=mostlyclean multi-clean # make
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  mostlyclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+make  DO=distclean multi-clean # make
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  distclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc  -g
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc  -g accepts -g... yes
+checking for mycc  -g option to accept ISO C89... none needed
+checking whether mycc  -g understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc  -g... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in .
+with_multisubdir=debug
+=== configuring in libbar (/sources/automake-1.16.1/contrib/t/multilib.dir/libbar)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/usr/local'  '--enable-multilib' '--with-target-subdir=.' 'CC=mycc' 'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc accepts -g... yes
+checking for mycc option to accept ISO C89... none needed
+checking whether mycc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in .
+multidirs=debug
+with_multisubdir=
+Running configure in multilib subdirs debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/libbar
+Running configure in multilib subdir debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir
+Building symlink tree in /sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar
+.deps		..working in
+bar.Po		..linked
+Makefile		..linked
+Makefile.am		..linked
+Makefile.in		..linked
+aclocal.m4		..linked
+ar-lib		..linked
+autom4te.cache		..working in
+output.0		..linked
+output.1		..linked
+requests		..linked
+traces.0		..linked
+traces.1		..linked
+bar.c		..linked
+compile		..linked
+confDdykC3		..working in
+subs.awk		..linked
+subs1.awk		..linked
+confdefs.h		..linked
+config.log		..linked
+config.status		..linked
+configure		..linked
+configure.ac		..linked
+depcomp		..linked
+install-sh		..linked
+missing		..linked
+multilib.am		..linked
+sub		..working in
+Makefile		..linked
+Makefile.am		..linked
+Makefile.in		..linked
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+make  DO=clean multi-clean # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  clean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+make  DO=mostlyclean multi-clean # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  mostlyclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+make  DO=distclean multi-clean # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  distclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f Makefile
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc  -g
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc  -g accepts -g... yes
+checking for mycc  -g option to accept ISO C89... none needed
+checking whether mycc  -g understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc  -g... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in .
+with_multisubdir=debug
++ make check
+Making check in libfoo
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+mycc -DPACKAGE_NAME=\"libfoo\" -DPACKAGE_TARNAME=\"libfoo\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libfoo\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libfoo\" -DVERSION=\"0.1\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+rm -f libfoo.a
+ar cru libfoo.a foo.o 
+ranlib libfoo.a
+make  DO=all multi-do # make
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd .; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+mycc  -g -DPACKAGE_NAME=\"libfoo\" -DPACKAGE_TARNAME=\"libfoo\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libfoo\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libfoo\" -DVERSION=\"0.1\" -I.     -g -O2  -g -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+rm -f libfoo.a
+ar cru libfoo.a foo.o 
+ranlib libfoo.a
+true  DO=all multi-do # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+Making check in libbar
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+Making check in sub
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar/sub'
+true  DO=all multi-do # make
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+mycc -DPACKAGE_NAME=\"libbar\" -DPACKAGE_TARNAME=\"libbar\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libbar\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libbar\" -DVERSION=\"0.1\" -I.     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f libbar.a
+ar cru libbar.a bar.o 
+ranlib libbar.a
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd .; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/usr/local" \
+			exec_prefix="/usr/local" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+Making all in sub
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar/sub'
+true  DO=all multi-do # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar/sub'
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+mycc  -g -DPACKAGE_NAME=\"libbar\" -DPACKAGE_TARNAME=\"libbar\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libbar\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libbar\" -DVERSION=\"0.1\" -I.     -g -O2  -g -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f libbar.a
+ar cru libbar.a bar.o 
+ranlib libbar.a
+true  DO=all multi-do # make
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/debug/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir'
+make[1]: Nothing to be done for 'check-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir'
++ DISTCHECK_CONFIGURE_FLAGS='--enable-multilib CC=mycc'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir'
+if test -d "multlib-1.0"; then find "multlib-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "multlib-1.0" || { sleep 5 && rm -rf "multlib-1.0"; }; else :; fi
+test -d "multlib-1.0" || mkdir "multlib-1.0"
+ (cd libfoo && make  top_distdir=../multlib-1.0 distdir=../multlib-1.0/libfoo \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+:
+test -d "../multlib-1.0/libfoo" || mkdir "../multlib-1.0/libfoo"
+test -n ":" \
+|| find "../multlib-1.0/libfoo" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/contrib/t/multilib.dir/libfoo/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../multlib-1.0/libfoo"
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libfoo'
+ (cd libbar && make  top_distdir=../multlib-1.0 distdir=../multlib-1.0/libbar \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+:
+test -d "../multlib-1.0/libbar" || mkdir "../multlib-1.0/libbar"
+ (cd sub && make  top_distdir=../../multlib-1.0 distdir=../../multlib-1.0/libbar/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar/sub'
+make  distdir-am
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar/sub'
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar/sub'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar/sub'
+test -n ":" \
+|| find "../multlib-1.0/libbar" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/contrib/t/multilib.dir/libbar/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../multlib-1.0/libbar"
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/libbar'
+test -n "" \
+|| find "multlib-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/contrib/t/multilib.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "multlib-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir'
+tardir=multlib-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >multlib-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir'
+if test -d "multlib-1.0"; then find "multlib-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "multlib-1.0" || { sleep 5 && rm -rf "multlib-1.0"; }; else :; fi
+case 'multlib-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc multlib-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc multlib-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc multlib-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc multlib-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c multlib-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc multlib-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip multlib-1.0.zip ;;\
+esac
+chmod -R a-w multlib-1.0
+chmod u+w multlib-1.0
+mkdir multlib-1.0/_build multlib-1.0/_build/sub multlib-1.0/_inst
+chmod a-w multlib-1.0
+test -d multlib-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd multlib-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd multlib-1.0/_build/sub \
+  && ../../configure \
+     \
+    --enable-multilib CC=mycc \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf multlib-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+=== configuring in libfoo (/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo)
+configure: running /bin/sh ../../../libfoo/configure --disable-option-checking '--prefix=/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst'  '--enable-multilib' 'CC=mycc' 'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=../../../libfoo
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc accepts -g... yes
+checking for mycc option to accept ISO C89... none needed
+checking whether mycc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../../libfoo
+multidirs=debug
+with_multisubdir=
+Running configure in multilib subdirs debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo
+Running configure in multilib subdir debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub
+mkdir debug
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc  -g
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc  -g accepts -g... yes
+checking for mycc  -g option to accept ISO C89... none needed
+checking whether mycc  -g understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc  -g... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../../../libfoo
+with_multisubdir=debug
+=== configuring in libbar (/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar)
+configure: running /bin/sh ../../../libbar/configure --disable-option-checking '--prefix=/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst'  '--enable-multilib' 'CC=mycc' 'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=../../../libbar
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc accepts -g... yes
+checking for mycc option to accept ISO C89... none needed
+checking whether mycc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../../libbar
+multidirs=debug
+with_multisubdir=
+Running configure in multilib subdirs debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar
+Running configure in multilib subdir debug
+pwd: /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... mycc  -g
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mycc  -g accepts -g... yes
+checking for mycc  -g option to accept ISO C89... none needed
+checking whether mycc  -g understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of mycc  -g... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+Adding multilib support to Makefile in ../../../../libbar
+with_multisubdir=debug
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making all in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+mycc -DPACKAGE_NAME=\"libfoo\" -DPACKAGE_TARNAME=\"libfoo\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libfoo\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libfoo\" -DVERSION=\"0.1\" -I. -I../../../libfoo     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../../libfoo/foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+rm -f libfoo.a
+ar cru libfoo.a foo.o 
+ranlib libfoo.a
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+mycc  -g -DPACKAGE_NAME=\"libfoo\" -DPACKAGE_TARNAME=\"libfoo\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libfoo\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libfoo\" -DVERSION=\"0.1\" -I. -I../../../../libfoo     -g -O2  -g -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../../../libfoo/foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+rm -f libfoo.a
+ar cru libfoo.a foo.o 
+ranlib libfoo.a
+true  DO=all multi-do # make
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making all in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making all in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=all multi-do # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+mycc -DPACKAGE_NAME=\"libbar\" -DPACKAGE_TARNAME=\"libbar\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libbar\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libbar\" -DVERSION=\"0.1\" -I. -I../../../libbar     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../../libbar/bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f libbar.a
+ar cru libbar.a bar.o 
+ranlib libbar.a
+make  DO=all multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making all in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+mycc  -g -DPACKAGE_NAME=\"libbar\" -DPACKAGE_TARNAME=\"libbar\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"libbar\ 0.1\" -DPACKAGE_BUGREPORT=\"nobody@localhost\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libbar\" -DVERSION=\"0.1\" -I. -I../../../../libbar     -g -O2  -g -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../../../libbar/bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f libbar.a
+ar cru libbar.a bar.o 
+ranlib libbar.a
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making dvi in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making dvi in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making dvi in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Nothing to be done for 'dvi'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Nothing to be done for 'dvi-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making check in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=all multi-do # make
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making check in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making check in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=all multi-do # make
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  DO=all multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making all in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Nothing to be done for 'check-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making install in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=all multi-do # make
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  DO=install multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			install); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=all multi-do # make
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=install multi-do # make
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making install in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making install in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=all multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=install multi-do # make
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  DO=all multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making all in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  DO=install multi-do # make
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			install); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making install in sub
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=all multi-do # make
+make[8]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=install multi-do # make
+make[8]: Nothing to be done for 'install-data-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=all multi-do # make
+make[8]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=install multi-do # make
+make[8]: Nothing to be done for 'install-data-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making installcheck in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making installcheck in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making installcheck in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Nothing to be done for 'installcheck'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Nothing to be done for 'installcheck-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making uninstall in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making uninstall in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making uninstall in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Nothing to be done for 'uninstall'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Nothing to be done for 'uninstall-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making install in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  DO=all multi-do # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="/tmp/am-dc-66802/" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=all multi-do # make
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  DO=install multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libfoo; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="/tmp/am-dc-66802/" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			install); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=all multi-do # make
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=install multi-do # make
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making install in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making install in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=all multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=install multi-do # make
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  DO=all multi-do # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="/tmp/am-dc-66802/" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			all); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making all in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=all multi-do # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  DO=install multi-do # make
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  rootpre=`${PWDCMD-pwd}`/; export rootpre; \
+  srcrootpre=`cd ../../../libbar; ${PWDCMD-pwd}`/; export srcrootpre; \
+  lib=`echo "${rootpre}" | sed -e 's,^.*/\([^/][^/]*\)/$,\1,'`; \
+  compiler="mycc"; \
+  for i in `${compiler} --print-multi-lib 2>/dev/null`; do \
+    dir=`echo $i | sed -e 's/;.*$//'`; \
+    if [ "${dir}" = "." ]; then \
+      true; \
+    else \
+      if [ -d ../${dir}/${lib} ]; then \
+	flags=`echo $i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
+	if (cd ../${dir}/${lib}; make  \
+			CFLAGS="-g -O2 ${flags}" \
+			CCASFLAGS=" ${flags}" \
+			FCFLAGS=" ${flags}" \
+			FFLAGS=" ${flags}" \
+			ADAFLAGS=" ${flags}" \
+			prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			exec_prefix="/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_inst" \
+			GCJFLAGS=" ${flags}" \
+			GOCFLAGS=" ${flags}" \
+			CXXFLAGS=" ${flags}" \
+			LIBCFLAGS=" ${flags}" \
+			LIBCXXFLAGS=" ${flags}" \
+			LDFLAGS=" ${flags}" \
+			MULTIFLAGS="${flags}" \
+			DESTDIR="/tmp/am-dc-66802/" \
+			INSTALL="/usr/bin/install -c" \
+			INSTALL_DATA="/usr/bin/install -c -m 644" \
+			INSTALL_PROGRAM="/usr/bin/install -c" \
+			INSTALL_SCRIPT="/usr/bin/install -c" \
+			install); then \
+	  true; \
+	else \
+	  exit 1; \
+	fi; \
+      else true; \
+      fi; \
+    fi; \
+  done; \
+fi
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making install in sub
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=all multi-do # make
+make[8]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=install multi-do # make
+make[8]: Nothing to be done for 'install-data-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=all multi-do # make
+make[8]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=install multi-do # make
+make[8]: Nothing to be done for 'install-data-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making uninstall in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making uninstall in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making uninstall in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Nothing to be done for 'uninstall'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[3]: Nothing to be done for 'uninstall-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+if test -d "multlib-1.0"; then find "multlib-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "multlib-1.0" || { sleep 5 && rm -rf "multlib-1.0"; }; else :; fi
+test -d "multlib-1.0" || mkdir "multlib-1.0"
+ (cd libfoo && make  top_distdir=../multlib-1.0 distdir=../multlib-1.0/libfoo \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+:
+test -d "../multlib-1.0/libfoo" || mkdir "../multlib-1.0/libfoo"
+test -n ":" \
+|| find "../multlib-1.0/libfoo" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/libfoo/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../multlib-1.0/libfoo"
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+ (cd libbar && make  top_distdir=../multlib-1.0 distdir=../multlib-1.0/libbar \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+:
+test -d "../multlib-1.0/libbar" || mkdir "../multlib-1.0/libbar"
+ (cd sub && make  top_distdir=../../multlib-1.0 distdir=../../multlib-1.0/libbar/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make  distdir-am
+make[7]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[7]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+test -n ":" \
+|| find "../multlib-1.0/libbar" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/libbar/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../multlib-1.0/libbar"
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+test -n "" \
+|| find "multlib-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "multlib-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+tardir=multlib-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >multlib-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+if test -d "multlib-1.0"; then find "multlib-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "multlib-1.0" || { sleep 5 && rm -rf "multlib-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+Making distclean in libfoo
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+make  DO=clean multi-clean # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  clean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=clean multi-clean # make
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+make  DO=mostlyclean multi-clean # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  mostlyclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../libfoo" || test -z "" || rm -f 
+make  DO=distclean multi-clean # make
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  distclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+true  DO=clean multi-clean # make
+test -z "libfoo.a" || rm -f libfoo.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../../libfoo" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libfoo'
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libfoo'
+Making distclean in libbar
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+Making distclean in sub
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+test -z "" || rm -f 
+test . = "../../../../libbar/sub" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f Makefile
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make  DO=clean multi-clean # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  clean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making clean in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=clean multi-clean # make
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+make  DO=mostlyclean multi-clean # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  mostlyclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making mostlyclean in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=mostlyclean multi-clean # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../libbar" || test -z "" || rm -f 
+make  DO=distclean multi-clean # make
+make[4]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+if [ -z "debug" ]; then \
+  true; \
+else \
+  lib=`${PWDCMD-pwd} | sed -e 's,^.*/\([^/][^/]*\)$,\1,'`; \
+  for dir in : debug; do \
+    test $dir != : || continue; \
+    if [ -f ../${dir}/${lib}/Makefile ]; then \
+      if (cd ../${dir}/${lib}; make  distclean); \
+      then true; \
+      else exit 1; \
+      fi; \
+    else true; \
+    fi; \
+  done; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+Making distclean in sub
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+true  DO=clean multi-clean # make
+true  DO=mostlyclean multi-clean # make
+test -z "" || rm -f 
+test . = "../../../../../libbar/sub" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f Makefile
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar/sub'
+make[6]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+true  DO=clean multi-clean # make
+test -z "libbar.a" || rm -f libbar.a
+rm -f *.o
+true  DO=mostlyclean multi-clean # make
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../../libbar" || test -z "" || rm -f 
+true  DO=distclean multi-clean # make
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[6]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f Makefile
+make[5]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/debug/libbar'
+make[4]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[3]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub/libbar'
+make[2]: Entering directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/contrib/t/multilib.dir/multlib-1.0/_build/sub'
+if test -d "multlib-1.0"; then find "multlib-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "multlib-1.0" || { sleep 5 && rm -rf "multlib-1.0"; }; else :; fi
+=============================================
+multlib-1.0 archives ready for distribution: 
+multlib-1.0.tar.gz
+=============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ contrib/t/multilib.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl contrib/t/multilib.dir
++ set +x
+PASS contrib/t/multilib.sh (exit status: 0)

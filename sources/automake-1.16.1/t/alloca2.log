@@ -1,0 +1,54 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/alloca2.dir
++ cat
++ cat
++ :
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:1: error: Libtool library used but 'LIBTOOL' is undefined
+Makefile.am:1:   The usual way to define 'LIBTOOL' is to add 'LT_INIT'
+Makefile.am:1:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
+Makefile.am:1:   If 'LT_INIT' is in 'configure.ac', make sure
+Makefile.am:1:   its definition is in aclocal's search path.
+Makefile.am:3: error: @LTALLOCA@ used but 'LTALLOCA' is undefined
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*define.*LIBTOOL.* add .*LT_INIT' stderr
+Makefile.am:1:   The usual way to define 'LIBTOOL' is to add 'LT_INIT'
++ grep '^Makefile\.am:3:.*LTALLOCA' stderr
+Makefile.am:3: error: @LTALLOCA@ used but 'LTALLOCA' is undefined
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/alloca2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/alloca2.dir
++ set +x
+PASS t/alloca2.sh (exit status: 0)

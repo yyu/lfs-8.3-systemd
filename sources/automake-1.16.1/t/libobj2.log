@@ -1,0 +1,498 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/libobj2.dir
++ cat
++ cat
++ mkdir subdir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:6: installing './ar-lib'
++ /bin/grep -F fsusage.c subdir/Makefile.in
+	fsusage.c
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating subdir/Makefile
+config.status: executing depfiles commands
++ make check
+Making check in subdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+cc -DPACKAGE_NAME=\"libobj2\" -DPACKAGE_TARNAME=\"libobj2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT fsusage.o -MD -MP -MF .deps/fsusage.Tpo -c -o fsusage.o fsusage.c
+mv -f .deps/fsusage.Tpo .deps/fsusage.Po
+rm -f libtu.a
+ar cru libtu.a  fsusage.o
+ranlib libtu.a
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+test -d "libobj2-1.0" || mkdir "libobj2-1.0"
+ (cd subdir && make  top_distdir=../libobj2-1.0 distdir=../libobj2-1.0/subdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+test -n "" \
+|| find "libobj2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj2.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj2-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir'
+ls -l . ./subdir
+.:
+total 364
+-rw-r--r-- 1 root root  24518 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    256 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  24087 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9251 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29284 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 151562 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    201 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 libobj2-1.0
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 subdir
+
+./subdir:
+total 48
+-rw-r--r-- 1 root root 13896 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    72 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root 13762 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root    18 Nov 27 06:42 fsusage.c
+-rw-r--r-- 1 root root  2008 Nov 27 06:42 fsusage.o
+-rw-r--r-- 1 root root  2140 Nov 27 06:42 libtu.a
+ls -l libobj2-1.0 libobj2-1.0/subdir
+libobj2-1.0:
+total 296
+-rw-r--r-- 1 root root    256 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  24087 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-rwxr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rwxr-xr-x 1 root root 151562 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    201 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 subdir
+
+libobj2-1.0/subdir:
+total 24
+-rw-r--r-- 1 root root    72 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root 13762 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root    18 Nov 27 06:42 fsusage.c
+ls -l . ./subdir
+.:
+total 364
+-rw-r--r-- 1 root root  24518 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    256 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  24087 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9251 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29284 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 151562 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    201 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 libobj2-1.0
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 subdir
+
+./subdir:
+total 48
+-rw-r--r-- 1 root root 13896 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    72 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root 13762 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root    18 Nov 27 06:42 fsusage.c
+-rw-r--r-- 1 root root  2008 Nov 27 06:42 fsusage.o
+-rw-r--r-- 1 root root  2140 Nov 27 06:42 libtu.a
+test -f ./subdir/fsusage.c
+test -f libobj2-1.0/subdir/fsusage.c
+ar tv ./subdir/libtu.a
+rw-r--r-- 0/0   2008 Nov 26 22:42 2018 fsusage.o
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+test -d "libobj2-1.0" || mkdir "libobj2-1.0"
+ (cd subdir && make  top_distdir=../libobj2-1.0 distdir=../libobj2-1.0/subdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/subdir'
+test -n "" \
+|| find "libobj2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj2.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj2-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir'
+tardir=libobj2-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj2-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+case 'libobj2-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc libobj2-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc libobj2-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc libobj2-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc libobj2-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c libobj2-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc libobj2-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip libobj2-1.0.zip ;;\
+esac
+chmod -R a-w libobj2-1.0
+chmod u+w libobj2-1.0
+mkdir libobj2-1.0/_build libobj2-1.0/_build/sub libobj2-1.0/_inst
+chmod a-w libobj2-1.0
+test -d libobj2-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd libobj2-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd libobj2-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf libobj2-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating subdir/Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making all in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+cc -DPACKAGE_NAME=\"libobj2\" -DPACKAGE_TARNAME=\"libobj2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj2\" -DVERSION=\"1.0\" -I. -I../../../subdir     -g -O2 -MT fsusage.o -MD -MP -MF .deps/fsusage.Tpo -c -o fsusage.o ../../../subdir/fsusage.c
+mv -f .deps/fsusage.Tpo .deps/fsusage.Po
+rm -f libtu.a
+ar cru libtu.a  fsusage.o
+ranlib libtu.a
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making dvi in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making check in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+test -d "libobj2-1.0" || mkdir "libobj2-1.0"
+ (cd subdir && make  top_distdir=../libobj2-1.0 distdir=../libobj2-1.0/subdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make  distdir-am
+make[6]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+test -n "" \
+|| find "libobj2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj2-1.0"
+make[4]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+ls -l ../.. ../../subdir
+../..:
+total 304
+-r--r--r-- 1 root root    256 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  24087 Nov 27 06:42 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 _inst
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 151562 Nov 27 06:42 configure
+-r--r--r-- 1 root root    201 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+dr-xr-xr-x 2 root root   4096 Nov 27 06:42 subdir
+
+../../subdir:
+total 24
+-r--r--r-- 1 root root    72 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root 13762 Nov 27 06:42 Makefile.in
+-r--r--r-- 1 root root    18 Nov 27 06:42 fsusage.c
+ls -l libobj2-1.0 libobj2-1.0/subdir
+libobj2-1.0:
+total 296
+-r--r--r-- 1 root root    256 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  24087 Nov 27 06:42 Makefile.in
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 151562 Nov 27 06:42 configure
+-r--r--r-- 1 root root    201 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 subdir
+
+libobj2-1.0/subdir:
+total 24
+-r--r--r-- 1 root root    72 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root 13762 Nov 27 06:42 Makefile.in
+-r--r--r-- 1 root root    18 Nov 27 06:42 fsusage.c
+ls -l . ./subdir
+.:
+total 80
+-rw-r--r-- 1 root root 24761 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root  9845 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root 29447 Nov 27 06:42 config.status
+drwxr-xr-x 3 root root  4096 Nov 27 06:42 libobj2-1.0
+drwxr-xr-x 3 root root  4096 Nov 27 06:42 subdir
+
+./subdir:
+total 24
+-rw-r--r-- 1 root root 14173 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root  2064 Nov 27 06:42 fsusage.o
+-rw-r--r-- 1 root root  2196 Nov 27 06:42 libtu.a
+test -f ../../subdir/fsusage.c
+test -f libobj2-1.0/subdir/fsusage.c
+ar tv ./subdir/libtu.a
+rw-r--r-- 0/0   2064 Nov 26 22:42 2018 fsusage.o
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making install in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making installcheck in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making uninstall in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making install in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making uninstall in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+test -d "libobj2-1.0" || mkdir "libobj2-1.0"
+ (cd subdir && make  top_distdir=../libobj2-1.0 distdir=../libobj2-1.0/subdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+test -n "" \
+|| find "libobj2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj2-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+tardir=libobj2-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj2-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+Making distclean in subdir
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../subdir" || test -z "" || rm -f 
+rm -f .deps/fsusage.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub/subdir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj2.dir/libobj2-1.0/_build/sub'
+if test -d "libobj2-1.0"; then find "libobj2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj2-1.0" || { sleep 5 && rm -rf "libobj2-1.0"; }; else :; fi
+=============================================
+libobj2-1.0 archives ready for distribution: 
+libobj2-1.0.tar.gz
+=============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/libobj2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/libobj2.dir
++ set +x
+PASS t/libobj2.sh (exit status: 0)

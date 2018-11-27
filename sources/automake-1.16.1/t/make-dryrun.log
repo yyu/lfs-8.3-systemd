@@ -1,0 +1,1297 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/make-dryrun.dir
++ plan_ 60
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x60 = xunknown
++ test x60 = xlater
++ test x60 = xlazy
++ test x60 = xnow
++ test 60 -ge 0
++ planned_=60
++ echo 1..60
+1..60
++ echo 'all: ; +@printf %sbb%s aa cc'
++ make -n -f -
++ grep aabbcc
+aabbcc
++ mkdir none
++ echo nil:
++ make -I none -f -
+make: Nothing to be done for 'nil'.
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ check_make --run
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 0 -gt 0
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=run
++ :
++ make run
+::  ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' run
++ set +x
+ok 1 - run
+PASS: t/make-dryrun.tap 1 - run
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s)'
++ :
++ make -s run
+:: s :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s)'
++ set +x
+ok 2 - run (-s)
+PASS: t/make-dryrun.tap 2 - run (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s -r)'
++ :
++ make -s -r run
+:: rs :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s -r)'
++ set +x
+ok 3 - run (-s -r)
+PASS: t/make-dryrun.tap 3 - run (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --run 'TESTS=n1.test n2.test'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=run
++ :
++ make run 'TESTS=n1.test n2.test'
+::  -- TESTS=n1.test\ n2.test ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' run
++ set +x
+ok 4 - run
+PASS: t/make-dryrun.tap 4 - run
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s)'
++ :
++ make -s run 'TESTS=n1.test n2.test'
+:: s -- TESTS=n1.test\ n2.test :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s)'
++ set +x
+ok 5 - run (-s)
+PASS: t/make-dryrun.tap 5 - run (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s -r)'
++ :
++ make -s -r run 'TESTS=n1.test n2.test'
+:: rs -- TESTS=n1.test\ n2.test :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s -r)'
++ set +x
+ok 6 - run (-s -r)
+PASS: t/make-dryrun.tap 6 - run (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS='\''n1 n2'\'''
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=run
++ :
++ make run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS='\''n1 n2'\'''
+::  -- AM_MAKEFLAGS=TESTS='n1\ n2' TESTS=n1\ n2 ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' run
++ set +x
+ok 7 - run
+PASS: t/make-dryrun.tap 7 - run
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s)'
++ :
++ make -s run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS='\''n1 n2'\'''
+:: s -- AM_MAKEFLAGS=TESTS='n1\ n2' TESTS=n1\ n2 :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s)'
++ set +x
+ok 8 - run (-s)
+PASS: t/make-dryrun.tap 8 - run (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s -r)'
++ :
++ make -s -r run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS='\''n1 n2'\'''
+:: rs -- AM_MAKEFLAGS=TESTS='n1\ n2' TESTS=n1\ n2 :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s -r)'
++ set +x
+ok 9 - run (-s -r)
+PASS: t/make-dryrun.tap 9 - run (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS="n1 n2"'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=run
++ :
++ make run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS="n1 n2"'
+::  -- AM_MAKEFLAGS=TESTS="n1\ n2" TESTS=n1\ n2 ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' run
++ set +x
+ok 10 - run
+PASS: t/make-dryrun.tap 10 - run
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s)'
++ :
++ make -s run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS="n1 n2"'
+:: s -- AM_MAKEFLAGS=TESTS="n1\ n2" TESTS=n1\ n2 :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s)'
++ set +x
+ok 11 - run (-s)
+PASS: t/make-dryrun.tap 11 - run (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s -r)'
++ :
++ make -s -r run 'TESTS=n1 n2' 'AM_MAKEFLAGS=TESTS="n1 n2"'
+:: rs -- AM_MAKEFLAGS=TESTS="n1\ n2" TESTS=n1\ n2 :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s -r)'
++ set +x
+ok 12 - run (-s -r)
+PASS: t/make-dryrun.tap 12 - run (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --run 'FOOFLAGS=-n -n -knf2 n --none -n'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=run
++ :
++ make run 'FOOFLAGS=-n -n -knf2 n --none -n'
+::  -- FOOFLAGS=-n\ -n\ -knf2\ n\ --none\ -n ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' run
++ set +x
+ok 13 - run
+PASS: t/make-dryrun.tap 13 - run
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s)'
++ :
++ make -s run 'FOOFLAGS=-n -n -knf2 n --none -n'
+:: s -- FOOFLAGS=-n\ -n\ -knf2\ n\ --none\ -n :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s)'
++ set +x
+ok 14 - run (-s)
+PASS: t/make-dryrun.tap 14 - run (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s -r)'
++ :
++ make -s -r run 'FOOFLAGS=-n -n -knf2 n --none -n'
+:: rs -- FOOFLAGS=-n\ -n\ -knf2\ n\ --none\ -n :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s -r)'
++ set +x
+ok 15 - run (-s -r)
+PASS: t/make-dryrun.tap 15 - run (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --run 'MYFLAGS=-n --dryrun -n --dry-run -n'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=run
++ :
++ make run 'MYFLAGS=-n --dryrun -n --dry-run -n'
+::  -- MYFLAGS=-n\ --dryrun\ -n\ --dry-run\ -n ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' run
++ set +x
+ok 16 - run
+PASS: t/make-dryrun.tap 16 - run
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s)'
++ :
++ make -s run 'MYFLAGS=-n --dryrun -n --dry-run -n'
+:: s -- MYFLAGS=-n\ --dryrun\ -n\ --dry-run\ -n :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s)'
++ set +x
+ok 17 - run (-s)
+PASS: t/make-dryrun.tap 17 - run (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=-n --dryrun -n --dry-run -n'
+:: rs -- MYFLAGS=-n\ --dryrun\ -n\ --dry-run\ -n :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run (-s -r)'
++ set +x
+ok 18 - run (-s -r)
+PASS: t/make-dryrun.tap 18 - run (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --dry -C make_plus_silence 'recipe prefix "+" unsupported' -n
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=dry
++ shift
++ test 4 -gt 0
++ case $1 in
++ condition=make_plus_silence
++ skip_reason='recipe prefix "+" unsupported'
++ shift
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=dry
++ make_plus_silence
++ return 0
++ make dry -n
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: n :: -n ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' dry
++ set +x
+ok 19 - dry
+PASS: t/make-dryrun.tap 19 - dry
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry (-s)'
++ make_plus_silence
++ return 0
++ make -s dry -n
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: ns :: -ns ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry (-s)'
++ set +x
+ok 20 - dry (-s)
+PASS: t/make-dryrun.tap 20 - dry (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry (-s -r)'
++ make_plus_silence
++ return 0
++ make -s -r dry -n
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: nrs :: -nrs ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry (-s -r)'
++ set +x
+ok 21 - dry (-s -r)
+PASS: t/make-dryrun.tap 21 - dry (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --dry -C using_gmake '$MAKE is not GNU make' --dry-run -k
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=dry
++ shift
++ test 5 -gt 0
++ case $1 in
++ condition=using_gmake
++ skip_reason='$MAKE is not GNU make'
++ shift
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=dry
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make dry --dry-run -k
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: kn :: -kn ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' dry
++ set +x
+ok 22 - dry
+PASS: t/make-dryrun.tap 22 - dry
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry (-s)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s dry --dry-run -k
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: kns :: -kns ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry (-s)'
++ set +x
+ok 23 - dry (-s)
+PASS: t/make-dryrun.tap 23 - dry (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry (-s -r)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s -r dry --dry-run -k
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: knrs :: -knrs ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry (-s -r)'
++ set +x
+ok 24 - dry (-s -r)
+PASS: t/make-dryrun.tap 24 - dry (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ pr=bug#13760
++ check_make --run -C make_supports_option_I '-I make option unsupported' -M bug#13760 -I none
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 7 -gt 0
++ case $1 in
++ condition=make_supports_option_I
++ skip_reason='-I make option unsupported'
++ shift
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ msg=bug#13760
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [bug#13760]'
++ make_supports_option_I
++ return 0
++ make run -I none
+::  -Inone :: -Inone ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [bug#13760]'
++ set +x
+ok 25 - run [bug#13760]
+PASS: t/make-dryrun.tap 25 - run [bug#13760]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [bug#13760] (-s)'
++ make_supports_option_I
++ return 0
++ make -s run -I none
+:: s -Inone :: -s -Inone ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [bug#13760] (-s)'
++ set +x
+ok 26 - run [bug#13760] (-s)
+PASS: t/make-dryrun.tap 26 - run [bug#13760] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [bug#13760] (-s -r)'
++ make_supports_option_I
++ return 0
++ make -s -r run -I none
+:: rs -Inone :: -rs -Inone ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [bug#13760] (-s -r)'
++ set +x
+ok 27 - run [bug#13760] (-s -r)
+PASS: t/make-dryrun.tap 27 - run [bug#13760] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --run -C using_gmake '$MAKE is not GNU make' -M bug#13760 -I none --include dry-run
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 9 -gt 0
++ case $1 in
++ condition=using_gmake
++ skip_reason='$MAKE is not GNU make'
++ shift
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ msg=bug#13760
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [bug#13760]'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make run -I none --include dry-run
+::  -Inone -Idry-run :: -Inone -Idry-run ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [bug#13760]'
++ set +x
+ok 28 - run [bug#13760]
+PASS: t/make-dryrun.tap 28 - run [bug#13760]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [bug#13760] (-s)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s run -I none --include dry-run
+:: s -Inone -Idry-run :: -s -Inone -Idry-run ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [bug#13760] (-s)'
++ set +x
+ok 29 - run [bug#13760] (-s)
+PASS: t/make-dryrun.tap 29 - run [bug#13760] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [bug#13760] (-s -r)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s -r run -I none --include dry-run
+:: rs -Inone -Idry-run :: -rs -Inone -Idry-run ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [bug#13760] (-s -r)'
++ set +x
+ok 30 - run [bug#13760] (-s -r)
+PASS: t/make-dryrun.tap 30 - run [bug#13760] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --dry -C make_supports_option_I '-I make option unsupported' -M bug#13760 -I none -n
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=dry
++ shift
++ test 8 -gt 0
++ case $1 in
++ condition=make_supports_option_I
++ skip_reason='-I make option unsupported'
++ shift
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ msg=bug#13760
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry [bug#13760]'
++ make_supports_option_I
++ return 0
++ make dry -I none -n
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: n -Inone :: -n -Inone ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry [bug#13760]'
++ set +x
+ok 31 - dry [bug#13760]
+PASS: t/make-dryrun.tap 31 - dry [bug#13760]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry [bug#13760] (-s)'
++ make_supports_option_I
++ return 0
++ make -s dry -I none -n
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: ns -Inone :: -ns -Inone ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry [bug#13760] (-s)'
++ set +x
+ok 32 - dry [bug#13760] (-s)
+PASS: t/make-dryrun.tap 32 - dry [bug#13760] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry [bug#13760] (-s -r)'
++ make_supports_option_I
++ return 0
++ make -s -r dry -I none -n
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: nrs -Inone :: -nrs -Inone ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry [bug#13760] (-s -r)'
++ set +x
+ok 33 - dry [bug#13760] (-s -r)
+PASS: t/make-dryrun.tap 33 - dry [bug#13760] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make --dry -C using_gmake '$MAKE is not GNU make' -M bug#13760 --dry-run -I none --include dry-run
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=dry
++ shift
++ test 10 -gt 0
++ case $1 in
++ condition=using_gmake
++ skip_reason='$MAKE is not GNU make'
++ shift
++ shift
++ shift
++ test 7 -gt 0
++ case $1 in
++ msg=bug#13760
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry [bug#13760]'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make dry --dry-run -I none --include dry-run
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: n -Inone -Idry-run :: -n -Inone -Idry-run ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry [bug#13760]'
++ set +x
+ok 34 - dry [bug#13760]
+PASS: t/make-dryrun.tap 34 - dry [bug#13760]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry [bug#13760] (-s)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s dry --dry-run -I none --include dry-run
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: ns -Inone -Idry-run :: -ns -Inone -Idry-run ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry [bug#13760] (-s)'
++ set +x
+ok 35 - dry [bug#13760] (-s)
+PASS: t/make-dryrun.tap 35 - dry [bug#13760] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='dry [bug#13760] (-s -r)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s -r dry --dry-run -I none --include dry-run
+echo ":: $MAKEFLAGS :: $MFLAGS ::" ;: For debugging.
+:: nrs -Inone -Idry-run :: -nrs -Inone -Idry-run ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) || exit 1; echo ok > from-dry
++ test -f from-dry
++ test '!' -e bad
++ rm -f bad from-dry
++ result_ ok -D '' -r '' 'dry [bug#13760] (-s -r)'
++ set +x
+ok 36 - dry [bug#13760] (-s -r)
+PASS: t/make-dryrun.tap 36 - dry [bug#13760] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=-n "n" '\''-n'\'' --none -n'
++ check_make --run -M metachars 'MYFLAGS=-n "n" '\''-n'\'' --none -n'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=-n "n" '\''-n'\'' --none -n'
+::  -- MYFLAGS=-n\ "n"\ '-n'\ --none\ -n ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 37 - run [metachars]
+PASS: t/make-dryrun.tap 37 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=-n "n" '\''-n'\'' --none -n'
+:: s -- MYFLAGS=-n\ "n"\ '-n'\ --none\ -n :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 38 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 38 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=-n "n" '\''-n'\'' --none -n'
+:: rs -- MYFLAGS=-n\ "n"\ '-n'\ --none\ -n :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 39 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 39 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=-knf2\ n\ \\n'
++ check_make --run -M metachars 'MYFLAGS=-knf2\ n\ \\n'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=-knf2\ n\ \\n'
+::  -- MYFLAGS=-knf2\\\ n\\\ \\\\n ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 40 - run [metachars]
+PASS: t/make-dryrun.tap 40 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=-knf2\ n\ \\n'
+:: s -- MYFLAGS=-knf2\\\ n\\\ \\\\n :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 41 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 41 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=-knf2\ n\ \\n'
+:: rs -- MYFLAGS=-knf2\\\ n\\\ \\\\n :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 42 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 42 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=(&) | ; " ` '\'''
++ check_make --run -M metachars 'MYFLAGS=(&) | ; " ` '\'''
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=(&) | ; " ` '\'''
+::  -- MYFLAGS=(&)\ |\ ;\ "\ `\ ' ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 43 - run [metachars]
+PASS: t/make-dryrun.tap 43 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=(&) | ; " ` '\'''
+:: s -- MYFLAGS=(&)\ |\ ;\ "\ `\ ' :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 44 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 44 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=(&) | ; " ` '\'''
+:: rs -- MYFLAGS=(&)\ |\ ;\ "\ `\ ' :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 45 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 45 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS= '\'' # '\'' '
++ check_make --run -M metachars 'MYFLAGS= '\'' # '\'' '
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS= '\'' # '\'' '
+::  -- MYFLAGS='\ #\ '\  ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 46 - run [metachars]
+PASS: t/make-dryrun.tap 46 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS= '\'' # '\'' '
+:: s -- MYFLAGS='\ #\ '\  :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 47 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 47 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS= '\'' # '\'' '
+:: rs -- MYFLAGS='\ #\ '\  :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 48 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 48 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=$(foo)'
++ check_make --run -M metachars 'MYFLAGS=$(foo)'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=$(foo)'
+::  -- MYFLAGS=$$(foo) ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 49 - run [metachars]
+PASS: t/make-dryrun.tap 49 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=$(foo)'
+:: s -- MYFLAGS=$$(foo) :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 50 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 50 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=$(foo)'
+:: rs -- MYFLAGS=$$(foo) :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 51 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 51 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=$(foo -n)'
++ check_make --run -M metachars 'MYFLAGS=$(foo -n)'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=$(foo -n)'
+::  -- MYFLAGS=$$(foo\ -n) ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 52 - run [metachars]
+PASS: t/make-dryrun.tap 52 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=$(foo -n)'
+:: s -- MYFLAGS=$$(foo\ -n) :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 53 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 53 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=$(foo -n)'
+:: rs -- MYFLAGS=$$(foo\ -n) :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 54 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 54 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=`touch bad`'
++ check_make --run -M metachars 'MYFLAGS=`touch bad`'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=`touch bad`'
+::  -- MYFLAGS=`touch\ bad` ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 55 - run [metachars]
+PASS: t/make-dryrun.tap 55 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=`touch bad`'
+:: s -- MYFLAGS=`touch\ bad` :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 56 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 56 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=`touch bad`'
+:: rs -- MYFLAGS=`touch\ bad` :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 57 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 57 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=`touch --dry-run bad`'
++ check_make --run -M metachars 'MYFLAGS=`touch --dry-run bad`'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=run
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars]'
++ :
++ make run 'MYFLAGS=`touch --dry-run bad`'
+::  -- MYFLAGS=`touch\ --dry-run\ bad` ::  ::
+(target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-dryrun.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; echo ok > from-run
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars]'
++ set +x
+ok 58 - run [metachars]
+PASS: t/make-dryrun.tap 58 - run [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s)'
++ :
++ make -s run 'MYFLAGS=`touch --dry-run bad`'
+:: s -- MYFLAGS=`touch\ --dry-run\ bad` :: -s ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s)'
++ set +x
+ok 59 - run [metachars] (-s)
+PASS: t/make-dryrun.tap 59 - run [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='run [metachars] (-s -r)'
++ :
++ make -s -r run 'MYFLAGS=`touch --dry-run bad`'
+:: rs -- MYFLAGS=`touch\ --dry-run\ bad` :: -rs ::
++ test -f from-run
++ test '!' -e bad
++ rm -f bad from-run
++ result_ ok -D '' -r '' 'run [metachars] (-s -r)'
++ set +x
+ok 60 - run [metachars] (-s -r)
+PASS: t/make-dryrun.tap 60 - run [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 60 = later
++ test 0 -eq 0
++ test 60 -eq 60
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/make-dryrun.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/make-dryrun.dir
++ set +x

@@ -1,0 +1,358 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/maken.dir
++ mkdir sub
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ echo stamp
++ sleep 2
++ for target in dist distcheck
++ make -n dist
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken.dir'
+if test -d "maken-1.0"; then find "maken-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "maken-1.0" || { sleep 5 && rm -rf "maken-1.0"; }; else :; fi
+test -d "maken-1.0" || mkdir "maken-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|maken-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "maken-1.0/$file"; then \
+      find "maken-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "maken-1.0$dir" || exit 1; \
+      find "maken-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "maken-1.0$dir" || exit 1; \
+  else \
+    test -f "maken-1.0/$file" \
+    || cp -p $d/$file "maken-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+list='sub'; for subdir in $list; do \
+  if test "$subdir" = .; then :; else \
+    (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) \
+      || test -d "maken-1.0/$subdir" \
+      || /tools/bin/mkdir -p "maken-1.0/$subdir" \
+      || exit 1; \
+    dir1=$subdir; dir2="maken-1.0/$subdir"; \
+    dir0=`pwd`; sed_first='s,^\([^/]*\)/.*$,\1,'; sed_rest='s,^[^/]*/*,,'; sed_last='s,^.*/\([^/]*\)$,\1,'; sed_butlast='s,/*[^/]*$,,'; while test -n "$dir1"; do first=`echo "$dir1" | sed -e "$sed_first"`; if test "$first" != "."; then if test "$first" = ".."; then dir2=`echo "$dir0" | sed -e "$sed_last"`/"$dir2"; dir0=`echo "$dir0" | sed -e "$sed_butlast"`; else first2=`echo "$dir2" | sed -e "$sed_first"`; if test "$first2" = "$first"; then dir2=`echo "$dir2" | sed -e "$sed_rest"`; else dir2="../$dir2"; fi; dir0="$dir0"/"$first"; fi; fi; dir1=`echo "$dir1" | sed -e "$sed_rest"`; done; reldir="$dir2"; \
+    new_distdir=$reldir; \
+    dir1=$subdir; dir2="maken-1.0"; \
+    dir0=`pwd`; sed_first='s,^\([^/]*\)/.*$,\1,'; sed_rest='s,^[^/]*/*,,'; sed_last='s,^.*/\([^/]*\)$,\1,'; sed_butlast='s,/*[^/]*$,,'; while test -n "$dir1"; do first=`echo "$dir1" | sed -e "$sed_first"`; if test "$first" != "."; then if test "$first" = ".."; then dir2=`echo "$dir0" | sed -e "$sed_last"`/"$dir2"; dir0=`echo "$dir0" | sed -e "$sed_butlast"`; else first2=`echo "$dir2" | sed -e "$sed_first"`; if test "$first2" = "$first"; then dir2=`echo "$dir2" | sed -e "$sed_rest"`; else dir2="../$dir2"; fi; dir0="$dir0"/"$first"; fi; fi; dir1=`echo "$dir1" | sed -e "$sed_rest"`; done; reldir="$dir2"; \
+    new_top_distdir=$reldir; \
+    echo " (cd $subdir && make  top_distdir="$new_top_distdir" distdir="$new_distdir" \\"; \
+    echo "     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)"; \
+    (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && \
+      make  \
+        top_distdir="$new_top_distdir" \
+        distdir="$new_distdir" \
+	am__remove_distdir=: \
+	am__skip_length_check=: \
+	am__skip_mode_fix=: \
+        distdir) \
+      || exit 1; \
+  fi; \
+done
+ (cd sub && make  top_distdir=../maken-1.0 distdir=../maken-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken.dir/sub'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken.dir/sub'
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo ".." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./Makefile.in   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|../|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|../maken-1.0/sub/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "../maken-1.0/sub/$file"; then \
+      find "../maken-1.0/sub/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "../maken-1.0/sub$dir" || exit 1; \
+      find "../maken-1.0/sub/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "../maken-1.0/sub$dir" || exit 1; \
+  else \
+    test -f "../maken-1.0/sub/$file" \
+    || cp -p $d/$file "../maken-1.0/sub/$file" \
+    || exit 1; \
+  fi; \
+done
+make  \
+  top_distdir="../maken-1.0" distdir="../maken-1.0/sub" \
+  dist-hook
+make[5]: Entering directory '/sources/automake-1.16.1/t/maken.dir/sub'
+: > stamp-sub-dist-hook
+make[5]: Leaving directory '/sources/automake-1.16.1/t/maken.dir/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken.dir/sub'
+test -n "" \
+|| find "maken-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/maken.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "maken-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken.dir'
+tardir=maken-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >maken-1.0.tar.gz
+:
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken.dir'
+if test -d "maken-1.0"; then find "maken-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "maken-1.0" || { sleep 5 && rm -rf "maken-1.0"; }; else :; fi
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make -n dist
++ grep stamp-sub-dist-hook
+: > stamp-sub-dist-hook
++ make test-no-distdir
+test ! -d maken-1.0
+test ! -f stamp-distcheck-hook
+test ! -f sub/stamp-sub-dist-hook
+++ find . -type f
++ is_newest stampfile ./compile ./config.status ./Makefile.in ./Makefile.am ./sub/Makefile.in ./sub/Makefile.am ./sub/Makefile ./config.log ./autom4te.cache/output.1 ./autom4te.cache/traces.0 ./autom4te.cache/requests ./autom4te.cache/output.0 ./autom4te.cache/traces.1 ./depcomp ./configure.ac ./Makefile ./configure ./install-sh ./aclocal.m4 ./stampfile ./missing sub
++ for target in dist distcheck
++ make -n distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken.dir'
+if test -d "maken-1.0"; then find "maken-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "maken-1.0" || { sleep 5 && rm -rf "maken-1.0"; }; else :; fi
+test -d "maken-1.0" || mkdir "maken-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|maken-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "maken-1.0/$file"; then \
+      find "maken-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "maken-1.0$dir" || exit 1; \
+      find "maken-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "maken-1.0$dir" || exit 1; \
+  else \
+    test -f "maken-1.0/$file" \
+    || cp -p $d/$file "maken-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+list='sub'; for subdir in $list; do \
+  if test "$subdir" = .; then :; else \
+    (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) \
+      || test -d "maken-1.0/$subdir" \
+      || /tools/bin/mkdir -p "maken-1.0/$subdir" \
+      || exit 1; \
+    dir1=$subdir; dir2="maken-1.0/$subdir"; \
+    dir0=`pwd`; sed_first='s,^\([^/]*\)/.*$,\1,'; sed_rest='s,^[^/]*/*,,'; sed_last='s,^.*/\([^/]*\)$,\1,'; sed_butlast='s,/*[^/]*$,,'; while test -n "$dir1"; do first=`echo "$dir1" | sed -e "$sed_first"`; if test "$first" != "."; then if test "$first" = ".."; then dir2=`echo "$dir0" | sed -e "$sed_last"`/"$dir2"; dir0=`echo "$dir0" | sed -e "$sed_butlast"`; else first2=`echo "$dir2" | sed -e "$sed_first"`; if test "$first2" = "$first"; then dir2=`echo "$dir2" | sed -e "$sed_rest"`; else dir2="../$dir2"; fi; dir0="$dir0"/"$first"; fi; fi; dir1=`echo "$dir1" | sed -e "$sed_rest"`; done; reldir="$dir2"; \
+    new_distdir=$reldir; \
+    dir1=$subdir; dir2="maken-1.0"; \
+    dir0=`pwd`; sed_first='s,^\([^/]*\)/.*$,\1,'; sed_rest='s,^[^/]*/*,,'; sed_last='s,^.*/\([^/]*\)$,\1,'; sed_butlast='s,/*[^/]*$,,'; while test -n "$dir1"; do first=`echo "$dir1" | sed -e "$sed_first"`; if test "$first" != "."; then if test "$first" = ".."; then dir2=`echo "$dir0" | sed -e "$sed_last"`/"$dir2"; dir0=`echo "$dir0" | sed -e "$sed_butlast"`; else first2=`echo "$dir2" | sed -e "$sed_first"`; if test "$first2" = "$first"; then dir2=`echo "$dir2" | sed -e "$sed_rest"`; else dir2="../$dir2"; fi; dir0="$dir0"/"$first"; fi; fi; dir1=`echo "$dir1" | sed -e "$sed_rest"`; done; reldir="$dir2"; \
+    new_top_distdir=$reldir; \
+    echo " (cd $subdir && make  top_distdir="$new_top_distdir" distdir="$new_distdir" \\"; \
+    echo "     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)"; \
+    (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && \
+      make  \
+        top_distdir="$new_top_distdir" \
+        distdir="$new_distdir" \
+	am__remove_distdir=: \
+	am__skip_length_check=: \
+	am__skip_mode_fix=: \
+        distdir) \
+      || exit 1; \
+  fi; \
+done
+ (cd sub && make  top_distdir=../maken-1.0 distdir=../maken-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken.dir/sub'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken.dir/sub'
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo ".." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./Makefile.in   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|../|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|../maken-1.0/sub/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "../maken-1.0/sub/$file"; then \
+      find "../maken-1.0/sub/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "../maken-1.0/sub$dir" || exit 1; \
+      find "../maken-1.0/sub/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "../maken-1.0/sub$dir" || exit 1; \
+  else \
+    test -f "../maken-1.0/sub/$file" \
+    || cp -p $d/$file "../maken-1.0/sub/$file" \
+    || exit 1; \
+  fi; \
+done
+make  \
+  top_distdir="../maken-1.0" distdir="../maken-1.0/sub" \
+  dist-hook
+make[5]: Entering directory '/sources/automake-1.16.1/t/maken.dir/sub'
+: > stamp-sub-dist-hook
+make[5]: Leaving directory '/sources/automake-1.16.1/t/maken.dir/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken.dir/sub'
+test -n "" \
+|| find "maken-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/maken.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "maken-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken.dir'
+tardir=maken-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >maken-1.0.tar.gz
+:
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken.dir'
+if test -d "maken-1.0"; then find "maken-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "maken-1.0" || { sleep 5 && rm -rf "maken-1.0"; }; else :; fi
+case 'maken-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc maken-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc maken-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc maken-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc maken-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c maken-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc maken-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip maken-1.0.zip ;;\
+esac
+chmod -R a-w maken-1.0
+chmod u+w maken-1.0
+mkdir maken-1.0/_build maken-1.0/_build/sub maken-1.0/_inst
+chmod a-w maken-1.0
+test -d maken-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd maken-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && make  distcheck-hook \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd maken-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf maken-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+if test -d "maken-1.0"; then find "maken-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "maken-1.0" || { sleep 5 && rm -rf "maken-1.0"; }; else :; fi
+(echo "maken-1.0 archives ready for distribution: "; \
+  list='maken-1.0.tar.gz'; for i in $list; do echo $i; done) | \
+  sed -e 1h -e 1s/./=/g -e 1p -e 1x -e '$p' -e '$x'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -n distcheck
++ grep stamp-sub-dist-hook
+: > stamp-sub-dist-hook
++ make test-no-distdir
+test ! -d maken-1.0
+test ! -f stamp-distcheck-hook
+test ! -f sub/stamp-sub-dist-hook
+++ find . -type f
++ is_newest stampfile ./compile ./config.status ./Makefile.in ./Makefile.am ./sub/Makefile.in ./sub/Makefile.am ./sub/Makefile ./config.log ./autom4te.cache/output.1 ./autom4te.cache/traces.0 ./autom4te.cache/requests ./autom4te.cache/output.0 ./autom4te.cache/traces.1 ./depcomp ./configure.ac ./Makefile ./configure ./install-sh ./aclocal.m4 ./stampfile ./missing sub
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/maken.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/maken.dir
++ set +x
+PASS t/maken.sh (exit status: 0)

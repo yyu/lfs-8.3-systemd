@@ -1,0 +1,1185 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/libobj16a.dir
++ mv configure.ac configure.proto
++ cat
++ cat
++ cat
++ cat
++ sed '/%LIBOBJ-STUFF%/{
+s/.*//
+i\
+AC_LIBOBJ([maude])
+}' configure.proto
++ cat configure.ac
+AC_INIT([libobj16a], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_PROG_CC
+AM_PROG_AR
+AC_PROG_RANLIB
+AC_LIBOBJ([maude])
+
+AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:5: installing './ar-lib'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"libobj16a\" -DPACKAGE_TARNAME=\"libobj16a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj16a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj16a\" -DVERSION=\"1.0\" -I.     -g -O2 -MT maude.o -MD -MP -MF .deps/maude.Tpo -c -o maude.o maude.c
+mv -f .deps/maude.Tpo .deps/maude.Po
+rm -f libtu.a
+ar cru libtu.a  maude.o
+ranlib libtu.a
++ make check
+make  check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+ls -l . . libobj16a-1.0
+.:
+total 380
+-rw-r--r-- 1 root root  20764 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20646 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9238 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29227 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 148839 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    140 Nov 27 06:42 configure.ac
+-rw-r--r-- 1 root root    162 Nov 27 06:42 configure.proto
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root     61 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root   2132 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rw-r--r-- 1 root root   2000 Nov 27 06:42 maude.o
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+.:
+total 380
+-rw-r--r-- 1 root root  20764 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20646 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9238 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29227 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 148839 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    140 Nov 27 06:42 configure.ac
+-rw-r--r-- 1 root root    162 Nov 27 06:42 configure.proto
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root     61 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root   2132 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rw-r--r-- 1 root root   2000 Nov 27 06:42 maude.o
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+libobj16a-1.0:
+total 296
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20646 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-rwxr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rwxr-xr-x 1 root root 148839 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    140 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root     61 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+ar tv libtu.a
+rw-r--r-- 0/0   2000 Nov 26 22:42 2018 maude.o
+grep dummy_maude ./maude.c
+extern int dummy_maude;
+grep dummy_maude libobj16a-1.0/maude.c
+extern int dummy_maude;
+ar t libtu.a | grep maude
+maude.o
+test ! -r libobj16a-1.0/liver.c
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+tardir=libobj16a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj16a-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+case 'libobj16a-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc libobj16a-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc libobj16a-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc libobj16a-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc libobj16a-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c libobj16a-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc libobj16a-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip libobj16a-1.0.zip ;;\
+esac
+chmod -R a-w libobj16a-1.0
+chmod u+w libobj16a-1.0
+mkdir libobj16a-1.0/_build libobj16a-1.0/_build/sub libobj16a-1.0/_inst
+chmod a-w libobj16a-1.0
+test -d libobj16a-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd libobj16a-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd libobj16a-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf libobj16a-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"libobj16a\" -DPACKAGE_TARNAME=\"libobj16a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj16a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj16a\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT maude.o -MD -MP -MF .deps/maude.Tpo -c -o maude.o ../../maude.c
+mv -f .deps/maude.Tpo .deps/maude.Po
+rm -f libtu.a
+ar cru libtu.a  maude.o
+ranlib libtu.a
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+ls -l ../.. . libobj16a-1.0
+.:
+total 80
+-rw-r--r-- 1 root root 21043 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root  9854 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root 29416 Nov 27 06:42 config.status
+drwxr-xr-x 2 root root  4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  2172 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root  2040 Nov 27 06:42 maude.o
+
+../..:
+total 304
+-r--r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  20646 Nov 27 06:42 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 _inst
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 148839 Nov 27 06:42 configure
+-r--r--r-- 1 root root    140 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r--r--r-- 1 root root     61 Nov 27 06:42 extra-checks.am
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r--r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+libobj16a-1.0:
+total 296
+-r--r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  20646 Nov 27 06:42 Makefile.in
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 148839 Nov 27 06:42 configure
+-r--r--r-- 1 root root    140 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r--r--r-- 1 root root     61 Nov 27 06:42 extra-checks.am
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r--r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+ar tv libtu.a
+rw-r--r-- 0/0   2040 Nov 26 22:42 2018 maude.o
+grep dummy_maude ../../maude.c
+extern int dummy_maude;
+grep dummy_maude libobj16a-1.0/maude.c
+extern int dummy_maude;
+ar t libtu.a | grep maude
+maude.o
+test ! -r libobj16a-1.0/liver.c
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+tardir=libobj16a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj16a-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f .deps/maude.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+===============================================
+libobj16a-1.0 archives ready for distribution: 
+libobj16a-1.0.tar.gz
+===============================================
++ make distclean
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f .deps/maude.Po
+rm -f Makefile
++ rm -rf autom4te.cache
++ cat
++ sed '/%LIBOBJ-STUFF%/{
+s/.*//
+i\
+AM_CONDITIONAL([MAUDE_COND], [test x"$MAUDE" = x"yes"])\
+if test x"$MAUDE" = x"yes"; then\
+  AC_LIBOBJ([maude])\
+else\
+  AC_LIBOBJ([liver])\
+fi\
+AC_LIBSOURCES([maude.c, liver.c])
+}' configure.proto
++ cat configure.ac
+AC_INIT([libobj16a], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_PROG_CC
+AM_PROG_AR
+AC_PROG_RANLIB
+AM_CONDITIONAL([MAUDE_COND], [test x"$MAUDE" = x"yes"])
+if test x"$MAUDE" = x"yes"; then
+  AC_LIBOBJ([maude])
+else
+  AC_LIBOBJ([liver])
+fi
+AC_LIBSOURCES([maude.c, liver.c])
+
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure MAUDE=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"libobj16a\" -DPACKAGE_TARNAME=\"libobj16a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj16a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj16a\" -DVERSION=\"1.0\" -I.     -g -O2 -MT maude.o -MD -MP -MF .deps/maude.Tpo -c -o maude.o maude.c
+mv -f .deps/maude.Tpo .deps/maude.Po
+rm -f libtu.a
+ar cru libtu.a  maude.o
+ranlib libtu.a
++ make check
+make  check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+ls -l . . libobj16a-1.0
+.:
+total 456
+-rw-r--r-- 1 root root  21003 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9287 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29301 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-rw-r--r-- 1 root root    162 Nov 27 06:42 configure.proto
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  77356 Nov 27 06:42 libobj16a-1.0.tar.gz
+-rw-r--r-- 1 root root   2132 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rw-r--r-- 1 root root   2000 Nov 27 06:42 maude.o
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+.:
+total 456
+-rw-r--r-- 1 root root  21003 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9287 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29301 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-rw-r--r-- 1 root root    162 Nov 27 06:42 configure.proto
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  77356 Nov 27 06:42 libobj16a-1.0.tar.gz
+-rw-r--r-- 1 root root   2132 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rw-r--r-- 1 root root   2000 Nov 27 06:42 maude.o
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+libobj16a-1.0:
+total 300
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-rwxr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rwxr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+ar tv libtu.a
+rw-r--r-- 0/0   2000 Nov 26 22:42 2018 maude.o
+grep dummy_maude ./maude.c
+extern int dummy_maude;
+grep dummy_maude libobj16a-1.0/maude.c
+extern int dummy_maude;
+grep dummy_liver ./liver.c
+extern int dummy_liver;
+grep dummy_liver libobj16a-1.0/liver.c
+extern int dummy_liver;
+ar t libtu.a | grep maude
+maude.o
+ar t libtu.a | grep liver && exit 1; exit 0
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+tardir=libobj16a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj16a-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+case 'libobj16a-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc libobj16a-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc libobj16a-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc libobj16a-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc libobj16a-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c libobj16a-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc libobj16a-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip libobj16a-1.0.zip ;;\
+esac
+chmod -R a-w libobj16a-1.0
+chmod u+w libobj16a-1.0
+mkdir libobj16a-1.0/_build libobj16a-1.0/_build/sub libobj16a-1.0/_inst
+chmod a-w libobj16a-1.0
+test -d libobj16a-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd libobj16a-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd libobj16a-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf libobj16a-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"libobj16a\" -DPACKAGE_TARNAME=\"libobj16a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj16a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj16a\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT liver.o -MD -MP -MF .deps/liver.Tpo -c -o liver.o ../../liver.c
+mv -f .deps/liver.Tpo .deps/liver.Po
+rm -f libtu.a
+ar cru libtu.a  liver.o
+ranlib libtu.a
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+ls -l ../.. . libobj16a-1.0
+.:
+total 80
+-rw-r--r-- 1 root root 21282 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root  9894 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root 29466 Nov 27 06:42 config.status
+drwxr-xr-x 2 root root  4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  2172 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root  2040 Nov 27 06:42 liver.o
+
+../..:
+total 308
+-r--r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 _inst
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-r--r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r--r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r--r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-r--r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+libobj16a-1.0:
+total 300
+-r--r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-r--r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r--r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r--r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-r--r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+ar tv libtu.a
+rw-r--r-- 0/0   2040 Nov 26 22:42 2018 liver.o
+grep dummy_maude ../../maude.c
+extern int dummy_maude;
+grep dummy_maude libobj16a-1.0/maude.c
+extern int dummy_maude;
+grep dummy_liver ../../liver.c
+extern int dummy_liver;
+grep dummy_liver libobj16a-1.0/liver.c
+extern int dummy_liver;
+ar t libtu.a | grep maude && exit 1; exit 0
+ar t libtu.a | grep liver
+liver.o
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+tardir=libobj16a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj16a-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f .deps/liver.Po
+rm -f .deps/maude.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+===============================================
+libobj16a-1.0 archives ready for distribution: 
+libobj16a-1.0.tar.gz
+===============================================
++ make distclean
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f .deps/liver.Po
+rm -f .deps/maude.Po
+rm -f Makefile
++ ./configure MAUDE=no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"libobj16a\" -DPACKAGE_TARNAME=\"libobj16a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj16a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj16a\" -DVERSION=\"1.0\" -I.     -g -O2 -MT liver.o -MD -MP -MF .deps/liver.Tpo -c -o liver.o liver.c
+mv -f .deps/liver.Tpo .deps/liver.Po
+rm -f libtu.a
+ar cru libtu.a  liver.o
+ranlib libtu.a
++ make check
+make  check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+ls -l . . libobj16a-1.0
+.:
+total 456
+-rw-r--r-- 1 root root  21003 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9286 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29299 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-rw-r--r-- 1 root root    162 Nov 27 06:42 configure.proto
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  77645 Nov 27 06:42 libobj16a-1.0.tar.gz
+-rw-r--r-- 1 root root   2132 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root   2000 Nov 27 06:42 liver.o
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+.:
+total 456
+-rw-r--r-- 1 root root  21003 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   9286 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29299 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-rw-r--r-- 1 root root    162 Nov 27 06:42 configure.proto
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  77645 Nov 27 06:42 libobj16a-1.0.tar.gz
+-rw-r--r-- 1 root root   2132 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root   2000 Nov 27 06:42 liver.o
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+libobj16a-1.0:
+total 300
+-rw-r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-rwxr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rwxr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rw-r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-rw-r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-rw-r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+ar tv libtu.a
+rw-r--r-- 0/0   2000 Nov 26 22:42 2018 liver.o
+grep dummy_maude ./maude.c
+extern int dummy_maude;
+grep dummy_maude libobj16a-1.0/maude.c
+extern int dummy_maude;
+grep dummy_liver ./liver.c
+extern int dummy_liver;
+grep dummy_liver libobj16a-1.0/liver.c
+extern int dummy_liver;
+ar t libtu.a | grep maude && exit 1; exit 0
+ar t libtu.a | grep liver
+liver.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+tardir=libobj16a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj16a-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+case 'libobj16a-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc libobj16a-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc libobj16a-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc libobj16a-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc libobj16a-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c libobj16a-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc libobj16a-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip libobj16a-1.0.zip ;;\
+esac
+chmod -R a-w libobj16a-1.0
+chmod u+w libobj16a-1.0
+mkdir libobj16a-1.0/_build libobj16a-1.0/_build/sub libobj16a-1.0/_inst
+chmod a-w libobj16a-1.0
+test -d libobj16a-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd libobj16a-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd libobj16a-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf libobj16a-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"libobj16a\" -DPACKAGE_TARNAME=\"libobj16a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"libobj16a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libobj16a\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT liver.o -MD -MP -MF .deps/liver.Tpo -c -o liver.o ../../liver.c
+mv -f .deps/liver.Tpo .deps/liver.Po
+rm -f libtu.a
+ar cru libtu.a  liver.o
+ranlib libtu.a
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+ls -l ../.. . libobj16a-1.0
+.:
+total 80
+-rw-r--r-- 1 root root 21282 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root  9894 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root 29466 Nov 27 06:42 config.status
+drwxr-xr-x 2 root root  4096 Nov 27 06:42 libobj16a-1.0
+-rw-r--r-- 1 root root  2172 Nov 27 06:42 libtu.a
+-rw-r--r-- 1 root root  2040 Nov 27 06:42 liver.o
+
+../..:
+total 308
+-r--r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:42 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 _inst
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-r--r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r--r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r--r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-r--r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+
+libobj16a-1.0:
+total 300
+-r--r--r-- 1 root root    772 Nov 27 06:42 Makefile.am
+-r--r--r-- 1 root root  20959 Nov 27 06:42 Makefile.in
+-r--r--r-- 1 root root  43878 Nov 27 06:42 aclocal.m4
+-r-xr-xr-x 1 1000  998   5827 Feb 26  2018 ar-lib
+-r-xr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-r-xr-xr-x 1 root root 149359 Nov 27 06:42 configure
+-r--r--r-- 1 root root    294 Nov 27 06:42 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-r--r--r-- 1 root root    162 Nov 27 06:42 extra-checks.am
+-r-xr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-r--r--r-- 1 root root     24 Nov 27 06:42 liver.c
+-r--r--r-- 1 root root     24 Nov 27 06:42 maude.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:42 missing
+ar tv libtu.a
+rw-r--r-- 0/0   2040 Nov 26 22:42 2018 liver.o
+grep dummy_maude ../../maude.c
+extern int dummy_maude;
+grep dummy_maude libobj16a-1.0/maude.c
+extern int dummy_maude;
+grep dummy_liver ../../liver.c
+extern int dummy_liver;
+grep dummy_liver libobj16a-1.0/liver.c
+extern int dummy_liver;
+ar t libtu.a | grep maude && exit 1; exit 0
+ar t libtu.a | grep liver
+liver.o
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+test -d "libobj16a-1.0" || mkdir "libobj16a-1.0"
+test -n "" \
+|| find "libobj16a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "libobj16a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+tardir=libobj16a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >libobj16a-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f .deps/liver.Po
+rm -f .deps/maude.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/libobj16a.dir/libobj16a-1.0/_build/sub'
+if test -d "libobj16a-1.0"; then find "libobj16a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "libobj16a-1.0" || { sleep 5 && rm -rf "libobj16a-1.0"; }; else :; fi
+===============================================
+libobj16a-1.0 archives ready for distribution: 
+libobj16a-1.0.tar.gz
+===============================================
++ make distclean
+test -z "libtu.a" || rm -f libtu.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f .deps/liver.Po
+rm -f .deps/maude.Po
+rm -f Makefile
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/libobj16a.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/libobj16a.dir
++ set +x
+PASS t/libobj16a.sh (exit status: 0)

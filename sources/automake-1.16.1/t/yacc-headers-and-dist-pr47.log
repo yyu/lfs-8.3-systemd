@@ -1,0 +1,142 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-headers-and-dist-pr47.dir
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make foo.h
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- yacc -d 
+updating foo.h
++ test -f foo.h
++ rm -f foo.h foo.c
++ make check-dist
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-headers-and-dist-pr47.dir'
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- yacc -d 
+updating foo.h
+if test -d "yacc-headers-and-dist-pr47-1.0"; then find "yacc-headers-and-dist-pr47-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-headers-and-dist-pr47-1.0" || { sleep 5 && rm -rf "yacc-headers-and-dist-pr47-1.0"; }; else :; fi
+test -d "yacc-headers-and-dist-pr47-1.0" || mkdir "yacc-headers-and-dist-pr47-1.0"
+test -n "" \
+|| find "yacc-headers-and-dist-pr47-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-headers-and-dist-pr47.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-headers-and-dist-pr47-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-headers-and-dist-pr47.dir'
+test -f yacc-headers-and-dist-pr47-1.0/foo.y
+test -f yacc-headers-and-dist-pr47-1.0/foo.c
+test -f yacc-headers-and-dist-pr47-1.0/foo.h
++ rm -f foo.h
++ make foo.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-headers-and-dist-pr47.dir'
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- yacc -d 
+updating foo.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-headers-and-dist-pr47.dir'
++ test -f foo.h
++ /bin/grep -F y.tab.h foo.h
++ make foo.c
+make: 'foo.c' is up to date.
++ test -f foo.h
++ test -f foo.c
++ make distclean
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
++ test -f foo.h
++ test -f foo.c
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f foo.c
+rm -f foo.h
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f ./.deps/foo.Po
+rm -f Makefile
++ test '!' -e foo.h
++ test '!' -e foo.c
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-headers-and-dist-pr47.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-headers-and-dist-pr47.dir
++ set +x
+PASS t/yacc-headers-and-dist-pr47.sh (exit status: 0)

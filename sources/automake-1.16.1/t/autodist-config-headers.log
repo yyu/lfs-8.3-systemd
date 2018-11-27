@@ -1,0 +1,113 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/autodist-config-headers.dir
++ cat
++ cat
++ mkdir sub
++ touch config.h.in config.h.top config.h.bot conf2.hin cfg2.h.top cfg2.h.bot sub/config.h.in sub/config.h.top sub/config.h.bot
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: creating sub/config.h
+config.status: creating cfg2.h
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/autodist-config-headers.dir'
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/autodist-config-headers.dir/missing autoheader)
+autoheader: WARNING: Using auxiliary files such as `acconfig.h', `config.h.bot'
+autoheader: WARNING: and `config.h.top', to define templates for `config.h.in'
+autoheader: WARNING: is deprecated and discouraged.
+autoheader: 
+autoheader: WARNING: Using the third argument of `AC_DEFINE' and
+autoheader: WARNING: `AC_DEFINE_UNQUOTED' allows one to define a template without
+autoheader: WARNING: `acconfig.h':
+autoheader: 
+autoheader: WARNING:   AC_DEFINE([NEED_FUNC_MAIN], 1,
+autoheader: 		[Define if a function `main' is needed.])
+autoheader: 
+autoheader: WARNING: More sophisticated templates can also be produced, see the
+autoheader: WARNING: documentation.
+rm -f stamp-h1
+touch config.h.in
+if test -d "autodist-config-headers-1.0"; then find "autodist-config-headers-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "autodist-config-headers-1.0" || { sleep 5 && rm -rf "autodist-config-headers-1.0"; }; else :; fi
+test -d "autodist-config-headers-1.0" || mkdir "autodist-config-headers-1.0"
+test -n "" \
+|| find "autodist-config-headers-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/autodist-config-headers.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "autodist-config-headers-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/autodist-config-headers.dir'
+ls -l autodist-config-headers-1.0 autodist-config-headers-1.0/sub
+autodist-config-headers-1.0:
+total 232
+-rw-r--r-- 1 root root    614 Nov 27 06:38 Makefile.am
+-rw-r--r-- 1 root root  21066 Nov 27 06:38 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:38 aclocal.m4
+-rw-r--r-- 1 root root      0 Nov 27 06:38 cfg2.h.bot
+-rw-r--r-- 1 root root      0 Nov 27 06:38 cfg2.h.top
+-rwxr-xr-x 1 root root   7383 Nov 27 06:38 compile
+-rw-r--r-- 1 root root      0 Nov 27 06:38 conf2.hin
+-rw-r--r-- 1 root root      0 Nov 27 06:38 config.h.bot
+-rw-r--r-- 1 root root    625 Nov 27 06:38 config.h.in
+-rw-r--r-- 1 root root      0 Nov 27 06:38 config.h.top
+-rwxr-xr-x 1 root root 108873 Nov 27 06:38 configure
+-rw-r--r-- 1 root root    157 Nov 27 06:38 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:38 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:38 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:38 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:38 sub
+
+autodist-config-headers-1.0/sub:
+total 0
+-rw-r--r-- 1 root root 0 Nov 27 06:38 config.h.bot
+-rw-r--r-- 1 root root 0 Nov 27 06:38 config.h.in
+-rw-r--r-- 1 root root 0 Nov 27 06:38 config.h.top
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top ' ' | grep '[ /]config\.h\.bot '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top  
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top ' ' | grep '[ /]config\.h\.top '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top  
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top ' ' | grep '[ /]cfg2\.h\.bot '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top  
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top ' ' | grep '[ /]cfg2\.h\.top '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top  
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top ' ' | grep '[ /]sub/config\.h\.bot '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top  
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top ' ' | grep '[ /]sub/config\.h\.top '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./conf2.hin ./config.h.in ./sub/config.h.in cfg2.h.bot cfg2.h.top compile config.h.bot config.h.top depcomp install-sh missing sub/config.h.bot sub/config.h.top  
+test -f autodist-config-headers-1.0/config.h.bot
+test -f autodist-config-headers-1.0/config.h.top
+test -f autodist-config-headers-1.0/cfg2.h.bot
+test -f autodist-config-headers-1.0/cfg2.h.top
+test -f autodist-config-headers-1.0/sub/config.h.bot
+test -f autodist-config-headers-1.0/sub/config.h.top
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/autodist-config-headers.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/autodist-config-headers.dir
++ set +x
+PASS t/autodist-config-headers.sh (exit status: 0)

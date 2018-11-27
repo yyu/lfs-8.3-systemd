@@ -1,0 +1,121 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/distcom2.dir
++ cat
++ cat
++ mkdir subdir
++ :
++ cat
++ aclocal-1.16 -Werror
++ for opt in '' --no-force
++ rm -f compile depcomp
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:4: installing './compile'
+subdir/Makefile.am: installing './depcomp'
++ test -f compile
++ test -f depcomp
++ for dir in . subdir
++ sed -n -e '
+      /^am__DIST_COMMON =.*/ {
+        b body
+        :loop
+        n
+        :body
+        p
+        s/\\$/\\/
+        t loop
+        s/$/ /
+        s/[	 ][	 ]*/ /g
+        p
+      }' ./Makefile.in
++ for dir in . subdir
++ sed -n -e '
+      /^am__DIST_COMMON =.*/ {
+        b body
+        :loop
+        n
+        :body
+        p
+        s/\\$/\\/
+        t loop
+        s/$/ /
+        s/[	 ][	 ]*/ /g
+        p
+      }' subdir/Makefile.in
++ cat dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing 
++ cat subdir/dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp 
++ /bin/grep -F ' $(top_srcdir)/depcomp ' subdir/dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp 
++ /bin/grep -F ' $(top_srcdir)/compile ' dc.txt
++ /bin/grep -F ' compile ' dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing 
++ for opt in '' --no-force
++ rm -f compile depcomp
++ automake-1.16 --foreign -Werror -Wall --no-force --add-missing
+configure.ac:4: installing './compile'
+subdir/Makefile.am: installing './depcomp'
++ test -f compile
++ test -f depcomp
++ for dir in . subdir
++ sed -n -e '
+      /^am__DIST_COMMON =.*/ {
+        b body
+        :loop
+        n
+        :body
+        p
+        s/\\$/\\/
+        t loop
+        s/$/ /
+        s/[	 ][	 ]*/ /g
+        p
+      }' ./Makefile.in
++ for dir in . subdir
++ sed -n -e '
+      /^am__DIST_COMMON =.*/ {
+        b body
+        :loop
+        n
+        :body
+        p
+        s/\\$/\\/
+        t loop
+        s/$/ /
+        s/[	 ][	 ]*/ /g
+        p
+      }' subdir/Makefile.in
++ cat dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing 
++ cat subdir/dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp 
++ /bin/grep -F ' $(top_srcdir)/depcomp ' subdir/dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp 
++ /bin/grep -F ' $(top_srcdir)/compile ' dc.txt
++ /bin/grep -F ' compile ' dc.txt
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing
+am__DIST_COMMON = $(srcdir)/Makefile.in compile install-sh missing 
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/distcom2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/distcom2.dir
++ set +x
+PASS t/distcom2.sh (exit status: 0)

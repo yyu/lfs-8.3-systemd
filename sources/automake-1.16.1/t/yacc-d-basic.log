@@ -1,0 +1,851 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-d-basic.dir
++ cat
++ cat
++ mkdir foo bar baz
++ cat
++ cp foo/Makefile.am bar/Makefile.am
++ cp foo/Makefile.am baz/Makefile.am
++ cat
++ sed -e 's/parse\.h/y.tab.h/'
++ cat
++ cp foo/main.c bar/main.c
++ sed 's/"parse\.h"/"zardoz-parse.h"/' foo/parse.y
++ sed 's/"parse\.h"/"zardoz-parse.h"/' foo/main.c
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ /bin/grep -F parse.h foo/Makefile.in bar/Makefile.in baz/Makefile.in
++ cat
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu foo/Makefile
++ sed 's/EOL$//'
++ automake-1.16 --foreign -Werror -Wall bar/Makefile
++ cat
++ automake-1.16 --foreign -Werror -Wall baz/Makefile
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo/Makefile
+config.status: creating bar/Makefile
+config.status: creating baz/Makefile
+config.status: executing depfiles commands
++ make
+Making all in foo
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+/bin/sh ../ylwrap parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  -d
+updating parse.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o zardoz parse.o main.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+Making all in bar
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+/bin/sh ../ylwrap parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc -d  
+updating parse.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o zardoz parse.o main.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+Making all in baz
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+\
+ \
+/bin/sh ../ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c zardoz-parse.c y.tab.h `echo zardoz-parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output zardoz-parse.output -- yacc -d	 
+updating zardoz-parse.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT zardoz-parse.o -MD -MP -MF .deps/zardoz-parse.Tpo -c -o zardoz-parse.o zardoz-parse.c
+mv -f .deps/zardoz-parse.Tpo .deps/zardoz-parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o zardoz zardoz-parse.o main.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
++ generated='
+  foo/parse.c
+  foo/parse.h
+  bar/parse.c
+  bar/parse.h
+  baz/zardoz-parse.c
+  baz/zardoz-parse.h
+'
++ for i in $generated
++ test -f foo/parse.c
++ for i in $generated
++ test -f foo/parse.h
++ for i in $generated
++ test -f bar/parse.c
++ for i in $generated
++ test -f bar/parse.h
++ for i in $generated
++ test -f baz/zardoz-parse.c
++ for i in $generated
++ test -f baz/zardoz-parse.h
++ grep Y_TAB_H foo/parse.c foo/parse.h bar/parse.c bar/parse.h baz/zardoz-parse.c baz/zardoz-parse.h
++ for dir in foo bar
++ cd foo
++ make echo-distcom
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap parse.c parse.h  
++ grep '[ /]parse.c '
++ make -s echo-distcom
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap parse.c parse.h  
++ make -s echo-distcom
++ grep '[ /]parse.h '
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap parse.c parse.h  
++ cd ..
++ for dir in foo bar
++ cd bar
++ make echo-distcom
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap parse.c parse.h  
++ grep '[ /]parse.c '
++ make -s echo-distcom
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap parse.c parse.h  
++ make -s echo-distcom
++ grep '[ /]parse.h '
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap parse.c parse.h  
++ cd ..
++ cd baz
++ make echo-distcom
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap zardoz-parse.c zardoz-parse.h  
++ grep '[ /]zardoz-parse.c '
++ make -s echo-distcom
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap zardoz-parse.c zardoz-parse.h  
++ make -s echo-distcom
++ grep '[ /]zardoz-parse.h '
+  ./Makefile.am ./Makefile.in ../depcomp ../ylwrap zardoz-parse.c zardoz-parse.h  
++ cd ..
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+if test -d "yacc-d-basic-1.0"; then find "yacc-d-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-basic-1.0" || { sleep 5 && rm -rf "yacc-d-basic-1.0"; }; else :; fi
+test -d "yacc-d-basic-1.0" || mkdir "yacc-d-basic-1.0"
+ (cd foo && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/foo \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+ (cd bar && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/bar \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+ (cd baz && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/baz \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+test -n "" \
+|| find "yacc-d-basic-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-d-basic.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-d-basic-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
++ ls -l yacc-d-basic-1.0
+total 292
+-rw-r--r-- 1 root root     22 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23767 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 bar
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 baz
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 142915 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    168 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 foo
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rwxr-xr-x 1 1000  998   6860 Mar  8  2018 ylwrap
++ for i in $generated
++ test -f yacc-d-basic-1.0/foo/parse.c
++ for i in $generated
++ test -f yacc-d-basic-1.0/foo/parse.h
++ for i in $generated
++ test -f yacc-d-basic-1.0/bar/parse.c
++ for i in $generated
++ test -f yacc-d-basic-1.0/bar/parse.h
++ for i in $generated
++ test -f yacc-d-basic-1.0/baz/zardoz-parse.c
++ for i in $generated
++ test -f yacc-d-basic-1.0/baz/zardoz-parse.h
++ yl_distcheck
++ useless_vpath_rebuild
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ am__useless_vpath_rebuild=no
++ return 1
++ run_make distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+if test -d "yacc-d-basic-1.0"; then find "yacc-d-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-basic-1.0" || { sleep 5 && rm -rf "yacc-d-basic-1.0"; }; else :; fi
+test -d "yacc-d-basic-1.0" || mkdir "yacc-d-basic-1.0"
+ (cd foo && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/foo \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+ (cd bar && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/bar \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+ (cd baz && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/baz \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+test -n "" \
+|| find "yacc-d-basic-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-d-basic.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-d-basic-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+tardir=yacc-d-basic-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-d-basic-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+if test -d "yacc-d-basic-1.0"; then find "yacc-d-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-basic-1.0" || { sleep 5 && rm -rf "yacc-d-basic-1.0"; }; else :; fi
+case 'yacc-d-basic-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc yacc-d-basic-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc yacc-d-basic-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc yacc-d-basic-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc yacc-d-basic-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c yacc-d-basic-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc yacc-d-basic-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip yacc-d-basic-1.0.zip ;;\
+esac
+chmod -R a-w yacc-d-basic-1.0
+chmod u+w yacc-d-basic-1.0
+mkdir yacc-d-basic-1.0/_build yacc-d-basic-1.0/_build/sub yacc-d-basic-1.0/_inst
+chmod a-w yacc-d-basic-1.0
+test -d yacc-d-basic-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd yacc-d-basic-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd yacc-d-basic-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf yacc-d-basic-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo/Makefile
+config.status: creating bar/Makefile
+config.status: creating baz/Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making all in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I. -I../../../foo     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o ../../../foo/parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I. -I../../../foo     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../../foo/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o zardoz parse.o main.o  
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making all in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I. -I../../../bar     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o ../../../bar/parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I. -I../../../bar     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../../bar/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o zardoz parse.o main.o  
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making all in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I. -I../../../baz     -g -O2 -MT zardoz-parse.o -MD -MP -MF .deps/zardoz-parse.Tpo -c -o zardoz-parse.o ../../../baz/zardoz-parse.c
+mv -f .deps/zardoz-parse.Tpo .deps/zardoz-parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-basic\" -DPACKAGE_TARNAME=\"yacc-d-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-basic\" -DVERSION=\"1.0\" -I. -I../../../baz     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../../baz/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o zardoz zardoz-parse.o main.o  
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making dvi in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making dvi in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making dvi in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making check in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making check in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making check in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Nothing to be done for 'check-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making install in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making install in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making install in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making installcheck in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making installcheck in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making installcheck in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making uninstall in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+ ( cd '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making uninstall in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+ ( cd '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making uninstall in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+ ( cd '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making install in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+ /tools/bin/mkdir -p '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making install in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+ /tools/bin/mkdir -p '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making install in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+ /tools/bin/mkdir -p '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making uninstall in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+ ( cd '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making uninstall in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+ ( cd '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making uninstall in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+ ( cd '/tmp/am-dc-12605//sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+if test -d "yacc-d-basic-1.0"; then find "yacc-d-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-basic-1.0" || { sleep 5 && rm -rf "yacc-d-basic-1.0"; }; else :; fi
+test -d "yacc-d-basic-1.0" || mkdir "yacc-d-basic-1.0"
+ (cd foo && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/foo \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+ (cd bar && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/bar \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+ (cd baz && make  top_distdir=../yacc-d-basic-1.0 distdir=../yacc-d-basic-1.0/baz \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+test -n "" \
+|| find "yacc-d-basic-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-d-basic-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+tardir=yacc-d-basic-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-d-basic-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+if test -d "yacc-d-basic-1.0"; then find "yacc-d-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-basic-1.0" || { sleep 5 && rm -rf "yacc-d-basic-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+Making distclean in foo
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../foo" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/foo'
+Making distclean in bar
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../bar" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/bar'
+Making distclean in baz
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../baz" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/zardoz-parse.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub/baz'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/yacc-d-basic-1.0/_build/sub'
+if test -d "yacc-d-basic-1.0"; then find "yacc-d-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-basic-1.0" || { sleep 5 && rm -rf "yacc-d-basic-1.0"; }; else :; fi
+==================================================
+yacc-d-basic-1.0 archives ready for distribution: 
+yacc-d-basic-1.0.tar.gz
+==================================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ make distclean
+Making distclean in foo
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+Making distclean in bar
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+Making distclean in baz
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/zardoz-parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ for i in $generated
++ test -f foo/parse.c
++ for i in $generated
++ test -f foo/parse.h
++ for i in $generated
++ test -f bar/parse.c
++ for i in $generated
++ test -f bar/parse.h
++ for i in $generated
++ test -f baz/zardoz-parse.c
++ for i in $generated
++ test -f baz/zardoz-parse.h
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo/Makefile
+config.status: creating bar/Makefile
+config.status: creating baz/Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+Making maintainer-clean in foo
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f parse.c
+rm -f parse.h
+test -z "parse.h" || rm -f parse.h
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/foo'
+Making maintainer-clean in bar
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f parse.c
+rm -f parse.h
+test -z "parse.h" || rm -f parse.h
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/bar'
+Making maintainer-clean in baz
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f zardoz-parse.c
+rm -f zardoz-parse.h
+test -z "zardoz-parse.h" || rm -f zardoz-parse.h
+rm -f ./.deps/main.Po
+rm -f ./.deps/zardoz-parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir/baz'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-basic.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ for i in $generated
++ test '!' -e foo/parse.c
++ for i in $generated
++ test '!' -e foo/parse.h
++ for i in $generated
++ test '!' -e bar/parse.c
++ for i in $generated
++ test '!' -e bar/parse.h
++ for i in $generated
++ test '!' -e baz/zardoz-parse.c
++ for i in $generated
++ test '!' -e baz/zardoz-parse.h
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-d-basic.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-d-basic.dir
++ set +x
+PASS t/yacc-d-basic.sh (exit status: 0)

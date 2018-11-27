@@ -1,0 +1,200 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/gnits2.dir
++ cat
++ cat
++ cat
++ cat
++ mkdir sub
++ cat
++ cat
++ chmod +x sub/scriptok.sh
++ chmod +x sub/scriptnok.sh
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ grep README-alpha Makefile.in
++ mkdir build
++ cd build
+++ pwd
++ ../configure --prefix=/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir --program-prefix=p
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make all
+cc -DPACKAGE_NAME=\"gnits2\" -DPACKAGE_TARNAME=\"gnits2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"gnits2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"gnits2\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT fubar.o -MD -MP -MF .deps/fubar.Tpo -c -o fubar.o ../fubar.c
+mv -f .deps/fubar.Tpo .deps/fubar.Po
+cc  -g -O2   -o fubar fubar.o  
+cc -DPACKAGE_NAME=\"gnits2\" -DPACKAGE_TARNAME=\"gnits2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"gnits2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"gnits2\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT fine.o -MD -MP -MF .deps/fine.Tpo -c -o fine.o ../fine.c
+mv -f .deps/fine.Tpo .deps/fine.Po
+cc  -g -O2   -o sub/fine fine.o  
+cc  -g -O2   -o sub/fubar3 fubar.o  
+cc  -g -O2   -o fubar2 fubar.o  
++ make test-install
+make[1]: Entering directory '/sources/automake-1.16.1/t/gnits2.dir/build'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin'
+  /usr/bin/install -c fubar '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/./pfubar'
+  /usr/bin/install -c sub/fine '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/./pfine'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin'
+ /usr/bin/install -c ../sub/scriptok.sh '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/./pscriptok.sh'
+ /usr/bin/install -c ../sub/scriptnok.sh '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/./pscriptnok.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/sub/'
+  /usr/bin/install -c sub/fubar3 '/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/sub//pfubar3'
+make[1]: Nothing to be done for 'install-data-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/gnits2.dir/build'
+test -f ../inst-dir/bin/pfine
+test ! -f ../inst-dir/bin/fine
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ status=FAIL
++ run_make -e FAIL -E -- -k installcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -k installcheck
++ set +x
+bad=0; pid=$$; list="fubar sub/fine"; for p in $list; do \
+  case '  ' in \
+   *" $p "* | *" ../$p "*) continue;; \
+  esac; \
+  f=`echo "$p" | \
+     sed 's,^.*/,,;s/$//;s&^&p&;s/$//'`; \
+  for opt in --help --version; do \
+    if "/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/$f" $opt >c${pid}_.out \
+         2>c${pid}_.err </dev/null \
+	 && test -n "`cat c${pid}_.out`" \
+	 && test -z "`cat c${pid}_.err`"; then :; \
+    else echo "$f does not support $opt" 1>&2; bad=1; fi; \
+  done; \
+done; rm -f c${pid}_.???; exit $bad
+bad=0; pid=$$; list="sub/scriptok.sh sub/scriptnok.sh"; for p in $list; do \
+  case '  ' in \
+   *" $p "* | *" ../$p "*) continue;; \
+  esac; \
+  f=`echo "$p" | sed 's,^.*/,,;s&^&p&'`; \
+  for opt in --help --version; do \
+    if "/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/$f" $opt >c${pid}_.out \
+         2>c${pid}_.err </dev/null \
+	 && test -n "`cat c${pid}_.out`" \
+	 && test -z "`cat c${pid}_.err`"; then :; \
+    else echo "$f does not support $opt" 1>&2; bad=1; fi; \
+  done; \
+done; rm -f c${pid}_.???; exit $bad
+bad=0; pid=$$; list="sub/fubar3"; for p in $list; do \
+  case '  ' in \
+   *" $p "* | *" ../$p "*) continue;; \
+  esac; \
+  f=`echo "$p" | \
+     sed 's,^.*/,,;s/$//;s&^&p&;s/$//'`; \
+  f=`echo "$p" | sed 's|[^/]*$||'`"$f"; \
+  for opt in --help --version; do \
+    if "/sources/automake-1.16.1/t/gnits2.dir/build/../inst-dir/bin/$f" $opt >c${pid}_.out \
+         2>c${pid}_.err </dev/null \
+	 && test -n "`cat c${pid}_.out`" \
+	 && test -z "`cat c${pid}_.err`"; then :; \
+    else echo "$f does not support $opt" 1>&2; bad=1; fi; \
+  done; \
+done; rm -f c${pid}_.???; exit $bad
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
+pfubar does not support --help
+pfubar does not support --version
+make: *** [Makefile:398: installcheck-binPROGRAMS] Error 1
+pscriptnok.sh does not support --help
+pscriptnok.sh does not support --version
+make: *** [Makefile:536: installcheck-binSCRIPTS] Error 1
+sub/pfubar3 does not support --help
+sub/pfubar3 does not support --version
+make: *** [Makefile:462: installcheck-nobase_binPROGRAMS] Error 1
+make: Target 'installcheck' not remade because of errors.
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ make grep-stderr
+grep 'pfubar does not support' stderr
+pfubar does not support --help
+pfubar does not support --version
+grep 'pfubar3 does not support' stderr
+sub/pfubar3 does not support --help
+sub/pfubar3 does not support --version
+grep 'pscriptnok\.sh does not support' stderr
+pscriptnok.sh does not support --help
+pscriptnok.sh does not support --version
+test `grep 'does not support --help' stderr | wc -l` = 3
+test `grep 'does not support --version' stderr | wc -l` = 3
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/gnits2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/gnits2.dir
++ set +x
+PASS t/gnits2.sh (exit status: 0)

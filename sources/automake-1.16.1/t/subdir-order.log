@@ -1,0 +1,296 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subdir-order.dir
++ cat
++ mkdir sub0 sub1 sub2 sub3 sub3/a sub3/b
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ echo dummy:
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ jobs=-j12
++ rm -f Makefile
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -c --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub3/a/Makefile
+config.status: creating sub3/b/Makefile
++ for j in '' "$jobs"
++ test x = xnone
++ make
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+test ! -f ../run
+test ! -f ../sub0/run
+test ! -f ../sub1/run
+test ! -f ../sub3/run
+test ! -f ../sub3/a/run
+test ! -f ../sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+test ! -f ../run
+test ! -f ../sub0/run
+test -f ../sub2/run
+test ! -f ../sub3/run
+test ! -f ../sub3/a/run
+test ! -f ../sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+Making all in sub3
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making all in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+test ! -f ../../run
+test ! -f ../../sub0/run
+test -f ../../sub1/run
+test ! -f ../../sub3/b/run
+test ! -f ../../sub3/run
+test ! -f run
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+Making all in .
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+test ! -f ../run
+test ! -f ../sub0/run
+test -f ../sub1/run
+test ! -f ../sub3/a/run
+test -f ../sub3/b/run
+test ! -f run
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making all in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+test ! -f ../../run
+test ! -f ../../sub0/run
+test -f ../../sub1/run
+test -f ../../sub3/b/run
+test -f ../../sub3/run
+test ! -f run
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making all in sub0
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+test ! -f ../run
+test -f ../sub1/run
+test -f ../sub3/run
+test -f ../sub3/a/run
+test -f ../sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir'
+test -f sub0/run
+test -f sub1/run
+test -f sub2/run
+test -f sub3/run
+test -f sub3/a/run
+test -f sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir'
++ test -f run
++ test -f sub0/run
++ test -f sub1/run
++ test -f sub3/run
++ test -f sub3/a/run
++ test -f sub3/b/run
++ make clean
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+Making clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+Making clean in sub3
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making clean in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+make[2]: Nothing to be done for 'clean'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+Making clean in .
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+make[2]: Nothing to be done for 'clean-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making clean in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+make[2]: Nothing to be done for 'clean'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making clean in sub0
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir'
+test -z "run sub0/run sub1/run sub2/run sub3/run sub3/a/run sub3/b/run" || rm -f run sub0/run sub1/run sub2/run sub3/run sub3/a/run sub3/b/run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir'
++ find .
++ grep 'run$'
++ :
++ for j in '' "$jobs"
++ test x-j12 = xnone
++ make -j12
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+test ! -f ../run
+test ! -f ../sub0/run
+test ! -f ../sub1/run
+test ! -f ../sub3/run
+test ! -f ../sub3/a/run
+test ! -f ../sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+test ! -f ../run
+test ! -f ../sub0/run
+test -f ../sub2/run
+test ! -f ../sub3/run
+test ! -f ../sub3/a/run
+test ! -f ../sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+Making all in sub3
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making all in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+test ! -f ../../run
+test ! -f ../../sub0/run
+test -f ../../sub1/run
+test ! -f ../../sub3/b/run
+test ! -f ../../sub3/run
+test ! -f run
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+Making all in .
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+test ! -f ../run
+test ! -f ../sub0/run
+test -f ../sub1/run
+test ! -f ../sub3/a/run
+test -f ../sub3/b/run
+test ! -f run
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making all in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+test ! -f ../../run
+test ! -f ../../sub0/run
+test -f ../../sub1/run
+test -f ../../sub3/b/run
+test -f ../../sub3/run
+test ! -f run
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making all in sub0
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+test ! -f ../run
+test -f ../sub1/run
+test -f ../sub3/run
+test -f ../sub3/a/run
+test -f ../sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir'
+test -f sub0/run
+test -f sub1/run
+test -f sub2/run
+test -f sub3/run
+test -f sub3/a/run
+test -f sub3/b/run
+test ! -f run
+: > run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir'
++ test -f run
++ test -f sub0/run
++ test -f sub1/run
++ test -f sub3/run
++ test -f sub3/a/run
++ test -f sub3/b/run
++ make clean
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub2'
+Making clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub1'
+Making clean in sub3
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making clean in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+make[2]: Nothing to be done for 'clean'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/b'
+Making clean in .
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+make[2]: Nothing to be done for 'clean-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making clean in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+make[2]: Nothing to be done for 'clean'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3/a'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub3'
+Making clean in sub0
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir/sub0'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-order.dir'
+test -z "run sub0/run sub1/run sub2/run sub3/run sub3/a/run sub3/b/run" || rm -f run sub0/run sub1/run sub2/run sub3/run sub3/a/run sub3/b/run
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-order.dir'
++ find .
++ grep 'run$'
++ :
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subdir-order.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subdir-order.dir
++ set +x
+PASS t/subdir-order.sh (exit status: 0)

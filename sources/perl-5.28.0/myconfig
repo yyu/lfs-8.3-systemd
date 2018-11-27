@@ -11,14 +11,14 @@ Summary of my perl5 (revision 5 version 28 subversion 0) configuration:
   Platform:
     osname=linux
     osvers=4.15.0-1021-aws
-    archname=x86_64-linux
+    archname=x86_64-linux-thread-multi
     uname='linux ip-172-31-5-17 4.15.0-1021-aws #21-ubuntu smp tue aug 28 10:23:07 utc 2018 x86_64 gnulinux '
-    config_args='-des -Dprefix=/tools -Dlibs=-lm -Uloclibpth -Ulocincpth'
+    config_args='-des -Dprefix=/usr -Dvendorprefix=/usr -Dman1dir=/usr/share/man/man1 -Dman3dir=/usr/share/man/man3 -Dpager=/usr/bin/less -isR -Duseshrplib -Dusethreads'
     hint=recommended
     useposix=true
     d_sigaction=define
-    useithreads=undef
-    usemultiplicity=undef
+    useithreads=define
+    usemultiplicity=define
     use64bitint=define
     use64bitall=define
     uselongdouble=undef
@@ -27,9 +27,9 @@ Summary of my perl5 (revision 5 version 28 subversion 0) configuration:
     bincompat5005=undef
   Compiler:
     cc='cc'
-    ccflags ='-fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+    ccflags ='-D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
     optimize='-O2'
-    cppflags='-fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong'
+    cppflags='-D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -I/usr/local/include'
     ccversion=''
     gccversion='8.2.0'
     gccosandvers=''
@@ -53,22 +53,22 @@ Summary of my perl5 (revision 5 version 28 subversion 0) configuration:
     alignbytes=8
     prototype=
   Linker and Libraries:
-    ld='ld'
-    ldflags =' -fstack-protector-strong'
-    libpth=/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/include-fixed /tools/lib /lib/x86_64-linux-gnu /lib/../lib /usr/lib/x86_64-linux-gnu /usr/lib/../lib /lib /usr/lib /usr/local/lib
-    libs=-lm
-    perllibs=-lm
-    libc=libc-2.27.so
+    ld='cc'
+    ldflags =' -fstack-protector-strong -L/usr/local/lib'
+    libpth=/usr/local/lib /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/include-fixed /usr/lib /lib/../lib /usr/lib/../lib /lib
+    libs=-lpthread -lgdbm -ldl -lm -lcrypt -lutil -lc -lgdbm_compat
+    perllibs=-lpthread -ldl -lm -lcrypt -lutil -lc
+    libc=libc-2.28.so
     so=so
-    useshrplib=false
-    libperl=libperl.a
+    useshrplib=true
+    libperl=libperl.so
     gnulibc_version='2.28'
   Dynamic Linking:
-    dlsrc=dl_none.xs
-    dlext=none
+    dlsrc=dl_dlopen.xs
+    dlext=so
     d_dlsymun=undef
-    ccdlflags=''
-    cccdlflags=''
-    lddlflags=''
+    ccdlflags='-Wl,-E -Wl,-rpath,/usr/lib/perl5/5.28.0/x86_64-linux-thread-multi/CORE'
+    cccdlflags='-fPIC'
+    lddlflags='-shared -O2 -L/usr/local/lib -fstack-protector-strong'
 
 !NO!SUBS!

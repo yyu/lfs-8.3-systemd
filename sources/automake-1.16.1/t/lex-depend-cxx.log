@@ -1,0 +1,104 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lex-depend-cxx.dir
++ cat
++ cat
++ cat
++ cp joe.ll moe.l++
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ /bin/grep -F joe.Po Makefile.in
+am__depfiles_remade = ./$(DEPDIR)/joe.Po ./$(DEPDIR)/moe.Po
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/joe.Po@am__quote@ # am--include-marker
+		-rm -f ./$(DEPDIR)/joe.Po
+		-rm -f ./$(DEPDIR)/joe.Po
+	test -f $(DEPDIR)/joe.Po
++ /bin/grep -F moe.Po Makefile.in
+am__depfiles_remade = ./$(DEPDIR)/joe.Po ./$(DEPDIR)/moe.Po
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/moe.Po@am__quote@ # am--include-marker
+	-rm -f ./$(DEPDIR)/moe.Po
+	-rm -f ./$(DEPDIR)/moe.Po
+	test -f $(DEPDIR)/moe.Po
++ autoconf
++ ./configure --enable-dependency-tracking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for flex... lex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+++ find . -name '*.Po'
++ for f in $(find . -name '*.Po')
++ cat ./.deps/moe.Po
+# dummy
++ for f in $(find . -name '*.Po')
++ cat ./.deps/joe.Po
+# dummy
++ make test-deps-exist
+ls -l .deps ;: For debugging.
+total 8
+-rw-r--r-- 1 root root 8 Nov 27 06:42 joe.Po
+-rw-r--r-- 1 root root 8 Nov 27 06:42 moe.Po
+test -f .deps/joe.Po
+test -f .deps/moe.Po
++ make
+/bin/sh ./ylwrap joe.ll lex.yy.c joe.cc -- lex  
+c++ -DPACKAGE_NAME=\"lex-depend-cxx\" -DPACKAGE_TARNAME=\"lex-depend-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-depend-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-depend-cxx\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT joe.o -MD -MP -MF .deps/joe.Tpo -c -o joe.o joe.cc
+mv -f .deps/joe.Tpo .deps/joe.Po
+c++  -g -O2   -o joe joe.o -lfl 
+/bin/sh ./ylwrap moe.l++ lex.yy.c moe.c++ -- lex  
+c++ -DPACKAGE_NAME=\"lex-depend-cxx\" -DPACKAGE_TARNAME=\"lex-depend-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-depend-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-depend-cxx\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT moe.o -MD -MP -MF .deps/moe.Tpo -c -o moe.o moe.c++
+mv -f .deps/moe.Tpo .deps/moe.Po
+c++  -g -O2   -o moe moe.o -lfl 
++ sleep 2
++ touch my-hdr.hxx
++ make test-obj-updated
+c++ -DPACKAGE_NAME=\"lex-depend-cxx\" -DPACKAGE_TARNAME=\"lex-depend-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-depend-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-depend-cxx\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT joe.o -MD -MP -MF .deps/joe.Tpo -c -o joe.o joe.cc
+mv -f .deps/joe.Tpo .deps/joe.Po
+c++ -DPACKAGE_NAME=\"lex-depend-cxx\" -DPACKAGE_TARNAME=\"lex-depend-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-depend-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-depend-cxx\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT moe.o -MD -MP -MF .deps/moe.Tpo -c -o moe.o moe.c++
+mv -f .deps/moe.Tpo .deps/moe.Po
+is_newest joe.o my-hdr.hxx
+is_newest moe.o my-hdr.hxx
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/lex-depend-cxx.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/lex-depend-cxx.dir
++ set +x
+PASS t/lex-depend-cxx.sh (exit status: 0)

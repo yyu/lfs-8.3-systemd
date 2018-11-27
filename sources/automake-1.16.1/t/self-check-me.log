@@ -1,0 +1,492 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ plan_ 12
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x12 = xunknown
++ test x12 = xlater
++ test x12 = xlazy
++ test x12 = xnow
++ test 12 -ge 0
++ planned_=12
++ echo 1..12
+1..12
++ set +e
++ for e in sh tap
++ do_check foo-bar-.sh foo-bar-
++ grep '^me=foo-bar-$'
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' foo-bar-.sh
+++ pwd
++ echo me=foo-bar-
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=foo-bar-
++ command_ok_ me=foo-bar-.sh test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=foo-bar-.sh
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=foo-bar-.sh
++ set +x
+ok 1 - me=foo-bar-.sh
+PASS: t/self-check-me.tap 1 - me=foo-bar-.sh
++ do_check _foo__bar.sh _foo__bar
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' _foo__bar.sh
++ grep '^me=_foo__bar$'
+++ pwd
++ echo me=_foo__bar
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=_foo__bar
++ command_ok_ me=_foo__bar.sh test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=_foo__bar.sh
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=_foo__bar.sh
++ set +x
+ok 2 - me=_foo__bar.sh
+PASS: t/self-check-me.tap 2 - me=_foo__bar.sh
++ do_check 012.sh 012
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' 012.sh
++ grep '^me=012$'
+++ pwd
++ echo me=012
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=012
++ command_ok_ me=012.sh test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=012.sh
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=012.sh
++ set +x
+ok 3 - me=012.sh
+PASS: t/self-check-me.tap 3 - me=012.sh
++ do_check a.b.c.sh 'a\.b\.c'
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' a.b.c.sh
++ grep '^me=a\.b\.c$'
+++ pwd
++ echo me=a.b.c
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=a.b.c
++ command_ok_ me=a.b.c.sh test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=a.b.c.sh
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=a.b.c.sh
++ set +x
+ok 4 - me=a.b.c.sh
+PASS: t/self-check-me.tap 4 - me=a.b.c.sh
++ for e in sh tap
++ do_check foo-bar-.tap foo-bar-
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' foo-bar-.tap
++ grep '^me=foo-bar-$'
+++ pwd
++ echo me=foo-bar-
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test none = later
++ test 0 -eq 0
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=foo-bar-
++ command_ok_ me=foo-bar-.tap test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=foo-bar-.tap
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=foo-bar-.tap
++ set +x
+ok 5 - me=foo-bar-.tap
+PASS: t/self-check-me.tap 5 - me=foo-bar-.tap
++ do_check _foo__bar.tap _foo__bar
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' _foo__bar.tap
++ grep '^me=_foo__bar$'
+++ pwd
++ echo me=_foo__bar
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test none = later
++ test 0 -eq 0
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=_foo__bar
++ command_ok_ me=_foo__bar.tap test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=_foo__bar.tap
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=_foo__bar.tap
++ set +x
+ok 6 - me=_foo__bar.tap
+PASS: t/self-check-me.tap 6 - me=_foo__bar.tap
++ do_check 012.tap 012
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' 012.tap
++ grep '^me=012$'
+++ pwd
++ echo me=012
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test none = later
++ test 0 -eq 0
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=012
++ command_ok_ me=012.tap test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=012.tap
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=012.tap
++ set +x
+ok 7 - me=012.tap
+PASS: t/self-check-me.tap 7 - me=012.tap
++ do_check a.b.c.tap 'a\.b\.c'
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' a.b.c.tap
++ grep '^me=a\.b\.c$'
+++ pwd
++ echo me=a.b.c
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test none = later
++ test 0 -eq 0
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=a.b.c
++ command_ok_ me=a.b.c.tap test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=a.b.c.tap
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=a.b.c.tap
++ set +x
+ok 8 - me=a.b.c.tap
+PASS: t/self-check-me.tap 8 - me=a.b.c.tap
++ do_check foo.bar 'foo\.bar'
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' foo.bar
++ grep '^me=foo\.bar$'
+++ pwd
++ echo me=foo.bar
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=foo.bar
++ command_ok_ me=foo.bar test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=foo.bar
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=foo.bar
++ set +x
+ok 9 - me=foo.bar
+PASS: t/self-check-me.tap 9 - me=foo.bar
++ do_check abc. 'abc\.'
++ /bin/sh -c '
+    am_create_testdir=no # Do not pollute the top-level directory.
+   . test-init.sh
+    echo me=$me
+  ' abc.
++ grep '^me=abc\.$'
+++ pwd
++ echo me=abc.
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+me=abc.
++ command_ok_ me=abc. test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=me=abc.
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- me=abc.
++ set +x
+ok 10 - me=abc.
+PASS: t/self-check-me.tap 10 - me=abc.
+++ me=bad
+++ /bin/sh -c '
+  # Do not pollute the top-level directory.
+  am_create_testdir=no
+ . test-init.sh
+  echo me=$me
+' foo.sh
+++ pwd
++ echo me=foo
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
++ s='Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+/sources/automake-1.16.1
+me=foo'
++ command_ok_ 'override of $me before test-init.sh causes no error' test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='override of $me before test-init.sh causes no error'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'override of $me before test-init.sh causes no error'
++ set +x
+ok 11 - override of $me before test-init.sh causes no error
+PASS: t/self-check-me.tap 11 - override of $me before test-init.sh causes no error
++ r=ok
++ printf '%s\n' 'Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+/sources/automake-1.16.1
+me=foo'
++ grep '^me=foo$'
+me=foo
++ printf '%s\n' 'Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+/sources/automake-1.16.1
+me=foo'
++ grep me=bad
++ result_ ok '$me from the environment is ignored'
++ set +x
+ok 12 - $me from the environment is ignored
+PASS: t/self-check-me.tap 12 - $me from the environment is ignored
++ unset r
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 12 = later
++ test 0 -eq 0
++ test 12 -eq 12
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x

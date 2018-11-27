@@ -1,0 +1,32 @@
+#                             -*- compilation -*-
+114. lalib-syntax.at:24: testing syntax of .la files ...
+./lalib-syntax.at:77: case $LIBLTDL in #(
+ */_inst/lib/*) test -f "$LIBLTDL" || (exit 77) ;;
+esac
+stdout:
+./lalib-syntax.at:81: $CC $CPPFLAGS $CFLAGS -c main.c
+stderr:
+stdout:
+./lalib-syntax.at:83: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c module.c
+stderr:
+stdout:
+libtool: compile:  gcc -I/sources/libtool-2.4.6/libltdl -g -O2 -c module.c  -fPIC -DPIC -o .libs/module.o
+libtool: compile:  gcc -I/sources/libtool-2.4.6/libltdl -g -O2 -c module.c -o module.o >/dev/null 2>&1
+./lalib-syntax.at:85: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o module.la module.lo 	 -module -avoid-version -rpath /somewhere
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/module.o    -g -O2   -Wl,-soname -Wl,module.so -o .libs/module.so
+libtool: link: ar cru .libs/module.a  module.o
+libtool: link: ranlib .libs/module.a
+libtool: link: ( cd ".libs" && rm -f "module.la" && ln -s "../module.la" "module.la" )
+./lalib-syntax.at:87: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o main main.$OBJEXT $LIBLTDL
+stderr:
+stdout:
+libtool: link: gcc -g -O2 -o main main.o  /sources/libtool-2.4.6/libltdl/.libs/dlopen.a /sources/libtool-2.4.6/tests/../libltdl/.libs/libltdlc.a -ldl
+./lalib-syntax.at:133: if "$lt_exe" $file; then :; else lt_status=$?; 	   test "$lt_status" != 1 && 	   test "X$host" != "X$build" && test -x "$lt_exe" && exit 77; 	   exit $lt_status; fi
+stderr:
+main: main.c:27: main: Assertion `error != NULL' failed.
+/sources/libtool-2.4.6/tests/testsuite.dir/at-groups/114/test-source: line 178: 11728 Aborted                 (core dumped) "$lt_exe" $file
+stdout:
+./lalib-syntax.at:133: exit code was 134, expected 1
+114. lalib-syntax.at:24: 114. syntax of .la files (lalib-syntax.at:24): expected failure (lalib-syntax.at:133)

@@ -1,0 +1,65 @@
+./t/exeext4-w.sh: will source ./t/exeext4.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/exeext4-w.dir
+++ cat
+++ cat
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
+++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ make test-nocond
+is prg1.x prg2.x prg1.x prg2.x prg3.x   == prg1.x prg2.x prg1.x prg2.x prg3.x
+is prg1.x prg2.x prg3.x == prg1.x prg2.x prg3.x
+is prg1.x prg3.x prg4  == prg1.x prg3.x prg4
+++ ./configure cond=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ make test-cond
+is prg1.x prg2.x prg1.x prg2.x prg3.x bar.x baz.x == prg1.x prg2.x prg1.x prg2.x prg3.x bar.x baz.x
+is prg1.x prg2.x prg3.x == prg1.x prg2.x prg3.x
+is prg1.x prg3.x prg4 baz.x bar.x == prg1.x prg3.x prg4 baz.x bar.x
+is bar baz bar == bar baz bar
++++ grep -c '__EXEEXT_. =' Makefile.in
+++ test 2 -eq 2
+++ grep 'am__EXEEXT_2 = .*am__EXEEXT_1' Makefile.in
+@COND_TRUE@am__EXEEXT_2 = baz$(EXEEXT) $(am__EXEEXT_1)
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/exeext4-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/exeext4-w.dir
++ set +x
+PASS t/exeext4-w.sh (exit status: 0)

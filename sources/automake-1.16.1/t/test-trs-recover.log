@@ -1,0 +1,695 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-trs-recover.dir
++ cat
++ cat
++ echo 'exit $TEST_STATUS'
++ echo 'exit $TEST_STATUS'
++ :
++ TEST_STATUS=0
++ export TEST_STATUS
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ : Create the required log files.
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+PASS: bar.test
+PASS: baz.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ : Recreate by hand.
++ rm -f foo.trs bar.trs baz.trs
++ make foo.trs
+rm -f foo.log foo.trs
+make  foo.log
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test -f foo.trs
++ test '!' -e bar.trs
++ test '!' -e baz.trs
++ : Recreate by hand, several at the same time.
++ rm -f foo.trs bar.trs baz.trs
++ make foo.trs bar.trs
+rm -f foo.log foo.trs
+make  foo.log
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+rm -f bar.log bar.trs
+make  bar.log
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: bar.test
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test -f foo.trs
++ test -f bar.trs
++ test '!' -e baz.trs
++ : Recreate by hand, with a failing test.
++ rm -f foo.trs bar.trs
++ run_make -O TEST_STATUS=1 bar.trs baz.trs
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_STATUS=1 bar.trs baz.trs
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+rm -f bar.log bar.trs
+make  bar.log
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+FAIL: bar.test
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+rm -f baz.log baz.trs
+make  baz.log
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: baz.test
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test '!' -e foo.trs
++ test -f bar.trs
++ test -f baz.trs
++ grep '^FAIL: bar\.test' stdout
+FAIL: bar.test
++ /bin/grep -E '^(baz|foo)\.test' stdout
++ : Recreate with a sweeping 'make check,' and ensure that also up-to-date
++ : .trs files are remade.
++ update_stamp
++ sleep 2
++ touch stamp
++ sleep 2
++ rm -f foo.trs bar.trs
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+PASS: bar.test
+PASS: baz.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test -f foo.trs
++ test -f bar.trs
++ is_newest baz.trs stamp
++ : Recreate with a sweeping 'make check' with failing tests. Again,
++ : ensure that also up-to-date .trs files are remade -- this time we
++ : grep the 'make check' output verify that.
++ rm -f foo.trs bar.trs
++ run_make -O -e FAIL TEST_STATUS=1 check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_STATUS=1 check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+FAIL: foo.test
+FAIL: bar.test
+PASS: baz.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  2
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test -f foo.trs
++ test -f bar.trs
++ grep '^FAIL: foo\.test' stdout
+FAIL: foo.test
++ grep '^FAIL: bar\.test' stdout
+FAIL: bar.test
++ grep '^PASS: baz\.test' stdout
+PASS: baz.test
++ : Recreate with a 'make check' with redefined TESTS.
++ rm -f foo.trs bar.trs baz.trs
++ run_make TESTS=foo.test check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=foo.test check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ test '!' -e bar.trs
++ test '!' -e baz.trs
++ : Recreate with a 'make check' with redefined TEST_LOGS.
++ rm -f foo.trs bar.trs baz.trs
++ run_make TEST_LOGS=bar.log check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_LOGS=bar.log check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: bar.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test '!' -e foo.trs
++ test -f bar.trs
++ test '!' -e baz.trs
++ : Interactions with 'make recheck' are OK.
++ rm -f foo.trs bar.trs baz.log baz.trs
++ run_make -O recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+PASS: bar.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ test -f bar.trs
++ test '!' -e baz.trs
++ test '!' -e baz.log
++ grep '^PASS: foo\.test' stdout
+PASS: foo.test
++ grep '^PASS: bar\.test' stdout
+PASS: bar.test
++ grep 'baz\.test' stdout
++ count_test_results total=2 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=0
+++ total=2
+++ pass=2
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: foo.test
+PASS: bar.test
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Setup for the next check.
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+PASS: bar.test
+PASS: baz.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test -f foo.trs
++ test -f bar.trs
++ test -f baz.trs
++ : Recreate by remaking the global test log, and ensure that up-to-date
++ : .trs files are '*not*' remade.
++ update_stamp
++ sleep 2
++ touch stamp
++ sleep 2
++ rm -f foo.trs bar.trs test-suite.log
++ run_make -O test-suite.log
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make test-suite.log
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+PASS: bar.test
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep '^PASS: foo\.test' stdout
+PASS: foo.test
++ grep '^PASS: bar\.test' stdout
+PASS: bar.test
++ grep 'baz\.test' stdout
++ stat bar.trs baz.trs foo.trs bar.log baz.log config.log foo.log test-suite.log stamp
+  File: bar.trs
+  Size: 82        	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345600     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:20.884418515 +0000
+Modify: 2018-11-27 06:45:20.876418391 +0000
+Change: 2018-11-27 06:45:20.876418391 +0000
+ Birth: -
+  File: baz.trs
+  Size: 82        	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345613     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:16.828356097 +0000
+Modify: 2018-11-27 06:45:16.820355974 +0000
+Change: 2018-11-27 06:45:16.820355974 +0000
+ Birth: -
+  File: foo.trs
+  Size: 82        	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345590     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:20.884418515 +0000
+Modify: 2018-11-27 06:45:20.868418268 +0000
+Change: 2018-11-27 06:45:20.868418268 +0000
+ Birth: -
+  File: bar.log
+  Size: 31        	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345591     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:20.876418391 +0000
+Modify: 2018-11-27 06:45:20.876418391 +0000
+Change: 2018-11-27 06:45:20.876418391 +0000
+ Birth: -
+  File: baz.log
+  Size: 31        	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345612     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:16.816355912 +0000
+Modify: 2018-11-27 06:45:16.820355974 +0000
+Change: 2018-11-27 06:45:16.820355974 +0000
+ Birth: -
+  File: config.log
+  Size: 5044      	Blocks: 16         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345565     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:11.188269312 +0000
+Modify: 2018-11-27 06:45:12.356287284 +0000
+Change: 2018-11-27 06:45:12.356287284 +0000
+ Birth: -
+  File: foo.log
+  Size: 31        	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345589     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:20.868418268 +0000
+Modify: 2018-11-27 06:45:20.868418268 +0000
+Change: 2018-11-27 06:45:20.868418268 +0000
+ Birth: -
+  File: test-suite.log
+  Size: 236       	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345607     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:20.892418638 +0000
+Modify: 2018-11-27 06:45:20.896418699 +0000
+Change: 2018-11-27 06:45:20.900418761 +0000
+ Birth: -
+  File: stamp
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345592     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:45:18.848387182 +0000
+Modify: 2018-11-27 06:45:18.848387182 +0000
+Change: 2018-11-27 06:45:18.848387182 +0000
+ Birth: -
++ test -f foo.trs
++ test -f bar.trs
++ is_newest stamp baz.trs
++ is_newest test-suite.log foo.trs bar.trs
++ : Setup for the next check.
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+PASS: bar.test
+PASS: baz.test
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test -f foo.trs
++ test -f bar.trs
++ test -f baz.trs
++ : Interactions with lazy test reruns are OK.
++ rm -f foo.trs
++ update_stamp
++ sleep 2
++ touch stamp
++ sleep 2
++ touch bar.test
++ run_make -O RECHECK_LOGS= check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make RECHECK_LOGS= check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: bar.test
+make[3]: Entering directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+PASS: foo.test
+make[3]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+============================================================================
+Testsuite summary for test-trs-recover 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-recover.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ is_newest bar.trs bar.test
++ is_newest stamp baz.trs
++ grep '^PASS: foo\.test' stdout
+PASS: foo.test
++ grep '^PASS: bar\.test' stdout
+PASS: bar.test
++ grep 'baz\.test' stdout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-trs-recover.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-trs-recover.dir
++ set +x
+PASS t/test-trs-recover.sh (exit status: 0)

@@ -1,0 +1,206 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/exeext.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ grep '^maude$(EXEEXT):' Makefile.in
+maude$(EXEEXT): $(maude_OBJECTS) $(maude_DEPENDENCIES) $(EXTRA_maude_DEPENDENCIES) 
++ grep '^maude\.static$(EXEEXT):' Makefile.in
+maude.static$(EXEEXT): $(maude_static_OBJECTS) $(maude_static_DEPENDENCIES) $(EXTRA_maude_static_DEPENDENCIES) 
++ grep '^maude3$(EXEEXT):' Makefile.in
+maude3$(EXEEXT): $(maude3_OBJECTS) $(maude3_DEPENDENCIES) $(EXTRA_maude3_DEPENDENCIES) 
++ grep '^mt$(EXEEXT):' Makefile.in
+mt$(EXEEXT): $(mt_OBJECTS) $(mt_DEPENDENCIES) $(EXTRA_mt_DEPENDENCIES) 
++ grep '^rmt$(EXEEXT):' Makefile.in
+rmt$(EXEEXT): $(rmt_OBJECTS) $(rmt_DEPENDENCIES) $(EXTRA_rmt_DEPENDENCIES) 
+++ grep -c '^bin_PROGRAMS =' Makefile.in
++ test 1 -eq 1
++ grep maude3__EXEEXT__OBJECTS Makefile.in
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ run_make test-default
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make test-default
++ set +x
+is maude mt      ==  maude mt
+is maude.static     ==  maude.static
+is maude3    ==  maude3
+is rmt  ==  rmt
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ run_make test-default EXEEXT=.foo
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make test-default EXEEXT=.foo
++ set +x
+is maude.foo mt.foo      ==  maude.foo mt.foo
+is maude.static.foo     ==  maude.static.foo
+is maude3.foo    ==  maude3.foo
+is rmt.foo  ==  rmt.foo
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ./configure revert=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ run_make test-revert
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make test-revert
++ set +x
+is maude       ==  maude
+is maude.static     ==  maude.static
+is maude3    ==  maude3
+is   ==
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ run_make test-revert EXEEXT=.foo
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make test-revert EXEEXT=.foo
++ set +x
+is maude.foo       ==  maude.foo
+is maude.static.foo     ==  maude.static.foo
+is maude3.foo    ==  maude3.foo
+is   ==
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/exeext.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/exeext.dir
++ set +x
+PASS t/exeext.sh (exit status: 0)

@@ -1,0 +1,403 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/backcompat2.dir
++ echo 'AC_INIT(x,0) AM_INIT_AUTOMAKE'
++ aclocal-1.16 -Werror
++ rm -rf configure.ac autom4te.cache
++ touch install-sh missing
++ cat
++ for am_arg3 in ':' 'false' '#' ' '
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion], [:])
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+/* #undef PACKAGE */
+/* #undef VERSION */
++ /bin/grep -E 'pkg(name|version)' config.h
++ :
++ for am_arg3 in ':' 'false' '#' ' '
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion], [false])
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
+config.status: config.h is unchanged
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+/* #undef PACKAGE */
+/* #undef VERSION */
++ /bin/grep -E 'pkg(name|version)' config.h
++ :
++ for am_arg3 in ':' 'false' '#' ' '
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion], [#])
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
+config.status: config.h is unchanged
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+/* #undef PACKAGE */
+/* #undef VERSION */
++ /bin/grep -E 'pkg(name|version)' config.h
++ :
++ for am_arg3 in ':' 'false' '#' ' '
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion], [ ])
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
+config.status: config.h is unchanged
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+/* #undef PACKAGE */
+/* #undef VERSION */
++ /bin/grep -E 'pkg(name|version)' config.h
++ :
++ for am_extra_args in '' ',' ', []'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion])
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+#define PACKAGE "pkgname"
+#define VERSION "pkgversion"
++ grep '^ *# *define  *PACKAGE  *"pkgname" *$' config.h
+#define PACKAGE "pkgname"
++ grep '^ *# *define  *VERSION  *"pkgversion" *$' config.h
+#define VERSION "pkgversion"
++ for am_extra_args in '' ',' ', []'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion],)
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
+config.status: config.h is unchanged
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+#define PACKAGE "pkgname"
+#define VERSION "pkgversion"
++ grep '^ *# *define  *PACKAGE  *"pkgname" *$' config.h
+#define PACKAGE "pkgname"
++ grep '^ *# *define  *VERSION  *"pkgversion" *$' config.h
+#define VERSION "pkgversion"
++ for am_extra_args in '' ',' ', []'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AC_CONFIG_HEADERS([config.h])
+AM_INIT_AUTOMAKE([pkgname], [pkgversion], [])
+AC_OUTPUT
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating config.h
+config.status: config.h is unchanged
++ cat config.h
+/* config.h.  Generated from config.h.in by configure.  */
+#define PACKAGE "pkgname"
+#define VERSION "pkgversion"
++ grep '^ *# *define  *PACKAGE  *"pkgname" *$' config.h
+#define PACKAGE "pkgname"
++ grep '^ *# *define  *VERSION  *"pkgversion" *$' config.h
+#define VERSION "pkgversion"
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/backcompat2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/backcompat2.dir
++ set +x
+PASS t/backcompat2.sh (exit status: 0)

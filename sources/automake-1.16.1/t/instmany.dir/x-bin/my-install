@@ -1,0 +1,14 @@
+#! /bin/sh
+limit=2500
+PATH=$oPATH; export PATH
+if test -z "$orig_INSTALL"; then
+  echo "$0: \$orig_INSTALL variable not set" >&2
+  exit 1
+fi
+len=`expr "$orig_INSTALL $*" : ".*" 2>/dev/null || echo $limit`
+if test $len -ge $limit; then
+  echo "$0: safe command line limit of $limit characters exceeded" >&2
+  exit 1
+fi
+exec $orig_INSTALL "$@"
+exit 1

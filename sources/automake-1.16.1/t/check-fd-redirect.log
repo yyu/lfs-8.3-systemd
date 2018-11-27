@@ -1,0 +1,250 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/check-fd-redirect.dir
++ cat
++ cat
++ echo 3333
++ chmod a-w three
++ :
++ chmod a+x foo.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ cat
++ do_check
++ cat foo.test
+#! /bin/sh
+set -e
+
+read FOO <&3
+test 3333 -eq "$FOO"
+echo "$FOO" >&4
+
+grep '^ok ok ok$' <&7 >&5
+
+echo " " $0: foofoofoo >&8
+echo " " $0: barbarbar >&9
++ echo 'this line will be removed'
++ echo 'this line will not be removed'
++ st=0
++ echo 'ok ok ok'
++ run_make -O -E -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
+  ./foo.test: foofoofoo
+PASS: foo.test
+============================================================================
+Testsuite summary for check-fd-redirect 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
++ test yes = yes
++ cat stderr
+  ./foo.test: barbarbar
++ case $am__make_rc_exp in
++ : Ignore exit status
++ cat four
+3333
++ test x = xyes
++ cat foo.log
+PASS foo.test (exit status: 0)
++ test 0 -eq 0
++ grep '[ /]foo\.test: foofoofoo$' stdout
+  ./foo.test: foofoofoo
++ grep '[ /]foo\.test: barbarbar$' stderr
+  ./foo.test: barbarbar
++ grep 'this line' four
++ grep '^3333$' four
+3333
++ grep '^this line will not be removed$' five
+this line will not be removed
++ grep '^ok ok ok$' five
+ok ok ok
++ /bin/grep -E '(foofoofoo|barbarbar|3333|ok ok ok|this line)' foo.log
++ :
++ echo '#! /usr/bin/perl -w'
++ cat
++ do_check
++ cat foo.test
+#! /usr/bin/perl -w
+use warnings FATAL => 'all';
+use strict;
+
+open (FD3, "<&=3") or die "opening FD3: $!";
+open (FD4, ">&=4") or die "opening FD4: $!";
+open (FD5, ">&=5") or die "opening FD5: $!";
+open (FD7, "<&=7") or die "opening FD7: $!";
+open (FD8, ">&=8") or die "opening FD8: $!";
+open (FD9, ">&=9") or die "opening FD9: $!";
+
+chomp (my $FOO = <FD3>);
+die "$FOO != 3333" if not $FOO eq "3333";
+print FD4 "$FOO\n";
+
+chomp ($_ = <FD7>);
+die "$_ != 'ok ok ok'" if not $_ eq 'ok ok ok';
+print FD5 "$_\n";
+
+print FD8 "  $0: foofoofoo\n";
+print FD9 "  $0: barbarbar\n";
++ echo 'this line will be removed'
++ echo 'this line will not be removed'
++ st=0
++ echo 'ok ok ok'
++ run_make -O -E -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
+  ./foo.test: foofoofoo
+PASS: foo.test
+============================================================================
+Testsuite summary for check-fd-redirect 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-fd-redirect.dir'
++ test yes = yes
++ cat stderr
+  ./foo.test: barbarbar
++ case $am__make_rc_exp in
++ : Ignore exit status
++ cat four
+3333
++ test x = xyes
++ cat foo.log
+PASS foo.test (exit status: 0)
++ test 0 -eq 0
++ grep '[ /]foo\.test: foofoofoo$' stdout
+  ./foo.test: foofoofoo
++ grep '[ /]foo\.test: barbarbar$' stderr
+  ./foo.test: barbarbar
++ grep 'this line' four
++ grep '^3333$' four
+3333
++ grep '^this line will not be removed$' five
+this line will not be removed
++ grep '^ok ok ok$' five
+ok ok ok
++ /bin/grep -E '(foofoofoo|barbarbar|3333|ok ok ok|this line)' foo.log
++ :
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check-fd-redirect.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check-fd-redirect.dir
++ set +x
+PASS t/check-fd-redirect.sh (exit status: 0)

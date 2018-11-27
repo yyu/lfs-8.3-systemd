@@ -1,0 +1,154 @@
+compile6: trying some XSI constructs with /bin/sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/compile6.dir
++ get_shell_script compile
++ am_source=compile
++ am_target=compile
++ test '!' -f compile
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/compile compile
++ sed 10q compile
+#! /bin/sh
+# Wrapper for compilers which do not understand '-c -o'.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1999-2018 Free Software Foundation, Inc.
+# Written by Tom Tromey <tromey@cygnus.com>.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
++ unset am_target am_source
++ cat
++ chmod +x ./cl
++ for sp in '' ' '
++ rm -rf lib lib2 syslib 'sys  lib2'
++ mkdir syslib
++ :
+++ pwd
++ syslib=/sources/automake-1.16.1/t/compile6.dir/syslib
++ LIB=/sources/automake-1.16.1/t/compile6.dir/syslib
++ export LIB
++ mkdir lib
++ :
++ :
++ :
++ :
+++ ./compile ./cl foo.c -o foo -Llib -lbar -lfoo
++ opts='foo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
+++ ./compile ./cl foo.c -o foo -Llib -static -lbar -lfoo
++ opts='foo.c -Fefoo lib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ :
++ :
++ :
+++ ./compile ./cl foo.c -o foo -lbar -lfoo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
+++ ./compile ./cl foo.c -o foo -Llib -lbar -lfoo
++ opts='foo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
+++ ./compile ./cl foo.c -o foo -Llib -lbaz
++ opts='foo.c -Fefoo lib/libbaz.a -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/libbaz.a -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/libbaz.a -link -LIBPATH:lib'
++ mkdir lib2
++ :
+++ ./compile ./cl foo.c -o foo -Llib2 -static -lbar -lfoo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2'
+++ ./compile ./cl foo.c -o foo -Llib2 -Llib -lbar -static -lbar
++ opts='foo.c -Fefoo lib2/bar.dll.lib lib/bar.lib -link -LIBPATH:lib2 -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib2/bar.dll.lib lib/bar.lib -link -LIBPATH:lib2 -LIBPATH:lib' = 'xfoo.c -Fefoo lib2/bar.dll.lib lib/bar.lib -link -LIBPATH:lib2 -LIBPATH:lib'
+++ ./compile ./cl foo.c -o foo -Llib -Llib2 -lbar -lfoo
++ opts='foo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib -LIBPATH:lib2'
++ test 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib -LIBPATH:lib2' = 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib -LIBPATH:lib2'
+++ ./compile ./cl foo.c -o foo -Llib2 -Llib -lbar -lfoo
++ opts='foo.c -Fefoo lib2/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2 -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib2/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2 -LIBPATH:lib' = 'xfoo.c -Fefoo lib2/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2 -LIBPATH:lib'
++ mkdir 'sys  lib2'
++ :
+++ pwd
++ syslib2='/sources/automake-1.16.1/t/compile6.dir/sys  lib2'
++ LIB='/sources/automake-1.16.1/t/compile6.dir/sys  lib2;/sources/automake-1.16.1/t/compile6.dir/syslib'
+++ ./compile ./cl foo.c -o foo -lfoo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/sys  lib2/foo.dll.lib'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/sys  lib2/foo.dll.lib' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/sys  lib2/foo.dll.lib'
+++ ./compile ./cl foo.c -o foo -static -lfoo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
++ for sp in '' ' '
++ rm -rf lib lib2 syslib 'sys  lib2'
++ mkdir syslib
++ :
+++ pwd
++ syslib=/sources/automake-1.16.1/t/compile6.dir/syslib
++ LIB=/sources/automake-1.16.1/t/compile6.dir/syslib
++ export LIB
++ mkdir lib
++ :
++ :
++ :
++ :
+++ ./compile ./cl foo.c -o foo -L lib -l bar -l foo
++ opts='foo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
+++ ./compile ./cl foo.c -o foo -L lib -static -l bar -l foo
++ opts='foo.c -Fefoo lib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ :
++ :
++ :
+++ ./compile ./cl foo.c -o foo -l bar -l foo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
+++ ./compile ./cl foo.c -o foo -L lib -l bar -l foo
++ opts='foo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib'
+++ ./compile ./cl foo.c -o foo -L lib -l baz
++ opts='foo.c -Fefoo lib/libbaz.a -link -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib/libbaz.a -link -LIBPATH:lib' = 'xfoo.c -Fefoo lib/libbaz.a -link -LIBPATH:lib'
++ mkdir lib2
++ :
+++ ./compile ./cl foo.c -o foo -L lib2 -static -l bar -l foo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/bar.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2'
+++ ./compile ./cl foo.c -o foo -L lib2 -L lib -l bar -static -l bar
++ opts='foo.c -Fefoo lib2/bar.dll.lib lib/bar.lib -link -LIBPATH:lib2 -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib2/bar.dll.lib lib/bar.lib -link -LIBPATH:lib2 -LIBPATH:lib' = 'xfoo.c -Fefoo lib2/bar.dll.lib lib/bar.lib -link -LIBPATH:lib2 -LIBPATH:lib'
+++ ./compile ./cl foo.c -o foo -L lib -L lib2 -l bar -l foo
++ opts='foo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib -LIBPATH:lib2'
++ test 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib -LIBPATH:lib2' = 'xfoo.c -Fefoo lib/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib -LIBPATH:lib2'
+++ ./compile ./cl foo.c -o foo -L lib2 -L lib -l bar -l foo
++ opts='foo.c -Fefoo lib2/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2 -LIBPATH:lib'
++ test 'xfoo.c -Fefoo lib2/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2 -LIBPATH:lib' = 'xfoo.c -Fefoo lib2/bar.dll.lib /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib -link -LIBPATH:lib2 -LIBPATH:lib'
++ mkdir 'sys  lib2'
++ :
+++ pwd
++ syslib2='/sources/automake-1.16.1/t/compile6.dir/sys  lib2'
++ LIB='/sources/automake-1.16.1/t/compile6.dir/sys  lib2;/sources/automake-1.16.1/t/compile6.dir/syslib'
+++ ./compile ./cl foo.c -o foo -l foo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/sys  lib2/foo.dll.lib'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/sys  lib2/foo.dll.lib' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/sys  lib2/foo.dll.lib'
+++ ./compile ./cl foo.c -o foo -static -l foo
++ opts='foo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
++ test 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib' = 'xfoo.c -Fefoo /sources/automake-1.16.1/t/compile6.dir/syslib/foo.lib'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/compile6.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/compile6.dir
++ set +x
+PASS t/compile6.sh (exit status: 0)

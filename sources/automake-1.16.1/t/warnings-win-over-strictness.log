@@ -1,0 +1,273 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/warnings-win-over-strictness.dir
++ AUTOMAKE=automake-1.16
++ touch README INSTALL NEWS AUTHORS ChangeLog COPYING
++ cat
++ aclocal-1.16 -Werror
++ ko --foreign -Wportability
++ AUTOMAKE_run --foreign -Wportability
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Wportability
++ cat stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
+++ wc -l
++ test 1 -eq 1
++ ko -Wportability --foreign
++ AUTOMAKE_run -Wportability --foreign
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Wportability --foreign
++ cat stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
+++ wc -l
++ test 1 -eq 1
++ ok --gnu -Wno-portability
++ AUTOMAKE_run --gnu -Wno-portability
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --gnu -Wno-portability
++ cat stderr
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ test '!' -s stderr
++ ok -Wno-portability --gnu
++ AUTOMAKE_run -Wno-portability --gnu
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Wno-portability --gnu
++ cat stderr
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ test '!' -s stderr
++ set_am_opts '' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = 
+FOO := bar
++ rm -rf autom4te.cache
++ set_am_opts 'foreign -Wportability' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-win-over-strictness], [1.0])
+AM_INIT_AUTOMAKE([foreign -Wportability])
+AC_CONFIG_FILES([Makefile])
++ ko
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
+++ wc -l
++ test 1 -eq 1
++ rm -rf autom4te.cache
++ set_am_opts '-Wportability foreign' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-win-over-strictness], [1.0])
+AM_INIT_AUTOMAKE([-Wportability foreign])
+AC_CONFIG_FILES([Makefile])
++ ko
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
+++ wc -l
++ test 1 -eq 1
++ rm -rf autom4te.cache
++ set_am_opts 'gnu -Wno-portability' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-win-over-strictness], [1.0])
+AM_INIT_AUTOMAKE([gnu -Wno-portability])
+AC_CONFIG_FILES([Makefile])
++ ok
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ test '!' -s stderr
++ rm -rf autom4te.cache
++ set_am_opts '-Wno-portability gnu' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-win-over-strictness], [1.0])
+AM_INIT_AUTOMAKE([-Wno-portability gnu])
+AC_CONFIG_FILES([Makefile])
++ ok
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ test '!' -s stderr
++ rm -rf autom4te.cache
++ set_am_opts '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-win-over-strictness], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ set_am_opts 'foreign -Wportability' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = foreign -Wportability
+FOO := bar
++ ko
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
+++ wc -l
++ test 1 -eq 1
++ set_am_opts '-Wportability foreign' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = -Wportability foreign
+FOO := bar
++ ko
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
+++ wc -l
++ test 1 -eq 1
++ set_am_opts 'gnu -Wno-portability' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = gnu -Wno-portability
+FOO := bar
++ ok
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ test '!' -s stderr
++ set_am_opts '-Wno-portability gnu' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = -Wno-portability gnu
+FOO := bar
++ ok
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ test '!' -s stderr
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/warnings-win-over-strictness.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/warnings-win-over-strictness.dir
++ set +x
+PASS t/warnings-win-over-strictness.sh (exit status: 0)

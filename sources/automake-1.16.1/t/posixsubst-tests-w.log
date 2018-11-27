@@ -1,0 +1,282 @@
+./t/posixsubst-tests-w.sh: will source ./t/posixsubst-tests.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/posixsubst-tests-w.dir
+++ cat
+++ cat
+++ cat
+++ sed s/foo1/bary/g foo1.test
+++ chmod +x foo1.test bary
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall -a
+++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ run_make -M -e FAIL check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 4 -gt 0
+++ case $1 in
+++ am__make_redirect_stdall=yes
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ am__make_rc_exp=FAIL
+++ shift
+++ shift
+++ test 1 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ make --version -v
+++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+++ am__using_gmake=yes
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make check
+++ set +x
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test yes = yes
+++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir'
+(echo '#!/bin/sh' && echo 'exit 0') > foo2.test && chmod a+x foo2.test
+(echo '#!/bin/sh' && echo 'exit 0') > barz && chmod a+x barz
+FAIL: foo1.test
+PASS: foo2.test
+FAIL: bary
+PASS: barz
+===================
+2 of 4 tests failed
+===================
+make[1]: *** [Makefile:288: check-TESTS] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir'
+make: *** [Makefile:547: check-am] Error 2
+++ case $am__make_rc_exp in
+++ test 2 -gt 0
+++ ls -l
+total 304
+-rw-r--r-- 1 root root  21384 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root    387 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root  20683 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:51 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 autom4te.cache
+-rwxr-xr-x 1 root root     61 Nov 27 06:51 bary
+-rw-r--r-- 1 root root      0 Nov 27 06:51 bary.out
+-rwxr-xr-x 1 root root     17 Nov 27 06:51 barz
+-rwxr-xr-x 1 root root   7383 Nov 27 06:51 compile
+-rw-r--r-- 1 root root   5084 Nov 27 06:51 config.log
+-rwxr-xr-x 1 root root  25521 Nov 27 06:51 config.status
+-rwxr-xr-x 1 root root 104220 Nov 27 06:51 configure
+-rw-r--r-- 1 root root    108 Nov 27 06:51 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:51 depcomp
+-rw-r--r-- 1 root root      0 Nov 27 06:51 foo1.out
+-rwxr-xr-x 1 root root     61 Nov 27 06:51 foo1.test
+-rwxr-xr-x 1 root root     17 Nov 27 06:51 foo2.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:51 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:51 missing
+-rw-r--r-- 1 root root    515 Nov 27 06:51 output
+++ grep '^FAIL: foo1\.test *$' output
+FAIL: foo1.test
+++ grep '^PASS: foo2\.test *$' output
+PASS: foo2.test
+++ grep '^FAIL: bary *$' output
+FAIL: bary
+++ grep '^PASS: barz *$' output
+PASS: barz
+++ test -f foo1.out
+++ test -f bary.out
+++ TESTSUITE_OK=yes
+++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir'
+if test -d "posixsubst-tests-w-1.0"; then find "posixsubst-tests-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-tests-w-1.0" || { sleep 5 && rm -rf "posixsubst-tests-w-1.0"; }; else :; fi
+test -d "posixsubst-tests-w-1.0" || mkdir "posixsubst-tests-w-1.0"
+test -n "" \
+|| find "posixsubst-tests-w-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/posixsubst-tests-w.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "posixsubst-tests-w-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir'
+tardir=posixsubst-tests-w-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >posixsubst-tests-w-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir'
+if test -d "posixsubst-tests-w-1.0"; then find "posixsubst-tests-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-tests-w-1.0" || { sleep 5 && rm -rf "posixsubst-tests-w-1.0"; }; else :; fi
+case 'posixsubst-tests-w-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc posixsubst-tests-w-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc posixsubst-tests-w-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc posixsubst-tests-w-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc posixsubst-tests-w-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c posixsubst-tests-w-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc posixsubst-tests-w-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip posixsubst-tests-w-1.0.zip ;;\
+esac
+chmod -R a-w posixsubst-tests-w-1.0
+chmod u+w posixsubst-tests-w-1.0
+mkdir posixsubst-tests-w-1.0/_build posixsubst-tests-w-1.0/_build/sub posixsubst-tests-w-1.0/_inst
+chmod a-w posixsubst-tests-w-1.0
+test -d posixsubst-tests-w-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd posixsubst-tests-w-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd posixsubst-tests-w-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf posixsubst-tests-w-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+PASS: foo1.test
+PASS: foo2.test
+PASS: bary
+PASS: barz
+==================
+All 4 tests passed
+==================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+if test -d "posixsubst-tests-w-1.0"; then find "posixsubst-tests-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-tests-w-1.0" || { sleep 5 && rm -rf "posixsubst-tests-w-1.0"; }; else :; fi
+test -d "posixsubst-tests-w-1.0" || mkdir "posixsubst-tests-w-1.0"
+test -n "" \
+|| find "posixsubst-tests-w-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "posixsubst-tests-w-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+tardir=posixsubst-tests-w-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >posixsubst-tests-w-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+if test -d "posixsubst-tests-w-1.0"; then find "posixsubst-tests-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-tests-w-1.0" || { sleep 5 && rm -rf "posixsubst-tests-w-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+test -z "foo2.test barz " || rm -f foo2.test barz 
+test -z "*.out" || rm -f *.out
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-tests-w.dir/posixsubst-tests-w-1.0/_build/sub'
+if test -d "posixsubst-tests-w-1.0"; then find "posixsubst-tests-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-tests-w-1.0" || { sleep 5 && rm -rf "posixsubst-tests-w-1.0"; }; else :; fi
+========================================================
+posixsubst-tests-w-1.0 archives ready for distribution: 
+posixsubst-tests-w-1.0.tar.gz
+========================================================
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/posixsubst-tests-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/posixsubst-tests-w.dir
++ set +x
+PASS t/posixsubst-tests-w.sh (exit status: 0)

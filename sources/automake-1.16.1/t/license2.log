@@ -1,0 +1,74 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/license2.dir
++ cat
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './COPYING' not found
+Makefile.am:   'automake --add-missing' can install 'COPYING'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep COPYING stderr
+Makefile.am: error: required file './COPYING' not found
+Makefile.am:   'automake --add-missing' can install 'COPYING'
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+Makefile.am: installing './COPYING' using GNU General Public License v3 file
+Makefile.am:     Consider adding the COPYING file to the version control system
+Makefile.am:     for your code, to avoid questions about which license your project uses
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep COPYING stderr
+Makefile.am: installing './COPYING' using GNU General Public License v3 file
+Makefile.am:     Consider adding the COPYING file to the version control system
++ grep 'GNU General Public License' stderr
+Makefile.am: installing './COPYING' using GNU General Public License v3 file
++ grep 'Consider adding.*version control' stderr
+Makefile.am:     Consider adding the COPYING file to the version control system
++ test -f COPYING
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/license2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/license2.dir
++ set +x
+PASS t/license2.sh (exit status: 0)

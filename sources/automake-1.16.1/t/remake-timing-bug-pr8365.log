@@ -1,0 +1,178 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-timing-bug-pr8365.dir
++ stat /dev/null
+  File: /dev/null
+  Size: 0         	Blocks: 0          IO Block: 4096   character special file
+Device: 6h/6d	Inode: 6           Links: 1     Device type: 1,3
+Access: (0666/crw-rw-rw-)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-23 21:58:02.148615414 +0000
+Modify: 2018-11-23 21:58:02.148615414 +0000
+Change: 2018-11-23 21:58:02.148615414 +0000
+ Birth: -
++ stat=stat
++ cat
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make Makefile
+make: 'Makefile' is up to date.
++ /bin/grep -E 'FOOBAR|zardoz' Makefile
++ echo 'AC_SUBST([FOOBAR])'
++ stat config.status Makefile configure.ac
+  File: config.status
+  Size: 25623     	Blocks: 56         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345961     Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:36.991442301 +0000
+Modify: 2018-11-27 06:48:36.987442239 +0000
+Change: 2018-11-27 06:48:36.987442239 +0000
+ Birth: -
+  File: Makefile
+  Size: 17599     	Blocks: 40         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345958     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:37.055443289 +0000
+Modify: 2018-11-27 06:48:37.031442918 +0000
+Change: 2018-11-27 06:48:37.035442980 +0000
+ Birth: -
+  File: configure.ac
+  Size: 131       	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345826     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:35.287415982 +0000
+Modify: 2018-11-27 06:48:37.055443289 +0000
+Change: 2018-11-27 06:48:37.055443289 +0000
+ Birth: -
++ sleep 2
++ touch config.status
++ touch -r config.status config.status Makefile configure.ac
++ stat config.status Makefile configure.ac
+  File: config.status
+  Size: 25623     	Blocks: 56         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345961     Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:39.059474242 +0000
+Modify: 2018-11-27 06:48:39.059474242 +0000
+Change: 2018-11-27 06:48:39.059474242 +0000
+ Birth: -
+  File: Makefile
+  Size: 17599     	Blocks: 40         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345958     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:39.059474242 +0000
+Modify: 2018-11-27 06:48:39.059474242 +0000
+Change: 2018-11-27 06:48:39.059474242 +0000
+ Birth: -
+  File: configure.ac
+  Size: 131       	Blocks: 8          IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345826     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:39.059474242 +0000
+Modify: 2018-11-27 06:48:39.059474242 +0000
+Change: 2018-11-27 06:48:39.059474242 +0000
+ Birth: -
++ cat
++ cat
++ cat
++ chmod a+x aclocal-wrap automake-wrap autoconf-wrap
++ run_make Makefile ACLOCAL=./aclocal-wrap AUTOMAKE=./automake-wrap AUTOCONF=./autoconf-wrap
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make Makefile ACLOCAL=./aclocal-wrap AUTOMAKE=./automake-wrap AUTOCONF=./autoconf-wrap
++ set +x
+CDPATH="${ZSH_VERSION+.}:" && cd . && ./aclocal-wrap 
++ AUTOCONF=autoconf
++ export AUTOCONF
++ aclocal-1.16 -Werror
++ touch -r config.status aclocal.m4
++ stat aclocal.m4
+  File: aclocal.m4
+  Size: 27316     	Blocks: 56         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345900     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:39.059474242 +0000
+Modify: 2018-11-27 06:48:39.059474242 +0000
+Change: 2018-11-27 06:48:39.235476961 +0000
+ Birth: -
+ cd . && ./automake-wrap --foreign
++ AUTOCONF=autoconf
++ export AUTOCONF
++ automake-1.16 --foreign -Werror -Wall --foreign
++ touch -r config.status Makefile.in
++ stat Makefile.in
+  File: Makefile.in
+  Size: 16784     	Blocks: 40         IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345877     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:39.059474242 +0000
+Modify: 2018-11-27 06:48:39.059474242 +0000
+Change: 2018-11-27 06:48:39.579482274 +0000
+ Birth: -
+CDPATH="${ZSH_VERSION+.}:" && cd . && ./autoconf-wrap
++ autoconf
++ touch -r config.status configure
++ stat configure
+  File: configure
+  Size: 104314    	Blocks: 208        IO Block: 4096   regular file
+Device: 705h/1797d	Inode: 7345904     Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:39.059474242 +0000
+Modify: 2018-11-27 06:48:39.059474242 +0000
+Change: 2018-11-27 06:48:39.687483942 +0000
+ Birth: -
+make: 'Makefile' is up to date.
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep '^FOOBAR =' Makefile.in
+FOOBAR = @FOOBAR@
++ grep '^FOOBAR *= *zardoz *$' Makefile
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/remake-timing-bug-pr8365.sh (exit status: 1)

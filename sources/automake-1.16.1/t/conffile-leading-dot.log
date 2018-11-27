@@ -1,0 +1,123 @@
+conffile-leading-dot: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/conffile-leading-dot.dir
++ cat
++ touch a.in b.in c.in Makefile.am
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wnone -Wunsupported
++ AUTOMAKE_run -e 1 -Wnone -Wunsupported
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wunsupported
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+configure.ac:3: warning: omit leading './' from config file names such as './Makefile';
+configure.ac:3: remake rules might be subtly broken otherwise
+configure.ac:4: warning: omit leading './' from config file names such as './foo';
+configure.ac:4: remake rules might be subtly broken otherwise
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:3:.*'\''\./Makefile'\''' stderr
+configure.ac:3: warning: omit leading './' from config file names such as './Makefile';
++ grep '^configure\.ac:3:.* omit leading '\''\./'\''' stderr
+configure.ac:3: warning: omit leading './' from config file names such as './Makefile';
++ grep '^configure\.ac:3:.*remake rules might be subtly broken' stderr
+configure.ac:3: remake rules might be subtly broken otherwise
++ grep '^configure\.ac:4:.*'\''\./foo'\''' stderr
+configure.ac:4: warning: omit leading './' from config file names such as './foo';
++ grep '^configure\.ac:4:.* omit leading '\''\./'\''' stderr
+configure.ac:4: warning: omit leading './' from config file names such as './foo';
++ grep '^configure\.ac:4:.*remake rules might be subtly broken' stderr
+configure.ac:4: remake rules might be subtly broken otherwise
++ sed 's/^AM_INIT_AUTOMAKE/&([-Wall -Wno-unsupported])/'
++ mv -f t configure.ac
++ rm -rf autom4te.cache
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wall -Wno-unsupported
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating ./Makefile
+config.status: creating ./foo
++ make
+make: Nothing to be done for 'all'.
++ sleep 2
++ touch Makefile.am
++ run_make -e FAIL -E
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
+ cd . && /bin/sh /sources/automake-1.16.1/t/conffile-leading-dot.dir/missing automake-1.16 --foreign ./Makefile
+ cd . && /bin/sh ./config.status Makefile 
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
+config.status: error: invalid argument: `Makefile'
+make: *** [Makefile:231: Makefile] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ grep 'config\.status:.*invalid argument.*Makefile' stderr
+config.status: error: invalid argument: `Makefile'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/conffile-leading-dot.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/conffile-leading-dot.dir
++ set +x
+PASS t/conffile-leading-dot.sh (exit status: 0)

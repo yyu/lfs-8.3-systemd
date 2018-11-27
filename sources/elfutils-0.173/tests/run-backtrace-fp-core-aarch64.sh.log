@@ -1,0 +1,22 @@
+./backtrace ./backtrace.aarch64.fp.exec ./backtrace.aarch64.fp.core
+0x400000	0x4a3000	/home/ulf/backtrace.aarch64.fp.exec
+0x7fb6380000	0x7fb6381000	linux-vdso.so.1
+TID 350:
+# 0 0x40583c    	raise
+# 1 0x401aac - 1	sigusr2
+# 2 0x401aac - 1	sigusr2
+# 3 0x401ba8 - 1	stdarg
+# 4 0x401c04 - 1	backtracegen
+# 5 0x401c10 - 1	start
+# 6 0x402f44 - 1	start_thread
+TID 349:
+# 0 0x403fcc    	pthread_join
+# 1 0x401810 - 1	main
+# 2 0x401810 - 1	main
+# 3 0x406544 - 1	__libc_start_main
+# 4 0x401918 - 1	$x
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: no matching address range
+# 1 0x401810 - 1	main
+# 2 0x401810 - 1	main
+# 4 0x401c04 - 1	backtracegen
+PASS run-backtrace-fp-core-aarch64.sh (exit status: 0)

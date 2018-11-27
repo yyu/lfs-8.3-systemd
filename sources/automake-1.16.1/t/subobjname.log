@@ -1,0 +1,40 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subobjname.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
++ grep '^am_c_OBJECTS = ' Makefile.in
+am_c_OBJECTS = $(am__objects_4)
++ grep '^am_d_OBJECTS = ' Makefile.in
+am_d_OBJECTS = $(am__objects_4)
+++ sed -n '/^am_c_OBJECTS = / {
+                 s/.* = \(.*\)$/\1/
+                 p
+               }' Makefile.in
++ cobj='$(am__objects_4)'
+++ sed -n '/^am_d_OBJECTS = / {
+                 s/^.* = \(.*\)$/\1/
+                 p
+              }' Makefile.in
++ dobj='$(am__objects_4)'
++ test '$(am__objects_4)' = '$(am__objects_4)'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subobjname.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subobjname.dir
++ set +x
+PASS t/subobjname.sh (exit status: 0)

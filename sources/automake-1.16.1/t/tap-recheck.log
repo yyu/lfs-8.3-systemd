@@ -1,0 +1,3195 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-recheck.dir
++ fetch_tap_driver
++ AM_TAP_AWK=gawk
++ export AM_TAP_AWK
++ get_shell_script tap-driver.sh tap-driver
++ am_source=tap-driver.sh
++ am_target=tap-driver
++ test '!' -f tap-driver
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
++ unset am_target am_source
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x a.test b.test c.test d.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ : A 'make recheck' in a clean tree should run no tests.
++ do_recheck --pass
++ case $* in
++ status=0
++ rm -f '*.run'
++ run_make -O -e 0 recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=0
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 76
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   503 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   221 Nov 27 06:50 test-suite.log
++ cat test-suite.log
+=======================================
+   tap-recheck 1.0: ./test-suite.log
+=======================================
+
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ test '!' -e a.run
++ test '!' -e a.log
++ test '!' -e b.run
++ test '!' -e b.log
++ test '!' -e c.run
++ test '!' -e c.log
++ test '!' -e d.run
++ test '!' -e d.log
++ count_test_results total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
+++ total=0
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *0$' stdout
+# TOTAL: 0
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Run the tests for the first time.
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:474: test-suite.log] Error 1
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make: *** [Makefile:774: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+PASS: a.test 1
+PASS: a.test 2
+PASS: b.test 1
+ERROR: b.test - Bail out!
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 9
+# PASS:  3
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 108
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 a.run
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    61 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 b.run
+-rw-r--r-- 1 root root   105 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 c.run
+-rw-r--r-- 1 root root   124 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   184 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   103 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root  1027 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   721 Nov 27 06:50 test-suite.log
++ test -f a.run
++ test -f b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=9 pass=3 fail=2 xpass=1 xfail=1 skip=1 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=9 pass=3 fail=2 xpass=1 xfail=1 skip=1 error=1
+++ total=9
+++ pass=3
+++ fail=2
+++ xpass=1
+++ xfail=1
+++ skip=1
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: a.test 1
+PASS: a.test 2
+PASS: b.test 1
+ERROR: b.test - Bail out!
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 9
+# PASS:  3
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 3 -eq 3
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *9$' stdout
+# TOTAL: 9
++ grep '^# PASS:  *3$' stdout
+# PASS:  3
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *2$' stdout
+# FAIL:  2
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ : Let us make b.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo OK
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f a.run b.run c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+PASS: b.test 1
+PASS: b.test 2
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 7
+# PASS:  2
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 112
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root     0 Nov 27 06:50 b.run
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 c.run
+-rw-r--r-- 1 root root   124 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   184 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   103 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   811 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   640 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test -f b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=7 pass=2 fail=2 xpass=1 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=7 pass=2 fail=2 xpass=1 xfail=1 skip=1 error=0
+++ total=7
+++ pass=2
+++ fail=2
+++ xpass=1
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: b.test 1
+PASS: b.test 2
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 7
+# PASS:  2
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *7$' stdout
+# TOTAL: 7
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *2$' stdout
+# FAIL:  2
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Let us make the first part of c.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo OK
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f b.run c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+PASS: c.test 1 - c is ok :-)
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 116
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   195 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root     0 Nov 27 06:50 c.run
+-rw-r--r-- 1 root root   124 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   184 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   103 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   781 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   636 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=5 pass=1 fail=1 xpass=1 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=5 pass=1 fail=1 xpass=1 xfail=1 skip=1 error=0
+++ total=5
+++ pass=1
+++ fail=1
+++ xpass=1
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: c.test 1 - c is ok :-)
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *5$' stdout
+# TOTAL: 5
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Let us make also the second part of c.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo KO
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+PASS: c.test 1 - c is ok :-)
+XFAIL: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 2
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 120
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root     0 Nov 27 06:50 c.run
+-rw-r--r-- 1 root root   123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.xfail
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   184 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   103 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   781 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   640 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=5 pass=1 fail=1 xpass=0 xfail=2 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=5 pass=1 fail=1 xpass=0 xfail=2 skip=1 error=0
+++ total=5
+++ pass=1
+++ fail=1
+++ xpass=0
+++ xfail=2
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: c.test 1 - c is ok :-)
+XFAIL: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 2
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *5$' stdout
+# TOTAL: 5
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *2$' stdout
+# XFAIL: 2
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Nothing changed, so only d.test should be run.
++ for i in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 120
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root   123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.xfail
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   184 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   103 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   671 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   423 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
+++ total=2
+++ pass=0
+++ fail=1
+++ xpass=0
+++ xfail=0
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ for i in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 120
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root   123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.xfail
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root   184 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   103 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   671 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   423 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
+++ total=2
+++ pass=0
+++ fail=1
+++ xpass=0
+++ xfail=0
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Let us make d.test run more testcases, and experience _more_ failures.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo test_count=9
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+SKIP: d.test 1 # SKIP : who cares ...
+SKIP: d.test 2 # SKIP s
+FAIL: d.test 3 - f 1
+PASS: d.test 4 - p 1
+FAIL: d.test 5 - f 2
+XPASS: d.test 6 # TODO xp
+FAIL: d.test 7 - f 3
+FAIL: d.test 8 - f 4
+PASS: d.test 9 - p 2
+ERROR: d.test 10 # UNPLANNED
+ERROR: d.test - Bail out!
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 11
+# PASS:  2
+# SKIP:  2
+# XFAIL: 0
+# FAIL:  4
+# XPASS: 1
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 128
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root   123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.xfail
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root    13 Nov 27 06:50 d.count
+-rw-r--r-- 1 root root   192 Nov 27 06:50 d.extra
+-rw-r--r-- 1 root root   409 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root   278 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   871 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   651 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=11 pass=2 fail=4 xpass=1 xfail=0 skip=2 error=2
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=11 pass=2 fail=4 xpass=1 xfail=0 skip=2 error=2
+++ total=11
+++ pass=2
+++ fail=4
+++ xpass=1
+++ xfail=0
+++ skip=2
+++ error=2
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+SKIP: d.test 2 # SKIP s
+FAIL: d.test 3 - f 1
+PASS: d.test 4 - p 1
+FAIL: d.test 5 - f 2
+XPASS: d.test 6 # TODO xp
+FAIL: d.test 7 - f 3
+FAIL: d.test 8 - f 4
+PASS: d.test 9 - p 2
+ERROR: d.test 10 # UNPLANNED
+ERROR: d.test - Bail out!
+# TOTAL: 11
+# PASS:  2
+# SKIP:  2
+# XFAIL: 0
+# FAIL:  4
+# XPASS: 1
+# ERROR: 2
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 2 -eq 2
+++ grep -c '^FAIL:' stdout
++ test 4 -eq 4
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 2 -eq 2
++ grep '^# TOTAL:  *11$' stdout
+# TOTAL: 11
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *2$' stdout
+# SKIP:  2
++ grep '^# FAIL:  *4$' stdout
+# FAIL:  4
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *2$' stdout
+# ERROR: 2
++ test 0 -eq 0
++ : Let us finally make d.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo test_count=1
++ echo :
++ do_recheck --pass
++ case $* in
++ status=0
++ rm -f d.run
++ run_make -O -e 0 recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=0
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+SKIP: d.test 1 # SKIP : who cares ...
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 128
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root   123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.xfail
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root    13 Nov 27 06:50 d.count
+-rw-r--r-- 1 root root     2 Nov 27 06:50 d.extra
+-rw-r--r-- 1 root root    70 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root     0 Nov 27 06:50 d.run
+-rw-r--r-- 1 root root    83 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   541 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   309 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=1 pass=0 fail=0 xpass=0 xfail=0 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=1 pass=0 fail=0 xpass=0 xfail=0 skip=1 error=0
+++ total=1
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+# TOTAL: 1
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *1$' stdout
+# TOTAL: 1
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : All tests have been successful or skipped, nothing should be re-run.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ do_recheck --pass
++ case $* in
++ status=0
++ rm -f d.run
++ run_make -O -e 0 recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=0
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 128
+-rw-r--r-- 1 root root 30241 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root   101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root   101 Nov 27 06:50 b.trs
+-rw-r--r-- 1 root root   199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root   123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root     3 Nov 27 06:50 c.xfail
+-rw-r--r-- 1 root root  4957 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25251 Nov 27 06:50 config.status
+-rw-r--r-- 1 root root    13 Nov 27 06:50 d.count
+-rw-r--r-- 1 root root     2 Nov 27 06:50 d.extra
+-rw-r--r-- 1 root root    70 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root    83 Nov 27 06:50 d.trs
+-rw-r--r-- 1 root root   503 Nov 27 06:50 stdout
+-rw-r--r-- 1 root root   221 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test '!' -e d.run
++ count_test_results total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
+++ total=0
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *0$' stdout
+# TOTAL: 0
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ : A 'make recheck' in a clean tree should run no tests.
++ do_recheck --pass
++ case $* in
++ status=0
++ rm -f '*.run'
++ run_make -O -e 0 recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=0
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 348
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    491 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    221 Nov 27 06:50 test-suite.log
++ cat test-suite.log
+=======================================
+   tap-recheck 1.0: ./test-suite.log
+=======================================
+
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ test '!' -e a.run
++ test '!' -e a.log
++ test '!' -e b.run
++ test '!' -e b.log
++ test '!' -e c.run
++ test '!' -e c.log
++ test '!' -e d.run
++ test '!' -e d.log
++ count_test_results total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
+++ total=0
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *0$' stdout
+# TOTAL: 0
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Run the tests for the first time.
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:474: test-suite.log] Error 1
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make: *** [Makefile:774: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+PASS: a.test 1
+PASS: a.test 2
+PASS: b.test 1
+ERROR: b.test - Bail out!
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 9
+# PASS:  3
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 380
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 a.run
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     61 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 b.run
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    105 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 c.run
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    124 Nov 27 06:50 c.trs
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root    183 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    103 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root   1003 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    720 Nov 27 06:50 test-suite.log
++ test -f a.run
++ test -f b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=9 pass=3 fail=2 xpass=1 xfail=1 skip=1 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=9 pass=3 fail=2 xpass=1 xfail=1 skip=1 error=1
+++ total=9
+++ pass=3
+++ fail=2
+++ xpass=1
+++ xfail=1
+++ skip=1
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: a.test 1
+PASS: a.test 2
+PASS: b.test 1
+ERROR: b.test - Bail out!
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 9
+# PASS:  3
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 3 -eq 3
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *9$' stdout
+# TOTAL: 9
++ grep '^# PASS:  *3$' stdout
+# PASS:  3
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *2$' stdout
+# FAIL:  2
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ : Let us make b.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo OK
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f a.run b.run c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+PASS: b.test 1
+PASS: b.test 2
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 7
+# PASS:  2
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 384
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rw-r--r-- 1 root root      0 Nov 27 06:50 b.run
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 c.run
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    124 Nov 27 06:50 c.trs
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root    183 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    103 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    799 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    639 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test -f b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=7 pass=2 fail=2 xpass=1 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=7 pass=2 fail=2 xpass=1 xfail=1 skip=1 error=0
+++ total=7
+++ pass=2
+++ fail=2
+++ xpass=1
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: b.test 1
+PASS: b.test 2
+FAIL: c.test 1 - c is ko :-(
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 7
+# PASS:  2
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  2
+# XPASS: 1
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *7$' stdout
+# TOTAL: 7
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *2$' stdout
+# FAIL:  2
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Let us make the first part of c.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo OK
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f b.run c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+PASS: c.test 1 - c is ok :-)
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 388
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    195 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root      0 Nov 27 06:50 c.run
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    124 Nov 27 06:50 c.trs
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root    183 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    103 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    769 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    635 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=5 pass=1 fail=1 xpass=1 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=5 pass=1 fail=1 xpass=1 xfail=1 skip=1 error=0
+++ total=5
+++ pass=1
+++ fail=1
+++ xpass=1
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: c.test 1 - c is ok :-)
+XPASS: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *5$' stdout
+# TOTAL: 5
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Let us make also the second part of c.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo KO
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+PASS: c.test 1 - c is ok :-)
+XFAIL: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 2
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 392
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rw-r--r-- 1 root root      0 Nov 27 06:50 c.run
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.xfail
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root    183 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    103 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    769 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    639 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test -f c.run
++ test -f d.run
++ count_test_results total=5 pass=1 fail=1 xpass=0 xfail=2 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=5 pass=1 fail=1 xpass=0 xfail=2 skip=1 error=0
+++ total=5
+++ pass=1
+++ fail=1
+++ xpass=0
+++ xfail=2
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: c.test 1 - c is ok :-)
+XFAIL: c.test 2 # TODO
+XFAIL: c.test 3 - blah blah # TODO need better diagnostic
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 5
+# PASS:  1
+# SKIP:  1
+# XFAIL: 2
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *5$' stdout
+# TOTAL: 5
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *2$' stdout
+# XFAIL: 2
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Nothing changed, so only d.test should be run.
++ for i in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f c.run d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 392
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.xfail
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root    183 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    103 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    659 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    422 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
+++ total=2
+++ pass=0
+++ fail=1
+++ xpass=0
+++ xfail=0
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ for i in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 392
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.xfail
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root    183 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    103 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    659 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    422 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=0 fail=1 xpass=0 xfail=0 skip=1 error=0
+++ total=2
+++ pass=0
+++ fail=1
+++ xpass=0
+++ xfail=0
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+FAIL: d.test 2 - d.extra failed
+# TOTAL: 2
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : Let us make d.test run more testcases, and experience _more_ failures.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo test_count=9
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ do_recheck --fail
++ case $* in
++ status=FAIL
++ rm -f d.run
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:474: test-suite.log] Error 1
+make: *** [Makefile:590: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+SKIP: d.test 1 # SKIP : who cares ...
+SKIP: d.test 2 # SKIP s
+FAIL: d.test 3 - f 1
+PASS: d.test 4 - p 1
+FAIL: d.test 5 - f 2
+XPASS: d.test 6 # TODO xp
+FAIL: d.test 7 - f 3
+FAIL: d.test 8 - f 4
+PASS: d.test 9 - p 2
+ERROR: d.test 10 # UNPLANNED
+ERROR: d.test - Bail out!
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 11
+# PASS:  2
+# SKIP:  2
+# XFAIL: 0
+# FAIL:  4
+# XPASS: 1
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 400
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.xfail
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root     13 Nov 27 06:50 d.count
+-rw-r--r-- 1 root root    192 Nov 27 06:50 d.extra
+-rw-r--r-- 1 root root    409 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root    278 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    859 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    651 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=11 pass=2 fail=4 xpass=1 xfail=0 skip=2 error=2
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=11 pass=2 fail=4 xpass=1 xfail=0 skip=2 error=2
+++ total=11
+++ pass=2
+++ fail=4
+++ xpass=1
+++ xfail=0
+++ skip=2
+++ error=2
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+SKIP: d.test 2 # SKIP s
+FAIL: d.test 3 - f 1
+PASS: d.test 4 - p 1
+FAIL: d.test 5 - f 2
+XPASS: d.test 6 # TODO xp
+FAIL: d.test 7 - f 3
+FAIL: d.test 8 - f 4
+PASS: d.test 9 - p 2
+ERROR: d.test 10 # UNPLANNED
+ERROR: d.test - Bail out!
+# TOTAL: 11
+# PASS:  2
+# SKIP:  2
+# XFAIL: 0
+# FAIL:  4
+# XPASS: 1
+# ERROR: 2
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 2 -eq 2
+++ grep -c '^FAIL:' stdout
++ test 4 -eq 4
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 2 -eq 2
++ grep '^# TOTAL:  *11$' stdout
+# TOTAL: 11
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *2$' stdout
+# SKIP:  2
++ grep '^# FAIL:  *4$' stdout
+# FAIL:  4
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *2$' stdout
+# ERROR: 2
++ test 0 -eq 0
++ : Let us finally make d.test pass.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ echo test_count=1
++ echo :
++ do_recheck --pass
++ case $* in
++ status=0
++ rm -f d.run
++ run_make -O -e 0 recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=0
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+SKIP: d.test 1 # SKIP : who cares ...
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 400
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.xfail
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root     13 Nov 27 06:50 d.count
+-rw-r--r-- 1 root root      2 Nov 27 06:50 d.extra
+-rw-r--r-- 1 root root     70 Nov 27 06:50 d.log
+-rw-r--r-- 1 root root      0 Nov 27 06:50 d.run
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root     83 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    529 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    309 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test -f d.run
++ count_test_results total=1 pass=0 fail=0 xpass=0 xfail=0 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=1 pass=0 fail=0 xpass=0 xfail=0 skip=1 error=0
+++ total=1
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+SKIP: d.test 1 # SKIP : who cares ...
+# TOTAL: 1
+# PASS:  0
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *1$' stdout
+# TOTAL: 1
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ : All tests have been successful or skipped, nothing should be re-run.
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ do_recheck --pass
++ case $* in
++ status=0
++ rm -f d.run
++ run_make -O -e 0 recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=0
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-recheck.dir'
+============================================================================
+Testsuite summary for tap-recheck 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 400
+-rw-r--r-- 1 root root  30199 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root     75 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29652 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root     45 Nov 27 06:50 a.log
+-rwxr-xr-x 1 root root     51 Nov 27 06:50 a.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 a.trs
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root     45 Nov 27 06:50 b.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 b.ok
+-rwxr-xr-x 1 root root    102 Nov 27 06:50 b.test
+-rw-r--r-- 1 root root    101 Nov 27 06:50 b.trs
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rw-r--r-- 1 root root    199 Nov 27 06:50 c.log
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.pass
+-rwxr-xr-x 1 root root    256 Nov 27 06:50 c.test
+-rw-r--r-- 1 root root    123 Nov 27 06:50 c.trs
+-rw-r--r-- 1 root root      3 Nov 27 06:50 c.xfail
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4944 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25402 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104110 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     85 Nov 27 06:50 configure.ac
+-rw-r--r-- 1 root root     13 Nov 27 06:50 d.count
+-rw-r--r-- 1 root root      2 Nov 27 06:50 d.extra
+-rw-r--r-- 1 root root     70 Nov 27 06:50 d.log
+-rwxr-xr-x 1 root root    162 Nov 27 06:50 d.test
+-rw-r--r-- 1 root root     83 Nov 27 06:50 d.trs
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    491 Nov 27 06:50 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
+-rw-r--r-- 1 root root    221 Nov 27 06:50 test-suite.log
++ test '!' -e a.run
++ test '!' -e b.run
++ test '!' -e c.run
++ test '!' -e d.run
++ count_test_results total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=0 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=0
+++ total=0
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *0$' stdout
+# TOTAL: 0
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-recheck.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-recheck.dir
++ set +x
+PASS t/tap-recheck.sh (exit status: 0)

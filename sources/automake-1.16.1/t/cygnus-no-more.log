@@ -1,0 +1,76 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cygnus-no-more.dir
++ warn_rx='support for Cygnus.*trees.*removed'
++ aclocal-1.16 -Werror
++ AUTOMAKE='automake-1.16 -Wnone -Wno-error'
++ echo 'AUTOMAKE_OPTIONS = cygnus'
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 -Wnone -Wno-error
++ am__got_rc=1
++ cat stderr
+Makefile.am:1: error: support for Cygnus-style trees has been removed
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*support for Cygnus.*trees.*removed' stderr
+Makefile.am:1: error: support for Cygnus-style trees has been removed
++ rm -rf autom4te.cache
++ :
++ sed 's|^\(AM_INIT_AUTOMAKE\).*|\1([cygnus])|' configure.ac
++ diff configure.ac t
+2c2
+< AM_INIT_AUTOMAKE
+---
+> AM_INIT_AUTOMAKE([cygnus])
++ mv -f t configure.ac
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 -Wnone -Wno-error
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: support for Cygnus-style trees has been removed
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:2:.*support for Cygnus.*trees.*removed' stderr
+configure.ac:2: error: support for Cygnus-style trees has been removed
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cygnus-no-more.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cygnus-no-more.dir
++ set +x
+PASS t/cygnus-no-more.sh (exit status: 0)

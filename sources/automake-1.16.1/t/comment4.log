@@ -1,0 +1,31 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/comment4.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
+++ wc -l
+++ sed -n -e 1,/UnIqUe_COPYRIGHT_BOILERPLATE/p Makefile.in
++ test 17 -le 30
+++ sed -n -e /UnIqUe_MUMBLE_COMMENT/,/UnIqUe_MUMBLE_VALUE/p Makefile.in
+++ wc -l
++ test 2 -eq 2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/comment4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/comment4.dir
++ set +x
+PASS t/comment4.sh (exit status: 0)

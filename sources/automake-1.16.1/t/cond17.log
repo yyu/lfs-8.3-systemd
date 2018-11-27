@@ -1,0 +1,23 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond17.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+Makefile.am: error: object 'foo.$(OBJEXT)' created by 'foo.cc' and 'foo.c'
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/cond17.sh (exit status: 1)

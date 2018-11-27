@@ -1,0 +1,462 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror -I .
++ autoheader
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure --enable-dependency-tracking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ /bin/grep -F depmode=none Makefile
++ make
+cp ../stdio.in.h stdio.h
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/build'
+cc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/build'
++ ls -l
+total 112
+-rw-r--r-- 1 root root 23095 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root   891 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root  8922 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root 32991 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 20712 Nov 27 06:48 foo
+-rw-r--r-- 1 root root  3128 Nov 27 06:48 foo.o
+-rw-r--r-- 1 root root    23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root    49 Nov 27 06:48 stdio.h
++ test -f stdio.h
++ sleep 2
++ sed -e 's/^\( *override_stdio\)=.*$/\1=false/' ../macros.m4
++ diff ../macros.m4 t
+2c2
+<   override_stdio=:
+---
+>   override_stdio=false
++ mv -f t ../macros.m4
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing aclocal-1.16 -I .
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure --enable-dependency-tracking build_alias= host_alias= CC=cc CFLAGS=-g -O2 CPPFLAGS= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+(CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoheader)
+rm -f stamp-h1
+touch ../config.h.in
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/build'
+rm -f stdio.h
+cc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/build'
++ ls -l
+total 112
+-rw-r--r-- 1 root root 23088 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root   891 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root  9869 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root 32984 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 22024 Nov 27 06:48 foo
+-rw-r--r-- 1 root root  5008 Nov 27 06:48 foo.o
+-rw-r--r-- 1 root root    23 Nov 27 06:48 stamp-h1
++ test '!' -e stdio.h
++ sleep 2
++ sed -e 's/^\( *override_stdio\)=.*$/\1=:/' ../macros.m4
++ diff ../macros.m4 t
+2c2
+<   override_stdio=false
+---
+>   override_stdio=:
++ mv -f t ../macros.m4
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing aclocal-1.16 -I .
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure --enable-dependency-tracking build_alias= host_alias= CC=cc CFLAGS=-g -O2 CPPFLAGS= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+cp ../stdio.in.h stdio.h
+(CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoheader)
+rm -f stamp-h1
+touch ../config.h.in
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/build'
+cc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/build'
++ ls -l
+total 112
+-rw-r--r-- 1 root root 23095 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root   891 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root  9876 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root 32991 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 20712 Nov 27 06:48 foo
+-rw-r--r-- 1 root root  3128 Nov 27 06:48 foo.o
+-rw-r--r-- 1 root root    23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root    49 Nov 27 06:48 stdio.h
++ test -f stdio.h
++ make distclean
+test -z "foo" || rm -f foo
+rm -f *.o
+test -z "stdio.h" || rm -f stdio.h
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f config.h stamp-h1
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure --enable-dependency-tracking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ /bin/grep -F depmode=none Makefile
++ make
+cp ./stdio.in.h stdio.h
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir'
+cc -DHAVE_CONFIG_H -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir'
++ ls -l
+total 412
+-rw-r--r-- 1 root root  23041 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root    276 Nov 27 06:48 Makefile.am
+-rw-r--r-- 1 root root  22922 Nov 27 06:48 Makefile.in
+-rw-r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 autom4te.cache
+drwxr-xr-x 3 root root   4096 Nov 27 06:48 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    891 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-rw-r--r-- 1 root root   8909 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root  33142 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 146369 Nov 27 06:48 configure
+-rw-r--r-- 1 root root    152 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root  20696 Nov 27 06:48 foo
+-rw-r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-rw-r--r-- 1 root root   3120 Nov 27 06:48 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-rw-r--r-- 1 root root    321 Nov 27 06:48 macros.m4
+-rwxr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-rw-r--r-- 1 root root     23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.h
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
++ test -f stdio.h
++ sleep 2
++ sed -e 's/^\( *override_stdio\)=.*$/\1=false/' ./macros.m4
++ diff ./macros.m4 t
+2c2
+<   override_stdio=:
+---
+>   override_stdio=false
++ mv -f t ./macros.m4
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing aclocal-1.16 -I .
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure --enable-dependency-tracking build_alias= host_alias= CC=cc CFLAGS=-g -O2 CPPFLAGS= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoheader)
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir'
+rm -f stdio.h
+cc -DHAVE_CONFIG_H -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir'
++ ls -l
+total 412
+-rw-r--r-- 1 root root  23034 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root    276 Nov 27 06:48 Makefile.am
+-rw-r--r-- 1 root root  22922 Nov 27 06:48 Makefile.in
+-rw-r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 autom4te.cache
+drwxr-xr-x 3 root root   4096 Nov 27 06:48 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    891 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-rw-r--r-- 1 root root   9832 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root  33135 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 146373 Nov 27 06:48 configure
+-rw-r--r-- 1 root root    152 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root  22024 Nov 27 06:48 foo
+-rw-r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-rw-r--r-- 1 root root   5008 Nov 27 06:48 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-rw-r--r-- 1 root root    325 Nov 27 06:48 macros.m4
+-rwxr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-rw-r--r-- 1 root root     23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
++ test '!' -e stdio.h
++ sleep 2
++ sed -e 's/^\( *override_stdio\)=.*$/\1=:/' ./macros.m4
++ diff ./macros.m4 t
+2c2
+<   override_stdio=false
+---
+>   override_stdio=:
++ mv -f t ./macros.m4
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing aclocal-1.16 -I .
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure --enable-dependency-tracking build_alias= host_alias= CC=cc CFLAGS=-g -O2 CPPFLAGS= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+cp ./stdio.in.h stdio.h
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-remove-header.dir/missing autoheader)
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir'
+cc -DHAVE_CONFIG_H -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-remove-header.dir'
++ ls -l
+total 412
+-rw-r--r-- 1 root root  23041 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root    276 Nov 27 06:48 Makefile.am
+-rw-r--r-- 1 root root  22922 Nov 27 06:48 Makefile.in
+-rw-r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 autom4te.cache
+drwxr-xr-x 3 root root   4096 Nov 27 06:48 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    891 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-rw-r--r-- 1 root root   9839 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root  33142 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 146369 Nov 27 06:48 configure
+-rw-r--r-- 1 root root    152 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root  20696 Nov 27 06:48 foo
+-rw-r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-rw-r--r-- 1 root root   3120 Nov 27 06:48 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-rw-r--r-- 1 root root    321 Nov 27 06:48 macros.m4
+-rwxr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-rw-r--r-- 1 root root     23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.h
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
++ test -f stdio.h
++ make distclean
+test -z "foo" || rm -f foo
+rm -f *.o
+test -z "stdio.h" || rm -f stdio.h
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.h stamp-h1
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-gnulib-remove-header.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-gnulib-remove-header.dir
++ set +x
+PASS t/remake-gnulib-remove-header.sh (exit status: 0)

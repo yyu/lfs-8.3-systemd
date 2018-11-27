@@ -1,0 +1,213 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/man3.dir
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.1
++ run_make DISTCHECK_CONFIGURE_FLAGS=foo=bar distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make DISTCHECK_CONFIGURE_FLAGS=foo=bar distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/man3.dir'
+if test -d "man3-1.0"; then find "man3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "man3-1.0" || { sleep 5 && rm -rf "man3-1.0"; }; else :; fi
+test -d "man3-1.0" || mkdir "man3-1.0"
+test -n "" \
+|| find "man3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/man3.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "man3-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/man3.dir'
+tardir=man3-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >man3-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir'
+if test -d "man3-1.0"; then find "man3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "man3-1.0" || { sleep 5 && rm -rf "man3-1.0"; }; else :; fi
+case 'man3-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc man3-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc man3-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc man3-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc man3-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c man3-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc man3-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip man3-1.0.zip ;;\
+esac
+chmod -R a-w man3-1.0
+chmod u+w man3-1.0
+mkdir man3-1.0/_build man3-1.0/_build/sub man3-1.0/_inst
+chmod a-w man3-1.0
+test -d man3-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd man3-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd man3-1.0/_build/sub \
+  && ../../configure \
+     \
+    foo=bar \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf man3-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.1
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1'
+ /usr/bin/install -c -m 644 foo.1 '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+grep bar "/sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1/foo.1"
+bar
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1' && rm -f foo.1 )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/tmp/am-dc-41977//sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1'
+ /usr/bin/install -c -m 644 foo.1 '/tmp/am-dc-41977//sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+ ( cd '/tmp/am-dc-41977//sources/automake-1.16.1/t/man3.dir/man3-1.0/_inst/share/man/man1' && rm -f foo.1 )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+if test -d "man3-1.0"; then find "man3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "man3-1.0" || { sleep 5 && rm -rf "man3-1.0"; }; else :; fi
+test -d "man3-1.0" || mkdir "man3-1.0"
+test -n "" \
+|| find "man3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/man3.dir/man3-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "man3-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+tardir=man3-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >man3-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+if test -d "man3-1.0"; then find "man3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "man3-1.0" || { sleep 5 && rm -rf "man3-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+test -z "foo.1" || rm -f foo.1
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/man3.dir/man3-1.0/_build/sub'
+if test -d "man3-1.0"; then find "man3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "man3-1.0" || { sleep 5 && rm -rf "man3-1.0"; }; else :; fi
+==========================================
+man3-1.0 archives ready for distribution: 
+man3-1.0.tar.gz
+==========================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/man3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/man3.dir
++ set +x
+PASS t/man3.sh (exit status: 0)

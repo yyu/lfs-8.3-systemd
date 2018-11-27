@@ -1,12 +1,12 @@
 cd cpan/Archive-Tar
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Attribute/Handlers.pm
@@ -16,23 +16,23 @@ rm -f lib/B/Debug.pm
 cd cpan/CPAN
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/CPAN-Meta
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/CPAN/Meta/Requirements.pm
@@ -49,12 +49,12 @@ rm -f lib/Env.pm
 cd ext/Errno
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Exporter.pm
@@ -84,35 +84,35 @@ rm -f lib/ExtUtils/Packlist.pm
 cd cpan/ExtUtils-MakeMaker
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/ExtUtils-Manifest
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/ExtUtils/Miniperl.pm
 cd dist/ExtUtils-ParseXS
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/File/Fetch.pm
@@ -125,12 +125,12 @@ rm -f lib/Getopt/Long.pm
 cd cpan/HTTP-Tiny
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/I18N/Collate.pm
@@ -140,23 +140,23 @@ rm -f lib/I18N/LangTags/List.pm
 cd dist/lib
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/IO-Compress
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/IO/Socket/IP.pm
@@ -167,12 +167,12 @@ rm -f lib/IPC/Open3.pm
 cd cpan/JSON-PP
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Locale/Codes.pm
@@ -242,12 +242,12 @@ rm -f lib/Memoize/Storable.pm
 cd dist/Module-CoreList
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Module/Load.pm
@@ -256,12 +256,12 @@ rm -f lib/Module/Loaded.pm
 cd cpan/Module-Metadata
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/NEXT.pm
@@ -272,12 +272,12 @@ rm -f lib/PerlIO/via/QuotedPrint.pm
 cd cpan/Pod-Checker
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Pod/Escapes.pm
@@ -314,56 +314,56 @@ rm -f lib/Pod/Simple/XMLOutStream.pm
 cd ext/Pod-Functions
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd ext/Pod-Html
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/Pod-Parser
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/Pod-Perldoc
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/Pod-Usage
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Safe.pm
@@ -373,12 +373,12 @@ rm -f lib/Term/ANSIColor.pm
 cd cpan/Term-Cap
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Term/Complete.pm
@@ -387,12 +387,12 @@ rm -f lib/Test.pm
 cd cpan/Test-Harness
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Test/Builder.pm
@@ -476,12 +476,12 @@ rm -f lib/Time/Local.pm
 cd dist/XSLoader
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Fatal.pm
@@ -497,12 +497,12 @@ rm -f lib/autouse.pm
 cd dist/base
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/Math/BigFloat/Trace.pm
@@ -516,23 +516,23 @@ rm -f lib/experimental.pm
 cd dist/if
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 cd cpan/libnet
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/parent.pm
@@ -551,12 +551,12 @@ rm -f lib/perlglossary.pod
 cd cpan/podlators
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so
 fi
 cd ../..
 rm -f lib/version.pm
@@ -566,495 +566,550 @@ rm -f lib/version/regex.pm
 cd ext/DynaLoader
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=static
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=static
 fi
 cd ../..
 cd ext/B
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Compress-Raw-Bzip2
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Compress-Raw-Zlib
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/PathTools
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/Data-Dumper
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/Devel-PPPort
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Devel-Peek
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Digest-MD5
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Digest-SHA
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Encode
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Fcntl
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/File-DosGlob
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/File-Glob
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Filter-Util-Call
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+fi
+cd ../..
+cd ext/GDBM_File
+if test ! -f Makefile -a -f Makefile.old; then
+    echo "Note: Using Makefile.old"
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+else
+    if test ! -f Makefile ; then
+	echo "Warning: No Makefile!"
+    fi
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Hash-Util
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Hash-Util-FieldHash
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/I18N-Langinfo
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/IO
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/IPC-SysV
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Scalar-List-Utils
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/MIME-Base64
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Math-BigInt-FastCalc
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+fi
+cd ../..
+cd ext/NDBM_File
+if test ! -f Makefile -a -f Makefile.old; then
+    echo "Note: Using Makefile.old"
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+else
+    if test ! -f Makefile ; then
+	echo "Warning: No Makefile!"
+    fi
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+fi
+cd ../..
+cd ext/ODBM_File
+if test ! -f Makefile -a -f Makefile.old; then
+    echo "Note: Using Makefile.old"
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+else
+    if test ! -f Makefile ; then
+	echo "Warning: No Makefile!"
+    fi
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Opcode
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/POSIX
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/PerlIO-encoding
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/PerlIO-mmap
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/PerlIO-scalar
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/PerlIO-via
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/SDBM_File
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Socket
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/Storable
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Sys-Hostname
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Sys-Syslog
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/Tie-Hash-NamedCapture
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/Time-HiRes
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Time-Piece
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd cpan/Unicode-Collate
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/Unicode-Normalize
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+fi
+cd ../..
+cd ext/XS-APItest
+if test ! -f Makefile -a -f Makefile.old; then
+    echo "Note: Using Makefile.old"
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+else
+    if test ! -f Makefile ; then
+	echo "Warning: No Makefile!"
+    fi
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+fi
+cd ../..
+cd ext/XS-Typemap
+if test ! -f Makefile -a -f Makefile.old; then
+    echo "Note: Using Makefile.old"
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
+else
+    if test ! -f Makefile ; then
+	echo "Warning: No Makefile!"
+    fi
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/arybase
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/attributes
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/mro
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd ext/re
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/threads
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..
 cd dist/threads-shared
 if test ! -f Makefile -a -f Makefile.old; then
     echo "Note: Using Makefile.old"
-    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make -f Makefile.old realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 else
     if test ! -f Makefile ; then
 	echo "Warning: No Makefile!"
     fi
-    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.a LINKTYPE=static CCCDLFLAGS=
+    make realclean MAKE='make' PERL_CORE=1 LIBPERL_A=libperl.so LINKTYPE=dynamic
 fi
 cd ../..

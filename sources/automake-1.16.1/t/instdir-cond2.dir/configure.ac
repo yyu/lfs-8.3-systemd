@@ -1,0 +1,5 @@
+AC_INIT([instdir-cond2], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AM_CONDITIONAL([ENABLE_FOO], [false])
+AC_OUTPUT

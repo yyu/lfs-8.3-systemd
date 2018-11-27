@@ -1,0 +1,57 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-driver-trs-suffix-registered.dir
++ :
++ cat
++ cat
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall 1
++ automake-1.16 --foreign -Werror -Wall 2
++ sed -e 's/$/ /' 1.in
++ sed -e 's/$/ /' 2.in
++ grep '^\.SUFFIXES:' mk.1
+.SUFFIXES: 
+.SUFFIXES: .log .test .trs 
++ grep '^\.SUFFIXES:' mk.2
+.SUFFIXES: 
+.SUFFIXES: .SH .abcdef .log .trs 
++ for suf in test log trs
++ grep '^\.SUFFIXES:.* \.test ' mk.1
+.SUFFIXES: .log .test .trs 
++ for suf in test log trs
++ grep '^\.SUFFIXES:.* \.log ' mk.1
+.SUFFIXES: .log .test .trs 
++ for suf in test log trs
++ grep '^\.SUFFIXES:.* \.trs ' mk.1
+.SUFFIXES: .log .test .trs 
++ for suf in SH abcdef log trs
++ grep '^\.SUFFIXES:.* \.SH ' mk.2
+.SUFFIXES: .SH .abcdef .log .trs 
++ for suf in SH abcdef log trs
++ grep '^\.SUFFIXES:.* \.abcdef ' mk.2
+.SUFFIXES: .SH .abcdef .log .trs 
++ for suf in SH abcdef log trs
++ grep '^\.SUFFIXES:.* \.log ' mk.2
+.SUFFIXES: .SH .abcdef .log .trs 
++ for suf in SH abcdef log trs
++ grep '^\.SUFFIXES:.* \.trs ' mk.2
+.SUFFIXES: .SH .abcdef .log .trs 
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-driver-trs-suffix-registered.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-driver-trs-suffix-registered.dir
++ set +x
+PASS t/test-driver-trs-suffix-registered.sh (exit status: 0)

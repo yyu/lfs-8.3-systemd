@@ -1,0 +1,19 @@
+./backtrace ./backtrace.x32.exec ./backtrace.x32.core
+0x400000	0x6da000	/export/gnu/import/git/elfutils/tests/backtrace.x32.exe
+0xfff64000	0xfff65000	linux-vdso.so.1
+TID 3843:
+# 0 0x40b2a2    	raise
+# 1 0x400e9c - 1	sigusr2
+# 2 0x400f2b - 1	stdarg
+# 3 0x400f9f - 1	backtracegen
+# 4 0x400fa8 - 1	start
+# 5 0x402964 - 1	start_thread
+# 6 0x44c8c9 - 1	__clone
+TID 3842:
+# 0 0x4039ea    	pthread_join
+# 1 0x400a12 - 1	main
+# 2 0x411d0c - 1	__libc_start_main
+# 3 0x400d43 - 1	_start
+# 1 0x400a12 - 1	main
+# 3 0x400f9f - 1	backtracegen
+PASS run-backtrace-core-x32.sh (exit status: 0)

@@ -1,0 +1,51 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/all2.dir
++ aclocal-1.16 -Werror
++ targets='all install-exec install-data uninstall'
++ for target in $targets
++ : Doing all
++ echo all-local:
++ automake-1.16 --foreign -Werror -Wall
++ grep 'all-local all-local' Makefile.in
++ grep 'all-am:.*all-local' Makefile.in
+all-am: Makefile all-local
++ for target in $targets
++ : Doing install-exec
++ echo install-exec-local:
++ automake-1.16 --foreign -Werror -Wall
++ grep 'install-exec-local install-exec-local' Makefile.in
++ grep 'install-exec-am:.*install-exec-local' Makefile.in
+install-exec-am: install-exec-local
++ for target in $targets
++ : Doing install-data
++ echo install-data-local:
++ automake-1.16 --foreign -Werror -Wall
++ grep 'install-data-local install-data-local' Makefile.in
++ grep 'install-data-am:.*install-data-local' Makefile.in
+install-data-am: install-data-local
++ for target in $targets
++ : Doing uninstall
++ echo uninstall-local:
++ automake-1.16 --foreign -Werror -Wall
++ grep 'uninstall-local uninstall-local' Makefile.in
++ grep 'uninstall-am:.*uninstall-local' Makefile.in
+uninstall-am: uninstall-local
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/all2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/all2.dir
++ set +x
+PASS t/all2.sh (exit status: 0)

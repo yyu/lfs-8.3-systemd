@@ -1,0 +1,80 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ext.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.f\.o:' Makefile.in
+.f.o:
++ grep '^f\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.for\.o:' Makefile.in
+.for.o:
++ grep '^for\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.f90\.o:' Makefile.in
+.f90.o:
++ grep '^f90\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.f95\.o:' Makefile.in
+.f95.o:
++ grep '^f95\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.F\.o:' Makefile.in
+.F.o:
++ grep '^F\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.F90\.o:' Makefile.in
+.F90.o:
++ grep '^F90\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.F95\.o:' Makefile.in
+.F95.o:
++ grep '^F95\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.r\.o:' Makefile.in
+.r.o:
++ grep '^r\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.m\.o:' Makefile.in
+.m.o:
++ grep '^m\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.mm\.o:' Makefile.in
+.mm.o:
++ grep '^mm\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ for ext in f for f90 f95 F F90 F95 r m mm upc
++ grep '^\.upc\.o:' Makefile.in
+.upc.o:
++ grep '^upc\.o:' Makefile.in
++ : For shells with busted 'set -e.'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ext.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ext.dir
++ set +x
+PASS t/ext.sh (exit status: 0)

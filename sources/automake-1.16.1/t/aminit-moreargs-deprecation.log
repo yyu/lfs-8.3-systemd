@@ -1,0 +1,72 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aminit-moreargs-deprecation.dir
++ warn_rx='AM_INIT_AUTOMAKE.* two-.* three-arguments form.*deprecated'
++ cat
++ aclocal-1.16 -Werror
++ :
++ do_check
++ rm -rf autom4te.cache
++ for cmd in "$AUTOCONF" "$AUTOMAKE"
++ autoconf -Werror -Wnone -Wobsolete
++ cat stderr
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
++ grep '^configure\.ac:2:.*AM_INIT_AUTOMAKE.* two-.* three-arguments form.*deprecated' stderr
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.
++ autoconf -Werror -Wall -Wno-obsolete
++ for cmd in "$AUTOCONF" "$AUTOMAKE"
++ automake-1.16 --foreign -Werror -Wall -Werror -Wnone -Wobsolete
++ cat stderr
+automake-1.16: warnings are treated as errors
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.ac:2: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
++ grep '^configure\.ac:2:.*AM_INIT_AUTOMAKE.* two-.* three-arguments form.*deprecated' stderr
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
++ automake-1.16 --foreign -Werror -Wall -Werror -Wall -Wno-obsolete
++ sed '/^AM_INIT_AUTOMAKE/s|)$|, [NODEFINE])|' configure.ac
++ diff configure.ac t
+2c2
+< AM_INIT_AUTOMAKE([twoargs], [1.0])
+---
+> AM_INIT_AUTOMAKE([twoargs], [1.0], [NODEFINE])
++ mv -f t configure.ac
++ do_check
++ rm -rf autom4te.cache
++ for cmd in "$AUTOCONF" "$AUTOMAKE"
++ autoconf -Werror -Wnone -Wobsolete
++ cat stderr
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
++ grep '^configure\.ac:2:.*AM_INIT_AUTOMAKE.* two-.* three-arguments form.*deprecated' stderr
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.
++ autoconf -Werror -Wall -Wno-obsolete
++ for cmd in "$AUTOCONF" "$AUTOMAKE"
++ automake-1.16 --foreign -Werror -Wall -Werror -Wnone -Wobsolete
++ cat stderr
+automake-1.16: warnings are treated as errors
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.ac:2: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
++ grep '^configure\.ac:2:.*AM_INIT_AUTOMAKE.* two-.* three-arguments form.*deprecated' stderr
+configure.ac:2: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
++ automake-1.16 --foreign -Werror -Wall -Werror -Wall -Wno-obsolete
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aminit-moreargs-deprecation.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aminit-moreargs-deprecation.dir
++ set +x
+PASS t/aminit-moreargs-deprecation.sh (exit status: 0)

@@ -1,0 +1,108 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/auxdir-computed.dir
++ plan_ 3
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x3 = xunknown
++ test x3 = xlater
++ test x3 = xlazy
++ test x3 = xnow
++ test 3 -ge 0
++ planned_=3
++ echo 1..3
+1..3
++ cat
++ :
++ command_ok_ aclocal aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=aclocal
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- aclocal
++ set +x
+ok 1 - aclocal
+PASS: t/auxdir-computed.tap 1 - aclocal
++ command_ok_ 'automake -a' -D TODO -r 'long-standing limitation' automake-1.16 --foreign -Werror -Wall -a
++ tap_directive_=
++ tap_reason_=
++ test 10 -gt 0
++ tap_description_='automake -a'
++ shift
++ test 9 -gt 0
++ case $1 in
++ tap_directive_=TODO
++ shift
++ shift
++ test 7 -gt 0
++ case $1 in
++ tap_reason_='long-standing limitation'
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:2: error: required directory ./$foo does not exist
+configure.ac:3: error: installing '$foo/install-sh'; error while making link: No such file or directory
+configure.ac:3: error: installing '$foo/missing'; error while making link: No such file or directory
++ tap_result_='not ok'
++ result_ 'not ok' -D TODO -r 'long-standing limitation' -- 'automake -a'
++ set +x
+not ok 2 - automake -a # TODO long-standing limitation
+XFAIL: t/auxdir-computed.tap 2 - automake -a # TODO long-standing limitation
++ command_ok_ automake -D TODO -r 'long-standing limitation' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_=automake
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=TODO
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ tap_reason_='long-standing limitation'
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
+configure.ac:2: error: required directory ./$foo does not exist
+configure.ac:3: error: required file '$foo/install-sh' not found
+configure.ac:3:   'automake --add-missing' can install 'install-sh'
+configure.ac:3: error: required file '$foo/missing' not found
+configure.ac:3:   'automake --add-missing' can install 'missing'
++ tap_result_='not ok'
++ result_ 'not ok' -D TODO -r 'long-standing limitation' -- automake
++ set +x
+not ok 3 - automake # TODO long-standing limitation
+XFAIL: t/auxdir-computed.tap 3 - automake # TODO long-standing limitation
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 3 = later
++ test 0 -eq 0
++ test 1 -eq 3
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x

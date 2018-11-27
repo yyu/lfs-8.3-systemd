@@ -1,0 +1,154 @@
+stdlib2: running libtool --version
+libtool (GNU libtool) 2.4.6
+Written by Gordon Matzigkeit, 1996
+
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/stdlib2.dir
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ cat
++ :
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails --add-missing --gnu
++ AUTOMAKE_run -e 1 --add-missing --gnu
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing --gnu
++ am__got_rc=1
++ cat stderr
+configure.ac:5: installing './ar-lib'
+Makefile.am: installing './INSTALL'
+Makefile.am: installing './COPYING' using GNU General Public License v3 file
+Makefile.am:     Consider adding the COPYING file to the version control system
+Makefile.am:     for your code, to avoid questions about which license your project uses
+Makefile.am:2: error: 'nonstandard.la' is not a standard libtool library name
+Makefile.am:2: did you mean 'libnonstandard.la'?
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'Makefile.am:2:.*nonstandard.la.*standard libtool library name' stderr
+Makefile.am:2: error: 'nonstandard.la' is not a standard libtool library name
++ grep 'Makefile.am:2:.*libnonstandard.la' stderr
+Makefile.am:2: did you mean 'libnonstandard.la'?
++ AUTOMAKE_fails --add-missing --gnu -Wno-gnu
++ AUTOMAKE_run -e 1 --add-missing --gnu -Wno-gnu
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing --gnu -Wno-gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: 'nonstandard.la' is not a standard libtool library name
+Makefile.am:2: did you mean 'libnonstandard.la'?
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'Makefile.am:2:.*nonstandard.la.*standard libtool library name' stderr
+Makefile.am:2: error: 'nonstandard.la' is not a standard libtool library name
++ grep 'Makefile.am:2:.*libnonstandard.la' stderr
+Makefile.am:2: did you mean 'libnonstandard.la'?
++ cat
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu
++ cat
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: error: 'nonstandard.la' is not a standard libtool library name
+Makefile.am:2: did you mean 'libnonstandard.la'?
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'Makefile.am:2:.*nonstandard.la.*standard libtool library name' stderr
+Makefile.am:2: error: 'nonstandard.la' is not a standard libtool library name
++ grep 'Makefile.am:2:.*libnonstandard.la' stderr
+Makefile.am:2: did you mean 'libnonstandard.la'?
++ echo 'AM_LDFLAGS = -module'
++ automake-1.16 --foreign -Werror -Wall
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: error: 'nonstandard' is not a standard libtool module name
+Makefile.am:2: did you mean 'nonstandard.la'?
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'Makefile.am:2:.*'\''nonstandard'\''.*standard libtool module name' stderr
+Makefile.am:2: error: 'nonstandard' is not a standard libtool module name
++ grep 'Makefile.am:2:.*nonstandard.la' stderr
+Makefile.am:2: did you mean 'nonstandard.la'?
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/stdlib2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/stdlib2.dir
++ set +x
+PASS t/stdlib2.sh (exit status: 0)

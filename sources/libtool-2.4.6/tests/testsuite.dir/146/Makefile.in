@@ -1,0 +1,26 @@
+prefix = @prefix@
+libdir = @libdir@
+top_builddir = .
+SHELL = @SHELL@
+DEFAULT_INCLUDES = -I. -I@srcdir@
+EXEEXT = @EXEEXT@
+LIBTOOL = @LIBTOOL@
+OBJEXT = @OBJEXT@
+
+CPPFLAGS = @CPPFLAGS@
+CFLAGS = @CFLAGS@
+LDFLAGS = @LDFLAGS@
+
+COMPILE = $(CC) $(CPPFLAGS) $(CFLAGS) $(DEFAULT_INCLUDES)
+LINK = $(LIBTOOL) --mode=link --tag=CC $(CC) $(CFLAGS) $(LDFLAGS) -o $@
+
+all: hell$(EXEEXT)
+
+hell$(EXEEXT): main.$(OBJEXT) libhello.la
+	$(LINK) main.$(OBJEXT) libhello.la
+
+.SUFFIXES:
+.SUFFIXES: .c .$(OBJEXT)
+
+.c.$(OBJEXT):
+	$(COMPILE) -c $<

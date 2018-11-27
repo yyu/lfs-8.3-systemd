@@ -1,0 +1,38 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-path.dir
++ cat
++ mkdir mdir1 mdir2 mdir3
++ cat
++ cat
++ cat
+++ pwd
++ ACLOCAL_PATH=mdir1:./mdir2:/sources/automake-1.16.1/t/aclocal-path.dir/mdir3
++ aclocal-1.16 -Werror
++ autoconf
++ /bin/grep -F m4_include aclocal.m4
++ /bin/grep -E 'AM_(FOO|BAR|BAZ)_MACRO' configure
++ /bin/grep -F am--foo configure
+am--foo
++ /bin/grep -F am--bar configure
+am--bar
++ /bin/grep -F am--baz configure
+am--baz
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-path.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-path.dir
++ set +x
+PASS t/aclocal-path.sh (exit status: 0)

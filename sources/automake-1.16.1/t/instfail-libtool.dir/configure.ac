@@ -1,0 +1,6 @@
+AC_INIT([instfail-libtool], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AM_PROG_AR
+AC_PROG_LIBTOOL
+AC_OUTPUT

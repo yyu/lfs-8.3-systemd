@@ -1,0 +1,35 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/txinfo-vtexi.dir
++ cat
++ cat
++ :
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep '^\$(srcdir)/textutils\.info:.*[ /]version\.texi *$' Makefile.in
+$(srcdir)/textutils.info: textutils.texi $(srcdir)/version.texi
++ /bin/grep -E 'stamp-vti:.*textutils\.texi( .*)?$' Makefile.in
+$(srcdir)/stamp-vti: textutils.texi $(top_srcdir)/configure
++ /bin/grep -E 'stamp-vti:.*\$\(top_srcdir\)/configure( .*)?$' Makefile.in
+$(srcdir)/stamp-vti: textutils.texi $(top_srcdir)/configure
++ sed 's,\$(srcdir)/mdate-sh,,g' Makefile.in
++ grep /mdate-sh
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/txinfo-vtexi.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/txinfo-vtexi.dir
++ set +x
+PASS t/txinfo-vtexi.sh (exit status: 0)

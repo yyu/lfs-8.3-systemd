@@ -1,0 +1,334 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/silent-custom.dir
++ cat
++ echo SUBDIRS = sub
++ mkdir sub
++ cat
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ autoconf
++ ./configure --enable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ do_check --silent
++ case ${1-} in
++ silent=:
++ shift
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+test -z "foo" || rm -f foo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ run_make -M --
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ test 0 -eq 253
++ test yes = yes
++ cat output
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+ XGEN    foo
+ GEN     [headers]
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ /bin/grep -F 'cp ' output
++ /bin/grep -F generate-header output
++ /bin/grep -F 'rm -f' output
++ grep '[012]\.h' output
++ grep '^ XGEN    foo$' output
+ XGEN    foo
++ grep '^ GEN     \[headers\]$' output
+ GEN     [headers]
++ do_check --verbose V=1
++ case ${1-} in
++ silent=false
++ shift
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+test -z "foo" || rm -f foo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ run_make -M -- V=1
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make V=1
++ set +x
++ test 0 -eq 253
++ test yes = yes
++ cat output
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+cp ./foo.in foo
++ rm -f sub/0.h sub/1.h sub/2.h
++ : generate-header --flags sub/0.h sub/1.h sub/2.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ false
++ /bin/grep -F 'GEN ' output
++ /bin/grep -F 'cp ./foo.in foo' output
+cp ./foo.in foo
++ ok=false
++ for q in '' \' \"
++ files='sub/0.h sub/1.h sub/2.h'
++ /bin/grep -F 'rm -f sub/0.h sub/1.h sub/2.h' output
++ rm -f sub/0.h sub/1.h sub/2.h
++ /bin/grep -F 'generate-header --flags sub/0.h sub/1.h sub/2.h' output
++ : generate-header --flags sub/0.h sub/1.h sub/2.h
++ ok=:
++ break
++ :
++ unset ok
++ make distclean
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ ./configure --disable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ do_check --verbose
++ case ${1-} in
++ silent=false
++ shift
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+test -z "foo" || rm -f foo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ run_make -M --
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ test 0 -eq 253
++ test yes = yes
++ cat output
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+cp ./foo.in foo
++ rm -f sub/0.h sub/1.h sub/2.h
++ : generate-header --flags sub/0.h sub/1.h sub/2.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ false
++ /bin/grep -F 'GEN ' output
++ /bin/grep -F 'cp ./foo.in foo' output
+cp ./foo.in foo
++ ok=false
++ for q in '' \' \"
++ files='sub/0.h sub/1.h sub/2.h'
++ /bin/grep -F 'rm -f sub/0.h sub/1.h sub/2.h' output
++ rm -f sub/0.h sub/1.h sub/2.h
++ /bin/grep -F 'generate-header --flags sub/0.h sub/1.h sub/2.h' output
++ : generate-header --flags sub/0.h sub/1.h sub/2.h
++ ok=:
++ break
++ :
++ unset ok
++ do_check --silent V=0
++ case ${1-} in
++ silent=:
++ shift
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+test -z "foo" || rm -f foo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ run_make -M -- V=0
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make V=0
++ set +x
++ test 0 -eq 253
++ test yes = yes
++ cat output
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+ XGEN    foo
+ GEN     [headers]
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ /bin/grep -F 'cp ' output
++ /bin/grep -F generate-header output
++ /bin/grep -F 'rm -f' output
++ grep '[012]\.h' output
++ grep '^ XGEN    foo$' output
+ XGEN    foo
++ grep '^ GEN     \[headers\]$' output
+ GEN     [headers]
++ make distclean
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-custom.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-custom.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/silent-custom.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/silent-custom.dir
++ set +x
+PASS t/silent-custom.sh (exit status: 0)

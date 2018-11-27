@@ -5,14 +5,14 @@
 #  is that makefile has the dependencies filled in at the end.
 
 CC = cc
-LD = ld
+LD = cc
 
-LDFLAGS =  -fstack-protector-strong
-CLDFLAGS =  -fstack-protector-strong
+LDFLAGS =  -fstack-protector-strong -L/usr/local/lib
+CLDFLAGS =  -fstack-protector-strong -L/usr/local/lib
 
 mallocsrc = 
 mallocobj = 
-LNS = /tools/bin/ln -s
+LNS = /bin/ln -s
 # NOTE: some systems don't grok "cp -f". XXX Configure test needed?
 CPS = cp
 RMS = rm -f
@@ -22,23 +22,23 @@ ranlib = :
 # appropriate questions in Configure.  If you want to change these,
 # edit config.sh instead, or specify --man1dir=/wherever on
 # installman commandline.
-bin = /tools/bin
-scriptdir = /tools/bin
-shrpdir = /tools/lib/perl5/5.28.0/x86_64-linux/CORE
-privlib = /tools/lib/perl5/5.28.0
-man1dir = /tools/share/man/man1
+bin = /usr/bin
+scriptdir = /usr/bin
+shrpdir = /usr/lib/perl5/5.28.0/x86_64-linux-thread-multi/CORE
+privlib = /usr/lib/perl5/5.28.0
+man1dir = /usr/share/man/man1
 man1ext = 1
-man3dir = /tools/share/man/man3
+man3dir = /usr/share/man/man3
 man3ext = 3
 
 # The following are used to build and install shared libraries for
 # dynamic loading.
-LDDLFLAGS = 
+LDDLFLAGS = -shared -O2 -L/usr/local/lib -fstack-protector-strong
 SHRPLDFLAGS = $(LDDLFLAGS)
-CCDLFLAGS = 
-DLSUFFIX = .none
-PLDLFLAGS = 
-LIBPERL = libperl.a
+CCDLFLAGS = -Wl,-E -Wl,-rpath,/usr/lib/perl5/5.28.0/x86_64-linux-thread-multi/CORE
+DLSUFFIX = .so
+PLDLFLAGS = -fPIC
+LIBPERL = libperl.so
 LLIBPERL= $(LIBPERL)
 LLIBPERL_NONSHR= 
 SHRPENV = 
@@ -48,11 +48,11 @@ SHRPENV =
 # another application, then it might be appropriate to also build static
 # extensions (usually just DynaLoader) with relocatable code (e.g. -fPIC
 # for GNU cc).
-STATIC_LDFLAGS = CCCDLFLAGS=
+STATIC_LDFLAGS = 
 
 # The following is used to include the current directory in
 # the dynamic loader path you are building a shared libperl.
-LDLIBPTH = 
+LDLIBPTH = LD_LIBRARY_PATH=/sources/perl-5.28.0
 
 # Sometimes running an executable is an adventure.
 RUN = 
@@ -63,7 +63,7 @@ HOST_GENERATE =
 SYSTEM_PERL = perl
 
 # These variables may need to be manually set for non-Unix systems.
-AR = /tools/bin/ar
+AR = /usr/bin/ar
 HOST_EXE_EXT = 
 EXE_EXT = 
 LIB_EXT = .a
@@ -84,14 +84,14 @@ RUN_PERL = $(LDLIBPTH) $(RUN) ./perl$(EXE_EXT) -Ilib -I.
 # Macros to run our tests
 RUN_TESTS = $(LDLIBPTH) ./runtests
 
-dynamic_ext =  
-dynamic_ext_re = lib/auto/re/re.none
-static_ext =   lib/auto/B/B$(LIB_EXT) lib/auto/Compress/Raw/Bzip2/Bzip2$(LIB_EXT) lib/auto/Compress/Raw/Zlib/Zlib$(LIB_EXT) lib/auto/Cwd/Cwd$(LIB_EXT) lib/auto/Data/Dumper/Dumper$(LIB_EXT) lib/auto/Devel/PPPort/PPPort$(LIB_EXT) lib/auto/Devel/Peek/Peek$(LIB_EXT) lib/auto/Digest/MD5/MD5$(LIB_EXT) lib/auto/Digest/SHA/SHA$(LIB_EXT) lib/auto/Encode/Encode$(LIB_EXT) lib/auto/Fcntl/Fcntl$(LIB_EXT) lib/auto/File/DosGlob/DosGlob$(LIB_EXT) lib/auto/File/Glob/Glob$(LIB_EXT) lib/auto/Filter/Util/Call/Call$(LIB_EXT) lib/auto/Hash/Util/Util$(LIB_EXT) lib/auto/Hash/Util/FieldHash/FieldHash$(LIB_EXT) lib/auto/I18N/Langinfo/Langinfo$(LIB_EXT) lib/auto/IO/IO$(LIB_EXT) lib/auto/IPC/SysV/SysV$(LIB_EXT) lib/auto/List/Util/Util$(LIB_EXT) lib/auto/MIME/Base64/Base64$(LIB_EXT) lib/auto/Math/BigInt/FastCalc/FastCalc$(LIB_EXT) lib/auto/Opcode/Opcode$(LIB_EXT) lib/auto/POSIX/POSIX$(LIB_EXT) lib/auto/PerlIO/encoding/encoding$(LIB_EXT) lib/auto/PerlIO/mmap/mmap$(LIB_EXT) lib/auto/PerlIO/scalar/scalar$(LIB_EXT) lib/auto/PerlIO/via/via$(LIB_EXT) lib/auto/SDBM_File/SDBM_File$(LIB_EXT) lib/auto/Socket/Socket$(LIB_EXT) lib/auto/Storable/Storable$(LIB_EXT) lib/auto/Sys/Hostname/Hostname$(LIB_EXT) lib/auto/Sys/Syslog/Syslog$(LIB_EXT) lib/auto/Tie/Hash/NamedCapture/NamedCapture$(LIB_EXT) lib/auto/Time/HiRes/HiRes$(LIB_EXT) lib/auto/Time/Piece/Piece$(LIB_EXT) lib/auto/Unicode/Collate/Collate$(LIB_EXT) lib/auto/Unicode/Normalize/Normalize$(LIB_EXT) lib/auto/arybase/arybase$(LIB_EXT) lib/auto/attributes/attributes$(LIB_EXT) lib/auto/mro/mro$(LIB_EXT) lib/auto/re/re$(LIB_EXT) lib/auto/threads/threads$(LIB_EXT) lib/auto/threads/shared/shared$(LIB_EXT) lib/auto/Encode/Byte/Byte$(LIB_EXT) lib/auto/Encode/CN/CN$(LIB_EXT) lib/auto/Encode/EBCDIC/EBCDIC$(LIB_EXT) lib/auto/Encode/JP/JP$(LIB_EXT) lib/auto/Encode/KR/KR$(LIB_EXT) lib/auto/Encode/Symbol/Symbol$(LIB_EXT) lib/auto/Encode/TW/TW$(LIB_EXT) lib/auto/Encode/Unicode/Unicode$(LIB_EXT)
+dynamic_ext =   lib/auto/B/B.so lib/auto/Compress/Raw/Bzip2/Bzip2.so lib/auto/Compress/Raw/Zlib/Zlib.so lib/auto/Cwd/Cwd.so lib/auto/Data/Dumper/Dumper.so lib/auto/Devel/PPPort/PPPort.so lib/auto/Devel/Peek/Peek.so lib/auto/Digest/MD5/MD5.so lib/auto/Digest/SHA/SHA.so lib/auto/Encode/Encode.so lib/auto/Fcntl/Fcntl.so lib/auto/File/DosGlob/DosGlob.so lib/auto/File/Glob/Glob.so lib/auto/Filter/Util/Call/Call.so lib/auto/GDBM_File/GDBM_File.so lib/auto/Hash/Util/Util.so lib/auto/Hash/Util/FieldHash/FieldHash.so lib/auto/I18N/Langinfo/Langinfo.so lib/auto/IO/IO.so lib/auto/IPC/SysV/SysV.so lib/auto/List/Util/Util.so lib/auto/MIME/Base64/Base64.so lib/auto/Math/BigInt/FastCalc/FastCalc.so lib/auto/NDBM_File/NDBM_File.so lib/auto/ODBM_File/ODBM_File.so lib/auto/Opcode/Opcode.so lib/auto/POSIX/POSIX.so lib/auto/PerlIO/encoding/encoding.so lib/auto/PerlIO/mmap/mmap.so lib/auto/PerlIO/scalar/scalar.so lib/auto/PerlIO/via/via.so lib/auto/SDBM_File/SDBM_File.so lib/auto/Socket/Socket.so lib/auto/Storable/Storable.so lib/auto/Sys/Hostname/Hostname.so lib/auto/Sys/Syslog/Syslog.so lib/auto/Tie/Hash/NamedCapture/NamedCapture.so lib/auto/Time/HiRes/HiRes.so lib/auto/Time/Piece/Piece.so lib/auto/Unicode/Collate/Collate.so lib/auto/Unicode/Normalize/Normalize.so lib/auto/XS/APItest/APItest.so lib/auto/XS/Typemap/Typemap.so lib/auto/arybase/arybase.so lib/auto/attributes/attributes.so lib/auto/mro/mro.so lib/auto/re/re.so lib/auto/threads/threads.so lib/auto/threads/shared/shared.so
+dynamic_ext_re = lib/auto/re/re.so
+static_ext =  
 nonxs_ext =   cpan/Archive-Tar/pm_to_blib dist/Attribute-Handlers/pm_to_blib cpan/AutoLoader/pm_to_blib cpan/B-Debug/pm_to_blib cpan/CPAN/pm_to_blib cpan/CPAN-Meta/pm_to_blib cpan/CPAN-Meta-Requirements/pm_to_blib cpan/CPAN-Meta-YAML/pm_to_blib dist/Carp/pm_to_blib cpan/Config-Perl-V/pm_to_blib dist/Devel-SelfStubber/pm_to_blib cpan/Digest/pm_to_blib dist/Dumpvalue/pm_to_blib dist/Env/pm_to_blib ext/Errno/pm_to_blib dist/Exporter/pm_to_blib dist/ExtUtils-CBuilder/pm_to_blib cpan/ExtUtils-Constant/pm_to_blib cpan/ExtUtils-Install/pm_to_blib cpan/ExtUtils-MakeMaker/pm_to_blib cpan/ExtUtils-Manifest/pm_to_blib ext/ExtUtils-Miniperl/pm_to_blib dist/ExtUtils-ParseXS/pm_to_blib cpan/File-Fetch/pm_to_blib ext/File-Find/pm_to_blib cpan/File-Path/pm_to_blib cpan/File-Temp/pm_to_blib ext/FileCache/pm_to_blib dist/Filter-Simple/pm_to_blib cpan/Getopt-Long/pm_to_blib cpan/HTTP-Tiny/pm_to_blib dist/I18N-Collate/pm_to_blib dist/I18N-LangTags/pm_to_blib cpan/IO-Compress/pm_to_blib cpan/IO-Socket-IP/pm_to_blib cpan/IO-Zlib/pm_to_blib cpan/IPC-Cmd/pm_to_blib ext/IPC-Open3/pm_to_blib cpan/JSON-PP/pm_to_blib cpan/Locale-Codes/pm_to_blib dist/Locale-Maketext/pm_to_blib cpan/Locale-Maketext-Simple/pm_to_blib cpan/Math-BigInt/pm_to_blib cpan/Math-BigRat/pm_to_blib cpan/Math-Complex/pm_to_blib cpan/Memoize/pm_to_blib dist/Module-CoreList/pm_to_blib cpan/Module-Load/pm_to_blib cpan/Module-Load-Conditional/pm_to_blib cpan/Module-Loaded/pm_to_blib cpan/Module-Metadata/pm_to_blib cpan/NEXT/pm_to_blib dist/Net-Ping/pm_to_blib cpan/Params-Check/pm_to_blib cpan/Perl-OSType/pm_to_blib cpan/PerlIO-via-QuotedPrint/pm_to_blib cpan/Pod-Checker/pm_to_blib cpan/Pod-Escapes/pm_to_blib ext/Pod-Functions/pm_to_blib ext/Pod-Html/pm_to_blib cpan/Pod-Parser/pm_to_blib cpan/Pod-Perldoc/pm_to_blib cpan/Pod-Simple/pm_to_blib cpan/Pod-Usage/pm_to_blib dist/Safe/pm_to_blib dist/Search-Dict/pm_to_blib dist/SelfLoader/pm_to_blib cpan/Term-ANSIColor/pm_to_blib cpan/Term-Cap/pm_to_blib dist/Term-Complete/pm_to_blib dist/Term-ReadLine/pm_to_blib dist/Test/pm_to_blib cpan/Test-Harness/pm_to_blib cpan/Test-Simple/pm_to_blib dist/Text-Abbrev/pm_to_blib cpan/Text-Balanced/pm_to_blib cpan/Text-ParseWords/pm_to_blib cpan/Text-Tabs/pm_to_blib dist/Thread-Queue/pm_to_blib dist/Thread-Semaphore/pm_to_blib dist/Tie-File/pm_to_blib ext/Tie-Memoize/pm_to_blib cpan/Tie-RefHash/pm_to_blib cpan/Time-Local/pm_to_blib dist/XSLoader/pm_to_blib cpan/autodie/pm_to_blib dist/autouse/pm_to_blib dist/base/pm_to_blib cpan/bignum/pm_to_blib dist/constant/pm_to_blib dist/encoding-warnings/pm_to_blib cpan/experimental/pm_to_blib dist/if/pm_to_blib dist/lib/pm_to_blib cpan/libnet/pm_to_blib cpan/parent/pm_to_blib cpan/perlfaq/pm_to_blib cpan/podlators/pm_to_blib cpan/version/pm_to_blib
 ext = $(dynamic_ext) $(static_ext) $(nonxs_ext)
 DYNALOADER = DynaLoader$(OBJ_EXT)
 
-libs = -lm /tools/lib/libcrypt.a
+libs = -lpthread -ldl -lm -lcrypt -lutil -lc 
 
 public = $(PERL_EXE) utilities
 
@@ -135,7 +135,7 @@ OPTIMIZE = -O2
 
 EXTRAS = 
 
-INSTALLPREFIXEXP = /tools
+INSTALLPREFIXEXP = /usr
 
 
 CCCMD    = sh $(shellflags) cflags "optimize='$(OPTIMIZE)'" $@
@@ -281,7 +281,7 @@ perl$(OBJ_EXT): git_version.h
 utils/Makefile: $(MINIPERL_EXE) $(CONFIGPM) utils/Makefile.PL
 	$(MINIPERL) utils/Makefile.PL
 
-utilities:	utils/Makefile $(PERL_EXE) $(CONFIGPM) FORCE
+utilities:	utils/Makefile $(MINIPERL_EXE) $(CONFIGPM) lib/auto/Cwd/Cwd$(DLSUFFIX) FORCE
 	@echo " "; echo "	Making utilities"; cd utils; $(LDLIBPTH) $(MAKE) all
 
 
@@ -335,9 +335,8 @@ ext.libs: $(static_ext)
 	-@test -f ext.libs || touch ext.libs
 
 $(LIBPERL): $& $(perllib_dep) $(DYNALOADER) $(LIBPERLEXPORT)
-	rm -f $(LIBPERL)
-	$(AR) rc $(LIBPERL) $(perllib_objs) $(DYNALOADER)
-	@$(ranlib) $(LIBPERL)
+	rm -f $@
+	$(LD) -o $@ $(SHRPLDFLAGS) $(perllib_objs) $(DYNALOADER) $(libs)
 
 # How to build executables.
 
@@ -444,7 +443,7 @@ no_install no-install: install-notify
 
 install: install-all
 
-dist/Storable/lib/Storable/Limit.pm : $(PERL_EXE) dist/Storable/stacksize 
+dist/Storable/lib/Storable/Limit.pm : $(PERL_EXE) dist/Storable/stacksize lib/auto/Storable/Storable.so lib/auto/Cwd/Cwd.so
 	cd dist/Storable ; $(LDLIBPTH) $(MAKE) lib/Storable/Limit.pm
 
 lib/Storable/Limit.pm : dist/Storable/lib/Storable/Limit.pm
@@ -590,8 +589,8 @@ n_dummy $(nonxs_ext):	$(MINIPERL_EXE) lib/buildcustomize.pl preplibrary FORCE
 ext/Pod-Functions/pm_to_blib: cpan/Pod-Simple/pm_to_blib cpan/Pod-Escapes/pm_to_blib pod/perlfunc.pod
 cpan/IO-Compress/pm_to_blib: dist/lib/pm_to_blib
 
-lib/auto/Math/BigInt/FastCalc/FastCalc$(LIB_EXT): lib/auto/List/Util/Util$(LIB_EXT)
-lib/auto/Unicode/Normalize/Normalize$(LIB_EXT): uni.data
+lib/auto/Math/BigInt/FastCalc/FastCalc.so: lib/auto/List/Util/Util.so
+lib/auto/Unicode/Normalize/Normalize.so: uni.data
 
 .PHONY: printconfig
 printconfig:

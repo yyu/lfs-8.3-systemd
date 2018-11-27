@@ -1,0 +1,41 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/amopts-variable-expansion.dir
++ AUTOMAKE=automake-1.16
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_run
++ am__desc=
++ am__exp_rc=0
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ cat stderr
+Makefile.am:11: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep '^Makefile\.am:.*:=.*not portable' stderr
+Makefile.am:11: warning: ':='-style assignments are not portable
++ grep README stderr
++ /bin/grep -E '(install|override)' stderr
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/amopts-variable-expansion.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/amopts-variable-expansion.dir
++ set +x
+PASS t/amopts-variable-expansion.sh (exit status: 0)

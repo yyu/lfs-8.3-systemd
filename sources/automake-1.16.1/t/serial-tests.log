@@ -1,0 +1,136 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/serial-tests.dir
++ mkdir one two
++ cat
++ echo 'TESTS = foo.test bar.test'
++ cat
++ cp one/Makefile.am two/aMakefile.am
++ cat - one/Makefile.am
++ cd one
++ touch missing install-sh
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep TEST Makefile.in
+  if test "X$(AM_COLOR_TESTS)" = Xno; then \
+  elif test "X$(AM_COLOR_TESTS)" = Xalways; then \
+TESTS = foo.test bar.test
+check-TESTS: $(TESTS)
+	list=' $(TESTS) '; \
+	    if $(TESTS_ENVIRONMENT) $${dir}$$tst $(AM_TESTS_FD_REDIRECT); then \
+	      case " $(XFAIL_TESTS) " in \
+	      case " $(XFAIL_TESTS) " in \
+	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
+.PHONY: all all-am am--refresh check check-TESTS check-am clean \
++ hasnt_parallel_tests Makefile.in
++ /bin/grep -E 'TEST_SUITE_LOG|TEST_LOGS|\.log.*:' Makefile.in
++ grep 'recheck.*:' Makefile.in
++ grep '^check-TESTS: \$(TESTS)$' Makefile.in
+check-TESTS: $(TESTS)
++ test '!' -e test-driver
++ cd ..
++ cd two
++ mkdir config
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:3: installing 'config/install-sh'
+configure.ac:3: installing 'config/missing'
+parallel-tests: installing 'config/test-driver'
++ grep TEST aMakefile.in bMakefile.in
+aMakefile.in:  if test "X$(AM_COLOR_TESTS)" = Xno; then \
+aMakefile.in:  elif test "X$(AM_COLOR_TESTS)" = Xalways; then \
+aMakefile.in:# developer- defined test setup AM_TESTS_ENVIRONMENT (if any), and
+aMakefile.in:# passes TESTS_ENVIRONMENT.  Set up options for the wrapper that
+aMakefile.in:case " $(XFAIL_TESTS) " in				\
+aMakefile.in:$(AM_TESTS_ENVIRONMENT) $(TESTS_ENVIRONMENT)
+aMakefile.in:# '$bases'.  This honors runtime overriding of TESTS and TEST_LOGS.  Sadly,
+aMakefile.in:# we cannot use something simpler, involving e.g., "$(TEST_LOGS:.log=)",
+aMakefile.in:am__set_TESTS_bases = \
+aMakefile.in:  bases='$(TEST_LOGS)'; \
+aMakefile.in:RECHECK_LOGS = $(TEST_LOGS)
+aMakefile.in:TEST_SUITE_LOG = test-suite.log
+aMakefile.in:TEST_EXTENSIONS = .test
+aMakefile.in:am__test_logs1 = $(TESTS:=.log)
+aMakefile.in:TEST_LOGS = $(am__test_logs1:.test.log=.log)
+aMakefile.in:TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/config/test-driver
+aMakefile.in:TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
+aMakefile.in:	$(TEST_LOG_FLAGS)
+aMakefile.in:TESTS = foo.test bar.test
+aMakefile.in:# expand to empty, as could happen e.g. with make check TESTS=''.
+aMakefile.in:am--fnord $(TEST_LOGS) $(TEST_LOGS:.log=.trs): $(am__force_recheck)
+aMakefile.in:$(TEST_SUITE_LOG): $(TEST_LOGS)
+aMakefile.in:	@$(am__set_TESTS_bases); \
+aMakefile.in:	  echo "fatal: making $(TEST_SUITE_LOG): possible infinite" \
+aMakefile.in:	  errmsg="fatal: making $(TEST_SUITE_LOG): failed to create"; \
+aMakefile.in:	@$(am__sh_e_setup); $(am__tty_colors); $(am__set_TESTS_bases); \
+aMakefile.in:	  echo "$(PACKAGE_STRING): $(subdir)/$(TEST_SUITE_LOG)" |	\
+aMakefile.in:	} >$(TEST_SUITE_LOG).tmp || exit 1;				\
+aMakefile.in:	mv $(TEST_SUITE_LOG).tmp $(TEST_SUITE_LOG);			\
+aMakefile.in:	  test x"$$VERBOSE" = x || cat $(TEST_SUITE_LOG);		\
+aMakefile.in:	  echo "$${col}See $(subdir)/$(TEST_SUITE_LOG)$${std}";		\
+aMakefile.in:check-TESTS: 
+aMakefile.in:	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
+aMakefile.in:	@set +e; $(am__set_TESTS_bases); \
+aMakefile.in:	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
+aMakefile.in:	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
+aMakefile.in:	@set +e; $(am__set_TESTS_bases); \
+aMakefile.in:	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) \
+aMakefile.in:	        TEST_LOGS="$$log_list"; \
+aMakefile.in:	$(am__check_pre) $(TEST_LOG_DRIVER) --test-name "$$f" \
+aMakefile.in:	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
+aMakefile.in:	"$$tst" $(AM_TESTS_FD_REDIRECT)
+aMakefile.in:	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
+aMakefile.in:	-test -z "$(TEST_LOGS)" || rm -f $(TEST_LOGS)
+aMakefile.in:	-test -z "$(TEST_LOGS:.log=.trs)" || rm -f $(TEST_LOGS:.log=.trs)
+aMakefile.in:	-test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
+aMakefile.in:.PHONY: all all-am am--refresh check check-TESTS check-am clean \
+bMakefile.in:  if test "X$(AM_COLOR_TESTS)" = Xno; then \
+bMakefile.in:  elif test "X$(AM_COLOR_TESTS)" = Xalways; then \
+bMakefile.in:TESTS = foo.test bar.test
+bMakefile.in:check-TESTS: $(TESTS)
+bMakefile.in:	list=' $(TESTS) '; \
+bMakefile.in:	    if $(TESTS_ENVIRONMENT) $${dir}$$tst $(AM_TESTS_FD_REDIRECT); then \
+bMakefile.in:	      case " $(XFAIL_TESTS) " in \
+bMakefile.in:	      case " $(XFAIL_TESTS) " in \
+bMakefile.in:	$(MAKE) $(AM_MAKEFLAGS) check-TESTS
+bMakefile.in:.PHONY: all all-am am--refresh check check-TESTS check-am clean \
++ has_parallel_tests aMakefile.in
++ /bin/grep -E '(^| )check-TESTS.*:' aMakefile.in
+check-TESTS: 
++ /bin/grep -E '(^| )recheck.*:' aMakefile.in
+recheck: all 
++ grep '^\$(TEST_SUITE_LOG): \$(TEST_LOGS)$' aMakefile.in
+$(TEST_SUITE_LOG): $(TEST_LOGS)
++ grep '^\.test\.log:$' aMakefile.in
+.test.log:
++ hasnt_parallel_tests bMakefile.in
++ /bin/grep -E 'TEST_SUITE_LOG|TEST_LOGS|\.log.*:' bMakefile.in
++ grep 'recheck.*:' bMakefile.in
++ grep '^check-TESTS: \$(TESTS)$' bMakefile.in
+check-TESTS: $(TESTS)
++ mv aMakefile.in aMakefile.sav
++ mv bMakefile.in bMakefile.sav
++ test '!' -e test-driver
++ test -f config/test-driver
++ automake-1.16 --foreign -Werror -Wall
++ diff aMakefile.sav aMakefile.in
++ diff bMakefile.sav bMakefile.in
++ cd ..
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/serial-tests.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/serial-tests.dir
++ set +x
+PASS t/serial-tests.sh (exit status: 0)

@@ -1,0 +1,182 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond46.dir
++ cat
++ notcompat='incompatible with current conditional'
++ aclocal-1.16 -Werror
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: endif reminder (!USE_A_FALSE) incompatible with current conditional: USE_A_TRUE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:2:.*endif.*!USE_A.*incompatible with current conditional.*[^!]USE_A' stderr
+Makefile.am:2: error: endif reminder (!USE_A_FALSE) incompatible with current conditional: USE_A_TRUE
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: endif reminder (USE_B_TRUE) incompatible with current conditional: USE_A_TRUE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:2:.*endif.*[^!]USE_B.*incompatible with current conditional.*[^!]USE_A' stderr
+Makefile.am:2: error: endif reminder (USE_B_TRUE) incompatible with current conditional: USE_A_TRUE
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:3: error: endif reminder (USE_A_TRUE) incompatible with current conditional: USE_A_FALSE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:3:.*endif.*[^!]USE_A.*incompatible with current conditional.*USE_A' stderr
+Makefile.am:3: error: endif reminder (USE_A_TRUE) incompatible with current conditional: USE_A_FALSE
++ cat
++ automake-1.16 --foreign -Werror -Wall
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:4: error: endif reminder (!USE_A_FALSE) incompatible with current conditional: USE_B_FALSE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:4:.*endif.*!USE_A.*incompatible with current conditional.*USE_B' stderr
+Makefile.am:4: error: endif reminder (!USE_A_FALSE) incompatible with current conditional: USE_B_FALSE
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: else reminder (USE_A_TRUE) incompatible with current conditional: USE_A_FALSE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:2:.*else.*[^!]USE_A.*incompatible with current conditional.*[^!]USE_A' stderr
+Makefile.am:2: error: else reminder (USE_A_TRUE) incompatible with current conditional: USE_A_FALSE
++ cat
++ automake-1.16 --foreign -Werror -Wall
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: else reminder (USE_B_TRUE) incompatible with current conditional: USE_A_FALSE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:2:.*else.*[^!]USE_B.*incompatible with current conditional.*[^!]USE_A' stderr
+Makefile.am:2: error: else reminder (USE_B_TRUE) incompatible with current conditional: USE_A_FALSE
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:3: error: else reminder (USE_A_TRUE) incompatible with current conditional: USE_B_FALSE
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:3:.*else.*[^!]USE_A.*incompatible with current conditional.*[^!]USE_B' stderr
+Makefile.am:3: error: else reminder (USE_A_TRUE) incompatible with current conditional: USE_B_FALSE
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond46.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond46.dir
++ set +x
+PASS t/cond46.sh (exit status: 0)

@@ -6,7 +6,7 @@
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
 #
-#   MakeMaker ARGV: (q[INSTALLDIRS=perl], q[INSTALLMAN1DIR=none], q[INSTALLMAN3DIR=none], q[PERL_CORE=1], q[LIBPERL_A=libperl.a], q[LINKTYPE=static], q[CCCDLFLAGS=])
+#   MakeMaker ARGV: (q[INSTALLDIRS=perl], q[INSTALLMAN1DIR=none], q[INSTALLMAN3DIR=none], q[PERL_CORE=1], q[LIBPERL_A=libperl.so], q[LINKTYPE=static])
 #
 
 #   MakeMaker Parameters:
@@ -31,30 +31,30 @@
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via /mnt/lfs/sources/perl-5.28.0/lib/Config.pm).
+# These definitions are from config.sh (via /sources/perl-5.28.0/lib/Config.pm).
 # They may have been overridden via Makefile.PL or on the command line.
 AR = ar
 CC = cc
-CCCDLFLAGS = 
-CCDLFLAGS = 
-DLEXT = none
-DLSRC = dl_none.xs
+CCCDLFLAGS = -fPIC
+CCDLFLAGS = -Wl,-E -Wl,-rpath,/usr/lib/perl5/5.28.0/x86_64-linux-thread-multi/CORE
+DLEXT = so
+DLSRC = dl_dlopen.xs
 EXE_EXT = 
-FULL_AR = /tools/bin/ar
-LD = ld
-LDDLFLAGS = 
-LDFLAGS =  -fstack-protector-strong
-LIBC = libc-2.27.so
+FULL_AR = /usr/bin/ar
+LD = cc
+LDDLFLAGS = -shared -O2 -L/usr/local/lib -fstack-protector-strong
+LDFLAGS =  -fstack-protector-strong -L/usr/local/lib
+LIBC = libc-2.28.so
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = linux
 OSVERS = 4.15.0-1021-aws
 RANLIB = :
-SITELIBEXP = /tools/lib/perl5/site_perl/5.28.0
-SITEARCHEXP = /tools/lib/perl5/site_perl/5.28.0/x86_64-linux
+SITELIBEXP = /usr/lib/perl5/site_perl/5.28.0
+SITEARCHEXP = /usr/lib/perl5/site_perl/5.28.0/x86_64-linux-thread-multi
 SO = so
-VENDORARCHEXP = 
-VENDORLIBEXP = 
+VENDORARCHEXP = /usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi
+VENDORLIBEXP = /usr/lib/perl5/vendor_perl/5.28.0
 
 
 # --- MakeMaker constants section:
@@ -81,49 +81,49 @@ MAN3EXT = 3
 INSTALLDIRS = perl
 DESTDIR = 
 PREFIX = $(PERLPREFIX)
-PERLPREFIX = /tools
-SITEPREFIX = /tools
-VENDORPREFIX = 
-INSTALLPRIVLIB = /tools/lib/perl5/5.28.0
+PERLPREFIX = /usr
+SITEPREFIX = /usr
+VENDORPREFIX = /usr
+INSTALLPRIVLIB = /usr/lib/perl5/5.28.0
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /tools/lib/perl5/site_perl/5.28.0
+INSTALLSITELIB = /usr/lib/perl5/site_perl/5.28.0
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = 
+INSTALLVENDORLIB = /usr/lib/perl5/vendor_perl/5.28.0
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /tools/lib/perl5/5.28.0/x86_64-linux
+INSTALLARCHLIB = /usr/lib/perl5/5.28.0/x86_64-linux-thread-multi
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /tools/lib/perl5/site_perl/5.28.0/x86_64-linux
+INSTALLSITEARCH = /usr/lib/perl5/site_perl/5.28.0/x86_64-linux-thread-multi
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = 
+INSTALLVENDORARCH = /usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /tools/bin
+INSTALLBIN = /usr/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /tools/bin
+INSTALLSITEBIN = /usr/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = 
+INSTALLVENDORBIN = /usr/bin
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /tools/bin
+INSTALLSCRIPT = /usr/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = /tools/bin
+INSTALLSITESCRIPT = /usr/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = 
+INSTALLVENDORSCRIPT = /usr/bin
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
 INSTALLMAN1DIR = none
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /tools/share/man/man1
+INSTALLSITEMAN1DIR = /usr/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = 
+INSTALLVENDORMAN1DIR = /usr/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
 INSTALLMAN3DIR = none
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /tools/share/man/man3
+INSTALLSITEMAN3DIR = /usr/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = 
+INSTALLVENDORMAN3DIR = /usr/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB = ../../lib
 PERL_ARCHLIB = ../../lib
 PERL_ARCHLIBDEP = ../../lib
-LIBPERL_A = libperl.a
+LIBPERL_A = libperl.so
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
@@ -133,7 +133,7 @@ PERL_INC = ../..
 PERL_INCDEP = ../..
 PERL = "../../miniperl"
 FULLPERL = "../../perl"
-ABSPERL = /mnt/lfs/sources/perl-5.28.0/ext/DynaLoader/../../miniperl
+ABSPERL = /sources/perl-5.28.0/ext/DynaLoader/../../miniperl
 PERLRUN = $(PERL) "-I$(PERL_LIB)"
 FULLPERLRUN = $(FULLPERL) "-I$(PERL_LIB)"
 ABSPERLRUN = $(ABSPERL) "-I$(PERL_LIB)"
@@ -145,7 +145,7 @@ PERM_DIR = 755
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /mnt/lfs/sources/perl-5.28.0/cpan/ExtUtils-MakeMaker/lib/ExtUtils/MakeMaker.pm
+MAKEMAKER   = /sources/perl-5.28.0/cpan/ExtUtils-MakeMaker/lib/ExtUtils/MakeMaker.pm
 MM_VERSION  = 7.34
 MM_REVISION = 73400
 
@@ -244,7 +244,7 @@ XSUBPP = "$(XSUBPPDIR)$(DFSEP)xsubpp"
 XSUBPPRUN = $(PERLRUN) $(XSUBPP)
 XSPROTOARG = -noprototypes
 XSUBPPDEPS = ../../lib/ExtUtils/typemap ../../lib/ExtUtils$(DFSEP)xsubpp
-XSUBPPARGS = -typemap '/mnt/lfs/sources/perl-5.28.0/ext/DynaLoader/../../lib/ExtUtils/typemap'
+XSUBPPARGS = -typemap '/sources/perl-5.28.0/ext/DynaLoader/../../lib/ExtUtils/typemap'
 XSUBPP_EXTRA_ARGS =
 
 
@@ -314,7 +314,7 @@ DynaLoader.c : DynaLoader.xs
 
 # --- MakeMaker cflags section:
 
-CCFLAGS = -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Werror=declaration-after-statement -Werror=pointer-arith -Wextra -Wc++-compat -Wwrite-strings
+CCFLAGS = -D_REENTRANT -D_GNU_SOURCE -fwrapv -fno-strict-aliasing -pipe -fstack-protector-strong -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -Wall -Werror=declaration-after-statement -Werror=pointer-arith -Wextra -Wc++-compat -Wwrite-strings
 OPTIMIZE = -O2
 PERLTYPE = 
 MPOLLUTE = 
@@ -694,7 +694,7 @@ distdir : create_distdir distmeta
 
 # --- MakeMaker dist_test section:
 disttest : distdir
-	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL "INSTALLDIRS=perl" "INSTALLMAN1DIR=none" "INSTALLMAN3DIR=none" "PERL_CORE=1" "LIBPERL_A=libperl.a" "LINKTYPE=static" "CCCDLFLAGS="
+	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL "INSTALLDIRS=perl" "INSTALLMAN1DIR=none" "INSTALLMAN3DIR=none" "PERL_CORE=1" "LIBPERL_A=libperl.so" "LINKTYPE=static"
 	cd $(DISTVNAME) && $(MAKE) $(PASTHRU)
 	cd $(DISTVNAME) && $(MAKE) test $(PASTHRU)
 
@@ -957,7 +957,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 	-$(NOECHO) $(RM_F) $(MAKEFILE_OLD)
 	-$(NOECHO) $(MV)   $(FIRST_MAKEFILE) $(MAKEFILE_OLD)
 	- $(MAKE) $(USEMAKEFILE) $(MAKEFILE_OLD) clean $(DEV_NULL)
-	$(PERLRUN) Makefile.PL "INSTALLDIRS=perl" "INSTALLMAN1DIR=none" "INSTALLMAN3DIR=none" "PERL_CORE=1" "LIBPERL_A=libperl.a" "LINKTYPE=static" "CCCDLFLAGS="
+	$(PERLRUN) Makefile.PL "INSTALLDIRS=perl" "INSTALLMAN1DIR=none" "INSTALLMAN3DIR=none" "PERL_CORE=1" "LIBPERL_A=libperl.so" "LINKTYPE=static"
 	$(NOECHO) $(ECHO) "==> Your Makefile has been rebuilt. <=="
 	$(NOECHO) $(ECHO) "==> Please rerun the $(MAKE) command.  <=="
 	$(FALSE)
@@ -984,9 +984,8 @@ $(MAKE_APERL_FILE) : static $(FIRST_MAKEFILE) pm_to_blib
 		INSTALLMAN1DIR=none \
 		INSTALLMAN3DIR=none \
 		PERL_CORE=1 \
-		LIBPERL_A=libperl.a \
-		LINKTYPE=static \
-		CCCDLFLAGS=
+		LIBPERL_A=libperl.so \
+		LINKTYPE=static
 
 
 # --- MakeMaker test section:
@@ -1003,7 +1002,7 @@ test :: $(TEST_TYPE)
 	$(NOECHO) $(NOOP)
 
 # Occasionally we may face this degenerate target:
-test_ : test_static
+test_ : test_dynamic
 	$(NOECHO) $(NOOP)
 
 subdirs-test_dynamic :: pure_all
@@ -1017,10 +1016,10 @@ testdb_dynamic :: pure_all
 subdirs-test_static :: static pure_all
 
 test_static :: subdirs-test_static $(MAP_TARGET)
-	PERL_DL_NONLAZY=1 "/mnt/lfs/sources/perl-5.28.0/ext/DynaLoader/$(MAP_TARGET)" $(MAP_PERLINC) "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness($(TEST_VERBOSE), '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
+	PERL_DL_NONLAZY=1 "/sources/perl-5.28.0/ext/DynaLoader/$(MAP_TARGET)" $(MAP_PERLINC) "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness($(TEST_VERBOSE), '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
 
 testdb_static :: static pure_all $(MAP_TARGET)
-	PERL_DL_NONLAZY=1 "/mnt/lfs/sources/perl-5.28.0/ext/DynaLoader/$(MAP_TARGET)" $(MAP_PERLINC) "-I$(INST_LIB)" "-I$(INST_ARCHLIB)" $(TEST_FILE)
+	PERL_DL_NONLAZY=1 "/sources/perl-5.28.0/ext/DynaLoader/$(MAP_TARGET)" $(MAP_PERLINC) "-I$(INST_LIB)" "-I$(INST_ARCHLIB)" $(TEST_FILE)
 
 
 
@@ -1031,7 +1030,7 @@ ppd :
 	$(NOECHO) $(ECHO) '    <ABSTRACT></ABSTRACT>' >> DynaLoader.ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR></AUTHOR>' >> DynaLoader.ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> DynaLoader.ppd
-	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-5.28" />' >> DynaLoader.ppd
+	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-thread-multi-5.28" />' >> DynaLoader.ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> DynaLoader.ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> DynaLoader.ppd
 	$(NOECHO) $(ECHO) '</SOFTPKG>' >> DynaLoader.ppd

@@ -1,0 +1,592 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-gnulib-add-header.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror -I .
++ autoheader
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ make
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+cc -DHAVE_CONFIG_H -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
++ ls -l
+total 408
+-rw-r--r-- 1 root root  23128 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root    338 Nov 27 06:48 Makefile.am
+-rw-r--r-- 1 root root  22982 Nov 27 06:48 Makefile.in
+-rw-r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    879 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-rw-r--r-- 1 root root   8776 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root  32962 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 145923 Nov 27 06:48 configure
+-rw-r--r-- 1 root root    149 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root  22024 Nov 27 06:48 foo
+-rw-r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-rw-r--r-- 1 root root   5000 Nov 27 06:48 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-rw-r--r-- 1 root root    267 Nov 27 06:48 macros.m4
+-rwxr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-rw-r--r-- 1 root root     23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
++ test '!' -e stdio.h
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+test -d "remake-gnulib-add-header-1.0" || mkdir "remake-gnulib-add-header-1.0"
+test -n "" \
+|| find "remake-gnulib-add-header-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-gnulib-add-header-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+tardir=remake-gnulib-add-header-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-gnulib-add-header-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+case 'remake-gnulib-add-header-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-gnulib-add-header-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-gnulib-add-header-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-gnulib-add-header-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-gnulib-add-header-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-gnulib-add-header-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-gnulib-add-header-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-gnulib-add-header-1.0.zip ;;\
+esac
+chmod -R a-w remake-gnulib-add-header-1.0
+chmod u+w remake-gnulib-add-header-1.0
+mkdir remake-gnulib-add-header-1.0/_build remake-gnulib-add-header-1.0/_build/sub remake-gnulib-add-header-1.0/_inst
+chmod a-w remake-gnulib-add-header-1.0
+test -d remake-gnulib-add-header-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-gnulib-add-header-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-gnulib-add-header-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-gnulib-add-header-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+cc -DHAVE_CONFIG_H -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  check-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+ls -l . ../..
+.:
+total 112
+-rw-r--r-- 1 root root 23587 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root   879 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root  9662 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root 33346 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 22072 Nov 27 06:48 foo
+-rw-r--r-- 1 root root  5024 Nov 27 06:48 foo.o
+-rw-r--r-- 1 root root    23 Nov 27 06:48 stamp-h1
+
+../..:
+total 300
+-r--r--r-- 1 root root    338 Nov 27 06:48 Makefile.am
+-r--r--r-- 1 root root  22982 Nov 27 06:48 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:48 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 _inst
+-r--r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+-r-xr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-r--r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-r-xr-xr-x 1 root root 145923 Nov 27 06:48 configure
+-r--r--r-- 1 root root    149 Nov 27 06:48 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-r--r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-r-xr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-r--r--r-- 1 root root    267 Nov 27 06:48 macros.m4
+-r-xr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-r--r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
+if test -n ''; then \
+    test -f stdio.h || exit 1; \
+else \
+    test ! -f stdio.h || exit 1; \
+fi
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  install-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  install-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+test -d "remake-gnulib-add-header-1.0" || mkdir "remake-gnulib-add-header-1.0"
+test -n "" \
+|| find "remake-gnulib-add-header-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-gnulib-add-header-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+tardir=remake-gnulib-add-header-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-gnulib-add-header-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+test -z "foo" || rm -f foo
+rm -f *.o
+test -z "stdio.h" || rm -f stdio.h
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.h stamp-h1
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+==============================================================
+remake-gnulib-add-header-1.0 archives ready for distribution: 
+remake-gnulib-add-header-1.0.tar.gz
+==============================================================
++ sed -e 's/^\( *override_stdio\)=.*$/\1=:/' macros.m4
++ mv -f t macros.m4
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/missing aclocal-1.16 -I .
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= CC=cc CFLAGS=-g -O2 CPPFLAGS= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+cp ./stdio.in.h stdio.h
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/missing autoheader)
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+cc -DHAVE_CONFIG_H -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
++ ls -l
+total 484
+-rw-r--r-- 1 root root  23135 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root    338 Nov 27 06:48 Makefile.am
+-rw-r--r-- 1 root root  22982 Nov 27 06:48 Makefile.in
+-rw-r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    879 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-rw-r--r-- 1 root root   9697 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root  32969 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 145919 Nov 27 06:48 configure
+-rw-r--r-- 1 root root    149 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root  20696 Nov 27 06:48 foo
+-rw-r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-rw-r--r-- 1 root root   3120 Nov 27 06:48 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-rw-r--r-- 1 root root    263 Nov 27 06:48 macros.m4
+-rwxr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-rw-r--r-- 1 root root  77505 Nov 27 06:48 remake-gnulib-add-header-1.0.tar.gz
+-rw-r--r-- 1 root root     23 Nov 27 06:48 stamp-h1
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.h
+-rw-r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
++ test -f stdio.h
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+test -d "remake-gnulib-add-header-1.0" || mkdir "remake-gnulib-add-header-1.0"
+test -n "" \
+|| find "remake-gnulib-add-header-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-gnulib-add-header-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+tardir=remake-gnulib-add-header-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-gnulib-add-header-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+case 'remake-gnulib-add-header-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-gnulib-add-header-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-gnulib-add-header-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-gnulib-add-header-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-gnulib-add-header-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-gnulib-add-header-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-gnulib-add-header-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-gnulib-add-header-1.0.zip ;;\
+esac
+chmod -R a-w remake-gnulib-add-header-1.0
+chmod u+w remake-gnulib-add-header-1.0
+mkdir remake-gnulib-add-header-1.0/_build remake-gnulib-add-header-1.0/_build/sub remake-gnulib-add-header-1.0/_inst
+chmod a-w remake-gnulib-add-header-1.0
+test -d remake-gnulib-add-header-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-gnulib-add-header-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-gnulib-add-header-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-gnulib-add-header-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+cp ../../stdio.in.h stdio.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+cc -DHAVE_CONFIG_H -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  check-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+ls -l . ../..
+.:
+total 112
+-rw-r--r-- 1 root root 23594 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root   879 Nov 27 06:48 config.h
+-rw-r--r-- 1 root root  9669 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root 33353 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 20744 Nov 27 06:48 foo
+-rw-r--r-- 1 root root  3160 Nov 27 06:48 foo.o
+-rw-r--r-- 1 root root    23 Nov 27 06:48 stamp-h1
+-r--r--r-- 1 root root    49 Nov 27 06:48 stdio.h
+
+../..:
+total 300
+-r--r--r-- 1 root root    338 Nov 27 06:48 Makefile.am
+-r--r--r-- 1 root root  22982 Nov 27 06:48 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:48 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 _inst
+-r--r--r-- 1 root root  41912 Nov 27 06:48 aclocal.m4
+-r-xr-xr-x 1 root root   7383 Nov 27 06:48 compile
+-r--r--r-- 1 root root    679 Nov 27 06:48 config.h.in
+-r-xr-xr-x 1 root root 145919 Nov 27 06:48 configure
+-r--r--r-- 1 root root    149 Nov 27 06:48 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:48 depcomp
+-r--r--r-- 1 root root    117 Nov 27 06:48 foo.c
+-r-xr-xr-x 1 root root  15368 Nov 27 06:48 install-sh
+-r--r--r-- 1 root root    263 Nov 27 06:48 macros.m4
+-r-xr-xr-x 1 root root   6878 Nov 27 06:48 missing
+-r--r--r-- 1 root root     49 Nov 27 06:48 stdio.in.h
+if test -n 'stdio.h'; then \
+    test -f stdio.h || exit 1; \
+else \
+    test ! -f stdio.h || exit 1; \
+fi
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  install-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  install-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+test -d "remake-gnulib-add-header-1.0" || mkdir "remake-gnulib-add-header-1.0"
+test -n "" \
+|| find "remake-gnulib-add-header-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-gnulib-add-header-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+tardir=remake-gnulib-add-header-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-gnulib-add-header-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+test -z "foo" || rm -f foo
+rm -f *.o
+test -z "stdio.h" || rm -f stdio.h
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.h stamp-h1
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-gnulib-add-header.dir/remake-gnulib-add-header-1.0/_build/sub'
+if test -d "remake-gnulib-add-header-1.0"; then find "remake-gnulib-add-header-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-gnulib-add-header-1.0" || { sleep 5 && rm -rf "remake-gnulib-add-header-1.0"; }; else :; fi
+==============================================================
+remake-gnulib-add-header-1.0 archives ready for distribution: 
+remake-gnulib-add-header-1.0.tar.gz
+==============================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-gnulib-add-header.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-gnulib-add-header.dir
++ set +x
+PASS t/remake-gnulib-add-header.sh (exit status: 0)

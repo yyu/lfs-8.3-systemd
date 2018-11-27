@@ -1,0 +1,1375 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-deeply-nested.dir
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/remake-deeply-nested.dir
++ magic1=::MagicStringOne::
++ magic2=__MagicStringTwo__
++ echo 'AC_SUBST([FOO], [::MagicStringOne::])'
++ echo @FOO@
++ echo 'AC_CONFIG_FILES([bar])'
++ unset d
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0
++ echo 'SUBDIRS = sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/bar])'
++ mkdir sub0
++ cd sub0
++ echo 'sub0: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1
++ echo 'SUBDIRS = sub1'
++ echo 'AC_CONFIG_FILES([sub0/sub1/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/bar])'
++ mkdir sub1
++ cd sub1
++ echo 'sub0/sub1: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2
++ echo 'SUBDIRS = sub2'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/bar])'
++ mkdir sub2
++ cd sub2
++ echo 'sub0/sub1/sub2: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3
++ echo 'SUBDIRS = sub3'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/bar])'
++ mkdir sub3
++ cd sub3
++ echo 'sub0/sub1/sub2/sub3: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3/sub4
++ echo 'SUBDIRS = sub4'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/bar])'
++ mkdir sub4
++ cd sub4
++ echo 'sub0/sub1/sub2/sub3/sub4: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3/sub4/sub5
++ echo 'SUBDIRS = sub5'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/bar])'
++ mkdir sub5
++ cd sub5
++ echo 'sub0/sub1/sub2/sub3/sub4/sub5: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3/sub4/sub5/sub6
++ echo 'SUBDIRS = sub6'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar])'
++ mkdir sub6
++ cd sub6
++ echo 'sub0/sub1/sub2/sub3/sub4/sub5/sub6: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7
++ echo 'SUBDIRS = sub7'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar])'
++ mkdir sub7
++ cd sub7
++ echo 'sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8
++ echo 'SUBDIRS = sub8'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar])'
++ mkdir sub8
++ cd sub8
++ echo 'sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8: @FOO@'
++ for i in 0 1 2 3 4 5 6 7 8 9
++ d=sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9
++ echo 'SUBDIRS = sub9'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile])'
++ echo 'AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar])'
++ mkdir sub9
++ cd sub9
++ echo 'sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9: @FOO@'
++ echo AC_OUTPUT
++ :
++ unset d i
+++ pwd
++ bottom=/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9
++ cd /sources/automake-1.16.1/t/remake-deeply-nested.dir
+++ find . -name Makefile.am
+++ LC_ALL=C
+++ sort
++ makefiles_am_list='./Makefile.am
+./sub0/Makefile.am
+./sub0/sub1/Makefile.am
+./sub0/sub1/sub2/Makefile.am
+./sub0/sub1/sub2/sub3/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile.am'
+++ echo './Makefile.am
+./sub0/Makefile.am
+./sub0/sub1/Makefile.am
+./sub0/sub1/sub2/Makefile.am
+./sub0/sub1/sub2/sub3/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile.am
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile.am'
+++ sed 's/\.am$//'
++ makefiles_list='./Makefile
+./sub0/Makefile
+./sub0/sub1/Makefile
+./sub0/sub1/sub2/Makefile
+./sub0/sub1/sub2/sub3/Makefile
+./sub0/sub1/sub2/sub3/sub4/Makefile
+./sub0/sub1/sub2/sub3/sub4/sub5/Makefile
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile'
+++ find . -name bar.in
+++ LC_ALL=C
+++ sort
++ bar_in_list='./bar.in
+./sub0/bar.in
+./sub0/sub1/bar.in
+./sub0/sub1/sub2/bar.in
+./sub0/sub1/sub2/sub3/bar.in
+./sub0/sub1/sub2/sub3/sub4/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar.in'
+++ echo './bar.in
+./sub0/bar.in
+./sub0/sub1/bar.in
+./sub0/sub1/sub2/bar.in
+./sub0/sub1/sub2/sub3/bar.in
+./sub0/sub1/sub2/sub3/sub4/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar.in
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar.in'
+++ sed 's/\.in$//'
++ bar_list='./bar
+./sub0/bar
+./sub0/sub1/bar
+./sub0/sub1/sub2/bar
+./sub0/sub1/sub2/sub3/bar
+./sub0/sub1/sub2/sub3/sub4/bar
+./sub0/sub1/sub2/sub3/sub4/sub5/bar
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar
+./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar'
++ cat configure.ac
+AC_INIT([remake-deeply-nested], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_SUBST([FOO], [::MagicStringOne::])
+AC_CONFIG_FILES([bar])
+AC_CONFIG_FILES([sub0/Makefile])
+AC_CONFIG_FILES([sub0/bar])
+AC_CONFIG_FILES([sub0/sub1/Makefile])
+AC_CONFIG_FILES([sub0/sub1/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile])
+AC_CONFIG_FILES([sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating bar
+config.status: creating sub0/Makefile
+config.status: creating sub0/bar
+config.status: creating sub0/sub1/Makefile
+config.status: creating sub0/sub1/bar
+config.status: creating sub0/sub1/sub2/Makefile
+config.status: creating sub0/sub1/sub2/bar
+config.status: creating sub0/sub1/sub2/sub3/Makefile
+config.status: creating sub0/sub1/sub2/sub3/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: configure
+FOO=::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: config.status
+S["FOO"]="::MagicStringOne::"
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile
+FOO = ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./bar
+::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/bar
+sub0: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/bar
+sub0/sub1: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/bar
+sub0/sub1/sub2: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/bar
+sub0/sub1/sub2/sub3: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/bar
+sub0/sub1/sub2/sub3/sub4: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/bar
+sub0/sub1/sub2/sub3/sub4/sub5: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8: ::MagicStringOne::
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F ::MagicStringOne:: ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9: ::MagicStringOne::
++ sleep 2
++ sed s/::MagicStringOne::/__MagicStringTwo__/ configure.ac
++ mv -f configure.tmp configure.ac
++ cd /sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9
++ make
+cd ../../../../../../../../../.. && make  am--refresh
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir'
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-deeply-nested.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-deeply-nested.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-deeply-nested.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating bar
+config.status: creating sub0/Makefile
+config.status: creating sub0/bar
+config.status: creating sub0/sub1/Makefile
+config.status: creating sub0/sub1/bar
+config.status: creating sub0/sub1/sub2/Makefile
+config.status: creating sub0/sub1/sub2/bar
+config.status: creating sub0/sub1/sub2/sub3/Makefile
+config.status: creating sub0/sub1/sub2/sub3/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir'
+make: Nothing to be done for 'all'.
++ cd /sources/automake-1.16.1/t/remake-deeply-nested.dir
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ configure
+FOO=__MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ config.status
+S["FOO"]="__MagicStringTwo__"
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile
+FOO = __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./bar
+__MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/bar
+sub0: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/bar
+sub0/sub1: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/bar
+sub0/sub1/sub2: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/bar
+sub0/sub1/sub2/sub3: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/bar
+sub0/sub1/sub2/sub3/sub4: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/bar
+sub0/sub1/sub2/sub3/sub4/sub5: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8: __MagicStringTwo__
++ for f in configure config.status $makefiles_list $bar_list
++ /bin/grep -F __MagicStringTwo__ ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar
+sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9: __MagicStringTwo__
++ /bin/grep -F ::MagicStringOne:: configure config.status ./Makefile ./sub0/Makefile ./sub0/sub1/Makefile ./sub0/sub1/sub2/Makefile ./sub0/sub1/sub2/sub3/Makefile ./sub0/sub1/sub2/sub3/sub4/Makefile ./sub0/sub1/sub2/sub3/sub4/sub5/Makefile ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile ./bar ./sub0/bar ./sub0/sub1/bar ./sub0/sub1/sub2/bar ./sub0/sub1/sub2/sub3/bar ./sub0/sub1/sub2/sub3/sub4/bar ./sub0/sub1/sub2/sub3/sub4/sub5/bar ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar ./sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir'
+if test -d "remake-deeply-nested-1.0"; then find "remake-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-deeply-nested-1.0" || { sleep 5 && rm -rf "remake-deeply-nested-1.0"; }; else :; fi
+test -d "remake-deeply-nested-1.0" || mkdir "remake-deeply-nested-1.0"
+ (cd sub0 && make  top_distdir=../remake-deeply-nested-1.0 distdir=../remake-deeply-nested-1.0/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0'
+ (cd sub1 && make  top_distdir=../../remake-deeply-nested-1.0 distdir=../../remake-deeply-nested-1.0/sub0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1'
+make  distdir-am
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1'
+ (cd sub2 && make  top_distdir=../../../remake-deeply-nested-1.0 distdir=../../../remake-deeply-nested-1.0/sub0/sub1/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2'
+make  distdir-am
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2'
+ (cd sub3 && make  top_distdir=../../../../remake-deeply-nested-1.0 distdir=../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3'
+make  distdir-am
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3'
+ (cd sub4 && make  top_distdir=../../../../../remake-deeply-nested-1.0 distdir=../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4'
+make  distdir-am
+make[12]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4'
+ (cd sub5 && make  top_distdir=../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[13]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5'
+make  distdir-am
+make[14]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5'
+ (cd sub6 && make  top_distdir=../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[15]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make  distdir-am
+make[16]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+ (cd sub7 && make  top_distdir=../../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[17]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make  distdir-am
+make[18]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+ (cd sub8 && make  top_distdir=../../../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[19]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make  distdir-am
+make[20]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+ (cd sub9 && make  top_distdir=../../../../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[21]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make  distdir-am
+make[22]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[22]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[21]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[20]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[19]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[18]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[17]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[16]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[15]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[14]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5'
+make[13]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4/sub5'
+make[12]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3/sub4'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2/sub3'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1/sub2'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0/sub1'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/sub0'
+test -n "" \
+|| find "remake-deeply-nested-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-deeply-nested.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-deeply-nested-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir'
+tardir=remake-deeply-nested-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-deeply-nested-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir'
+if test -d "remake-deeply-nested-1.0"; then find "remake-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-deeply-nested-1.0" || { sleep 5 && rm -rf "remake-deeply-nested-1.0"; }; else :; fi
+case 'remake-deeply-nested-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-deeply-nested-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-deeply-nested-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-deeply-nested-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-deeply-nested-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-deeply-nested-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-deeply-nested-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-deeply-nested-1.0.zip ;;\
+esac
+chmod -R a-w remake-deeply-nested-1.0
+chmod u+w remake-deeply-nested-1.0
+mkdir remake-deeply-nested-1.0/_build remake-deeply-nested-1.0/_build/sub remake-deeply-nested-1.0/_inst
+chmod a-w remake-deeply-nested-1.0
+test -d remake-deeply-nested-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-deeply-nested-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-deeply-nested-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-deeply-nested-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating bar
+config.status: creating sub0/Makefile
+config.status: creating sub0/bar
+config.status: creating sub0/sub1/Makefile
+config.status: creating sub0/sub1/bar
+config.status: creating sub0/sub1/sub2/Makefile
+config.status: creating sub0/sub1/sub2/bar
+config.status: creating sub0/sub1/sub2/sub3/Makefile
+config.status: creating sub0/sub1/sub2/sub3/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/bar
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/Makefile
+config.status: creating sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9/bar
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making all in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making all in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making all in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making all in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making all in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making all in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making all in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making all in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making all in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making all in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Nothing to be done for 'all'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Nothing to be done for 'all-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Nothing to be done for 'all-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Nothing to be done for 'all-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Nothing to be done for 'all-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Nothing to be done for 'all-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making dvi in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making dvi in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making dvi in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making dvi in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making dvi in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making dvi in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making dvi in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making dvi in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making dvi in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making dvi in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Nothing to be done for 'dvi'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Nothing to be done for 'dvi-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Nothing to be done for 'dvi-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Nothing to be done for 'dvi-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Nothing to be done for 'dvi-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Nothing to be done for 'dvi-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'dvi-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Nothing to be done for 'dvi-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Nothing to be done for 'dvi-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Nothing to be done for 'dvi-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making check in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making check in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making check in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making check in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making check in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making check in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making check in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making check in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making check in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making check in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Nothing to be done for 'check'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Nothing to be done for 'check-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Nothing to be done for 'check-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Nothing to be done for 'check-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Nothing to be done for 'check-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Nothing to be done for 'check-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'check-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Nothing to be done for 'check-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Nothing to be done for 'check-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'check-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making install in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making install in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making install in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making install in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making install in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making install in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making install in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making install in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making install in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making install in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[12]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[12]: Nothing to be done for 'install-exec-am'.
+make[12]: Nothing to be done for 'install-data-am'.
+make[12]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[12]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[12]: Nothing to be done for 'install-exec-am'.
+make[12]: Nothing to be done for 'install-data-am'.
+make[12]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[11]: Nothing to be done for 'install-exec-am'.
+make[11]: Nothing to be done for 'install-data-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[10]: Nothing to be done for 'install-exec-am'.
+make[10]: Nothing to be done for 'install-data-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[9]: Nothing to be done for 'install-exec-am'.
+make[9]: Nothing to be done for 'install-data-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[8]: Nothing to be done for 'install-exec-am'.
+make[8]: Nothing to be done for 'install-data-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[7]: Nothing to be done for 'install-exec-am'.
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making installcheck in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making installcheck in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making installcheck in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making installcheck in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making installcheck in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making installcheck in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making installcheck in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making installcheck in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making installcheck in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making installcheck in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Nothing to be done for 'installcheck'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Nothing to be done for 'installcheck-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Nothing to be done for 'installcheck-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Nothing to be done for 'installcheck-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Nothing to be done for 'installcheck-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Nothing to be done for 'installcheck-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'installcheck-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Nothing to be done for 'installcheck-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Nothing to be done for 'installcheck-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Nothing to be done for 'installcheck-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making uninstall in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making uninstall in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making uninstall in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making uninstall in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making uninstall in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making uninstall in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making uninstall in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making uninstall in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making uninstall in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making uninstall in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Nothing to be done for 'uninstall'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Nothing to be done for 'uninstall-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Nothing to be done for 'uninstall-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Nothing to be done for 'uninstall-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Nothing to be done for 'uninstall-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Nothing to be done for 'uninstall-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'uninstall-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Nothing to be done for 'uninstall-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Nothing to be done for 'uninstall-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Nothing to be done for 'uninstall-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making install in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making install in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making install in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making install in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making install in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making install in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making install in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making install in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making install in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making install in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[12]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[12]: Nothing to be done for 'install-exec-am'.
+make[12]: Nothing to be done for 'install-data-am'.
+make[12]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[12]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[12]: Nothing to be done for 'install-exec-am'.
+make[12]: Nothing to be done for 'install-data-am'.
+make[12]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[11]: Nothing to be done for 'install-exec-am'.
+make[11]: Nothing to be done for 'install-data-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[10]: Nothing to be done for 'install-exec-am'.
+make[10]: Nothing to be done for 'install-data-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[9]: Nothing to be done for 'install-exec-am'.
+make[9]: Nothing to be done for 'install-data-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[8]: Nothing to be done for 'install-exec-am'.
+make[8]: Nothing to be done for 'install-data-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[7]: Nothing to be done for 'install-exec-am'.
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making uninstall in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making uninstall in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making uninstall in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making uninstall in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making uninstall in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making uninstall in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making uninstall in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making uninstall in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making uninstall in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making uninstall in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Nothing to be done for 'uninstall'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[11]: Nothing to be done for 'uninstall-am'.
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[10]: Nothing to be done for 'uninstall-am'.
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[9]: Nothing to be done for 'uninstall-am'.
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[8]: Nothing to be done for 'uninstall-am'.
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[7]: Nothing to be done for 'uninstall-am'.
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'uninstall-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[5]: Nothing to be done for 'uninstall-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[4]: Nothing to be done for 'uninstall-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[3]: Nothing to be done for 'uninstall-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+if test -d "remake-deeply-nested-1.0"; then find "remake-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-deeply-nested-1.0" || { sleep 5 && rm -rf "remake-deeply-nested-1.0"; }; else :; fi
+test -d "remake-deeply-nested-1.0" || mkdir "remake-deeply-nested-1.0"
+ (cd sub0 && make  top_distdir=../remake-deeply-nested-1.0 distdir=../remake-deeply-nested-1.0/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+ (cd sub1 && make  top_distdir=../../remake-deeply-nested-1.0 distdir=../../remake-deeply-nested-1.0/sub0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make  distdir-am
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+ (cd sub2 && make  top_distdir=../../../remake-deeply-nested-1.0 distdir=../../../remake-deeply-nested-1.0/sub0/sub1/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make  distdir-am
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+ (cd sub3 && make  top_distdir=../../../../remake-deeply-nested-1.0 distdir=../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make  distdir-am
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+ (cd sub4 && make  top_distdir=../../../../../remake-deeply-nested-1.0 distdir=../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[12]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make  distdir-am
+make[13]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+ (cd sub5 && make  top_distdir=../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[14]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make  distdir-am
+make[15]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+ (cd sub6 && make  top_distdir=../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[16]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make  distdir-am
+make[17]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+ (cd sub7 && make  top_distdir=../../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[18]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make  distdir-am
+make[19]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+ (cd sub8 && make  top_distdir=../../../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[20]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make  distdir-am
+make[21]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+ (cd sub9 && make  top_distdir=../../../../../../../../../../remake-deeply-nested-1.0 distdir=../../../../../../../../../../remake-deeply-nested-1.0/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[22]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make  distdir-am
+make[23]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[23]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[22]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[21]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[20]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[19]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[18]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[17]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[16]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[15]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[14]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[13]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[12]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+test -n "" \
+|| find "remake-deeply-nested-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-deeply-nested-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+tardir=remake-deeply-nested-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-deeply-nested-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+if test -d "remake-deeply-nested-1.0"; then find "remake-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-deeply-nested-1.0" || { sleep 5 && rm -rf "remake-deeply-nested-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+Making distclean in sub0
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+Making distclean in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+Making distclean in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+Making distclean in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+Making distclean in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+Making distclean in sub5
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+Making distclean in sub6
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+Making distclean in sub7
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+Making distclean in sub8
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+Making distclean in sub9
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+test -z "bar" || rm -f bar
+test . = "../../../../../../../../../../../../sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9" || test -z "" || rm -f 
+rm -f Makefile
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8/sub9'
+make[11]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+test -z "bar" || rm -f bar
+test . = "../../../../../../../../../../../sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[11]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+rm -f Makefile
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7/sub8'
+make[10]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+test -z "bar" || rm -f bar
+test . = "../../../../../../../../../../sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[10]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+rm -f Makefile
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6/sub7'
+make[9]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+test -z "bar" || rm -f bar
+test . = "../../../../../../../../../sub0/sub1/sub2/sub3/sub4/sub5/sub6" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[9]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+rm -f Makefile
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5/sub6'
+make[8]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+test -z "bar" || rm -f bar
+test . = "../../../../../../../../sub0/sub1/sub2/sub3/sub4/sub5" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[8]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+rm -f Makefile
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4/sub5'
+make[7]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+test -z "bar" || rm -f bar
+test . = "../../../../../../../sub0/sub1/sub2/sub3/sub4" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[7]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+rm -f Makefile
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+test -z "bar" || rm -f bar
+test . = "../../../../../../sub0/sub1/sub2/sub3" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[6]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+rm -f Makefile
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+test -z "bar" || rm -f bar
+test . = "../../../../../sub0/sub1/sub2" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+rm -f Makefile
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+test -z "bar" || rm -f bar
+test . = "../../../../sub0/sub1" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+rm -f Makefile
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+test -z "bar" || rm -f bar
+test . = "../../../sub0" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub/sub0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+test -z "bar" || rm -f bar
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deeply-nested.dir/remake-deeply-nested-1.0/_build/sub'
+if test -d "remake-deeply-nested-1.0"; then find "remake-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-deeply-nested-1.0" || { sleep 5 && rm -rf "remake-deeply-nested-1.0"; }; else :; fi
+==========================================================
+remake-deeply-nested-1.0 archives ready for distribution: 
+remake-deeply-nested-1.0.tar.gz
+==========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-deeply-nested.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-deeply-nested.dir
++ set +x
+PASS t/remake-deeply-nested.sh (exit status: 0)

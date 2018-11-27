@@ -1,0 +1,376 @@
+./t/built-sources-check-w.sh: will source ./t/built-sources-check.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/built-sources-check-w.dir
+++ cat
+++ mkdir dir
+++ cat
+++ cat
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall -a
++++ pwd
+++ ./configure --prefix /sources/automake-1.16.1/t/built-sources-check-w.dir/inst
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating dir/Makefile
+++ run_make -O check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 2 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 1 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ make --version -v
+++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+++ am__using_gmake=yes
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make check
+++ set +x
+++ test 0 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+echo 'dir/echo.sh' > command1.inc
+make  check-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+Making check in dir
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+echo 'echo Hello' > command2.inc
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make  echo.sh
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+test -f ../command1.inc
+(echo '#! /bin/sh'; cat command2.inc) > echo.sh
+chmod +x echo.sh
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+make  check-TESTS
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+(echo '#! /bin/sh'; cat command1.inc) > subrun.sh
+chmod +x subrun.sh
+Hello
+PASS: subrun.sh
+=============
+1 test passed
+=============
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ test 0 -ge 0
+++ test 0 -le 255
+++ test 0 -eq 0
+++ grep '^PASS: subrun\.sh *$' stdout
+PASS: subrun.sh
+++ grep 'PASS.*echo\.sh' stdout
+++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+if test -d "built-sources-check-w-1.0"; then find "built-sources-check-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "built-sources-check-w-1.0" || { sleep 5 && rm -rf "built-sources-check-w-1.0"; }; else :; fi
+test -d "built-sources-check-w-1.0" || mkdir "built-sources-check-w-1.0"
+ (cd dir && make  top_distdir=../built-sources-check-w-1.0 distdir=../built-sources-check-w-1.0/dir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/dir'
+test -n "" \
+|| find "built-sources-check-w-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/built-sources-check-w.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "built-sources-check-w-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+tardir=built-sources-check-w-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >built-sources-check-w-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir'
+if test -d "built-sources-check-w-1.0"; then find "built-sources-check-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "built-sources-check-w-1.0" || { sleep 5 && rm -rf "built-sources-check-w-1.0"; }; else :; fi
+case 'built-sources-check-w-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc built-sources-check-w-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc built-sources-check-w-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc built-sources-check-w-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc built-sources-check-w-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c built-sources-check-w-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc built-sources-check-w-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip built-sources-check-w-1.0.zip ;;\
+esac
+chmod -R a-w built-sources-check-w-1.0
+chmod u+w built-sources-check-w-1.0
+mkdir built-sources-check-w-1.0/_build built-sources-check-w-1.0/_build/sub built-sources-check-w-1.0/_inst
+chmod a-w built-sources-check-w-1.0
+test -d built-sources-check-w-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd built-sources-check-w-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd built-sources-check-w-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf built-sources-check-w-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating dir/Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+echo 'dir/echo.sh' > command1.inc
+make  all-recursive
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making all in dir
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+echo 'echo Hello' > command2.inc
+make  all-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making dvi in dir
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make  check-recursive
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making check in dir
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make  check-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make  echo.sh
+make[5]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+test -f ../command1.inc
+(echo '#! /bin/sh'; cat command2.inc) > echo.sh
+chmod +x echo.sh
+make[5]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make  check-TESTS
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+(echo '#! /bin/sh'; cat command1.inc) > subrun.sh
+chmod +x subrun.sh
+Hello
+PASS: subrun.sh
+=============
+1 test passed
+=============
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make  install-recursive
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making install in dir
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make  install-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[5]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making installcheck in dir
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making uninstall in dir
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make  install-recursive
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making install in dir
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make  install-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[5]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making uninstall in dir
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+if test -d "built-sources-check-w-1.0"; then find "built-sources-check-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "built-sources-check-w-1.0" || { sleep 5 && rm -rf "built-sources-check-w-1.0"; }; else :; fi
+test -d "built-sources-check-w-1.0" || mkdir "built-sources-check-w-1.0"
+ (cd dir && make  top_distdir=../built-sources-check-w-1.0 distdir=../built-sources-check-w-1.0/dir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+test -n "" \
+|| find "built-sources-check-w-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "built-sources-check-w-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+tardir=built-sources-check-w-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >built-sources-check-w-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+if test -d "built-sources-check-w-1.0"; then find "built-sources-check-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "built-sources-check-w-1.0" || { sleep 5 && rm -rf "built-sources-check-w-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+Making distclean in dir
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+test -z "echo.sh command2.inc" || rm -f echo.sh command2.inc
+test -z "" || rm -f 
+test . = "../../../dir" || test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub/dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+test -z "subrun.sh command1.inc" || rm -f subrun.sh command1.inc
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/built-sources-check-w.dir/built-sources-check-w-1.0/_build/sub'
+if test -d "built-sources-check-w-1.0"; then find "built-sources-check-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "built-sources-check-w-1.0" || { sleep 5 && rm -rf "built-sources-check-w-1.0"; }; else :; fi
+===========================================================
+built-sources-check-w-1.0 archives ready for distribution: 
+built-sources-check-w-1.0.tar.gz
+===========================================================
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/built-sources-check-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/built-sources-check-w.dir
++ set +x
+PASS t/built-sources-check-w.sh (exit status: 0)

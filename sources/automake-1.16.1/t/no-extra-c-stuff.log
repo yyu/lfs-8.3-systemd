@@ -1,0 +1,46 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/no-extra-c-stuff.dir
++ cat
++ cat
++ mkdir sub sub2
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:3: installing './install-sh'
+configure.ac:3: installing './missing'
+Makefile.am: installing './depcomp'
++ test -f install-sh
++ test '!' -e compile
++ /bin/grep -F '$(CXX)' Makefile.in
+CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+CXXLD = $(CXX)
++ /bin/grep -F '$(CXX)' sub2/Makefile.in
+CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+CXXLD = $(CXX)
++ /bin/grep -F '$(F77)' Makefile.in sub2/Makefile.in
++ /bin/grep -F '$(F77)' sub/Makefile.in
+F77COMPILE = $(F77) $(AM_FFLAGS) $(FFLAGS)
+F77LD = $(F77)
++ /bin/grep -F '$(CXX)' sub/Makefile.in
++ /bin/grep -E '(^COMPILE|$\(CC\)|AM_V_CC)' Makefile.in sub/Makefile.in sub2/Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/no-extra-c-stuff.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/no-extra-c-stuff.dir
++ set +x
+PASS t/no-extra-c-stuff.sh (exit status: 0)

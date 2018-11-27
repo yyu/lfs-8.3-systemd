@@ -1,0 +1,34 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subobj4.dir
++ cat
++ mkdir d1 d2
++ cat
++ cat
++ cat
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -Wno-unsupported
++ grep '\$(CC) .*\.\./d2/z\.c' d1/Makefile.in
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT z.o -MD -MP -MF $(DEPDIR)/z.Tpo -c -o z.o `test -f '../d2/z.c' || echo '$(srcdir)/'`../d2/z.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o z.o `test -f '../d2/z.c' || echo '$(srcdir)/'`../d2/z.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT z.obj -MD -MP -MF $(DEPDIR)/z.Tpo -c -o z.obj `if test -f '../d2/z.c'; then $(CYGPATH_W) '../d2/z.c'; else $(CYGPATH_W) '$(srcdir)/../d2/z.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o z.obj `if test -f '../d2/z.c'; then $(CYGPATH_W) '../d2/z.c'; else $(CYGPATH_W) '$(srcdir)/../d2/z.c'; fi`
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subobj4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subobj4.dir
++ set +x
+PASS t/subobj4.sh (exit status: 0)

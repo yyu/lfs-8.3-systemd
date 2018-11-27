@@ -1,0 +1,372 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/distcheck-pr9579.dir
++ cat
++ cat
++ :
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
+++ pwd
++ ./configure --prefix=/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make install
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+make[1]: Nothing to be done for 'install-exec-am'.
+/tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share'
+cp './dir' '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share/dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share'
+ /usr/bin/install -c -m 644 foo '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
++ find inst -type f
+inst/share/foo
+inst/share/dir
++ test -f inst/share/foo
++ test -f inst/share/dir
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share' && rm -f foo )
++ test -f inst/share/dir
++ rm -rf inst
++ run_make -M -e FAIL distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+if test -d "distcheck-pr9579-1.0"; then find "distcheck-pr9579-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distcheck-pr9579-1.0" || { sleep 5 && rm -rf "distcheck-pr9579-1.0"; }; else :; fi
+test -d "distcheck-pr9579-1.0" || mkdir "distcheck-pr9579-1.0"
+test -n "" \
+|| find "distcheck-pr9579-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/distcheck-pr9579.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "distcheck-pr9579-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+tardir=distcheck-pr9579-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >distcheck-pr9579-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+if test -d "distcheck-pr9579-1.0"; then find "distcheck-pr9579-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distcheck-pr9579-1.0" || { sleep 5 && rm -rf "distcheck-pr9579-1.0"; }; else :; fi
+case 'distcheck-pr9579-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc distcheck-pr9579-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc distcheck-pr9579-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc distcheck-pr9579-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc distcheck-pr9579-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c distcheck-pr9579-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc distcheck-pr9579-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip distcheck-pr9579-1.0.zip ;;\
+esac
+chmod -R a-w distcheck-pr9579-1.0
+chmod u+w distcheck-pr9579-1.0
+mkdir distcheck-pr9579-1.0/_build distcheck-pr9579-1.0/_build/sub distcheck-pr9579-1.0/_inst
+chmod a-w distcheck-pr9579-1.0
+test -d distcheck-pr9579-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd distcheck-pr9579-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd distcheck-pr9579-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf distcheck-pr9579-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+/tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share'
+cp '../../dir' '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share/dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share'
+ /usr/bin/install -c -m 644 ../../foo '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+ERROR: files left after uninstall:
+./share/dir
+make[1]: *** [Makefile:449: distuninstallcheck] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make: *** [Makefile:398: distcheck] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F 'ERROR: files left after uninstall:' output
+ERROR: files left after uninstall:
++ grep '/share/dir *$' output
+./share/dir
++ cat
++ automake-1.16 --foreign -Werror -Wall
++ ./config.status Makefile
+config.status: creating Makefile
++ make install
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+make[1]: Nothing to be done for 'install-exec-am'.
+/tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/mu/share/info'
+cp './dir' '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/mu/share/info'
+/tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share/info/more'
+cp './dir' '/sources/automake-1.16.1/t/distcheck-pr9579.dir/inst/share/info/more'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
++ find inst -type f
+inst/share/info/more/dir
+inst/mu/share/info/dir
++ test -f inst/mu/share/info/dir
++ test -f inst/share/info/more/dir
++ make uninstall
+make: Nothing to be done for 'uninstall'.
++ test -f inst/mu/share/info/dir
++ test -f inst/share/info/more/dir
++ rm -rf inst
++ run_make -M -e FAIL distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+if test -d "distcheck-pr9579-1.0"; then find "distcheck-pr9579-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distcheck-pr9579-1.0" || { sleep 5 && rm -rf "distcheck-pr9579-1.0"; }; else :; fi
+test -d "distcheck-pr9579-1.0" || mkdir "distcheck-pr9579-1.0"
+test -n "" \
+|| find "distcheck-pr9579-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/distcheck-pr9579.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "distcheck-pr9579-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+tardir=distcheck-pr9579-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >distcheck-pr9579-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir'
+if test -d "distcheck-pr9579-1.0"; then find "distcheck-pr9579-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distcheck-pr9579-1.0" || { sleep 5 && rm -rf "distcheck-pr9579-1.0"; }; else :; fi
+case 'distcheck-pr9579-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc distcheck-pr9579-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc distcheck-pr9579-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc distcheck-pr9579-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc distcheck-pr9579-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c distcheck-pr9579-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc distcheck-pr9579-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip distcheck-pr9579-1.0.zip ;;\
+esac
+chmod -R a-w distcheck-pr9579-1.0
+chmod u+w distcheck-pr9579-1.0
+mkdir distcheck-pr9579-1.0/_build distcheck-pr9579-1.0/_build/sub distcheck-pr9579-1.0/_inst
+chmod a-w distcheck-pr9579-1.0
+test -d distcheck-pr9579-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd distcheck-pr9579-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd distcheck-pr9579-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf distcheck-pr9579-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+/tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/mu/share/info'
+cp '../../dir' '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/mu/share/info'
+/tools/bin/mkdir -p '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share/info/more'
+cp '../../dir' '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_inst/share/info/more'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+ERROR: files left after uninstall:
+./share/info/more/dir
+./mu/share/info/dir
+make[1]: *** [Makefile:397: distuninstallcheck] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distcheck-pr9579.dir/distcheck-pr9579-1.0/_build/sub'
+make: *** [Makefile:346: distcheck] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F 'ERROR: files left after uninstall:' output
+ERROR: files left after uninstall:
++ grep '/mu/share/info/dir *$' output
+./mu/share/info/dir
++ grep '/share/info/more/dir *$' output
+./share/info/more/dir
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/distcheck-pr9579.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/distcheck-pr9579.dir
++ set +x
+PASS t/distcheck-pr9579.sh (exit status: 0)

@@ -1,0 +1,97 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subpkg4.dir
++ cat
++ cat
++ mkdir subpkg subpkg/dir
++ echo foobar
++ echo baz
++ chmod go-rwx subpkg/foobar subpkg/dir/baz subpkg/dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ cd subpkg
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ cd ..
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+=== configuring in subpkg (/sources/automake-1.16.1/t/subpkg4.dir/subpkg)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/usr/local'  'build_alias=' 'host_alias=' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/subpkg4.dir'
+if test -d "subpkg4-1.0"; then find "subpkg4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subpkg4-1.0" || { sleep 5 && rm -rf "subpkg4-1.0"; }; else :; fi
+test -d "subpkg4-1.0" || mkdir "subpkg4-1.0"
+ (cd subpkg && make  top_distdir=../subpkg4-1.0 distdir=../subpkg4-1.0/subpkg \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/subpkg4.dir/subpkg'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/subpkg4.dir/subpkg'
+:
+test -d "../subpkg4-1.0/subpkg" || mkdir "../subpkg4-1.0/subpkg"
+test -n ":" \
+|| find "../subpkg4-1.0/subpkg" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subpkg4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../subpkg4-1.0/subpkg"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subpkg4.dir/subpkg'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subpkg4.dir/subpkg'
+test -n "" \
+|| find "subpkg4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subpkg4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subpkg4-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subpkg4.dir'
++ make test-distdir-is-readable
+bad_dirs=`find subpkg4-1.0 -type d ! -perm -755 -print`; \
+if test -n "$bad_dirs"; then \
+  echo "directories not permissive: $bad_dirs" >&2; \
+  exit 1; \
+fi
+bad_files=`find subpkg4-1.0 ! -type d ! -perm -444 -print`; \
+if test -n "$bad_files"; then \
+  echo "file not permissive: $bad_files" >&2; \
+  exit 1; \
+fi
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subpkg4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subpkg4.dir
++ set +x
+PASS t/subpkg4.sh (exit status: 0)

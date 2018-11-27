@@ -1,0 +1,75 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-deleted-am-2.dir
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ cat
++ cat
++ mkdir sub
++ echo 'include $(top_srcdir)/sub/zardoz.am'
++ echo '# this is zardoz'
++ echo 'include fnord.am'
++ echo '# you are not seeing this'
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F 'this is zardoz' Makefile.in
+# this is zardoz
++ /bin/grep -F 'you are not seeing this' Makefile.in
+# you are not seeing this
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+make: Nothing to be done for 'all'.
++ sleep 2
++ echo '# this is baz'
++ rm -f ../fnord.am
++ make
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am-2.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+make: Nothing to be done for 'all'.
++ /bin/grep -F 'you are not seeing this' ../Makefile.in Makefile
++ /bin/grep -F 'this is baz' ../Makefile.in
+# this is baz
++ /bin/grep -F 'this is baz' Makefile
+# this is baz
++ sleep 2
++ rm -rf ../sub ../foo.am ../baz.am
++ echo '# no more inclusions'
++ make
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am-2.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+make: Nothing to be done for 'all'.
++ /bin/grep -E 'this is (foo|bar|baz)' Makefile ../Makefile.in
++ /bin/grep -F 'no more inclusions' Makefile
+# no more inclusions
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-deleted-am-2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-deleted-am-2.dir
++ set +x
+PASS t/remake-deleted-am-2.sh (exit status: 0)

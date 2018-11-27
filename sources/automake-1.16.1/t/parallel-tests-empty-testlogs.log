@@ -1,0 +1,513 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir
++ cat
++ cat
++ mkdir sub1 sub2
++ cat
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ cat
++ chmod a+x sub2/foo.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
++ cd sub1
++ VERBOSE=yes
++ make check
+make  check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+echo  | grep . && exit 1; exit 0
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
++ no_test_has_run
++ ls -1 test-suite.log
++ grep -v '^test-suite\.log$'
++ grep .
++ grep '^# TOTAL: *0$' test-suite.log
+# TOTAL: 0
++ :
++ cd ../sub2
++ run_make VERBOSE=yes TESTS= check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make VERBOSE=yes TESTS= check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ no_test_has_run
++ grep .
++ grep -v '^test-suite\.log$'
++ ls -1 test-suite.log
++ grep '^# TOTAL: *0$' test-suite.log
+# TOTAL: 0
++ :
++ run_make VERBOSE=yes TEST_LOGS= check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make VERBOSE=yes TEST_LOGS= check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ no_test_has_run
++ ls -1 test-suite.log
++ grep .
++ grep -v '^test-suite\.log$'
++ grep '^# TOTAL: *0$' test-suite.log
+# TOTAL: 0
++ :
++ cd ..
++ make check
+Making check in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+make  check-TESTS check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+echo  | grep . && exit 1; exit 0
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+Making check in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+PASS: foo.test
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build'
+make[1]: Nothing to be done for 'check-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build'
++ cat sub2/foo.log
+PASS foo.test (exit status: 0)
++ make distclean
+Making distclean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+test -z "" || rm -f 
+test -z "" || rm -f 
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "../../sub1" || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub1'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "../../sub2" || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build'
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/build'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
++ cd sub1
++ VERBOSE=yes
++ make check
+make  check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+echo  | grep . && exit 1; exit 0
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
++ no_test_has_run
++ ls -1 test-suite.log
++ grep -v '^test-suite\.log$'
++ grep .
++ grep '^# TOTAL: *0$' test-suite.log
+# TOTAL: 0
++ :
++ cd ../sub2
++ run_make VERBOSE=yes TESTS= check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make VERBOSE=yes TESTS= check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ no_test_has_run
++ grep -v '^test-suite\.log$'
++ ls -1 test-suite.log
++ grep .
++ grep '^# TOTAL: *0$' test-suite.log
+# TOTAL: 0
++ :
++ run_make VERBOSE=yes TEST_LOGS= check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make VERBOSE=yes TEST_LOGS= check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ no_test_has_run
++ grep -v '^test-suite\.log$'
++ ls -1 test-suite.log
++ grep .
++ grep '^# TOTAL: *0$' test-suite.log
+# TOTAL: 0
++ :
++ cd ..
++ make check
+Making check in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+make  check-TESTS check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+echo  | grep . && exit 1; exit 0
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+Making check in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+PASS: foo.test
+============================================================================
+Testsuite summary for parallel-tests-empty-testlogs 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir'
+make[1]: Nothing to be done for 'check-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir'
++ cat sub2/foo.log
+PASS foo.test (exit status: 0)
++ make distclean
+Making distclean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+test -z "" || rm -f 
+test -z "" || rm -f 
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub1'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-empty-testlogs.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-empty-testlogs.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-empty-testlogs.dir
++ set +x
+PASS t/parallel-tests-empty-testlogs.sh (exit status: 0)

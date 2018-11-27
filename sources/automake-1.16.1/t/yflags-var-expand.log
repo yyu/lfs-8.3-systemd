@@ -1,0 +1,95 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yflags-var-expand.dir
++ cat
++ aclocal-1.16 -Werror
++ cat
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ /bin/grep -E '(foo|bar|YFLAGS)' Makefile.in
+bin_PROGRAMS = foo$(EXEEXT) bar$(EXEEXT)
+am_bar_OBJECTS = bar-bar.$(OBJEXT)
+bar_OBJECTS = $(am_bar_OBJECTS)
+bar_LDADD = $(LDADD)
+am_foo_OBJECTS = foo.$(OBJEXT)
+foo_OBJECTS = $(am_foo_OBJECTS)
+foo_LDADD = $(LDADD)
+am__depfiles_remade = ./$(DEPDIR)/bar-bar.Po ./$(DEPDIR)/foo.Po
+YACCCOMPILE = $(YACC) $(AM_YFLAGS) $(YFLAGS)
+SOURCES = $(bar_SOURCES) $(foo_SOURCES)
+DIST_SOURCES = $(bar_SOURCES) $(foo_SOURCES)
+am__DIST_COMMON = $(srcdir)/Makefile.in bar-bar.c bar-bar.h compile \
+	depcomp foo.c foo.h install-sh missing ylwrap
+YFLAGS = @YFLAGS@
+foo_SOURCES = foo.y
+bar_SOURCES = bar.y
+my_YFLAGS = -x
+AM_YFLAGS = $(my_YFLAGS:x=d)
+bar_YFLAGS = $(AM_YFLAGS)
+bar-bar.h: bar-bar.c
+	@if test ! -f $@; then rm -f bar-bar.c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) bar-bar.c; else :; fi
+bar$(EXEEXT): $(bar_OBJECTS) $(bar_DEPENDENCIES) $(EXTRA_bar_DEPENDENCIES) 
+	@rm -f bar$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(bar_OBJECTS) $(bar_LDADD) $(LIBS)
+foo.h: foo.c
+	@if test ! -f $@; then rm -f foo.c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) foo.c; else :; fi
+foo$(EXEEXT): $(foo_OBJECTS) $(foo_DEPENDENCIES) $(EXTRA_foo_DEPENDENCIES) 
+	@rm -f foo$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(foo_OBJECTS) $(foo_LDADD) $(LIBS)
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bar-bar.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foo.Po@am__quote@ # am--include-marker
+bar-bar.c: bar.y
+	$(SHELL) $(YLWRAP) `test -f 'bar.y' || echo '$(srcdir)/'`bar.y y.tab.c bar-bar.c y.tab.h `echo bar-bar.c | $(am__yacc_c2h)` y.output bar-bar.output -- $(YACC) $(bar_YFLAGS) $(YFLAGS)
+	-rm -f bar-bar.c
+	-rm -f bar-bar.h
+	-rm -f foo.c
+	-rm -f foo.h
+		-rm -f ./$(DEPDIR)/bar-bar.Po
+	-rm -f ./$(DEPDIR)/foo.Po
+		-rm -f ./$(DEPDIR)/bar-bar.Po
+	-rm -f ./$(DEPDIR)/foo.Po
++ grep '^foo.h *:' Makefile.in
+foo.h: foo.c
++ grep '^bar-bar.h *:' Makefile.in
+bar-bar.h: bar-bar.c
++ cat
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -E 'parser|YFLAGS' Makefile.in
+am_zardoz_OBJECTS = parser.$(OBJEXT)
+am__depfiles_remade = ./$(DEPDIR)/parser.Po
+YACCCOMPILE = $(YACC) $(AM_YFLAGS) $(YFLAGS)
+	missing parser.c parser.h ylwrap
+YFLAGS = $(my_YFLAGS)
+zardoz_SOURCES = parser.y
+my_YFLAGS = $(my_YFLAGS_1) $(my_YFLAGS_2)
+my_YFLAGS_2 = -d
+parser.h: parser.c
+	@if test ! -f $@; then rm -f parser.c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) parser.c; else :; fi
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parser.Po@am__quote@ # am--include-marker
+	-rm -f parser.c
+	-rm -f parser.h
+		-rm -f ./$(DEPDIR)/parser.Po
+		-rm -f ./$(DEPDIR)/parser.Po
++ grep '^parser.h *:' Makefile.in
+parser.h: parser.c
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yflags-var-expand.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yflags-var-expand.dir
++ set +x
+PASS t/yflags-var-expand.sh (exit status: 0)

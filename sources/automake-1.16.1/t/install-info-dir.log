@@ -1,0 +1,514 @@
+install-info-dir: running makeinfo --version
+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at /tools/share/texinfo/Texinfo/Parser.pm line 5481.
+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at /tools/share/texinfo/Texinfo/Parser.pm line 5485.
+texi2any (GNU texinfo) 6.5
+
+Copyright (C) 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/install-info-dir.dir
+++ pwd
++ cwd=/sources/automake-1.16.1/t/install-info-dir.dir
++ mkdir bin
++ saved_PATH=/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export saved_PATH
++ PATH=/sources/automake-1.16.1/t/install-info-dir.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+Makefile.am:1: installing './texinfo.tex'
++ autoconf
++ instdir=_inst
++ destdir=_dest
++ ./configure --prefix=/sources/automake-1.16.1/t/install-info-dir.dir/_inst --infodir=/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make info
+restore=: && backupdir=".am$$" && \
+am__cwd=`pwd` && CDPATH="${ZSH_VERSION+.}:" && cd . && \
+rm -rf $backupdir && mkdir $backupdir && \
+if (/bin/sh /sources/automake-1.16.1/t/install-info-dir.dir/missing makeinfo --version) >/dev/null 2>&1; then \
+  for f in foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]; do \
+    if test -f $f; then mv $f $backupdir; restore=mv; else :; fi; \
+  done; \
+else :; fi && \
+cd "$am__cwd"; \
+if /bin/sh /sources/automake-1.16.1/t/install-info-dir.dir/missing makeinfo   -I . \
+ -o foo.info foo.texi; \
+then \
+  rc=0; \
+  CDPATH="${ZSH_VERSION+.}:" && cd .; \
+else \
+  rc=$?; \
+  CDPATH="${ZSH_VERSION+.}:" && cd . && \
+  $restore $backupdir/* `echo "./foo.info" | sed 's|[^/]*$||'`; \
+fi; \
+rm -rf $backupdir; exit $rc
+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at /tools/share/texinfo/Texinfo/Parser.pm line 5481.
+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at /tools/share/texinfo/Texinfo/Parser.pm line 5485.
++ test -f foo.info
++ install-info --version
+install-info (GNU texinfo) 6.5
+
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
++ install-info --version
++ /bin/grep -E -i '(dpkg|debian) install-info'
++ have_installinfo=yes
++ test yes = yes
++ make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
++ test -f _inst/info/foo.info
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ /bin/grep -F 'Does nothing at all, but has a nice name' _inst/info/dir
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' --remove '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ test '!' -e _inst/info/foo.info
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
++ /bin/grep -F 'but has a nice name' _inst/info/dir
++ dir=_dest//sources/automake-1.16.1/t/install-info-dir.dir/_inst/info
++ make DESTDIR=/sources/automake-1.16.1/t/install-info-dir.dir/_dest install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
++ test -f _dest//sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info
++ cat _dest//sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ /bin/grep -F 'Does nothing at all, but has a nice name' _dest//sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/dir
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ make DESTDIR=/sources/automake-1.16.1/t/install-info-dir.dir/_dest uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' --remove '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_dest/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ test '!' -e _dest//sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info
++ /bin/grep -F 'but has a nice name' _dest//sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/dir
++ unset dir
++ rm -rf _inst _dest
++ cat
++ chmod a+x bin/install-info
++ run_make -M install-info
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make install-info
++ set +x
++ test 0 -eq 253
++ test yes = yes
++ cat output
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f _inst/info/foo.info
++ test '!' -e _inst/info/dir
++ grep 'error from install-info' output
++ rm -rf _inst output
++ test yes = yes
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
+This is dpkg install-info
+This is debian install-info
+This is Debian install-info
+This is dpkg install-info
+This is debian install-info
+This is Debian install-info
++ test -f _inst/info/foo.info
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' --remove '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
+This is dpkg install-info
+This is debian install-info
+This is Debian install-info
+This is dpkg install-info
+This is debian install-info
+This is Debian install-info
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ test '!' -e _inst/info/foo.info
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
++ /bin/grep -F 'but has a nice name' _inst/info/dir
++ : For shells with busted 'set -e.'
++ rm -rf _inst bin/install-info
++ for val in no NO n
++ rm -rf _inst
++ env AM_UPDATE_INFO_DIR=no make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
++ test -f _inst/info/foo.info
++ test '!' -e _inst/info/dir
++ for val in no NO n
++ rm -rf _inst
++ env AM_UPDATE_INFO_DIR=NO make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
++ test -f _inst/info/foo.info
++ test '!' -e _inst/info/dir
++ for val in no NO n
++ rm -rf _inst
++ env AM_UPDATE_INFO_DIR=n make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
++ test -f _inst/info/foo.info
++ test '!' -e _inst/info/dir
++ make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
++ test yes '!=' yes
++ chmod a-w _inst/info/dir
++ for val in no NO n
++ env AM_UPDATE_INFO_DIR=no make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ /bin/grep -F 'Does nothing at all, but has a nice name' _inst/info/dir
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ for val in no NO n
++ env AM_UPDATE_INFO_DIR=NO make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ /bin/grep -F 'Does nothing at all, but has a nice name' _inst/info/dir
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ for val in no NO n
++ env AM_UPDATE_INFO_DIR=n make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ /bin/grep -F 'Does nothing at all, but has a nice name' _inst/info/dir
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ test yes = yes
++ for val in 'yes' 'who cares!'
++ rm -rf _inst
++ env AM_UPDATE_INFO_DIR=yes make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
++ test -f _inst/info/foo.info
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ env AM_UPDATE_INFO_DIR=yes make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' --remove '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ test '!' -e _inst/info/foo.info
++ /bin/grep -F 'but has a nice name' _inst/info/dir
++ : For shells with busted 'set -e.'
++ for val in 'yes' 'who cares!'
++ rm -rf _inst
++ env 'AM_UPDATE_INFO_DIR=who cares!' make install-info
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ /usr/bin/install -c -m 644 ./foo.info '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
++ test -f _inst/info/foo.info
++ cat _inst/info/dir
+This is the file .../info/dir, which contains the
+topmost node of the Info hierarchy, called (dir)Top.
+The first time you invoke Info you start off looking at this node.
+
+File: dir,	Node: Top	This is the top of the INFO tree
+
+  This (the Directory node) gives a menu of major topics.
+  Typing "q" exits, "H" lists all Info commands, "d" returns here,
+  "h" gives a primer for first-timers,
+  "mEmacs<Return>" visits the Emacs manual, etc.
+
+  In Emacs, you can click mouse button 2 on a menu item or cross reference
+  to select it.
+
+* Menu:
+
+Dummy utilities
+* Foo: (foo).                   Does nothing at all, but has a nice name.
++ env 'AM_UPDATE_INFO_DIR=who cares!' make uninstall
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.dvi'
+ rm -rf '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.html'
+ install-info --info-dir='/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' --remove '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info/foo.info'
+ cd '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/info' && rm -f foo.info foo.info-[0-9] foo.info-[0-9][0-9] foo.i[0-9] foo.i[0-9][0-9]
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.pdf'
+ rm -f '/sources/automake-1.16.1/t/install-info-dir.dir/_inst/share/doc/install-info-dir/foo.ps'
++ test '!' -e _inst/info/foo.info
++ /bin/grep -F 'but has a nice name' _inst/info/dir
++ : For shells with busted 'set -e.'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/install-info-dir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/install-info-dir.dir
++ set +x
+PASS t/install-info-dir.sh (exit status: 0)

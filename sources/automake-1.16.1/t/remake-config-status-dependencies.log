@@ -1,0 +1,116 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-config-status-dependencies.dir
++ cat
++ echo EXTRA_VERSION=1.0
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test-1
+test 1.0 = 1.0
++ sleep 2
++ echo EXTRA_VERSION=2.1
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make test-2
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+test 2.1 = 2.1
++ make distclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test-2
+test 2.1 = 2.1
++ sleep 2
++ echo EXTRA_VERSION=3.14
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make test-3
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+test 3.14 = 3.14
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-config-status-dependencies.dir/build'
+if test -d "remake-config-status-dependencies-1.0"; then find "remake-config-status-dependencies-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-config-status-dependencies-1.0" || { sleep 5 && rm -rf "remake-config-status-dependencies-1.0"; }; else :; fi
+test -d "remake-config-status-dependencies-1.0" || mkdir "remake-config-status-dependencies-1.0"
+test -n "" \
+|| find "remake-config-status-dependencies-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-config-status-dependencies.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-config-status-dependencies-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-config-status-dependencies.dir/build'
++ test '!' -e remake-config-status-dependencies-1.0/version.sh
++ test -f remake-config-status-dependencies-1.0/configure
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-config-status-dependencies.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-config-status-dependencies.dir
++ set +x
+PASS t/remake-config-status-dependencies.sh (exit status: 0)

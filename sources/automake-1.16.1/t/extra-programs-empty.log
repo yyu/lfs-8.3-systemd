@@ -1,0 +1,33 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/extra-programs-empty.dir
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep '^EXTRA_PROGRAMS = *$' Makefile.in
+EXTRA_PROGRAMS =
++ grep '^EXTRA_PROGRAMS = *$' Makefile2.in
+EXTRA_PROGRAMS =
++ grep '^EXTRA_PROGRAMS =' Makefile3.in
+EXTRA_PROGRAMS = $(am__EXEEXT_1)
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/extra-programs-empty.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/extra-programs-empty.dir
++ set +x
+PASS t/extra-programs-empty.sh (exit status: 0)

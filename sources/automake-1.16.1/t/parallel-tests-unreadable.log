@@ -1,0 +1,30 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-unreadable.dir
++ :
++ chmod a-r t
++ test '!' -r t
++ skip_ 'you can still read unreadable files'
++ warn_ 'parallel-tests-unreadable: skipped test: you can still read unreadable files'
++ echo 'parallel-tests-unreadable: skipped test: you can still read unreadable files'
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+SKIP t/parallel-tests-unreadable.sh (exit status: 77)

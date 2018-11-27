@@ -1,0 +1,22 @@
+./backtrace ./backtrace.i386.fp.exec ./backtrace.i386.fp.core
+0x8a7000	0x8a8000	linux-gate.so.1
+0x8048000	0x80f9000	[exe]
+TID 12045:
+# 0 0x8a7416    	__kernel_vsyscall
+# 1 0x8051ab9 - 1	raise
+# 2 0x80485c1 - 1	sigusr2
+# 3 0x8048699 - 1	stdarg
+# 4 0x8048702 - 1	backtracegen
+# 5 0x804871b - 1	start
+# 6 0x804a7cf - 1	start_thread
+# 7 0x80746fe - 1	__clone
+TID 12044:
+# 0 0x8a7416    	__kernel_vsyscall
+# 1 0x804ae30 - 1	pthread_join
+# 2 0x804847c - 1	main
+# 3 0x8053188 - 1	__libc_start_main
+# 4 0x80481e1 - 1	_start
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: No DWARF information found
+# 2 0x804847c - 1	main
+# 4 0x8048702 - 1	backtracegen
+PASS run-backtrace-fp-core-i386.sh (exit status: 0)

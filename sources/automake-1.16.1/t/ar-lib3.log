@@ -1,0 +1,53 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ar-lib3.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+/sources/automake-1.16.1/lib/am/library.am: warning: 'libfoo.a': linking libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing library 'libfoo.a'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'requires.*AM_PROG_AR' stderr
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
++ cat
++ rm -rf autom4te.cache
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:6: installing './ar-lib'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ar-lib3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ar-lib3.dir
++ set +x
+PASS t/ar-lib3.sh (exit status: 0)

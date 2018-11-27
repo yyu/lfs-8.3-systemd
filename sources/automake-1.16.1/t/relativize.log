@@ -1,0 +1,1107 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/relativize.dir
++ plan_ later
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test xlater = xunknown
++ test xlater = xlater
++ planned_=later
++ return 0
++ mkdir uber uber/top
++ cd uber/top
++ :
++ :
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ rel_ . . = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ './{.} = .' -D '' env dir1=. dir2=. exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='./{.} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=. dir2=. exp=. make test
+result: '.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- './{.} = .'
++ set +x
+ok 1 - ./{.} = .
+PASS: t/relativize.tap 1 - ./{.} = .
++ rel_ . .. = ..
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ './{..} = ..' -D '' env dir1=. dir2=.. exp=.. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='./{..} = ..'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=. dir2=.. exp=.. make test
+result: '..'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- './{..} = ..'
++ set +x
+ok 2 - ./{..} = ..
+PASS: t/relativize.tap 2 - ./{..} = ..
++ rel_ .. . = top
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../{top} = .' -D '' env dir1=.. dir2=. exp=top make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../{top} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=.. dir2=. exp=top make test
+result: 'top/.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../{top} = .'
++ set +x
+ok 3 - ../{top} = .
+PASS: t/relativize.tap 3 - ../{top} = .
++ for d in x long-longer a/b 1/2/3/4/5
++ rel_ x x = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'x/{.} = x' -D '' env dir1=x dir2=x exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='x/{.} = x'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=x dir2=x exp=. make test
+result: ''
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'x/{.} = x'
++ set +x
+ok 4 - x/{.} = x
+PASS: t/relativize.tap 4 - x/{.} = x
++ for d2 in . .. x r/s/t
++ rel_ x x/. = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'x/{.} = x/.' -D '' env dir1=x dir2=x/. exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='x/{.} = x/.'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=x dir2=x/. exp=. make test
+result: '.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'x/{.} = x/.'
++ set +x
+ok 5 - x/{.} = x/.
+PASS: t/relativize.tap 5 - x/{.} = x/.
++ for d2 in . .. x r/s/t
++ rel_ x x/.. = ..
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'x/{..} = x/..' -D '' env dir1=x dir2=x/.. exp=.. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='x/{..} = x/..'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=x dir2=x/.. exp=.. make test
+result: '..'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'x/{..} = x/..'
++ set +x
+ok 6 - x/{..} = x/..
+PASS: t/relativize.tap 6 - x/{..} = x/..
++ for d2 in . .. x r/s/t
++ rel_ x x/x = x
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'x/{x} = x/x' -D '' env dir1=x dir2=x/x exp=x make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='x/{x} = x/x'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=x dir2=x/x exp=x make test
+result: 'x'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'x/{x} = x/x'
++ set +x
+ok 7 - x/{x} = x/x
+PASS: t/relativize.tap 7 - x/{x} = x/x
++ for d2 in . .. x r/s/t
++ rel_ x x/r/s/t = r/s/t
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'x/{r/s/t} = x/r/s/t' -D '' env dir1=x dir2=x/r/s/t exp=r/s/t make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='x/{r/s/t} = x/r/s/t'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=x dir2=x/r/s/t exp=r/s/t make test
+result: 'r/s/t'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'x/{r/s/t} = x/r/s/t'
++ set +x
+ok 8 - x/{r/s/t} = x/r/s/t
+PASS: t/relativize.tap 8 - x/{r/s/t} = x/r/s/t
++ for d in x long-longer a/b 1/2/3/4/5
++ rel_ long-longer long-longer = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'long-longer/{.} = long-longer' -D '' env dir1=long-longer dir2=long-longer exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='long-longer/{.} = long-longer'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=long-longer dir2=long-longer exp=. make test
+result: ''
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'long-longer/{.} = long-longer'
++ set +x
+ok 9 - long-longer/{.} = long-longer
+PASS: t/relativize.tap 9 - long-longer/{.} = long-longer
++ for d2 in . .. x r/s/t
++ rel_ long-longer long-longer/. = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'long-longer/{.} = long-longer/.' -D '' env dir1=long-longer dir2=long-longer/. exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='long-longer/{.} = long-longer/.'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=long-longer dir2=long-longer/. exp=. make test
+result: '.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'long-longer/{.} = long-longer/.'
++ set +x
+ok 10 - long-longer/{.} = long-longer/.
+PASS: t/relativize.tap 10 - long-longer/{.} = long-longer/.
++ for d2 in . .. x r/s/t
++ rel_ long-longer long-longer/.. = ..
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'long-longer/{..} = long-longer/..' -D '' env dir1=long-longer dir2=long-longer/.. exp=.. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='long-longer/{..} = long-longer/..'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=long-longer dir2=long-longer/.. exp=.. make test
+result: '..'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'long-longer/{..} = long-longer/..'
++ set +x
+ok 11 - long-longer/{..} = long-longer/..
+PASS: t/relativize.tap 11 - long-longer/{..} = long-longer/..
++ for d2 in . .. x r/s/t
++ rel_ long-longer long-longer/x = x
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'long-longer/{x} = long-longer/x' -D '' env dir1=long-longer dir2=long-longer/x exp=x make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='long-longer/{x} = long-longer/x'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=long-longer dir2=long-longer/x exp=x make test
+result: 'x'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'long-longer/{x} = long-longer/x'
++ set +x
+ok 12 - long-longer/{x} = long-longer/x
+PASS: t/relativize.tap 12 - long-longer/{x} = long-longer/x
++ for d2 in . .. x r/s/t
++ rel_ long-longer long-longer/r/s/t = r/s/t
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'long-longer/{r/s/t} = long-longer/r/s/t' -D '' env dir1=long-longer dir2=long-longer/r/s/t exp=r/s/t make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='long-longer/{r/s/t} = long-longer/r/s/t'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=long-longer dir2=long-longer/r/s/t exp=r/s/t make test
+result: 'r/s/t'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'long-longer/{r/s/t} = long-longer/r/s/t'
++ set +x
+ok 13 - long-longer/{r/s/t} = long-longer/r/s/t
+PASS: t/relativize.tap 13 - long-longer/{r/s/t} = long-longer/r/s/t
++ for d in x long-longer a/b 1/2/3/4/5
++ rel_ a/b a/b = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{.} = a/b' -D '' env dir1=a/b dir2=a/b exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{.} = a/b'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/b exp=. make test
+result: ''
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{.} = a/b'
++ set +x
+ok 14 - a/b/{.} = a/b
+PASS: t/relativize.tap 14 - a/b/{.} = a/b
++ for d2 in . .. x r/s/t
++ rel_ a/b a/b/. = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{.} = a/b/.' -D '' env dir1=a/b dir2=a/b/. exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{.} = a/b/.'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/b/. exp=. make test
+result: '.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{.} = a/b/.'
++ set +x
+ok 15 - a/b/{.} = a/b/.
+PASS: t/relativize.tap 15 - a/b/{.} = a/b/.
++ for d2 in . .. x r/s/t
++ rel_ a/b a/b/.. = ..
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{..} = a/b/..' -D '' env dir1=a/b dir2=a/b/.. exp=.. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{..} = a/b/..'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/b/.. exp=.. make test
+result: '..'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{..} = a/b/..'
++ set +x
+ok 16 - a/b/{..} = a/b/..
+PASS: t/relativize.tap 16 - a/b/{..} = a/b/..
++ for d2 in . .. x r/s/t
++ rel_ a/b a/b/x = x
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{x} = a/b/x' -D '' env dir1=a/b dir2=a/b/x exp=x make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{x} = a/b/x'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/b/x exp=x make test
+result: 'x'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{x} = a/b/x'
++ set +x
+ok 17 - a/b/{x} = a/b/x
+PASS: t/relativize.tap 17 - a/b/{x} = a/b/x
++ for d2 in . .. x r/s/t
++ rel_ a/b a/b/r/s/t = r/s/t
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{r/s/t} = a/b/r/s/t' -D '' env dir1=a/b dir2=a/b/r/s/t exp=r/s/t make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{r/s/t} = a/b/r/s/t'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/b/r/s/t exp=r/s/t make test
+result: 'r/s/t'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{r/s/t} = a/b/r/s/t'
++ set +x
+ok 18 - a/b/{r/s/t} = a/b/r/s/t
+PASS: t/relativize.tap 18 - a/b/{r/s/t} = a/b/r/s/t
++ for d in x long-longer a/b 1/2/3/4/5
++ rel_ 1/2/3/4/5 1/2/3/4/5 = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '1/2/3/4/5/{.} = 1/2/3/4/5' -D '' env dir1=1/2/3/4/5 dir2=1/2/3/4/5 exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='1/2/3/4/5/{.} = 1/2/3/4/5'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=1/2/3/4/5 dir2=1/2/3/4/5 exp=. make test
+result: ''
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '1/2/3/4/5/{.} = 1/2/3/4/5'
++ set +x
+ok 19 - 1/2/3/4/5/{.} = 1/2/3/4/5
+PASS: t/relativize.tap 19 - 1/2/3/4/5/{.} = 1/2/3/4/5
++ for d2 in . .. x r/s/t
++ rel_ 1/2/3/4/5 1/2/3/4/5/. = .
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '1/2/3/4/5/{.} = 1/2/3/4/5/.' -D '' env dir1=1/2/3/4/5 dir2=1/2/3/4/5/. exp=. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='1/2/3/4/5/{.} = 1/2/3/4/5/.'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=1/2/3/4/5 dir2=1/2/3/4/5/. exp=. make test
+result: '.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '1/2/3/4/5/{.} = 1/2/3/4/5/.'
++ set +x
+ok 20 - 1/2/3/4/5/{.} = 1/2/3/4/5/.
+PASS: t/relativize.tap 20 - 1/2/3/4/5/{.} = 1/2/3/4/5/.
++ for d2 in . .. x r/s/t
++ rel_ 1/2/3/4/5 1/2/3/4/5/.. = ..
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '1/2/3/4/5/{..} = 1/2/3/4/5/..' -D '' env dir1=1/2/3/4/5 dir2=1/2/3/4/5/.. exp=.. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='1/2/3/4/5/{..} = 1/2/3/4/5/..'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=1/2/3/4/5 dir2=1/2/3/4/5/.. exp=.. make test
+result: '..'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '1/2/3/4/5/{..} = 1/2/3/4/5/..'
++ set +x
+ok 21 - 1/2/3/4/5/{..} = 1/2/3/4/5/..
+PASS: t/relativize.tap 21 - 1/2/3/4/5/{..} = 1/2/3/4/5/..
++ for d2 in . .. x r/s/t
++ rel_ 1/2/3/4/5 1/2/3/4/5/x = x
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '1/2/3/4/5/{x} = 1/2/3/4/5/x' -D '' env dir1=1/2/3/4/5 dir2=1/2/3/4/5/x exp=x make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='1/2/3/4/5/{x} = 1/2/3/4/5/x'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=1/2/3/4/5 dir2=1/2/3/4/5/x exp=x make test
+result: 'x'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '1/2/3/4/5/{x} = 1/2/3/4/5/x'
++ set +x
+ok 22 - 1/2/3/4/5/{x} = 1/2/3/4/5/x
+PASS: t/relativize.tap 22 - 1/2/3/4/5/{x} = 1/2/3/4/5/x
++ for d2 in . .. x r/s/t
++ rel_ 1/2/3/4/5 1/2/3/4/5/r/s/t = r/s/t
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '1/2/3/4/5/{r/s/t} = 1/2/3/4/5/r/s/t' -D '' env dir1=1/2/3/4/5 dir2=1/2/3/4/5/r/s/t exp=r/s/t make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='1/2/3/4/5/{r/s/t} = 1/2/3/4/5/r/s/t'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=1/2/3/4/5 dir2=1/2/3/4/5/r/s/t exp=r/s/t make test
+result: 'r/s/t'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '1/2/3/4/5/{r/s/t} = 1/2/3/4/5/r/s/t'
++ set +x
+ok 23 - 1/2/3/4/5/{r/s/t} = 1/2/3/4/5/r/s/t
+PASS: t/relativize.tap 23 - 1/2/3/4/5/{r/s/t} = 1/2/3/4/5/r/s/t
++ rel_ one two = ../two
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'one/{../two} = two' -D '' env dir1=one dir2=two exp=../two make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='one/{../two} = two'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=one dir2=two exp=../two make test
+result: '../two'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'one/{../two} = two'
++ set +x
+ok 24 - one/{../two} = two
+PASS: t/relativize.tap 24 - one/{../two} = two
++ rel_ a b/c = ../b/c
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/{../b/c} = b/c' -D '' env dir1=a dir2=b/c exp=../b/c make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/{../b/c} = b/c'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a dir2=b/c exp=../b/c make test
+result: '../b/c'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/{../b/c} = b/c'
++ set +x
+ok 25 - a/{../b/c} = b/c
+PASS: t/relativize.tap 25 - a/{../b/c} = b/c
++ rel_ a/b . = ../..
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{../..} = .' -D '' env dir1=a/b dir2=. exp=../.. make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{../..} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=. exp=../.. make test
+result: '../../.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{../..} = .'
++ set +x
+ok 26 - a/b/{../..} = .
+PASS: t/relativize.tap 26 - a/b/{../..} = .
++ rel_ a/b foo = ../../foo
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{../../foo} = foo' -D '' env dir1=a/b dir2=foo exp=../../foo make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{../../foo} = foo'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=foo exp=../../foo make test
+result: '../../foo'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{../../foo} = foo'
++ set +x
+ok 27 - a/b/{../../foo} = foo
+PASS: t/relativize.tap 27 - a/b/{../../foo} = foo
++ rel_ a/b foo/bar = ../../foo/bar
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{../../foo/bar} = foo/bar' -D '' env dir1=a/b dir2=foo/bar exp=../../foo/bar make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{../../foo/bar} = foo/bar'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=foo/bar exp=../../foo/bar make test
+result: '../../foo/bar'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{../../foo/bar} = foo/bar'
++ set +x
+ok 28 - a/b/{../../foo/bar} = foo/bar
+PASS: t/relativize.tap 28 - a/b/{../../foo/bar} = foo/bar
++ rel_ a/b a/c = ../c
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{../c} = a/c' -D '' env dir1=a/b dir2=a/c exp=../c make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{../c} = a/c'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/c exp=../c make test
+result: '../c'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{../c} = a/c'
++ set +x
+ok 29 - a/b/{../c} = a/c
+PASS: t/relativize.tap 29 - a/b/{../c} = a/c
++ rel_ a/b a/c/d = ../c/d
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'a/b/{../c/d} = a/c/d' -D '' env dir1=a/b dir2=a/c/d exp=../c/d make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='a/b/{../c/d} = a/c/d'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=a/b dir2=a/c/d exp=../c/d make test
+result: '../c/d'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'a/b/{../c/d} = a/c/d'
++ set +x
+ok 30 - a/b/{../c/d} = a/c/d
+PASS: t/relativize.tap 30 - a/b/{../c/d} = a/c/d
++ rel_ foo/bar/baz foo/bar/qux/zap = ../qux/zap
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ 'foo/bar/baz/{../qux/zap} = foo/bar/qux/zap' -D '' env dir1=foo/bar/baz dir2=foo/bar/qux/zap exp=../qux/zap make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='foo/bar/baz/{../qux/zap} = foo/bar/qux/zap'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=foo/bar/baz dir2=foo/bar/qux/zap exp=../qux/zap make test
+result: '../qux/zap'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- 'foo/bar/baz/{../qux/zap} = foo/bar/qux/zap'
++ set +x
+ok 31 - foo/bar/baz/{../qux/zap} = foo/bar/qux/zap
+PASS: t/relativize.tap 31 - foo/bar/baz/{../qux/zap} = foo/bar/qux/zap
++ rel_ ../foo . = ../top
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../foo/{../top} = .' -D '' env dir1=../foo dir2=. exp=../top make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../foo/{../top} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../foo dir2=. exp=../top make test
+result: '../top/.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../foo/{../top} = .'
++ set +x
+ok 32 - ../foo/{../top} = .
+PASS: t/relativize.tap 32 - ../foo/{../top} = .
++ rel_ ../.. . = uber/top
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../../{uber/top} = .' -D '' env dir1=../.. dir2=. exp=uber/top make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../../{uber/top} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../.. dir2=. exp=uber/top make test
+result: 'uber/top/.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../../{uber/top} = .'
++ set +x
+ok 33 - ../../{uber/top} = .
+PASS: t/relativize.tap 33 - ../../{uber/top} = .
++ rel_ ../../foo . = ../uber/top
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../../foo/{../uber/top} = .' -D '' env dir1=../../foo dir2=. exp=../uber/top make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../../foo/{../uber/top} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../../foo dir2=. exp=../uber/top make test
+result: '../uber/top/.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../../foo/{../uber/top} = .'
++ set +x
+ok 34 - ../../foo/{../uber/top} = .
+PASS: t/relativize.tap 34 - ../../foo/{../uber/top} = .
++ rel_ ../../x ok = ../uber/top/ok
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../../x/{../uber/top/ok} = ok' -D '' env dir1=../../x dir2=ok exp=../uber/top/ok make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../../x/{../uber/top/ok} = ok'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../../x dir2=ok exp=../uber/top/ok make test
+result: '../uber/top/ok'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../../x/{../uber/top/ok} = ok'
++ set +x
+ok 35 - ../../x/{../uber/top/ok} = ok
+PASS: t/relativize.tap 35 - ../../x/{../uber/top/ok} = ok
++ rel_ ../../x bo/ba = ../uber/top/bo/ba
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../../x/{../uber/top/bo/ba} = bo/ba' -D '' env dir1=../../x dir2=bo/ba exp=../uber/top/bo/ba make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../../x/{../uber/top/bo/ba} = bo/ba'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../../x dir2=bo/ba exp=../uber/top/bo/ba make test
+result: '../uber/top/bo/ba'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../../x/{../uber/top/bo/ba} = bo/ba'
++ set +x
+ok 36 - ../../x/{../uber/top/bo/ba} = bo/ba
+PASS: t/relativize.tap 36 - ../../x/{../uber/top/bo/ba} = bo/ba
++ rel_ ../../x ../ok2 = ../uber/top/../ok2
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../../x/{../uber/top/../ok2} = ../ok2' -D '' env dir1=../../x dir2=../ok2 exp=../uber/top/../ok2 make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../../x/{../uber/top/../ok2} = ../ok2'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../../x dir2=../ok2 exp=../uber/top/../ok2 make test
+result: '../uber/top/../ok2'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../../x/{../uber/top/../ok2} = ../ok2'
++ set +x
+ok 37 - ../../x/{../uber/top/../ok2} = ../ok2
+PASS: t/relativize.tap 37 - ../../x/{../uber/top/../ok2} = ../ok2
++ rel_ ../a/b/c/d/e . = ../../../../../top
++ case $1 in
++ directive=
++ test 4 -eq 4
++ test x= = x=
++ command_ok_ '../a/b/c/d/e/{../../../../../top} = .' -D '' env dir1=../a/b/c/d/e dir2=. exp=../../../../../top make test
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='../a/b/c/d/e/{../../../../../top} = .'
++ shift
++ test 8 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env dir1=../a/b/c/d/e dir2=. exp=../../../../../top make test
+result: '../../../../../top/.'
++ case ${reldir:-.} in
++ result_ ok -D '' -r '' -- '../a/b/c/d/e/{../../../../../top} = .'
++ set +x
+ok 38 - ../a/b/c/d/e/{../../../../../top} = .
+PASS: t/relativize.tap 38 - ../a/b/c/d/e/{../../../../../top} = .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test later = later
++ test 0 -eq 0
++ plan_ now
++ test 1 -eq 0
++ test 1 -ge 2
++ test xlater '!=' xnone
++ test xlater '!=' xlater
++ test xnow = xunknown
++ test xnow = xlater
++ test xnow = xlazy
++ test xnow = xnow
++ planned_=38
++ echo 1..38
+1..38
++ test 0 -eq 0
++ test 38 -eq 38
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/relativize.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/relativize.dir
++ set +x

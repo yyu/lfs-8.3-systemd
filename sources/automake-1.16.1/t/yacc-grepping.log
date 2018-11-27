@@ -1,0 +1,87 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-grepping.dir
++ cat
++ aclocal-1.16 -Werror
++ cat
++ cp Makefile.am Makefile.src
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ /bin/grep -F zardoz.c Makefile.in
+	missing ylwrap zardoz.c
+	-rm -f zardoz.c
++ /bin/grep -F zardoz.h Makefile.in
++ cp Makefile.src Makefile.am
++ echo 'AM_YFLAGS = -d'
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F zardoz.c Makefile.in
+	missing ylwrap zardoz.c zardoz.h
+zardoz.h: zardoz.c
+	@if test ! -f $@; then rm -f zardoz.c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) zardoz.c; else :; fi
+	-rm -f zardoz.c
++ /bin/grep -F zardoz.h Makefile.in
+	missing ylwrap zardoz.c zardoz.h
+zardoz.h: zardoz.c
+	-rm -f zardoz.h
++ cp Makefile.src Makefile.am
++ echo 'AM_YFLAGS = '
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F zardoz.c Makefile.in
+	missing ylwrap zardoz.c
+	-rm -f zardoz.c
++ /bin/grep -F zardoz.h Makefile.in
++ cp Makefile.src Makefile.am
++ echo 'YFLAGS = -d'
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: 'YFLAGS' is a user variable, you should not override it;
+Makefile.am:3: use 'AM_YFLAGS' instead
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'YFLAGS.* user variable' stderr
+Makefile.am:3: warning: 'YFLAGS' is a user variable, you should not override it;
++ grep 'AM_YFLAGS.* instead' stderr
+Makefile.am:3: use 'AM_YFLAGS' instead
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu
++ /bin/grep -F zardoz.h Makefile.in
+	missing ylwrap zardoz.c zardoz.h
+zardoz.h: zardoz.c
+	-rm -f zardoz.h
++ cp Makefile.src Makefile.am
++ echo 'YFLAGS = '
++ automake-1.16 --foreign -Werror -Wall -Wno-gnu
++ /bin/grep -F zardoz.h Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-grepping.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-grepping.dir
++ set +x
+PASS t/yacc-grepping.sh (exit status: 0)

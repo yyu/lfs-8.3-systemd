@@ -1,0 +1,101 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-bailout-and-logging.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-bailout-and-logging.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-bailout-and-logging.dir'
+ERROR: all.test - Bail out!
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-bailout-and-logging.dir'
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-bailout-and-logging.dir'
+make: *** [Makefile:775: check-am] Error 2
++ cat all.log
+First line
+Bail out!
+ERROR: all.test - Bail out!
+non-TAP line after bailout
+# TAP diagnostic after bailout
+1..0 # SKIP TAP plan after bailout
+ok 1 - TAP result after bailout
++ for rx in 'First line' 'Bail out!' 'non-TAP line after bailout' '# TAP diagnostic after bailout' '1\.\.0 # SKIP TAP plan after bailout' 'ok 1 - TAP result after bailout'
++ grep '^First line$' all.log
+First line
++ for rx in 'First line' 'Bail out!' 'non-TAP line after bailout' '# TAP diagnostic after bailout' '1\.\.0 # SKIP TAP plan after bailout' 'ok 1 - TAP result after bailout'
++ grep '^Bail out!$' all.log
+Bail out!
++ for rx in 'First line' 'Bail out!' 'non-TAP line after bailout' '# TAP diagnostic after bailout' '1\.\.0 # SKIP TAP plan after bailout' 'ok 1 - TAP result after bailout'
++ grep '^non-TAP line after bailout$' all.log
+non-TAP line after bailout
++ for rx in 'First line' 'Bail out!' 'non-TAP line after bailout' '# TAP diagnostic after bailout' '1\.\.0 # SKIP TAP plan after bailout' 'ok 1 - TAP result after bailout'
++ grep '^# TAP diagnostic after bailout$' all.log
+# TAP diagnostic after bailout
++ for rx in 'First line' 'Bail out!' 'non-TAP line after bailout' '# TAP diagnostic after bailout' '1\.\.0 # SKIP TAP plan after bailout' 'ok 1 - TAP result after bailout'
++ grep '^1\.\.0 # SKIP TAP plan after bailout$' all.log
+1..0 # SKIP TAP plan after bailout
++ for rx in 'First line' 'Bail out!' 'non-TAP line after bailout' '# TAP diagnostic after bailout' '1\.\.0 # SKIP TAP plan after bailout' 'ok 1 - TAP result after bailout'
++ grep '^ok 1 - TAP result after bailout$' all.log
+ok 1 - TAP result after bailout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-bailout-and-logging.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-bailout-and-logging.dir
++ set +x
+PASS t/tap-bailout-and-logging.sh (exit status: 0)

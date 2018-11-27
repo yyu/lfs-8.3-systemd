@@ -1,0 +1,84 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/txinfo-add-missing-and-dist.dir
++ cat
++ cat
++ echo '@setfilename textutils.info'
++ mkdir auxdir
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:3: installing 'auxdir/install-sh'
+configure.ac:3: installing 'auxdir/missing'
+Makefile.am:1: installing 'auxdir/texinfo.tex'
++ test -f auxdir/texinfo.tex
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ sleep 2
++ :
++ make test1 test2
+DISTFILES = ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./auxdir/install-sh ./auxdir/missing ./auxdir/texinfo.tex auxdir/install-sh auxdir/missing auxdir/texinfo.tex compile depcomp install-sh missing textutils.texi
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./auxdir/install-sh ./auxdir/missing ./auxdir/texinfo.tex auxdir/install-sh auxdir/missing auxdir/texinfo.tex compile depcomp install-sh missing  textutils.texi  ' ' | grep '[ /]auxdir/texinfo\.tex '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./auxdir/install-sh ./auxdir/missing ./auxdir/texinfo.tex auxdir/install-sh auxdir/missing auxdir/texinfo.tex compile depcomp install-sh missing textutils.texi  
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/txinfo-add-missing-and-dist.dir'
+if test -d "txinfo-add-missing-and-dist-1.0"; then find "txinfo-add-missing-and-dist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "txinfo-add-missing-and-dist-1.0" || { sleep 5 && rm -rf "txinfo-add-missing-and-dist-1.0"; }; else :; fi
+test -d "txinfo-add-missing-and-dist-1.0" || mkdir "txinfo-add-missing-and-dist-1.0"
+make  \
+  top_distdir="txinfo-add-missing-and-dist-1.0" distdir="txinfo-add-missing-and-dist-1.0" \
+  dist-info
+make[2]: Entering directory '/sources/automake-1.16.1/t/txinfo-add-missing-and-dist.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/txinfo-add-missing-and-dist.dir'
+test -n "" \
+|| find "txinfo-add-missing-and-dist-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/txinfo-add-missing-and-dist.dir/auxdir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "txinfo-add-missing-and-dist-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/txinfo-add-missing-and-dist.dir'
+ls -l txinfo-add-missing-and-dist-1.0/*
+-rw-r--r-- 1 root root    225 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/Makefile.am
+-rw-r--r-- 1 root root  28957 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/aclocal.m4
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/compile
+-rwxr-xr-x 1 root root 104294 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/configure
+-rw-r--r-- 1 root root    129 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/missing
+-rw-r--r-- 1 root root      0 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/textutils.info
+-rw-r--r-- 1 root root     28 Nov 27 06:50 txinfo-add-missing-and-dist-1.0/textutils.texi
+
+txinfo-add-missing-and-dist-1.0/auxdir:
+total 400
+-rwxr-xr-x 1 1000 998  15368 Mar 11  2018 install-sh
+-rwxr-xr-x 1 1000 998   6878 Mar  8  2018 missing
+-rw-r--r-- 1 1000 998 382211 Mar 11  2018 texinfo.tex
+test -f txinfo-add-missing-and-dist-1.0/auxdir/texinfo.tex
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/txinfo-add-missing-and-dist.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/txinfo-add-missing-and-dist.dir
++ set +x
+PASS t/txinfo-add-missing-and-dist.sh (exit status: 0)

@@ -1,0 +1,520 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/backcompat.dir
++ cat
++ for ac_init in 'AC_INIT' 'AC_INIT([Makefile.am])'
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf 'autom4te*.cache' configure.ac Makefile.in Makefile
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE([FooBar], [0.7.1])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE([FooBar], [0.7.1], [])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE([FooBar], [0.7.1], [:])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE([FooBar], [0.7.1], [false])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for ac_init in 'AC_INIT' 'AC_INIT([Makefile.am])'
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([Makefile.am])
+AM_INIT_AUTOMAKE([FooBar], [0.7.1])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([Makefile.am])
+AM_INIT_AUTOMAKE([FooBar], [0.7.1], [])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([Makefile.am])
+AM_INIT_AUTOMAKE([FooBar], [0.7.1], [:])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ for am_extra_args in '' ', []' ', [:]' ', [false]'
++ rm -rf autom4te.cache config.log config.status configure configure.ac Makefile.in Makefile
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([Makefile.am])
+AM_INIT_AUTOMAKE([FooBar], [0.7.1], [false])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+PACKAGE = FooBar
+VERSION = 0.7.1
+PACKAGE_NAME =
+PACKAGE_VERSION =
+PACKAGE_TARNAME =
+PACKAGE_STRING =
+test x'FooBar' = x'FooBar'
+test x'0.7.1' = x'0.7.1'
+test x'' = x
+test x'' = x
+test x'' = x
+test x'' = x
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/backcompat.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/backcompat.dir
++ set +x
+PASS t/backcompat.sh (exit status: 0)

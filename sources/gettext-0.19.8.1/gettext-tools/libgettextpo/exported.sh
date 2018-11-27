@@ -20,5 +20,5 @@
 # This is a separate script because $(GLOBAL_SYMBOL_PIPE) cannot be used in a
 # Makefile, since it may contain dollar signs.
 
-nm_cmd="/tools/bin/nm -B $1 | sed -n -e 's/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d'"
+nm_cmd="/usr/bin/nm -B $1 | sed -n -e 's/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d'"
 eval $nm_cmd

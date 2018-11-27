@@ -1,0 +1,128 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yflags-force-conditional.dir
++ cat
++ mkdir bin
++ cat
++ chmod a+x bin/fake-yacc
+++ pwd
++ PATH=/sources/automake-1.16.1/t/yflags-force-conditional.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ YACC=fake-yacc
++ export YACC
++ cat
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a -Wno-unsupported
+configure.ac: installing './ylwrap'
++ /bin/grep -E '(YFLAGS|yflags|am__append)' Makefile.in
+@COND_TRUE@am__append_1 = __bar_cond_yes__
+YACCCOMPILE = $(YACC) $(AM_YFLAGS) $(YFLAGS)
+YFLAGS = @YFLAGS@
+bar_YFLAGS = $(bar_yflags2) $(am__append_1)
+@COND_FALSE@AM_YFLAGS = __am_cond_no__
+@COND_TRUE@AM_YFLAGS = __am_cond_yes__
+@COND_FALSE@bar_yflags2 = __bar_cond_no__
+	$(SHELL) $(YLWRAP) `test -f 'foo.y' || echo '$(srcdir)/'`foo.y y.tab.c bar-foo.c y.tab.h `echo bar-foo.c | $(am__yacc_c2h)` y.output bar-foo.output -- $(YACC) $(bar_YFLAGS) $(YFLAGS)
++ ./configure cond=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for bison... fake-yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make foo.c bar-foo.c
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- fake-yacc __am_cond_yes__ 
+\
+ \
+/bin/sh ./ylwrap `test -f 'foo.y' || echo './'`foo.y y.tab.c bar-foo.c y.tab.h `echo bar-foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-foo.output -- fake-yacc  __bar_cond_yes__ 
++ cat foo.c
+/* __am_cond_yes__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
+extern int dummy;
++ cat bar-foo.c
+/* __bar_cond_yes__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
+extern int dummy;
++ /bin/grep -F ' __am_cond_yes__ ' foo.c
+/* __am_cond_yes__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
++ /bin/grep -F ' __bar_cond_yes__ ' bar-foo.c
+/* __bar_cond_yes__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
++ /bin/grep -F cond_no foo.c bar-foo.c
++ make maintainer-clean
+test -z "foo bar" || rm -f foo bar
+rm -f *.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar-foo.c
+rm -f foo.c
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ ls -l
+total 224
+-rw-r--r-- 1 root root    289 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root  23678 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root  28353 Nov 27 06:51 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 bin
+-rwxr-xr-x 1 root root   7383 Nov 27 06:51 compile
+-rwxr-xr-x 1 root root 106336 Nov 27 06:51 configure
+-rw-r--r-- 1 root root    184 Nov 27 06:51 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:51 depcomp
+-rw-r--r-- 1 root root      0 Nov 27 06:51 foo.y
+-rwxr-xr-x 1 root root  15368 Nov 27 06:51 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:51 missing
+lrwxrwxrwx 1 root root     35 Nov 27 06:51 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
++ ./configure cond=no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for bison... fake-yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make foo.c bar-foo.c
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- fake-yacc __am_cond_no__ 
+\
+ \
+/bin/sh ./ylwrap `test -f 'foo.y' || echo './'`foo.y y.tab.c bar-foo.c y.tab.h `echo bar-foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-foo.output -- fake-yacc __bar_cond_no__  
++ cat foo.c
+/* __am_cond_no__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
+extern int dummy;
++ cat bar-foo.c
+/* __bar_cond_no__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
+extern int dummy;
++ /bin/grep -F ' __am_cond_no__ ' foo.c
+/* __am_cond_no__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
++ /bin/grep -F ' __bar_cond_no__ ' bar-foo.c
+/* __bar_cond_no__ /sources/automake-1.16.1/t/yflags-force-conditional.dir/foo.y */
++ /bin/grep -F cond_yes foo.c bar-foo.c
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yflags-force-conditional.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yflags-force-conditional.dir
++ set +x
+PASS t/yflags-force-conditional.sh (exit status: 0)

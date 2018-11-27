@@ -1,0 +1,605 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x pass.test skip.test xfail.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+============================================================================
+Testsuite summary for parallel-tests-log-override-1 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
++ ls -l
+total 340
+-rw-r--r-- 1 root root  30671 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     86 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29728 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5304 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root     32 Nov 27 06:44 pass.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 pass.trs
+-rw-r--r-- 1 root root     50 Nov 27 06:44 skip.log
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:44 skip.trs
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root    432 Nov 27 06:44 test-suite.log
+-rw-r--r-- 1 root root     55 Nov 27 06:44 xfail.log
+-rwxr-xr-x 1 root root     46 Nov 27 06:44 xfail.test
+-rw-r--r-- 1 root root     85 Nov 27 06:44 xfail.trs
++ cat test-suite.log
+=========================================================
+   parallel-tests-log-override-1 1.0: ./test-suite.log
+=========================================================
+
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+% test skipped %
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+# expected failure #
+XFAIL xfail.test (exit status: 1)
+
++ cp test-suite.log orig
++ make clean
+test -z "pass.log skip.log xfail.log" || rm -f pass.log skip.log xfail.log
+test -z "pass.trs skip.trs xfail.trs" || rm -f pass.trs skip.trs xfail.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test -f test-suite.log
++ run_make TEST_SUITE_LOG=zardoz.log check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=zardoz.log check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+============================================================================
+Testsuite summary for parallel-tests-log-override-1 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 344
+-rw-r--r-- 1 root root  30671 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     86 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29728 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5304 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root    432 Nov 27 06:44 orig
+-rw-r--r-- 1 root root     32 Nov 27 06:44 pass.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 pass.trs
+-rw-r--r-- 1 root root     50 Nov 27 06:44 skip.log
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:44 skip.trs
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root     55 Nov 27 06:44 xfail.log
+-rwxr-xr-x 1 root root     46 Nov 27 06:44 xfail.test
+-rw-r--r-- 1 root root     85 Nov 27 06:44 xfail.trs
+-rw-r--r-- 1 root root    420 Nov 27 06:44 zardoz.log
++ test '!' -e test-suite.log
++ cat zardoz.log
+=====================================================
+   parallel-tests-log-override-1 1.0: ./zardoz.log
+=====================================================
+
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+% test skipped %
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+# expected failure #
+XFAIL xfail.test (exit status: 1)
+
++ test_log_expected zardoz.log
++ test_log_edit orig
++ sed -e 's|^  *parallel-tests-log-override-1 1\.0:.*$|  parallel-tests-log-override-1 1.0: ???|' -e 's|^=====*|=======================|' orig
++ test_log_edit zardoz.log
++ sed -e 's|^  *parallel-tests-log-override-1 1\.0:.*$|  parallel-tests-log-override-1 1.0: ???|' -e 's|^=====*|=======================|' zardoz.log
++ diff exp got
++ rm -f exp got
++ run_make TEST_SUITE_LOG=zardoz.log distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=zardoz.log distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+if test -d "parallel-tests-log-override-1-1.0"; then find "parallel-tests-log-override-1-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-log-override-1-1.0" || { sleep 5 && rm -rf "parallel-tests-log-override-1-1.0"; }; else :; fi
+test -d "parallel-tests-log-override-1-1.0" || mkdir "parallel-tests-log-override-1-1.0"
+test -n "" \
+|| find "parallel-tests-log-override-1-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "parallel-tests-log-override-1-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+tardir=parallel-tests-log-override-1-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >parallel-tests-log-override-1-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+if test -d "parallel-tests-log-override-1-1.0"; then find "parallel-tests-log-override-1-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-log-override-1-1.0" || { sleep 5 && rm -rf "parallel-tests-log-override-1-1.0"; }; else :; fi
+case 'parallel-tests-log-override-1-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc parallel-tests-log-override-1-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc parallel-tests-log-override-1-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc parallel-tests-log-override-1-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc parallel-tests-log-override-1-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c parallel-tests-log-override-1-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc parallel-tests-log-override-1-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip parallel-tests-log-override-1-1.0.zip ;;\
+esac
+chmod -R a-w parallel-tests-log-override-1-1.0
+chmod u+w parallel-tests-log-override-1-1.0
+mkdir parallel-tests-log-override-1-1.0/_build parallel-tests-log-override-1-1.0/_build/sub parallel-tests-log-override-1-1.0/_inst
+chmod a-w parallel-tests-log-override-1-1.0
+test -d parallel-tests-log-override-1-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd parallel-tests-log-override-1-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd parallel-tests-log-override-1-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf parallel-tests-log-override-1-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+============================================================================
+Testsuite summary for parallel-tests-log-override-1 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+if test -d "parallel-tests-log-override-1-1.0"; then find "parallel-tests-log-override-1-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-log-override-1-1.0" || { sleep 5 && rm -rf "parallel-tests-log-override-1-1.0"; }; else :; fi
+test -d "parallel-tests-log-override-1-1.0" || mkdir "parallel-tests-log-override-1-1.0"
+test -n "" \
+|| find "parallel-tests-log-override-1-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "parallel-tests-log-override-1-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+tardir=parallel-tests-log-override-1-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >parallel-tests-log-override-1-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+if test -d "parallel-tests-log-override-1-1.0"; then find "parallel-tests-log-override-1-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-log-override-1-1.0" || { sleep 5 && rm -rf "parallel-tests-log-override-1-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+test -z "pass.log skip.log xfail.log" || rm -f pass.log skip.log xfail.log
+test -z "pass.trs skip.trs xfail.trs" || rm -f pass.trs skip.trs xfail.trs
+test -z "zardoz.log" || rm -f zardoz.log
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir/parallel-tests-log-override-1-1.0/_build/sub'
+if test -d "parallel-tests-log-override-1-1.0"; then find "parallel-tests-log-override-1-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-log-override-1-1.0" || { sleep 5 && rm -rf "parallel-tests-log-override-1-1.0"; }; else :; fi
+===================================================================
+parallel-tests-log-override-1-1.0 archives ready for distribution: 
+parallel-tests-log-override-1-1.0.tar.gz
+===================================================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cp orig test-suite.log
++ run_make TEST_SUITE_LOG=zardoz.log clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=zardoz.log clean
++ set +x
+test -z "pass.log skip.log xfail.log" || rm -f pass.log skip.log xfail.log
+test -z "pass.trs skip.trs xfail.trs" || rm -f pass.trs skip.trs xfail.trs
+test -z "zardoz.log" || rm -f zardoz.log
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 388
+-rw-r--r-- 1 root root  30671 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     86 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29728 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5304 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root    432 Nov 27 06:44 orig
+-rw-r--r-- 1 root root  66779 Nov 27 06:44 parallel-tests-log-override-1-1.0.tar.gz
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root    432 Nov 27 06:44 test-suite.log
+-rwxr-xr-x 1 root root     46 Nov 27 06:44 xfail.test
++ test '!' -e zardoz.log
++ diff orig test-suite.log
++ chmod a-w test-suite.log
++ run_make TEST_SUITE_LOG=TheLogFile check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=TheLogFile check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+============================================================================
+Testsuite summary for parallel-tests-log-override-1 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-1.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 416
+-rw-r--r-- 1 root root  30671 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     86 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29728 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root    420 Nov 27 06:44 TheLogFile
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5304 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root    432 Nov 27 06:44 orig
+-rw-r--r-- 1 root root  66779 Nov 27 06:44 parallel-tests-log-override-1-1.0.tar.gz
+-rw-r--r-- 1 root root     32 Nov 27 06:44 pass.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 pass.trs
+-rw-r--r-- 1 root root     50 Nov 27 06:44 skip.log
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:44 skip.trs
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-r--r--r-- 1 root root    432 Nov 27 06:44 test-suite.log
+-rw-r--r-- 1 root root     55 Nov 27 06:44 xfail.log
+-rwxr-xr-x 1 root root     46 Nov 27 06:44 xfail.test
+-rw-r--r-- 1 root root     85 Nov 27 06:44 xfail.trs
++ diff orig test-suite.log
++ test_log_expected TheLogFile
++ test_log_edit orig
++ sed -e 's|^  *parallel-tests-log-override-1 1\.0:.*$|  parallel-tests-log-override-1 1.0: ???|' -e 's|^=====*|=======================|' orig
++ test_log_edit TheLogFile
++ sed -e 's|^  *parallel-tests-log-override-1 1\.0:.*$|  parallel-tests-log-override-1 1.0: ???|' -e 's|^=====*|=======================|' TheLogFile
++ diff exp got
++ rm -f exp got
++ run_make TEST_SUITE_LOG=TheLogFile clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=TheLogFile clean
++ set +x
+test -z "pass.log skip.log xfail.log" || rm -f pass.log skip.log xfail.log
+test -z "pass.trs skip.trs xfail.trs" || rm -f pass.trs skip.trs xfail.trs
+test -z "TheLogFile" || rm -f TheLogFile
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 388
+-rw-r--r-- 1 root root  30671 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     86 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29728 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5304 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root    432 Nov 27 06:44 orig
+-rw-r--r-- 1 root root  66779 Nov 27 06:44 parallel-tests-log-override-1-1.0.tar.gz
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-r--r--r-- 1 root root    432 Nov 27 06:44 test-suite.log
+-rwxr-xr-x 1 root root     46 Nov 27 06:44 xfail.test
++ test '!' -e TheLogFile
++ diff orig test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-log-override-1.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-log-override-1.dir
++ set +x
+PASS t/parallel-tests-log-override-1.sh (exit status: 0)

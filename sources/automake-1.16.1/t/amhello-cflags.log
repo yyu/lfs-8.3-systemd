@@ -1,0 +1,138 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/amhello-cflags.dir
++ cp /sources/automake-1.16.1/doc/amhello-1.0.tar.gz .
++ gzip -dc amhello-1.0.tar.gz
++ tar xf -
++ cd amhello-1.0
++ mkdir debug optim
++ cd debug
++ ../configure 'CFLAGS=-g -O0'
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ make
+make  all-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/debug'
+Making all in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/debug/src'
+cc -DHAVE_CONFIG_H -I. -I../../src -I..     -g -O0 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../src/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O0   -o hello main.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/debug/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/debug'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/debug'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/debug'
++ ls -l . src
+.:
+total 84
+-rw-r--r-- 1 root root 27163 Nov 27 06:37 Makefile
+-rw-r--r-- 1 root root   774 Nov 27 06:37 config.h
+-rw-r--r-- 1 root root  8694 Nov 27 06:37 config.log
+-rwxr-xr-x 1 root root 32737 Nov 27 06:37 config.status
+drwxr-xr-x 3 root root  4096 Nov 27 06:37 src
+-rw-r--r-- 1 root root    23 Nov 27 06:37 stamp-h1
+
+src:
+total 52
+-rw-r--r-- 1 root root 17635 Nov 27 06:37 Makefile
+-rwxr-xr-x 1 root root 22216 Nov 27 06:37 hello
+-rw-r--r-- 1 root root  4976 Nov 27 06:37 main.o
++ cd ../optim
++ ../configure 'CFLAGS=-O3 -fomit-frame-pointer'
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ make
+make  all-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/optim'
+Making all in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/optim/src'
+cc -DHAVE_CONFIG_H -I. -I../../src -I..     -O3 -fomit-frame-pointer -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../src/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -O3 -fomit-frame-pointer   -o hello main.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/optim/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/optim'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/optim'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/amhello-cflags.dir/amhello-1.0/optim'
++ ls -l . src
+.:
+total 88
+-rw-r--r-- 1 root root 27181 Nov 27 06:37 Makefile
+-rw-r--r-- 1 root root   774 Nov 27 06:37 config.h
+-rw-r--r-- 1 root root  8856 Nov 27 06:37 config.log
+-rwxr-xr-x 1 root root 32791 Nov 27 06:37 config.status
+drwxr-xr-x 3 root root  4096 Nov 27 06:37 src
+-rw-r--r-- 1 root root    23 Nov 27 06:37 stamp-h1
+
+src:
+total 44
+-rw-r--r-- 1 root root 17653 Nov 27 06:37 Makefile
+-rwxr-xr-x 1 root root 20344 Nov 27 06:37 hello
+-rw-r--r-- 1 root root  1664 Nov 27 06:37 main.o
++ cd ..
++ for exeext in '' .exe :
++ test -f optim/src/hello
++ break
++ cmp optim/src/hello debug/src/hello
+optim/src/hello debug/src/hello differ: char 25, line 1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/amhello-cflags.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/amhello-cflags.dir
++ set +x
+PASS t/amhello-cflags.sh (exit status: 0)

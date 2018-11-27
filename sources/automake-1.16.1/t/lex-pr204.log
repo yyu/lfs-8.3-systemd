@@ -1,0 +1,93 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lex-pr204.dir
++ cat
++ cat
++ cat
++ cp lexer.l lexer2.l
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... lex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make distdirtest
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-pr204.dir'
+if test -d "lex-pr204-1.0"; then find "lex-pr204-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "lex-pr204-1.0" || { sleep 5 && rm -rf "lex-pr204-1.0"; }; else :; fi
+test -d "lex-pr204-1.0" || mkdir "lex-pr204-1.0"
+test -n "" \
+|| find "lex-pr204-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/lex-pr204.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "lex-pr204-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-pr204.dir'
+test ! -f lex-pr204-1.0/lexer.c
+test ! -f lex-pr204-1.0/lexer.l
+test ! -f lex-pr204-1.0/lexer.h
+test ! -f lex-pr204-1.0/lexer2.c
+test ! -f lex-pr204-1.0/lexer2.l
+test ! -f lex-pr204-1.0/lexer2.h
++ make lexer.c lexer2.c
+\
+/bin/sh ./ylwrap `test -f 'lexer.l' || echo './'`lexer.l lex.yy.c lexer.c -- lex  
+\
+/bin/sh ./ylwrap `test -f 'lexer2.l' || echo './'`lexer2.l lex.yy.c lexer2.c -- lex  
++ test -f lexer.c
++ test -f lexer2.c
++ sleep 2
++ touch lexer.l lexer2.l
++ sleep 2
++ make lexer.c lexer2.c
+\
+/bin/sh ./ylwrap `test -f 'lexer.l' || echo './'`lexer.l lex.yy.c lexer.c -- lex  
+\
+/bin/sh ./ylwrap `test -f 'lexer2.l' || echo './'`lexer2.l lex.yy.c lexer2.c -- lex  
++ is_newest lexer.c lexer.l
++ is_newest lexer2.c lexer2.l
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/lex-pr204.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/lex-pr204.dir
++ set +x
+PASS t/lex-pr204.sh (exit status: 0)

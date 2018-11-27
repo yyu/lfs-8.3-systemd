@@ -1,0 +1,36 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dist-with-unreadable-makefile-fails.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:4: installing './install-sh'
+configure.ac:4: installing './missing'
++ chmod 000 Makefile.am
++ test '!' -r Makefile.am
++ skip_ 'cannot drop file read permissions'
++ warn_ 'dist-with-unreadable-makefile-fails: skipped test: cannot drop file read permissions'
++ echo 'dist-with-unreadable-makefile-fails: skipped test: cannot drop file read permissions'
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+SKIP t/dist-with-unreadable-makefile-fails.sh (exit status: 77)

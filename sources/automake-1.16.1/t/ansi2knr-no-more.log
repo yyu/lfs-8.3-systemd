@@ -1,0 +1,161 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ansi2knr-no-more.dir
++ warn_rx='automatic de-ANSI-fication.*removed'
++ echo AC_PROG_CC
++ aclocal-1.16 -Werror
++ mv aclocal.m4 aclocal.sav
++ cp configure.ac configure.sav
++ echo AM_C_PROTOTYPES
++ aclocal-1.16 -Werror -Wnone
++ cat stderr
+configure.ac:5: error: automatic de-ANSI-fication support has been removed
+/sources/automake-1.16.1/m4/obsolete.m4:26: AM_C_PROTOTYPES is expanded from...
+configure.ac:5: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ grep '^configure\.ac:5:.*automatic de-ANSI-fication.*removed' stderr
+configure.ac:5: error: automatic de-ANSI-fication support has been removed
++ cat aclocal.sav /sources/automake-1.16.1/m4/obsolete.m4
++ autoconf -Wnone
++ cat stderr
+configure.ac:5: error: automatic de-ANSI-fication support has been removed
+aclocal.m4:1161: AM_C_PROTOTYPES is expanded from...
+configure.ac:5: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
++ grep '^configure\.ac:5:.*automatic de-ANSI-fication.*removed' stderr
+configure.ac:5: error: automatic de-ANSI-fication support has been removed
++ for opt in ansi2knr lib/ansi2knr
++ cp configure.sav configure.ac
++ echo 'AUTOMAKE_OPTIONS = ansi2knr'
++ rm -rf autom4te.cache
++ AUTOMAKE_fails -Wnone
++ AUTOMAKE_run -e 1 -Wnone
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone
++ am__got_rc=1
++ cat stderr
+Makefile.am:1: error: automatic de-ANSI-fication support has been removed
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*automatic de-ANSI-fication.*removed' stderr
+Makefile.am:1: error: automatic de-ANSI-fication support has been removed
++ :
++ sed 's|^\(AM_INIT_AUTOMAKE\).*|\1([ansi2knr])|' configure.sav
++ cat configure.ac
+AC_INIT([ansi2knr-no-more], [1.0])
+AM_INIT_AUTOMAKE([ansi2knr])
+AC_CONFIG_FILES([Makefile])
+AC_PROG_CC
++ rm -rf autom4te.cache
++ AUTOMAKE_fails -Wnone
++ AUTOMAKE_run -e 1 -Wnone
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: automatic de-ANSI-fication support has been removed
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:2:.*automatic de-ANSI-fication.*removed' stderr
+configure.ac:2: error: automatic de-ANSI-fication support has been removed
++ for opt in ansi2knr lib/ansi2knr
++ cp configure.sav configure.ac
++ echo 'AUTOMAKE_OPTIONS = lib/ansi2knr'
++ rm -rf autom4te.cache
++ AUTOMAKE_fails -Wnone
++ AUTOMAKE_run -e 1 -Wnone
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone
++ am__got_rc=1
++ cat stderr
+Makefile.am:1: error: automatic de-ANSI-fication support has been removed
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*automatic de-ANSI-fication.*removed' stderr
+Makefile.am:1: error: automatic de-ANSI-fication support has been removed
++ :
++ sed 's|^\(AM_INIT_AUTOMAKE\).*|\1([lib/ansi2knr])|' configure.sav
++ cat configure.ac
+AC_INIT([ansi2knr-no-more], [1.0])
+AM_INIT_AUTOMAKE([lib/ansi2knr])
+AC_CONFIG_FILES([Makefile])
+AC_PROG_CC
++ rm -rf autom4te.cache
++ AUTOMAKE_fails -Wnone
++ AUTOMAKE_run -e 1 -Wnone
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: automatic de-ANSI-fication support has been removed
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:2:.*automatic de-ANSI-fication.*removed' stderr
+configure.ac:2: error: automatic de-ANSI-fication support has been removed
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ansi2knr-no-more.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ansi2knr-no-more.dir
++ set +x
+PASS t/ansi2knr-no-more.sh (exit status: 0)

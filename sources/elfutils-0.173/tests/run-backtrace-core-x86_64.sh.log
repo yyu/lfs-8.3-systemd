@@ -1,0 +1,19 @@
+./backtrace ./backtrace.x86_64.exec ./backtrace.x86_64.core
+0x400000	0x6e0000	/home/jkratoch/redhat/elfutils/tests/backtrace.x86_64.exec
+0x7fff1bdcc000	0x7fff1bdce000	linux-vdso.so.1
+TID 23097:
+# 0 0x40a62b    	raise
+# 1 0x401e3d - 1	sigusr2
+# 2 0x401f88 - 1	stdarg
+# 3 0x401fa6 - 1	backtracegen
+# 4 0x401fbd - 1	start
+# 5 0x403773 - 1	start_thread
+# 6 0x444239 - 1	__clone
+TID 23096:
+# 0 0x404880    	pthread_join
+# 1 0x4021f9 - 1	main
+# 2 0x40ba94 - 1	__libc_start_main
+# 3 0x401d0d - 1	_start
+# 1 0x4021f9 - 1	main
+# 3 0x401fa6 - 1	backtracegen
+PASS run-backtrace-core-x86_64.sh (exit status: 0)

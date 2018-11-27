@@ -1,0 +1,99 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-all-1.dir
++ mkfile=Makefile
++ magic1=::MagicStringOne::
++ magic2=__MagicStringTwo__
++ magic3=%%MagicStringThree%%
++ cat
++ mkdir sub
++ echo SUBDIRS = sub
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -E '^all-am:.* Makefile( |$)' Makefile.in sub/Makefile.in
+Makefile.in:all-am: Makefile
+sub/Makefile.in:all-am: Makefile
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ /bin/grep -F ::MagicStringOne:: mkfile.in
+/bin/grep: mkfile.in: No such file or directory
++ sleep 2
++ echo 'AC_SUBST([FOO])'
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-all-1.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-all-1.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-all-1.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-all-1.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-all-1.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-all-1.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-all-1.dir'
++ /bin/grep -F FOO Makefile
+FOO = ::MagicStringOne::
++ /bin/grep -F ::MagicStringOne:: Makefile
+FOO = ::MagicStringOne::
++ sleep 2
++ echo '# __MagicStringTwo__'
++ echo '# %%MagicStringThree%%'
++ make
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-all-1.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-all-1.dir/sub'
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-all-1.dir/missing automake-1.16 --foreign sub/Makefile
+ cd .. && /bin/sh ./config.status sub/Makefile 
+config.status: creating sub/Makefile
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-all-1.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-all-1.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-all-1.dir'
++ /bin/grep -F __MagicStringTwo__ Makefile
+# __MagicStringTwo__
++ /bin/grep -F %%MagicStringThree%% sub/Makefile
+# %%MagicStringThree%%
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-all-1.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-all-1.dir
++ set +x
+PASS t/remake-all-1.sh (exit status: 0)

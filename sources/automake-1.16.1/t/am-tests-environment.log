@@ -1,0 +1,410 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/am-tests-environment.dir
++ cat
++ cat
++ cat
++ chmod a+x foo.test
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ TESTS_ENVIRONMENT=BAR=1
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+PASS: foo.test
+PASS: bar.sh
+============================================================================
+Testsuite summary for am-tests-environment 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
++ minicheck
++ debug_info
++ cat test-suite.log
+================================================
+   am-tests-environment 1.0: ./test-suite.log
+================================================
+
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ cat foo.log
+total 312
+-rw-r--r-- 1 root root  31065 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    260 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  30320 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rw-r--r-- 1 root root     59 Nov 27 06:44 bar.sh
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5124 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25555 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104245 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    110 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root      0 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root     37 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 quux.dir
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+PASS foo.test (exit status: 0)
++ cat bar.log
+FOO='1'
+BAR='1'
+PASS bar.sh (exit status: 0)
++ test -d quux.dir
++ miniclean
++ rmdir quux.dir
++ rm -f foo.log bar.log test-suite.log
++ TESTS_ENVIRONMENT=BAR=2
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+PASS: foo.test
+FAIL: bar.sh
+============================================================================
+Testsuite summary for am-tests-environment 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:486: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make[1]: *** [Makefile:594: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make: *** [Makefile:793: check-am] Error 2
++ minicheck
++ debug_info
++ cat test-suite.log
+================================================
+   am-tests-environment 1.0: ./test-suite.log
+================================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: bar
+=========
+
+FOO='1'
+BAR='2'
+FAIL bar.sh (exit status: 1)
+
++ cat foo.log
+total 312
+-rw-r--r-- 1 root root  31065 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    260 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  30320 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rw-r--r-- 1 root root     59 Nov 27 06:44 bar.sh
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5124 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25555 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104245 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    110 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root      0 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root     37 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 quux.dir
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+PASS foo.test (exit status: 0)
++ cat bar.log
+FOO='1'
+BAR='2'
+FAIL bar.sh (exit status: 1)
++ test -d quux.dir
++ miniclean
++ rmdir quux.dir
++ rm -f foo.log bar.log test-suite.log
++ echo 'BAR=1 && export BAR'
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+PASS: foo.test
+PASS: bar.sh
+============================================================================
+Testsuite summary for am-tests-environment 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
++ minicheck
++ debug_info
++ cat test-suite.log
+================================================
+   am-tests-environment 1.0: ./test-suite.log
+================================================
+
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ cat foo.log
+total 316
+-rw-r--r-- 1 root root  31065 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    260 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  30320 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rw-r--r-- 1 root root     59 Nov 27 06:44 bar.sh
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5124 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25555 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104245 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    110 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root      0 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root     37 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 quux.dir
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root     20 Nov 27 06:44 test-env.sh
+PASS foo.test (exit status: 0)
++ cat bar.log
+FOO='1'
+BAR='1'
+PASS bar.sh (exit status: 0)
++ test -d quux.dir
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+if test -d "am-tests-environment-1.0"; then find "am-tests-environment-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-tests-environment-1.0" || { sleep 5 && rm -rf "am-tests-environment-1.0"; }; else :; fi
+test -d "am-tests-environment-1.0" || mkdir "am-tests-environment-1.0"
+test -n "" \
+|| find "am-tests-environment-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/am-tests-environment.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "am-tests-environment-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+tardir=am-tests-environment-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >am-tests-environment-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir'
+if test -d "am-tests-environment-1.0"; then find "am-tests-environment-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-tests-environment-1.0" || { sleep 5 && rm -rf "am-tests-environment-1.0"; }; else :; fi
+case 'am-tests-environment-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc am-tests-environment-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc am-tests-environment-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc am-tests-environment-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc am-tests-environment-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c am-tests-environment-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc am-tests-environment-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip am-tests-environment-1.0.zip ;;\
+esac
+chmod -R a-w am-tests-environment-1.0
+chmod u+w am-tests-environment-1.0
+mkdir am-tests-environment-1.0/_build am-tests-environment-1.0/_build/sub am-tests-environment-1.0/_inst
+chmod a-w am-tests-environment-1.0
+test -d am-tests-environment-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd am-tests-environment-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd am-tests-environment-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf am-tests-environment-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+PASS: foo.test
+PASS: bar.sh
+============================================================================
+Testsuite summary for am-tests-environment 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+if test -d "am-tests-environment-1.0"; then find "am-tests-environment-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-tests-environment-1.0" || { sleep 5 && rm -rf "am-tests-environment-1.0"; }; else :; fi
+test -d "am-tests-environment-1.0" || mkdir "am-tests-environment-1.0"
+test -n "" \
+|| find "am-tests-environment-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "am-tests-environment-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+tardir=am-tests-environment-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >am-tests-environment-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+if test -d "am-tests-environment-1.0"; then find "am-tests-environment-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-tests-environment-1.0" || { sleep 5 && rm -rf "am-tests-environment-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+test -z "foo.log bar.log" || rm -f foo.log bar.log
+test -z "foo.trs bar.trs" || rm -f foo.trs bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-tests-environment.dir/am-tests-environment-1.0/_build/sub'
+if test -d "am-tests-environment-1.0"; then find "am-tests-environment-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-tests-environment-1.0" || { sleep 5 && rm -rf "am-tests-environment-1.0"; }; else :; fi
+==========================================================
+am-tests-environment-1.0 archives ready for distribution: 
+am-tests-environment-1.0.tar.gz
+==========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/am-tests-environment.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/am-tests-environment.dir
++ set +x
+PASS t/am-tests-environment.sh (exit status: 0)

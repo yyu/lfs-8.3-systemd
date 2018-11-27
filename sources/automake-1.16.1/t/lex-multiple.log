@@ -1,0 +1,374 @@
+lex-multiple: running flex --version
+flex 2.6.4
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lex-multiple.dir
++ cat
++ cat
++ cat
++ cat
++ sed s/VANILLA/FOO/ 0.l
++ sed s/VANILLA/BAR/ 0.l
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:6: installing './ar-lib'
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+main.c: In function 'main':
+main.c:10:13: warning: implicit declaration of function 'yylex' [-Wimplicit-function-declaration]
+     return (yylex () != 121);
+             ^~~~~
+main.c:12:13: warning: implicit declaration of function 'foolex'; did you mean 'fdopen'? [-Wimplicit-function-declaration]
+     return (foolex () != 121);
+             ^~~~~~
+             fdopen
+main.c:14:13: warning: implicit declaration of function 'bar_lex' [-Wimplicit-function-declaration]
+     return (bar_lex () != 121);
+             ^~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+/bin/sh ./ylwrap 0.l lex.yy.c 0.c -- flex  
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT 0.o -MD -MP -MF .deps/0.Tpo -c -o 0.o 0.c
+0.c: In function 'yy_init_buffer':
+0.c:1322:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/0.Tpo .deps/0.Po
+rm -f liblex.a
+ar cru liblex.a 0.o 
+ranlib liblex.a
+\
+ \
+/bin/sh ./ylwrap `test -f 'a.l' || echo './'`a.l lex.yy.c liblex_foo_a-a.c -- flex -Pfoo -olex.yy.c 
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT liblex_foo_a-a.o -MD -MP -MF .deps/liblex_foo_a-a.Tpo -c -o liblex_foo_a-a.o liblex_foo_a-a.c
+liblex_foo_a-a.c: In function 'foo_init_buffer':
+liblex_foo_a-a.c:1579:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/liblex_foo_a-a.Tpo .deps/liblex_foo_a-a.Po
+rm -f liblex-foo.a
+ar cru liblex-foo.a liblex_foo_a-a.o 
+ranlib liblex-foo.a
+\
+ \
+/bin/sh ./ylwrap `test -f 'b.l' || echo './'`b.l lex.yy.c liblex_bar_a-b.c -- flex -Pbar_ -olex.yy.c 
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT liblex_bar_a-b.o -MD -MP -MF .deps/liblex_bar_a-b.Tpo -c -o liblex_bar_a-b.o liblex_bar_a-b.c
+liblex_bar_a-b.c: In function 'bar__init_buffer':
+liblex_bar_a-b.c:1579:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/liblex_bar_a-b.Tpo .deps/liblex_bar_a-b.Po
+rm -f liblex-bar.a
+ar cru liblex-bar.a liblex_bar_a-b.o 
+ranlib liblex-bar.a
+cc  -g -O2   -o zardoz main.o liblex.a liblex-foo.a liblex-bar.a 
++ cross_compiling
++ test x '!=' x
++ echo VANILLA
++ ./zardoz --vanilla
+:VANILLA:
++ echo FOO
++ ./zardoz --foo
+:FOO:
++ echo BAR
++ ./zardoz --bar
+:BAR:
++ ./zardoz --vanilla
++ echo BAR
++ ./zardoz --foo
+:B:
++ : For shells with busted 'set -e.'
++ yl_distcheck
++ useless_vpath_rebuild
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ am__useless_vpath_rebuild=no
++ return 1
++ run_make distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir'
+if test -d "lex-multiple-1.0"; then find "lex-multiple-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "lex-multiple-1.0" || { sleep 5 && rm -rf "lex-multiple-1.0"; }; else :; fi
+test -d "lex-multiple-1.0" || mkdir "lex-multiple-1.0"
+test -n "" \
+|| find "lex-multiple-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/lex-multiple.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "lex-multiple-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir'
+tardir=lex-multiple-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >lex-multiple-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir'
+if test -d "lex-multiple-1.0"; then find "lex-multiple-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "lex-multiple-1.0" || { sleep 5 && rm -rf "lex-multiple-1.0"; }; else :; fi
+case 'lex-multiple-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc lex-multiple-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc lex-multiple-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc lex-multiple-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc lex-multiple-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c lex-multiple-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc lex-multiple-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip lex-multiple-1.0.zip ;;\
+esac
+chmod -R a-w lex-multiple-1.0
+chmod u+w lex-multiple-1.0
+mkdir lex-multiple-1.0/_build lex-multiple-1.0/_build/sub lex-multiple-1.0/_inst
+chmod a-w lex-multiple-1.0
+test -d lex-multiple-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd lex-multiple-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd lex-multiple-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf lex-multiple-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I../..     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../main.c
+../../main.c: In function 'main':
+../../main.c:10:13: warning: implicit declaration of function 'yylex' [-Wimplicit-function-declaration]
+     return (yylex () != 121);
+             ^~~~~
+../../main.c:12:13: warning: implicit declaration of function 'foolex'; did you mean 'fdopen'? [-Wimplicit-function-declaration]
+     return (foolex () != 121);
+             ^~~~~~
+             fdopen
+../../main.c:14:13: warning: implicit declaration of function 'bar_lex' [-Wimplicit-function-declaration]
+     return (bar_lex () != 121);
+             ^~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I../..     -g -O2 -MT 0.o -MD -MP -MF .deps/0.Tpo -c -o 0.o ../../0.c
+0.c: In function 'yy_init_buffer':
+0.c:1322:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+mv -f .deps/0.Tpo .deps/0.Po
+rm -f liblex.a
+ar cru liblex.a 0.o 
+ranlib liblex.a
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I../..     -g -O2 -MT liblex_foo_a-a.o -MD -MP -MF .deps/liblex_foo_a-a.Tpo -c -o liblex_foo_a-a.o ../../liblex_foo_a-a.c
+liblex_foo_a-a.c: In function 'foo_init_buffer':
+liblex_foo_a-a.c:1579:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+mv -f .deps/liblex_foo_a-a.Tpo .deps/liblex_foo_a-a.Po
+rm -f liblex-foo.a
+ar cru liblex-foo.a liblex_foo_a-a.o 
+ranlib liblex-foo.a
+cc -DPACKAGE_NAME=\"lex-multiple\" -DPACKAGE_TARNAME=\"lex-multiple\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-multiple\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-multiple\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I../..     -g -O2 -MT liblex_bar_a-b.o -MD -MP -MF .deps/liblex_bar_a-b.Tpo -c -o liblex_bar_a-b.o ../../liblex_bar_a-b.c
+liblex_bar_a-b.c: In function 'bar__init_buffer':
+liblex_bar_a-b.c:1579:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+mv -f .deps/liblex_bar_a-b.Tpo .deps/liblex_bar_a-b.Po
+rm -f liblex-bar.a
+ar cru liblex-bar.a liblex_bar_a-b.o 
+ranlib liblex-bar.a
+cc  -g -O2   -o zardoz main.o liblex.a liblex-foo.a liblex-bar.a 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_inst/bin' && rm -f zardoz )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-4297//sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_inst/bin'
+  /usr/bin/install -c zardoz '/tmp/am-dc-4297//sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+ ( cd '/tmp/am-dc-4297//sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_inst/bin' && rm -f zardoz )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+if test -d "lex-multiple-1.0"; then find "lex-multiple-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "lex-multiple-1.0" || { sleep 5 && rm -rf "lex-multiple-1.0"; }; else :; fi
+test -d "lex-multiple-1.0" || mkdir "lex-multiple-1.0"
+test -n "" \
+|| find "lex-multiple-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "lex-multiple-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+tardir=lex-multiple-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >lex-multiple-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+if test -d "lex-multiple-1.0"; then find "lex-multiple-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "lex-multiple-1.0" || { sleep 5 && rm -rf "lex-multiple-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+test -z "zardoz" || rm -f zardoz
+test -z "liblex.a liblex-foo.a liblex-bar.a" || rm -f liblex.a liblex-foo.a liblex-bar.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/0.Po
+rm -f ./.deps/liblex_bar_a-b.Po
+rm -f ./.deps/liblex_foo_a-a.Po
+rm -f ./.deps/main.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-multiple.dir/lex-multiple-1.0/_build/sub'
+if test -d "lex-multiple-1.0"; then find "lex-multiple-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "lex-multiple-1.0" || { sleep 5 && rm -rf "lex-multiple-1.0"; }; else :; fi
+==================================================
+lex-multiple-1.0 archives ready for distribution: 
+lex-multiple-1.0.tar.gz
+==================================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/lex-multiple.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/lex-multiple.dir
++ set +x
+PASS t/lex-multiple.sh (exit status: 0)

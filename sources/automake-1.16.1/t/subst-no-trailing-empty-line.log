@@ -1,0 +1,133 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subst-no-trailing-empty-line.dir
++ v1=ABCDEFGHIJKLMNOPQRSTUVWX
++ v2=ABCDEFGHIJKLMNOPQRSTUVWXY
++ v3=ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ bs='\\'
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -E -n 'ABCD|am__empty' Makefile.in
+89:noinst_PROGRAMS = x$(EXEEXT) @ABCDEFGHIJKLMNOPQRSTUVWX@ \
+90:	@ABCDEFGHIJKLMNOPQRSTUVWXY@ @ABCDEFGHIJKLMNOPQRSTUVWXYZ@ \
+91:	$(am__empty)
+107:am__EXEEXT_1 = x$(EXEEXT) @ABCDEFGHIJKLMNOPQRSTUVWX@ \
+108:	@ABCDEFGHIJKLMNOPQRSTUVWXY@ @ABCDEFGHIJKLMNOPQRSTUVWXYZ@ \
+109:	$(am__empty)
+192:ABCDEFGHIJKLMNOPQRSTUVWX = @ABCDEFGHIJKLMNOPQRSTUVWX@
+193:ABCDEFGHIJKLMNOPQRSTUVWXY = @ABCDEFGHIJKLMNOPQRSTUVWXY@
+194:ABCDEFGHIJKLMNOPQRSTUVWXYZ = @ABCDEFGHIJKLMNOPQRSTUVWXYZ@
+271:bin_PROGRAMS = @A@ @ABCDEFGHIJKLMNOPQRSTUVWX@ \
+272:	@ABCDEFGHIJKLMNOPQRSTUVWXY@ @ABCDEFGHIJKLMNOPQRSTUVWXYZ@ \
+273:	$(am__empty)
+++ /bin/grep -E -c '^[ 	]*@ABCDEFGHIJKLMNOPQRSTUVWXY@ @ABCDEFGHIJKLMNOPQRSTUVWXYZ@[ 	]*\\?$' Makefile.in
++ test 3 -eq 3
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ sed -n '/^noinst_PROGRAMS *=/,/[^\\]$/p' Makefile
++ sed -n '/^bin_PROGRAMS *=/,/[^\\]$/p' Makefile
++ sed -n '/^check_PROGRAMS *=/,/[^\\]$/p' Makefile
++ sed -n '/^am__EXEEXT.*=/,/[^\\]$/p' Makefile
++ cat t-programs
+noinst_PROGRAMS = x$(EXEEXT)  \
+	  \
+	$(am__empty)
+bin_PROGRAMS =   \
+	  \
+	$(am__empty)
+check_PROGRAMS = zardoz$(EXEEXT) $(am__EXEEXT_1)
+EXTRA_PROGRAMS =
+am__EXEEXT_1 = x$(EXEEXT)  \
+	  \
+	$(am__empty)
++ grep '^ *$' t-programs
++ run_make test-real-empty
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make test-real-empty
++ set +x
+is x  == x
+is     ==
+is zardoz x   == zardoz x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ run_make test-fake-empty am__empty=X
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make test-fake-empty am__empty=X
++ set +x
+is x X == x X
+is X    == X
+is zardoz x X  == zardoz x X
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subst-no-trailing-empty-line.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subst-no-trailing-empty-line.dir
++ set +x
+PASS t/subst-no-trailing-empty-line.sh (exit status: 0)

@@ -1,0 +1,82 @@
+ltinstloc: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ltinstloc.dir
++ cat
++ cat
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ aclocal-1.16 -Werror
++ autoconf
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:5: installing './ar-lib'
+configure.ac:6: installing './config.guess'
+configure.ac:6: installing './config.sub'
+Makefile.am:5: error: sub/liba2.la multiply defined in condition COND
+Makefile.am:5: 'sub/liba2.la' should be installed below 'lib' in condition COND ...
+Makefile.am:2: ... and should also be installed in 'lib' in condition COND.
+Makefile.am:4: error: liba1.la multiply defined in condition COND
+Makefile.am:4: 'liba1.la' should be installed in 'pkglib' in condition COND ...
+Makefile.am:2: ... and should also be installed in 'lib' in condition COND.
+Makefile.am:2: Libtool libraries can be built for only one destination
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ cat
++ grep '^Makefile.am' stderr
++ diff - expected
++ sed s/#//
++ mv -f t Makefile.am
++ automake-1.16 --foreign -Werror -Wall
++ grep ' -rpath \$(libdir)/sub' Makefile.in
+@COND_FALSE@am_sub_liba2_la_rpath = -rpath $(libdir)/sub
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ltinstloc.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ltinstloc.dir
++ set +x
+PASS t/ltinstloc.sh (exit status: 0)

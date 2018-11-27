@@ -1,0 +1,193 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/spy-rm.dir
++ plan_ 10
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x10 = xunknown
++ test x10 = xlater
++ test x10 = xlazy
++ test x10 = xnow
++ test 10 -ge 0
++ planned_=10
++ echo 1..10
+1..10
++ chk -f
++ test -f /bin/rm
++ command_ok_ '/bin/rm -f' /bin/rm -f
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='/bin/rm -f'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/rm -f
++ result_ ok -D '' -r '' -- '/bin/rm -f'
++ set +x
+ok 1 - /bin/rm -f
+PASS: t/spy-rm.tap 1 - /bin/rm -f
++ command_ok_ 'rm -f' rm -f
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='rm -f'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ rm -f
++ result_ ok -D '' -r '' -- 'rm -f'
++ set +x
+ok 2 - rm -f
+PASS: t/spy-rm.tap 2 - rm -f
++ chk -rf
++ test -f /bin/rm
++ command_ok_ '/bin/rm -rf' /bin/rm -rf
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='/bin/rm -rf'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/rm -rf
++ result_ ok -D '' -r '' -- '/bin/rm -rf'
++ set +x
+ok 3 - /bin/rm -rf
+PASS: t/spy-rm.tap 3 - /bin/rm -rf
++ command_ok_ 'rm -rf' rm -rf
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='rm -rf'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ rm -rf
++ result_ ok -D '' -r '' -- 'rm -rf'
++ set +x
+ok 4 - rm -rf
+PASS: t/spy-rm.tap 4 - rm -rf
++ chk -fr
++ test -f /bin/rm
++ command_ok_ '/bin/rm -fr' /bin/rm -fr
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='/bin/rm -fr'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/rm -fr
++ result_ ok -D '' -r '' -- '/bin/rm -fr'
++ set +x
+ok 5 - /bin/rm -fr
+PASS: t/spy-rm.tap 5 - /bin/rm -fr
++ command_ok_ 'rm -fr' rm -fr
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='rm -fr'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ rm -fr
++ result_ ok -D '' -r '' -- 'rm -fr'
++ set +x
+ok 6 - rm -fr
+PASS: t/spy-rm.tap 6 - rm -fr
++ chk -f -r
++ test -f /bin/rm
++ command_ok_ '/bin/rm -f -r' /bin/rm -f -r
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='/bin/rm -f -r'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/rm -f -r
++ result_ ok -D '' -r '' -- '/bin/rm -f -r'
++ set +x
+ok 7 - /bin/rm -f -r
+PASS: t/spy-rm.tap 7 - /bin/rm -f -r
++ command_ok_ 'rm -f -r' rm -f -r
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='rm -f -r'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ rm -f -r
++ result_ ok -D '' -r '' -- 'rm -f -r'
++ set +x
+ok 8 - rm -f -r
+PASS: t/spy-rm.tap 8 - rm -f -r
++ chk -r -f
++ test -f /bin/rm
++ command_ok_ '/bin/rm -r -f' /bin/rm -r -f
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='/bin/rm -r -f'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/rm -r -f
++ result_ ok -D '' -r '' -- '/bin/rm -r -f'
++ set +x
+ok 9 - /bin/rm -r -f
+PASS: t/spy-rm.tap 9 - /bin/rm -r -f
++ command_ok_ 'rm -r -f' rm -r -f
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='rm -r -f'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ rm -r -f
++ result_ ok -D '' -r '' -- 'rm -r -f'
++ set +x
+ok 10 - rm -r -f
+PASS: t/spy-rm.tap 10 - rm -r -f
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 10 = later
++ test 0 -eq 0
++ test 10 -eq 10
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/spy-rm.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/spy-rm.dir
++ set +x

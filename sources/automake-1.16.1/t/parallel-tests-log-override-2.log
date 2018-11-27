@@ -1,0 +1,391 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir
++ cat
++ cat
++ cat
++ cp pass.test pass2.test
++ cat
++ cp skip.test skip2.test
++ cat
++ chmod a+x fail.test pass.test pass2.test skip.test skip2.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ for test_list_override in 'TESTS=pass.test skip.test' 'TEST_LOGS=pass.log skip.log'
++ run_make -O TEST_SUITE_LOG=partial.log 'TESTS=pass.test skip.test' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=partial.log 'TESTS=pass.test skip.test' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
+PASS: pass.test
+SKIP: skip.test
+============================================================================
+Testsuite summary for parallel-tests-log-override-2 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 344
+-rw-r--r-- 1 root root  30645 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     60 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29702 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5304 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 fail.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root    340 Nov 27 06:44 partial.log
+-rw-r--r-- 1 root root     32 Nov 27 06:44 pass.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 pass.trs
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass2.test
+-rw-r--r-- 1 root root     50 Nov 27 06:44 skip.log
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:44 skip.trs
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip2.test
+-rw-r--r-- 1 root root    776 Nov 27 06:44 stdout
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
++ count_test_results total=2 pass=1 fail=0 skip=1 xfail=0 xpass=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=1 fail=0 skip=1 xfail=0 xpass=0 error=0
+++ total=2
+++ pass=1
+++ fail=0
+++ skip=1
+++ xfail=0
+++ xpass=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: pass.test
+SKIP: skip.test
+# TOTAL: 2
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ cat pass.log
+PASS pass.test (exit status: 0)
++ cat skip.log
+% skipped test %
+SKIP skip.test (exit status: 77)
++ cat partial.log
+======================================================
+   parallel-tests-log-override-2 1.0: ./partial.log
+======================================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+% skipped test %
+SKIP skip.test (exit status: 77)
+
++ test '!' -e test-suite.log
++ test '!' -e pass2.log
++ test '!' -e skip2.log
++ test '!' -e fail.log
++ grep '^PASS: pass\.test$' stdout
+PASS: pass.test
++ grep '^SKIP: skip\.test$' stdout
+SKIP: skip.test
++ /bin/grep -F 'SKIP: skip' partial.log
+SKIP: skip
++ /bin/grep -F '% skipped test %' partial.log
+% skipped test %
++ /bin/grep -E '(pass2|skip2|fail)\.test' stdout
++ /bin/grep -E '(pass2|skip2|fail)' partial.log
++ rm -f config.log partial.log pass.log skip.log
++ for test_list_override in 'TESTS=pass.test skip.test' 'TEST_LOGS=pass.log skip.log'
++ run_make -O TEST_SUITE_LOG=partial.log 'TEST_LOGS=pass.log skip.log' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=partial.log 'TEST_LOGS=pass.log skip.log' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
+PASS: pass.test
+SKIP: skip.test
+============================================================================
+Testsuite summary for parallel-tests-log-override-2 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-override-2.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 336
+-rw-r--r-- 1 root root  30645 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root     60 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29702 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25708 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104352 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 fail.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root    340 Nov 27 06:44 partial.log
+-rw-r--r-- 1 root root     32 Nov 27 06:44 pass.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 pass.trs
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 pass2.test
+-rw-r--r-- 1 root root     50 Nov 27 06:44 skip.log
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:44 skip.trs
+-rwxr-xr-x 1 root root     43 Nov 27 06:44 skip2.test
+-rw-r--r-- 1 root root    776 Nov 27 06:44 stdout
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
++ count_test_results total=2 pass=1 fail=0 skip=1 xfail=0 xpass=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=1 fail=0 skip=1 xfail=0 xpass=0 error=0
+++ total=2
+++ pass=1
+++ fail=0
+++ skip=1
+++ xfail=0
+++ xpass=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: pass.test
+SKIP: skip.test
+# TOTAL: 2
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ cat pass.log
+PASS pass.test (exit status: 0)
++ cat skip.log
+% skipped test %
+SKIP skip.test (exit status: 77)
++ cat partial.log
+======================================================
+   parallel-tests-log-override-2 1.0: ./partial.log
+======================================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+% skipped test %
+SKIP skip.test (exit status: 77)
+
++ test '!' -e test-suite.log
++ test '!' -e pass2.log
++ test '!' -e skip2.log
++ test '!' -e fail.log
++ grep '^PASS: pass\.test$' stdout
+PASS: pass.test
++ grep '^SKIP: skip\.test$' stdout
+SKIP: skip.test
++ /bin/grep -F 'SKIP: skip' partial.log
+SKIP: skip
++ /bin/grep -F '% skipped test %' partial.log
+% skipped test %
++ /bin/grep -E '(pass2|skip2|fail)\.test' stdout
++ /bin/grep -E '(pass2|skip2|fail)' partial.log
++ rm -f partial.log pass.log skip.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-log-override-2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-log-override-2.dir
++ set +x
+PASS t/parallel-tests-log-override-2.sh (exit status: 0)

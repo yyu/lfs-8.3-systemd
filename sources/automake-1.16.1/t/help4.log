@@ -1,0 +1,155 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/help4.dir
++ mkdir emptydir
++ cd emptydir
++ ACLOCAL=aclocal-1.16
++ AUTOMAKE=automake-1.16
+++ echo 1.16
+++ escape_dots
+++ sed 's/\./\\./g'
++ apiversion_rx='1\.16'
++ aclocal-1.16 --version --help
++ cat stdout
+aclocal (GNU automake) 1.16.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv2+: GNU GPL version 2 or later <https://gnu.org/licenses/gpl-2.0.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Tom Tromey <tromey@redhat.com>
+       and Alexandre Duret-Lutz <adl@gnu.org>.
++ grep '^aclocal.*1\.16' stdout
+aclocal (GNU automake) 1.16.1
++ grep '^Usage' stdout
++ aclocal-1.16 --help --version
++ cat stdout
+Usage: aclocal [OPTION]...
+
+Generate 'aclocal.m4' by scanning 'configure.ac' or 'configure.in'
+
+Options:
+      --automake-acdir=DIR  directory holding automake-provided m4 files
+      --system-acdir=DIR    directory holding third-party system-wide files
+      --diff[=COMMAND]      run COMMAND [diff -u] on M4 files that would be
+                            changed (implies --install and --dry-run)
+      --dry-run             pretend to, but do not actually update any file
+      --force               always update output file
+      --help                print this help, then exit
+  -I DIR                    add directory to search list for .m4 files
+      --install             copy third-party files to the first -I directory
+      --output=FILE         put output in FILE (default aclocal.m4)
+      --print-ac-dir        print name of directory holding system-wide
+                              third-party m4 files, then exit
+      --verbose             don't be silent
+      --version             print version number, then exit
+  -W, --warnings=CATEGORY   report the warnings falling in CATEGORY
+
+Warning categories include:
+  syntax        dubious syntactic constructs (default)
+  unsupported   unknown macros (default)
+  all           all the warnings (default)
+  no-CATEGORY   turn off warnings in CATEGORY
+  none          turn off all the warnings
+  error         treat warnings as errors
+
+Report bugs to <bug-automake@gnu.org>.
+GNU Automake home page: <http://www.gnu.org/software/automake/>.
+General help using GNU software: <https://www.gnu.org/gethelp/>.
++ grep '^Usage' stdout
+Usage: aclocal [OPTION]...
++ grep '^aclocal.*1\.16' stdout
++ automake-1.16 --version --help
++ cat stdout
+automake (GNU automake) 1.16.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv2+: GNU GPL version 2 or later <https://gnu.org/licenses/gpl-2.0.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Tom Tromey <tromey@redhat.com>
+       and Alexandre Duret-Lutz <adl@gnu.org>.
++ grep '^automake.*1\.16' stdout
+automake (GNU automake) 1.16.1
++ grep '^Usage' stdout
++ automake-1.16 --help --version
++ cat stdout
+Usage: /sources/automake-1.16.1/bin/automake-1.16 [OPTION]... [Makefile]...
+
+Generate Makefile.in for configure from Makefile.am.
+
+Operation modes:
+      --help               print this help, then exit
+      --version            print version number, then exit
+  -v, --verbose            verbosely list files processed
+      --no-force           only update Makefile.in's that are out of date
+  -W, --warnings=CATEGORY  report the warnings falling in CATEGORY
+
+Dependency tracking:
+  -i, --ignore-deps      disable dependency tracking code
+      --include-deps     enable dependency tracking code
+
+Flavors:
+      --foreign          set strictness to foreign
+      --gnits            set strictness to gnits
+      --gnu              set strictness to gnu
+
+Library files:
+  -a, --add-missing      add missing standard files to package
+      --libdir=DIR       set directory storing library files
+      --print-libdir     print directory storing library files
+  -c, --copy             with -a, copy missing files (default is symlink)
+  -f, --force-missing    force update of standard files
+
+Warning categories include:
+  gnu                GNU coding standards (default in gnu and gnits modes)
+  obsolete           obsolete features or constructions
+  override           user redefinitions of Automake rules or variables
+  portability        portability issues (default in gnu and gnits modes)
+  extra-portability  extra portability issues related to obscure tools
+  syntax             dubious syntactic constructs (default)
+  unsupported        unsupported or incomplete features (default)
+  all                all the warnings
+  no-CATEGORY        turn off warnings in CATEGORY
+  none               turn off all the warnings
+  error              treat warnings as errors
+
+Files automatically distributed if found (always):
+  ABOUT-GNU           INSTALL             config.rpath        ltconfig
+  ABOUT-NLS           NEWS                config.sub          ltmain.sh
+  AUTHORS             README              depcomp             mdate-sh
+  BACKLOG             THANKS              install-sh          missing
+  COPYING             TODO                libversion.in       mkinstalldirs
+  COPYING.DOC         ar-lib              ltcf-c.sh           py-compile
+  COPYING.LESSER      compile             ltcf-cxx.sh         texinfo.tex
+  COPYING.LIB         config.guess        ltcf-gcj.sh         ylwrap
+  ChangeLog
+
+Files automatically distributed if found (under certain conditions):
+  acconfig.h          config.h.bot        configure           configure.in
+  aclocal.m4          config.h.top        configure.ac        stamp-vti
+
+Report bugs to <bug-automake@gnu.org>.
+GNU Automake home page: <http://www.gnu.org/software/automake/>.
+General help using GNU software: <https://www.gnu.org/gethelp/>.
++ grep '^Usage' stdout
+Usage: /sources/automake-1.16.1/bin/automake-1.16 [OPTION]... [Makefile]...
++ grep '^automake.*1\.16' stdout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/help4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/help4.dir
++ set +x
+PASS t/help4.sh (exit status: 0)

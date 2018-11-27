@@ -13,7 +13,7 @@ TEX  = perl.tex perl5004delta.tex perl5005delta.tex perl5100delta.tex perl5101de
 
 # The following is used to include the current directory in
 # the dynamic loader path you are building a shared libperl.
-LDLIBPTH = 
+LDLIBPTH = LD_LIBRARY_PATH=/sources/perl-5.28.0
 
 
 HTMLROOT = /	# Change this to fix cross-references in HTML

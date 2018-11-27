@@ -1,0 +1,77 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/python11.dir
++ unset PYTHON
++ cat
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ ./configure
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for IShouldNotExist1... no
+checking for IShouldNotExist2... no
++ cat stderr
+configure: error: no suitable Python interpreter found
++ grep 'checking for IShouldNotExist1' stdout
+checking for IShouldNotExist1... no
++ grep 'checking for IShouldNotExist2' stdout
+checking for IShouldNotExist2... no
++ grep 'no suitable Python interpreter found' stderr
+configure: error: no suitable Python interpreter found
++ sed 's/AM_PATH_PYTHON/AM_PATH_PYTHON(,,:)/' configure.ac
++ mv -f configure.tmp configure.ac
++ aclocal-1.16 -Werror --force
++ autoconf --force
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for IShouldNotExist1... no
+checking for IShouldNotExist2... no
+PYTHON = :
++ ./configure PYTHON=foo
+./configure: line 2397: foo: command not found
+./configure: line 2416: foo: command not found
+./configure: line 2462: foo: command not found
+./configure: line 2506: foo: command not found
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for python version... 
+checking for python platform... 
+checking for python script directory... ${prefix}/lib/python/site-packages
+checking for python extension module directory... ${exec_prefix}/lib/python/site-packages
+PYTHON = foo
++ grep 'PYTHON = foo' stdout
+PYTHON = foo
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/python11.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/python11.dir
++ set +x
+PASS t/python11.sh (exit status: 0)

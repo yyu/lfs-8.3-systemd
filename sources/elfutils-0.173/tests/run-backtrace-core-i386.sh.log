@@ -1,0 +1,22 @@
+./backtrace ./backtrace.i386.exec ./backtrace.i386.core
+0x8048000	0x8110000	/home/jkratoch/redhat/elfutils/tests/backtrace.i386.exec
+0xf77f7000	0xf77f8000	linux-gate.so.1
+TID 23101:
+# 0 0xf77f7430    	__kernel_vsyscall
+# 1 0x8052207 - 1	raise
+# 2 0x8049a8a - 1	sigusr2
+# 3 0x8049b84 - 1	stdarg
+# 4 0x8049ba0 - 1	backtracegen
+# 5 0x8049bb0 - 1	start
+# 6 0x804b1c0 - 1	start_thread
+# 7 0x807f3fe - 1	__clone
+TID 23100:
+# 0 0xf77f7430    	__kernel_vsyscall
+# 1 0x804c25d - 1	pthread_join
+# 2 0x8049e20 - 1	main
+# 3 0x805351a - 1	__libc_start_main
+# 4 0x804993d - 1	_start
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: No DWARF information found
+# 2 0x8049e20 - 1	main
+# 4 0x8049ba0 - 1	backtracegen
+PASS run-backtrace-core-i386.sh (exit status: 0)

@@ -1,0 +1,304 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/warnings-override.dir
++ AUTOMAKE='automake-1.16 -Werror'
++ cat
++ aclocal-1.16 -Werror
++ touch README INSTALL NEWS AUTHORS ChangeLog COPYING
++ rm -rf autom4te.cache
++ set_warnings -Wno-portability Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = -Wno-portability
++ set_warnings '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ ok -Wportability
++ automake-1.16 -Werror -Wportability
++ ok
++ automake-1.16 -Werror
++ rm -rf autom4te.cache
++ set_warnings '' Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = 
++ set_warnings -Wno-portability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([-Wno-portability])
+AC_CONFIG_FILES([Makefile])
++ ok -Wportability
++ automake-1.16 -Werror -Wportability
++ ok
++ automake-1.16 -Werror
++ rm -rf autom4te.cache
++ set_warnings -Wno-portability Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = -Wno-portability
++ set_warnings -Wno-portability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([-Wno-portability])
+AC_CONFIG_FILES([Makefile])
++ ok -Wportability
++ automake-1.16 -Werror -Wportability
++ rm -rf autom4te.cache
++ set_warnings -Wportability Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = -Wportability
++ set_warnings '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 -Werror
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ ko -Wno-portability
++ AUTOMAKE_fails -Wno-portability
++ AUTOMAKE_run -e 1 -Wno-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Werror -Wno-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ rm -rf autom4te.cache
++ set_warnings '' Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = 
++ set_warnings -Wportability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([-Wportability])
+AC_CONFIG_FILES([Makefile])
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 -Werror
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ ko -Wno-portability
++ AUTOMAKE_fails -Wno-portability
++ AUTOMAKE_run -e 1 -Wno-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Werror -Wno-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ rm -rf autom4te.cache
++ set_warnings -Wportability Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = -Wportability
++ set_warnings -Wportability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([-Wportability])
+AC_CONFIG_FILES([Makefile])
++ ko -Wno-portability
++ AUTOMAKE_fails -Wno-portability
++ AUTOMAKE_run -e 1 -Wno-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Werror -Wno-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ rm -rf autom4te.cache
++ set_warnings -Wno-portability Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = -Wno-portability
++ set_warnings -Wportability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([-Wportability])
+AC_CONFIG_FILES([Makefile])
++ ok
++ automake-1.16 -Werror
++ ok -Wportability
++ automake-1.16 -Werror -Wportability
++ rm -rf autom4te.cache
++ set_warnings -Wportability Makefile.am
++ set +x
++ cat Makefile.am
+FOO := bar
+AUTOMAKE_OPTIONS = -Wportability
++ set_warnings -Wno-portability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-override], [1.0])
+AM_INIT_AUTOMAKE([-Wno-portability])
+AC_CONFIG_FILES([Makefile])
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 -Werror
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ ko -Wno-portability
++ AUTOMAKE_fails -Wno-portability
++ AUTOMAKE_run -e 1 -Wno-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Werror -Wno-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*:=.*not portable' stderr
+Makefile.am:1: warning: ':='-style assignments are not portable
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/warnings-override.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/warnings-override.dir
++ set +x
+PASS t/warnings-override.sh (exit status: 0)

@@ -1,0 +1,3467 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ count=0
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ do_check .
++ case $1 in
++ add_missing=no
++ auxdir=.
++ count=1
++ mkdir T1.d
++ cd T1.d
++ distdir=dist-auxdir-many-subdirs-1
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ required_files='
+    install-sh
+    missing
+    compile
+    depcomp
+    py-compile
+    test-driver
+  '
++ echo 'SUBDIRS ='
++ suffixes='0 1 2 3 4 5 6 7 8 9'
++ for x in $suffixes
++ mkdir sub0
++ echo 'SUBDIRS += sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ cp Makefile.stub sub0/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub0/bar.py sub0/baz.el
++ for x in $suffixes
++ mkdir sub1
++ echo 'SUBDIRS += sub1'
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ cp Makefile.stub sub1/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub1/bar.py sub1/baz.el
++ for x in $suffixes
++ mkdir sub2
++ echo 'SUBDIRS += sub2'
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ cp Makefile.stub sub2/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub2/bar.py sub2/baz.el
++ for x in $suffixes
++ mkdir sub3
++ echo 'SUBDIRS += sub3'
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ cp Makefile.stub sub3/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub3/bar.py sub3/baz.el
++ for x in $suffixes
++ mkdir sub4
++ echo 'SUBDIRS += sub4'
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ cp Makefile.stub sub4/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub4/bar.py sub4/baz.el
++ for x in $suffixes
++ mkdir sub5
++ echo 'SUBDIRS += sub5'
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ cp Makefile.stub sub5/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub5/bar.py sub5/baz.el
++ for x in $suffixes
++ mkdir sub6
++ echo 'SUBDIRS += sub6'
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ cp Makefile.stub sub6/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub6/bar.py sub6/baz.el
++ for x in $suffixes
++ mkdir sub7
++ echo 'SUBDIRS += sub7'
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ cp Makefile.stub sub7/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub7/bar.py sub7/baz.el
++ for x in $suffixes
++ mkdir sub8
++ echo 'SUBDIRS += sub8'
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ cp Makefile.stub sub8/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub8/bar.py sub8/baz.el
++ for x in $suffixes
++ mkdir sub9
++ echo 'SUBDIRS += sub9'
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ cp Makefile.stub sub9/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub9/bar.py sub9/baz.el
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ /sources/automake-1.16.1/lib/install-sh -d .
++ test no = yes
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/install-sh ./install-sh
++ chmod a-w ./install-sh
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/missing ./missing
++ chmod a-w ./missing
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/compile ./compile
++ chmod a-w ./compile
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/depcomp ./depcomp
++ chmod a-w ./depcomp
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/py-compile ./py-compile
++ chmod a-w ./py-compile
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/test-driver ./test-driver
++ chmod a-w ./test-driver
++ automake-1.16 --foreign -Werror -Wall
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build'
+if test -d "dist-auxdir-many-subdirs-1"; then find "dist-auxdir-many-subdirs-1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-1" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-1"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-1" || mkdir "dist-auxdir-many-subdirs-1"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-1"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/build'
++ find dist-auxdir-many-subdirs-1
+dist-auxdir-many-subdirs-1
+dist-auxdir-many-subdirs-1/sub1
+dist-auxdir-many-subdirs-1/sub1/Makefile.in
+dist-auxdir-many-subdirs-1/sub1/Makefile.am
+dist-auxdir-many-subdirs-1/sub1/bar.py
+dist-auxdir-many-subdirs-1/sub1/foo.c
+dist-auxdir-many-subdirs-1/py-compile
+dist-auxdir-many-subdirs-1/compile
+dist-auxdir-many-subdirs-1/Makefile.in
+dist-auxdir-many-subdirs-1/sub0
+dist-auxdir-many-subdirs-1/sub0/Makefile.in
+dist-auxdir-many-subdirs-1/sub0/Makefile.am
+dist-auxdir-many-subdirs-1/sub0/bar.py
+dist-auxdir-many-subdirs-1/sub0/foo.c
+dist-auxdir-many-subdirs-1/Makefile.am
+dist-auxdir-many-subdirs-1/sub2
+dist-auxdir-many-subdirs-1/sub2/Makefile.in
+dist-auxdir-many-subdirs-1/sub2/Makefile.am
+dist-auxdir-many-subdirs-1/sub2/bar.py
+dist-auxdir-many-subdirs-1/sub2/foo.c
+dist-auxdir-many-subdirs-1/sub7
+dist-auxdir-many-subdirs-1/sub7/Makefile.in
+dist-auxdir-many-subdirs-1/sub7/Makefile.am
+dist-auxdir-many-subdirs-1/sub7/bar.py
+dist-auxdir-many-subdirs-1/sub7/foo.c
+dist-auxdir-many-subdirs-1/sub6
+dist-auxdir-many-subdirs-1/sub6/Makefile.in
+dist-auxdir-many-subdirs-1/sub6/Makefile.am
+dist-auxdir-many-subdirs-1/sub6/bar.py
+dist-auxdir-many-subdirs-1/sub6/foo.c
+dist-auxdir-many-subdirs-1/test-driver
+dist-auxdir-many-subdirs-1/sub9
+dist-auxdir-many-subdirs-1/sub9/Makefile.in
+dist-auxdir-many-subdirs-1/sub9/Makefile.am
+dist-auxdir-many-subdirs-1/sub9/bar.py
+dist-auxdir-many-subdirs-1/sub9/foo.c
+dist-auxdir-many-subdirs-1/depcomp
+dist-auxdir-many-subdirs-1/configure.ac
+dist-auxdir-many-subdirs-1/sub4
+dist-auxdir-many-subdirs-1/sub4/Makefile.in
+dist-auxdir-many-subdirs-1/sub4/Makefile.am
+dist-auxdir-many-subdirs-1/sub4/bar.py
+dist-auxdir-many-subdirs-1/sub4/foo.c
+dist-auxdir-many-subdirs-1/sub3
+dist-auxdir-many-subdirs-1/sub3/Makefile.in
+dist-auxdir-many-subdirs-1/sub3/Makefile.am
+dist-auxdir-many-subdirs-1/sub3/bar.py
+dist-auxdir-many-subdirs-1/sub3/foo.c
+dist-auxdir-many-subdirs-1/sub5
+dist-auxdir-many-subdirs-1/sub5/Makefile.in
+dist-auxdir-many-subdirs-1/sub5/Makefile.am
+dist-auxdir-many-subdirs-1/sub5/bar.py
+dist-auxdir-many-subdirs-1/sub5/foo.c
+dist-auxdir-many-subdirs-1/configure
+dist-auxdir-many-subdirs-1/install-sh
+dist-auxdir-many-subdirs-1/aclocal.m4
+dist-auxdir-many-subdirs-1/sub8
+dist-auxdir-many-subdirs-1/sub8/Makefile.in
+dist-auxdir-many-subdirs-1/sub8/Makefile.am
+dist-auxdir-many-subdirs-1/sub8/bar.py
+dist-auxdir-many-subdirs-1/sub8/foo.c
+dist-auxdir-many-subdirs-1/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./test-driver
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d'
+if test -d "dist-auxdir-many-subdirs-1"; then find "dist-auxdir-many-subdirs-1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-1" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-1"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-1" || mkdir "dist-auxdir-many-subdirs-1"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-1 distdir=../dist-auxdir-many-subdirs-1/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-1"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T1.d'
++ find dist-auxdir-many-subdirs-1
+dist-auxdir-many-subdirs-1
+dist-auxdir-many-subdirs-1/sub1
+dist-auxdir-many-subdirs-1/sub1/Makefile.in
+dist-auxdir-many-subdirs-1/sub1/Makefile.am
+dist-auxdir-many-subdirs-1/sub1/bar.py
+dist-auxdir-many-subdirs-1/sub1/foo.c
+dist-auxdir-many-subdirs-1/py-compile
+dist-auxdir-many-subdirs-1/compile
+dist-auxdir-many-subdirs-1/Makefile.in
+dist-auxdir-many-subdirs-1/sub0
+dist-auxdir-many-subdirs-1/sub0/Makefile.in
+dist-auxdir-many-subdirs-1/sub0/Makefile.am
+dist-auxdir-many-subdirs-1/sub0/bar.py
+dist-auxdir-many-subdirs-1/sub0/foo.c
+dist-auxdir-many-subdirs-1/Makefile.am
+dist-auxdir-many-subdirs-1/sub2
+dist-auxdir-many-subdirs-1/sub2/Makefile.in
+dist-auxdir-many-subdirs-1/sub2/Makefile.am
+dist-auxdir-many-subdirs-1/sub2/bar.py
+dist-auxdir-many-subdirs-1/sub2/foo.c
+dist-auxdir-many-subdirs-1/sub7
+dist-auxdir-many-subdirs-1/sub7/Makefile.in
+dist-auxdir-many-subdirs-1/sub7/Makefile.am
+dist-auxdir-many-subdirs-1/sub7/bar.py
+dist-auxdir-many-subdirs-1/sub7/foo.c
+dist-auxdir-many-subdirs-1/sub6
+dist-auxdir-many-subdirs-1/sub6/Makefile.in
+dist-auxdir-many-subdirs-1/sub6/Makefile.am
+dist-auxdir-many-subdirs-1/sub6/bar.py
+dist-auxdir-many-subdirs-1/sub6/foo.c
+dist-auxdir-many-subdirs-1/test-driver
+dist-auxdir-many-subdirs-1/sub9
+dist-auxdir-many-subdirs-1/sub9/Makefile.in
+dist-auxdir-many-subdirs-1/sub9/Makefile.am
+dist-auxdir-many-subdirs-1/sub9/bar.py
+dist-auxdir-many-subdirs-1/sub9/foo.c
+dist-auxdir-many-subdirs-1/depcomp
+dist-auxdir-many-subdirs-1/configure.ac
+dist-auxdir-many-subdirs-1/sub4
+dist-auxdir-many-subdirs-1/sub4/Makefile.in
+dist-auxdir-many-subdirs-1/sub4/Makefile.am
+dist-auxdir-many-subdirs-1/sub4/bar.py
+dist-auxdir-many-subdirs-1/sub4/foo.c
+dist-auxdir-many-subdirs-1/sub3
+dist-auxdir-many-subdirs-1/sub3/Makefile.in
+dist-auxdir-many-subdirs-1/sub3/Makefile.am
+dist-auxdir-many-subdirs-1/sub3/bar.py
+dist-auxdir-many-subdirs-1/sub3/foo.c
+dist-auxdir-many-subdirs-1/sub5
+dist-auxdir-many-subdirs-1/sub5/Makefile.in
+dist-auxdir-many-subdirs-1/sub5/Makefile.am
+dist-auxdir-many-subdirs-1/sub5/bar.py
+dist-auxdir-many-subdirs-1/sub5/foo.c
+dist-auxdir-many-subdirs-1/configure
+dist-auxdir-many-subdirs-1/install-sh
+dist-auxdir-many-subdirs-1/aclocal.m4
+dist-auxdir-many-subdirs-1/sub8
+dist-auxdir-many-subdirs-1/sub8/Makefile.in
+dist-auxdir-many-subdirs-1/sub8/Makefile.am
+dist-auxdir-many-subdirs-1/sub8/bar.py
+dist-auxdir-many-subdirs-1/sub8/foo.c
+dist-auxdir-many-subdirs-1/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-1/./test-driver
++ cd .
++ cd /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ do_check --add-missing .
++ case $1 in
++ add_missing=yes
++ shift
++ auxdir=.
++ count=2
++ mkdir T2.d
++ cd T2.d
++ distdir=dist-auxdir-many-subdirs-2
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ required_files='
+    install-sh
+    missing
+    compile
+    depcomp
+    py-compile
+    test-driver
+  '
++ echo 'SUBDIRS ='
++ suffixes='0 1 2 3 4 5 6 7 8 9'
++ for x in $suffixes
++ mkdir sub0
++ echo 'SUBDIRS += sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ cp Makefile.stub sub0/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub0/bar.py sub0/baz.el
++ for x in $suffixes
++ mkdir sub1
++ echo 'SUBDIRS += sub1'
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ cp Makefile.stub sub1/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub1/bar.py sub1/baz.el
++ for x in $suffixes
++ mkdir sub2
++ echo 'SUBDIRS += sub2'
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ cp Makefile.stub sub2/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub2/bar.py sub2/baz.el
++ for x in $suffixes
++ mkdir sub3
++ echo 'SUBDIRS += sub3'
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ cp Makefile.stub sub3/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub3/bar.py sub3/baz.el
++ for x in $suffixes
++ mkdir sub4
++ echo 'SUBDIRS += sub4'
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ cp Makefile.stub sub4/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub4/bar.py sub4/baz.el
++ for x in $suffixes
++ mkdir sub5
++ echo 'SUBDIRS += sub5'
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ cp Makefile.stub sub5/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub5/bar.py sub5/baz.el
++ for x in $suffixes
++ mkdir sub6
++ echo 'SUBDIRS += sub6'
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ cp Makefile.stub sub6/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub6/bar.py sub6/baz.el
++ for x in $suffixes
++ mkdir sub7
++ echo 'SUBDIRS += sub7'
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ cp Makefile.stub sub7/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub7/bar.py sub7/baz.el
++ for x in $suffixes
++ mkdir sub8
++ echo 'SUBDIRS += sub8'
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ cp Makefile.stub sub8/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub8/bar.py sub8/baz.el
++ for x in $suffixes
++ mkdir sub9
++ echo 'SUBDIRS += sub9'
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ cp Makefile.stub sub9/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub9/bar.py sub9/baz.el
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ /sources/automake-1.16.1/lib/install-sh -d .
++ test yes = yes
++ automake-1.16 --foreign -Werror -Wall -a --copy
+configure.ac:4: installing './compile'
+configure.ac:3: installing './install-sh'
+configure.ac:3: installing './missing'
+sub0/Makefile.am: installing './depcomp'
+sub0/Makefile.am:5: installing './py-compile'
+parallel-tests: installing './test-driver'
++ for f in $required_files
++ test -f ./install-sh
++ chmod a-w ./install-sh
++ for f in $required_files
++ test -f ./missing
++ chmod a-w ./missing
++ for f in $required_files
++ test -f ./compile
++ chmod a-w ./compile
++ for f in $required_files
++ test -f ./depcomp
++ chmod a-w ./depcomp
++ for f in $required_files
++ test -f ./py-compile
++ chmod a-w ./py-compile
++ for f in $required_files
++ test -f ./test-driver
++ chmod a-w ./test-driver
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build'
+if test -d "dist-auxdir-many-subdirs-2"; then find "dist-auxdir-many-subdirs-2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-2" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-2"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-2" || mkdir "dist-auxdir-many-subdirs-2"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-2" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-2"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/build'
++ find dist-auxdir-many-subdirs-2
+dist-auxdir-many-subdirs-2
+dist-auxdir-many-subdirs-2/sub1
+dist-auxdir-many-subdirs-2/sub1/Makefile.in
+dist-auxdir-many-subdirs-2/sub1/Makefile.am
+dist-auxdir-many-subdirs-2/sub1/bar.py
+dist-auxdir-many-subdirs-2/sub1/foo.c
+dist-auxdir-many-subdirs-2/py-compile
+dist-auxdir-many-subdirs-2/compile
+dist-auxdir-many-subdirs-2/Makefile.in
+dist-auxdir-many-subdirs-2/sub0
+dist-auxdir-many-subdirs-2/sub0/Makefile.in
+dist-auxdir-many-subdirs-2/sub0/Makefile.am
+dist-auxdir-many-subdirs-2/sub0/bar.py
+dist-auxdir-many-subdirs-2/sub0/foo.c
+dist-auxdir-many-subdirs-2/Makefile.am
+dist-auxdir-many-subdirs-2/sub2
+dist-auxdir-many-subdirs-2/sub2/Makefile.in
+dist-auxdir-many-subdirs-2/sub2/Makefile.am
+dist-auxdir-many-subdirs-2/sub2/bar.py
+dist-auxdir-many-subdirs-2/sub2/foo.c
+dist-auxdir-many-subdirs-2/sub7
+dist-auxdir-many-subdirs-2/sub7/Makefile.in
+dist-auxdir-many-subdirs-2/sub7/Makefile.am
+dist-auxdir-many-subdirs-2/sub7/bar.py
+dist-auxdir-many-subdirs-2/sub7/foo.c
+dist-auxdir-many-subdirs-2/sub6
+dist-auxdir-many-subdirs-2/sub6/Makefile.in
+dist-auxdir-many-subdirs-2/sub6/Makefile.am
+dist-auxdir-many-subdirs-2/sub6/bar.py
+dist-auxdir-many-subdirs-2/sub6/foo.c
+dist-auxdir-many-subdirs-2/test-driver
+dist-auxdir-many-subdirs-2/sub9
+dist-auxdir-many-subdirs-2/sub9/Makefile.in
+dist-auxdir-many-subdirs-2/sub9/Makefile.am
+dist-auxdir-many-subdirs-2/sub9/bar.py
+dist-auxdir-many-subdirs-2/sub9/foo.c
+dist-auxdir-many-subdirs-2/depcomp
+dist-auxdir-many-subdirs-2/configure.ac
+dist-auxdir-many-subdirs-2/sub4
+dist-auxdir-many-subdirs-2/sub4/Makefile.in
+dist-auxdir-many-subdirs-2/sub4/Makefile.am
+dist-auxdir-many-subdirs-2/sub4/bar.py
+dist-auxdir-many-subdirs-2/sub4/foo.c
+dist-auxdir-many-subdirs-2/sub3
+dist-auxdir-many-subdirs-2/sub3/Makefile.in
+dist-auxdir-many-subdirs-2/sub3/Makefile.am
+dist-auxdir-many-subdirs-2/sub3/bar.py
+dist-auxdir-many-subdirs-2/sub3/foo.c
+dist-auxdir-many-subdirs-2/sub5
+dist-auxdir-many-subdirs-2/sub5/Makefile.in
+dist-auxdir-many-subdirs-2/sub5/Makefile.am
+dist-auxdir-many-subdirs-2/sub5/bar.py
+dist-auxdir-many-subdirs-2/sub5/foo.c
+dist-auxdir-many-subdirs-2/configure
+dist-auxdir-many-subdirs-2/install-sh
+dist-auxdir-many-subdirs-2/aclocal.m4
+dist-auxdir-many-subdirs-2/sub8
+dist-auxdir-many-subdirs-2/sub8/Makefile.in
+dist-auxdir-many-subdirs-2/sub8/Makefile.am
+dist-auxdir-many-subdirs-2/sub8/bar.py
+dist-auxdir-many-subdirs-2/sub8/foo.c
+dist-auxdir-many-subdirs-2/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./test-driver
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d'
+if test -d "dist-auxdir-many-subdirs-2"; then find "dist-auxdir-many-subdirs-2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-2" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-2"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-2" || mkdir "dist-auxdir-many-subdirs-2"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-2 distdir=../dist-auxdir-many-subdirs-2/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-2" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-2"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T2.d'
++ find dist-auxdir-many-subdirs-2
+dist-auxdir-many-subdirs-2
+dist-auxdir-many-subdirs-2/sub1
+dist-auxdir-many-subdirs-2/sub1/Makefile.in
+dist-auxdir-many-subdirs-2/sub1/Makefile.am
+dist-auxdir-many-subdirs-2/sub1/bar.py
+dist-auxdir-many-subdirs-2/sub1/foo.c
+dist-auxdir-many-subdirs-2/py-compile
+dist-auxdir-many-subdirs-2/compile
+dist-auxdir-many-subdirs-2/Makefile.in
+dist-auxdir-many-subdirs-2/sub0
+dist-auxdir-many-subdirs-2/sub0/Makefile.in
+dist-auxdir-many-subdirs-2/sub0/Makefile.am
+dist-auxdir-many-subdirs-2/sub0/bar.py
+dist-auxdir-many-subdirs-2/sub0/foo.c
+dist-auxdir-many-subdirs-2/Makefile.am
+dist-auxdir-many-subdirs-2/sub2
+dist-auxdir-many-subdirs-2/sub2/Makefile.in
+dist-auxdir-many-subdirs-2/sub2/Makefile.am
+dist-auxdir-many-subdirs-2/sub2/bar.py
+dist-auxdir-many-subdirs-2/sub2/foo.c
+dist-auxdir-many-subdirs-2/sub7
+dist-auxdir-many-subdirs-2/sub7/Makefile.in
+dist-auxdir-many-subdirs-2/sub7/Makefile.am
+dist-auxdir-many-subdirs-2/sub7/bar.py
+dist-auxdir-many-subdirs-2/sub7/foo.c
+dist-auxdir-many-subdirs-2/sub6
+dist-auxdir-many-subdirs-2/sub6/Makefile.in
+dist-auxdir-many-subdirs-2/sub6/Makefile.am
+dist-auxdir-many-subdirs-2/sub6/bar.py
+dist-auxdir-many-subdirs-2/sub6/foo.c
+dist-auxdir-many-subdirs-2/test-driver
+dist-auxdir-many-subdirs-2/sub9
+dist-auxdir-many-subdirs-2/sub9/Makefile.in
+dist-auxdir-many-subdirs-2/sub9/Makefile.am
+dist-auxdir-many-subdirs-2/sub9/bar.py
+dist-auxdir-many-subdirs-2/sub9/foo.c
+dist-auxdir-many-subdirs-2/depcomp
+dist-auxdir-many-subdirs-2/configure.ac
+dist-auxdir-many-subdirs-2/sub4
+dist-auxdir-many-subdirs-2/sub4/Makefile.in
+dist-auxdir-many-subdirs-2/sub4/Makefile.am
+dist-auxdir-many-subdirs-2/sub4/bar.py
+dist-auxdir-many-subdirs-2/sub4/foo.c
+dist-auxdir-many-subdirs-2/sub3
+dist-auxdir-many-subdirs-2/sub3/Makefile.in
+dist-auxdir-many-subdirs-2/sub3/Makefile.am
+dist-auxdir-many-subdirs-2/sub3/bar.py
+dist-auxdir-many-subdirs-2/sub3/foo.c
+dist-auxdir-many-subdirs-2/sub5
+dist-auxdir-many-subdirs-2/sub5/Makefile.in
+dist-auxdir-many-subdirs-2/sub5/Makefile.am
+dist-auxdir-many-subdirs-2/sub5/bar.py
+dist-auxdir-many-subdirs-2/sub5/foo.c
+dist-auxdir-many-subdirs-2/configure
+dist-auxdir-many-subdirs-2/install-sh
+dist-auxdir-many-subdirs-2/aclocal.m4
+dist-auxdir-many-subdirs-2/sub8
+dist-auxdir-many-subdirs-2/sub8/Makefile.in
+dist-auxdir-many-subdirs-2/sub8/Makefile.am
+dist-auxdir-many-subdirs-2/sub8/bar.py
+dist-auxdir-many-subdirs-2/sub8/foo.c
+dist-auxdir-many-subdirs-2/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-2/./test-driver
++ cd .
++ cd /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ do_check build-aux
++ case $1 in
++ add_missing=no
++ auxdir=build-aux
++ count=3
++ mkdir T3.d
++ cd T3.d
++ distdir=dist-auxdir-many-subdirs-3
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ required_files='
+    install-sh
+    missing
+    compile
+    depcomp
+    py-compile
+    test-driver
+  '
++ echo 'SUBDIRS ='
++ suffixes='0 1 2 3 4 5 6 7 8 9'
++ for x in $suffixes
++ mkdir sub0
++ echo 'SUBDIRS += sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ cp Makefile.stub sub0/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub0/bar.py sub0/baz.el
++ for x in $suffixes
++ mkdir sub1
++ echo 'SUBDIRS += sub1'
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ cp Makefile.stub sub1/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub1/bar.py sub1/baz.el
++ for x in $suffixes
++ mkdir sub2
++ echo 'SUBDIRS += sub2'
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ cp Makefile.stub sub2/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub2/bar.py sub2/baz.el
++ for x in $suffixes
++ mkdir sub3
++ echo 'SUBDIRS += sub3'
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ cp Makefile.stub sub3/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub3/bar.py sub3/baz.el
++ for x in $suffixes
++ mkdir sub4
++ echo 'SUBDIRS += sub4'
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ cp Makefile.stub sub4/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub4/bar.py sub4/baz.el
++ for x in $suffixes
++ mkdir sub5
++ echo 'SUBDIRS += sub5'
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ cp Makefile.stub sub5/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub5/bar.py sub5/baz.el
++ for x in $suffixes
++ mkdir sub6
++ echo 'SUBDIRS += sub6'
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ cp Makefile.stub sub6/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub6/bar.py sub6/baz.el
++ for x in $suffixes
++ mkdir sub7
++ echo 'SUBDIRS += sub7'
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ cp Makefile.stub sub7/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub7/bar.py sub7/baz.el
++ for x in $suffixes
++ mkdir sub8
++ echo 'SUBDIRS += sub8'
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ cp Makefile.stub sub8/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub8/bar.py sub8/baz.el
++ for x in $suffixes
++ mkdir sub9
++ echo 'SUBDIRS += sub9'
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ cp Makefile.stub sub9/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub9/bar.py sub9/baz.el
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ /sources/automake-1.16.1/lib/install-sh -d build-aux
++ test no = yes
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/install-sh build-aux/install-sh
++ chmod a-w build-aux/install-sh
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/missing build-aux/missing
++ chmod a-w build-aux/missing
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/compile build-aux/compile
++ chmod a-w build-aux/compile
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/depcomp build-aux/depcomp
++ chmod a-w build-aux/depcomp
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/py-compile build-aux/py-compile
++ chmod a-w build-aux/py-compile
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/test-driver build-aux/test-driver
++ chmod a-w build-aux/test-driver
++ automake-1.16 --foreign -Werror -Wall
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build'
+if test -d "dist-auxdir-many-subdirs-3"; then find "dist-auxdir-many-subdirs-3" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-3" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-3"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-3" || mkdir "dist-auxdir-many-subdirs-3"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-3" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-3"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build'
++ find dist-auxdir-many-subdirs-3
+dist-auxdir-many-subdirs-3
+dist-auxdir-many-subdirs-3/sub1
+dist-auxdir-many-subdirs-3/sub1/Makefile.in
+dist-auxdir-many-subdirs-3/sub1/Makefile.am
+dist-auxdir-many-subdirs-3/sub1/bar.py
+dist-auxdir-many-subdirs-3/sub1/foo.c
+dist-auxdir-many-subdirs-3/Makefile.in
+dist-auxdir-many-subdirs-3/sub0
+dist-auxdir-many-subdirs-3/sub0/Makefile.in
+dist-auxdir-many-subdirs-3/sub0/Makefile.am
+dist-auxdir-many-subdirs-3/sub0/bar.py
+dist-auxdir-many-subdirs-3/sub0/foo.c
+dist-auxdir-many-subdirs-3/Makefile.am
+dist-auxdir-many-subdirs-3/sub2
+dist-auxdir-many-subdirs-3/sub2/Makefile.in
+dist-auxdir-many-subdirs-3/sub2/Makefile.am
+dist-auxdir-many-subdirs-3/sub2/bar.py
+dist-auxdir-many-subdirs-3/sub2/foo.c
+dist-auxdir-many-subdirs-3/sub7
+dist-auxdir-many-subdirs-3/sub7/Makefile.in
+dist-auxdir-many-subdirs-3/sub7/Makefile.am
+dist-auxdir-many-subdirs-3/sub7/bar.py
+dist-auxdir-many-subdirs-3/sub7/foo.c
+dist-auxdir-many-subdirs-3/sub6
+dist-auxdir-many-subdirs-3/sub6/Makefile.in
+dist-auxdir-many-subdirs-3/sub6/Makefile.am
+dist-auxdir-many-subdirs-3/sub6/bar.py
+dist-auxdir-many-subdirs-3/sub6/foo.c
+dist-auxdir-many-subdirs-3/build-aux
+dist-auxdir-many-subdirs-3/build-aux/py-compile
+dist-auxdir-many-subdirs-3/build-aux/compile
+dist-auxdir-many-subdirs-3/build-aux/test-driver
+dist-auxdir-many-subdirs-3/build-aux/depcomp
+dist-auxdir-many-subdirs-3/build-aux/install-sh
+dist-auxdir-many-subdirs-3/build-aux/missing
+dist-auxdir-many-subdirs-3/sub9
+dist-auxdir-many-subdirs-3/sub9/Makefile.in
+dist-auxdir-many-subdirs-3/sub9/Makefile.am
+dist-auxdir-many-subdirs-3/sub9/bar.py
+dist-auxdir-many-subdirs-3/sub9/foo.c
+dist-auxdir-many-subdirs-3/configure.ac
+dist-auxdir-many-subdirs-3/sub4
+dist-auxdir-many-subdirs-3/sub4/Makefile.in
+dist-auxdir-many-subdirs-3/sub4/Makefile.am
+dist-auxdir-many-subdirs-3/sub4/bar.py
+dist-auxdir-many-subdirs-3/sub4/foo.c
+dist-auxdir-many-subdirs-3/sub3
+dist-auxdir-many-subdirs-3/sub3/Makefile.in
+dist-auxdir-many-subdirs-3/sub3/Makefile.am
+dist-auxdir-many-subdirs-3/sub3/bar.py
+dist-auxdir-many-subdirs-3/sub3/foo.c
+dist-auxdir-many-subdirs-3/sub5
+dist-auxdir-many-subdirs-3/sub5/Makefile.in
+dist-auxdir-many-subdirs-3/sub5/Makefile.am
+dist-auxdir-many-subdirs-3/sub5/bar.py
+dist-auxdir-many-subdirs-3/sub5/foo.c
+dist-auxdir-many-subdirs-3/configure
+dist-auxdir-many-subdirs-3/aclocal.m4
+dist-auxdir-many-subdirs-3/sub8
+dist-auxdir-many-subdirs-3/sub8/Makefile.in
+dist-auxdir-many-subdirs-3/sub8/Makefile.am
+dist-auxdir-many-subdirs-3/sub8/bar.py
+dist-auxdir-many-subdirs-3/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/test-driver
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d'
+if test -d "dist-auxdir-many-subdirs-3"; then find "dist-auxdir-many-subdirs-3" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-3" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-3"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-3" || mkdir "dist-auxdir-many-subdirs-3"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-3 distdir=../dist-auxdir-many-subdirs-3/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-3" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-3"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T3.d'
++ find dist-auxdir-many-subdirs-3
+dist-auxdir-many-subdirs-3
+dist-auxdir-many-subdirs-3/sub1
+dist-auxdir-many-subdirs-3/sub1/Makefile.in
+dist-auxdir-many-subdirs-3/sub1/Makefile.am
+dist-auxdir-many-subdirs-3/sub1/bar.py
+dist-auxdir-many-subdirs-3/sub1/foo.c
+dist-auxdir-many-subdirs-3/Makefile.in
+dist-auxdir-many-subdirs-3/sub0
+dist-auxdir-many-subdirs-3/sub0/Makefile.in
+dist-auxdir-many-subdirs-3/sub0/Makefile.am
+dist-auxdir-many-subdirs-3/sub0/bar.py
+dist-auxdir-many-subdirs-3/sub0/foo.c
+dist-auxdir-many-subdirs-3/Makefile.am
+dist-auxdir-many-subdirs-3/sub2
+dist-auxdir-many-subdirs-3/sub2/Makefile.in
+dist-auxdir-many-subdirs-3/sub2/Makefile.am
+dist-auxdir-many-subdirs-3/sub2/bar.py
+dist-auxdir-many-subdirs-3/sub2/foo.c
+dist-auxdir-many-subdirs-3/sub7
+dist-auxdir-many-subdirs-3/sub7/Makefile.in
+dist-auxdir-many-subdirs-3/sub7/Makefile.am
+dist-auxdir-many-subdirs-3/sub7/bar.py
+dist-auxdir-many-subdirs-3/sub7/foo.c
+dist-auxdir-many-subdirs-3/sub6
+dist-auxdir-many-subdirs-3/sub6/Makefile.in
+dist-auxdir-many-subdirs-3/sub6/Makefile.am
+dist-auxdir-many-subdirs-3/sub6/bar.py
+dist-auxdir-many-subdirs-3/sub6/foo.c
+dist-auxdir-many-subdirs-3/build-aux
+dist-auxdir-many-subdirs-3/build-aux/py-compile
+dist-auxdir-many-subdirs-3/build-aux/compile
+dist-auxdir-many-subdirs-3/build-aux/test-driver
+dist-auxdir-many-subdirs-3/build-aux/depcomp
+dist-auxdir-many-subdirs-3/build-aux/install-sh
+dist-auxdir-many-subdirs-3/build-aux/missing
+dist-auxdir-many-subdirs-3/sub9
+dist-auxdir-many-subdirs-3/sub9/Makefile.in
+dist-auxdir-many-subdirs-3/sub9/Makefile.am
+dist-auxdir-many-subdirs-3/sub9/bar.py
+dist-auxdir-many-subdirs-3/sub9/foo.c
+dist-auxdir-many-subdirs-3/configure.ac
+dist-auxdir-many-subdirs-3/sub4
+dist-auxdir-many-subdirs-3/sub4/Makefile.in
+dist-auxdir-many-subdirs-3/sub4/Makefile.am
+dist-auxdir-many-subdirs-3/sub4/bar.py
+dist-auxdir-many-subdirs-3/sub4/foo.c
+dist-auxdir-many-subdirs-3/sub3
+dist-auxdir-many-subdirs-3/sub3/Makefile.in
+dist-auxdir-many-subdirs-3/sub3/Makefile.am
+dist-auxdir-many-subdirs-3/sub3/bar.py
+dist-auxdir-many-subdirs-3/sub3/foo.c
+dist-auxdir-many-subdirs-3/sub5
+dist-auxdir-many-subdirs-3/sub5/Makefile.in
+dist-auxdir-many-subdirs-3/sub5/Makefile.am
+dist-auxdir-many-subdirs-3/sub5/bar.py
+dist-auxdir-many-subdirs-3/sub5/foo.c
+dist-auxdir-many-subdirs-3/configure
+dist-auxdir-many-subdirs-3/aclocal.m4
+dist-auxdir-many-subdirs-3/sub8
+dist-auxdir-many-subdirs-3/sub8/Makefile.in
+dist-auxdir-many-subdirs-3/sub8/Makefile.am
+dist-auxdir-many-subdirs-3/sub8/bar.py
+dist-auxdir-many-subdirs-3/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-3/build-aux/test-driver
++ cd .
++ cd /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ do_check --add-missing build-aux
++ case $1 in
++ add_missing=yes
++ shift
++ auxdir=build-aux
++ count=4
++ mkdir T4.d
++ cd T4.d
++ distdir=dist-auxdir-many-subdirs-4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ required_files='
+    install-sh
+    missing
+    compile
+    depcomp
+    py-compile
+    test-driver
+  '
++ echo 'SUBDIRS ='
++ suffixes='0 1 2 3 4 5 6 7 8 9'
++ for x in $suffixes
++ mkdir sub0
++ echo 'SUBDIRS += sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ cp Makefile.stub sub0/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub0/bar.py sub0/baz.el
++ for x in $suffixes
++ mkdir sub1
++ echo 'SUBDIRS += sub1'
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ cp Makefile.stub sub1/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub1/bar.py sub1/baz.el
++ for x in $suffixes
++ mkdir sub2
++ echo 'SUBDIRS += sub2'
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ cp Makefile.stub sub2/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub2/bar.py sub2/baz.el
++ for x in $suffixes
++ mkdir sub3
++ echo 'SUBDIRS += sub3'
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ cp Makefile.stub sub3/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub3/bar.py sub3/baz.el
++ for x in $suffixes
++ mkdir sub4
++ echo 'SUBDIRS += sub4'
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ cp Makefile.stub sub4/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub4/bar.py sub4/baz.el
++ for x in $suffixes
++ mkdir sub5
++ echo 'SUBDIRS += sub5'
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ cp Makefile.stub sub5/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub5/bar.py sub5/baz.el
++ for x in $suffixes
++ mkdir sub6
++ echo 'SUBDIRS += sub6'
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ cp Makefile.stub sub6/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub6/bar.py sub6/baz.el
++ for x in $suffixes
++ mkdir sub7
++ echo 'SUBDIRS += sub7'
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ cp Makefile.stub sub7/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub7/bar.py sub7/baz.el
++ for x in $suffixes
++ mkdir sub8
++ echo 'SUBDIRS += sub8'
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ cp Makefile.stub sub8/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub8/bar.py sub8/baz.el
++ for x in $suffixes
++ mkdir sub9
++ echo 'SUBDIRS += sub9'
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ cp Makefile.stub sub9/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub9/bar.py sub9/baz.el
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ /sources/automake-1.16.1/lib/install-sh -d build-aux
++ test yes = yes
++ automake-1.16 --foreign -Werror -Wall -a --copy
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub0/Makefile.am: installing 'build-aux/depcomp'
+sub0/Makefile.am:5: installing 'build-aux/py-compile'
+parallel-tests: installing 'build-aux/test-driver'
++ for f in $required_files
++ test -f build-aux/install-sh
++ chmod a-w build-aux/install-sh
++ for f in $required_files
++ test -f build-aux/missing
++ chmod a-w build-aux/missing
++ for f in $required_files
++ test -f build-aux/compile
++ chmod a-w build-aux/compile
++ for f in $required_files
++ test -f build-aux/depcomp
++ chmod a-w build-aux/depcomp
++ for f in $required_files
++ test -f build-aux/py-compile
++ chmod a-w build-aux/py-compile
++ for f in $required_files
++ test -f build-aux/test-driver
++ chmod a-w build-aux/test-driver
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build'
+if test -d "dist-auxdir-many-subdirs-4"; then find "dist-auxdir-many-subdirs-4" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-4" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-4"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-4" || mkdir "dist-auxdir-many-subdirs-4"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-4" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-4"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build'
++ find dist-auxdir-many-subdirs-4
+dist-auxdir-many-subdirs-4
+dist-auxdir-many-subdirs-4/sub1
+dist-auxdir-many-subdirs-4/sub1/Makefile.in
+dist-auxdir-many-subdirs-4/sub1/Makefile.am
+dist-auxdir-many-subdirs-4/sub1/bar.py
+dist-auxdir-many-subdirs-4/sub1/foo.c
+dist-auxdir-many-subdirs-4/Makefile.in
+dist-auxdir-many-subdirs-4/sub0
+dist-auxdir-many-subdirs-4/sub0/Makefile.in
+dist-auxdir-many-subdirs-4/sub0/Makefile.am
+dist-auxdir-many-subdirs-4/sub0/bar.py
+dist-auxdir-many-subdirs-4/sub0/foo.c
+dist-auxdir-many-subdirs-4/Makefile.am
+dist-auxdir-many-subdirs-4/sub2
+dist-auxdir-many-subdirs-4/sub2/Makefile.in
+dist-auxdir-many-subdirs-4/sub2/Makefile.am
+dist-auxdir-many-subdirs-4/sub2/bar.py
+dist-auxdir-many-subdirs-4/sub2/foo.c
+dist-auxdir-many-subdirs-4/sub7
+dist-auxdir-many-subdirs-4/sub7/Makefile.in
+dist-auxdir-many-subdirs-4/sub7/Makefile.am
+dist-auxdir-many-subdirs-4/sub7/bar.py
+dist-auxdir-many-subdirs-4/sub7/foo.c
+dist-auxdir-many-subdirs-4/sub6
+dist-auxdir-many-subdirs-4/sub6/Makefile.in
+dist-auxdir-many-subdirs-4/sub6/Makefile.am
+dist-auxdir-many-subdirs-4/sub6/bar.py
+dist-auxdir-many-subdirs-4/sub6/foo.c
+dist-auxdir-many-subdirs-4/build-aux
+dist-auxdir-many-subdirs-4/build-aux/py-compile
+dist-auxdir-many-subdirs-4/build-aux/compile
+dist-auxdir-many-subdirs-4/build-aux/test-driver
+dist-auxdir-many-subdirs-4/build-aux/depcomp
+dist-auxdir-many-subdirs-4/build-aux/install-sh
+dist-auxdir-many-subdirs-4/build-aux/missing
+dist-auxdir-many-subdirs-4/sub9
+dist-auxdir-many-subdirs-4/sub9/Makefile.in
+dist-auxdir-many-subdirs-4/sub9/Makefile.am
+dist-auxdir-many-subdirs-4/sub9/bar.py
+dist-auxdir-many-subdirs-4/sub9/foo.c
+dist-auxdir-many-subdirs-4/configure.ac
+dist-auxdir-many-subdirs-4/sub4
+dist-auxdir-many-subdirs-4/sub4/Makefile.in
+dist-auxdir-many-subdirs-4/sub4/Makefile.am
+dist-auxdir-many-subdirs-4/sub4/bar.py
+dist-auxdir-many-subdirs-4/sub4/foo.c
+dist-auxdir-many-subdirs-4/sub3
+dist-auxdir-many-subdirs-4/sub3/Makefile.in
+dist-auxdir-many-subdirs-4/sub3/Makefile.am
+dist-auxdir-many-subdirs-4/sub3/bar.py
+dist-auxdir-many-subdirs-4/sub3/foo.c
+dist-auxdir-many-subdirs-4/sub5
+dist-auxdir-many-subdirs-4/sub5/Makefile.in
+dist-auxdir-many-subdirs-4/sub5/Makefile.am
+dist-auxdir-many-subdirs-4/sub5/bar.py
+dist-auxdir-many-subdirs-4/sub5/foo.c
+dist-auxdir-many-subdirs-4/configure
+dist-auxdir-many-subdirs-4/aclocal.m4
+dist-auxdir-many-subdirs-4/sub8
+dist-auxdir-many-subdirs-4/sub8/Makefile.in
+dist-auxdir-many-subdirs-4/sub8/Makefile.am
+dist-auxdir-many-subdirs-4/sub8/bar.py
+dist-auxdir-many-subdirs-4/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/test-driver
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d'
+if test -d "dist-auxdir-many-subdirs-4"; then find "dist-auxdir-many-subdirs-4" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-4" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-4"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-4" || mkdir "dist-auxdir-many-subdirs-4"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-4 distdir=../dist-auxdir-many-subdirs-4/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-4" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-4"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T4.d'
++ find dist-auxdir-many-subdirs-4
+dist-auxdir-many-subdirs-4
+dist-auxdir-many-subdirs-4/sub1
+dist-auxdir-many-subdirs-4/sub1/Makefile.in
+dist-auxdir-many-subdirs-4/sub1/Makefile.am
+dist-auxdir-many-subdirs-4/sub1/bar.py
+dist-auxdir-many-subdirs-4/sub1/foo.c
+dist-auxdir-many-subdirs-4/Makefile.in
+dist-auxdir-many-subdirs-4/sub0
+dist-auxdir-many-subdirs-4/sub0/Makefile.in
+dist-auxdir-many-subdirs-4/sub0/Makefile.am
+dist-auxdir-many-subdirs-4/sub0/bar.py
+dist-auxdir-many-subdirs-4/sub0/foo.c
+dist-auxdir-many-subdirs-4/Makefile.am
+dist-auxdir-many-subdirs-4/sub2
+dist-auxdir-many-subdirs-4/sub2/Makefile.in
+dist-auxdir-many-subdirs-4/sub2/Makefile.am
+dist-auxdir-many-subdirs-4/sub2/bar.py
+dist-auxdir-many-subdirs-4/sub2/foo.c
+dist-auxdir-many-subdirs-4/sub7
+dist-auxdir-many-subdirs-4/sub7/Makefile.in
+dist-auxdir-many-subdirs-4/sub7/Makefile.am
+dist-auxdir-many-subdirs-4/sub7/bar.py
+dist-auxdir-many-subdirs-4/sub7/foo.c
+dist-auxdir-many-subdirs-4/sub6
+dist-auxdir-many-subdirs-4/sub6/Makefile.in
+dist-auxdir-many-subdirs-4/sub6/Makefile.am
+dist-auxdir-many-subdirs-4/sub6/bar.py
+dist-auxdir-many-subdirs-4/sub6/foo.c
+dist-auxdir-many-subdirs-4/build-aux
+dist-auxdir-many-subdirs-4/build-aux/py-compile
+dist-auxdir-many-subdirs-4/build-aux/compile
+dist-auxdir-many-subdirs-4/build-aux/test-driver
+dist-auxdir-many-subdirs-4/build-aux/depcomp
+dist-auxdir-many-subdirs-4/build-aux/install-sh
+dist-auxdir-many-subdirs-4/build-aux/missing
+dist-auxdir-many-subdirs-4/sub9
+dist-auxdir-many-subdirs-4/sub9/Makefile.in
+dist-auxdir-many-subdirs-4/sub9/Makefile.am
+dist-auxdir-many-subdirs-4/sub9/bar.py
+dist-auxdir-many-subdirs-4/sub9/foo.c
+dist-auxdir-many-subdirs-4/configure.ac
+dist-auxdir-many-subdirs-4/sub4
+dist-auxdir-many-subdirs-4/sub4/Makefile.in
+dist-auxdir-many-subdirs-4/sub4/Makefile.am
+dist-auxdir-many-subdirs-4/sub4/bar.py
+dist-auxdir-many-subdirs-4/sub4/foo.c
+dist-auxdir-many-subdirs-4/sub3
+dist-auxdir-many-subdirs-4/sub3/Makefile.in
+dist-auxdir-many-subdirs-4/sub3/Makefile.am
+dist-auxdir-many-subdirs-4/sub3/bar.py
+dist-auxdir-many-subdirs-4/sub3/foo.c
+dist-auxdir-many-subdirs-4/sub5
+dist-auxdir-many-subdirs-4/sub5/Makefile.in
+dist-auxdir-many-subdirs-4/sub5/Makefile.am
+dist-auxdir-many-subdirs-4/sub5/bar.py
+dist-auxdir-many-subdirs-4/sub5/foo.c
+dist-auxdir-many-subdirs-4/configure
+dist-auxdir-many-subdirs-4/aclocal.m4
+dist-auxdir-many-subdirs-4/sub8
+dist-auxdir-many-subdirs-4/sub8/Makefile.in
+dist-auxdir-many-subdirs-4/sub8/Makefile.am
+dist-auxdir-many-subdirs-4/sub8/bar.py
+dist-auxdir-many-subdirs-4/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-4/build-aux/test-driver
++ cd .
++ cd /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ do_check a/b/c
++ case $1 in
++ add_missing=no
++ auxdir=a/b/c
++ count=5
++ mkdir T5.d
++ cd T5.d
++ distdir=dist-auxdir-many-subdirs-5
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ required_files='
+    install-sh
+    missing
+    compile
+    depcomp
+    py-compile
+    test-driver
+  '
++ echo 'SUBDIRS ='
++ suffixes='0 1 2 3 4 5 6 7 8 9'
++ for x in $suffixes
++ mkdir sub0
++ echo 'SUBDIRS += sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ cp Makefile.stub sub0/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub0/bar.py sub0/baz.el
++ for x in $suffixes
++ mkdir sub1
++ echo 'SUBDIRS += sub1'
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ cp Makefile.stub sub1/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub1/bar.py sub1/baz.el
++ for x in $suffixes
++ mkdir sub2
++ echo 'SUBDIRS += sub2'
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ cp Makefile.stub sub2/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub2/bar.py sub2/baz.el
++ for x in $suffixes
++ mkdir sub3
++ echo 'SUBDIRS += sub3'
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ cp Makefile.stub sub3/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub3/bar.py sub3/baz.el
++ for x in $suffixes
++ mkdir sub4
++ echo 'SUBDIRS += sub4'
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ cp Makefile.stub sub4/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub4/bar.py sub4/baz.el
++ for x in $suffixes
++ mkdir sub5
++ echo 'SUBDIRS += sub5'
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ cp Makefile.stub sub5/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub5/bar.py sub5/baz.el
++ for x in $suffixes
++ mkdir sub6
++ echo 'SUBDIRS += sub6'
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ cp Makefile.stub sub6/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub6/bar.py sub6/baz.el
++ for x in $suffixes
++ mkdir sub7
++ echo 'SUBDIRS += sub7'
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ cp Makefile.stub sub7/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub7/bar.py sub7/baz.el
++ for x in $suffixes
++ mkdir sub8
++ echo 'SUBDIRS += sub8'
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ cp Makefile.stub sub8/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub8/bar.py sub8/baz.el
++ for x in $suffixes
++ mkdir sub9
++ echo 'SUBDIRS += sub9'
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ cp Makefile.stub sub9/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub9/bar.py sub9/baz.el
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ /sources/automake-1.16.1/lib/install-sh -d a/b/c
++ test no = yes
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/install-sh a/b/c/install-sh
++ chmod a-w a/b/c/install-sh
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/missing a/b/c/missing
++ chmod a-w a/b/c/missing
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/compile a/b/c/compile
++ chmod a-w a/b/c/compile
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/depcomp a/b/c/depcomp
++ chmod a-w a/b/c/depcomp
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/py-compile a/b/c/py-compile
++ chmod a-w a/b/c/py-compile
++ for f in $required_files
++ cp /sources/automake-1.16.1/lib/test-driver a/b/c/test-driver
++ chmod a-w a/b/c/test-driver
++ automake-1.16 --foreign -Werror -Wall
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build'
+if test -d "dist-auxdir-many-subdirs-5"; then find "dist-auxdir-many-subdirs-5" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-5" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-5"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-5" || mkdir "dist-auxdir-many-subdirs-5"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-5" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/a/b/c/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-5"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/build'
++ find dist-auxdir-many-subdirs-5
+dist-auxdir-many-subdirs-5
+dist-auxdir-many-subdirs-5/sub1
+dist-auxdir-many-subdirs-5/sub1/Makefile.in
+dist-auxdir-many-subdirs-5/sub1/Makefile.am
+dist-auxdir-many-subdirs-5/sub1/bar.py
+dist-auxdir-many-subdirs-5/sub1/foo.c
+dist-auxdir-many-subdirs-5/Makefile.in
+dist-auxdir-many-subdirs-5/sub0
+dist-auxdir-many-subdirs-5/sub0/Makefile.in
+dist-auxdir-many-subdirs-5/sub0/Makefile.am
+dist-auxdir-many-subdirs-5/sub0/bar.py
+dist-auxdir-many-subdirs-5/sub0/foo.c
+dist-auxdir-many-subdirs-5/Makefile.am
+dist-auxdir-many-subdirs-5/a
+dist-auxdir-many-subdirs-5/a/b
+dist-auxdir-many-subdirs-5/a/b/c
+dist-auxdir-many-subdirs-5/a/b/c/py-compile
+dist-auxdir-many-subdirs-5/a/b/c/compile
+dist-auxdir-many-subdirs-5/a/b/c/test-driver
+dist-auxdir-many-subdirs-5/a/b/c/depcomp
+dist-auxdir-many-subdirs-5/a/b/c/install-sh
+dist-auxdir-many-subdirs-5/a/b/c/missing
+dist-auxdir-many-subdirs-5/sub2
+dist-auxdir-many-subdirs-5/sub2/Makefile.in
+dist-auxdir-many-subdirs-5/sub2/Makefile.am
+dist-auxdir-many-subdirs-5/sub2/bar.py
+dist-auxdir-many-subdirs-5/sub2/foo.c
+dist-auxdir-many-subdirs-5/sub7
+dist-auxdir-many-subdirs-5/sub7/Makefile.in
+dist-auxdir-many-subdirs-5/sub7/Makefile.am
+dist-auxdir-many-subdirs-5/sub7/bar.py
+dist-auxdir-many-subdirs-5/sub7/foo.c
+dist-auxdir-many-subdirs-5/sub6
+dist-auxdir-many-subdirs-5/sub6/Makefile.in
+dist-auxdir-many-subdirs-5/sub6/Makefile.am
+dist-auxdir-many-subdirs-5/sub6/bar.py
+dist-auxdir-many-subdirs-5/sub6/foo.c
+dist-auxdir-many-subdirs-5/sub9
+dist-auxdir-many-subdirs-5/sub9/Makefile.in
+dist-auxdir-many-subdirs-5/sub9/Makefile.am
+dist-auxdir-many-subdirs-5/sub9/bar.py
+dist-auxdir-many-subdirs-5/sub9/foo.c
+dist-auxdir-many-subdirs-5/configure.ac
+dist-auxdir-many-subdirs-5/sub4
+dist-auxdir-many-subdirs-5/sub4/Makefile.in
+dist-auxdir-many-subdirs-5/sub4/Makefile.am
+dist-auxdir-many-subdirs-5/sub4/bar.py
+dist-auxdir-many-subdirs-5/sub4/foo.c
+dist-auxdir-many-subdirs-5/sub3
+dist-auxdir-many-subdirs-5/sub3/Makefile.in
+dist-auxdir-many-subdirs-5/sub3/Makefile.am
+dist-auxdir-many-subdirs-5/sub3/bar.py
+dist-auxdir-many-subdirs-5/sub3/foo.c
+dist-auxdir-many-subdirs-5/sub5
+dist-auxdir-many-subdirs-5/sub5/Makefile.in
+dist-auxdir-many-subdirs-5/sub5/Makefile.am
+dist-auxdir-many-subdirs-5/sub5/bar.py
+dist-auxdir-many-subdirs-5/sub5/foo.c
+dist-auxdir-many-subdirs-5/configure
+dist-auxdir-many-subdirs-5/aclocal.m4
+dist-auxdir-many-subdirs-5/sub8
+dist-auxdir-many-subdirs-5/sub8/Makefile.in
+dist-auxdir-many-subdirs-5/sub8/Makefile.am
+dist-auxdir-many-subdirs-5/sub8/bar.py
+dist-auxdir-many-subdirs-5/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/test-driver
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d'
+if test -d "dist-auxdir-many-subdirs-5"; then find "dist-auxdir-many-subdirs-5" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-5" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-5"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-5" || mkdir "dist-auxdir-many-subdirs-5"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-5 distdir=../dist-auxdir-many-subdirs-5/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-5" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d/a/b/c/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-5"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T5.d'
++ find dist-auxdir-many-subdirs-5
+dist-auxdir-many-subdirs-5
+dist-auxdir-many-subdirs-5/sub1
+dist-auxdir-many-subdirs-5/sub1/Makefile.in
+dist-auxdir-many-subdirs-5/sub1/Makefile.am
+dist-auxdir-many-subdirs-5/sub1/bar.py
+dist-auxdir-many-subdirs-5/sub1/foo.c
+dist-auxdir-many-subdirs-5/Makefile.in
+dist-auxdir-many-subdirs-5/sub0
+dist-auxdir-many-subdirs-5/sub0/Makefile.in
+dist-auxdir-many-subdirs-5/sub0/Makefile.am
+dist-auxdir-many-subdirs-5/sub0/bar.py
+dist-auxdir-many-subdirs-5/sub0/foo.c
+dist-auxdir-many-subdirs-5/Makefile.am
+dist-auxdir-many-subdirs-5/a
+dist-auxdir-many-subdirs-5/a/b
+dist-auxdir-many-subdirs-5/a/b/c
+dist-auxdir-many-subdirs-5/a/b/c/py-compile
+dist-auxdir-many-subdirs-5/a/b/c/compile
+dist-auxdir-many-subdirs-5/a/b/c/test-driver
+dist-auxdir-many-subdirs-5/a/b/c/depcomp
+dist-auxdir-many-subdirs-5/a/b/c/install-sh
+dist-auxdir-many-subdirs-5/a/b/c/missing
+dist-auxdir-many-subdirs-5/sub2
+dist-auxdir-many-subdirs-5/sub2/Makefile.in
+dist-auxdir-many-subdirs-5/sub2/Makefile.am
+dist-auxdir-many-subdirs-5/sub2/bar.py
+dist-auxdir-many-subdirs-5/sub2/foo.c
+dist-auxdir-many-subdirs-5/sub7
+dist-auxdir-many-subdirs-5/sub7/Makefile.in
+dist-auxdir-many-subdirs-5/sub7/Makefile.am
+dist-auxdir-many-subdirs-5/sub7/bar.py
+dist-auxdir-many-subdirs-5/sub7/foo.c
+dist-auxdir-many-subdirs-5/sub6
+dist-auxdir-many-subdirs-5/sub6/Makefile.in
+dist-auxdir-many-subdirs-5/sub6/Makefile.am
+dist-auxdir-many-subdirs-5/sub6/bar.py
+dist-auxdir-many-subdirs-5/sub6/foo.c
+dist-auxdir-many-subdirs-5/sub9
+dist-auxdir-many-subdirs-5/sub9/Makefile.in
+dist-auxdir-many-subdirs-5/sub9/Makefile.am
+dist-auxdir-many-subdirs-5/sub9/bar.py
+dist-auxdir-many-subdirs-5/sub9/foo.c
+dist-auxdir-many-subdirs-5/configure.ac
+dist-auxdir-many-subdirs-5/sub4
+dist-auxdir-many-subdirs-5/sub4/Makefile.in
+dist-auxdir-many-subdirs-5/sub4/Makefile.am
+dist-auxdir-many-subdirs-5/sub4/bar.py
+dist-auxdir-many-subdirs-5/sub4/foo.c
+dist-auxdir-many-subdirs-5/sub3
+dist-auxdir-many-subdirs-5/sub3/Makefile.in
+dist-auxdir-many-subdirs-5/sub3/Makefile.am
+dist-auxdir-many-subdirs-5/sub3/bar.py
+dist-auxdir-many-subdirs-5/sub3/foo.c
+dist-auxdir-many-subdirs-5/sub5
+dist-auxdir-many-subdirs-5/sub5/Makefile.in
+dist-auxdir-many-subdirs-5/sub5/Makefile.am
+dist-auxdir-many-subdirs-5/sub5/bar.py
+dist-auxdir-many-subdirs-5/sub5/foo.c
+dist-auxdir-many-subdirs-5/configure
+dist-auxdir-many-subdirs-5/aclocal.m4
+dist-auxdir-many-subdirs-5/sub8
+dist-auxdir-many-subdirs-5/sub8/Makefile.in
+dist-auxdir-many-subdirs-5/sub8/Makefile.am
+dist-auxdir-many-subdirs-5/sub8/bar.py
+dist-auxdir-many-subdirs-5/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-5/a/b/c/test-driver
++ cd .
++ cd /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ do_check --add-missing a/b/c
++ case $1 in
++ add_missing=yes
++ shift
++ auxdir=a/b/c
++ count=6
++ mkdir T6.d
++ cd T6.d
++ distdir=dist-auxdir-many-subdirs-6
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ required_files='
+    install-sh
+    missing
+    compile
+    depcomp
+    py-compile
+    test-driver
+  '
++ echo 'SUBDIRS ='
++ suffixes='0 1 2 3 4 5 6 7 8 9'
++ for x in $suffixes
++ mkdir sub0
++ echo 'SUBDIRS += sub0'
++ echo 'AC_CONFIG_FILES([sub0/Makefile])'
++ cp Makefile.stub sub0/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub0/bar.py sub0/baz.el
++ for x in $suffixes
++ mkdir sub1
++ echo 'SUBDIRS += sub1'
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ cp Makefile.stub sub1/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub1/bar.py sub1/baz.el
++ for x in $suffixes
++ mkdir sub2
++ echo 'SUBDIRS += sub2'
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ cp Makefile.stub sub2/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub2/bar.py sub2/baz.el
++ for x in $suffixes
++ mkdir sub3
++ echo 'SUBDIRS += sub3'
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ cp Makefile.stub sub3/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub3/bar.py sub3/baz.el
++ for x in $suffixes
++ mkdir sub4
++ echo 'SUBDIRS += sub4'
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ cp Makefile.stub sub4/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub4/bar.py sub4/baz.el
++ for x in $suffixes
++ mkdir sub5
++ echo 'SUBDIRS += sub5'
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ cp Makefile.stub sub5/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub5/bar.py sub5/baz.el
++ for x in $suffixes
++ mkdir sub6
++ echo 'SUBDIRS += sub6'
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ cp Makefile.stub sub6/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub6/bar.py sub6/baz.el
++ for x in $suffixes
++ mkdir sub7
++ echo 'SUBDIRS += sub7'
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ cp Makefile.stub sub7/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub7/bar.py sub7/baz.el
++ for x in $suffixes
++ mkdir sub8
++ echo 'SUBDIRS += sub8'
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ cp Makefile.stub sub8/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub8/bar.py sub8/baz.el
++ for x in $suffixes
++ mkdir sub9
++ echo 'SUBDIRS += sub9'
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ cp Makefile.stub sub9/Makefile.am
++ echo 'int main (void) { return 0; }'
++ touch sub9/bar.py sub9/baz.el
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ /sources/automake-1.16.1/lib/install-sh -d a/b/c
++ test yes = yes
++ automake-1.16 --foreign -Werror -Wall -a --copy
+configure.ac:4: installing 'a/b/c/compile'
+configure.ac:3: installing 'a/b/c/install-sh'
+configure.ac:3: installing 'a/b/c/missing'
+sub0/Makefile.am: installing 'a/b/c/depcomp'
+sub0/Makefile.am:5: installing 'a/b/c/py-compile'
+parallel-tests: installing 'a/b/c/test-driver'
++ for f in $required_files
++ test -f a/b/c/install-sh
++ chmod a-w a/b/c/install-sh
++ for f in $required_files
++ test -f a/b/c/missing
++ chmod a-w a/b/c/missing
++ for f in $required_files
++ test -f a/b/c/compile
++ chmod a-w a/b/c/compile
++ for f in $required_files
++ test -f a/b/c/depcomp
++ chmod a-w a/b/c/depcomp
++ for f in $required_files
++ test -f a/b/c/py-compile
++ chmod a-w a/b/c/py-compile
++ for f in $required_files
++ test -f a/b/c/test-driver
++ chmod a-w a/b/c/test-driver
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build'
+if test -d "dist-auxdir-many-subdirs-6"; then find "dist-auxdir-many-subdirs-6" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-6" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-6"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-6" || mkdir "dist-auxdir-many-subdirs-6"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-6" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/a/b/c/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-6"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/build'
++ find dist-auxdir-many-subdirs-6
+dist-auxdir-many-subdirs-6
+dist-auxdir-many-subdirs-6/sub1
+dist-auxdir-many-subdirs-6/sub1/Makefile.in
+dist-auxdir-many-subdirs-6/sub1/Makefile.am
+dist-auxdir-many-subdirs-6/sub1/bar.py
+dist-auxdir-many-subdirs-6/sub1/foo.c
+dist-auxdir-many-subdirs-6/Makefile.in
+dist-auxdir-many-subdirs-6/sub0
+dist-auxdir-many-subdirs-6/sub0/Makefile.in
+dist-auxdir-many-subdirs-6/sub0/Makefile.am
+dist-auxdir-many-subdirs-6/sub0/bar.py
+dist-auxdir-many-subdirs-6/sub0/foo.c
+dist-auxdir-many-subdirs-6/Makefile.am
+dist-auxdir-many-subdirs-6/a
+dist-auxdir-many-subdirs-6/a/b
+dist-auxdir-many-subdirs-6/a/b/c
+dist-auxdir-many-subdirs-6/a/b/c/py-compile
+dist-auxdir-many-subdirs-6/a/b/c/compile
+dist-auxdir-many-subdirs-6/a/b/c/test-driver
+dist-auxdir-many-subdirs-6/a/b/c/depcomp
+dist-auxdir-many-subdirs-6/a/b/c/install-sh
+dist-auxdir-many-subdirs-6/a/b/c/missing
+dist-auxdir-many-subdirs-6/sub2
+dist-auxdir-many-subdirs-6/sub2/Makefile.in
+dist-auxdir-many-subdirs-6/sub2/Makefile.am
+dist-auxdir-many-subdirs-6/sub2/bar.py
+dist-auxdir-many-subdirs-6/sub2/foo.c
+dist-auxdir-many-subdirs-6/sub7
+dist-auxdir-many-subdirs-6/sub7/Makefile.in
+dist-auxdir-many-subdirs-6/sub7/Makefile.am
+dist-auxdir-many-subdirs-6/sub7/bar.py
+dist-auxdir-many-subdirs-6/sub7/foo.c
+dist-auxdir-many-subdirs-6/sub6
+dist-auxdir-many-subdirs-6/sub6/Makefile.in
+dist-auxdir-many-subdirs-6/sub6/Makefile.am
+dist-auxdir-many-subdirs-6/sub6/bar.py
+dist-auxdir-many-subdirs-6/sub6/foo.c
+dist-auxdir-many-subdirs-6/sub9
+dist-auxdir-many-subdirs-6/sub9/Makefile.in
+dist-auxdir-many-subdirs-6/sub9/Makefile.am
+dist-auxdir-many-subdirs-6/sub9/bar.py
+dist-auxdir-many-subdirs-6/sub9/foo.c
+dist-auxdir-many-subdirs-6/configure.ac
+dist-auxdir-many-subdirs-6/sub4
+dist-auxdir-many-subdirs-6/sub4/Makefile.in
+dist-auxdir-many-subdirs-6/sub4/Makefile.am
+dist-auxdir-many-subdirs-6/sub4/bar.py
+dist-auxdir-many-subdirs-6/sub4/foo.c
+dist-auxdir-many-subdirs-6/sub3
+dist-auxdir-many-subdirs-6/sub3/Makefile.in
+dist-auxdir-many-subdirs-6/sub3/Makefile.am
+dist-auxdir-many-subdirs-6/sub3/bar.py
+dist-auxdir-many-subdirs-6/sub3/foo.c
+dist-auxdir-many-subdirs-6/sub5
+dist-auxdir-many-subdirs-6/sub5/Makefile.in
+dist-auxdir-many-subdirs-6/sub5/Makefile.am
+dist-auxdir-many-subdirs-6/sub5/bar.py
+dist-auxdir-many-subdirs-6/sub5/foo.c
+dist-auxdir-many-subdirs-6/configure
+dist-auxdir-many-subdirs-6/aclocal.m4
+dist-auxdir-many-subdirs-6/sub8
+dist-auxdir-many-subdirs-6/sub8/Makefile.in
+dist-auxdir-many-subdirs-6/sub8/Makefile.am
+dist-auxdir-many-subdirs-6/sub8/bar.py
+dist-auxdir-many-subdirs-6/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/test-driver
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for a Python interpreter with version >= 2.2... none
+checking for emacs... no
+checking where .elc files should go... ${datadir}/emacs/site-lisp
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub0/Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub3/Makefile
+config.status: creating sub4/Makefile
+config.status: creating sub5/Makefile
+config.status: creating sub6/Makefile
+config.status: creating sub7/Makefile
+config.status: creating sub8/Makefile
+config.status: creating sub9/Makefile
+config.status: executing depfiles commands
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d'
+if test -d "dist-auxdir-many-subdirs-6"; then find "dist-auxdir-many-subdirs-6" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-auxdir-many-subdirs-6" || { sleep 5 && rm -rf "dist-auxdir-many-subdirs-6"; }; else :; fi
+test -d "dist-auxdir-many-subdirs-6" || mkdir "dist-auxdir-many-subdirs-6"
+ (cd sub0 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub0 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub0'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub0'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub0'
+ (cd sub1 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub1'
+ (cd sub2 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub2'
+ (cd sub3 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub3'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub3'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub3'
+ (cd sub4 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub4'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub4'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub4'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub4'
+ (cd sub5 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub5 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub5'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub5'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub5'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub5'
+ (cd sub6 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub6 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub6'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub6'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub6'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub6'
+ (cd sub7 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub7 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub7'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub7'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub7'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub7'
+ (cd sub8 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub8 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub8'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub8'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub8'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub8'
+ (cd sub9 && make  top_distdir=../dist-auxdir-many-subdirs-6 distdir=../dist-auxdir-many-subdirs-6/sub9 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub9'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub9'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub9'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/sub9'
+test -n "" \
+|| find "dist-auxdir-many-subdirs-6" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d/a/b/c/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-auxdir-many-subdirs-6"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir/T6.d'
++ find dist-auxdir-many-subdirs-6
+dist-auxdir-many-subdirs-6
+dist-auxdir-many-subdirs-6/sub1
+dist-auxdir-many-subdirs-6/sub1/Makefile.in
+dist-auxdir-many-subdirs-6/sub1/Makefile.am
+dist-auxdir-many-subdirs-6/sub1/bar.py
+dist-auxdir-many-subdirs-6/sub1/foo.c
+dist-auxdir-many-subdirs-6/Makefile.in
+dist-auxdir-many-subdirs-6/sub0
+dist-auxdir-many-subdirs-6/sub0/Makefile.in
+dist-auxdir-many-subdirs-6/sub0/Makefile.am
+dist-auxdir-many-subdirs-6/sub0/bar.py
+dist-auxdir-many-subdirs-6/sub0/foo.c
+dist-auxdir-many-subdirs-6/Makefile.am
+dist-auxdir-many-subdirs-6/a
+dist-auxdir-many-subdirs-6/a/b
+dist-auxdir-many-subdirs-6/a/b/c
+dist-auxdir-many-subdirs-6/a/b/c/py-compile
+dist-auxdir-many-subdirs-6/a/b/c/compile
+dist-auxdir-many-subdirs-6/a/b/c/test-driver
+dist-auxdir-many-subdirs-6/a/b/c/depcomp
+dist-auxdir-many-subdirs-6/a/b/c/install-sh
+dist-auxdir-many-subdirs-6/a/b/c/missing
+dist-auxdir-many-subdirs-6/sub2
+dist-auxdir-many-subdirs-6/sub2/Makefile.in
+dist-auxdir-many-subdirs-6/sub2/Makefile.am
+dist-auxdir-many-subdirs-6/sub2/bar.py
+dist-auxdir-many-subdirs-6/sub2/foo.c
+dist-auxdir-many-subdirs-6/sub7
+dist-auxdir-many-subdirs-6/sub7/Makefile.in
+dist-auxdir-many-subdirs-6/sub7/Makefile.am
+dist-auxdir-many-subdirs-6/sub7/bar.py
+dist-auxdir-many-subdirs-6/sub7/foo.c
+dist-auxdir-many-subdirs-6/sub6
+dist-auxdir-many-subdirs-6/sub6/Makefile.in
+dist-auxdir-many-subdirs-6/sub6/Makefile.am
+dist-auxdir-many-subdirs-6/sub6/bar.py
+dist-auxdir-many-subdirs-6/sub6/foo.c
+dist-auxdir-many-subdirs-6/sub9
+dist-auxdir-many-subdirs-6/sub9/Makefile.in
+dist-auxdir-many-subdirs-6/sub9/Makefile.am
+dist-auxdir-many-subdirs-6/sub9/bar.py
+dist-auxdir-many-subdirs-6/sub9/foo.c
+dist-auxdir-many-subdirs-6/configure.ac
+dist-auxdir-many-subdirs-6/sub4
+dist-auxdir-many-subdirs-6/sub4/Makefile.in
+dist-auxdir-many-subdirs-6/sub4/Makefile.am
+dist-auxdir-many-subdirs-6/sub4/bar.py
+dist-auxdir-many-subdirs-6/sub4/foo.c
+dist-auxdir-many-subdirs-6/sub3
+dist-auxdir-many-subdirs-6/sub3/Makefile.in
+dist-auxdir-many-subdirs-6/sub3/Makefile.am
+dist-auxdir-many-subdirs-6/sub3/bar.py
+dist-auxdir-many-subdirs-6/sub3/foo.c
+dist-auxdir-many-subdirs-6/sub5
+dist-auxdir-many-subdirs-6/sub5/Makefile.in
+dist-auxdir-many-subdirs-6/sub5/Makefile.am
+dist-auxdir-many-subdirs-6/sub5/bar.py
+dist-auxdir-many-subdirs-6/sub5/foo.c
+dist-auxdir-many-subdirs-6/configure
+dist-auxdir-many-subdirs-6/aclocal.m4
+dist-auxdir-many-subdirs-6/sub8
+dist-auxdir-many-subdirs-6/sub8/Makefile.in
+dist-auxdir-many-subdirs-6/sub8/Makefile.am
+dist-auxdir-many-subdirs-6/sub8/bar.py
+dist-auxdir-many-subdirs-6/sub8/foo.c
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/install-sh
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/missing
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/depcomp
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/py-compile
++ for f in $required_files
++ test -f dist-auxdir-many-subdirs-6/a/b/c/test-driver
++ cd .
++ cd /sources/automake-1.16.1/t/dist-auxdir-many-subdirs.dir
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dist-auxdir-many-subdirs.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dist-auxdir-many-subdirs.dir
++ set +x
+PASS t/dist-auxdir-many-subdirs.sh (exit status: 0)

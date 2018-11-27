@@ -1,0 +1,60 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tests-environment.dir
++ cat
++ cat
++ cat
++ chmod a+x foo.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ FOO=bad
++ TESTS_ENVIRONMENT=FOO=ok
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tests-environment.dir'
+PASS: foo.test
+=============
+1 test passed
+=============
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tests-environment.dir'
++ FOO=ok
++ TESTS_ENVIRONMENT=FOO=bad
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tests-environment.dir'
+FAIL: foo.test
+==================
+1 of 1 test failed
+==================
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tests-environment.dir'
+make: *** [Makefile:539: check-am] Error 2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tests-environment.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tests-environment.dir
++ set +x
+PASS t/tests-environment.sh (exit status: 0)

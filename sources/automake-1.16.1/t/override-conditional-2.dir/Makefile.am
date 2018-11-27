@@ -1,0 +1,4 @@
+if COND
+all:
+	:
+endif

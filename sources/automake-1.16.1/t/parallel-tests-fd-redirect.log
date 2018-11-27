@@ -1,0 +1,114 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-fd-redirect.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ cat
++ chmod a+x foo.sh
++ cat
++ chmod a+x foo.sh bar
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ st=0
++ grep '^bar\.log:.*bar' Makefile
+bar.log: bar
++ grep '^foo\.log:' Makefile
++ test 0 -eq 0
++ run_make -O -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fd-redirect.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fd-redirect.dir'
+ foofoofoo
+PASS: foo.sh
+ barbarbar
+PASS: bar
+============================================================================
+Testsuite summary for parallel-tests-fd-redirect 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fd-redirect.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fd-redirect.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ cat foo.log
+PASS foo.sh (exit status: 0)
++ cat bar.log
+PASS bar (exit status: 0)
++ test 0 -eq 0
++ grep '^ foofoofoo$' stdout
+ foofoofoo
++ grep '^ barbarbar$' stdout
+ barbarbar
++ /bin/grep -E '(foofoofoo|barbarbar)' bar.log config.log foo.log test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-fd-redirect.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-fd-redirect.dir
++ set +x
+PASS t/parallel-tests-fd-redirect.sh (exit status: 0)

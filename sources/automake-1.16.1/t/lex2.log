@@ -1,0 +1,52 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lex2.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: Lex source seen but 'LEX' is undefined
+Makefile.am:   The usual way to define 'LEX' is to add 'AM_PROG_LEX'
+Makefile.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
+configure.ac: installing './ylwrap'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'LEX.* undefined' stderr
+Makefile.am: error: Lex source seen but 'LEX' is undefined
++ grep 'add .*AM_PROG_LEX' stderr
+Makefile.am:   The usual way to define 'LEX' is to add 'AM_PROG_LEX'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/lex2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/lex2.dir
++ set +x
+PASS t/lex2.sh (exit status: 0)

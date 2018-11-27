@@ -1,0 +1,2665 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-fancy2.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok'\'''
++ printf '%s\n' 'ok'\'''
++ xecho 'not ok'\'''
++ printf '%s\n' 'not ok'\'''
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP'\'''
++ printf '%s\n' 'ok# SKIP'\'''
++ test 'x'\''' '!=' x#
++ test 'x'\''' '!=' 'x\'
++ xecho 'ok'\''#SKIP'
++ printf '%s\n' 'ok'\''#SKIP'
++ xecho 'ok'\''#   		 SKIP'
++ printf '%s\n' 'ok'\''#   		 SKIP'
++ xecho 'ok'\''#SKIP'\'''
++ printf '%s\n' 'ok'\''#SKIP'\'''
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO'\'''
++ printf '%s\n' 'not ok# TODO'\'''
++ test 'x'\''' '!=' x#
++ test 'x'\''' '!=' 'x\'
++ xecho 'not ok'\''#TODO'
++ printf '%s\n' 'not ok'\''#TODO'
++ xecho 'not ok'\''#   		 TODO'
++ printf '%s\n' 'not ok'\''#   		 TODO'
++ xecho 'not ok'\''#TODO'\'''
++ printf '%s\n' 'not ok'\''#TODO'\'''
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO'\'''
++ printf '%s\n' 'ok# TODO'\'''
++ test 'x'\''' '!=' x#
++ test 'x'\''' '!=' 'x\'
++ xecho 'ok'\''#TODO'
++ printf '%s\n' 'ok'\''#TODO'
++ xecho 'ok'\''#   		 TODO'
++ printf '%s\n' 'ok'\''#   		 TODO'
++ xecho 'ok'\''#TODO'\'''
++ printf '%s\n' 'ok'\''#TODO'\'''
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok"'
++ printf '%s\n' 'ok"'
++ xecho 'not ok"'
++ printf '%s\n' 'not ok"'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP"'
++ printf '%s\n' 'ok# SKIP"'
++ test 'x"' '!=' x#
++ test 'x"' '!=' 'x\'
++ xecho 'ok"#SKIP'
++ printf '%s\n' 'ok"#SKIP'
++ xecho 'ok"#   		 SKIP'
++ printf '%s\n' 'ok"#   		 SKIP'
++ xecho 'ok"#SKIP"'
++ printf '%s\n' 'ok"#SKIP"'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO"'
++ printf '%s\n' 'not ok# TODO"'
++ test 'x"' '!=' x#
++ test 'x"' '!=' 'x\'
++ xecho 'not ok"#TODO'
++ printf '%s\n' 'not ok"#TODO'
++ xecho 'not ok"#   		 TODO'
++ printf '%s\n' 'not ok"#   		 TODO'
++ xecho 'not ok"#TODO"'
++ printf '%s\n' 'not ok"#TODO"'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO"'
++ printf '%s\n' 'ok# TODO"'
++ test 'x"' '!=' x#
++ test 'x"' '!=' 'x\'
++ xecho 'ok"#TODO'
++ printf '%s\n' 'ok"#TODO'
++ xecho 'ok"#   		 TODO'
++ printf '%s\n' 'ok"#   		 TODO'
++ xecho 'ok"#TODO"'
++ printf '%s\n' 'ok"#TODO"'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok`'
++ printf '%s\n' 'ok`'
++ xecho 'not ok`'
++ printf '%s\n' 'not ok`'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP`'
++ printf '%s\n' 'ok# SKIP`'
++ test 'x`' '!=' x#
++ test 'x`' '!=' 'x\'
++ xecho 'ok`#SKIP'
++ printf '%s\n' 'ok`#SKIP'
++ xecho 'ok`#   		 SKIP'
++ printf '%s\n' 'ok`#   		 SKIP'
++ xecho 'ok`#SKIP`'
++ printf '%s\n' 'ok`#SKIP`'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO`'
++ printf '%s\n' 'not ok# TODO`'
++ test 'x`' '!=' x#
++ test 'x`' '!=' 'x\'
++ xecho 'not ok`#TODO'
++ printf '%s\n' 'not ok`#TODO'
++ xecho 'not ok`#   		 TODO'
++ printf '%s\n' 'not ok`#   		 TODO'
++ xecho 'not ok`#TODO`'
++ printf '%s\n' 'not ok`#TODO`'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO`'
++ printf '%s\n' 'ok# TODO`'
++ test 'x`' '!=' x#
++ test 'x`' '!=' 'x\'
++ xecho 'ok`#TODO'
++ printf '%s\n' 'ok`#TODO'
++ xecho 'ok`#   		 TODO'
++ printf '%s\n' 'ok`#   		 TODO'
++ xecho 'ok`#TODO`'
++ printf '%s\n' 'ok`#TODO`'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok#
++ printf '%s\n' ok#
++ xecho 'not ok#'
++ printf '%s\n' 'not ok#'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP#'
++ printf '%s\n' 'ok# SKIP#'
++ test x# '!=' x#
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO#'
++ printf '%s\n' 'not ok# TODO#'
++ test x# '!=' x#
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO#'
++ printf '%s\n' 'ok# TODO#'
++ test x# '!=' x#
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok$'
++ printf '%s\n' 'ok$'
++ xecho 'not ok$'
++ printf '%s\n' 'not ok$'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP$'
++ printf '%s\n' 'ok# SKIP$'
++ test 'x$' '!=' x#
++ test 'x$' '!=' 'x\'
++ xecho 'ok$#SKIP'
++ printf '%s\n' 'ok$#SKIP'
++ xecho 'ok$#   		 SKIP'
++ printf '%s\n' 'ok$#   		 SKIP'
++ xecho 'ok$#SKIP$'
++ printf '%s\n' 'ok$#SKIP$'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO$'
++ printf '%s\n' 'not ok# TODO$'
++ test 'x$' '!=' x#
++ test 'x$' '!=' 'x\'
++ xecho 'not ok$#TODO'
++ printf '%s\n' 'not ok$#TODO'
++ xecho 'not ok$#   		 TODO'
++ printf '%s\n' 'not ok$#   		 TODO'
++ xecho 'not ok$#TODO$'
++ printf '%s\n' 'not ok$#TODO$'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO$'
++ printf '%s\n' 'ok# TODO$'
++ test 'x$' '!=' x#
++ test 'x$' '!=' 'x\'
++ xecho 'ok$#TODO'
++ printf '%s\n' 'ok$#TODO'
++ xecho 'ok$#   		 TODO'
++ printf '%s\n' 'ok$#   		 TODO'
++ xecho 'ok$#TODO$'
++ printf '%s\n' 'ok$#TODO$'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok!'
++ printf '%s\n' 'ok!'
++ xecho 'not ok!'
++ printf '%s\n' 'not ok!'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP!'
++ printf '%s\n' 'ok# SKIP!'
++ test 'x!' '!=' x#
++ test 'x!' '!=' 'x\'
++ xecho 'ok!#SKIP'
++ printf '%s\n' 'ok!#SKIP'
++ xecho 'ok!#   		 SKIP'
++ printf '%s\n' 'ok!#   		 SKIP'
++ xecho 'ok!#SKIP!'
++ printf '%s\n' 'ok!#SKIP!'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO!'
++ printf '%s\n' 'not ok# TODO!'
++ test 'x!' '!=' x#
++ test 'x!' '!=' 'x\'
++ xecho 'not ok!#TODO'
++ printf '%s\n' 'not ok!#TODO'
++ xecho 'not ok!#   		 TODO'
++ printf '%s\n' 'not ok!#   		 TODO'
++ xecho 'not ok!#TODO!'
++ printf '%s\n' 'not ok!#TODO!'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO!'
++ printf '%s\n' 'ok# TODO!'
++ test 'x!' '!=' x#
++ test 'x!' '!=' 'x\'
++ xecho 'ok!#TODO'
++ printf '%s\n' 'ok!#TODO'
++ xecho 'ok!#   		 TODO'
++ printf '%s\n' 'ok!#   		 TODO'
++ xecho 'ok!#TODO!'
++ printf '%s\n' 'ok!#TODO!'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok\'
++ printf '%s\n' 'ok\'
++ xecho 'not ok\'
++ printf '%s\n' 'not ok\'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP\'
++ printf '%s\n' 'ok# SKIP\'
++ test 'x\' '!=' x#
++ test 'x\' '!=' 'x\'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO\'
++ printf '%s\n' 'not ok# TODO\'
++ test 'x\' '!=' x#
++ test 'x\' '!=' 'x\'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO\'
++ printf '%s\n' 'ok# TODO\'
++ test 'x\' '!=' x#
++ test 'x\' '!=' 'x\'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok/
++ printf '%s\n' ok/
++ xecho 'not ok/'
++ printf '%s\n' 'not ok/'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP/'
++ printf '%s\n' 'ok# SKIP/'
++ test x/ '!=' x#
++ test x/ '!=' 'x\'
++ xecho ok/#SKIP
++ printf '%s\n' ok/#SKIP
++ xecho 'ok/#   		 SKIP'
++ printf '%s\n' 'ok/#   		 SKIP'
++ xecho ok/#SKIP/
++ printf '%s\n' ok/#SKIP/
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO/'
++ printf '%s\n' 'not ok# TODO/'
++ test x/ '!=' x#
++ test x/ '!=' 'x\'
++ xecho 'not ok/#TODO'
++ printf '%s\n' 'not ok/#TODO'
++ xecho 'not ok/#   		 TODO'
++ printf '%s\n' 'not ok/#   		 TODO'
++ xecho 'not ok/#TODO/'
++ printf '%s\n' 'not ok/#TODO/'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO/'
++ printf '%s\n' 'ok# TODO/'
++ test x/ '!=' x#
++ test x/ '!=' 'x\'
++ xecho ok/#TODO
++ printf '%s\n' ok/#TODO
++ xecho 'ok/#   		 TODO'
++ printf '%s\n' 'ok/#   		 TODO'
++ xecho ok/#TODO/
++ printf '%s\n' ok/#TODO/
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok&'
++ printf '%s\n' 'ok&'
++ xecho 'not ok&'
++ printf '%s\n' 'not ok&'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP&'
++ printf '%s\n' 'ok# SKIP&'
++ test 'x&' '!=' x#
++ test 'x&' '!=' 'x\'
++ xecho 'ok&#SKIP'
++ printf '%s\n' 'ok&#SKIP'
++ xecho 'ok&#   		 SKIP'
++ printf '%s\n' 'ok&#   		 SKIP'
++ xecho 'ok&#SKIP&'
++ printf '%s\n' 'ok&#SKIP&'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO&'
++ printf '%s\n' 'not ok# TODO&'
++ test 'x&' '!=' x#
++ test 'x&' '!=' 'x\'
++ xecho 'not ok&#TODO'
++ printf '%s\n' 'not ok&#TODO'
++ xecho 'not ok&#   		 TODO'
++ printf '%s\n' 'not ok&#   		 TODO'
++ xecho 'not ok&#TODO&'
++ printf '%s\n' 'not ok&#TODO&'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO&'
++ printf '%s\n' 'ok# TODO&'
++ test 'x&' '!=' x#
++ test 'x&' '!=' 'x\'
++ xecho 'ok&#TODO'
++ printf '%s\n' 'ok&#TODO'
++ xecho 'ok&#   		 TODO'
++ printf '%s\n' 'ok&#   		 TODO'
++ xecho 'ok&#TODO&'
++ printf '%s\n' 'ok&#TODO&'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok%
++ printf '%s\n' ok%
++ xecho 'not ok%'
++ printf '%s\n' 'not ok%'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP%'
++ printf '%s\n' 'ok# SKIP%'
++ test x% '!=' x#
++ test x% '!=' 'x\'
++ xecho ok%#SKIP
++ printf '%s\n' ok%#SKIP
++ xecho 'ok%#   		 SKIP'
++ printf '%s\n' 'ok%#   		 SKIP'
++ xecho ok%#SKIP%
++ printf '%s\n' ok%#SKIP%
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO%'
++ printf '%s\n' 'not ok# TODO%'
++ test x% '!=' x#
++ test x% '!=' 'x\'
++ xecho 'not ok%#TODO'
++ printf '%s\n' 'not ok%#TODO'
++ xecho 'not ok%#   		 TODO'
++ printf '%s\n' 'not ok%#   		 TODO'
++ xecho 'not ok%#TODO%'
++ printf '%s\n' 'not ok%#TODO%'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO%'
++ printf '%s\n' 'ok# TODO%'
++ test x% '!=' x#
++ test x% '!=' 'x\'
++ xecho ok%#TODO
++ printf '%s\n' ok%#TODO
++ xecho 'ok%#   		 TODO'
++ printf '%s\n' 'ok%#   		 TODO'
++ xecho ok%#TODO%
++ printf '%s\n' ok%#TODO%
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok('
++ printf '%s\n' 'ok('
++ xecho 'not ok('
++ printf '%s\n' 'not ok('
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP('
++ printf '%s\n' 'ok# SKIP('
++ test 'x(' '!=' x#
++ test 'x(' '!=' 'x\'
++ xecho 'ok(#SKIP'
++ printf '%s\n' 'ok(#SKIP'
++ xecho 'ok(#   		 SKIP'
++ printf '%s\n' 'ok(#   		 SKIP'
++ xecho 'ok(#SKIP('
++ printf '%s\n' 'ok(#SKIP('
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO('
++ printf '%s\n' 'not ok# TODO('
++ test 'x(' '!=' x#
++ test 'x(' '!=' 'x\'
++ xecho 'not ok(#TODO'
++ printf '%s\n' 'not ok(#TODO'
++ xecho 'not ok(#   		 TODO'
++ printf '%s\n' 'not ok(#   		 TODO'
++ xecho 'not ok(#TODO('
++ printf '%s\n' 'not ok(#TODO('
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO('
++ printf '%s\n' 'ok# TODO('
++ test 'x(' '!=' x#
++ test 'x(' '!=' 'x\'
++ xecho 'ok(#TODO'
++ printf '%s\n' 'ok(#TODO'
++ xecho 'ok(#   		 TODO'
++ printf '%s\n' 'ok(#   		 TODO'
++ xecho 'ok(#TODO('
++ printf '%s\n' 'ok(#TODO('
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok)'
++ printf '%s\n' 'ok)'
++ xecho 'not ok)'
++ printf '%s\n' 'not ok)'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP)'
++ printf '%s\n' 'ok# SKIP)'
++ test 'x)' '!=' x#
++ test 'x)' '!=' 'x\'
++ xecho 'ok)#SKIP'
++ printf '%s\n' 'ok)#SKIP'
++ xecho 'ok)#   		 SKIP'
++ printf '%s\n' 'ok)#   		 SKIP'
++ xecho 'ok)#SKIP)'
++ printf '%s\n' 'ok)#SKIP)'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO)'
++ printf '%s\n' 'not ok# TODO)'
++ test 'x)' '!=' x#
++ test 'x)' '!=' 'x\'
++ xecho 'not ok)#TODO'
++ printf '%s\n' 'not ok)#TODO'
++ xecho 'not ok)#   		 TODO'
++ printf '%s\n' 'not ok)#   		 TODO'
++ xecho 'not ok)#TODO)'
++ printf '%s\n' 'not ok)#TODO)'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO)'
++ printf '%s\n' 'ok# TODO)'
++ test 'x)' '!=' x#
++ test 'x)' '!=' 'x\'
++ xecho 'ok)#TODO'
++ printf '%s\n' 'ok)#TODO'
++ xecho 'ok)#   		 TODO'
++ printf '%s\n' 'ok)#   		 TODO'
++ xecho 'ok)#TODO)'
++ printf '%s\n' 'ok)#TODO)'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok|'
++ printf '%s\n' 'ok|'
++ xecho 'not ok|'
++ printf '%s\n' 'not ok|'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP|'
++ printf '%s\n' 'ok# SKIP|'
++ test 'x|' '!=' x#
++ test 'x|' '!=' 'x\'
++ xecho 'ok|#SKIP'
++ printf '%s\n' 'ok|#SKIP'
++ xecho 'ok|#   		 SKIP'
++ printf '%s\n' 'ok|#   		 SKIP'
++ xecho 'ok|#SKIP|'
++ printf '%s\n' 'ok|#SKIP|'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO|'
++ printf '%s\n' 'not ok# TODO|'
++ test 'x|' '!=' x#
++ test 'x|' '!=' 'x\'
++ xecho 'not ok|#TODO'
++ printf '%s\n' 'not ok|#TODO'
++ xecho 'not ok|#   		 TODO'
++ printf '%s\n' 'not ok|#   		 TODO'
++ xecho 'not ok|#TODO|'
++ printf '%s\n' 'not ok|#TODO|'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO|'
++ printf '%s\n' 'ok# TODO|'
++ test 'x|' '!=' x#
++ test 'x|' '!=' 'x\'
++ xecho 'ok|#TODO'
++ printf '%s\n' 'ok|#TODO'
++ xecho 'ok|#   		 TODO'
++ printf '%s\n' 'ok|#   		 TODO'
++ xecho 'ok|#TODO|'
++ printf '%s\n' 'ok|#TODO|'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok^'
++ printf '%s\n' 'ok^'
++ xecho 'not ok^'
++ printf '%s\n' 'not ok^'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP^'
++ printf '%s\n' 'ok# SKIP^'
++ test 'x^' '!=' x#
++ test 'x^' '!=' 'x\'
++ xecho 'ok^#SKIP'
++ printf '%s\n' 'ok^#SKIP'
++ xecho 'ok^#   		 SKIP'
++ printf '%s\n' 'ok^#   		 SKIP'
++ xecho 'ok^#SKIP^'
++ printf '%s\n' 'ok^#SKIP^'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO^'
++ printf '%s\n' 'not ok# TODO^'
++ test 'x^' '!=' x#
++ test 'x^' '!=' 'x\'
++ xecho 'not ok^#TODO'
++ printf '%s\n' 'not ok^#TODO'
++ xecho 'not ok^#   		 TODO'
++ printf '%s\n' 'not ok^#   		 TODO'
++ xecho 'not ok^#TODO^'
++ printf '%s\n' 'not ok^#TODO^'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO^'
++ printf '%s\n' 'ok# TODO^'
++ test 'x^' '!=' x#
++ test 'x^' '!=' 'x\'
++ xecho 'ok^#TODO'
++ printf '%s\n' 'ok^#TODO'
++ xecho 'ok^#   		 TODO'
++ printf '%s\n' 'ok^#   		 TODO'
++ xecho 'ok^#TODO^'
++ printf '%s\n' 'ok^#TODO^'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok~
++ printf '%s\n' ok~
++ xecho 'not ok~'
++ printf '%s\n' 'not ok~'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP~'
++ printf '%s\n' 'ok# SKIP~'
++ test x~ '!=' x#
++ test x~ '!=' 'x\'
++ xecho ok~#SKIP
++ printf '%s\n' ok~#SKIP
++ xecho 'ok~#   		 SKIP'
++ printf '%s\n' 'ok~#   		 SKIP'
++ xecho ok~#SKIP~
++ printf '%s\n' ok~#SKIP~
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO~'
++ printf '%s\n' 'not ok# TODO~'
++ test x~ '!=' x#
++ test x~ '!=' 'x\'
++ xecho 'not ok~#TODO'
++ printf '%s\n' 'not ok~#TODO'
++ xecho 'not ok~#   		 TODO'
++ printf '%s\n' 'not ok~#   		 TODO'
++ xecho 'not ok~#TODO~'
++ printf '%s\n' 'not ok~#TODO~'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO~'
++ printf '%s\n' 'ok# TODO~'
++ test x~ '!=' x#
++ test x~ '!=' 'x\'
++ xecho ok~#TODO
++ printf '%s\n' ok~#TODO
++ xecho 'ok~#   		 TODO'
++ printf '%s\n' 'ok~#   		 TODO'
++ xecho ok~#TODO~
++ printf '%s\n' ok~#TODO~
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok?'
++ printf '%s\n' 'ok?'
++ xecho 'not ok?'
++ printf '%s\n' 'not ok?'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP?'
++ printf '%s\n' 'ok# SKIP?'
++ test 'x?' '!=' x#
++ test 'x?' '!=' 'x\'
++ xecho 'ok?#SKIP'
++ printf '%s\n' 'ok?#SKIP'
++ xecho 'ok?#   		 SKIP'
++ printf '%s\n' 'ok?#   		 SKIP'
++ xecho 'ok?#SKIP?'
++ printf '%s\n' 'ok?#SKIP?'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO?'
++ printf '%s\n' 'not ok# TODO?'
++ test 'x?' '!=' x#
++ test 'x?' '!=' 'x\'
++ xecho 'not ok?#TODO'
++ printf '%s\n' 'not ok?#TODO'
++ xecho 'not ok?#   		 TODO'
++ printf '%s\n' 'not ok?#   		 TODO'
++ xecho 'not ok?#TODO?'
++ printf '%s\n' 'not ok?#TODO?'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO?'
++ printf '%s\n' 'ok# TODO?'
++ test 'x?' '!=' x#
++ test 'x?' '!=' 'x\'
++ xecho 'ok?#TODO'
++ printf '%s\n' 'ok?#TODO'
++ xecho 'ok?#   		 TODO'
++ printf '%s\n' 'ok?#   		 TODO'
++ xecho 'ok?#TODO?'
++ printf '%s\n' 'ok?#TODO?'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok*'
++ printf '%s\n' 'ok*'
++ xecho 'not ok*'
++ printf '%s\n' 'not ok*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP*'
++ printf '%s\n' 'ok# SKIP*'
++ test 'x*' '!=' x#
++ test 'x*' '!=' 'x\'
++ xecho 'ok*#SKIP'
++ printf '%s\n' 'ok*#SKIP'
++ xecho 'ok*#   		 SKIP'
++ printf '%s\n' 'ok*#   		 SKIP'
++ xecho 'ok*#SKIP*'
++ printf '%s\n' 'ok*#SKIP*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO*'
++ printf '%s\n' 'not ok# TODO*'
++ test 'x*' '!=' x#
++ test 'x*' '!=' 'x\'
++ xecho 'not ok*#TODO'
++ printf '%s\n' 'not ok*#TODO'
++ xecho 'not ok*#   		 TODO'
++ printf '%s\n' 'not ok*#   		 TODO'
++ xecho 'not ok*#TODO*'
++ printf '%s\n' 'not ok*#TODO*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO*'
++ printf '%s\n' 'ok# TODO*'
++ test 'x*' '!=' x#
++ test 'x*' '!=' 'x\'
++ xecho 'ok*#TODO'
++ printf '%s\n' 'ok*#TODO'
++ xecho 'ok*#   		 TODO'
++ printf '%s\n' 'ok*#   		 TODO'
++ xecho 'ok*#TODO*'
++ printf '%s\n' 'ok*#TODO*'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok+
++ printf '%s\n' ok+
++ xecho 'not ok+'
++ printf '%s\n' 'not ok+'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP+'
++ printf '%s\n' 'ok# SKIP+'
++ test x+ '!=' x#
++ test x+ '!=' 'x\'
++ xecho ok+#SKIP
++ printf '%s\n' ok+#SKIP
++ xecho 'ok+#   		 SKIP'
++ printf '%s\n' 'ok+#   		 SKIP'
++ xecho ok+#SKIP+
++ printf '%s\n' ok+#SKIP+
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO+'
++ printf '%s\n' 'not ok# TODO+'
++ test x+ '!=' x#
++ test x+ '!=' 'x\'
++ xecho 'not ok+#TODO'
++ printf '%s\n' 'not ok+#TODO'
++ xecho 'not ok+#   		 TODO'
++ printf '%s\n' 'not ok+#   		 TODO'
++ xecho 'not ok+#TODO+'
++ printf '%s\n' 'not ok+#TODO+'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO+'
++ printf '%s\n' 'ok# TODO+'
++ test x+ '!=' x#
++ test x+ '!=' 'x\'
++ xecho ok+#TODO
++ printf '%s\n' ok+#TODO
++ xecho 'ok+#   		 TODO'
++ printf '%s\n' 'ok+#   		 TODO'
++ xecho ok+#TODO+
++ printf '%s\n' ok+#TODO+
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok-
++ printf '%s\n' ok-
++ xecho 'not ok-'
++ printf '%s\n' 'not ok-'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP-'
++ printf '%s\n' 'ok# SKIP-'
++ test x- '!=' x#
++ test x- '!=' 'x\'
++ xecho ok-#SKIP
++ printf '%s\n' ok-#SKIP
++ xecho 'ok-#   		 SKIP'
++ printf '%s\n' 'ok-#   		 SKIP'
++ xecho ok-#SKIP-
++ printf '%s\n' ok-#SKIP-
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO-'
++ printf '%s\n' 'not ok# TODO-'
++ test x- '!=' x#
++ test x- '!=' 'x\'
++ xecho 'not ok-#TODO'
++ printf '%s\n' 'not ok-#TODO'
++ xecho 'not ok-#   		 TODO'
++ printf '%s\n' 'not ok-#   		 TODO'
++ xecho 'not ok-#TODO-'
++ printf '%s\n' 'not ok-#TODO-'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO-'
++ printf '%s\n' 'ok# TODO-'
++ test x- '!=' x#
++ test x- '!=' 'x\'
++ xecho ok-#TODO
++ printf '%s\n' ok-#TODO
++ xecho 'ok-#   		 TODO'
++ printf '%s\n' 'ok-#   		 TODO'
++ xecho ok-#TODO-
++ printf '%s\n' ok-#TODO-
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok,
++ printf '%s\n' ok,
++ xecho 'not ok,'
++ printf '%s\n' 'not ok,'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP,'
++ printf '%s\n' 'ok# SKIP,'
++ test x, '!=' x#
++ test x, '!=' 'x\'
++ xecho ok,#SKIP
++ printf '%s\n' ok,#SKIP
++ xecho 'ok,#   		 SKIP'
++ printf '%s\n' 'ok,#   		 SKIP'
++ xecho ok,#SKIP,
++ printf '%s\n' ok,#SKIP,
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO,'
++ printf '%s\n' 'not ok# TODO,'
++ test x, '!=' x#
++ test x, '!=' 'x\'
++ xecho 'not ok,#TODO'
++ printf '%s\n' 'not ok,#TODO'
++ xecho 'not ok,#   		 TODO'
++ printf '%s\n' 'not ok,#   		 TODO'
++ xecho 'not ok,#TODO,'
++ printf '%s\n' 'not ok,#TODO,'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO,'
++ printf '%s\n' 'ok# TODO,'
++ test x, '!=' x#
++ test x, '!=' 'x\'
++ xecho ok,#TODO
++ printf '%s\n' ok,#TODO
++ xecho 'ok,#   		 TODO'
++ printf '%s\n' 'ok,#   		 TODO'
++ xecho ok,#TODO,
++ printf '%s\n' ok,#TODO,
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok:
++ printf '%s\n' ok:
++ xecho 'not ok:'
++ printf '%s\n' 'not ok:'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP:'
++ printf '%s\n' 'ok# SKIP:'
++ test x: '!=' x#
++ test x: '!=' 'x\'
++ xecho ok:#SKIP
++ printf '%s\n' ok:#SKIP
++ xecho 'ok:#   		 SKIP'
++ printf '%s\n' 'ok:#   		 SKIP'
++ xecho ok:#SKIP:
++ printf '%s\n' ok:#SKIP:
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO:'
++ printf '%s\n' 'not ok# TODO:'
++ test x: '!=' x#
++ test x: '!=' 'x\'
++ xecho 'not ok:#TODO'
++ printf '%s\n' 'not ok:#TODO'
++ xecho 'not ok:#   		 TODO'
++ printf '%s\n' 'not ok:#   		 TODO'
++ xecho 'not ok:#TODO:'
++ printf '%s\n' 'not ok:#TODO:'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO:'
++ printf '%s\n' 'ok# TODO:'
++ test x: '!=' x#
++ test x: '!=' 'x\'
++ xecho ok:#TODO
++ printf '%s\n' ok:#TODO
++ xecho 'ok:#   		 TODO'
++ printf '%s\n' 'ok:#   		 TODO'
++ xecho ok:#TODO:
++ printf '%s\n' ok:#TODO:
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok;'
++ printf '%s\n' 'ok;'
++ xecho 'not ok;'
++ printf '%s\n' 'not ok;'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP;'
++ printf '%s\n' 'ok# SKIP;'
++ test 'x;' '!=' x#
++ test 'x;' '!=' 'x\'
++ xecho 'ok;#SKIP'
++ printf '%s\n' 'ok;#SKIP'
++ xecho 'ok;#   		 SKIP'
++ printf '%s\n' 'ok;#   		 SKIP'
++ xecho 'ok;#SKIP;'
++ printf '%s\n' 'ok;#SKIP;'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO;'
++ printf '%s\n' 'not ok# TODO;'
++ test 'x;' '!=' x#
++ test 'x;' '!=' 'x\'
++ xecho 'not ok;#TODO'
++ printf '%s\n' 'not ok;#TODO'
++ xecho 'not ok;#   		 TODO'
++ printf '%s\n' 'not ok;#   		 TODO'
++ xecho 'not ok;#TODO;'
++ printf '%s\n' 'not ok;#TODO;'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO;'
++ printf '%s\n' 'ok# TODO;'
++ test 'x;' '!=' x#
++ test 'x;' '!=' 'x\'
++ xecho 'ok;#TODO'
++ printf '%s\n' 'ok;#TODO'
++ xecho 'ok;#   		 TODO'
++ printf '%s\n' 'ok;#   		 TODO'
++ xecho 'ok;#TODO;'
++ printf '%s\n' 'ok;#TODO;'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok=
++ printf '%s\n' ok=
++ xecho 'not ok='
++ printf '%s\n' 'not ok='
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP='
++ printf '%s\n' 'ok# SKIP='
++ test x= '!=' x#
++ test x= '!=' 'x\'
++ xecho ok=#SKIP
++ printf '%s\n' ok=#SKIP
++ xecho 'ok=#   		 SKIP'
++ printf '%s\n' 'ok=#   		 SKIP'
++ xecho ok=#SKIP=
++ printf '%s\n' ok=#SKIP=
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO='
++ printf '%s\n' 'not ok# TODO='
++ test x= '!=' x#
++ test x= '!=' 'x\'
++ xecho 'not ok=#TODO'
++ printf '%s\n' 'not ok=#TODO'
++ xecho 'not ok=#   		 TODO'
++ printf '%s\n' 'not ok=#   		 TODO'
++ xecho 'not ok=#TODO='
++ printf '%s\n' 'not ok=#TODO='
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO='
++ printf '%s\n' 'ok# TODO='
++ test x= '!=' x#
++ test x= '!=' 'x\'
++ xecho ok=#TODO
++ printf '%s\n' ok=#TODO
++ xecho 'ok=#   		 TODO'
++ printf '%s\n' 'ok=#   		 TODO'
++ xecho ok=#TODO=
++ printf '%s\n' ok=#TODO=
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok<'
++ printf '%s\n' 'ok<'
++ xecho 'not ok<'
++ printf '%s\n' 'not ok<'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP<'
++ printf '%s\n' 'ok# SKIP<'
++ test 'x<' '!=' x#
++ test 'x<' '!=' 'x\'
++ xecho 'ok<#SKIP'
++ printf '%s\n' 'ok<#SKIP'
++ xecho 'ok<#   		 SKIP'
++ printf '%s\n' 'ok<#   		 SKIP'
++ xecho 'ok<#SKIP<'
++ printf '%s\n' 'ok<#SKIP<'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO<'
++ printf '%s\n' 'not ok# TODO<'
++ test 'x<' '!=' x#
++ test 'x<' '!=' 'x\'
++ xecho 'not ok<#TODO'
++ printf '%s\n' 'not ok<#TODO'
++ xecho 'not ok<#   		 TODO'
++ printf '%s\n' 'not ok<#   		 TODO'
++ xecho 'not ok<#TODO<'
++ printf '%s\n' 'not ok<#TODO<'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO<'
++ printf '%s\n' 'ok# TODO<'
++ test 'x<' '!=' x#
++ test 'x<' '!=' 'x\'
++ xecho 'ok<#TODO'
++ printf '%s\n' 'ok<#TODO'
++ xecho 'ok<#   		 TODO'
++ printf '%s\n' 'ok<#   		 TODO'
++ xecho 'ok<#TODO<'
++ printf '%s\n' 'ok<#TODO<'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok>'
++ printf '%s\n' 'ok>'
++ xecho 'not ok>'
++ printf '%s\n' 'not ok>'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP>'
++ printf '%s\n' 'ok# SKIP>'
++ test 'x>' '!=' x#
++ test 'x>' '!=' 'x\'
++ xecho 'ok>#SKIP'
++ printf '%s\n' 'ok>#SKIP'
++ xecho 'ok>#   		 SKIP'
++ printf '%s\n' 'ok>#   		 SKIP'
++ xecho 'ok>#SKIP>'
++ printf '%s\n' 'ok>#SKIP>'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO>'
++ printf '%s\n' 'not ok# TODO>'
++ test 'x>' '!=' x#
++ test 'x>' '!=' 'x\'
++ xecho 'not ok>#TODO'
++ printf '%s\n' 'not ok>#TODO'
++ xecho 'not ok>#   		 TODO'
++ printf '%s\n' 'not ok>#   		 TODO'
++ xecho 'not ok>#TODO>'
++ printf '%s\n' 'not ok>#TODO>'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO>'
++ printf '%s\n' 'ok# TODO>'
++ test 'x>' '!=' x#
++ test 'x>' '!=' 'x\'
++ xecho 'ok>#TODO'
++ printf '%s\n' 'ok>#TODO'
++ xecho 'ok>#   		 TODO'
++ printf '%s\n' 'ok>#   		 TODO'
++ xecho 'ok>#TODO>'
++ printf '%s\n' 'ok>#TODO>'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok@
++ printf '%s\n' ok@
++ xecho 'not ok@'
++ printf '%s\n' 'not ok@'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP@'
++ printf '%s\n' 'ok# SKIP@'
++ test x@ '!=' x#
++ test x@ '!=' 'x\'
++ xecho ok@#SKIP
++ printf '%s\n' ok@#SKIP
++ xecho 'ok@#   		 SKIP'
++ printf '%s\n' 'ok@#   		 SKIP'
++ xecho ok@#SKIP@
++ printf '%s\n' ok@#SKIP@
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO@'
++ printf '%s\n' 'not ok# TODO@'
++ test x@ '!=' x#
++ test x@ '!=' 'x\'
++ xecho 'not ok@#TODO'
++ printf '%s\n' 'not ok@#TODO'
++ xecho 'not ok@#   		 TODO'
++ printf '%s\n' 'not ok@#   		 TODO'
++ xecho 'not ok@#TODO@'
++ printf '%s\n' 'not ok@#TODO@'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO@'
++ printf '%s\n' 'ok# TODO@'
++ test x@ '!=' x#
++ test x@ '!=' 'x\'
++ xecho ok@#TODO
++ printf '%s\n' ok@#TODO
++ xecho 'ok@#   		 TODO'
++ printf '%s\n' 'ok@#   		 TODO'
++ xecho ok@#TODO@
++ printf '%s\n' ok@#TODO@
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok['
++ printf '%s\n' 'ok['
++ xecho 'not ok['
++ printf '%s\n' 'not ok['
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP['
++ printf '%s\n' 'ok# SKIP['
++ test 'x[' '!=' x#
++ test 'x[' '!=' 'x\'
++ xecho 'ok[#SKIP'
++ printf '%s\n' 'ok[#SKIP'
++ xecho 'ok[#   		 SKIP'
++ printf '%s\n' 'ok[#   		 SKIP'
++ xecho 'ok[#SKIP['
++ printf '%s\n' 'ok[#SKIP['
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO['
++ printf '%s\n' 'not ok# TODO['
++ test 'x[' '!=' x#
++ test 'x[' '!=' 'x\'
++ xecho 'not ok[#TODO'
++ printf '%s\n' 'not ok[#TODO'
++ xecho 'not ok[#   		 TODO'
++ printf '%s\n' 'not ok[#   		 TODO'
++ xecho 'not ok[#TODO['
++ printf '%s\n' 'not ok[#TODO['
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO['
++ printf '%s\n' 'ok# TODO['
++ test 'x[' '!=' x#
++ test 'x[' '!=' 'x\'
++ xecho 'ok[#TODO'
++ printf '%s\n' 'ok[#TODO'
++ xecho 'ok[#   		 TODO'
++ printf '%s\n' 'ok[#   		 TODO'
++ xecho 'ok[#TODO['
++ printf '%s\n' 'ok[#TODO['
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok]'
++ printf '%s\n' 'ok]'
++ xecho 'not ok]'
++ printf '%s\n' 'not ok]'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP]'
++ printf '%s\n' 'ok# SKIP]'
++ test 'x]' '!=' x#
++ test 'x]' '!=' 'x\'
++ xecho 'ok]#SKIP'
++ printf '%s\n' 'ok]#SKIP'
++ xecho 'ok]#   		 SKIP'
++ printf '%s\n' 'ok]#   		 SKIP'
++ xecho 'ok]#SKIP]'
++ printf '%s\n' 'ok]#SKIP]'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO]'
++ printf '%s\n' 'not ok# TODO]'
++ test 'x]' '!=' x#
++ test 'x]' '!=' 'x\'
++ xecho 'not ok]#TODO'
++ printf '%s\n' 'not ok]#TODO'
++ xecho 'not ok]#   		 TODO'
++ printf '%s\n' 'not ok]#   		 TODO'
++ xecho 'not ok]#TODO]'
++ printf '%s\n' 'not ok]#TODO]'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO]'
++ printf '%s\n' 'ok# TODO]'
++ test 'x]' '!=' x#
++ test 'x]' '!=' 'x\'
++ xecho 'ok]#TODO'
++ printf '%s\n' 'ok]#TODO'
++ xecho 'ok]#   		 TODO'
++ printf '%s\n' 'ok]#   		 TODO'
++ xecho 'ok]#TODO]'
++ printf '%s\n' 'ok]#TODO]'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok{'
++ printf '%s\n' 'ok{'
++ xecho 'not ok{'
++ printf '%s\n' 'not ok{'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP{'
++ printf '%s\n' 'ok# SKIP{'
++ test 'x{' '!=' x#
++ test 'x{' '!=' 'x\'
++ xecho 'ok{#SKIP'
++ printf '%s\n' 'ok{#SKIP'
++ xecho 'ok{#   		 SKIP'
++ printf '%s\n' 'ok{#   		 SKIP'
++ xecho 'ok{#SKIP{'
++ printf '%s\n' 'ok{#SKIP{'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO{'
++ printf '%s\n' 'not ok# TODO{'
++ test 'x{' '!=' x#
++ test 'x{' '!=' 'x\'
++ xecho 'not ok{#TODO'
++ printf '%s\n' 'not ok{#TODO'
++ xecho 'not ok{#   		 TODO'
++ printf '%s\n' 'not ok{#   		 TODO'
++ xecho 'not ok{#TODO{'
++ printf '%s\n' 'not ok{#TODO{'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO{'
++ printf '%s\n' 'ok# TODO{'
++ test 'x{' '!=' x#
++ test 'x{' '!=' 'x\'
++ xecho 'ok{#TODO'
++ printf '%s\n' 'ok{#TODO'
++ xecho 'ok{#   		 TODO'
++ printf '%s\n' 'ok{#   		 TODO'
++ xecho 'ok{#TODO{'
++ printf '%s\n' 'ok{#TODO{'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok}'
++ printf '%s\n' 'ok}'
++ xecho 'not ok}'
++ printf '%s\n' 'not ok}'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP}'
++ printf '%s\n' 'ok# SKIP}'
++ test 'x}' '!=' x#
++ test 'x}' '!=' 'x\'
++ xecho 'ok}#SKIP'
++ printf '%s\n' 'ok}#SKIP'
++ xecho 'ok}#   		 SKIP'
++ printf '%s\n' 'ok}#   		 SKIP'
++ xecho 'ok}#SKIP}'
++ printf '%s\n' 'ok}#SKIP}'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO}'
++ printf '%s\n' 'not ok# TODO}'
++ test 'x}' '!=' x#
++ test 'x}' '!=' 'x\'
++ xecho 'not ok}#TODO'
++ printf '%s\n' 'not ok}#TODO'
++ xecho 'not ok}#   		 TODO'
++ printf '%s\n' 'not ok}#   		 TODO'
++ xecho 'not ok}#TODO}'
++ printf '%s\n' 'not ok}#TODO}'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO}'
++ printf '%s\n' 'ok# TODO}'
++ test 'x}' '!=' x#
++ test 'x}' '!=' 'x\'
++ xecho 'ok}#TODO'
++ printf '%s\n' 'ok}#TODO'
++ xecho 'ok}#   		 TODO'
++ printf '%s\n' 'ok}#   		 TODO'
++ xecho 'ok}#TODO}'
++ printf '%s\n' 'ok}#TODO}'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok\\'
++ printf '%s\n' 'ok\\'
++ xecho 'not ok\\'
++ printf '%s\n' 'not ok\\'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP\\'
++ printf '%s\n' 'ok# SKIP\\'
++ test 'x\\' '!=' x#
++ test 'x\\' '!=' 'x\'
++ xecho 'ok\\#SKIP'
++ printf '%s\n' 'ok\\#SKIP'
++ xecho 'ok\\#   		 SKIP'
++ printf '%s\n' 'ok\\#   		 SKIP'
++ xecho 'ok\\#SKIP\\'
++ printf '%s\n' 'ok\\#SKIP\\'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO\\'
++ printf '%s\n' 'not ok# TODO\\'
++ test 'x\\' '!=' x#
++ test 'x\\' '!=' 'x\'
++ xecho 'not ok\\#TODO'
++ printf '%s\n' 'not ok\\#TODO'
++ xecho 'not ok\\#   		 TODO'
++ printf '%s\n' 'not ok\\#   		 TODO'
++ xecho 'not ok\\#TODO\\'
++ printf '%s\n' 'not ok\\#TODO\\'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO\\'
++ printf '%s\n' 'ok# TODO\\'
++ test 'x\\' '!=' x#
++ test 'x\\' '!=' 'x\'
++ xecho 'ok\\#TODO'
++ printf '%s\n' 'ok\\#TODO'
++ xecho 'ok\\#   		 TODO'
++ printf '%s\n' 'ok\\#   		 TODO'
++ xecho 'ok\\#TODO\\'
++ printf '%s\n' 'ok\\#TODO\\'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho ok...
++ printf '%s\n' ok...
++ xecho 'not ok...'
++ printf '%s\n' 'not ok...'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP...'
++ printf '%s\n' 'ok# SKIP...'
++ test x... '!=' x#
++ test x... '!=' 'x\'
++ xecho ok...#SKIP
++ printf '%s\n' ok...#SKIP
++ xecho 'ok...#   		 SKIP'
++ printf '%s\n' 'ok...#   		 SKIP'
++ xecho ok...#SKIP...
++ printf '%s\n' ok...#SKIP...
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO...'
++ printf '%s\n' 'not ok# TODO...'
++ test x... '!=' x#
++ test x... '!=' 'x\'
++ xecho 'not ok...#TODO'
++ printf '%s\n' 'not ok...#TODO'
++ xecho 'not ok...#   		 TODO'
++ printf '%s\n' 'not ok...#   		 TODO'
++ xecho 'not ok...#TODO...'
++ printf '%s\n' 'not ok...#TODO...'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO...'
++ printf '%s\n' 'ok# TODO...'
++ test x... '!=' x#
++ test x... '!=' 'x\'
++ xecho ok...#TODO
++ printf '%s\n' ok...#TODO
++ xecho 'ok...#   		 TODO'
++ printf '%s\n' 'ok...#   		 TODO'
++ xecho ok...#TODO...
++ printf '%s\n' ok...#TODO...
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok?[a-zA-Z0-9]*'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*'
++ xecho 'not ok?[a-zA-Z0-9]*'
++ printf '%s\n' 'not ok?[a-zA-Z0-9]*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP?[a-zA-Z0-9]*'
++ printf '%s\n' 'ok# SKIP?[a-zA-Z0-9]*'
++ test 'x?[a-zA-Z0-9]*' '!=' x#
++ test 'x?[a-zA-Z0-9]*' '!=' 'x\'
++ xecho 'ok?[a-zA-Z0-9]*#SKIP'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*#SKIP'
++ xecho 'ok?[a-zA-Z0-9]*#   		 SKIP'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*#   		 SKIP'
++ xecho 'ok?[a-zA-Z0-9]*#SKIP?[a-zA-Z0-9]*'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*#SKIP?[a-zA-Z0-9]*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO?[a-zA-Z0-9]*'
++ printf '%s\n' 'not ok# TODO?[a-zA-Z0-9]*'
++ test 'x?[a-zA-Z0-9]*' '!=' x#
++ test 'x?[a-zA-Z0-9]*' '!=' 'x\'
++ xecho 'not ok?[a-zA-Z0-9]*#TODO'
++ printf '%s\n' 'not ok?[a-zA-Z0-9]*#TODO'
++ xecho 'not ok?[a-zA-Z0-9]*#   		 TODO'
++ printf '%s\n' 'not ok?[a-zA-Z0-9]*#   		 TODO'
++ xecho 'not ok?[a-zA-Z0-9]*#TODO?[a-zA-Z0-9]*'
++ printf '%s\n' 'not ok?[a-zA-Z0-9]*#TODO?[a-zA-Z0-9]*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO?[a-zA-Z0-9]*'
++ printf '%s\n' 'ok# TODO?[a-zA-Z0-9]*'
++ test 'x?[a-zA-Z0-9]*' '!=' x#
++ test 'x?[a-zA-Z0-9]*' '!=' 'x\'
++ xecho 'ok?[a-zA-Z0-9]*#TODO'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*#TODO'
++ xecho 'ok?[a-zA-Z0-9]*#   		 TODO'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*#   		 TODO'
++ xecho 'ok?[a-zA-Z0-9]*#TODO?[a-zA-Z0-9]*'
++ printf '%s\n' 'ok?[a-zA-Z0-9]*#TODO?[a-zA-Z0-9]*'
++ for str in \' '"' '`' '#' '$' '!' '\' '/' '&' '%' '(' ')' '|' '^' '~' '?' '*' '+' '-' ',' ':' ';' '=' '<' '>' '@' '[' ']' '{' '}' '\\' '...' '?[a-zA-Z0-9]*' '*.*'
++ xecho 'ok*.*'
++ printf '%s\n' 'ok*.*'
++ xecho 'not ok*.*'
++ printf '%s\n' 'not ok*.*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=SKIP'
+++ result=ok
+++ directive=SKIP
++ xecho 'ok# SKIP*.*'
++ printf '%s\n' 'ok# SKIP*.*'
++ test 'x*.*' '!=' x#
++ test 'x*.*' '!=' 'x\'
++ xecho 'ok*.*#SKIP'
++ printf '%s\n' 'ok*.*#SKIP'
++ xecho 'ok*.*#   		 SKIP'
++ printf '%s\n' 'ok*.*#   		 SKIP'
++ xecho 'ok*.*#SKIP*.*'
++ printf '%s\n' 'ok*.*#SKIP*.*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="not ok" directive=TODO'
+++ result='not ok'
+++ directive=TODO
++ xecho 'not ok# TODO*.*'
++ printf '%s\n' 'not ok# TODO*.*'
++ test 'x*.*' '!=' x#
++ test 'x*.*' '!=' 'x\'
++ xecho 'not ok*.*#TODO'
++ printf '%s\n' 'not ok*.*#TODO'
++ xecho 'not ok*.*#   		 TODO'
++ printf '%s\n' 'not ok*.*#   		 TODO'
++ xecho 'not ok*.*#TODO*.*'
++ printf '%s\n' 'not ok*.*#TODO*.*'
++ for settings in 'result="ok" directive=SKIP' 'result="not ok" directive=TODO' 'result="ok" directive=TODO'
++ eval 'result="ok" directive=TODO'
+++ result=ok
+++ directive=TODO
++ xecho 'ok# TODO*.*'
++ printf '%s\n' 'ok# TODO*.*'
++ test 'x*.*' '!=' x#
++ test 'x*.*' '!=' 'x\'
++ xecho 'ok*.*#TODO'
++ printf '%s\n' 'ok*.*#TODO'
++ xecho 'ok*.*#   		 TODO'
++ printf '%s\n' 'ok*.*#   		 TODO'
++ xecho 'ok*.*#TODO*.*'
++ printf '%s\n' 'ok*.*#TODO*.*'
++ grep '[^\\]\\#' all.test
++ pass=34
++ fail=34
++ xfail=130
++ xpass=130
++ skip=130
++ error=0
++ total=458
++ for result in 'ok' 'not ok'
++ echo 'ok{[(<#	TODO>)]}'
++ for result in 'ok' 'not ok'
++ echo 'not ok{[(<#	TODO>)]}'
++ echo 'ok{[(<#	SKIP>)]}'
++ xfail=131
++ xpass=131
++ skip=131
++ total=461
++ echo 1..461
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-fancy2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-fancy2.dir'
+PASS: all.test 1 '
+FAIL: all.test 2 '
+SKIP: all.test 3 # SKIP '
+SKIP: all.test 4 ' # SKIP
+SKIP: all.test 5 ' # SKIP
+SKIP: all.test 6 ' # SKIP '
+XFAIL: all.test 7 # TODO '
+XFAIL: all.test 8 ' # TODO
+XFAIL: all.test 9 ' # TODO
+XFAIL: all.test 10 ' # TODO '
+XPASS: all.test 11 # TODO '
+XPASS: all.test 12 ' # TODO
+XPASS: all.test 13 ' # TODO
+XPASS: all.test 14 ' # TODO '
+PASS: all.test 15 "
+FAIL: all.test 16 "
+SKIP: all.test 17 # SKIP "
+SKIP: all.test 18 " # SKIP
+SKIP: all.test 19 " # SKIP
+SKIP: all.test 20 " # SKIP "
+XFAIL: all.test 21 # TODO "
+XFAIL: all.test 22 " # TODO
+XFAIL: all.test 23 " # TODO
+XFAIL: all.test 24 " # TODO "
+XPASS: all.test 25 # TODO "
+XPASS: all.test 26 " # TODO
+XPASS: all.test 27 " # TODO
+XPASS: all.test 28 " # TODO "
+PASS: all.test 29 `
+FAIL: all.test 30 `
+SKIP: all.test 31 # SKIP `
+SKIP: all.test 32 ` # SKIP
+SKIP: all.test 33 ` # SKIP
+SKIP: all.test 34 ` # SKIP `
+XFAIL: all.test 35 # TODO `
+XFAIL: all.test 36 ` # TODO
+XFAIL: all.test 37 ` # TODO
+XFAIL: all.test 38 ` # TODO `
+XPASS: all.test 39 # TODO `
+XPASS: all.test 40 ` # TODO
+XPASS: all.test 41 ` # TODO
+XPASS: all.test 42 ` # TODO `
+PASS: all.test 43 #
+FAIL: all.test 44 #
+SKIP: all.test 45 # SKIP #
+XFAIL: all.test 46 # TODO #
+XPASS: all.test 47 # TODO #
+PASS: all.test 48 $
+FAIL: all.test 49 $
+SKIP: all.test 50 # SKIP $
+SKIP: all.test 51 $ # SKIP
+SKIP: all.test 52 $ # SKIP
+SKIP: all.test 53 $ # SKIP $
+XFAIL: all.test 54 # TODO $
+XFAIL: all.test 55 $ # TODO
+XFAIL: all.test 56 $ # TODO
+XFAIL: all.test 57 $ # TODO $
+XPASS: all.test 58 # TODO $
+XPASS: all.test 59 $ # TODO
+XPASS: all.test 60 $ # TODO
+XPASS: all.test 61 $ # TODO $
+PASS: all.test 62 !
+FAIL: all.test 63 !
+SKIP: all.test 64 # SKIP !
+SKIP: all.test 65 ! # SKIP
+SKIP: all.test 66 ! # SKIP
+SKIP: all.test 67 ! # SKIP !
+XFAIL: all.test 68 # TODO !
+XFAIL: all.test 69 ! # TODO
+XFAIL: all.test 70 ! # TODO
+XFAIL: all.test 71 ! # TODO !
+XPASS: all.test 72 # TODO !
+XPASS: all.test 73 ! # TODO
+XPASS: all.test 74 ! # TODO
+XPASS: all.test 75 ! # TODO !
+PASS: all.test 76 \
+FAIL: all.test 77 \
+SKIP: all.test 78 # SKIP \
+XFAIL: all.test 79 # TODO \
+XPASS: all.test 80 # TODO \
+PASS: all.test 81 /
+FAIL: all.test 82 /
+SKIP: all.test 83 # SKIP /
+SKIP: all.test 84 / # SKIP
+SKIP: all.test 85 / # SKIP
+SKIP: all.test 86 / # SKIP /
+XFAIL: all.test 87 # TODO /
+XFAIL: all.test 88 / # TODO
+XFAIL: all.test 89 / # TODO
+XFAIL: all.test 90 / # TODO /
+XPASS: all.test 91 # TODO /
+XPASS: all.test 92 / # TODO
+XPASS: all.test 93 / # TODO
+XPASS: all.test 94 / # TODO /
+PASS: all.test 95 &
+FAIL: all.test 96 &
+SKIP: all.test 97 # SKIP &
+SKIP: all.test 98 & # SKIP
+SKIP: all.test 99 & # SKIP
+SKIP: all.test 100 & # SKIP &
+XFAIL: all.test 101 # TODO &
+XFAIL: all.test 102 & # TODO
+XFAIL: all.test 103 & # TODO
+XFAIL: all.test 104 & # TODO &
+XPASS: all.test 105 # TODO &
+XPASS: all.test 106 & # TODO
+XPASS: all.test 107 & # TODO
+XPASS: all.test 108 & # TODO &
+PASS: all.test 109 %
+FAIL: all.test 110 %
+SKIP: all.test 111 # SKIP %
+SKIP: all.test 112 % # SKIP
+SKIP: all.test 113 % # SKIP
+SKIP: all.test 114 % # SKIP %
+XFAIL: all.test 115 # TODO %
+XFAIL: all.test 116 % # TODO
+XFAIL: all.test 117 % # TODO
+XFAIL: all.test 118 % # TODO %
+XPASS: all.test 119 # TODO %
+XPASS: all.test 120 % # TODO
+XPASS: all.test 121 % # TODO
+XPASS: all.test 122 % # TODO %
+PASS: all.test 123 (
+FAIL: all.test 124 (
+SKIP: all.test 125 # SKIP (
+SKIP: all.test 126 ( # SKIP
+SKIP: all.test 127 ( # SKIP
+SKIP: all.test 128 ( # SKIP (
+XFAIL: all.test 129 # TODO (
+XFAIL: all.test 130 ( # TODO
+XFAIL: all.test 131 ( # TODO
+XFAIL: all.test 132 ( # TODO (
+XPASS: all.test 133 # TODO (
+XPASS: all.test 134 ( # TODO
+XPASS: all.test 135 ( # TODO
+XPASS: all.test 136 ( # TODO (
+PASS: all.test 137 )
+FAIL: all.test 138 )
+SKIP: all.test 139 # SKIP )
+SKIP: all.test 140 ) # SKIP
+SKIP: all.test 141 ) # SKIP
+SKIP: all.test 142 ) # SKIP )
+XFAIL: all.test 143 # TODO )
+XFAIL: all.test 144 ) # TODO
+XFAIL: all.test 145 ) # TODO
+XFAIL: all.test 146 ) # TODO )
+XPASS: all.test 147 # TODO )
+XPASS: all.test 148 ) # TODO
+XPASS: all.test 149 ) # TODO
+XPASS: all.test 150 ) # TODO )
+PASS: all.test 151 |
+FAIL: all.test 152 |
+SKIP: all.test 153 # SKIP |
+SKIP: all.test 154 | # SKIP
+SKIP: all.test 155 | # SKIP
+SKIP: all.test 156 | # SKIP |
+XFAIL: all.test 157 # TODO |
+XFAIL: all.test 158 | # TODO
+XFAIL: all.test 159 | # TODO
+XFAIL: all.test 160 | # TODO |
+XPASS: all.test 161 # TODO |
+XPASS: all.test 162 | # TODO
+XPASS: all.test 163 | # TODO
+XPASS: all.test 164 | # TODO |
+PASS: all.test 165 ^
+FAIL: all.test 166 ^
+SKIP: all.test 167 # SKIP ^
+SKIP: all.test 168 ^ # SKIP
+SKIP: all.test 169 ^ # SKIP
+SKIP: all.test 170 ^ # SKIP ^
+XFAIL: all.test 171 # TODO ^
+XFAIL: all.test 172 ^ # TODO
+XFAIL: all.test 173 ^ # TODO
+XFAIL: all.test 174 ^ # TODO ^
+XPASS: all.test 175 # TODO ^
+XPASS: all.test 176 ^ # TODO
+XPASS: all.test 177 ^ # TODO
+XPASS: all.test 178 ^ # TODO ^
+PASS: all.test 179 ~
+FAIL: all.test 180 ~
+SKIP: all.test 181 # SKIP ~
+SKIP: all.test 182 ~ # SKIP
+SKIP: all.test 183 ~ # SKIP
+SKIP: all.test 184 ~ # SKIP ~
+XFAIL: all.test 185 # TODO ~
+XFAIL: all.test 186 ~ # TODO
+XFAIL: all.test 187 ~ # TODO
+XFAIL: all.test 188 ~ # TODO ~
+XPASS: all.test 189 # TODO ~
+XPASS: all.test 190 ~ # TODO
+XPASS: all.test 191 ~ # TODO
+XPASS: all.test 192 ~ # TODO ~
+PASS: all.test 193 ?
+FAIL: all.test 194 ?
+SKIP: all.test 195 # SKIP ?
+SKIP: all.test 196 ? # SKIP
+SKIP: all.test 197 ? # SKIP
+SKIP: all.test 198 ? # SKIP ?
+XFAIL: all.test 199 # TODO ?
+XFAIL: all.test 200 ? # TODO
+XFAIL: all.test 201 ? # TODO
+XFAIL: all.test 202 ? # TODO ?
+XPASS: all.test 203 # TODO ?
+XPASS: all.test 204 ? # TODO
+XPASS: all.test 205 ? # TODO
+XPASS: all.test 206 ? # TODO ?
+PASS: all.test 207 *
+FAIL: all.test 208 *
+SKIP: all.test 209 # SKIP *
+SKIP: all.test 210 * # SKIP
+SKIP: all.test 211 * # SKIP
+SKIP: all.test 212 * # SKIP *
+XFAIL: all.test 213 # TODO *
+XFAIL: all.test 214 * # TODO
+XFAIL: all.test 215 * # TODO
+XFAIL: all.test 216 * # TODO *
+XPASS: all.test 217 # TODO *
+XPASS: all.test 218 * # TODO
+XPASS: all.test 219 * # TODO
+XPASS: all.test 220 * # TODO *
+PASS: all.test 221 +
+FAIL: all.test 222 +
+SKIP: all.test 223 # SKIP +
+SKIP: all.test 224 + # SKIP
+SKIP: all.test 225 + # SKIP
+SKIP: all.test 226 + # SKIP +
+XFAIL: all.test 227 # TODO +
+XFAIL: all.test 228 + # TODO
+XFAIL: all.test 229 + # TODO
+XFAIL: all.test 230 + # TODO +
+XPASS: all.test 231 # TODO +
+XPASS: all.test 232 + # TODO
+XPASS: all.test 233 + # TODO
+XPASS: all.test 234 + # TODO +
+PASS: all.test 235 -
+FAIL: all.test 236 -
+SKIP: all.test 237 # SKIP -
+SKIP: all.test 238 - # SKIP
+SKIP: all.test 239 - # SKIP
+SKIP: all.test 240 - # SKIP -
+XFAIL: all.test 241 # TODO -
+XFAIL: all.test 242 - # TODO
+XFAIL: all.test 243 - # TODO
+XFAIL: all.test 244 - # TODO -
+XPASS: all.test 245 # TODO -
+XPASS: all.test 246 - # TODO
+XPASS: all.test 247 - # TODO
+XPASS: all.test 248 - # TODO -
+PASS: all.test 249 ,
+FAIL: all.test 250 ,
+SKIP: all.test 251 # SKIP ,
+SKIP: all.test 252 , # SKIP
+SKIP: all.test 253 , # SKIP
+SKIP: all.test 254 , # SKIP ,
+XFAIL: all.test 255 # TODO ,
+XFAIL: all.test 256 , # TODO
+XFAIL: all.test 257 , # TODO
+XFAIL: all.test 258 , # TODO ,
+XPASS: all.test 259 # TODO ,
+XPASS: all.test 260 , # TODO
+XPASS: all.test 261 , # TODO
+XPASS: all.test 262 , # TODO ,
+PASS: all.test 263 :
+FAIL: all.test 264 :
+SKIP: all.test 265 # SKIP :
+SKIP: all.test 266 : # SKIP
+SKIP: all.test 267 : # SKIP
+SKIP: all.test 268 : # SKIP :
+XFAIL: all.test 269 # TODO :
+XFAIL: all.test 270 : # TODO
+XFAIL: all.test 271 : # TODO
+XFAIL: all.test 272 : # TODO :
+XPASS: all.test 273 # TODO :
+XPASS: all.test 274 : # TODO
+XPASS: all.test 275 : # TODO
+XPASS: all.test 276 : # TODO :
+PASS: all.test 277 ;
+FAIL: all.test 278 ;
+SKIP: all.test 279 # SKIP ;
+SKIP: all.test 280 ; # SKIP
+SKIP: all.test 281 ; # SKIP
+SKIP: all.test 282 ; # SKIP ;
+XFAIL: all.test 283 # TODO ;
+XFAIL: all.test 284 ; # TODO
+XFAIL: all.test 285 ; # TODO
+XFAIL: all.test 286 ; # TODO ;
+XPASS: all.test 287 # TODO ;
+XPASS: all.test 288 ; # TODO
+XPASS: all.test 289 ; # TODO
+XPASS: all.test 290 ; # TODO ;
+PASS: all.test 291 =
+FAIL: all.test 292 =
+SKIP: all.test 293 # SKIP =
+SKIP: all.test 294 = # SKIP
+SKIP: all.test 295 = # SKIP
+SKIP: all.test 296 = # SKIP =
+XFAIL: all.test 297 # TODO =
+XFAIL: all.test 298 = # TODO
+XFAIL: all.test 299 = # TODO
+XFAIL: all.test 300 = # TODO =
+XPASS: all.test 301 # TODO =
+XPASS: all.test 302 = # TODO
+XPASS: all.test 303 = # TODO
+XPASS: all.test 304 = # TODO =
+PASS: all.test 305 <
+FAIL: all.test 306 <
+SKIP: all.test 307 # SKIP <
+SKIP: all.test 308 < # SKIP
+SKIP: all.test 309 < # SKIP
+SKIP: all.test 310 < # SKIP <
+XFAIL: all.test 311 # TODO <
+XFAIL: all.test 312 < # TODO
+XFAIL: all.test 313 < # TODO
+XFAIL: all.test 314 < # TODO <
+XPASS: all.test 315 # TODO <
+XPASS: all.test 316 < # TODO
+XPASS: all.test 317 < # TODO
+XPASS: all.test 318 < # TODO <
+PASS: all.test 319 >
+FAIL: all.test 320 >
+SKIP: all.test 321 # SKIP >
+SKIP: all.test 322 > # SKIP
+SKIP: all.test 323 > # SKIP
+SKIP: all.test 324 > # SKIP >
+XFAIL: all.test 325 # TODO >
+XFAIL: all.test 326 > # TODO
+XFAIL: all.test 327 > # TODO
+XFAIL: all.test 328 > # TODO >
+XPASS: all.test 329 # TODO >
+XPASS: all.test 330 > # TODO
+XPASS: all.test 331 > # TODO
+XPASS: all.test 332 > # TODO >
+PASS: all.test 333 @
+FAIL: all.test 334 @
+SKIP: all.test 335 # SKIP @
+SKIP: all.test 336 @ # SKIP
+SKIP: all.test 337 @ # SKIP
+SKIP: all.test 338 @ # SKIP @
+XFAIL: all.test 339 # TODO @
+XFAIL: all.test 340 @ # TODO
+XFAIL: all.test 341 @ # TODO
+XFAIL: all.test 342 @ # TODO @
+XPASS: all.test 343 # TODO @
+XPASS: all.test 344 @ # TODO
+XPASS: all.test 345 @ # TODO
+XPASS: all.test 346 @ # TODO @
+PASS: all.test 347 [
+FAIL: all.test 348 [
+SKIP: all.test 349 # SKIP [
+SKIP: all.test 350 [ # SKIP
+SKIP: all.test 351 [ # SKIP
+SKIP: all.test 352 [ # SKIP [
+XFAIL: all.test 353 # TODO [
+XFAIL: all.test 354 [ # TODO
+XFAIL: all.test 355 [ # TODO
+XFAIL: all.test 356 [ # TODO [
+XPASS: all.test 357 # TODO [
+XPASS: all.test 358 [ # TODO
+XPASS: all.test 359 [ # TODO
+XPASS: all.test 360 [ # TODO [
+PASS: all.test 361 ]
+FAIL: all.test 362 ]
+SKIP: all.test 363 # SKIP ]
+SKIP: all.test 364 ] # SKIP
+SKIP: all.test 365 ] # SKIP
+SKIP: all.test 366 ] # SKIP ]
+XFAIL: all.test 367 # TODO ]
+XFAIL: all.test 368 ] # TODO
+XFAIL: all.test 369 ] # TODO
+XFAIL: all.test 370 ] # TODO ]
+XPASS: all.test 371 # TODO ]
+XPASS: all.test 372 ] # TODO
+XPASS: all.test 373 ] # TODO
+XPASS: all.test 374 ] # TODO ]
+PASS: all.test 375 {
+FAIL: all.test 376 {
+SKIP: all.test 377 # SKIP {
+SKIP: all.test 378 { # SKIP
+SKIP: all.test 379 { # SKIP
+SKIP: all.test 380 { # SKIP {
+XFAIL: all.test 381 # TODO {
+XFAIL: all.test 382 { # TODO
+XFAIL: all.test 383 { # TODO
+XFAIL: all.test 384 { # TODO {
+XPASS: all.test 385 # TODO {
+XPASS: all.test 386 { # TODO
+XPASS: all.test 387 { # TODO
+XPASS: all.test 388 { # TODO {
+PASS: all.test 389 }
+FAIL: all.test 390 }
+SKIP: all.test 391 # SKIP }
+SKIP: all.test 392 } # SKIP
+SKIP: all.test 393 } # SKIP
+SKIP: all.test 394 } # SKIP }
+XFAIL: all.test 395 # TODO }
+XFAIL: all.test 396 } # TODO
+XFAIL: all.test 397 } # TODO
+XFAIL: all.test 398 } # TODO }
+XPASS: all.test 399 # TODO }
+XPASS: all.test 400 } # TODO
+XPASS: all.test 401 } # TODO
+XPASS: all.test 402 } # TODO }
+PASS: all.test 403 \\
+FAIL: all.test 404 \\
+SKIP: all.test 405 # SKIP \\
+SKIP: all.test 406 \\ # SKIP
+SKIP: all.test 407 \\ # SKIP
+SKIP: all.test 408 \\ # SKIP \\
+XFAIL: all.test 409 # TODO \\
+XFAIL: all.test 410 \\ # TODO
+XFAIL: all.test 411 \\ # TODO
+XFAIL: all.test 412 \\ # TODO \\
+XPASS: all.test 413 # TODO \\
+XPASS: all.test 414 \\ # TODO
+XPASS: all.test 415 \\ # TODO
+XPASS: all.test 416 \\ # TODO \\
+PASS: all.test 417 ...
+FAIL: all.test 418 ...
+SKIP: all.test 419 # SKIP ...
+SKIP: all.test 420 ... # SKIP
+SKIP: all.test 421 ... # SKIP
+SKIP: all.test 422 ... # SKIP ...
+XFAIL: all.test 423 # TODO ...
+XFAIL: all.test 424 ... # TODO
+XFAIL: all.test 425 ... # TODO
+XFAIL: all.test 426 ... # TODO ...
+XPASS: all.test 427 # TODO ...
+XPASS: all.test 428 ... # TODO
+XPASS: all.test 429 ... # TODO
+XPASS: all.test 430 ... # TODO ...
+PASS: all.test 431 ?[a-zA-Z0-9]*
+FAIL: all.test 432 ?[a-zA-Z0-9]*
+SKIP: all.test 433 # SKIP ?[a-zA-Z0-9]*
+SKIP: all.test 434 ?[a-zA-Z0-9]* # SKIP
+SKIP: all.test 435 ?[a-zA-Z0-9]* # SKIP
+SKIP: all.test 436 ?[a-zA-Z0-9]* # SKIP ?[a-zA-Z0-9]*
+XFAIL: all.test 437 # TODO ?[a-zA-Z0-9]*
+XFAIL: all.test 438 ?[a-zA-Z0-9]* # TODO
+XFAIL: all.test 439 ?[a-zA-Z0-9]* # TODO
+XFAIL: all.test 440 ?[a-zA-Z0-9]* # TODO ?[a-zA-Z0-9]*
+XPASS: all.test 441 # TODO ?[a-zA-Z0-9]*
+XPASS: all.test 442 ?[a-zA-Z0-9]* # TODO
+XPASS: all.test 443 ?[a-zA-Z0-9]* # TODO
+XPASS: all.test 444 ?[a-zA-Z0-9]* # TODO ?[a-zA-Z0-9]*
+PASS: all.test 445 *.*
+FAIL: all.test 446 *.*
+SKIP: all.test 447 # SKIP *.*
+SKIP: all.test 448 *.* # SKIP
+SKIP: all.test 449 *.* # SKIP
+SKIP: all.test 450 *.* # SKIP *.*
+XFAIL: all.test 451 # TODO *.*
+XFAIL: all.test 452 *.* # TODO
+XFAIL: all.test 453 *.* # TODO
+XFAIL: all.test 454 *.* # TODO *.*
+XPASS: all.test 455 # TODO *.*
+XPASS: all.test 456 *.* # TODO
+XPASS: all.test 457 *.* # TODO
+XPASS: all.test 458 *.* # TODO *.*
+XPASS: all.test 459 {[(< # TODO >)]}
+XFAIL: all.test 460 {[(< # TODO >)]}
+SKIP: all.test 461 {[(< # SKIP >)]}
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 461
+# PASS:  34
+# SKIP:  131
+# XFAIL: 131
+# FAIL:  34
+# XPASS: 131
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy2.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -E '^(PASS|FAIL|SKIP).*#.*TODO' stdout
++ /bin/grep -E '^X?(PASS|FAIL).*#.*SKIP' stdout
++ count_test_results total=461 pass=34 fail=34 skip=131 xpass=131 xfail=131 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=461 pass=34 fail=34 skip=131 xpass=131 xfail=131 error=0
+++ total=461
+++ pass=34
+++ fail=34
+++ skip=131
+++ xpass=131
+++ xfail=131
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1 '
+FAIL: all.test 2 '
+SKIP: all.test 3 # SKIP '
+SKIP: all.test 4 ' # SKIP
+SKIP: all.test 5 ' # SKIP
+SKIP: all.test 6 ' # SKIP '
+XFAIL: all.test 7 # TODO '
+XFAIL: all.test 8 ' # TODO
+XFAIL: all.test 9 ' # TODO
+XFAIL: all.test 10 ' # TODO '
+XPASS: all.test 11 # TODO '
+XPASS: all.test 12 ' # TODO
+XPASS: all.test 13 ' # TODO
+XPASS: all.test 14 ' # TODO '
+PASS: all.test 15 "
+FAIL: all.test 16 "
+SKIP: all.test 17 # SKIP "
+SKIP: all.test 18 " # SKIP
+SKIP: all.test 19 " # SKIP
+SKIP: all.test 20 " # SKIP "
+XFAIL: all.test 21 # TODO "
+XFAIL: all.test 22 " # TODO
+XFAIL: all.test 23 " # TODO
+XFAIL: all.test 24 " # TODO "
+XPASS: all.test 25 # TODO "
+XPASS: all.test 26 " # TODO
+XPASS: all.test 27 " # TODO
+XPASS: all.test 28 " # TODO "
+PASS: all.test 29 `
+FAIL: all.test 30 `
+SKIP: all.test 31 # SKIP `
+SKIP: all.test 32 ` # SKIP
+SKIP: all.test 33 ` # SKIP
+SKIP: all.test 34 ` # SKIP `
+XFAIL: all.test 35 # TODO `
+XFAIL: all.test 36 ` # TODO
+XFAIL: all.test 37 ` # TODO
+XFAIL: all.test 38 ` # TODO `
+XPASS: all.test 39 # TODO `
+XPASS: all.test 40 ` # TODO
+XPASS: all.test 41 ` # TODO
+XPASS: all.test 42 ` # TODO `
+PASS: all.test 43 #
+FAIL: all.test 44 #
+SKIP: all.test 45 # SKIP #
+XFAIL: all.test 46 # TODO #
+XPASS: all.test 47 # TODO #
+PASS: all.test 48 $
+FAIL: all.test 49 $
+SKIP: all.test 50 # SKIP $
+SKIP: all.test 51 $ # SKIP
+SKIP: all.test 52 $ # SKIP
+SKIP: all.test 53 $ # SKIP $
+XFAIL: all.test 54 # TODO $
+XFAIL: all.test 55 $ # TODO
+XFAIL: all.test 56 $ # TODO
+XFAIL: all.test 57 $ # TODO $
+XPASS: all.test 58 # TODO $
+XPASS: all.test 59 $ # TODO
+XPASS: all.test 60 $ # TODO
+XPASS: all.test 61 $ # TODO $
+PASS: all.test 62 !
+FAIL: all.test 63 !
+SKIP: all.test 64 # SKIP !
+SKIP: all.test 65 ! # SKIP
+SKIP: all.test 66 ! # SKIP
+SKIP: all.test 67 ! # SKIP !
+XFAIL: all.test 68 # TODO !
+XFAIL: all.test 69 ! # TODO
+XFAIL: all.test 70 ! # TODO
+XFAIL: all.test 71 ! # TODO !
+XPASS: all.test 72 # TODO !
+XPASS: all.test 73 ! # TODO
+XPASS: all.test 74 ! # TODO
+XPASS: all.test 75 ! # TODO !
+PASS: all.test 76 \
+FAIL: all.test 77 \
+SKIP: all.test 78 # SKIP \
+XFAIL: all.test 79 # TODO \
+XPASS: all.test 80 # TODO \
+PASS: all.test 81 /
+FAIL: all.test 82 /
+SKIP: all.test 83 # SKIP /
+SKIP: all.test 84 / # SKIP
+SKIP: all.test 85 / # SKIP
+SKIP: all.test 86 / # SKIP /
+XFAIL: all.test 87 # TODO /
+XFAIL: all.test 88 / # TODO
+XFAIL: all.test 89 / # TODO
+XFAIL: all.test 90 / # TODO /
+XPASS: all.test 91 # TODO /
+XPASS: all.test 92 / # TODO
+XPASS: all.test 93 / # TODO
+XPASS: all.test 94 / # TODO /
+PASS: all.test 95 &
+FAIL: all.test 96 &
+SKIP: all.test 97 # SKIP &
+SKIP: all.test 98 & # SKIP
+SKIP: all.test 99 & # SKIP
+SKIP: all.test 100 & # SKIP &
+XFAIL: all.test 101 # TODO &
+XFAIL: all.test 102 & # TODO
+XFAIL: all.test 103 & # TODO
+XFAIL: all.test 104 & # TODO &
+XPASS: all.test 105 # TODO &
+XPASS: all.test 106 & # TODO
+XPASS: all.test 107 & # TODO
+XPASS: all.test 108 & # TODO &
+PASS: all.test 109 %
+FAIL: all.test 110 %
+SKIP: all.test 111 # SKIP %
+SKIP: all.test 112 % # SKIP
+SKIP: all.test 113 % # SKIP
+SKIP: all.test 114 % # SKIP %
+XFAIL: all.test 115 # TODO %
+XFAIL: all.test 116 % # TODO
+XFAIL: all.test 117 % # TODO
+XFAIL: all.test 118 % # TODO %
+XPASS: all.test 119 # TODO %
+XPASS: all.test 120 % # TODO
+XPASS: all.test 121 % # TODO
+XPASS: all.test 122 % # TODO %
+PASS: all.test 123 (
+FAIL: all.test 124 (
+SKIP: all.test 125 # SKIP (
+SKIP: all.test 126 ( # SKIP
+SKIP: all.test 127 ( # SKIP
+SKIP: all.test 128 ( # SKIP (
+XFAIL: all.test 129 # TODO (
+XFAIL: all.test 130 ( # TODO
+XFAIL: all.test 131 ( # TODO
+XFAIL: all.test 132 ( # TODO (
+XPASS: all.test 133 # TODO (
+XPASS: all.test 134 ( # TODO
+XPASS: all.test 135 ( # TODO
+XPASS: all.test 136 ( # TODO (
+PASS: all.test 137 )
+FAIL: all.test 138 )
+SKIP: all.test 139 # SKIP )
+SKIP: all.test 140 ) # SKIP
+SKIP: all.test 141 ) # SKIP
+SKIP: all.test 142 ) # SKIP )
+XFAIL: all.test 143 # TODO )
+XFAIL: all.test 144 ) # TODO
+XFAIL: all.test 145 ) # TODO
+XFAIL: all.test 146 ) # TODO )
+XPASS: all.test 147 # TODO )
+XPASS: all.test 148 ) # TODO
+XPASS: all.test 149 ) # TODO
+XPASS: all.test 150 ) # TODO )
+PASS: all.test 151 |
+FAIL: all.test 152 |
+SKIP: all.test 153 # SKIP |
+SKIP: all.test 154 | # SKIP
+SKIP: all.test 155 | # SKIP
+SKIP: all.test 156 | # SKIP |
+XFAIL: all.test 157 # TODO |
+XFAIL: all.test 158 | # TODO
+XFAIL: all.test 159 | # TODO
+XFAIL: all.test 160 | # TODO |
+XPASS: all.test 161 # TODO |
+XPASS: all.test 162 | # TODO
+XPASS: all.test 163 | # TODO
+XPASS: all.test 164 | # TODO |
+PASS: all.test 165 ^
+FAIL: all.test 166 ^
+SKIP: all.test 167 # SKIP ^
+SKIP: all.test 168 ^ # SKIP
+SKIP: all.test 169 ^ # SKIP
+SKIP: all.test 170 ^ # SKIP ^
+XFAIL: all.test 171 # TODO ^
+XFAIL: all.test 172 ^ # TODO
+XFAIL: all.test 173 ^ # TODO
+XFAIL: all.test 174 ^ # TODO ^
+XPASS: all.test 175 # TODO ^
+XPASS: all.test 176 ^ # TODO
+XPASS: all.test 177 ^ # TODO
+XPASS: all.test 178 ^ # TODO ^
+PASS: all.test 179 ~
+FAIL: all.test 180 ~
+SKIP: all.test 181 # SKIP ~
+SKIP: all.test 182 ~ # SKIP
+SKIP: all.test 183 ~ # SKIP
+SKIP: all.test 184 ~ # SKIP ~
+XFAIL: all.test 185 # TODO ~
+XFAIL: all.test 186 ~ # TODO
+XFAIL: all.test 187 ~ # TODO
+XFAIL: all.test 188 ~ # TODO ~
+XPASS: all.test 189 # TODO ~
+XPASS: all.test 190 ~ # TODO
+XPASS: all.test 191 ~ # TODO
+XPASS: all.test 192 ~ # TODO ~
+PASS: all.test 193 ?
+FAIL: all.test 194 ?
+SKIP: all.test 195 # SKIP ?
+SKIP: all.test 196 ? # SKIP
+SKIP: all.test 197 ? # SKIP
+SKIP: all.test 198 ? # SKIP ?
+XFAIL: all.test 199 # TODO ?
+XFAIL: all.test 200 ? # TODO
+XFAIL: all.test 201 ? # TODO
+XFAIL: all.test 202 ? # TODO ?
+XPASS: all.test 203 # TODO ?
+XPASS: all.test 204 ? # TODO
+XPASS: all.test 205 ? # TODO
+XPASS: all.test 206 ? # TODO ?
+PASS: all.test 207 *
+FAIL: all.test 208 *
+SKIP: all.test 209 # SKIP *
+SKIP: all.test 210 * # SKIP
+SKIP: all.test 211 * # SKIP
+SKIP: all.test 212 * # SKIP *
+XFAIL: all.test 213 # TODO *
+XFAIL: all.test 214 * # TODO
+XFAIL: all.test 215 * # TODO
+XFAIL: all.test 216 * # TODO *
+XPASS: all.test 217 # TODO *
+XPASS: all.test 218 * # TODO
+XPASS: all.test 219 * # TODO
+XPASS: all.test 220 * # TODO *
+PASS: all.test 221 +
+FAIL: all.test 222 +
+SKIP: all.test 223 # SKIP +
+SKIP: all.test 224 + # SKIP
+SKIP: all.test 225 + # SKIP
+SKIP: all.test 226 + # SKIP +
+XFAIL: all.test 227 # TODO +
+XFAIL: all.test 228 + # TODO
+XFAIL: all.test 229 + # TODO
+XFAIL: all.test 230 + # TODO +
+XPASS: all.test 231 # TODO +
+XPASS: all.test 232 + # TODO
+XPASS: all.test 233 + # TODO
+XPASS: all.test 234 + # TODO +
+PASS: all.test 235 -
+FAIL: all.test 236 -
+SKIP: all.test 237 # SKIP -
+SKIP: all.test 238 - # SKIP
+SKIP: all.test 239 - # SKIP
+SKIP: all.test 240 - # SKIP -
+XFAIL: all.test 241 # TODO -
+XFAIL: all.test 242 - # TODO
+XFAIL: all.test 243 - # TODO
+XFAIL: all.test 244 - # TODO -
+XPASS: all.test 245 # TODO -
+XPASS: all.test 246 - # TODO
+XPASS: all.test 247 - # TODO
+XPASS: all.test 248 - # TODO -
+PASS: all.test 249 ,
+FAIL: all.test 250 ,
+SKIP: all.test 251 # SKIP ,
+SKIP: all.test 252 , # SKIP
+SKIP: all.test 253 , # SKIP
+SKIP: all.test 254 , # SKIP ,
+XFAIL: all.test 255 # TODO ,
+XFAIL: all.test 256 , # TODO
+XFAIL: all.test 257 , # TODO
+XFAIL: all.test 258 , # TODO ,
+XPASS: all.test 259 # TODO ,
+XPASS: all.test 260 , # TODO
+XPASS: all.test 261 , # TODO
+XPASS: all.test 262 , # TODO ,
+PASS: all.test 263 :
+FAIL: all.test 264 :
+SKIP: all.test 265 # SKIP :
+SKIP: all.test 266 : # SKIP
+SKIP: all.test 267 : # SKIP
+SKIP: all.test 268 : # SKIP :
+XFAIL: all.test 269 # TODO :
+XFAIL: all.test 270 : # TODO
+XFAIL: all.test 271 : # TODO
+XFAIL: all.test 272 : # TODO :
+XPASS: all.test 273 # TODO :
+XPASS: all.test 274 : # TODO
+XPASS: all.test 275 : # TODO
+XPASS: all.test 276 : # TODO :
+PASS: all.test 277 ;
+FAIL: all.test 278 ;
+SKIP: all.test 279 # SKIP ;
+SKIP: all.test 280 ; # SKIP
+SKIP: all.test 281 ; # SKIP
+SKIP: all.test 282 ; # SKIP ;
+XFAIL: all.test 283 # TODO ;
+XFAIL: all.test 284 ; # TODO
+XFAIL: all.test 285 ; # TODO
+XFAIL: all.test 286 ; # TODO ;
+XPASS: all.test 287 # TODO ;
+XPASS: all.test 288 ; # TODO
+XPASS: all.test 289 ; # TODO
+XPASS: all.test 290 ; # TODO ;
+PASS: all.test 291 =
+FAIL: all.test 292 =
+SKIP: all.test 293 # SKIP =
+SKIP: all.test 294 = # SKIP
+SKIP: all.test 295 = # SKIP
+SKIP: all.test 296 = # SKIP =
+XFAIL: all.test 297 # TODO =
+XFAIL: all.test 298 = # TODO
+XFAIL: all.test 299 = # TODO
+XFAIL: all.test 300 = # TODO =
+XPASS: all.test 301 # TODO =
+XPASS: all.test 302 = # TODO
+XPASS: all.test 303 = # TODO
+XPASS: all.test 304 = # TODO =
+PASS: all.test 305 <
+FAIL: all.test 306 <
+SKIP: all.test 307 # SKIP <
+SKIP: all.test 308 < # SKIP
+SKIP: all.test 309 < # SKIP
+SKIP: all.test 310 < # SKIP <
+XFAIL: all.test 311 # TODO <
+XFAIL: all.test 312 < # TODO
+XFAIL: all.test 313 < # TODO
+XFAIL: all.test 314 < # TODO <
+XPASS: all.test 315 # TODO <
+XPASS: all.test 316 < # TODO
+XPASS: all.test 317 < # TODO
+XPASS: all.test 318 < # TODO <
+PASS: all.test 319 >
+FAIL: all.test 320 >
+SKIP: all.test 321 # SKIP >
+SKIP: all.test 322 > # SKIP
+SKIP: all.test 323 > # SKIP
+SKIP: all.test 324 > # SKIP >
+XFAIL: all.test 325 # TODO >
+XFAIL: all.test 326 > # TODO
+XFAIL: all.test 327 > # TODO
+XFAIL: all.test 328 > # TODO >
+XPASS: all.test 329 # TODO >
+XPASS: all.test 330 > # TODO
+XPASS: all.test 331 > # TODO
+XPASS: all.test 332 > # TODO >
+PASS: all.test 333 @
+FAIL: all.test 334 @
+SKIP: all.test 335 # SKIP @
+SKIP: all.test 336 @ # SKIP
+SKIP: all.test 337 @ # SKIP
+SKIP: all.test 338 @ # SKIP @
+XFAIL: all.test 339 # TODO @
+XFAIL: all.test 340 @ # TODO
+XFAIL: all.test 341 @ # TODO
+XFAIL: all.test 342 @ # TODO @
+XPASS: all.test 343 # TODO @
+XPASS: all.test 344 @ # TODO
+XPASS: all.test 345 @ # TODO
+XPASS: all.test 346 @ # TODO @
+PASS: all.test 347 [
+FAIL: all.test 348 [
+SKIP: all.test 349 # SKIP [
+SKIP: all.test 350 [ # SKIP
+SKIP: all.test 351 [ # SKIP
+SKIP: all.test 352 [ # SKIP [
+XFAIL: all.test 353 # TODO [
+XFAIL: all.test 354 [ # TODO
+XFAIL: all.test 355 [ # TODO
+XFAIL: all.test 356 [ # TODO [
+XPASS: all.test 357 # TODO [
+XPASS: all.test 358 [ # TODO
+XPASS: all.test 359 [ # TODO
+XPASS: all.test 360 [ # TODO [
+PASS: all.test 361 ]
+FAIL: all.test 362 ]
+SKIP: all.test 363 # SKIP ]
+SKIP: all.test 364 ] # SKIP
+SKIP: all.test 365 ] # SKIP
+SKIP: all.test 366 ] # SKIP ]
+XFAIL: all.test 367 # TODO ]
+XFAIL: all.test 368 ] # TODO
+XFAIL: all.test 369 ] # TODO
+XFAIL: all.test 370 ] # TODO ]
+XPASS: all.test 371 # TODO ]
+XPASS: all.test 372 ] # TODO
+XPASS: all.test 373 ] # TODO
+XPASS: all.test 374 ] # TODO ]
+PASS: all.test 375 {
+FAIL: all.test 376 {
+SKIP: all.test 377 # SKIP {
+SKIP: all.test 378 { # SKIP
+SKIP: all.test 379 { # SKIP
+SKIP: all.test 380 { # SKIP {
+XFAIL: all.test 381 # TODO {
+XFAIL: all.test 382 { # TODO
+XFAIL: all.test 383 { # TODO
+XFAIL: all.test 384 { # TODO {
+XPASS: all.test 385 # TODO {
+XPASS: all.test 386 { # TODO
+XPASS: all.test 387 { # TODO
+XPASS: all.test 388 { # TODO {
+PASS: all.test 389 }
+FAIL: all.test 390 }
+SKIP: all.test 391 # SKIP }
+SKIP: all.test 392 } # SKIP
+SKIP: all.test 393 } # SKIP
+SKIP: all.test 394 } # SKIP }
+XFAIL: all.test 395 # TODO }
+XFAIL: all.test 396 } # TODO
+XFAIL: all.test 397 } # TODO
+XFAIL: all.test 398 } # TODO }
+XPASS: all.test 399 # TODO }
+XPASS: all.test 400 } # TODO
+XPASS: all.test 401 } # TODO
+XPASS: all.test 402 } # TODO }
+PASS: all.test 403 \\
+FAIL: all.test 404 \\
+SKIP: all.test 405 # SKIP \\
+SKIP: all.test 406 \\ # SKIP
+SKIP: all.test 407 \\ # SKIP
+SKIP: all.test 408 \\ # SKIP \\
+XFAIL: all.test 409 # TODO \\
+XFAIL: all.test 410 \\ # TODO
+XFAIL: all.test 411 \\ # TODO
+XFAIL: all.test 412 \\ # TODO \\
+XPASS: all.test 413 # TODO \\
+XPASS: all.test 414 \\ # TODO
+XPASS: all.test 415 \\ # TODO
+XPASS: all.test 416 \\ # TODO \\
+PASS: all.test 417 ...
+FAIL: all.test 418 ...
+SKIP: all.test 419 # SKIP ...
+SKIP: all.test 420 ... # SKIP
+SKIP: all.test 421 ... # SKIP
+SKIP: all.test 422 ... # SKIP ...
+XFAIL: all.test 423 # TODO ...
+XFAIL: all.test 424 ... # TODO
+XFAIL: all.test 425 ... # TODO
+XFAIL: all.test 426 ... # TODO ...
+XPASS: all.test 427 # TODO ...
+XPASS: all.test 428 ... # TODO
+XPASS: all.test 429 ... # TODO
+XPASS: all.test 430 ... # TODO ...
+PASS: all.test 431 ?[a-zA-Z0-9]*
+FAIL: all.test 432 ?[a-zA-Z0-9]*
+SKIP: all.test 433 # SKIP ?[a-zA-Z0-9]*
+SKIP: all.test 434 ?[a-zA-Z0-9]* # SKIP
+SKIP: all.test 435 ?[a-zA-Z0-9]* # SKIP
+SKIP: all.test 436 ?[a-zA-Z0-9]* # SKIP ?[a-zA-Z0-9]*
+XFAIL: all.test 437 # TODO ?[a-zA-Z0-9]*
+XFAIL: all.test 438 ?[a-zA-Z0-9]* # TODO
+XFAIL: all.test 439 ?[a-zA-Z0-9]* # TODO
+XFAIL: all.test 440 ?[a-zA-Z0-9]* # TODO ?[a-zA-Z0-9]*
+XPASS: all.test 441 # TODO ?[a-zA-Z0-9]*
+XPASS: all.test 442 ?[a-zA-Z0-9]* # TODO
+XPASS: all.test 443 ?[a-zA-Z0-9]* # TODO
+XPASS: all.test 444 ?[a-zA-Z0-9]* # TODO ?[a-zA-Z0-9]*
+PASS: all.test 445 *.*
+FAIL: all.test 446 *.*
+SKIP: all.test 447 # SKIP *.*
+SKIP: all.test 448 *.* # SKIP
+SKIP: all.test 449 *.* # SKIP
+SKIP: all.test 450 *.* # SKIP *.*
+XFAIL: all.test 451 # TODO *.*
+XFAIL: all.test 452 *.* # TODO
+XFAIL: all.test 453 *.* # TODO
+XFAIL: all.test 454 *.* # TODO *.*
+XPASS: all.test 455 # TODO *.*
+XPASS: all.test 456 *.* # TODO
+XPASS: all.test 457 *.* # TODO
+XPASS: all.test 458 *.* # TODO *.*
+XPASS: all.test 459 {[(< # TODO >)]}
+XFAIL: all.test 460 {[(< # TODO >)]}
+SKIP: all.test 461 {[(< # SKIP >)]}
+# TOTAL: 461
+# PASS:  34
+# SKIP:  131
+# XFAIL: 131
+# FAIL:  34
+# XPASS: 131
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 34 -eq 34
+++ grep -c '^XFAIL:' stdout
++ test 131 -eq 131
+++ grep -c '^SKIP:' stdout
++ test 131 -eq 131
+++ grep -c '^FAIL:' stdout
++ test 34 -eq 34
+++ grep -c '^XPASS:' stdout
++ test 131 -eq 131
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *461$' stdout
+# TOTAL: 461
++ grep '^# PASS:  *34$' stdout
+# PASS:  34
++ grep '^# XFAIL:  *131$' stdout
+# XFAIL: 131
++ grep '^# SKIP:  *131$' stdout
+# SKIP:  131
++ grep '^# FAIL:  *34$' stdout
+# FAIL:  34
++ grep '^# XPASS:  *131$' stdout
+# XPASS: 131
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-fancy2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-fancy2.dir
++ set +x
+PASS t/tap-fancy2.sh (exit status: 0)

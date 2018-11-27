@@ -1,0 +1,681 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir
++ cat
++ dirs='sub1 sub1/sub2 sub1/sub2/sub3 sub1/sub2/sub3/sub4'
++ mkdir sub1 sub1/sub2 sub1/sub2/sub3 sub1/sub2/sub3/sub4
++ cat
++ cat
++ echo SUBDIRS = sub3
++ echo SUBDIRS = sub4
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ for d in $dirs
++ /bin/grep -F foo-am sub1/Makefile.in
+foo-am: foo-local
+	foo-am foo-local html html-am info info-am install install-am \
++ case $d in
++ /bin/grep -F foo-recursive sub1/Makefile.in
+am__extra_recursive_targets = foo-recursive
+foo: foo-recursive
++ for d in $dirs
++ /bin/grep -F foo-am sub1/sub2/Makefile.in
+foo-am: foo-local
+	foo-am foo-local html html-am info info-am install install-am \
++ case $d in
++ /bin/grep -F foo-recursive sub1/sub2/Makefile.in
+am__extra_recursive_targets = foo-recursive
+foo: foo-recursive
++ for d in $dirs
++ /bin/grep -F foo-am sub1/sub2/sub3/Makefile.in
+foo-am: foo-local
+	foo-am foo-local html html-am info info-am install install-am \
++ case $d in
++ /bin/grep -F foo-recursive sub1/sub2/sub3/Makefile.in
+am__extra_recursive_targets = foo-recursive
+foo: foo-recursive
++ for d in $dirs
++ /bin/grep -F foo-am sub1/sub2/sub3/sub4/Makefile.in
+foo: foo-am
+foo-am: foo-local
+	ctags-am distclean distclean-generic distdir dvi dvi-am foo-am \
++ case $d in
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub1/sub2/Makefile
+config.status: creating sub1/sub2/sub3/Makefile
+config.status: creating sub1/sub2/sub3/sub4/Makefile
++ make foo
+Making foo in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+Making foo in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+Making foo in sub3
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+Making foo in sub4
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3/sub4'
+echo 'It works!' > foo
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3/sub4'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+make[4]: Nothing to be done for 'foo-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+make[3]: Nothing to be done for 'foo-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+test ! -f sub2/sub3/foo
+cp sub2/sub3/sub4/foo foo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir'
+cp sub1/foo foo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir'
++ make test
+echo 'It works!' > exp
+diff exp foo
+diff exp sub1/foo
+test ! -f sub1/sub2/foo
+test ! -f sub1/sub2/sub3/foo
+diff exp sub1/sub2/sub3/sub4/foo
+rm -f exp
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir'
+if test -d "recurs-user-deeply-nested-1.0"; then find "recurs-user-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "recurs-user-deeply-nested-1.0" || { sleep 5 && rm -rf "recurs-user-deeply-nested-1.0"; }; else :; fi
+test -d "recurs-user-deeply-nested-1.0" || mkdir "recurs-user-deeply-nested-1.0"
+ (cd sub1 && make  top_distdir=../recurs-user-deeply-nested-1.0 distdir=../recurs-user-deeply-nested-1.0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+ (cd sub2 && make  top_distdir=../../recurs-user-deeply-nested-1.0 distdir=../../recurs-user-deeply-nested-1.0/sub1/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+make  distdir-am
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+ (cd sub3 && make  top_distdir=../../../recurs-user-deeply-nested-1.0 distdir=../../../recurs-user-deeply-nested-1.0/sub1/sub2/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[7]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+make  distdir-am
+make[8]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+ (cd sub4 && make  top_distdir=../../../../recurs-user-deeply-nested-1.0 distdir=../../../../recurs-user-deeply-nested-1.0/sub1/sub2/sub3/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[9]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3/sub4'
+make  distdir-am
+make[10]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3/sub4'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3/sub4'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3/sub4'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2/sub3'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/sub1'
+test -n "" \
+|| find "recurs-user-deeply-nested-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "recurs-user-deeply-nested-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir'
+tardir=recurs-user-deeply-nested-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >recurs-user-deeply-nested-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir'
+if test -d "recurs-user-deeply-nested-1.0"; then find "recurs-user-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "recurs-user-deeply-nested-1.0" || { sleep 5 && rm -rf "recurs-user-deeply-nested-1.0"; }; else :; fi
+case 'recurs-user-deeply-nested-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc recurs-user-deeply-nested-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc recurs-user-deeply-nested-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc recurs-user-deeply-nested-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc recurs-user-deeply-nested-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c recurs-user-deeply-nested-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc recurs-user-deeply-nested-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip recurs-user-deeply-nested-1.0.zip ;;\
+esac
+chmod -R a-w recurs-user-deeply-nested-1.0
+chmod u+w recurs-user-deeply-nested-1.0
+mkdir recurs-user-deeply-nested-1.0/_build recurs-user-deeply-nested-1.0/_build/sub recurs-user-deeply-nested-1.0/_inst
+chmod a-w recurs-user-deeply-nested-1.0
+test -d recurs-user-deeply-nested-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd recurs-user-deeply-nested-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd recurs-user-deeply-nested-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf recurs-user-deeply-nested-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub1/sub2/Makefile
+config.status: creating sub1/sub2/sub3/Makefile
+config.status: creating sub1/sub2/sub3/sub4/Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making all in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making all in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making all in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making all in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Nothing to be done for 'all'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making foo in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making foo in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making foo in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making foo in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+echo 'It works!' > foo
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'foo-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Nothing to be done for 'foo-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+test ! -f sub2/sub3/foo
+cp sub2/sub3/sub4/foo foo
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+cp sub1/foo foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making dvi in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making dvi in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making dvi in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making dvi in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Nothing to be done for 'dvi'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Nothing to be done for 'dvi-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Nothing to be done for 'dvi-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Nothing to be done for 'dvi-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making check in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making check in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making check in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making check in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Nothing to be done for 'check'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Nothing to be done for 'check-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Nothing to be done for 'check-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making foo in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making foo in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making foo in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making foo in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+echo 'It works!' > foo
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'foo-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Nothing to be done for 'foo-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+test ! -f sub2/sub3/foo
+cp sub2/sub3/sub4/foo foo
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+cp sub1/foo foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+echo 'It works!' > exp
+diff exp foo
+diff exp sub1/foo
+test ! -f sub1/sub2/foo
+test ! -f sub1/sub2/sub3/foo
+diff exp sub1/sub2/sub3/sub4/foo
+rm -f exp
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making install in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making install in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making install in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making install in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making foo in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making foo in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making foo in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making foo in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+echo 'It works!' > foo
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'foo-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Nothing to be done for 'foo-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+test ! -f sub2/sub3/foo
+cp sub2/sub3/sub4/foo foo
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+cp sub1/foo foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making installcheck in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making installcheck in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making installcheck in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making installcheck in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Nothing to be done for 'installcheck'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Nothing to be done for 'installcheck-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Nothing to be done for 'installcheck-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Nothing to be done for 'installcheck-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making uninstall in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making uninstall in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making uninstall in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making uninstall in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Nothing to be done for 'uninstall'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Nothing to be done for 'uninstall-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Nothing to be done for 'uninstall-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Nothing to be done for 'uninstall-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making install in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making install in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making install in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making install in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'install-exec-am'.
+make[6]: Nothing to be done for 'install-data-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making foo in sub1
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making foo in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making foo in sub3
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making foo in sub4
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+echo 'It works!' > foo
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[6]: Nothing to be done for 'foo-am'.
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Nothing to be done for 'foo-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+test ! -f sub2/sub3/foo
+cp sub2/sub3/sub4/foo foo
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+cp sub1/foo foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making uninstall in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making uninstall in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making uninstall in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making uninstall in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Nothing to be done for 'uninstall'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[5]: Nothing to be done for 'uninstall-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[4]: Nothing to be done for 'uninstall-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[3]: Nothing to be done for 'uninstall-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+if test -d "recurs-user-deeply-nested-1.0"; then find "recurs-user-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "recurs-user-deeply-nested-1.0" || { sleep 5 && rm -rf "recurs-user-deeply-nested-1.0"; }; else :; fi
+test -d "recurs-user-deeply-nested-1.0" || mkdir "recurs-user-deeply-nested-1.0"
+ (cd sub1 && make  top_distdir=../recurs-user-deeply-nested-1.0 distdir=../recurs-user-deeply-nested-1.0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+ (cd sub2 && make  top_distdir=../../recurs-user-deeply-nested-1.0 distdir=../../recurs-user-deeply-nested-1.0/sub1/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[6]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make  distdir-am
+make[7]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+ (cd sub3 && make  top_distdir=../../../recurs-user-deeply-nested-1.0 distdir=../../../recurs-user-deeply-nested-1.0/sub1/sub2/sub3 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[8]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make  distdir-am
+make[9]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+ (cd sub4 && make  top_distdir=../../../../recurs-user-deeply-nested-1.0 distdir=../../../../recurs-user-deeply-nested-1.0/sub1/sub2/sub3/sub4 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[10]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make  distdir-am
+make[11]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[11]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[10]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[9]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[8]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[7]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+test -n "" \
+|| find "recurs-user-deeply-nested-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "recurs-user-deeply-nested-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+tardir=recurs-user-deeply-nested-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >recurs-user-deeply-nested-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+if test -d "recurs-user-deeply-nested-1.0"; then find "recurs-user-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "recurs-user-deeply-nested-1.0" || { sleep 5 && rm -rf "recurs-user-deeply-nested-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+Making distclean in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+Making distclean in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+Making distclean in sub3
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+Making distclean in sub4
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "../../../../../../sub1/sub2/sub3/sub4" || test -z "" || rm -f 
+rm -f Makefile
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3/sub4'
+make[5]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+test -z "" || rm -f 
+test . = "../../../../../sub1/sub2/sub3" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[5]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+rm -f Makefile
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2/sub3'
+make[4]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+test -z "" || rm -f 
+test . = "../../../../sub1/sub2" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[4]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+rm -f Makefile
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "../../../sub1" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[3]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/recurs-user-deeply-nested.dir/recurs-user-deeply-nested-1.0/_build/sub'
+if test -d "recurs-user-deeply-nested-1.0"; then find "recurs-user-deeply-nested-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "recurs-user-deeply-nested-1.0" || { sleep 5 && rm -rf "recurs-user-deeply-nested-1.0"; }; else :; fi
+===============================================================
+recurs-user-deeply-nested-1.0 archives ready for distribution: 
+recurs-user-deeply-nested-1.0.tar.gz
+===============================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/recurs-user-deeply-nested.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/recurs-user-deeply-nested.dir
++ set +x
+PASS t/recurs-user-deeply-nested.sh (exit status: 0)

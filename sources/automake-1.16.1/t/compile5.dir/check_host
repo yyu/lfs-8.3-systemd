@@ -1,0 +1,15 @@
+case 'linux-gnu' in
+  mingw*)
+    ;;
+  *)
+    skip_ "target OS is not MinGW"
+    ;;
+esac
+case linux-gnu in
+  mingw* | cygwin*)
+    ;;
+  *)
+    winepath -w / \
+      || skip_ "not on MinGW or Cygwin, and winepath not available"
+    ;;
+esac

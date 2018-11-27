@@ -1,0 +1,104 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/py-compile-env.dir
++ cp /sources/automake-1.16.1/lib/py-compile .
++ cat
++ chmod a+x my-py
++ mkdir sub1
++ cd sub1
++ PYTHON=:
++ ../py-compile foo.py
++ ls
++ grep .
++ PYTHON=false
++ ../py-compile foo.py
++ ls
++ grep .
++ PYTHON='echo GrEpMe AndMeToo'
++ ../py-compile foo.py
+GrEpMe AndMeToo -c 
+import sys, os, py_compile, imp
+
+files = '''foo.py'''
+
+sys.stdout.write('Byte-compiling python modules...\n')
+for file in files.split():
+    path = file
+    filepath = path
+    if not os.path.exists(filepath) or not (len(filepath) >= 3
+                                            and filepath[-3:] == '.py'):
+	    continue
+    sys.stdout.write(file)
+    sys.stdout.flush()
+    if hasattr(imp, 'get_tag'):
+        py_compile.compile(filepath, imp.cache_from_source(filepath), path)
+    else:
+        py_compile.compile(filepath, filepath + 'c', path)
+sys.stdout.write('\n')
+GrEpMe AndMeToo -O -c 
+import sys, os, py_compile, imp
+
+# pypy does not use .pyo optimization
+if hasattr(sys, 'pypy_translation_info'):
+    sys.exit(0)
+
+files = '''foo.py'''
+sys.stdout.write('Byte-compiling python modules (optimized versions) ...\n')
+for file in files.split():
+    path = file
+    filepath = path
+    if not os.path.exists(filepath) or not (len(filepath) >= 3
+                                            and filepath[-3:] == '.py'):
+	    continue
+    sys.stdout.write(file)
+    sys.stdout.flush()
+    if hasattr(imp, 'get_tag'):
+        py_compile.compile(filepath, imp.cache_from_source(filepath, False), path)
+    else:
+        py_compile.compile(filepath, filepath + 'o', path)
+sys.stdout.write('\n')
++ PYTHON='echo GrEpMe AndMeToo'
++ ../py-compile foo.py
++ grep 'GrEpMe AndMeToo'
+GrEpMe AndMeToo -c 
+GrEpMe AndMeToo -O -c 
++ ls
++ grep .
++ cd ..
++ mkdir sub2
++ cd sub2
++ PYTHON=../my-py
++ ../py-compile foo.py
++ test -f my-py.run
++ ls
++ grep -v '^my-py\.run$'
++ grep .
++ cd ..
++ mkdir sub3
++ cd sub3
++ PATH=..:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ PYTHON=my-py
++ py-compile foo.py
++ test -f my-py.run
++ ls
++ grep -v '^my-py\.run$'
++ grep .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/py-compile-env.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/py-compile-env.dir
++ set +x
+PASS t/py-compile-env.sh (exit status: 0)

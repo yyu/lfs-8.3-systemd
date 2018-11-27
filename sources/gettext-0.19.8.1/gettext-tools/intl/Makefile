@@ -35,7 +35,7 @@ top_builddir = ..
 #    files it finds in srcdir = ../../gettext-runtime/intl.
 
 
-prefix = /tools
+prefix = /usr
 exec_prefix = ${prefix}
 transform = s,x,x,
 libdir = ${exec_prefix}/lib
@@ -47,18 +47,18 @@ gettextsrcdir = $(datadir)/gettext/intl
 aliaspath = $(localedir)
 subdir = intl
 
-INSTALL = /tools/bin/install -c
+INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 
 # We use $(mkdir_p).
 # In automake <= 1.9.x, $(mkdir_p) is defined either as "mkdir -p --" or as
 # "$(mkinstalldirs)" or as "$(install_sh) -d". For these automake versions,
-# ${SHELL} /mnt/lfs/sources/gettext-0.19.8.1/build-aux/install-sh does not start with $(SHELL), so we add it.
+# ${SHELL} /sources/gettext-0.19.8.1/build-aux/install-sh does not start with $(SHELL), so we add it.
 # In automake >= 1.10, $(MKDIR_P) is derived from ${MKDIR_P}, which is defined
 # either as "/path/to/mkdir -p" or ".../install-sh -c -d". For these automake
 # versions, $(mkinstalldirs) and $(install_sh) are unused.
-mkinstalldirs = $(SHELL) ${SHELL} /mnt/lfs/sources/gettext-0.19.8.1/build-aux/install-sh -d
-install_sh = $(SHELL) ${SHELL} /mnt/lfs/sources/gettext-0.19.8.1/build-aux/install-sh
+mkinstalldirs = $(SHELL) ${SHELL} /sources/gettext-0.19.8.1/build-aux/install-sh -d
+install_sh = $(SHELL) ${SHELL} /sources/gettext-0.19.8.1/build-aux/install-sh
 MKDIR_P = /tools/bin/mkdir -p
 mkdir_p = $(MKDIR_P)
 

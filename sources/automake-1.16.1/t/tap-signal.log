@@ -1,0 +1,864 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-signal.dir
++ fetch_tap_driver
++ AM_TAP_AWK=gawk
++ export AM_TAP_AWK
++ get_shell_script tap-driver.sh tap-driver
++ am_source=tap-driver.sh
++ am_target=tap-driver
++ test '!' -f tap-driver
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
++ unset am_target am_source
++ plan_ 10
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x10 = xunknown
++ test x10 = xlater
++ test x10 = xlazy
++ test x10 = xnow
++ test 10 -ge 0
++ planned_=10
++ echo 1..10
+1..10
++ cat
++ cat
++ all_signals='1 2 3 9 13 15'
++ blocked_signals=
++ for sig in $all_signals
++ is_blocked_signal 1
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(1, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += signal-1.test
++ for sig in $all_signals
++ is_blocked_signal 2
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(2, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += signal-2.test
++ for sig in $all_signals
++ is_blocked_signal 3
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(3, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += signal-3.test
++ for sig in $all_signals
++ is_blocked_signal 9
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(9, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += signal-9.test
++ for sig in $all_signals
++ is_blocked_signal 13
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(13, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += signal-13.test
++ for sig in $all_signals
++ is_blocked_signal 15
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(15, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += signal-15.test
+++ wc -l
+++ ls signal-1.test signal-13.test signal-15.test signal-2.test signal-3.test signal-9.test
+++ tr -d '	 '
++ results_count=6
++ chmod a+x signal-1.test signal-13.test signal-15.test signal-2.test signal-3.test signal-9.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ uname -s -r
++ system='Linux 4.15.0-1021-aws'
++ command_ok_ '"make check" fails' eval '
+  (
+    run_make -e IGNORE -O check
+    # Extra "echo" and silencing of xtraces required to avoid possible
+    # garbled output with NetBSD make, which would miss some final
+    # newlines in the expected places and thus mess up our TAP output.
+    set +x; echo
+    test $am_make_rc -gt 0
+  )
+'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='"make check" fails'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval '
+  (
+    run_make -e IGNORE -O check
+    # Extra "echo" and silencing of xtraces required to avoid possible
+    # garbled output with NetBSD make, which would miss some final
+    # newlines in the expected places and thus mess up our TAP output.
+    set +x; echo
+    test $am_make_rc -gt 0
+  )
+'
+++ run_make -e IGNORE -O check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 4 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 2 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 1 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ make --version -v
+++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+++ am__using_gmake=yes
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make check
+++ set +x
+make[2]: *** [Makefile:476: test-suite.log] Error 1
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make: *** [Makefile:776: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-signal.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-signal.dir'
+PASS: signal-1.test 1
+ERROR: signal-1.test - exited with status 129 (terminated by signal 1?)
+PASS: signal-2.test 1
+ERROR: signal-2.test - exited with status 130 (terminated by signal 2?)
+PASS: signal-3.test 1
+ERROR: signal-3.test - exited with status 131 (terminated by signal 3?)
+PASS: signal-9.test 1
+ERROR: signal-9.test - exited with status 137 (terminated by signal 9?)
+PASS: signal-13.test 1
+ERROR: signal-13.test - exited with status 141 (terminated by signal 13?)
+PASS: signal-15.test 1
+ERROR: signal-15.test - exited with status 143 (terminated by signal 15?)
+============================================================================
+Testsuite summary for tap-signal 1.0
+============================================================================
+# TOTAL: 12
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 6
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-signal.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-signal.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ set +x
+
++ result_ ok -D '' -r '' -- '"make check" fails'
++ set +x
+ok 1 - "make check" fails
+PASS: t/tap-signal.tap 1 - "make check" fails
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-signal.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-signal.dir'
+PASS: signal-1.test 1
+ERROR: signal-1.test - exited with status 129 (terminated by signal 1?)
+PASS: signal-2.test 1
+ERROR: signal-2.test - exited with status 130 (terminated by signal 2?)
+PASS: signal-3.test 1
+ERROR: signal-3.test - exited with status 131 (terminated by signal 3?)
+PASS: signal-9.test 1
+ERROR: signal-9.test - exited with status 137 (terminated by signal 9?)
+PASS: signal-13.test 1
+ERROR: signal-13.test - exited with status 141 (terminated by signal 13?)
+PASS: signal-15.test 1
+ERROR: signal-15.test - exited with status 143 (terminated by signal 15?)
+============================================================================
+Testsuite summary for tap-signal 1.0
+============================================================================
+# TOTAL: 12
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 6
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-signal.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-signal.dir'
++ command_ok_ 'count of test results' count_test_results total=12 pass=6 error=6 fail=0 xpass=0 xfail=0 skip=0
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='count of test results'
++ shift
++ test 8 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ count_test_results total=12 pass=6 error=6 fail=0 xpass=0 xfail=0 skip=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=12 pass=6 error=6 fail=0 xpass=0 xfail=0 skip=0
+++ total=12
+++ pass=6
+++ error=6
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: signal-1.test 1
+ERROR: signal-1.test - exited with status 129 (terminated by signal 1?)
+PASS: signal-2.test 1
+ERROR: signal-2.test - exited with status 130 (terminated by signal 2?)
+PASS: signal-3.test 1
+ERROR: signal-3.test - exited with status 131 (terminated by signal 3?)
+PASS: signal-9.test 1
+ERROR: signal-9.test - exited with status 137 (terminated by signal 9?)
+PASS: signal-13.test 1
+ERROR: signal-13.test - exited with status 141 (terminated by signal 13?)
+PASS: signal-15.test 1
+ERROR: signal-15.test - exited with status 143 (terminated by signal 15?)
+# TOTAL: 12
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 6
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 6 -eq 6
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 6 -eq 6
++ grep '^# TOTAL:  *12$' stdout
+# TOTAL: 12
++ grep '^# PASS:  *6$' stdout
+# PASS:  6
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *6$' stdout
+# ERROR: 6
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'count of test results'
++ set +x
+ok 2 - count of test results
+PASS: t/tap-signal.tap 2 - count of test results
++ for sig in $all_signals
++ signal_caught 1
++ numeric=1
++ case $numeric in
++ symbolic=HUP
++ case $numeric,$system in
++ sig_re='((SIG)?HUP|1)'
++ wbound_re='($|[^a-zA-Z0-9_-])'
++ pfx_re='^ERROR: signal-1\.test'
++ rx='^ERROR: signal-1\.test .*terminated by signal ((SIG)?HUP|1)($|[^a-zA-Z0-9_-])'
++ desc='TAP driver catch test termination by signal SIGHUP'
++ case " $blocked_signals " in
++ command_ok_ 'TAP driver catch test termination by signal SIGHUP' env LC_ALL=C /bin/grep -E '^ERROR: signal-1\.test .*terminated by signal ((SIG)?HUP|1)($|[^a-zA-Z0-9_-])' stdout
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='TAP driver catch test termination by signal SIGHUP'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env LC_ALL=C /bin/grep -E '^ERROR: signal-1\.test .*terminated by signal ((SIG)?HUP|1)($|[^a-zA-Z0-9_-])' stdout
+ERROR: signal-1.test - exited with status 129 (terminated by signal 1?)
++ result_ ok -D '' -r '' -- 'TAP driver catch test termination by signal SIGHUP'
++ set +x
+ok 3 - TAP driver catch test termination by signal SIGHUP
+PASS: t/tap-signal.tap 3 - TAP driver catch test termination by signal SIGHUP
++ for sig in $all_signals
++ signal_caught 2
++ numeric=2
++ case $numeric in
++ symbolic=INT
++ case $numeric,$system in
++ sig_re='((SIG)?INT|2)'
++ wbound_re='($|[^a-zA-Z0-9_-])'
++ pfx_re='^ERROR: signal-2\.test'
++ rx='^ERROR: signal-2\.test .*terminated by signal ((SIG)?INT|2)($|[^a-zA-Z0-9_-])'
++ desc='TAP driver catch test termination by signal SIGINT'
++ case " $blocked_signals " in
++ command_ok_ 'TAP driver catch test termination by signal SIGINT' env LC_ALL=C /bin/grep -E '^ERROR: signal-2\.test .*terminated by signal ((SIG)?INT|2)($|[^a-zA-Z0-9_-])' stdout
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='TAP driver catch test termination by signal SIGINT'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env LC_ALL=C /bin/grep -E '^ERROR: signal-2\.test .*terminated by signal ((SIG)?INT|2)($|[^a-zA-Z0-9_-])' stdout
+ERROR: signal-2.test - exited with status 130 (terminated by signal 2?)
++ result_ ok -D '' -r '' -- 'TAP driver catch test termination by signal SIGINT'
++ set +x
+ok 4 - TAP driver catch test termination by signal SIGINT
+PASS: t/tap-signal.tap 4 - TAP driver catch test termination by signal SIGINT
++ for sig in $all_signals
++ signal_caught 3
++ numeric=3
++ case $numeric in
++ symbolic=QUIT
++ case $numeric,$system in
++ sig_re='((SIG)?QUIT|3)'
++ wbound_re='($|[^a-zA-Z0-9_-])'
++ pfx_re='^ERROR: signal-3\.test'
++ rx='^ERROR: signal-3\.test .*terminated by signal ((SIG)?QUIT|3)($|[^a-zA-Z0-9_-])'
++ desc='TAP driver catch test termination by signal SIGQUIT'
++ case " $blocked_signals " in
++ command_ok_ 'TAP driver catch test termination by signal SIGQUIT' env LC_ALL=C /bin/grep -E '^ERROR: signal-3\.test .*terminated by signal ((SIG)?QUIT|3)($|[^a-zA-Z0-9_-])' stdout
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='TAP driver catch test termination by signal SIGQUIT'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env LC_ALL=C /bin/grep -E '^ERROR: signal-3\.test .*terminated by signal ((SIG)?QUIT|3)($|[^a-zA-Z0-9_-])' stdout
+ERROR: signal-3.test - exited with status 131 (terminated by signal 3?)
++ result_ ok -D '' -r '' -- 'TAP driver catch test termination by signal SIGQUIT'
++ set +x
+ok 5 - TAP driver catch test termination by signal SIGQUIT
+PASS: t/tap-signal.tap 5 - TAP driver catch test termination by signal SIGQUIT
++ for sig in $all_signals
++ signal_caught 9
++ numeric=9
++ case $numeric in
++ symbolic=KILL
++ case $numeric,$system in
++ sig_re='((SIG)?KILL|9)'
++ wbound_re='($|[^a-zA-Z0-9_-])'
++ pfx_re='^ERROR: signal-9\.test'
++ rx='^ERROR: signal-9\.test .*terminated by signal ((SIG)?KILL|9)($|[^a-zA-Z0-9_-])'
++ desc='TAP driver catch test termination by signal SIGKILL'
++ case " $blocked_signals " in
++ command_ok_ 'TAP driver catch test termination by signal SIGKILL' env LC_ALL=C /bin/grep -E '^ERROR: signal-9\.test .*terminated by signal ((SIG)?KILL|9)($|[^a-zA-Z0-9_-])' stdout
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='TAP driver catch test termination by signal SIGKILL'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env LC_ALL=C /bin/grep -E '^ERROR: signal-9\.test .*terminated by signal ((SIG)?KILL|9)($|[^a-zA-Z0-9_-])' stdout
+ERROR: signal-9.test - exited with status 137 (terminated by signal 9?)
++ result_ ok -D '' -r '' -- 'TAP driver catch test termination by signal SIGKILL'
++ set +x
+ok 6 - TAP driver catch test termination by signal SIGKILL
+PASS: t/tap-signal.tap 6 - TAP driver catch test termination by signal SIGKILL
++ for sig in $all_signals
++ signal_caught 13
++ numeric=13
++ case $numeric in
++ symbolic=PIPE
++ case $numeric,$system in
++ sig_re='((SIG)?PIPE|13)'
++ wbound_re='($|[^a-zA-Z0-9_-])'
++ pfx_re='^ERROR: signal-13\.test'
++ rx='^ERROR: signal-13\.test .*terminated by signal ((SIG)?PIPE|13)($|[^a-zA-Z0-9_-])'
++ desc='TAP driver catch test termination by signal SIGPIPE'
++ case " $blocked_signals " in
++ command_ok_ 'TAP driver catch test termination by signal SIGPIPE' env LC_ALL=C /bin/grep -E '^ERROR: signal-13\.test .*terminated by signal ((SIG)?PIPE|13)($|[^a-zA-Z0-9_-])' stdout
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='TAP driver catch test termination by signal SIGPIPE'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env LC_ALL=C /bin/grep -E '^ERROR: signal-13\.test .*terminated by signal ((SIG)?PIPE|13)($|[^a-zA-Z0-9_-])' stdout
+ERROR: signal-13.test - exited with status 141 (terminated by signal 13?)
++ result_ ok -D '' -r '' -- 'TAP driver catch test termination by signal SIGPIPE'
++ set +x
+ok 7 - TAP driver catch test termination by signal SIGPIPE
+PASS: t/tap-signal.tap 7 - TAP driver catch test termination by signal SIGPIPE
++ for sig in $all_signals
++ signal_caught 15
++ numeric=15
++ case $numeric in
++ symbolic=TERM
++ case $numeric,$system in
++ sig_re='((SIG)?TERM|15)'
++ wbound_re='($|[^a-zA-Z0-9_-])'
++ pfx_re='^ERROR: signal-15\.test'
++ rx='^ERROR: signal-15\.test .*terminated by signal ((SIG)?TERM|15)($|[^a-zA-Z0-9_-])'
++ desc='TAP driver catch test termination by signal SIGTERM'
++ case " $blocked_signals " in
++ command_ok_ 'TAP driver catch test termination by signal SIGTERM' env LC_ALL=C /bin/grep -E '^ERROR: signal-15\.test .*terminated by signal ((SIG)?TERM|15)($|[^a-zA-Z0-9_-])' stdout
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='TAP driver catch test termination by signal SIGTERM'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ env LC_ALL=C /bin/grep -E '^ERROR: signal-15\.test .*terminated by signal ((SIG)?TERM|15)($|[^a-zA-Z0-9_-])' stdout
+ERROR: signal-15.test - exited with status 143 (terminated by signal 15?)
++ result_ ok -D '' -r '' -- 'TAP driver catch test termination by signal SIGTERM'
++ set +x
+ok 8 - TAP driver catch test termination by signal SIGTERM
+PASS: t/tap-signal.tap 8 - TAP driver catch test termination by signal SIGTERM
++ echo 'TEST_LOG_DRIVER_FLAGS = --ignore-exit'
++ command_ok_ '"make check" passes [--ignore-exit]' run_make -O check
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='"make check" passes [--ignore-exit]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ run_make -O check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-signal.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-signal.dir'
+PASS: signal-1.test 1
+PASS: signal-2.test 1
+PASS: signal-3.test 1
+PASS: signal-9.test 1
+PASS: signal-13.test 1
+PASS: signal-15.test 1
+============================================================================
+Testsuite summary for tap-signal 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-signal.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-signal.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- '"make check" passes [--ignore-exit]'
++ set +x
+ok 9 - "make check" passes [--ignore-exit]
+PASS: t/tap-signal.tap 9 - "make check" passes [--ignore-exit]
++ command_ok_ 'count of test results [--ignore-exit]' count_test_results total=6 pass=6 fail=0 xpass=0 xfail=0 skip=0 error=0
++ tap_directive_=
++ tap_reason_=
++ test 9 -gt 0
++ tap_description_='count of test results [--ignore-exit]'
++ shift
++ test 8 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ count_test_results total=6 pass=6 fail=0 xpass=0 xfail=0 skip=0 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=6 pass=6 fail=0 xpass=0 xfail=0 skip=0 error=0
+++ total=6
+++ pass=6
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: signal-1.test 1
+PASS: signal-2.test 1
+PASS: signal-3.test 1
+PASS: signal-9.test 1
+PASS: signal-13.test 1
+PASS: signal-15.test 1
+# TOTAL: 6
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 6 -eq 6
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *6$' stdout
+# TOTAL: 6
++ grep '^# PASS:  *6$' stdout
+# PASS:  6
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'count of test results [--ignore-exit]'
++ set +x
+ok 10 - count of test results [--ignore-exit]
+PASS: t/tap-signal.tap 10 - count of test results [--ignore-exit]
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 10 = later
++ test 0 -eq 0
++ test 10 -eq 10
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-signal.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-signal.dir
++ set +x

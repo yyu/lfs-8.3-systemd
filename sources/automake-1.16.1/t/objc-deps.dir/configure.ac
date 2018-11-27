@@ -1,0 +1,5 @@
+AC_INIT([objc-deps], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_PROG_OBJC
+AC_OUTPUT

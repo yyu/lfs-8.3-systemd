@@ -1,0 +1,84 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/transform.dir
++ cat
++ cat
++ cat
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
+++ pwd
++ cwd=/sources/automake-1.16.1/t/transform.dir
++ ./configure --program-prefix=gnu- --prefix /sources/automake-1.16.1/t/transform.dir/inst --mandir /sources/automake-1.16.1/t/transform.dir/inst/man
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"transform\" -DPACKAGE_TARNAME=\"transform\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"transform\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"transform\" -DVERSION=\"1.0\" -I.     -g -O2 -MT h.o -MD -MP -MF .deps/h.Tpo -c -o h.o h.c
+mv -f .deps/h.Tpo .deps/h.Po
+cc  -g -O2   -o h h.o  
++ make test-install
+make[1]: Entering directory '/sources/automake-1.16.1/t/transform.dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform.dir/inst/bin'
+  /usr/bin/install -c h '/sources/automake-1.16.1/t/transform.dir/inst/bin/./gnu-h'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform.dir/inst/bin'
+ /usr/bin/install -c h.sh '/sources/automake-1.16.1/t/transform.dir/inst/bin/./gnu-h.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform.dir/inst/man/man1'
+ /usr/bin/install -c -m 644 'h.1' '/sources/automake-1.16.1/t/transform.dir/inst/man/man1/gnu-h.1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/transform.dir'
+test -f inst/bin/gnu-h
+test -f inst/bin/gnu-h.sh
+test -f inst/man/man1/gnu-h.1
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/transform.dir/inst/bin' && rm -f gnu-h )
+ ( cd '/sources/automake-1.16.1/t/transform.dir/inst/bin' && rm -f gnu-h.sh )
+ ( cd '/sources/automake-1.16.1/t/transform.dir/inst/man/man1' && rm -f gnu-h.1 )
+++ wc -l
+++ find inst -type f -print
++ test 0 -eq 0
++ rm -rf inst
++ make installdirs
+for dir in "/sources/automake-1.16.1/t/transform.dir/inst/bin" "/sources/automake-1.16.1/t/transform.dir/inst/bin" "/sources/automake-1.16.1/t/transform.dir/inst/man/man1"; do \
+  test -z "$dir" || /tools/bin/mkdir -p "$dir"; \
+done
++ test -d inst/bin
++ test -d inst/man/man1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/transform.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/transform.dir
++ set +x
+PASS t/transform.sh (exit status: 0)

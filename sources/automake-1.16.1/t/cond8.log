@@ -1,0 +1,128 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond8.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ cat
++ cp x.c y.c
+++ pwd
++ instdir=/sources/automake-1.16.1/t/cond8.dir/_inst
++ ./configure --prefix=/sources/automake-1.16.1/t/cond8.dir/_inst x=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make install
+gcc -DPACKAGE_NAME=\"cond8\" -DPACKAGE_TARNAME=\"cond8\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond8\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond8\" -DVERSION=\"1.0\" -I.     -g -O2 -MT x.o -MD -MP -MF .deps/x.Tpo -c -o x.o x.c
+mv -f .deps/x.Tpo .deps/x.Po
+gcc  -g -O2   -o x x.o  
+gcc -DPACKAGE_NAME=\"cond8\" -DPACKAGE_TARNAME=\"cond8\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond8\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond8\" -DVERSION=\"1.0\" -I.     -g -O2 -MT y.o -MD -MP -MF .deps/y.Tpo -c -o y.o y.c
+mv -f .deps/y.Tpo .deps/y.Po
+gcc  -g -O2   -o y y.o  
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond8.dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/cond8.dir/_inst/bin'
+  /usr/bin/install -c x y '/sources/automake-1.16.1/t/cond8.dir/_inst/bin'
+make[1]: Nothing to be done for 'install-data-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond8.dir'
++ make get-built
+test -f x.o
+test -f y.o
+test -f x
+test -f y
++ make get-installed
+test -f /sources/automake-1.16.1/t/cond8.dir/_inst/bin/x
+test -f /sources/automake-1.16.1/t/cond8.dir/_inst/bin/y
++ make distclean
+test -z "x y" || rm -f x y
+test -z "" || rm -f 
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/x.Po
+rm -f ./.deps/y.Po
+rm -f Makefile
++ rm -rf _inst
++ ./configure --prefix=/sources/automake-1.16.1/t/cond8.dir/_inst x=no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make install
+gcc -DPACKAGE_NAME=\"cond8\" -DPACKAGE_TARNAME=\"cond8\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond8\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond8\" -DVERSION=\"1.0\" -I.     -g -O2 -MT x.o -MD -MP -MF .deps/x.Tpo -c -o x.o x.c
+mv -f .deps/x.Tpo .deps/x.Po
+gcc  -g -O2   -o x x.o  
+gcc -DPACKAGE_NAME=\"cond8\" -DPACKAGE_TARNAME=\"cond8\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond8\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond8\" -DVERSION=\"1.0\" -I.     -g -O2 -MT y.o -MD -MP -MF .deps/y.Tpo -c -o y.o y.c
+mv -f .deps/y.Tpo .deps/y.Po
+gcc  -g -O2   -o y y.o  
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond8.dir'
+make[1]: Nothing to be done for 'install-data-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond8.dir'
++ make get-built
+test -f x.o
+test -f y.o
+test -f x
+test -f y
++ make not-installed
+if find /sources/automake-1.16.1/t/cond8.dir/_inst -type f | grep .; then exit 1; else :; fi
+find: '/sources/automake-1.16.1/t/cond8.dir/_inst': No such file or directory
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond8.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond8.dir
++ set +x
+PASS t/cond8.sh (exit status: 0)

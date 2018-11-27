@@ -1,0 +1,49 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-auxdir.dir
++ mkdir aux1 sub
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:6: installing 'aux1/compile'
+configure.ac:4: installing 'aux1/install-sh'
+configure.ac:4: installing 'aux1/missing'
+Makefile.am: installing 'aux1/depcomp'
+configure.ac: installing 'aux1/ylwrap'
++ test -f aux1/ylwrap
++ test '!' -e ylwrap
++ test '!' -e sub/ylwrap
++ grep -i ylwrap Makefile.in sub/Makefile.in
+Makefile.in:YLWRAP = $(top_srcdir)/aux1/ylwrap
+Makefile.in:	$(top_srcdir)/aux1/missing $(top_srcdir)/aux1/ylwrap \
+Makefile.in:	aux1/ylwrap compile depcomp foo.c foo.h install-sh missing
+Makefile.in:	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+sub/Makefile.in:YLWRAP = $(top_srcdir)/aux1/ylwrap
+sub/Makefile.in:	$(top_srcdir)/aux1/ylwrap bar.c bar.h
+sub/Makefile.in:	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
++ /bin/grep -F '$(top_srcdir)/aux1/ylwrap' Makefile.in
+YLWRAP = $(top_srcdir)/aux1/ylwrap
+	$(top_srcdir)/aux1/missing $(top_srcdir)/aux1/ylwrap \
++ /bin/grep -F '$(top_srcdir)/aux1/ylwrap' sub/Makefile.in
+YLWRAP = $(top_srcdir)/aux1/ylwrap
+	$(top_srcdir)/aux1/ylwrap bar.c bar.h
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-auxdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-auxdir.dir
++ set +x
+PASS t/yacc-auxdir.sh (exit status: 0)

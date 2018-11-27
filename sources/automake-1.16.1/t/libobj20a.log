@@ -1,0 +1,50 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/libobj20a.dir
++ cat
++ cat
++ mkdir libobj-dir
++ :
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: error: '$(LIBOBJS)' cannot be used outside 'libobj-dir' if 'subdir-objects' is not set
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'LIBOBJS.*used outside.*libobj-dir' stderr
+automake-1.16: error: '$(LIBOBJS)' cannot be used outside 'libobj-dir' if 'subdir-objects' is not set
++ grep 'subdir-objects.*not set' stderr
+automake-1.16: error: '$(LIBOBJS)' cannot be used outside 'libobj-dir' if 'subdir-objects' is not set
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/libobj20a.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/libobj20a.dir
++ set +x
+PASS t/libobj20a.sh (exit status: 0)

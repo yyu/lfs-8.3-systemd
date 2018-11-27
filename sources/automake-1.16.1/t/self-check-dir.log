@@ -1,0 +1,371 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ plan_ 5
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x5 = xunknown
++ test x5 = xlater
++ test x5 = xlazy
++ test x5 = xnow
++ test 5 -ge 0
++ planned_=5
++ echo 1..5
+1..5
++ unset keep_testdirs
+++ /bin/sh -c pwd
++ cwd=/sources/automake-1.16.1
++ echo /sources/automake-1.16.1
+/sources/automake-1.16.1
++ do_check 'testdir has the expected path' 'unset am_create_testdir' 'case $(pwd) in /sources/automake-1.16.1/t/_self.dir);; *) exit 1;; esac'
++ rm -rf _self.dir
++ command_ok_ 'testdir has the expected path [unset am_create_testdir]' /bin/sh -c '
+    unset am_create_testdir
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    case $(pwd) in /sources/automake-1.16.1/t/_self.dir);; *) exit 1;; esac
+  ' t/_self.sh
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='testdir has the expected path [unset am_create_testdir]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/sh -c '
+    unset am_create_testdir
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    case $(pwd) in /sources/automake-1.16.1/t/_self.dir);; *) exit 1;; esac
+  ' t/_self.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ ls -l
+total 60
+-rwxr-xr-x 1 root root  7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    69 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root 23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root 15368 Nov 27 06:48 install-sh
+-rwxr-xr-x 1 root root  6878 Nov 27 06:48 missing
++ case $(pwd) in
+++ pwd
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/_self.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/_self.dir
++ set +x
++ result_ ok -D '' -r '' -- 'testdir has the expected path [unset am_create_testdir]'
++ set +x
+ok 1 - testdir has the expected path [unset am_create_testdir]
+PASS: t/self-check-dir.tap 1 - testdir has the expected path [unset am_create_testdir]
++ do_check 'fully pre-populated testdir' 'unset am_create_testdir' 'test -f install-sh || exit 1
+          test -f configure.ac || exit 1
+          case $(pwd) in /sources/automake-1.16.1/t/_self.dir) : ;; *) exit 1;; esac'
++ rm -rf _self.dir
++ command_ok_ 'fully pre-populated testdir [unset am_create_testdir]' /bin/sh -c '
+    unset am_create_testdir
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    test -f install-sh || exit 1
+          test -f configure.ac || exit 1
+          case $(pwd) in /sources/automake-1.16.1/t/_self.dir) : ;; *) exit 1;; esac
+  ' t/_self.sh
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='fully pre-populated testdir [unset am_create_testdir]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/sh -c '
+    unset am_create_testdir
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    test -f install-sh || exit 1
+          test -f configure.ac || exit 1
+          case $(pwd) in /sources/automake-1.16.1/t/_self.dir) : ;; *) exit 1;; esac
+  ' t/_self.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ ls -l
+total 60
+-rwxr-xr-x 1 root root  7383 Nov 27 06:48 compile
+-rw-r--r-- 1 root root    69 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root 23568 Nov 27 06:48 depcomp
+-rwxr-xr-x 1 root root 15368 Nov 27 06:48 install-sh
+-rwxr-xr-x 1 root root  6878 Nov 27 06:48 missing
++ test -f install-sh
++ test -f configure.ac
++ case $(pwd) in
+++ pwd
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/_self.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/_self.dir
++ set +x
++ result_ ok -D '' -r '' -- 'fully pre-populated testdir [unset am_create_testdir]'
++ set +x
+ok 2 - fully pre-populated testdir [unset am_create_testdir]
+PASS: t/self-check-dir.tap 2 - fully pre-populated testdir [unset am_create_testdir]
++ do_check 'testdir has the expected path' am_create_testdir=empty 'case $(pwd) in /sources/automake-1.16.1/t/_self.dir) : ;; *) exit 1;; esac'
++ rm -rf _self.dir
++ command_ok_ 'testdir has the expected path [am_create_testdir=empty]' /bin/sh -c '
+    am_create_testdir=empty
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    case $(pwd) in /sources/automake-1.16.1/t/_self.dir) : ;; *) exit 1;; esac
+  ' t/_self.sh
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='testdir has the expected path [am_create_testdir=empty]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/sh -c '
+    am_create_testdir=empty
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    case $(pwd) in /sources/automake-1.16.1/t/_self.dir) : ;; *) exit 1;; esac
+  ' t/_self.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ ls -l
+total 0
++ case $(pwd) in
+++ pwd
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/_self.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/_self.dir
++ set +x
++ result_ ok -D '' -r '' -- 'testdir has the expected path [am_create_testdir=empty]'
++ set +x
+ok 3 - testdir has the expected path [am_create_testdir=empty]
+PASS: t/self-check-dir.tap 3 - testdir has the expected path [am_create_testdir=empty]
++ do_check 'do not pre-populate testdir' am_create_testdir=empty 'ls -a | grep -v "^\\.\\{1,2\\}$" | grep . && exit 1; :'
++ rm -rf _self.dir
++ command_ok_ 'do not pre-populate testdir [am_create_testdir=empty]' /bin/sh -c '
+    am_create_testdir=empty
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    ls -a | grep -v "^\\.\\{1,2\\}$" | grep . && exit 1; :
+  ' t/_self.sh
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='do not pre-populate testdir [am_create_testdir=empty]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/sh -c '
+    am_create_testdir=empty
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    ls -a | grep -v "^\\.\\{1,2\\}$" | grep . && exit 1; :
+  ' t/_self.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ pwd
+/sources/automake-1.16.1/t/_self.dir
++ ls -l
+total 0
++ ls -a
++ grep .
++ grep -v '^\.\{1,2\}$'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/_self.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/_self.dir
++ set +x
++ result_ ok -D '' -r '' -- 'do not pre-populate testdir [am_create_testdir=empty]'
++ set +x
+ok 4 - do not pre-populate testdir [am_create_testdir=empty]
+PASS: t/self-check-dir.tap 4 - do not pre-populate testdir [am_create_testdir=empty]
++ do_check 'do not create nor chdir in testdir' am_create_testdir=no 'test ! -e t/_self.dir || exit 1
+          grep "self-check-dir\.tap" Makefile || exit 1
+          case $(pwd) in /sources/automake-1.16.1) : ;; *) exit 1;; esac'
++ rm -rf _self.dir
++ command_ok_ 'do not create nor chdir in testdir [am_create_testdir=no]' /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    test ! -e t/_self.dir || exit 1
+          grep "self-check-dir\.tap" Makefile || exit 1
+          case $(pwd) in /sources/automake-1.16.1) : ;; *) exit 1;; esac
+  ' t/_self.sh
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='do not create nor chdir in testdir [am_create_testdir=no]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    # Don'\''t fail if '\''ls -l'\'' fails; avoids possible racy spurious failures.
+    pwd; ls -l || : # For debugging.
+    test ! -e t/_self.dir || exit 1
+          grep "self-check-dir\.tap" Makefile || exit 1
+          case $(pwd) in /sources/automake-1.16.1) : ;; *) exit 1;; esac
+  ' t/_self.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ pwd
+/sources/automake-1.16.1
++ ls -l
+total 1900
+-rw-r--r--  1 1000  998    553 Feb 26  2018 AUTHORS
+-rw-r--r--  1 1000  998  17987 Feb 26  2018 COPYING
+-r--r--r--  1 1000  998 922449 Mar 11  2018 ChangeLog
+-rw-r--r--  1 1000  998   3301 Feb 26  2018 GNUmakefile
+-rw-r--r--  1 1000  998  17899 Feb 27  2018 HACKING
+-rw-r--r--  1 1000  998  15756 Feb 27  2018 INSTALL
+-rw-r--r--  1 root root 133151 Nov 27 06:36 Makefile
+-rw-r--r--  1 1000  998   4158 Feb 26  2018 Makefile.am
+-rw-r--r--  1 1000  998 133297 Mar 11  2018 Makefile.in
+-rw-r--r--  1 1000  998 128343 Mar 11  2018 NEWS
+drwxr-xr-x  4 1000  998   4096 Feb 26  2018 PLANS
+-rw-r--r--  1 1000  998   2716 Feb 27  2018 README
+-rw-r--r--  1 1000  998  23325 Feb 26  2018 THANKS
+-rw-r--r--  1 1000  998   1516 Mar 11  2018 aclocal.m4
+drwxr-xr-x  2 1000  998   4096 Nov 27 06:36 bin
+-rwxr-xr-x  1 1000  998   3839 Feb 27  2018 bootstrap
+-rw-r--r--  1 root root  24842 Nov 27 06:36 config.log
+-rwxr-xr-x  1 root root  28474 Nov 27 06:36 config.status
+-rwxr-xr-x  1 1000  998 232108 Mar 11  2018 configure
+-rw-r--r--  1 1000  998  22271 Mar 11  2018 configure.ac
+drwxr-xr-x  4 1000  998   4096 Mar 11  2018 contrib
+drwxr-xr-x  3 1000  998   4096 Nov 27 06:36 doc
+-rwxr-xr-x  1 1000  998  13941 Feb 26  2018 gen-testsuite-part
+drwxr-xr-x  4 1000  998   4096 Mar 11  2018 lib
+drwxr-xr-x  4 1000  998   4096 Mar 11  2018 m4
+drwxr-xr-x  2 1000  998   4096 Mar 11  2018 maintainer
+drwxr-xr-x  2 1000  998   4096 Mar 11  2018 old
+-rwxr-xr-x  1 root root   1237 Nov 27 06:36 pre-inst-env
+-rw-r--r--  1 1000  998   1238 Feb 26  2018 pre-inst-env.in
+-r-xr-xr-x  1 root root   3667 Nov 27 06:36 runtest
+drwxr-xr-x 48 1000  998 126976 Nov 27 06:48 t
++ test '!' -e t/_self.dir
++ grep 'self-check-dir\.tap' Makefile
+t/self-check-dir.tap \
++ case $(pwd) in
+++ pwd
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
++ result_ ok -D '' -r '' -- 'do not create nor chdir in testdir [am_create_testdir=no]'
++ set +x
+ok 5 - do not create nor chdir in testdir [am_create_testdir=no]
+PASS: t/self-check-dir.tap 5 - do not create nor chdir in testdir [am_create_testdir=no]
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 5 = later
++ test 0 -eq 0
++ test 5 -eq 5
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x

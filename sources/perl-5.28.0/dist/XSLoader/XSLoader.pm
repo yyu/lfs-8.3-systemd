@@ -65,7 +65,7 @@ sub load {
             goto \&XSLoader::bootstrap_inherit;
         }
     }
-    my $file = "$modlibname/auto/$modpname/$modfname.none";
+    my $file = "$modlibname/auto/$modpname/$modfname.so";
 
 #   print STDERR "XSLoader::load for $module ($file)\n" if $dl_debug;
 

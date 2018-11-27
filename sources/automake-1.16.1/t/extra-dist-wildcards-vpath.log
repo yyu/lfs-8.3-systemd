@@ -1,0 +1,103 @@
+extra-dist-wildcards-vpath: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/extra-dist-wildcards-vpath.dir
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ echo aaa
++ echo bbb
++ mkdir build
++ echo ccc
++ echo ddd
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/extra-dist-wildcards-vpath.dir/build'
+if test -d "extra-dist-wildcards-vpath-1.0"; then find "extra-dist-wildcards-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "extra-dist-wildcards-vpath-1.0" || { sleep 5 && rm -rf "extra-dist-wildcards-vpath-1.0"; }; else :; fi
+test -d "extra-dist-wildcards-vpath-1.0" || mkdir "extra-dist-wildcards-vpath-1.0"
+test -n "" \
+|| find "extra-dist-wildcards-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/extra-dist-wildcards-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "extra-dist-wildcards-vpath-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/extra-dist-wildcards-vpath.dir/build'
+ls -l .. . extra-dist-wildcards-vpath-1.0
+.:
+total 68
+-rw-r--r-- 1 root root 17982 Nov 27 06:41 Makefile
+-rw-r--r-- 1 root root     4 Nov 27 06:41 c.foo
+-rw-r--r-- 1 root root  5257 Nov 27 06:41 config.log
+-rwxr-xr-x 1 root root 25506 Nov 27 06:41 config.status
+-rw-r--r-- 1 root root     4 Nov 27 06:41 d.bar
+drwxr-xr-x 2 root root  4096 Nov 27 06:41 extra-dist-wildcards-vpath-1.0
+
+..:
+total 232
+-rw-r--r-- 1 root root    297 Nov 27 06:41 Makefile.am
+-rw-r--r-- 1 root root  17063 Nov 27 06:41 Makefile.in
+-rw-r--r-- 1 root root      4 Nov 27 06:41 a.foo
+-rw-r--r-- 1 root root  27316 Nov 27 06:41 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:41 autom4te.cache
+-rw-r--r-- 1 root root      4 Nov 27 06:41 b.bar
+drwxr-xr-x 3 root root   4096 Nov 27 06:41 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:41 compile
+-rwxr-xr-x 1 root root 104316 Nov 27 06:41 configure
+-rw-r--r-- 1 root root    100 Nov 27 06:41 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:41 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:41 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:41 missing
+
+extra-dist-wildcards-vpath-1.0:
+total 232
+-rw-r--r-- 1 root root    297 Nov 27 06:41 Makefile.am
+-rw-r--r-- 1 root root  17063 Nov 27 06:41 Makefile.in
+-rw-r--r-- 1 root root      4 Nov 27 06:41 a.foo
+-rw-r--r-- 1 root root  27316 Nov 27 06:41 aclocal.m4
+-rw-r--r-- 1 root root      4 Nov 27 06:41 b.bar
+-rw-r--r-- 1 root root      4 Nov 27 06:41 c.foo
+-rwxr-xr-x 1 root root   7383 Nov 27 06:41 compile
+-rwxr-xr-x 1 root root 104316 Nov 27 06:41 configure
+-rw-r--r-- 1 root root    100 Nov 27 06:41 configure.ac
+-rw-r--r-- 1 root root      4 Nov 27 06:41 d.bar
+-rwxr-xr-x 1 root root  23568 Nov 27 06:41 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:41 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:41 missing
+diff ../a.foo extra-dist-wildcards-vpath-1.0/a.foo
+diff ../b.bar extra-dist-wildcards-vpath-1.0/b.bar
+diff ./c.foo extra-dist-wildcards-vpath-1.0/c.foo
+diff ./d.bar extra-dist-wildcards-vpath-1.0/d.bar
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/extra-dist-wildcards-vpath.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/extra-dist-wildcards-vpath.dir
++ set +x
+PASS t/extra-dist-wildcards-vpath.sh (exit status: 0)

@@ -1,0 +1,61 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/extra-portability2.dir
++ AUTOMAKE=automake-1.16
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wextra-portability
++ AUTOMAKE_run -e 1 -Wextra-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Wextra-portability
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './INSTALL' not found
+Makefile.am:   'automake --add-missing' can install 'INSTALL'
+Makefile.am: error: required file './NEWS' not found
+Makefile.am: error: required file './README' not found
+Makefile.am: error: required file './AUTHORS' not found
+Makefile.am: error: required file './ChangeLog' not found
+Makefile.am: error: required file './COPYING' not found
+Makefile.am:   'automake --add-missing' can install 'COPYING'
+/sources/automake-1.16.1/lib/am/library.am: warning: 'libfoo.a': linking libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing library 'libfoo.a'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ automake-1.16 --foreign
++ touch INSTALL NEWS README AUTHORS ChangeLog COPYING
++ automake-1.16 --gnu
++ touch THANKS
++ automake-1.16 --gnits
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/extra-portability2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/extra-portability2.dir
++ set +x
+PASS t/extra-portability2.sh (exit status: 0)

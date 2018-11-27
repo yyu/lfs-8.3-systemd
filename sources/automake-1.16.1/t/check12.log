@@ -1,0 +1,1289 @@
+check12: running runtest SOMEPROGRAM=someprogram --version
+WARNING: Couldn't find the global config file.
+DejaGnu version	1.6.1
+Expect version	5.45.4
+Tcl version	8.6
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/check12.dir
++ cat
++ cat
++ cat
++ cat
++ chmod +x a.test b.test
++ cat
++ A_EXIT_STATUS=0
++ export A_EXIT_STATUS
++ B_EXIT_STATUS=0
++ export B_EXIT_STATUS
++ cat
++ cat
++ NAIL=nail
++ export NAIL
++ cat
++ chmod +x hammer spanner
++ mkdir hammer.test spanner.test
++ cat
++ cat
++ cat
++ CHECKLOCAL_EXIT_STATUS=0
++ export CHECKLOCAL_EXIT_STATUS
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+parallel-tests: installing './test-driver'
++ for vpath in : false
++ :
++ srcdir=..
++ mkdir build
++ cd build
++ test -f config.status
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+Making a new site.exp file ...
+srcdir='..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../hammer SPANNER=../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:38:59 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:38:59 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+PASS: a.test
+PASS: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ test x '!=' xyes
++ test -f test-suite.log
++ test -f a.log
++ test -f b.log
++ grep 'check-local succeeded :-)' local.log
+check-local succeeded :-)
++ cp -f config.status config-status.sav
++ make distclean
+test -z "local.log" || rm -f local.log
+test -z "a.log b.log" || rm -f a.log b.log
+test -z "a.trs b.trs" || rm -f a.trs b.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f site.exp site.bak
+l='hammer spanner'; for tool in $l; do \
+  rm -f $tool.sum $tool.log; \
+done
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e hammer.log
++ test '!' -e hammer.sum
++ test '!' -e spanner.log
++ test '!' -e spanner.sum
++ test '!' -e test-suite.log
++ test '!' -e a.log
++ test '!' -e b.log
++ test '!' -e local.log
++ mv -f config-status.sav config.status
++ ./config.status
+config.status: creating Makefile
++ NAIL=screw
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+Making a new site.exp file ...
+srcdir='..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../hammer SPANNER=../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:38:59 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../hammer.test/hammer.exp ...
+FAIL: test_hammer
+
+		=== hammer Summary ===
+
+# of unexpected failures	1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:38:59 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[1]: *** [Makefile:468: check-DEJAGNU] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+make: *** [Makefile:821: check-am] Error 2
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ grep 'FAIL: test_hammer' hammer.sum
+FAIL: test_hammer
++ grep FAIL: spanner.sum
++ B_EXIT_STATUS=1
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+srcdir='..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../hammer SPANNER=../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:38:59 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:38:59 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+PASS: a.test
+FAIL: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:521: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+make[1]: *** [Makefile:629: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+make: *** [Makefile:821: check-am] Error 2
++ test x '!=' xyes
++ cat test-suite.log
+===================================
+   check12 1.0: ./test-suite.log
+===================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: b
+=======
+
+b.test: exit status: 1
+FAIL b.test (exit status: 1)
+
++ cat a.log
+a.test: exit status: 0
+PASS a.test (exit status: 0)
++ cat b.log
+b.test: exit status: 1
+FAIL b.test (exit status: 1)
++ grep '^a\.test: exit status: 0$' a.log
+a.test: exit status: 0
++ grep '^b\.test: exit status: 1$' b.log
+b.test: exit status: 1
++ grep '^FAIL: b$' test-suite.log
+FAIL: b
++ grep '^b\.test: exit status: 1$' test-suite.log
+b.test: exit status: 1
++ grep '^a\.test' test-suite.log
++ : For shells with busted 'set -e.'
++ CHECKLOCAL_EXIT_STATUS=1
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+srcdir='..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../hammer SPANNER=../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:00 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:00 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+PASS: a.test
+PASS: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[1]: *** [Makefile:949: check-local] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+make: *** [Makefile:821: check-am] Error 2
++ grep 'check-local failed :-(' local.log
+check-local failed :-(
++ NAIL=screw
++ B_EXIT_STATUS=23
++ CHECKLOCAL_EXIT_STATUS=1
++ make -k check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+srcdir='..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../hammer SPANNER=../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:00 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../hammer.test/hammer.exp ...
+FAIL: test_hammer
+
+		=== hammer Summary ===
+
+# of unexpected failures	1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:00 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[1]: *** [Makefile:468: check-DEJAGNU] Error 1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/build'
+PASS: a.test
+FAIL: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:521: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+make[1]: *** [Makefile:629: check-TESTS] Error 2
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[1]: *** [Makefile:949: check-local] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/build'
+make: *** [Makefile:821: check-am] Error 2
+make: Target 'check' not remade because of errors.
++ :
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ grep 'FAIL: test_hammer' hammer.sum
+FAIL: test_hammer
++ grep FAIL: spanner.sum
++ test x '!=' xyes
++ cat test-suite.log
+===================================
+   check12 1.0: ./test-suite.log
+===================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: b
+=======
+
+b.test: exit status: 23
+FAIL b.test (exit status: 23)
+
++ cat a.log
+a.test: exit status: 0
+PASS a.test (exit status: 0)
++ cat b.log
+b.test: exit status: 23
+FAIL b.test (exit status: 23)
++ grep '^a\.test: exit status: 0$' a.log
+a.test: exit status: 0
++ grep '^b\.test: exit status: 23$' b.log
+b.test: exit status: 23
++ grep '^FAIL: b$' test-suite.log
+FAIL: b
++ grep '^b\.test: exit status: 23$' test-suite.log
+b.test: exit status: 23
++ grep '^a\.test' test-suite.log
++ : For shells with busted 'set -e.'
++ grep 'check-local failed :-(' local.log
+check-local failed :-(
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ test -f config.status
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+Making a new site.exp file ...
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:01 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:01 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+PASS: a.test
+PASS: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ test x '!=' xyes
++ test -f test-suite.log
++ test -f a.log
++ test -f b.log
++ grep 'check-local succeeded :-)' local.log
+check-local succeeded :-)
++ cp -f config.status config-status.sav
++ make distclean
+test -z "local.log" || rm -f local.log
+test -z "a.log b.log" || rm -f a.log b.log
+test -z "a.trs b.trs" || rm -f a.trs b.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f site.exp site.bak
+l='hammer spanner'; for tool in $l; do \
+  rm -f $tool.sum $tool.log; \
+done
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e hammer.log
++ test '!' -e hammer.sum
++ test '!' -e spanner.log
++ test '!' -e spanner.sum
++ test '!' -e test-suite.log
++ test '!' -e a.log
++ test '!' -e b.log
++ test '!' -e local.log
++ mv -f config-status.sav config.status
++ ./config.status
+config.status: creating Makefile
++ NAIL=screw
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+Making a new site.exp file ...
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+FAIL: test_hammer
+
+		=== hammer Summary ===
+
+# of unexpected failures	1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[1]: *** [Makefile:468: check-DEJAGNU] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+make: *** [Makefile:821: check-am] Error 2
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ grep 'FAIL: test_hammer' hammer.sum
+FAIL: test_hammer
++ grep FAIL: spanner.sum
++ B_EXIT_STATUS=1
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+PASS: a.test
+FAIL: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:521: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+make[1]: *** [Makefile:629: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+make: *** [Makefile:821: check-am] Error 2
++ test x '!=' xyes
++ cat test-suite.log
+===================================
+   check12 1.0: ./test-suite.log
+===================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: b
+=======
+
+b.test: exit status: 1
+FAIL b.test (exit status: 1)
+
++ cat a.log
+a.test: exit status: 0
+PASS a.test (exit status: 0)
++ cat b.log
+b.test: exit status: 1
+FAIL b.test (exit status: 1)
++ grep '^a\.test: exit status: 0$' a.log
+a.test: exit status: 0
++ grep '^b\.test: exit status: 1$' b.log
+b.test: exit status: 1
++ grep '^FAIL: b$' test-suite.log
+FAIL: b
++ grep '^b\.test: exit status: 1$' test-suite.log
+b.test: exit status: 1
++ grep '^a\.test' test-suite.log
++ : For shells with busted 'set -e.'
++ CHECKLOCAL_EXIT_STATUS=1
++ make check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+PASS: a.test
+PASS: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[1]: *** [Makefile:949: check-local] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+make: *** [Makefile:821: check-am] Error 2
++ grep 'check-local failed :-(' local.log
+check-local failed :-(
++ NAIL=screw
++ B_EXIT_STATUS=23
++ CHECKLOCAL_EXIT_STATUS=1
++ make -k check
+make  check-DEJAGNU check-TESTS check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:02 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+FAIL: test_hammer
+
+		=== hammer Summary ===
+
+# of unexpected failures	1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:03 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[1]: *** [Makefile:468: check-DEJAGNU] Error 1
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+PASS: a.test
+FAIL: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:521: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+make[1]: *** [Makefile:629: check-TESTS] Error 2
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[1]: *** [Makefile:949: check-local] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+make: *** [Makefile:821: check-am] Error 2
+make: Target 'check' not remade because of errors.
++ :
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ grep 'FAIL: test_hammer' hammer.sum
+FAIL: test_hammer
++ grep FAIL: spanner.sum
++ test x '!=' xyes
++ cat test-suite.log
+===================================
+   check12 1.0: ./test-suite.log
+===================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+FAIL: b
+=======
+
+b.test: exit status: 23
+FAIL b.test (exit status: 23)
+
++ cat a.log
+a.test: exit status: 0
+PASS a.test (exit status: 0)
++ cat b.log
+b.test: exit status: 23
+FAIL b.test (exit status: 23)
++ grep '^a\.test: exit status: 0$' a.log
+a.test: exit status: 0
++ grep '^b\.test: exit status: 23$' b.log
+b.test: exit status: 23
++ grep '^FAIL: b$' test-suite.log
+FAIL: b
++ grep '^b\.test: exit status: 23$' test-suite.log
+b.test: exit status: 23
++ grep '^a\.test' test-suite.log
++ : For shells with busted 'set -e.'
++ grep 'check-local failed :-(' local.log
+check-local failed :-(
++ cd .
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir'
+if test -d "check12-1.0"; then find "check12-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check12-1.0" || { sleep 5 && rm -rf "check12-1.0"; }; else :; fi
+test -d "check12-1.0" || mkdir "check12-1.0"
+test -n "" \
+|| find "check12-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/check12.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "check12-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+tardir=check12-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >check12-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir'
+if test -d "check12-1.0"; then find "check12-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check12-1.0" || { sleep 5 && rm -rf "check12-1.0"; }; else :; fi
+case 'check12-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc check12-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc check12-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc check12-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc check12-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c check12-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc check12-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip check12-1.0.zip ;;\
+esac
+chmod -R a-w check12-1.0
+chmod u+w check12-1.0
+mkdir check12-1.0/_build check12-1.0/_build/sub check12-1.0/_inst
+chmod a-w check12-1.0
+test -d check12-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd check12-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd check12-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf check12-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make  check-DEJAGNU check-TESTS check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+Making a new site.exp file ...
+srcdir='../..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../../hammer SPANNER=../../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:04 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../../hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:39:04 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[3]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+PASS: a.test
+PASS: b.test
+============================================================================
+Testsuite summary for check12 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+case $CHECKLOCAL_EXIT_STATUS in \
+  0) echo 'check-local succeeded :-)';; \
+  *) echo 'check-local failed :-(';; \
+esac >local.log
+exit $CHECKLOCAL_EXIT_STATUS
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+if test -d "check12-1.0"; then find "check12-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check12-1.0" || { sleep 5 && rm -rf "check12-1.0"; }; else :; fi
+test -d "check12-1.0" || mkdir "check12-1.0"
+test -n "" \
+|| find "check12-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/check12.dir/check12-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "check12-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+tardir=check12-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >check12-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+if test -d "check12-1.0"; then find "check12-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check12-1.0" || { sleep 5 && rm -rf "check12-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+test -z "local.log" || rm -f local.log
+test -z "a.log b.log" || rm -f a.log b.log
+test -z "a.trs b.trs" || rm -f a.trs b.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f site.exp site.bak
+l='hammer spanner'; for tool in $l; do \
+  rm -f $tool.sum $tool.log; \
+done
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check12.dir/check12-1.0/_build/sub'
+if test -d "check12-1.0"; then find "check12-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check12-1.0" || { sleep 5 && rm -rf "check12-1.0"; }; else :; fi
+=============================================
+check12-1.0 archives ready for distribution: 
+check12-1.0.tar.gz
+=============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check12.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check12.dir
++ set +x
+PASS t/check12.sh (exit status: 0)

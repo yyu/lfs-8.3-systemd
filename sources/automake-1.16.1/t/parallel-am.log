@@ -1,0 +1,433 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-am.dir
++ cat
++ cat
++ list='1 2 3 4 5 6 7 8 9'
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ echo 'SUBDIRS += sub1'
++ mkdir sub1
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ echo 'SUBDIRS += sub2'
++ mkdir sub2
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ echo 'SUBDIRS += sub3'
++ mkdir sub3
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ echo 'SUBDIRS += sub4'
++ mkdir sub4
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ echo 'SUBDIRS += sub5'
++ mkdir sub5
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub6/Makefile])'
++ echo 'SUBDIRS += sub6'
++ mkdir sub6
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub7/Makefile])'
++ echo 'SUBDIRS += sub7'
++ mkdir sub7
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub8/Makefile])'
++ echo 'SUBDIRS += sub8'
++ mkdir sub8
++ echo
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub9/Makefile])'
++ echo 'SUBDIRS += sub9'
++ mkdir sub9
++ echo
++ echo 'include foo.am'
++ echo 'include bar.am'
++ echo 'python_PYTHON = foo.py'
++ echo 'lisp_LISP = foo.el'
++ echo 'bin_PROGRAMS = p'
++ rm -f install-sh missing depcomp
++ mkdir build-aux
++ aclocal-1.16 -Werror
++ unset AUTOMAKE_JOBS
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ mv stderr expected
+++ find . -name Makefile.in
++ Makefile_ins='./sub1/Makefile.in
+./Makefile.in
+./sub2/Makefile.in
+./sub7/Makefile.in
+./sub6/Makefile.in
+./sub9/Makefile.in
+./sub4/Makefile.in
+./sub3/Makefile.in
+./sub5/Makefile.in
+./sub8/Makefile.in'
++ for file in $Makefile_ins
++ mv ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ mv ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ AUTOMAKE_JOBS=5
++ export AUTOMAKE_JOBS
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile 'sub*/Makefile.in'
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in sub4/Makefile.in sub5/Makefile.in sub6/Makefile.in sub7/Makefile.in sub8/Makefile.in sub9/Makefile.in
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in sub4/Makefile.in sub5/Makefile.in sub6/Makefile.in sub7/Makefile.in sub8/Makefile.in sub9/Makefile.in
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in sub4/Makefile.in sub5/Makefile.in sub6/Makefile.in sub7/Makefile.in sub8/Makefile.in sub9/Makefile.in
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in sub4/Makefile.in sub5/Makefile.in sub6/Makefile.in sub7/Makefile.in sub8/Makefile.in sub9/Makefile.in
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in sub4/Makefile.in sub5/Makefile.in sub6/Makefile.in sub7/Makefile.in sub8/Makefile.in sub9/Makefile.in
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ for run in 1 2 3 4 5 6 7
++ rm -f build-aux/compile build-aux/depcomp build-aux/install-sh build-aux/missing build-aux/py-compile sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in sub4/Makefile.in sub5/Makefile.in sub6/Makefile.in sub7/Makefile.in sub8/Makefile.in sub9/Makefile.in
++ AUTOMAKE_run --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ cat stderr
+configure.ac:4: installing 'build-aux/compile'
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+sub7/bar.am:1: installing 'build-aux/py-compile'
+sub7/Makefile.am:2:   'sub7/foo.am' included from here
+sub7/foo.am:1:   'sub7/bar.am' included from here
+sub9/Makefile.am: installing 'build-aux/depcomp'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ diff stderr expected
++ for file in $Makefile_ins
++ diff ./sub1/Makefile.in ./sub1/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./Makefile.in ./Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub2/Makefile.in ./sub2/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub7/Makefile.in ./sub7/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub6/Makefile.in ./sub6/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub9/Makefile.in ./sub9/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub4/Makefile.in ./sub4/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub3/Makefile.in ./sub3/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub5/Makefile.in ./sub5/Makefile.in.exp
++ for file in $Makefile_ins
++ diff ./sub8/Makefile.in ./sub8/Makefile.in.exp
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-am.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-am.dir
++ set +x
+PASS t/parallel-am.sh (exit status: 0)

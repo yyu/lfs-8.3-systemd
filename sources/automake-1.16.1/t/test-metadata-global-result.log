@@ -1,0 +1,544 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-metadata-global-result.dir
++ cat
++ cat
++ cat
++ chmod a+x dummy-driver
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ : Basic checks.
++ echo :global-test-result: PASS
++ echo :global-test-result: ERROR
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+============================================================================
+Testsuite summary for test-metadata-global-result 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
++ cat test-suite.log
+=======================================================
+   test-metadata-global-result 1.0: ./test-suite.log
+=======================================================
+
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+PASS: foo
+=========
+
+logloglog
+
+ERROR: zar-doz
+==============
+
+logloglog
+
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='PASS: foo'
++ sed -n -e '/^PASS: foo$/,/^logloglog$/p' test-suite.log
++ cat exp
+PASS: foo
+=========
+
+logloglog
++ cat got
+PASS: foo
+=========
+
+logloglog
++ diff exp got
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='ERROR: zar-doz'
++ sed -n -e '/^ERROR: zar-doz$/,/^logloglog$/p' test-suite.log
++ cat exp
+ERROR: zar-doz
+==============
+
+logloglog
++ cat got
+ERROR: zar-doz
+==============
+
+logloglog
++ diff exp got
++ : Try usage documented in the manual.
++ echo :global-test-result: PASS/SKIP
++ echo :global-test-result: ALMOST PASSED
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+============================================================================
+Testsuite summary for test-metadata-global-result 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
++ cat test-suite.log
+=======================================================
+   test-metadata-global-result 1.0: ./test-suite.log
+=======================================================
+
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+PASS/SKIP: foo
+==============
+
+logloglog
+
+ALMOST PASSED: zar-doz
+======================
+
+logloglog
+
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='PASS\/SKIP: foo'
++ sed -n -e '/^PASS\/SKIP: foo$/,/^logloglog$/p' test-suite.log
++ cat exp
+PASS/SKIP: foo
+==============
+
+logloglog
++ cat got
+PASS/SKIP: foo
+==============
+
+logloglog
++ diff exp got
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='ALMOST PASSED: zar-doz'
++ sed -n -e '/^ALMOST PASSED: zar-doz$/,/^logloglog$/p' test-suite.log
++ cat exp
+ALMOST PASSED: zar-doz
+======================
+
+logloglog
++ cat got
+ALMOST PASSED: zar-doz
+======================
+
+logloglog
++ diff exp got
++ : Fields :test-result: does not interfere with the global test result.
++ cat
++ cat
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+============================================================================
+Testsuite summary for test-metadata-global-result 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  0
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:477: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[1]: *** [Makefile:585: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make: *** [Makefile:784: check-am] Error 2
++ cat test-suite.log
+=======================================================
+   test-metadata-global-result 1.0: ./test-suite.log
+=======================================================
+
+# TOTAL: 4
+# PASS:  0
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+PASS: foo
+=========
+
+logloglog
+
+FAIL: zar-doz
+=============
+
+logloglog
+
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='PASS: foo'
++ sed -n -e '/^PASS: foo$/,/^logloglog$/p' test-suite.log
++ cat exp
+PASS: foo
+=========
+
+logloglog
++ cat got
+PASS: foo
+=========
+
+logloglog
++ diff exp got
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='FAIL: zar-doz'
++ sed -n -e '/^FAIL: zar-doz$/,/^logloglog$/p' test-suite.log
++ cat exp
+FAIL: zar-doz
+=============
+
+logloglog
++ cat got
+FAIL: zar-doz
+=============
+
+logloglog
++ diff exp got
++ : What happens when :global-test-result: is absent.
++ cat
++ :
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+============================================================================
+Testsuite summary for test-metadata-global-result 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:477: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[1]: *** [Makefile:585: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make: *** [Makefile:784: check-am] Error 2
++ cat test-suite.log
+=======================================================
+   test-metadata-global-result 1.0: ./test-suite.log
+=======================================================
+
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+RUN: foo
+========
+
+logloglog
+
+RUN: zar-doz
+============
+
+logloglog
+
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='RUN: foo'
++ sed -n -e '/^RUN: foo$/,/^logloglog$/p' test-suite.log
++ cat exp
+RUN: foo
+========
+
+logloglog
++ cat got
+RUN: foo
+========
+
+logloglog
++ diff exp got
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='RUN: zar-doz'
++ sed -n -e '/^RUN: zar-doz$/,/^logloglog$/p' test-suite.log
++ cat exp
+RUN: zar-doz
+============
+
+logloglog
++ cat got
+RUN: zar-doz
+============
+
+logloglog
++ diff exp got
++ echo ':global-test-result:SKIP	   		'
++ echo ':global-test-result:	   	XFAIL  	   '
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+============================================================================
+Testsuite summary for test-metadata-global-result 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
++ cat test-suite.log
+=======================================================
+   test-metadata-global-result 1.0: ./test-suite.log
+=======================================================
+
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+SKIP: foo
+=========
+
+logloglog
+
+XFAIL: zar-doz
+==============
+
+logloglog
+
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='SKIP: foo'
++ sed -n -e '/^SKIP: foo$/,/^logloglog$/p' test-suite.log
++ cat exp
+SKIP: foo
+=========
+
+logloglog
++ cat got
+SKIP: foo
+=========
+
+logloglog
++ diff exp got
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='XFAIL: zar-doz'
++ sed -n -e '/^XFAIL: zar-doz$/,/^logloglog$/p' test-suite.log
++ cat exp
+XFAIL: zar-doz
+==============
+
+logloglog
++ cat got
+XFAIL: zar-doz
+==============
+
+logloglog
++ diff exp got
++ echo '   	:global-test-result:PASS'
++ echo '		:global-test-result:	   	SKIP'
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+============================================================================
+Testsuite summary for test-metadata-global-result 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-result.dir'
++ cat test-suite.log
+=======================================================
+   test-metadata-global-result 1.0: ./test-suite.log
+=======================================================
+
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+PASS: foo
+=========
+
+logloglog
+
+SKIP: zar-doz
+=============
+
+logloglog
+
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='PASS: foo'
++ sed -n -e '/^PASS: foo$/,/^logloglog$/p' test-suite.log
++ cat exp
+PASS: foo
+=========
+
+logloglog
++ cat got
+PASS: foo
+=========
+
+logloglog
++ diff exp got
++ have_result
++ cat
++ echo
++ echo logloglog
+++ get_escaped_line exp
+++ sed -e 's,[$^/\\\.],\\&,g' -e 1q exp
++ eline='SKIP: zar-doz'
++ sed -n -e '/^SKIP: zar-doz$/,/^logloglog$/p' test-suite.log
++ cat exp
+SKIP: zar-doz
+=============
+
+logloglog
++ cat got
+SKIP: zar-doz
+=============
+
+logloglog
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-metadata-global-result.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-metadata-global-result.dir
++ set +x
+PASS t/test-metadata-global-result.sh (exit status: 0)

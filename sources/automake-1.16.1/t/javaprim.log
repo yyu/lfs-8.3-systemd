@@ -1,0 +1,59 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/javaprim.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep -i java Makefile.in
+JAVAC = javac
+CLASSPATH_ENV = CLASSPATH=$(JAVAROOT):$(srcdir)/$(JAVAROOT)$${CLASSPATH:+":$$CLASSPATH"}
+JAVAROOT = $(top_builddir)
+am__installdirs = "$(DESTDIR)$(javadir)"
+am__java_sources = $(java_JAVA)
+JAVA = @JAVA@
+javadir = $(datadir)/java
+java_JAVA = a.java b.java c.java
+classjava.stamp: $(am__java_sources)
+	  echo '$(CLASSPATH_ENV) $(JAVAC) -d $(JAVAROOT) $(AM_JAVACFLAGS) $(JAVACFLAGS) '"$$list2"; \
+	  $(CLASSPATH_ENV) $(JAVAC) -d $(JAVAROOT) $(AM_JAVACFLAGS) $(JAVACFLAGS) $$list2; \
+install-javaJAVA: classjava.stamp
+	@test -n "$(java_JAVA)" && test -n "$(javadir)" || exit 0; \
+	echo " $(MKDIR_P) '$(DESTDIR)$(javadir)'"; \
+	$(MKDIR_P) "$(DESTDIR)$(javadir)"; \
+	echo " $(INSTALL_DATA)" "$$@" "'$(DESTDIR)$(javadir)/$$p'"; \
+	$(INSTALL_DATA) "$$@" "$(DESTDIR)$(javadir)"
+uninstall-javaJAVA:
+	@test -n "$(java_JAVA)" && test -n "$(javadir)" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(javadir)' && rm -f" "$$@" ")"; \
+	cd "$(DESTDIR)$(javadir)" && rm -f "$$@"
+clean-javaJAVA:
+	-rm -f *.class classjava.stamp
+all-am: Makefile classjava.stamp
+	for dir in "$(DESTDIR)$(javadir)"; do \
+clean-am: clean-generic clean-javaJAVA mostlyclean-am
+install-data-am: install-javaJAVA
+uninstall-am: uninstall-javaJAVA
+	clean-javaJAVA cscopelist-am ctags-am dist dist-all dist-bzip2 \
+	install-html-am install-info install-info-am install-javaJAVA \
+	uninstall uninstall-am uninstall-javaJAVA
++ grep '^JAVA = *@JAVA@ *$' Makefile.in
+JAVA = @JAVA@
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/javaprim.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/javaprim.dir
++ set +x
+PASS t/javaprim.sh (exit status: 0)

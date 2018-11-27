@@ -1,0 +1,385 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/install-sh-unittests.dir
++ get_shell_script install-sh
++ am_source=install-sh
++ am_target=install-sh
++ test '!' -f install-sh
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/install-sh install-sh
++ sed 10q install-sh
+#!/bin/sh
+# install - install a program, script, or datafile
+
+scriptversion=2018-03-11.20; # UTC
+
+# This originates from X11R5 (mit/util/scripts/install.sh), which was
+# later released in X11R6 (xc/config/util/install.sh) with the
+# following copyright and license.
+#
+# Copyright (C) 1994 X Consortium
++ unset am_target am_source
++ install_sh_fail 'no input file specified'
++ err_rx='no input file specified'
++ shift
++ ./install-sh
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ install_sh_fail 'no input file specified' dest
++ err_rx='no input file specified'
++ shift
++ ./install-sh dest
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ install_sh_fail 'no input file specified' -m 644 dest
++ err_rx='no input file specified'
++ shift
++ ./install-sh -m 644 dest
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ install_sh_fail 'no input file specified' -c -t dest
++ err_rx='no input file specified'
++ shift
++ ./install-sh -c -t dest
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ :
++ :
++ :
++ install_sh_fail 'target directory not allowed when installing a directory' -d -t foo
++ err_rx='target directory not allowed when installing a directory'
++ shift
++ ./install-sh -d -t foo
++ cat stderr
+./install-sh: target directory not allowed when installing a directory.
++ /bin/grep -E 'install-sh:.* target directory not allowed when installing a directory' stderr
+./install-sh: target directory not allowed when installing a directory.
++ install_sh_fail 'target directory not allowed when installing a directory' -d -t foo bar
++ err_rx='target directory not allowed when installing a directory'
++ shift
++ ./install-sh -d -t foo bar
++ cat stderr
+./install-sh: target directory not allowed when installing a directory.
++ /bin/grep -E 'install-sh:.* target directory not allowed when installing a directory' stderr
+./install-sh: target directory not allowed when installing a directory.
++ install_sh_fail 'foo: [iI]s not a directory' -t foo bar
++ err_rx='foo: [iI]s not a directory'
++ shift
++ ./install-sh -t foo bar
++ cat stderr
+./install-sh: foo: Is not a directory.
++ /bin/grep -E 'install-sh:.* foo: [iI]s not a directory' stderr
+./install-sh: foo: Is not a directory.
++ install_sh_fail 'foo: [iI]s not a directory' bar baz foo
++ err_rx='foo: [iI]s not a directory'
++ shift
++ ./install-sh bar baz foo
++ cat stderr
+./install-sh: foo: Is not a directory.
++ /bin/grep -E 'install-sh:.* foo: [iI]s not a directory' stderr
+./install-sh: foo: Is not a directory.
++ mkdir foo
++ install_sh_fail 'target directory not allowed when installing a directory' -d -t foo
++ err_rx='target directory not allowed when installing a directory'
++ shift
++ ./install-sh -d -t foo
++ cat stderr
+./install-sh: target directory not allowed when installing a directory.
++ /bin/grep -E 'install-sh:.* target directory not allowed when installing a directory' stderr
+./install-sh: target directory not allowed when installing a directory.
++ install_sh_fail 'target directory not allowed when installing a directory' -d -t foo bar
++ err_rx='target directory not allowed when installing a directory'
++ shift
++ ./install-sh -d -t foo bar
++ cat stderr
+./install-sh: target directory not allowed when installing a directory.
++ /bin/grep -E 'install-sh:.* target directory not allowed when installing a directory' stderr
+./install-sh: target directory not allowed when installing a directory.
++ rmdir foo
++ rm -f bar baz qux
++ for opts in '-d' '-d -T' '-T -d' '-d -T -d' '-T -d -T -d -T'
++ ./install-sh -d
++ ./install-sh -d d0
++ test -d d0
++ ./install-sh -d d1 d2 d3 d4
++ test -d d1
++ test -d d2
++ test -d d3
++ test -d d4
++ rmdir d0 d1 d2 d3 d4
++ ./install-sh -d p1/p2/p3 p4//p5//p6//
++ test -d p1/p2/p3
++ test -d p4/p5/p6
++ rmdir p1/p2/p3 p4/p5/p6
++ rmdir p1/p2 p4/p5
++ rmdir p1 p4
++ for opts in '-d' '-d -T' '-T -d' '-d -T -d' '-T -d -T -d -T'
++ ./install-sh -d -T
++ ./install-sh -d -T d0
++ test -d d0
++ ./install-sh -d -T d1 d2 d3 d4
++ test -d d1
++ test -d d2
++ test -d d3
++ test -d d4
++ rmdir d0 d1 d2 d3 d4
++ ./install-sh -d -T p1/p2/p3 p4//p5//p6//
++ test -d p1/p2/p3
++ test -d p4/p5/p6
++ rmdir p1/p2/p3 p4/p5/p6
++ rmdir p1/p2 p4/p5
++ rmdir p1 p4
++ for opts in '-d' '-d -T' '-T -d' '-d -T -d' '-T -d -T -d -T'
++ ./install-sh -T -d
++ ./install-sh -T -d d0
++ test -d d0
++ ./install-sh -T -d d1 d2 d3 d4
++ test -d d1
++ test -d d2
++ test -d d3
++ test -d d4
++ rmdir d0 d1 d2 d3 d4
++ ./install-sh -T -d p1/p2/p3 p4//p5//p6//
++ test -d p1/p2/p3
++ test -d p4/p5/p6
++ rmdir p1/p2/p3 p4/p5/p6
++ rmdir p1/p2 p4/p5
++ rmdir p1 p4
++ for opts in '-d' '-d -T' '-T -d' '-d -T -d' '-T -d -T -d -T'
++ ./install-sh -d -T -d
++ ./install-sh -d -T -d d0
++ test -d d0
++ ./install-sh -d -T -d d1 d2 d3 d4
++ test -d d1
++ test -d d2
++ test -d d3
++ test -d d4
++ rmdir d0 d1 d2 d3 d4
++ ./install-sh -d -T -d p1/p2/p3 p4//p5//p6//
++ test -d p1/p2/p3
++ test -d p4/p5/p6
++ rmdir p1/p2/p3 p4/p5/p6
++ rmdir p1/p2 p4/p5
++ rmdir p1 p4
++ for opts in '-d' '-d -T' '-T -d' '-d -T -d' '-T -d -T -d -T'
++ ./install-sh -T -d -T -d -T
++ ./install-sh -T -d -T -d -T d0
++ test -d d0
++ ./install-sh -T -d -T -d -T d1 d2 d3 d4
++ test -d d1
++ test -d d2
++ test -d d3
++ test -d d4
++ rmdir d0 d1 d2 d3 d4
++ ./install-sh -T -d -T -d -T p1/p2/p3 p4//p5//p6//
++ test -d p1/p2/p3
++ test -d p4/p5/p6
++ rmdir p1/p2/p3 p4/p5/p6
++ rmdir p1/p2 p4/p5
++ rmdir p1 p4
++ mkdir d0 d1 d2 d3 d4
++ :
++ ./install-sh -c -m 644 x y
++ test -f x
++ test -f y
++ ./install-sh -m 644 y z
++ test -f y
++ test -f z
++ ./install-sh -m 644 -c x z d1
++ test -f x
++ test -f z
++ test -f d1/x
++ test -f d1/z
++ ./install-sh -m 644 x z d2//
++ test -f x
++ test -f z
++ test -f d2/x
++ test -f d2/z
++ ./install-sh -t d3 -m 644 x z
++ test -f x
++ test -f z
++ test -f d3/x
++ test -f d3/z
++ ./install-sh -t d4// -m 644 x z
++ test -f x
++ test -f z
++ test -f d4/x
++ test -f d4/z
++ ./install-sh -T x d3/y
++ test -f x
++ test -f d3/y
++ install_sh_fail 'd3: [iI]s a directory' -T x d3
++ err_rx='d3: [iI]s a directory'
++ shift
++ ./install-sh -T x d3
++ cat stderr
+./install-sh: d3: Is a directory
++ /bin/grep -E 'install-sh:.* d3: [iI]s a directory' stderr
+./install-sh: d3: Is a directory
++ install_sh_fail 'd4(//)?: [iI]s a directory' -T x d4//
++ err_rx='d4(//)?: [iI]s a directory'
++ shift
++ ./install-sh -T x d4//
++ cat stderr
+./install-sh: d4//: Is a directory
++ /bin/grep -E 'install-sh:.* d4(//)?: [iI]s a directory' stderr
+./install-sh: d4//: Is a directory
++ touch 'a  b'
++ mkdir 'x  y'
++ ./install-sh 'a  b' 'x  y'
++ test -f 'x  y/a  b'
++ test -f 'a  b'
++ for c in = '(' ')' '!'
++ install_sh_fail 'no input file specified' =
++ err_rx='no input file specified'
++ shift
++ ./install-sh =
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ test -f stderr
++ grep 'test: ' stderr
++ mkdir ./=
++ rmdir ./=
++ ./install-sh -d =/=/=
++ rm -rf ./=
++ ./install-sh -d = d5/=/=
++ test -d ./=
++ test -d d5/=/=
++ ./install-sh x =
++ test -f ./=/x
++ rm -f ./=/x
++ ./install-sh -t = x
++ test -f ./=/x
++ rm -rf ./=
++ :
++ ./install-sh = x d5/=/=
++ test -f d5/=/=/x
++ test -f d5/=/=/=
++ rm -f d5/=/=/= d5/=/=/x
++ ./install-sh -t d5/=/= = x
++ test -f d5/=/=/x
++ test -f d5/=/=/=
++ for c in = '(' ')' '!'
++ install_sh_fail 'no input file specified' '('
++ err_rx='no input file specified'
++ shift
++ ./install-sh '('
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ test -f stderr
++ grep 'test: ' stderr
++ mkdir './('
++ rmdir './('
++ ./install-sh -d '(/(/('
++ rm -rf './('
++ ./install-sh -d '(' 'd5/(/('
++ test -d './('
++ test -d 'd5/(/('
++ ./install-sh x '('
++ test -f './(/x'
++ rm -f './(/x'
++ ./install-sh -t '(' x
++ test -f './(/x'
++ rm -rf './('
++ :
++ ./install-sh '(' x 'd5/(/('
++ test -f 'd5/(/(/x'
++ test -f 'd5/(/(/('
++ rm -f 'd5/(/(/(' 'd5/(/(/x'
++ ./install-sh -t 'd5/(/(' '(' x
++ test -f 'd5/(/(/x'
++ test -f 'd5/(/(/('
++ for c in = '(' ')' '!'
++ install_sh_fail 'no input file specified' ')'
++ err_rx='no input file specified'
++ shift
++ ./install-sh ')'
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ test -f stderr
++ grep 'test: ' stderr
++ mkdir './)'
++ rmdir './)'
++ ./install-sh -d ')/)/)'
++ rm -rf './)'
++ ./install-sh -d ')' 'd5/)/)'
++ test -d './)'
++ test -d 'd5/)/)'
++ ./install-sh x ')'
++ test -f './)/x'
++ rm -f './)/x'
++ ./install-sh -t ')' x
++ test -f './)/x'
++ rm -rf './)'
++ :
++ ./install-sh ')' x 'd5/)/)'
++ test -f 'd5/)/)/x'
++ test -f 'd5/)/)/)'
++ rm -f 'd5/)/)/)' 'd5/)/)/x'
++ ./install-sh -t 'd5/)/)' ')' x
++ test -f 'd5/)/)/x'
++ test -f 'd5/)/)/)'
++ for c in = '(' ')' '!'
++ install_sh_fail 'no input file specified' '!'
++ err_rx='no input file specified'
++ shift
++ ./install-sh '!'
++ cat stderr
+./install-sh: no input file specified.
++ /bin/grep -E 'install-sh:.* no input file specified' stderr
+./install-sh: no input file specified.
++ test -f stderr
++ grep 'test: ' stderr
++ mkdir './!'
++ rmdir './!'
++ ./install-sh -d '!/!/!'
++ rm -rf './!'
++ ./install-sh -d '!' 'd5/!/!'
++ test -d './!'
++ test -d 'd5/!/!'
++ ./install-sh x '!'
++ test -f './!/x'
++ rm -f './!/x'
++ ./install-sh -t '!' x
++ test -f './!/x'
++ rm -rf './!'
++ :
++ ./install-sh '!' x 'd5/!/!'
++ test -f 'd5/!/!/x'
++ test -f 'd5/!/!/!'
++ rm -f 'd5/!/!/!' 'd5/!/!/x'
++ ./install-sh -t 'd5/!/!' '!' x
++ test -f 'd5/!/!/x'
++ test -f 'd5/!/!/!'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/install-sh-unittests.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/install-sh-unittests.dir
++ set +x
+PASS t/install-sh-unittests.sh (exit status: 0)

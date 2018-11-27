@@ -1,0 +1,161 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/self-check-report.dir
++ set +e
++ exec
++ grep '^foobar$'
+foobar
++ fail_ foo
++ warn_ 'self-check-report: failed test: foo'
++ echo 'self-check-report: failed test: foo'
+self-check-report: failed test: foo
++ _am_exit 1
++ set +e
++ test 77 = 1
++ exit 1
++ exit 1
++ test 1 -eq 1
++ grep '^self-check-report: failed test: foo'
+self-check-report: failed test: foo
++ skip_ foo
++ warn_ 'self-check-report: skipped test: foo'
++ echo 'self-check-report: skipped test: foo'
+self-check-report: skipped test: foo
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ test 77 -eq 77
++ grep '^self-check-report: skipped test: foo'
+self-check-report: skipped test: foo
++ fatal_ foo
++ warn_ 'self-check-report: hard error: foo'
++ echo 'self-check-report: hard error: foo'
+self-check-report: hard error: foo
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ test 99 -eq 99
++ grep '^self-check-report: hard error: foo'
+self-check-report: hard error: foo
++ framework_failure_ foo
++ warn_ 'self-check-report: set-up failure: foo'
++ echo 'self-check-report: set-up failure: foo'
+self-check-report: set-up failure: foo
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ test 99 -eq 99
++ grep '^self-check-report: set-up failure: foo'
+self-check-report: set-up failure: foo
++ stderr_fileno_=6
++ warn_ foobar
++ echo foobar
++ grep '^foobar$'
+foobar
++ fail_ foo
++ warn_ 'self-check-report: failed test: foo'
++ echo 'self-check-report: failed test: foo'
+/sources/automake-1.16.1/t/ax/test-lib.sh: line 145: $stderr_fileno_: Bad file descriptor
++ _am_exit 1
++ set +e
++ test 77 = 1
++ exit 1
++ exit 1
++ test 1 -eq 1
++ fail_ foo
++ warn_ 'self-check-report: failed test: foo'
++ echo 'self-check-report: failed test: foo'
++ _am_exit 1
++ grep '^self-check-report: failed test: foo'
++ set +e
++ test 77 = 1
++ exit 1
++ exit 1
+self-check-report: failed test: foo
++ skip_ foo
++ warn_ 'self-check-report: skipped test: foo'
++ echo 'self-check-report: skipped test: foo'
+/sources/automake-1.16.1/t/ax/test-lib.sh: line 145: $stderr_fileno_: Bad file descriptor
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ test 77 -eq 77
++ skip_ foo
++ warn_ 'self-check-report: skipped test: foo'
++ grep '^self-check-report: skipped test: foo'
++ echo 'self-check-report: skipped test: foo'
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
+self-check-report: skipped test: foo
++ fatal_ foo
++ warn_ 'self-check-report: hard error: foo'
++ echo 'self-check-report: hard error: foo'
+/sources/automake-1.16.1/t/ax/test-lib.sh: line 145: $stderr_fileno_: Bad file descriptor
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ test 99 -eq 99
++ fatal_ foo
++ warn_ 'self-check-report: hard error: foo'
++ echo 'self-check-report: hard error: foo'
++ _am_exit 99
++ grep '^self-check-report: hard error: foo'
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
+self-check-report: hard error: foo
++ framework_failure_ foo
++ warn_ 'self-check-report: set-up failure: foo'
++ echo 'self-check-report: set-up failure: foo'
+/sources/automake-1.16.1/t/ax/test-lib.sh: line 145: $stderr_fileno_: Bad file descriptor
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ test 99 -eq 99
++ framework_failure_ foo
++ grep '^self-check-report: set-up failure: foo'
++ warn_ 'self-check-report: set-up failure: foo'
++ echo 'self-check-report: set-up failure: foo'
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
+self-check-report: set-up failure: foo
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/self-check-report.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/self-check-report.dir
++ set +x
+PASS t/self-check-report.sh (exit status: 0)

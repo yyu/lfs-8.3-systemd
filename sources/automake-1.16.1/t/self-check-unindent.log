@@ -1,0 +1,868 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/self-check-unindent.dir
++ plan_ 22
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x22 = xunknown
++ test x22 = xlater
++ test x22 = xlazy
++ test x22 = xnow
++ test 22 -ge 0
++ planned_=22
++ echo 1..22
+1..22
++ will_test 'leading spaces'
++ tst='leading spaces'
++ cat
++ cat
++ do_check
++ command_ok_ 'leading spaces [simple, exit status]' eval 'unindent input > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading spaces [simple, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input > got'
+++ unindent input
+++ test x = x
++++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
++++ sed -e 's/  *# .*//'
+++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
++ result_ ok -D '' -r '' -- 'leading spaces [simple, exit status]'
++ set +x
+ok 1 - leading spaces [simple, exit status]
+PASS: t/self-check-unindent.tap 1 - leading spaces [simple, exit status]
++ command_ok_ 'leading spaces [simple, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading spaces [simple, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading spaces [simple, output]'
++ set +x
+ok 2 - leading spaces [simple, output]
+PASS: t/self-check-unindent.tap 2 - leading spaces [simple, output]
++ command_ok_ 'leading spaces [parallel, exit status]' eval 'unindent input | unindent > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading spaces [parallel, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input | unindent > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
+++ unindent
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ result_ ok -D '' -r '' -- 'leading spaces [parallel, exit status]'
++ set +x
+ok 3 - leading spaces [parallel, exit status]
+PASS: t/self-check-unindent.tap 3 - leading spaces [parallel, exit status]
++ command_ok_ 'leading spaces [parallel, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading spaces [parallel, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading spaces [parallel, output]'
++ set +x
+ok 4 - leading spaces [parallel, output]
+PASS: t/self-check-unindent.tap 4 - leading spaces [parallel, output]
++ will_test 'leading tab'
++ tst='leading tab'
++ cat
++ cat
++ do_check 'leading tab'
++ command_ok_ 'leading tab [simple, exit status]' eval 'unindent input > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading tab [simple, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
++ result_ ok -D '' -r '' -- 'leading tab [simple, exit status]'
++ set +x
+ok 5 - leading tab [simple, exit status]
+PASS: t/self-check-unindent.tap 5 - leading tab [simple, exit status]
++ command_ok_ 'leading tab [simple, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading tab [simple, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading tab [simple, output]'
++ set +x
+ok 6 - leading tab [simple, output]
+PASS: t/self-check-unindent.tap 6 - leading tab [simple, output]
++ command_ok_ 'leading tab [parallel, exit status]' eval 'unindent input | unindent > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading tab [parallel, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input | unindent > got'
+++ unindent input
+++ unindent
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ result_ ok -D '' -r '' -- 'leading tab [parallel, exit status]'
++ set +x
+ok 7 - leading tab [parallel, exit status]
+PASS: t/self-check-unindent.tap 7 - leading tab [parallel, exit status]
++ command_ok_ 'leading tab [parallel, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading tab [parallel, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading tab [parallel, output]'
++ set +x
+ok 8 - leading tab [parallel, output]
+PASS: t/self-check-unindent.tap 8 - leading tab [parallel, output]
++ will_test 'no leading whitespace'
++ tst='no leading whitespace'
++ cat
++ cp input exp
++ do_check
++ command_ok_ 'no leading whitespace [simple, exit status]' eval 'unindent input > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='no leading whitespace [simple, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
++ result_ ok -D '' -r '' -- 'no leading whitespace [simple, exit status]'
++ set +x
+ok 9 - no leading whitespace [simple, exit status]
+PASS: t/self-check-unindent.tap 9 - no leading whitespace [simple, exit status]
++ command_ok_ 'no leading whitespace [simple, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='no leading whitespace [simple, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'no leading whitespace [simple, output]'
++ set +x
+ok 10 - no leading whitespace [simple, output]
+PASS: t/self-check-unindent.tap 10 - no leading whitespace [simple, output]
++ command_ok_ 'no leading whitespace [parallel, exit status]' eval 'unindent input | unindent > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='no leading whitespace [parallel, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input | unindent > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
+++ unindent
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ result_ ok -D '' -r '' -- 'no leading whitespace [parallel, exit status]'
++ set +x
+ok 11 - no leading whitespace [parallel, exit status]
+PASS: t/self-check-unindent.tap 11 - no leading whitespace [parallel, exit status]
++ command_ok_ 'no leading whitespace [parallel, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='no leading whitespace [parallel, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'no leading whitespace [parallel, output]'
++ set +x
+ok 12 - no leading whitespace [parallel, output]
+PASS: t/self-check-unindent.tap 12 - no leading whitespace [parallel, output]
++ will_test 'leading empty lines ignored (1)'
++ tst='leading empty lines ignored (1)'
++ cat
++ cat
++ do_check
++ command_ok_ 'leading empty lines ignored (1) [simple, exit status]' eval 'unindent input > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading empty lines ignored (1) [simple, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (1) [simple, exit status]'
++ set +x
+ok 13 - leading empty lines ignored (1) [simple, exit status]
+PASS: t/self-check-unindent.tap 13 - leading empty lines ignored (1) [simple, exit status]
++ command_ok_ 'leading empty lines ignored (1) [simple, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading empty lines ignored (1) [simple, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (1) [simple, output]'
++ set +x
+ok 14 - leading empty lines ignored (1) [simple, output]
+PASS: t/self-check-unindent.tap 14 - leading empty lines ignored (1) [simple, output]
++ command_ok_ 'leading empty lines ignored (1) [parallel, exit status]' eval 'unindent input | unindent > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading empty lines ignored (1) [parallel, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input | unindent > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ unindent
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (1) [parallel, exit status]'
++ set +x
+ok 15 - leading empty lines ignored (1) [parallel, exit status]
+PASS: t/self-check-unindent.tap 15 - leading empty lines ignored (1) [parallel, exit status]
++ command_ok_ 'leading empty lines ignored (1) [parallel, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading empty lines ignored (1) [parallel, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (1) [parallel, output]'
++ set +x
+ok 16 - leading empty lines ignored (1) [parallel, output]
+PASS: t/self-check-unindent.tap 16 - leading empty lines ignored (1) [parallel, output]
++ will_test 'leading empty lines ignored (2)'
++ tst='leading empty lines ignored (2)'
++ cat
++ cat
++ do_check
++ command_ok_ 'leading empty lines ignored (2) [simple, exit status]' eval 'unindent input > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading empty lines ignored (2) [simple, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (2) [simple, exit status]'
++ set +x
+ok 17 - leading empty lines ignored (2) [simple, exit status]
+PASS: t/self-check-unindent.tap 17 - leading empty lines ignored (2) [simple, exit status]
++ command_ok_ 'leading empty lines ignored (2) [simple, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading empty lines ignored (2) [simple, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (2) [simple, output]'
++ set +x
+ok 18 - leading empty lines ignored (2) [simple, output]
+PASS: t/self-check-unindent.tap 18 - leading empty lines ignored (2) [simple, output]
++ command_ok_ 'leading empty lines ignored (2) [parallel, exit status]' eval 'unindent input | unindent > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='leading empty lines ignored (2) [parallel, exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input | unindent > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
+++ unindent
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (2) [parallel, exit status]'
++ set +x
+ok 19 - leading empty lines ignored (2) [parallel, exit status]
+PASS: t/self-check-unindent.tap 19 - leading empty lines ignored (2) [parallel, exit status]
++ command_ok_ 'leading empty lines ignored (2) [parallel, output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='leading empty lines ignored (2) [parallel, output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'leading empty lines ignored (2) [parallel, output]'
++ set +x
+ok 20 - leading empty lines ignored (2) [parallel, output]
+PASS: t/self-check-unindent.tap 20 - leading empty lines ignored (2) [parallel, output]
++ will_test 'more elaborated parallel use'
++ tst='more elaborated parallel use'
++ cat
++ cat
++ command_ok_ 'more elaborated parallel use [exit status]' eval 'unindent input | sed 1d | unindent > got'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='more elaborated parallel use [exit status]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval 'unindent input | sed 1d | unindent > got'
+++ unindent input
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' input
+++ sed 1d
+++ unindent
+++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
+++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ result_ ok -D '' -r '' -- 'more elaborated parallel use [exit status]'
++ set +x
+ok 21 - more elaborated parallel use [exit status]
+PASS: t/self-check-unindent.tap 21 - more elaborated parallel use [exit status]
++ command_ok_ 'more elaborated parallel use [output]' diff exp got
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='more elaborated parallel use [output]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ diff exp got
++ result_ ok -D '' -r '' -- 'more elaborated parallel use [output]'
++ set +x
+ok 22 - more elaborated parallel use [output]
+PASS: t/self-check-unindent.tap 22 - more elaborated parallel use [output]
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 22 = later
++ test 0 -eq 0
++ test 22 -eq 22
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/self-check-unindent.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/self-check-unindent.dir
++ set +x

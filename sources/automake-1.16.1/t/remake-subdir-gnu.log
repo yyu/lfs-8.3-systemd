@@ -1,0 +1,123 @@
+remake-subdir-gnu: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-subdir-gnu.dir
++ magic1=::MagicString::One::
++ magic2=__MagicString__Two__
++ cat
++ cat
++ mkdir sub
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating GNUmakefile
+config.status: creating sub/GNUmakefile
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-subdir-gnu.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-subdir-gnu.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-subdir-gnu.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-subdir-gnu.dir'
++ debug_info
++ grep -i magic configure GNUmakefile.in GNUmakefile sub/GNUmakefile.in sub/GNUmakefile
+configure:MAGIC
+configure:MAGIC=magic
+GNUmakefile.in:MAGIC = @MAGIC@
+GNUmakefile:MAGIC = magic
+sub/GNUmakefile.in:MAGIC = @MAGIC@
+sub/GNUmakefile:MAGIC = magic
++ sleep 2
++ sed 's|magic|::MagicString::One::|' configure.ac
++ mv -f t configure.ac
++ cd sub
++ make
+cd .. && make  am--refresh
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-subdir-gnu.dir'
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-subdir-gnu.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-subdir-gnu.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-subdir-gnu.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating GNUmakefile
+config.status: creating sub/GNUmakefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-subdir-gnu.dir'
+make: Nothing to be done for 'all'.
++ cd ..
++ debug_info
++ grep -i magic configure GNUmakefile.in GNUmakefile sub/GNUmakefile.in sub/GNUmakefile
+configure:MAGIC
+configure:MAGIC=::MagicString::One::
+GNUmakefile.in:MAGIC = @MAGIC@
+GNUmakefile:MAGIC = ::MagicString::One::
+sub/GNUmakefile.in:MAGIC = @MAGIC@
+sub/GNUmakefile:MAGIC = ::MagicString::One::
++ /bin/grep -F ::MagicString::One:: configure
+MAGIC=::MagicString::One::
++ /bin/grep -F ::MagicString::One:: GNUmakefile
+MAGIC = ::MagicString::One::
++ /bin/grep -F ::MagicString::One:: sub/GNUmakefile
+MAGIC = ::MagicString::One::
++ sleep 2
++ cd sub
++ echo MAGIC = __MagicString__Two__
++ make
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-subdir-gnu.dir/missing automake-1.16 --foreign sub/GNUmakefile
+ cd .. && /bin/sh ./config.status sub/GNUmakefile 
+config.status: creating sub/GNUmakefile
+make: Nothing to be done for 'all'.
++ cd ..
++ debug_info
++ grep -i magic configure GNUmakefile.in GNUmakefile sub/GNUmakefile.in sub/GNUmakefile
+configure:MAGIC
+configure:MAGIC=::MagicString::One::
+GNUmakefile.in:MAGIC = @MAGIC@
+GNUmakefile:MAGIC = ::MagicString::One::
+sub/GNUmakefile.in:MAGIC = __MagicString__Two__
+sub/GNUmakefile:MAGIC = __MagicString__Two__
++ /bin/grep -F __MagicString__Two__ sub/GNUmakefile
+MAGIC = __MagicString__Two__
++ /bin/grep -F __MagicString__Two__ sub/GNUmakefile.in
+MAGIC = __MagicString__Two__
++ /bin/grep -F ::MagicString::One:: sub/GNUmakefile sub/GNUmakefile.in
++ /bin/grep -F __MagicString__Two__ GNUmakefile GNUmakefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-subdir-gnu.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-subdir-gnu.dir
++ set +x
+PASS t/remake-subdir-gnu.sh (exit status: 0)

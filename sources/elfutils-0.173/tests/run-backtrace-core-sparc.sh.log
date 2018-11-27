@@ -1,0 +1,21 @@
+./backtrace ./backtrace.sparc.exec ./backtrace.sparc.core
+0x100000	0x2b2000	[exe]
+0xfffffc011c9a0000	0xfffffc011c9a2000	linux-vdso.so.1
+TID 21612:
+# 0 0x10c488    	raise
+# 1 0x1005dc - 1	sigusr2
+# 2 0x1006f0 - 1	stdarg
+# 3 0x10076c - 1	backtracegen
+# 4 0x10078c - 1	start
+# 5 0x103384 - 1	start_thread
+# 6 0x1311b8 - 1	__thread_start
+TID 21611:
+# 0 0x103920    	pthread_join
+# 1 0x100924 - 1	main
+# 2 0x10e0a8 - 1	__libc_start_main
+# 3 0x100434 - 1	_start
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: no matching address range
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: no matching address range
+# 1 0x100924 - 1	main
+# 3 0x10076c - 1	backtracegen
+PASS run-backtrace-core-sparc.sh (exit status: 0)

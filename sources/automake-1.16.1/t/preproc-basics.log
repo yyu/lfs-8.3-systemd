@@ -1,0 +1,124 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/preproc-basics.dir
++ cat
++ mkdir foo foo/bar foo/foobar zot
++ cat
++ cat
++ cat
++ cat
++ cat
++ cp local.mk foo
++ cp local.mk foo/bar
++ cp local.mk foo/foobar
++ cp local.mk zot
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating zot/Makefile
++ check whoami 'I am local.mk'
++ test 2 -eq 2
++ target=whoami
++ contents='I am local.mk'
++ rm -f whoami
++ make whoami
+echo "I am local.mk" >whoami
+++ cat whoami
++ test 'xI am local.mk' = 'xI am local.mk'
++ check foo_whoami 'I am foo/local.mk'
++ test 2 -eq 2
++ target=foo_whoami
++ contents='I am foo/local.mk'
++ rm -f foo_whoami
++ make foo_whoami
+echo "I am foo/local.mk" >foo_whoami
+++ cat foo_whoami
++ test 'xI am foo/local.mk' = 'xI am foo/local.mk'
++ check foo_bar_whoami 'I am foo/bar/local.mk'
++ test 2 -eq 2
++ target=foo_bar_whoami
++ contents='I am foo/bar/local.mk'
++ rm -f foo_bar_whoami
++ make foo_bar_whoami
+echo "I am foo/bar/local.mk" >foo_bar_whoami
+++ cat foo_bar_whoami
++ test 'xI am foo/bar/local.mk' = 'xI am foo/bar/local.mk'
++ check foo_foobar_whoami 'I am foo/foobar/local.mk'
++ test 2 -eq 2
++ target=foo_foobar_whoami
++ contents='I am foo/foobar/local.mk'
++ rm -f foo_foobar_whoami
++ make foo_foobar_whoami
+echo "I am foo/foobar/local.mk" >foo_foobar_whoami
+++ cat foo_foobar_whoami
++ test 'xI am foo/foobar/local.mk' = 'xI am foo/foobar/local.mk'
++ make test-foo
+test 'foo'       = foo  &&  test 'foo' = foo
+test 'foo'            = foo  &&  test 'foo'      = foo
+test 'foo' = foo  &&  test 'foo'      = foo
++ cd zot
++ check whoami 'I am local.mk'
++ test 2 -eq 2
++ target=whoami
++ contents='I am local.mk'
++ rm -f whoami
++ make whoami
+echo "I am local.mk" >whoami
+++ cat whoami
++ test 'xI am local.mk' = 'xI am local.mk'
++ check ___top_whoami 'I am ../top.mk'
++ test 2 -eq 2
++ target=___top_whoami
++ contents='I am ../top.mk'
++ rm -f ___top_whoami
++ make ___top_whoami
+echo "I am ../top.mk" >___top_whoami
+++ cat ___top_whoami
++ test 'xI am ../top.mk' = 'xI am ../top.mk'
++ check ___reltop_whoami 'I am ../reltop.mk'
++ test 2 -eq 2
++ target=___reltop_whoami
++ contents='I am ../reltop.mk'
++ rm -f ___reltop_whoami
++ make ___reltop_whoami
+echo "I am ../reltop.mk" >___reltop_whoami
+++ cat ___reltop_whoami
++ test 'xI am ../reltop.mk' = 'xI am ../reltop.mk'
++ check zot_whoami 'I am Makefile.am'
++ test 2 -eq 2
++ target=zot_whoami
++ contents='I am Makefile.am'
++ rm -f zot_whoami
++ make zot_whoami
+echo "I am Makefile.am" >zot_whoami
+++ cat zot_whoami
++ test 'xI am Makefile.am' = 'xI am Makefile.am'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/preproc-basics.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/preproc-basics.dir
++ set +x
+PASS t/preproc-basics.sh (exit status: 0)

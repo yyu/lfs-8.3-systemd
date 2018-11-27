@@ -1,0 +1,93 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/amhello-binpkg.dir
++ cp /sources/automake-1.16.1/doc/amhello-1.0.tar.gz .
++ gzip -dc amhello-1.0.tar.gz
++ tar xf -
++ cd amhello-1.0
++ ./configure --prefix /usr
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ make
+make  all-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+Making all in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/src'
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+gcc  -g -O2   -o hello main.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+++ pwd
++ make DESTDIR=/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/inst install
+Making install in src
+make[1]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/src'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/inst/usr/bin'
+  /usr/bin/install -c hello '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/inst/usr/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/src'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/src'
+make[1]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+make[2]: Entering directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/inst/usr/share/doc/amhello'
+ /usr/bin/install -c -m 644 README '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0/inst/usr/share/doc/amhello'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/amhello-binpkg.dir/amhello-1.0'
++ cd inst
++ find . -type f -print
+++ cat ../files.lst
++ tar cvf amhello-1.0-i686.tar.gz ./usr/share/doc/amhello/README ./usr/bin/hello
+++ sed -n -e 's/^EXEEXT *= *//p'
++ EXEEXT=
++ tar --version
++ grep GNU
+tar (GNU tar) 1.30
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
++ LC_ALL=C
++ sort tar.got
++ mv -f t tar.got
++ diff - tar.got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/amhello-binpkg.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/amhello-binpkg.dir
++ set +x
+PASS t/amhello-binpkg.sh (exit status: 0)

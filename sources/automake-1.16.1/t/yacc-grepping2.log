@@ -1,0 +1,39 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-grepping2.dir
++ cat
++ cat
++ mkdir sub
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a -Wno-unsupported
+configure.ac: installing './ylwrap'
++ grep '^maude\.c:.*maude\.y' Makefile.in
+maude.c: sub/maude.y
++ cat
++ automake-1.16 --foreign -Werror -Wall -a
++ grep '^sub/maude\.c:.*maude\.y' Makefile.in
++ cat
++ automake-1.16 --foreign -Werror -Wall -a -Wno-unsupported
++ grep 'AM_YFLAGS.*maude' Makefile.in
++ grep maudec Makefile.in
++ grep '^am_maude_OBJECTS.*maude' Makefile.in
+am_maude_OBJECTS = maude-maude.$(OBJEXT)
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-grepping2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-grepping2.dir
++ set +x
+PASS t/yacc-grepping2.sh (exit status: 0)

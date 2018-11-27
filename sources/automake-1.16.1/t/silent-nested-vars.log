@@ -1,0 +1,320 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/silent-nested-vars.dir
++ cat
++ cat
++ cat
++ cp foo.c bar.c
++ cat
++ chmod a+x mymake
++ mymake_MAKE=make
++ MAKE=./mymake
++ export MAKE mymake_MAKE
++ cat
++ ./mymake
+a = $(b$(c))
+mymake: Makefile contains nested variables
++ mv -f Makefile foo.mk
++ ./mymake -f foo.mk
+a = $(b$(c))
+mymake: foo.mk contains nested variables
++ cat foo.mk
++ ./mymake -f -
+a = $(b$(c))
+mymake: - contains nested variables
++ test -f bar
++ sed '/a =/d' foo.mk
++ ./mymake
+touch bar
++ test -f bar
++ rm -f bar Makefile foo.mk
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ autoconf
++ ./configure --enable-silent-rules
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether ./mymake sets $(MAKE)... yes
+checking whether ./mymake supports nested variables... no
+checking whether ./mymake supports nested variables... (cached) no
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether ./mymake supports the include directive... yes (GNU style)
+checking dependency style of gcc... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ grep '^checking whether \./mymake supports nested variables\.\.\. no *$' stdout
+checking whether ./mymake supports nested variables... no
++ /bin/grep -E 'CC|AM_V|GEN' Makefile
+bar_LINK = $(CCLD) $(bar_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
+AM_V_P = $(am__v_P_0)
+AM_V_GEN = $(am__v_GEN_0)
+am__v_GEN_ = $(am__v_GEN_0)
+am__v_GEN_0 = @echo "  GEN     " $@;
+am__v_GEN_1 = 
+AM_V_at = $(am__v_at_0)
+AM_V_lt = $(am__v_lt_0)
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+AM_V_CC = $(am__v_CC_0)
+am__v_CC_ = $(am__v_CC_0)
+am__v_CC_0 = @echo "  CC      " $@;
+am__v_CC_1 = 
+CCLD = $(CC)
+LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+AM_V_CCLD = $(am__v_CCLD_0)
+am__v_CCLD_ = $(am__v_CCLD_0)
+am__v_CCLD_0 = @echo "  CCLD    " $@;
+am__v_CCLD_1 = 
+CC = gcc
+CCDEPMODE = depmode=none
+ac_ct_CC = gcc
+# Check that AM_V and AM_DEFAULT_V work as advertised.
+pkg_verbose_0 = @echo PKG-GEN $@;
+	$(AM_V_CCLD)$(bar_LINK) $(bar_OBJECTS) $(bar_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(LINK) $(foo_OBJECTS) $(foo_LDADD) $(LIBS)
+#	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CC)source='$<' object='$@' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
+#	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CC)source='$<' object='$@' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -MT bar-bar.o -MD -MP -MF $(DEPDIR)/bar-bar.Tpo -c -o bar-bar.o `test -f 'bar.c' || echo '$(srcdir)/'`bar.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/bar-bar.Tpo $(DEPDIR)/bar-bar.Po
+	$(AM_V_CC)source='bar.c' object='bar-bar.o' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -c -o bar-bar.o `test -f 'bar.c' || echo '$(srcdir)/'`bar.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -MT bar-bar.obj -MD -MP -MF $(DEPDIR)/bar-bar.Tpo -c -o bar-bar.obj `if test -f 'bar.c'; then $(CYGPATH_W) 'bar.c'; else $(CYGPATH_W) '$(srcdir)/bar.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/bar-bar.Tpo $(DEPDIR)/bar-bar.Po
+	$(AM_V_CC)source='bar.c' object='bar-bar.obj' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -c -o bar-bar.obj `if test -f 'bar.c'; then $(CYGPATH_W) 'bar.c'; else $(CYGPATH_W) '$(srcdir)/bar.c'; fi`
++ grep '^AM_V_CC =  *\$(am__v_CC_0) *$' Makefile
+AM_V_CC = $(am__v_CC_0)
++ grep '^AM_V_GEN =  *\$(am__v_GEN_0) *$' Makefile
+AM_V_GEN = $(am__v_GEN_0)
++ run_make -O
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ ./mymake --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec ./mymake
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+  CC       foo.o
+  CCLD     foo
+  CC       bar-bar.o
+  CCLD     bar
+PKG-GEN oop
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -E ' (-c|-o)' stdout
++ grep 'mv ' stdout
++ grep 'echo .*oop' stdout
++ grep 'CC .*foo\.' stdout
+  CC       foo.o
++ grep 'CC .*bar\.' stdout
+  CC       bar-bar.o
++ grep 'CCLD .*foo' stdout
+  CCLD     foo
++ grep 'CCLD .*bar' stdout
+  CCLD     bar
++ grep 'PKG-GEN .*oop' stdout
+PKG-GEN oop
++ ./mymake distclean
+test -z "foo bar" || rm -f foo bar
+rm -f *.o
+rm -f oop
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar-bar.Po
+rm -f ./.deps/foo.Po
+rm -f Makefile
++ ./configure --disable-silent-rules
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether ./mymake sets $(MAKE)... yes
+checking whether ./mymake supports nested variables... no
+checking whether ./mymake supports nested variables... (cached) no
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether ./mymake supports the include directive... yes (GNU style)
+checking dependency style of gcc... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ grep '^checking whether \./mymake supports nested variables\.\.\. no *$' stdout
+checking whether ./mymake supports nested variables... no
++ /bin/grep -E 'CC|AM_V|GEN' Makefile
+bar_LINK = $(CCLD) $(bar_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
+AM_V_P = $(am__v_P_1)
+AM_V_GEN = $(am__v_GEN_1)
+am__v_GEN_ = $(am__v_GEN_1)
+am__v_GEN_0 = @echo "  GEN     " $@;
+am__v_GEN_1 = 
+AM_V_at = $(am__v_at_1)
+AM_V_lt = $(am__v_lt_1)
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+AM_V_CC = $(am__v_CC_1)
+am__v_CC_ = $(am__v_CC_1)
+am__v_CC_0 = @echo "  CC      " $@;
+am__v_CC_1 = 
+CCLD = $(CC)
+LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+AM_V_CCLD = $(am__v_CCLD_1)
+am__v_CCLD_ = $(am__v_CCLD_1)
+am__v_CCLD_0 = @echo "  CCLD    " $@;
+am__v_CCLD_1 = 
+CC = gcc
+CCDEPMODE = depmode=none
+ac_ct_CC = gcc
+# Check that AM_V and AM_DEFAULT_V work as advertised.
+pkg_verbose_0 = @echo PKG-GEN $@;
+	$(AM_V_CCLD)$(bar_LINK) $(bar_OBJECTS) $(bar_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(LINK) $(foo_OBJECTS) $(foo_LDADD) $(LIBS)
+#	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CC)source='$<' object='$@' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(COMPILE) -c -o $@ $<
+#	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CC)source='$<' object='$@' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(COMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -MT bar-bar.o -MD -MP -MF $(DEPDIR)/bar-bar.Tpo -c -o bar-bar.o `test -f 'bar.c' || echo '$(srcdir)/'`bar.c
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/bar-bar.Tpo $(DEPDIR)/bar-bar.Po
+	$(AM_V_CC)source='bar.c' object='bar-bar.o' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -c -o bar-bar.o `test -f 'bar.c' || echo '$(srcdir)/'`bar.c
+#	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -MT bar-bar.obj -MD -MP -MF $(DEPDIR)/bar-bar.Tpo -c -o bar-bar.obj `if test -f 'bar.c'; then $(CYGPATH_W) 'bar.c'; else $(CYGPATH_W) '$(srcdir)/bar.c'; fi`
+#	$(AM_V_at)$(am__mv) $(DEPDIR)/bar-bar.Tpo $(DEPDIR)/bar-bar.Po
+	$(AM_V_CC)source='bar.c' object='bar-bar.obj' libtool=no \
+	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar_CFLAGS) $(CFLAGS) -c -o bar-bar.obj `if test -f 'bar.c'; then $(CYGPATH_W) 'bar.c'; else $(CYGPATH_W) '$(srcdir)/bar.c'; fi`
++ grep '^AM_V_CC =  *\$(am__v_CC_1) *$' Makefile
+AM_V_CC = $(am__v_CC_1)
++ grep '^AM_V_GEN =  *\$(am__v_GEN_1) *$' Makefile
+AM_V_GEN = $(am__v_GEN_1)
++ run_make -O
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec ./mymake
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+source='foo.c' object='foo.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh ./depcomp \
+gcc -DPACKAGE_NAME=\"silent-nested-vars\" -DPACKAGE_TARNAME=\"silent-nested-vars\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-nested-vars\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-nested-vars\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo.o foo.c
+gcc  -g -O2   -o foo foo.o  
+source='bar.c' object='bar-bar.o' libtool=no \
+DEPDIR=.deps depmode=none /bin/sh ./depcomp \
+gcc -DPACKAGE_NAME=\"silent-nested-vars\" -DPACKAGE_TARNAME=\"silent-nested-vars\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-nested-vars\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-nested-vars\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar-bar.o `test -f 'bar.c' || echo './'`bar.c
+gcc  -g -O2   -o bar bar-bar.o  
+echo oop >oop
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep ' -c' stdout
+gcc -DPACKAGE_NAME=\"silent-nested-vars\" -DPACKAGE_TARNAME=\"silent-nested-vars\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-nested-vars\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-nested-vars\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo.o foo.c
+gcc -DPACKAGE_NAME=\"silent-nested-vars\" -DPACKAGE_TARNAME=\"silent-nested-vars\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-nested-vars\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-nested-vars\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar-bar.o `test -f 'bar.c' || echo './'`bar.c
++ grep ' -o foo' stdout
+gcc -DPACKAGE_NAME=\"silent-nested-vars\" -DPACKAGE_TARNAME=\"silent-nested-vars\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-nested-vars\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-nested-vars\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo.o foo.c
+gcc  -g -O2   -o foo foo.o  
++ grep ' -o bar' stdout
+gcc -DPACKAGE_NAME=\"silent-nested-vars\" -DPACKAGE_TARNAME=\"silent-nested-vars\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-nested-vars\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-nested-vars\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar-bar.o `test -f 'bar.c' || echo './'`bar.c
+gcc  -g -O2   -o bar bar-bar.o  
++ grep 'echo .*>oop' stdout
+echo oop >oop
++ /bin/grep -E '(CC|LD) ' stdout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/silent-nested-vars.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/silent-nested-vars.dir
++ set +x
+PASS t/silent-nested-vars.sh (exit status: 0)

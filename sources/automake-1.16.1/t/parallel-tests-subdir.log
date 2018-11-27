@@ -1,0 +1,79 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-subdir.dir
++ cat
++ cat
++ mkdir dir1 dir2 dir2/dir3
++ echo :
++ echo :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-subdir.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-subdir.dir/build'
+PASS: dir1/foo.test
+PASS: dir2/dir3/foo.test
+============================================================================
+Testsuite summary for parallel-tests-subdir 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-subdir.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-subdir.dir/build'
++ find .
+.
+./dir2
+./dir2/dir3
+./dir2/dir3/foo.log
+./dir2/dir3/foo.trs
+./config.status
+./config.log
+./test-suite.log
+./Makefile
+./dir1
+./dir1/foo.log
+./dir1/foo.trs
++ test -f test-suite.log
++ test -f dir1/foo.log
++ test -f dir1/foo.trs
++ test -f dir2/dir3/foo.log
++ test -f dir2/dir3/foo.trs
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-subdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-subdir.dir
++ set +x
+PASS t/parallel-tests-subdir.sh (exit status: 0)

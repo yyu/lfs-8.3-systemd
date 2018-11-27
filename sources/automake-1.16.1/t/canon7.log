@@ -1,0 +1,502 @@
+canon7: running libtool --version
+libtool (GNU libtool) 2.4.6
+Written by Gordon Matzigkeit, 1996
+
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+canon7: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/canon7.dir
++ cat
++ touch ,foo-bar libb.az+baz lib~zardoz,,
++ rm -f ,foo-bar libb.az+baz lib~zardoz,,
++ cat
++ cat
++ cat
++ echo 'const char *dummy_func(void);'
++ echo 'const char *dummy_func(void) { return "Dynamic"; }'
++ echo 'const char *dummy_func(void) { return "Static"; }'
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+libtoolize: 'AC_PROG_RANLIB' is rendered obsolete by 'LT_INIT'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:5: installing './ar-lib'
+configure.ac:7: installing './config.guess'
+configure.ac:7: installing './config.sub'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 6291456
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... no
+checking for cc option to produce PIC... -fPIC -DPIC
+checking if cc PIC flag -fPIC -DPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
++ make check
+cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT dummy.o -MD -MP -MF .deps/dummy.Tpo -c -o dummy.o dummy.c
+mv -f .deps/dummy.Tpo .deps/dummy.Po
+cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT libs.o -MD -MP -MF .deps/libs.Tpo -c -o libs.o libs.c
+mv -f .deps/libs.Tpo .deps/libs.Po
+rm -f libb.az+baz.a
+ar cru libb.az+baz.a libs.o 
+ranlib libb.az+baz.a
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o dummy_static dummy.o libb.az+baz.a 
+libtool: link: cc -g -O2 -o dummy_static dummy.o  libb.az+baz.a
+/bin/sh ./libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT libd.lo -MD -MP -MF .deps/libd.Tpo -c -o libd.lo libd.c
+libtool: compile:  cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"canon7 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT libd.lo -MD -MP -MF .deps/libd.Tpo -c libd.c  -fPIC -DPIC -o .libs/libd.o
+libtool: compile:  cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"canon7 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT libd.lo -MD -MP -MF .deps/libd.Tpo -c libd.c -o libd.o >/dev/null 2>&1
+mv -f .deps/libd.Tpo .deps/libd.Plo
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o lib~zardoz,,.la  libd.lo  
+libtool: link: ar cru .libs/lib~zardoz,,.a .libs/libd.o 
+libtool: link: ranlib .libs/lib~zardoz,,.a
+libtool: link: ( cd ".libs" && rm -f "lib~zardoz,,.la" && ln -s "../lib~zardoz,,.la" "lib~zardoz,,.la" )
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o dummy_dynamic dummy.o lib~zardoz,,.la 
+libtool: link: cc -g -O2 -o dummy_dynamic dummy.o  ./.libs/lib~zardoz,,.a
+cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT foobar.o -MD -MP -MF .deps/foobar.Tpo -c -o foobar.o foobar.c
+mv -f .deps/foobar.Tpo .deps/foobar.Po
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o ,foo-bar foobar.o  
+libtool: link: cc -g -O2 -o ,foo-bar foobar.o 
+make  check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir'
+ls -l
+total 1452
+-rwxr-xr-x 1 root root  22312 Nov 27 06:38 ,foo-bar
+-rw-r--r-- 1 root root  27466 Nov 27 06:38 Makefile
+-rw-r--r-- 1 root root    741 Nov 27 06:38 Makefile.am
+-rw-r--r-- 1 root root  27722 Nov 27 06:38 Makefile.in
+-rw-r--r-- 1 root root 374112 Nov 27 06:38 aclocal.m4
+lrwxrwxrwx 1 root root     35 Nov 27 06:38 ar-lib -> /sources/automake-1.16.1/lib/ar-lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:38 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:38 compile
+lrwxrwxrwx 1 root root     41 Nov 27 06:38 config.guess -> /sources/automake-1.16.1/lib/config.guess
+-rw-r--r-- 1 root root  21020 Nov 27 06:38 config.log
+-rwxr-xr-x 1 root root  53949 Nov 27 06:38 config.status
+lrwxrwxrwx 1 root root     39 Nov 27 06:38 config.sub -> /sources/automake-1.16.1/lib/config.sub
+-rwxr-xr-x 1 root root 427785 Nov 27 06:38 configure
+-rw-r--r-- 1 root root    254 Nov 27 06:38 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:38 depcomp
+-rw-r--r-- 1 root root    111 Nov 27 06:38 dummy.c
+-rw-r--r-- 1 root root   5544 Nov 27 06:38 dummy.o
+-rwxr-xr-x 1 root root  22776 Nov 27 06:38 dummy_dynamic
+-rwxr-xr-x 1 root root  22728 Nov 27 06:38 dummy_static
+-rw-r--r-- 1 root root     80 Nov 27 06:38 foobar.c
+-rw-r--r-- 1 root root   5392 Nov 27 06:38 foobar.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:38 install-sh
+-rw-r--r-- 1 root root     30 Nov 27 06:38 lib.h
+-rw-r--r-- 1 root root   2916 Nov 27 06:38 libb.az+baz.a
+-rw-r--r-- 1 root root     51 Nov 27 06:38 libd.c
+-rw-r--r-- 1 root root    264 Nov 27 06:38 libd.lo
+-rw-r--r-- 1 root root   2768 Nov 27 06:38 libd.o
+-rw-r--r-- 1 root root     50 Nov 27 06:38 libs.c
+-rw-r--r-- 1 root root   2768 Nov 27 06:38 libs.o
+-rwxr-xr-x 1 root root 338992 Nov 27 06:38 libtool
+-rw-r--r-- 1 root root    861 Nov 27 06:38 lib~zardoz,,.la
+lrwxrwxrwx 1 root root     38 Nov 27 06:38 ltmain.sh -> /usr/share/libtool/build-aux/ltmain.sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:38 missing
+./,foo-bar
+Hello, FooBar!
+./dummy_static
+Hello from Static!
+./dummy_dynamic
+Hello from Dynamic!
+./,foo-bar | grep 'Hello, FooBar!'
+Hello, FooBar!
+./dummy_static | grep 'Hello from Static!'
+Hello from Static!
+./dummy_dynamic | grep 'Hello from Dynamic!'
+Hello from Dynamic!
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/canon7.dir'
+if test -d "canon7-1.0"; then find "canon7-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "canon7-1.0" || { sleep 5 && rm -rf "canon7-1.0"; }; else :; fi
+test -d "canon7-1.0" || mkdir "canon7-1.0"
+test -n "" \
+|| find "canon7-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/canon7.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "canon7-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir'
+tardir=canon7-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >canon7-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir'
+if test -d "canon7-1.0"; then find "canon7-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "canon7-1.0" || { sleep 5 && rm -rf "canon7-1.0"; }; else :; fi
+case 'canon7-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc canon7-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc canon7-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc canon7-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc canon7-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c canon7-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc canon7-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip canon7-1.0.zip ;;\
+esac
+chmod -R a-w canon7-1.0
+chmod u+w canon7-1.0
+mkdir canon7-1.0/_build canon7-1.0/_build/sub canon7-1.0/_inst
+chmod a-w canon7-1.0
+test -d canon7-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd canon7-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd canon7-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf canon7-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 6291456
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... no
+checking for cc option to produce PIC... -fPIC -DPIC
+checking if cc PIC flag -fPIC -DPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../..     -g -O2 -MT dummy.o -MD -MP -MF .deps/dummy.Tpo -c -o dummy.o ../../dummy.c
+mv -f .deps/dummy.Tpo .deps/dummy.Po
+cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../..     -g -O2 -MT libs.o -MD -MP -MF .deps/libs.Tpo -c -o libs.o ../../libs.c
+mv -f .deps/libs.Tpo .deps/libs.Po
+rm -f libb.az+baz.a
+ar cru libb.az+baz.a libs.o 
+ranlib libb.az+baz.a
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o dummy_static dummy.o libb.az+baz.a 
+libtool: link: cc -g -O2 -o dummy_static dummy.o  libb.az+baz.a
+/bin/sh ./libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../..     -g -O2 -MT libd.lo -MD -MP -MF .deps/libd.Tpo -c -o libd.lo ../../libd.c
+libtool: compile:  cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"canon7 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../.. -g -O2 -MT libd.lo -MD -MP -MF .deps/libd.Tpo -c ../../libd.c  -fPIC -DPIC -o .libs/libd.o
+libtool: compile:  cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"canon7 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../.. -g -O2 -MT libd.lo -MD -MP -MF .deps/libd.Tpo -c ../../libd.c -o libd.o >/dev/null 2>&1
+mv -f .deps/libd.Tpo .deps/libd.Plo
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o lib~zardoz,,.la  libd.lo  
+libtool: link: ar cru .libs/lib~zardoz,,.a .libs/libd.o 
+libtool: link: ranlib .libs/lib~zardoz,,.a
+libtool: link: ( cd ".libs" && rm -f "lib~zardoz,,.la" && ln -s "../lib~zardoz,,.la" "lib~zardoz,,.la" )
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o dummy_dynamic dummy.o lib~zardoz,,.la 
+libtool: link: cc -g -O2 -o dummy_dynamic dummy.o  ./.libs/lib~zardoz,,.a
+cc -DPACKAGE_NAME=\"canon7\" -DPACKAGE_TARNAME=\"canon7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"canon7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"canon7\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../..     -g -O2 -MT foobar.o -MD -MP -MF .deps/foobar.Tpo -c -o foobar.o ../../foobar.c
+mv -f .deps/foobar.Tpo .deps/foobar.Po
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o ,foo-bar foobar.o  
+libtool: link: cc -g -O2 -o ,foo-bar foobar.o 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+ls -l
+total 548
+-rwxr-xr-x 1 root root  22344 Nov 27 06:38 ,foo-bar
+-rw-r--r-- 1 root root  27709 Nov 27 06:38 Makefile
+-rw-r--r-- 1 root root  21582 Nov 27 06:38 config.log
+-rwxr-xr-x 1 root root  54103 Nov 27 06:38 config.status
+-rw-r--r-- 1 root root   5568 Nov 27 06:38 dummy.o
+-rwxr-xr-x 1 root root  22824 Nov 27 06:38 dummy_dynamic
+-rwxr-xr-x 1 root root  22776 Nov 27 06:38 dummy_static
+-rw-r--r-- 1 root root   5416 Nov 27 06:38 foobar.o
+-rw-r--r-- 1 root root   2948 Nov 27 06:38 libb.az+baz.a
+-rw-r--r-- 1 root root    264 Nov 27 06:38 libd.lo
+-rw-r--r-- 1 root root   2800 Nov 27 06:38 libd.o
+-rw-r--r-- 1 root root   2800 Nov 27 06:38 libs.o
+-rwxr-xr-x 1 root root 338992 Nov 27 06:38 libtool
+-rw-r--r-- 1 root root    861 Nov 27 06:38 lib~zardoz,,.la
+./,foo-bar
+Hello, FooBar!
+./dummy_static
+Hello from Static!
+./dummy_dynamic
+Hello from Dynamic!
+./,foo-bar | grep 'Hello, FooBar!'
+Hello, FooBar!
+./dummy_static | grep 'Hello from Static!'
+Hello from Static!
+./dummy_dynamic | grep 'Hello from Dynamic!'
+Hello from Dynamic!
+make[2]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+if test -d "canon7-1.0"; then find "canon7-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "canon7-1.0" || { sleep 5 && rm -rf "canon7-1.0"; }; else :; fi
+test -d "canon7-1.0" || mkdir "canon7-1.0"
+test -n "" \
+|| find "canon7-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/canon7.dir/canon7-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "canon7-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+tardir=canon7-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >canon7-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+if test -d "canon7-1.0"; then find "canon7-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "canon7-1.0" || { sleep 5 && rm -rf "canon7-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+rm -rf .libs _libs
+test -z "libb.az+baz.a" || rm -f libb.az+baz.a
+test -z "lib~zardoz,,.la" || rm -f lib~zardoz,,.la
+rm -f ./so_locations
+ rm -f dummy_static dummy_dynamic ,foo-bar
+rm -f *.o
+rm -f *.lo
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f libtool config.lt
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/dummy.Po
+rm -f ./.deps/foobar.Po
+rm -f ./.deps/libd.Plo
+rm -f ./.deps/libs.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/canon7.dir/canon7-1.0/_build/sub'
+if test -d "canon7-1.0"; then find "canon7-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "canon7-1.0" || { sleep 5 && rm -rf "canon7-1.0"; }; else :; fi
+============================================
+canon7-1.0 archives ready for distribution: 
+canon7-1.0.tar.gz
+============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/canon7.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/canon7.dir
++ set +x
+PASS t/canon7.sh (exit status: 0)

@@ -1,0 +1,217 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/extra-portability.dir
++ AUTOMAKE='automake-1.16 --foreign -Werror'
++ cat
++ aclocal-1.16 -Werror
++ cat
++ AUTOMAKE_fails -Wextra-portability
++ AUTOMAKE_run -e 1 -Wextra-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wextra-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+/sources/automake-1.16.1/lib/am/library.am: warning: 'libfoo.a': linking libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing library 'libfoo.a'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'requires.*AM_PROG_AR' stderr
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
++ automake-1.16 --foreign -Werror
++ AUTOMAKE_fails -Wall
++ AUTOMAKE_run -e 1 -Wall
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+/sources/automake-1.16.1/lib/am/library.am: warning: 'libfoo.a': linking libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing library 'libfoo.a'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'requires.*AM_PROG_AR' stderr
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
++ automake-1.16 --foreign -Werror -Wextra-portability -Wno-portability
++ automake-1.16 --foreign -Werror -Wall -Wno-portability
++ echo 'var = $(foo--bar)'
++ AUTOMAKE_fails -Wextra-portability
++ AUTOMAKE_run -e 1 -Wextra-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wextra-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
+/sources/automake-1.16.1/lib/am/library.am: warning: 'libfoo.a': linking libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing library 'libfoo.a'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep foo--bar stderr
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ grep 'requires.*AM_PROG_AR' stderr
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
++ AUTOMAKE_fails -Wno-portability -Wextra-portability
++ AUTOMAKE_run -e 1 -Wno-portability -Wextra-portability
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wno-portability -Wextra-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
+/sources/automake-1.16.1/lib/am/library.am: warning: 'libfoo.a': linking libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing library 'libfoo.a'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep foo--bar stderr
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ grep 'requires.*AM_PROG_AR' stderr
+/sources/automake-1.16.1/lib/am/library.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
++ AUTOMAKE_fails -Wportability -Wno-extra-portability
++ AUTOMAKE_run -e 1 -Wportability -Wno-extra-portability
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wportability -Wno-extra-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep foo--bar stderr
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ grep 'requires.*AM_PROG_AR' stderr
++ AUTOMAKE_fails -Wall -Wno-extra-portability
++ AUTOMAKE_run -e 1 -Wall -Wno-extra-portability
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-extra-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep foo--bar stderr
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ grep 'requires.*AM_PROG_AR' stderr
++ AUTOMAKE_fails -Wportability
++ AUTOMAKE_run -e 1 -Wportability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wportability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep foo--bar stderr
+Makefile.am:3: warning: foo--bar: non-POSIX variable name
++ grep 'requires.*AM_PROG_AR' stderr
++ automake-1.16 --foreign -Werror -Wno-portability
++ automake-1.16 --foreign -Werror -Wextra-portability -Wno-portability
++ automake-1.16 --foreign -Werror -Wall -Wno-portability
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/extra-portability.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/extra-portability.dir
++ set +x
+PASS t/extra-portability.sh (exit status: 0)

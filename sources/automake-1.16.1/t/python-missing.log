@@ -1,0 +1,62 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/python-missing.dir
++ unset PYTHON
++ cat
++ echo AM_PATH_PYTHON
++ aclocal-1.16 -Werror
++ autoconf
++ ./configure PYTHON=:
++ cat stderr
+configure: error: no suitable Python interpreter found
++ grep 'no suitable Python interpreter found' stderr
+configure: error: no suitable Python interpreter found
++ env PYTHON=: ./configure
++ cat stderr
+configure: error: no suitable Python interpreter found
++ grep 'no suitable Python interpreter found' stderr
+configure: error: no suitable Python interpreter found
++ echo 'AM_PATH_PYTHON(,, [echo "$PYTHON" > py])'
++ autoconf --force
++ ./configure PYTHON=:
+configure: creating ./config.status
+++ cat py
++ test x: = x:
++ rm -rf autom4te.cache
++ echo 'AM_PATH_PYTHON([9999.9], [])'
++ aclocal-1.16 -Werror --force
++ autoconf --force
++ ./configure
++ cat stdout
+checking for a Python interpreter with version >= 9999.9... none
++ cat stderr
+configure: error: no suitable Python interpreter found
++ /bin/grep -E 'checking for a Python interpreter with version >= 9999\.9\.\.\. no(ne)? *$' stdout
+checking for a Python interpreter with version >= 9999.9... none
++ grep 'no suitable Python interpreter found' stderr
+configure: error: no suitable Python interpreter found
++ echo 'AM_PATH_PYTHON([9999.9], [], [echo "$PYTHON" > py])'
++ autoconf --force
++ ./configure
+checking for a Python interpreter with version >= 9999.9... none
+configure: creating ./config.status
+++ cat py
++ test x: = x:
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/python-missing.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/python-missing.dir
++ set +x
+PASS t/python-missing.sh (exit status: 0)

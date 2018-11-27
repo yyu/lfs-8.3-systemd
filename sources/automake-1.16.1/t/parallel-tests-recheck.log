@@ -1,0 +1,423 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-recheck.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x foo.test bar.test baz.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:476: mylog.log] Error 1
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make: *** [Makefile:777: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  bla
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+echo bla > bla
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+PASS: foo.test
+ERROR: bar.test
+FAIL: baz.test
+============================================================================
+Testsuite summary for parallel-tests-recheck 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./mylog.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=3 pass=1 fail=1 skip=0 xfail=0 xpass=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=3 pass=1 fail=1 skip=0 xfail=0 xpass=0 error=1
+++ total=3
+++ pass=1
+++ fail=1
+++ skip=0
+++ xfail=0
+++ xpass=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: foo.test
+ERROR: bar.test
+FAIL: baz.test
+# TOTAL: 3
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *3$' stdout
+# TOTAL: 3
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ for i in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:476: mylog.log] Error 1
+make: *** [Makefile:592: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+ERROR: bar.test
+FAIL: baz.test
+============================================================================
+Testsuite summary for parallel-tests-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./mylog.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=2 pass=0 fail=1 skip=0 xfail=0 xpass=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=0 fail=1 skip=0 xfail=0 xpass=0 error=1
+++ total=2
+++ pass=0
+++ fail=1
+++ skip=0
+++ xfail=0
+++ xpass=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+ERROR: bar.test
+FAIL: baz.test
+# TOTAL: 2
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep 'foo\.test' stdout
++ grep '^ERROR: bar\.test$' stdout
+ERROR: bar.test
++ grep '^FAIL: baz\.test$' stdout
+FAIL: baz.test
++ for i in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ run_make -O -e FAIL recheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make recheck
++ set +x
+make[1]: *** [Makefile:476: mylog.log] Error 1
+make: *** [Makefile:592: recheck] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+ERROR: bar.test
+FAIL: baz.test
+============================================================================
+Testsuite summary for parallel-tests-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./mylog.log
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=2 pass=0 fail=1 skip=0 xfail=0 xpass=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=0 fail=1 skip=0 xfail=0 xpass=0 error=1
+++ total=2
+++ pass=0
+++ fail=1
+++ skip=0
+++ xfail=0
+++ xpass=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+ERROR: bar.test
+FAIL: baz.test
+# TOTAL: 2
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep 'foo\.test' stdout
++ grep '^ERROR: bar\.test$' stdout
+ERROR: bar.test
++ grep '^FAIL: baz\.test$' stdout
+FAIL: baz.test
++ make clean
+test -z "bla" || rm -f bla
+test -z "foo.log bar.log baz.log" || rm -f foo.log bar.log baz.log
+test -z "foo.trs bar.trs baz.trs" || rm -f foo.trs bar.trs baz.trs
+test -z "mylog.log" || rm -f mylog.log
++ make recheck
+echo bla > bla
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
+============================================================================
+Testsuite summary for parallel-tests-recheck 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-recheck.dir'
++ test -f bla
++ test '!' -e foo.log
++ test '!' -e bar.log
++ test '!' -e baz.log
++ test -f mylog.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-recheck.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-recheck.dir
++ set +x
+PASS t/parallel-tests-recheck.sh (exit status: 0)

@@ -1,0 +1,1083 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/make-keepgoing.dir
++ plan_ 60
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x60 = xunknown
++ test x60 = xlater
++ test x60 = xlazy
++ test x60 = xnow
++ test 60 -ge 0
++ planned_=60
++ echo 1..60
+1..60
++ mkdir kool
++ echo nil:
++ make -I kool -f -
+make: Nothing to be done for 'nil'.
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ check_make k-n
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 0 -gt 0
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-n
++ :
++ make k-n
+::  ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' k-n
++ set +x
+ok 1 - k-n
+PASS: t/make-keepgoing.tap 1 - k-n
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s)'
++ :
++ make -s k-n
+:: s :: -s ::
++ result_ ok -D '' -r '' 'k-n (-s)'
++ set +x
+ok 2 - k-n (-s)
+PASS: t/make-keepgoing.tap 2 - k-n (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s -r)'
++ :
++ make -s -r k-n
+:: rs :: -rs ::
++ result_ ok -D '' -r '' 'k-n (-s -r)'
++ set +x
+ok 3 - k-n (-s -r)
+PASS: t/make-keepgoing.tap 3 - k-n (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-n 'TESTS=k.test k2.test'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-n
++ :
++ make k-n 'TESTS=k.test k2.test'
+::  -- TESTS=k.test\ k2.test ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' k-n
++ set +x
+ok 4 - k-n
+PASS: t/make-keepgoing.tap 4 - k-n
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s)'
++ :
++ make -s k-n 'TESTS=k.test k2.test'
+:: s -- TESTS=k.test\ k2.test :: -s ::
++ result_ ok -D '' -r '' 'k-n (-s)'
++ set +x
+ok 5 - k-n (-s)
+PASS: t/make-keepgoing.tap 5 - k-n (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s -r)'
++ :
++ make -s -r k-n 'TESTS=k.test k2.test'
+:: rs -- TESTS=k.test\ k2.test :: -rs ::
++ result_ ok -D '' -r '' 'k-n (-s -r)'
++ set +x
+ok 6 - k-n (-s -r)
+PASS: t/make-keepgoing.tap 6 - k-n (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-n 'TESTS=k1 k2' 'AM_MAKEFLAGS=TESTS='\''k1 k2'\'''
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-n
++ :
++ make k-n 'TESTS=k1 k2' 'AM_MAKEFLAGS=TESTS='\''k1 k2'\'''
+::  -- AM_MAKEFLAGS=TESTS='k1\ k2' TESTS=k1\ k2 ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' k-n
++ set +x
+ok 7 - k-n
+PASS: t/make-keepgoing.tap 7 - k-n
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s)'
++ :
++ make -s k-n 'TESTS=k1 k2' 'AM_MAKEFLAGS=TESTS='\''k1 k2'\'''
+:: s -- AM_MAKEFLAGS=TESTS='k1\ k2' TESTS=k1\ k2 :: -s ::
++ result_ ok -D '' -r '' 'k-n (-s)'
++ set +x
+ok 8 - k-n (-s)
+PASS: t/make-keepgoing.tap 8 - k-n (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s -r)'
++ :
++ make -s -r k-n 'TESTS=k1 k2' 'AM_MAKEFLAGS=TESTS='\''k1 k2'\'''
+:: rs -- AM_MAKEFLAGS=TESTS='k1\ k2' TESTS=k1\ k2 :: -rs ::
++ result_ ok -D '' -r '' 'k-n (-s -r)'
++ set +x
+ok 9 - k-n (-s -r)
+PASS: t/make-keepgoing.tap 9 - k-n (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-n 'TESTS=k1 k k2' 'AM_MAKEFLAGS=TESTS="k1 k k2"'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-n
++ :
++ make k-n 'TESTS=k1 k k2' 'AM_MAKEFLAGS=TESTS="k1 k k2"'
+::  -- AM_MAKEFLAGS=TESTS="k1\ k\ k2" TESTS=k1\ k\ k2 ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' k-n
++ set +x
+ok 10 - k-n
+PASS: t/make-keepgoing.tap 10 - k-n
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s)'
++ :
++ make -s k-n 'TESTS=k1 k k2' 'AM_MAKEFLAGS=TESTS="k1 k k2"'
+:: s -- AM_MAKEFLAGS=TESTS="k1\ k\ k2" TESTS=k1\ k\ k2 :: -s ::
++ result_ ok -D '' -r '' 'k-n (-s)'
++ set +x
+ok 11 - k-n (-s)
+PASS: t/make-keepgoing.tap 11 - k-n (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s -r)'
++ :
++ make -s -r k-n 'TESTS=k1 k k2' 'AM_MAKEFLAGS=TESTS="k1 k k2"'
+:: rs -- AM_MAKEFLAGS=TESTS="k1\ k\ k2" TESTS=k1\ k\ k2 :: -rs ::
++ result_ ok -D '' -r '' 'k-n (-s -r)'
++ set +x
+ok 12 - k-n (-s -r)
+PASS: t/make-keepgoing.tap 12 - k-n (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-n 'FOOFLAGS=-k -k -nkf2 k -ks --keep -k'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-n
++ :
++ make k-n 'FOOFLAGS=-k -k -nkf2 k -ks --keep -k'
+::  -- FOOFLAGS=-k\ -k\ -nkf2\ k\ -ks\ --keep\ -k ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' k-n
++ set +x
+ok 13 - k-n
+PASS: t/make-keepgoing.tap 13 - k-n
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s)'
++ :
++ make -s k-n 'FOOFLAGS=-k -k -nkf2 k -ks --keep -k'
+:: s -- FOOFLAGS=-k\ -k\ -nkf2\ k\ -ks\ --keep\ -k :: -s ::
++ result_ ok -D '' -r '' 'k-n (-s)'
++ set +x
+ok 14 - k-n (-s)
+PASS: t/make-keepgoing.tap 14 - k-n (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s -r)'
++ :
++ make -s -r k-n 'FOOFLAGS=-k -k -nkf2 k -ks --keep -k'
+:: rs -- FOOFLAGS=-k\ -k\ -nkf2\ k\ -ks\ --keep\ -k :: -rs ::
++ result_ ok -D '' -r '' 'k-n (-s -r)'
++ set +x
+ok 15 - k-n (-s -r)
+PASS: t/make-keepgoing.tap 15 - k-n (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-n 'MYFLAGS=-k --keepgoing -k --keep-run -k'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-n
++ :
++ make k-n 'MYFLAGS=-k --keepgoing -k --keep-run -k'
+::  -- MYFLAGS=-k\ --keepgoing\ -k\ --keep-run\ -k ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' k-n
++ set +x
+ok 16 - k-n
+PASS: t/make-keepgoing.tap 16 - k-n
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s)'
++ :
++ make -s k-n 'MYFLAGS=-k --keepgoing -k --keep-run -k'
+:: s -- MYFLAGS=-k\ --keepgoing\ -k\ --keep-run\ -k :: -s ::
++ result_ ok -D '' -r '' 'k-n (-s)'
++ set +x
+ok 17 - k-n (-s)
+PASS: t/make-keepgoing.tap 17 - k-n (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=-k --keepgoing -k --keep-run -k'
+:: rs -- MYFLAGS=-k\ --keepgoing\ -k\ --keep-run\ -k :: -rs ::
++ result_ ok -D '' -r '' 'k-n (-s -r)'
++ set +x
+ok 18 - k-n (-s -r)
+PASS: t/make-keepgoing.tap 18 - k-n (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-y -k
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-y
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-y
++ :
++ make k-y -k
+:: k :: -k ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes)
++ result_ ok -D '' -r '' k-y
++ set +x
+ok 19 - k-y
+PASS: t/make-keepgoing.tap 19 - k-y
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y (-s)'
++ :
++ make -s k-y -k
+:: ks :: -ks ::
++ result_ ok -D '' -r '' 'k-y (-s)'
++ set +x
+ok 20 - k-y (-s)
+PASS: t/make-keepgoing.tap 20 - k-y (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y (-s -r)'
++ :
++ make -s -r k-y -k
+:: krs :: -krs ::
++ result_ ok -D '' -r '' 'k-y (-s -r)'
++ set +x
+ok 21 - k-y (-s -r)
+PASS: t/make-keepgoing.tap 21 - k-y (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-y -C using_gmake '$MAKE is not GNU make' --keep-going
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-y
++ shift
++ test 4 -gt 0
++ case $1 in
++ condition=using_gmake
++ skip_reason='$MAKE is not GNU make'
++ shift
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg=k-y
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make k-y --keep-going
+:: k :: -k ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes)
++ result_ ok -D '' -r '' k-y
++ set +x
+ok 22 - k-y
+PASS: t/make-keepgoing.tap 22 - k-y
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y (-s)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s k-y --keep-going
+:: ks :: -ks ::
++ result_ ok -D '' -r '' 'k-y (-s)'
++ set +x
+ok 23 - k-y (-s)
+PASS: t/make-keepgoing.tap 23 - k-y (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y (-s -r)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s -r k-y --keep-going
+:: krs :: -krs ::
++ result_ ok -D '' -r '' 'k-y (-s -r)'
++ set +x
+ok 24 - k-y (-s -r)
+PASS: t/make-keepgoing.tap 24 - k-y (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ pr=bug#12554
++ check_make k-n -C make_supports_option_I '-I make option unsupported' -M bug#12554 -I kool
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 7 -gt 0
++ case $1 in
++ condition=make_supports_option_I
++ skip_reason='-I make option unsupported'
++ shift
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ msg=bug#12554
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [bug#12554]'
++ make_supports_option_I
++ return 0
++ make k-n -I kool
+::  -Ikool :: -Ikool ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [bug#12554]'
++ set +x
+ok 25 - k-n [bug#12554]
+PASS: t/make-keepgoing.tap 25 - k-n [bug#12554]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [bug#12554] (-s)'
++ make_supports_option_I
++ return 0
++ make -s k-n -I kool
+:: s -Ikool :: -s -Ikool ::
++ result_ ok -D '' -r '' 'k-n [bug#12554] (-s)'
++ set +x
+ok 26 - k-n [bug#12554] (-s)
+PASS: t/make-keepgoing.tap 26 - k-n [bug#12554] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [bug#12554] (-s -r)'
++ make_supports_option_I
++ return 0
++ make -s -r k-n -I kool
+:: rs -Ikool :: -rs -Ikool ::
++ result_ ok -D '' -r '' 'k-n [bug#12554] (-s -r)'
++ set +x
+ok 27 - k-n [bug#12554] (-s -r)
+PASS: t/make-keepgoing.tap 27 - k-n [bug#12554] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-n -C using_gmake '$MAKE is not GNU make' -M bug#12554 -I kool --include keep-going
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 9 -gt 0
++ case $1 in
++ condition=using_gmake
++ skip_reason='$MAKE is not GNU make'
++ shift
++ shift
++ shift
++ test 6 -gt 0
++ case $1 in
++ msg=bug#12554
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [bug#12554]'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make k-n -I kool --include keep-going
+::  -Ikool -Ikeep-going :: -Ikool -Ikeep-going ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [bug#12554]'
++ set +x
+ok 28 - k-n [bug#12554]
+PASS: t/make-keepgoing.tap 28 - k-n [bug#12554]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [bug#12554] (-s)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s k-n -I kool --include keep-going
+:: s -Ikool -Ikeep-going :: -s -Ikool -Ikeep-going ::
++ result_ ok -D '' -r '' 'k-n [bug#12554] (-s)'
++ set +x
+ok 29 - k-n [bug#12554] (-s)
+PASS: t/make-keepgoing.tap 29 - k-n [bug#12554] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [bug#12554] (-s -r)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s -r k-n -I kool --include keep-going
+:: rs -Ikool -Ikeep-going :: -rs -Ikool -Ikeep-going ::
++ result_ ok -D '' -r '' 'k-n [bug#12554] (-s -r)'
++ set +x
+ok 30 - k-n [bug#12554] (-s -r)
+PASS: t/make-keepgoing.tap 30 - k-n [bug#12554] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-y -C make_supports_option_I '-I make option unsupported' -M bug#12554 -I kool -k
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-y
++ shift
++ test 8 -gt 0
++ case $1 in
++ condition=make_supports_option_I
++ skip_reason='-I make option unsupported'
++ shift
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ msg=bug#12554
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y [bug#12554]'
++ make_supports_option_I
++ return 0
++ make k-y -I kool -k
+:: k -Ikool :: -k -Ikool ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes)
++ result_ ok -D '' -r '' 'k-y [bug#12554]'
++ set +x
+ok 31 - k-y [bug#12554]
+PASS: t/make-keepgoing.tap 31 - k-y [bug#12554]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y [bug#12554] (-s)'
++ make_supports_option_I
++ return 0
++ make -s k-y -I kool -k
+:: ks -Ikool :: -ks -Ikool ::
++ result_ ok -D '' -r '' 'k-y [bug#12554] (-s)'
++ set +x
+ok 32 - k-y [bug#12554] (-s)
+PASS: t/make-keepgoing.tap 32 - k-y [bug#12554] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y [bug#12554] (-s -r)'
++ make_supports_option_I
++ return 0
++ make -s -r k-y -I kool -k
+:: krs -Ikool :: -krs -Ikool ::
++ result_ ok -D '' -r '' 'k-y [bug#12554] (-s -r)'
++ set +x
+ok 33 - k-y [bug#12554] (-s -r)
+PASS: t/make-keepgoing.tap 33 - k-y [bug#12554] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_make k-y -C using_gmake '$MAKE is not GNU make' -M bug#12554 --keep-going -I kool --include keep-going
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-y
++ shift
++ test 10 -gt 0
++ case $1 in
++ condition=using_gmake
++ skip_reason='$MAKE is not GNU make'
++ shift
++ shift
++ shift
++ test 7 -gt 0
++ case $1 in
++ msg=bug#12554
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y [bug#12554]'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make k-y --keep-going -I kool --include keep-going
+:: k -Ikool -Ikeep-going :: -k -Ikool -Ikeep-going ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes)
++ result_ ok -D '' -r '' 'k-y [bug#12554]'
++ set +x
+ok 34 - k-y [bug#12554]
+PASS: t/make-keepgoing.tap 34 - k-y [bug#12554]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y [bug#12554] (-s)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s k-y --keep-going -I kool --include keep-going
+:: ks -Ikool -Ikeep-going :: -ks -Ikool -Ikeep-going ::
++ result_ ok -D '' -r '' 'k-y [bug#12554] (-s)'
++ set +x
+ok 35 - k-y [bug#12554] (-s)
+PASS: t/make-keepgoing.tap 35 - k-y [bug#12554] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-y [bug#12554] (-s -r)'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make -s -r k-y --keep-going -I kool --include keep-going
+:: krs -Ikool -Ikeep-going :: -krs -Ikool -Ikeep-going ::
++ result_ ok -D '' -r '' 'k-y [bug#12554] (-s -r)'
++ set +x
+ok 36 - k-y [bug#12554] (-s -r)
+PASS: t/make-keepgoing.tap 36 - k-y [bug#12554] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=-k "k" '\''-k'\'' --keep-going -k'
++ check_make k-n -M metachars 'MYFLAGS=-k "k" '\''-k'\'' --keep-going -k'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=-k "k" '\''-k'\'' --keep-going -k'
+::  -- MYFLAGS=-k\ "k"\ '-k'\ --keep-going\ -k ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 37 - k-n [metachars]
+PASS: t/make-keepgoing.tap 37 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=-k "k" '\''-k'\'' --keep-going -k'
+:: s -- MYFLAGS=-k\ "k"\ '-k'\ --keep-going\ -k :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 38 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 38 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=-k "k" '\''-k'\'' --keep-going -k'
+:: rs -- MYFLAGS=-k\ "k"\ '-k'\ --keep-going\ -k :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 39 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 39 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=-knf2\ k\ \\k'
++ check_make k-n -M metachars 'MYFLAGS=-knf2\ k\ \\k'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=-knf2\ k\ \\k'
+::  -- MYFLAGS=-knf2\\\ k\\\ \\\\k ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 40 - k-n [metachars]
+PASS: t/make-keepgoing.tap 40 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=-knf2\ k\ \\k'
+:: s -- MYFLAGS=-knf2\\\ k\\\ \\\\k :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 41 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 41 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=-knf2\ k\ \\k'
+:: rs -- MYFLAGS=-knf2\\\ k\\\ \\\\k :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 42 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 42 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=(&) | ; " ` '\'''
++ check_make k-n -M metachars 'MYFLAGS=(&) | ; " ` '\'''
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=(&) | ; " ` '\'''
+::  -- MYFLAGS=(&)\ |\ ;\ "\ `\ ' ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 43 - k-n [metachars]
+PASS: t/make-keepgoing.tap 43 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=(&) | ; " ` '\'''
+:: s -- MYFLAGS=(&)\ |\ ;\ "\ `\ ' :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 44 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 44 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=(&) | ; " ` '\'''
+:: rs -- MYFLAGS=(&)\ |\ ;\ "\ `\ ' :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 45 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 45 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS= '\'' # '\'' '
++ check_make k-n -M metachars 'MYFLAGS= '\'' # '\'' '
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS= '\'' # '\'' '
+::  -- MYFLAGS='\ #\ '\  ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 46 - k-n [metachars]
+PASS: t/make-keepgoing.tap 46 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS= '\'' # '\'' '
+:: s -- MYFLAGS='\ #\ '\  :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 47 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 47 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS= '\'' # '\'' '
+:: rs -- MYFLAGS='\ #\ '\  :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 48 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 48 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=$(foo)'
++ check_make k-n -M metachars 'MYFLAGS=$(foo)'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=$(foo)'
+::  -- MYFLAGS=$$(foo) ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 49 - k-n [metachars]
+PASS: t/make-keepgoing.tap 49 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=$(foo)'
+:: s -- MYFLAGS=$$(foo) :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 50 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 50 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=$(foo)'
+:: rs -- MYFLAGS=$$(foo) :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 51 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 51 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=$(foo -k)'
++ check_make k-n -M metachars 'MYFLAGS=$(foo -k)'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=$(foo -k)'
+::  -- MYFLAGS=$$(foo\ -k) ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 52 - k-n [metachars]
+PASS: t/make-keepgoing.tap 52 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=$(foo -k)'
+:: s -- MYFLAGS=$$(foo\ -k) :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 53 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 53 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=$(foo -k)'
+:: rs -- MYFLAGS=$$(foo\ -k) :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 54 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 54 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=`touch bad`'
++ check_make k-n -M metachars 'MYFLAGS=`touch bad`'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=`touch bad`'
+::  -- MYFLAGS=`touch\ bad` ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 55 - k-n [metachars]
+PASS: t/make-keepgoing.tap 55 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=`touch bad`'
+:: s -- MYFLAGS=`touch\ bad` :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 56 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 56 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=`touch bad`'
+:: rs -- MYFLAGS=`touch\ bad` :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 57 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 57 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ check_metachars 'MYFLAGS=`touch --keep-going bad`'
++ check_make k-n -M metachars 'MYFLAGS=`touch --keep-going bad`'
++ msg=
++ mode=
++ condition=:
++ directive=
++ reason=
++ skip_reason=
++ case $1 in
++ mode=k-n
++ shift
++ test 3 -gt 0
++ case $1 in
++ msg=metachars
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars]'
++ :
++ make k-n 'MYFLAGS=`touch --keep-going bad`'
+::  -- MYFLAGS=`touch\ --keep-going\ bad` ::  ::
+(target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/make-keepgoing.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes) && exit 1; exit 0
++ result_ ok -D '' -r '' 'k-n [metachars]'
++ set +x
+ok 58 - k-n [metachars]
+PASS: t/make-keepgoing.tap 58 - k-n [metachars]
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s)'
++ :
++ make -s k-n 'MYFLAGS=`touch --keep-going bad`'
+:: s -- MYFLAGS=`touch\ --keep-going\ bad` :: -s ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s)'
++ set +x
+ok 59 - k-n [metachars] (-s)
+PASS: t/make-keepgoing.tap 59 - k-n [metachars] (-s)
++ for opts in '' '-s' '-s -r'
++ r=ok
++ pmsg='k-n [metachars] (-s -r)'
++ :
++ make -s -r k-n 'MYFLAGS=`touch --keep-going bad`'
+:: rs -- MYFLAGS=`touch\ --keep-going\ bad` :: -rs ::
++ result_ ok -D '' -r '' 'k-n [metachars] (-s -r)'
++ set +x
+ok 60 - k-n [metachars] (-s -r)
+PASS: t/make-keepgoing.tap 60 - k-n [metachars] (-s -r)
++ unset r msg pmsg opts mode condition directive reason skip_reason
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 60 = later
++ test 0 -eq 0
++ test 60 -eq 60
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/make-keepgoing.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/make-keepgoing.dir
++ set +x

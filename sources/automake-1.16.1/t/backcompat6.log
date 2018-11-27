@@ -1,0 +1,285 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/backcompat6.dir
++ cat
++ echo @one@
++ echo @two@
++ echo @three@
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror -Wno-obsolete
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete --add-missing
+configure.ac:11: installing './compile'
+configure.ac:5: installing './install-sh'
+configure.ac:5: installing './missing'
+Makefile.am: installing './depcomp'
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.got
+config.status: creating config.h
+config.status: executing depfiles commands
++ cat
++ diff foo.exp foo.got
++ make
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/backcompat6.dir/missing autoheader)
+rm -f stamp-h1
+touch config.hin
+cd . && /bin/sh ./config.status config.h
+config.status: creating config.h
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir'
+cc -DHAVE_CONFIG_H -I.     -g -O2 -MT quux.o -MD -MP -MF .deps/quux.Tpo -c -o quux.o quux.c
+mv -f .deps/quux.Tpo .deps/quux.Po
+cc  -g -O2   -o foo quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir'
++ make check
+make  check-local
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir'
+test x'nonesuch-zardoz' = x'nonesuch-zardoz'
+test x'nonesuch-0.1' = x'nonesuch-0.1'
+./foo
+PACKAGE = nonesuch-zardoz!
+VERSION = nonesuch-0.1!
+./foo | grep '^PACKAGE = nonesuch-zardoz!'
+PACKAGE = nonesuch-zardoz!
+./foo | echo '^VERSION = nonesuch-0\.1!'
+^VERSION = nonesuch-0\.1!
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir'
++ distdir=nonesuch-zardoz-nonesuch-0.1
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir'
+if test -d "nonesuch-zardoz-nonesuch-0.1"; then find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nonesuch-zardoz-nonesuch-0.1" || { sleep 5 && rm -rf "nonesuch-zardoz-nonesuch-0.1"; }; else :; fi
+test -d "nonesuch-zardoz-nonesuch-0.1" || mkdir "nonesuch-zardoz-nonesuch-0.1"
+test -n "" \
+|| find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/backcompat6.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nonesuch-zardoz-nonesuch-0.1"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir'
++ test -f nonesuch-zardoz-nonesuch-0.1/quux.c
++ test '!' -f nonesuch-zardoz-nonesuch-0.1/foo.got
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir'
+if test -d "nonesuch-zardoz-nonesuch-0.1"; then find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nonesuch-zardoz-nonesuch-0.1" || { sleep 5 && rm -rf "nonesuch-zardoz-nonesuch-0.1"; }; else :; fi
+test -d "nonesuch-zardoz-nonesuch-0.1" || mkdir "nonesuch-zardoz-nonesuch-0.1"
+test -n "" \
+|| find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/backcompat6.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nonesuch-zardoz-nonesuch-0.1"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir'
+tardir=nonesuch-zardoz-nonesuch-0.1 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >nonesuch-zardoz-nonesuch-0.1.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir'
+if test -d "nonesuch-zardoz-nonesuch-0.1"; then find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nonesuch-zardoz-nonesuch-0.1" || { sleep 5 && rm -rf "nonesuch-zardoz-nonesuch-0.1"; }; else :; fi
+case 'nonesuch-zardoz-nonesuch-0.1.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc nonesuch-zardoz-nonesuch-0.1.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc nonesuch-zardoz-nonesuch-0.1.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc nonesuch-zardoz-nonesuch-0.1.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc nonesuch-zardoz-nonesuch-0.1.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c nonesuch-zardoz-nonesuch-0.1.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc nonesuch-zardoz-nonesuch-0.1.shar.gz | unshar ;;\
+*.zip*) \
+  unzip nonesuch-zardoz-nonesuch-0.1.zip ;;\
+esac
+chmod -R a-w nonesuch-zardoz-nonesuch-0.1
+chmod u+w nonesuch-zardoz-nonesuch-0.1
+mkdir nonesuch-zardoz-nonesuch-0.1/_build nonesuch-zardoz-nonesuch-0.1/_build/sub nonesuch-zardoz-nonesuch-0.1/_inst
+chmod a-w nonesuch-zardoz-nonesuch-0.1
+test -d nonesuch-zardoz-nonesuch-0.1/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd nonesuch-zardoz-nonesuch-0.1/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd nonesuch-zardoz-nonesuch-0.1/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf nonesuch-zardoz-nonesuch-0.1.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.got
+config.status: creating config.h
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+cc -DHAVE_CONFIG_H -I. -I../..     -g -O2 -MT quux.o -MD -MP -MF .deps/quux.Tpo -c -o quux.o ../../quux.c
+mv -f .deps/quux.Tpo .deps/quux.Po
+cc  -g -O2   -o foo quux.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+test x'nonesuch-zardoz' = x'nonesuch-zardoz'
+test x'nonesuch-0.1' = x'nonesuch-0.1'
+./foo
+PACKAGE = nonesuch-zardoz!
+VERSION = nonesuch-0.1!
+./foo | grep '^PACKAGE = nonesuch-zardoz!'
+PACKAGE = nonesuch-zardoz!
+./foo | echo '^VERSION = nonesuch-0\.1!'
+^VERSION = nonesuch-0\.1!
+make[2]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_inst/bin'
+  /usr/bin/install -c foo '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-39784//sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_inst/bin'
+  /usr/bin/install -c foo '/tmp/am-dc-39784//sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+ ( cd '/tmp/am-dc-39784//sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+if test -d "nonesuch-zardoz-nonesuch-0.1"; then find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nonesuch-zardoz-nonesuch-0.1" || { sleep 5 && rm -rf "nonesuch-zardoz-nonesuch-0.1"; }; else :; fi
+test -d "nonesuch-zardoz-nonesuch-0.1" || mkdir "nonesuch-zardoz-nonesuch-0.1"
+test -n "" \
+|| find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nonesuch-zardoz-nonesuch-0.1"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+tardir=nonesuch-zardoz-nonesuch-0.1 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >nonesuch-zardoz-nonesuch-0.1.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+if test -d "nonesuch-zardoz-nonesuch-0.1"; then find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nonesuch-zardoz-nonesuch-0.1" || { sleep 5 && rm -rf "nonesuch-zardoz-nonesuch-0.1"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f *.tab.c
+test -z "foo.got" || rm -f foo.got
+test . = "../.." || test -z "" || rm -f 
+rm -f config.h stamp-h1
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/quux.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/backcompat6.dir/nonesuch-zardoz-nonesuch-0.1/_build/sub'
+if test -d "nonesuch-zardoz-nonesuch-0.1"; then find "nonesuch-zardoz-nonesuch-0.1" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nonesuch-zardoz-nonesuch-0.1" || { sleep 5 && rm -rf "nonesuch-zardoz-nonesuch-0.1"; }; else :; fi
+==============================================================
+nonesuch-zardoz-nonesuch-0.1 archives ready for distribution: 
+nonesuch-zardoz-nonesuch-0.1.tar.gz
+==============================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/backcompat6.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/backcompat6.dir
++ set +x
+PASS t/backcompat6.sh (exit status: 0)

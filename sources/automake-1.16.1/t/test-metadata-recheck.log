@@ -1,0 +1,554 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-metadata-recheck.dir
++ cat
++ cat
++ :
++ echo 'foo bar'
++ echo :recheck:
++ echo :recheck:yes
++ echo ':recheck: who cares'
++ echo ':recheck: 	   y'
++ echo ':recheck: yeah!		 '
++ cat
++ cat
++ cat
++ echo '  	 		    :recheck: yes'
++ echo ':test-result: PASS'
++ echo 'PASS: y-101'
+PASS: y-101
++ cat
++ echo :recheck:no
++ echo ':recheck: no '
++ echo ':recheck: 	   no'
++ echo ':recheck: no 		 '
++ cat
++ cat
++ cat
++ echo '  	 		    :recheck: no'
++ cat
+++ echo y-1 y-10 y-100 y-102 y-11 y-12 y-2 y-3 y-4 y-5 y-6 y-7 y-8
++ rechecked='y-1 y-10 y-100 y-102 y-11 y-12 y-2 y-3 y-4 y-5 y-6 y-7 y-8'
++ sed 's/.*/TESTS += &/'
++ for t in [yn]-[0-9]*
++ echo n-1
++ for t in [yn]-[0-9]*
++ echo n-100
++ for t in [yn]-[0-9]*
++ echo n-2
++ for t in [yn]-[0-9]*
++ echo n-3
++ for t in [yn]-[0-9]*
++ echo n-4
++ for t in [yn]-[0-9]*
++ echo n-5
++ for t in [yn]-[0-9]*
++ echo n-6
++ for t in [yn]-[0-9]*
++ echo n-7
++ for t in [yn]-[0-9]*
++ echo n-8
++ for t in [yn]-[0-9]*
++ echo y-1
++ for t in [yn]-[0-9]*
++ echo y-10
++ for t in [yn]-[0-9]*
++ echo y-100
++ for t in [yn]-[0-9]*
++ echo y-102
++ for t in [yn]-[0-9]*
++ echo y-11
++ for t in [yn]-[0-9]*
++ echo y-12
++ for t in [yn]-[0-9]*
++ echo y-2
++ for t in [yn]-[0-9]*
++ echo y-3
++ for t in [yn]-[0-9]*
++ echo y-4
++ for t in [yn]-[0-9]*
++ echo y-5
++ for t in [yn]-[0-9]*
++ echo y-6
++ for t in [yn]-[0-9]*
++ echo y-7
++ for t in [yn]-[0-9]*
++ echo y-8
++ cat Makefile.am
+LOG_DRIVER = ./dummy-driver
+TEST_EXTENSIONS =
+TESTS =
+TESTS += n-1
+TESTS += n-100
+TESTS += n-2
+TESTS += n-3
+TESTS += n-4
+TESTS += n-5
+TESTS += n-6
+TESTS += n-7
+TESTS += n-8
+TESTS += y-1
+TESTS += y-10
+TESTS += y-100
+TESTS += y-102
+TESTS += y-11
+TESTS += y-12
+TESTS += y-2
+TESTS += y-3
+TESTS += y-4
+TESTS += y-5
+TESTS += y-6
+TESTS += y-7
+TESTS += y-8
++ cat
++ chmod a+x dummy-driver
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
+============================================================================
+Testsuite summary for test-metadata-recheck 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:473: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
+make[1]: *** [Makefile:581: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
+make: *** [Makefile:920: check-am] Error 2
++ ls -l
+total 484
+-rw-r--r-- 1 root root  35765 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    349 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  34998 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   5144 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  25572 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 104256 Nov 27 06:45 configure
+-rw-r--r-- 1 root root     95 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root    395 Nov 27 06:45 dummy-driver
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+-rw-r--r-- 1 root root     12 Nov 27 06:45 n-1
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-1.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-1.run
+-rw-r--r-- 1 root root     12 Nov 27 06:45 n-1.trs
+-rw-r--r-- 1 root root     94 Nov 27 06:45 n-100
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-100.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-100.run
+-rw-r--r-- 1 root root     94 Nov 27 06:45 n-100.trs
+-rw-r--r-- 1 root root     14 Nov 27 06:45 n-2
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-2.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-2.run
+-rw-r--r-- 1 root root     14 Nov 27 06:45 n-2.trs
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-3
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-3.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-3.run
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-3.trs
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-4
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-4.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-4.run
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-4.trs
+-rw-r--r-- 1 root root     18 Nov 27 06:45 n-5
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-5.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-5.run
+-rw-r--r-- 1 root root     18 Nov 27 06:45 n-5.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 n-6
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-6.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-6.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 n-6.trs
+-rw-r--r-- 1 root root     31 Nov 27 06:45 n-7
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-7.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-7.run
+-rw-r--r-- 1 root root     31 Nov 27 06:45 n-7.trs
+-rw-r--r-- 1 root root     23 Nov 27 06:45 n-8
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-8.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-8.run
+-rw-r--r-- 1 root root     23 Nov 27 06:45 n-8.trs
+-rw-r--r-- 1 root root    709 Nov 27 06:45 test-suite.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.run
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-10
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-10.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-10.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-10.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-100
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-100.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-100.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-100.trs
+-rw-r--r-- 1 root root     44 Nov 27 06:45 y-102
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-102.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-102.run
+-rw-r--r-- 1 root root     44 Nov 27 06:45 y-102.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-11
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-11.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-11.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-11.trs
+-rw-r--r-- 1 root root     29 Nov 27 06:45 y-12
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-12.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-12.run
+-rw-r--r-- 1 root root     29 Nov 27 06:45 y-12.trs
+-rw-r--r-- 1 root root      8 Nov 27 06:45 y-2
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-2.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-2.run
+-rw-r--r-- 1 root root      8 Nov 27 06:45 y-2.trs
+-rw-r--r-- 1 root root     10 Nov 27 06:45 y-3
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-3.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-3.run
+-rw-r--r-- 1 root root     10 Nov 27 06:45 y-3.trs
+-rw-r--r-- 1 root root     13 Nov 27 06:45 y-4
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-4.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-4.run
+-rw-r--r-- 1 root root     13 Nov 27 06:45 y-4.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-5
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-5.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-5.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-5.trs
+-rw-r--r-- 1 root root     16 Nov 27 06:45 y-6
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-6.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-6.run
+-rw-r--r-- 1 root root     16 Nov 27 06:45 y-6.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-7
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-7.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-7.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-7.trs
+-rw-r--r-- 1 root root     24 Nov 27 06:45 y-8
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-8.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-8.run
+-rw-r--r-- 1 root root     24 Nov 27 06:45 y-8.trs
++ rm -f n-1.run n-100.run n-2.run n-3.run n-4.run n-5.run n-6.run n-7.run n-8.run y-1.run y-10.run y-100.run y-102.run y-11.run y-12.run y-2.run y-3.run y-4.run y-5.run y-6.run y-7.run y-8.run
++ for iteration in 1 2
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make recheck
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
+============================================================================
+Testsuite summary for test-metadata-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
++ ls -l
+total 484
+-rw-r--r-- 1 root root  35765 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    349 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  34998 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   5144 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  25572 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 104256 Nov 27 06:45 configure
+-rw-r--r-- 1 root root     95 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root    395 Nov 27 06:45 dummy-driver
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+-rw-r--r-- 1 root root     12 Nov 27 06:45 n-1
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-1.log
+-rw-r--r-- 1 root root     12 Nov 27 06:45 n-1.trs
+-rw-r--r-- 1 root root     94 Nov 27 06:45 n-100
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-100.log
+-rw-r--r-- 1 root root     94 Nov 27 06:45 n-100.trs
+-rw-r--r-- 1 root root     14 Nov 27 06:45 n-2
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-2.log
+-rw-r--r-- 1 root root     14 Nov 27 06:45 n-2.trs
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-3
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-3.log
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-3.trs
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-4
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-4.log
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-4.trs
+-rw-r--r-- 1 root root     18 Nov 27 06:45 n-5
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-5.log
+-rw-r--r-- 1 root root     18 Nov 27 06:45 n-5.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 n-6
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-6.log
+-rw-r--r-- 1 root root     19 Nov 27 06:45 n-6.trs
+-rw-r--r-- 1 root root     31 Nov 27 06:45 n-7
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-7.log
+-rw-r--r-- 1 root root     31 Nov 27 06:45 n-7.trs
+-rw-r--r-- 1 root root     23 Nov 27 06:45 n-8
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-8.log
+-rw-r--r-- 1 root root     23 Nov 27 06:45 n-8.trs
+-rw-r--r-- 1 root root    525 Nov 27 06:45 test-suite.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.run
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-10
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-10.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-10.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-10.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-100
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-100.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-100.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-100.trs
+-rw-r--r-- 1 root root     44 Nov 27 06:45 y-102
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-102.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-102.run
+-rw-r--r-- 1 root root     44 Nov 27 06:45 y-102.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-11
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-11.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-11.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-11.trs
+-rw-r--r-- 1 root root     29 Nov 27 06:45 y-12
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-12.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-12.run
+-rw-r--r-- 1 root root     29 Nov 27 06:45 y-12.trs
+-rw-r--r-- 1 root root      8 Nov 27 06:45 y-2
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-2.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-2.run
+-rw-r--r-- 1 root root      8 Nov 27 06:45 y-2.trs
+-rw-r--r-- 1 root root     10 Nov 27 06:45 y-3
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-3.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-3.run
+-rw-r--r-- 1 root root     10 Nov 27 06:45 y-3.trs
+-rw-r--r-- 1 root root     13 Nov 27 06:45 y-4
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-4.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-4.run
+-rw-r--r-- 1 root root     13 Nov 27 06:45 y-4.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-5
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-5.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-5.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-5.trs
+-rw-r--r-- 1 root root     16 Nov 27 06:45 y-6
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-6.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-6.run
+-rw-r--r-- 1 root root     16 Nov 27 06:45 y-6.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-7
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-7.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-7.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-7.trs
+-rw-r--r-- 1 root root     24 Nov 27 06:45 y-8
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-8.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-8.run
+-rw-r--r-- 1 root root     24 Nov 27 06:45 y-8.trs
++ for t in $rechecked
++ test -f y-1.run
++ for t in $rechecked
++ test -f y-10.run
++ for t in $rechecked
++ test -f y-100.run
++ for t in $rechecked
++ test -f y-102.run
++ for t in $rechecked
++ test -f y-11.run
++ for t in $rechecked
++ test -f y-12.run
++ for t in $rechecked
++ test -f y-2.run
++ for t in $rechecked
++ test -f y-3.run
++ for t in $rechecked
++ test -f y-4.run
++ for t in $rechecked
++ test -f y-5.run
++ for t in $rechecked
++ test -f y-6.run
++ for t in $rechecked
++ test -f y-7.run
++ for t in $rechecked
++ test -f y-8.run
++ find . -name 'n-*.run'
++ grep .
++ : For shells with busted 'set -e.'
++ for iteration in 1 2
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make recheck
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
+============================================================================
+Testsuite summary for test-metadata-recheck 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-recheck.dir'
++ ls -l
+total 484
+-rw-r--r-- 1 root root  35765 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    349 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  34998 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   5144 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  25572 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 104256 Nov 27 06:45 configure
+-rw-r--r-- 1 root root     95 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root    395 Nov 27 06:45 dummy-driver
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+-rw-r--r-- 1 root root     12 Nov 27 06:45 n-1
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-1.log
+-rw-r--r-- 1 root root     12 Nov 27 06:45 n-1.trs
+-rw-r--r-- 1 root root     94 Nov 27 06:45 n-100
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-100.log
+-rw-r--r-- 1 root root     94 Nov 27 06:45 n-100.trs
+-rw-r--r-- 1 root root     14 Nov 27 06:45 n-2
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-2.log
+-rw-r--r-- 1 root root     14 Nov 27 06:45 n-2.trs
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-3
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-3.log
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-3.trs
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-4
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-4.log
+-rw-r--r-- 1 root root     17 Nov 27 06:45 n-4.trs
+-rw-r--r-- 1 root root     18 Nov 27 06:45 n-5
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-5.log
+-rw-r--r-- 1 root root     18 Nov 27 06:45 n-5.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 n-6
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-6.log
+-rw-r--r-- 1 root root     19 Nov 27 06:45 n-6.trs
+-rw-r--r-- 1 root root     31 Nov 27 06:45 n-7
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-7.log
+-rw-r--r-- 1 root root     31 Nov 27 06:45 n-7.trs
+-rw-r--r-- 1 root root     23 Nov 27 06:45 n-8
+-rw-r--r-- 1 root root      0 Nov 27 06:45 n-8.log
+-rw-r--r-- 1 root root     23 Nov 27 06:45 n-8.trs
+-rw-r--r-- 1 root root    525 Nov 27 06:45 test-suite.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.run
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-1.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-10
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-10.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-10.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-10.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-100
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-100.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-100.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-100.trs
+-rw-r--r-- 1 root root     44 Nov 27 06:45 y-102
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-102.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-102.run
+-rw-r--r-- 1 root root     44 Nov 27 06:45 y-102.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-11
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-11.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-11.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-11.trs
+-rw-r--r-- 1 root root     29 Nov 27 06:45 y-12
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-12.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-12.run
+-rw-r--r-- 1 root root     29 Nov 27 06:45 y-12.trs
+-rw-r--r-- 1 root root      8 Nov 27 06:45 y-2
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-2.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-2.run
+-rw-r--r-- 1 root root      8 Nov 27 06:45 y-2.trs
+-rw-r--r-- 1 root root     10 Nov 27 06:45 y-3
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-3.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-3.run
+-rw-r--r-- 1 root root     10 Nov 27 06:45 y-3.trs
+-rw-r--r-- 1 root root     13 Nov 27 06:45 y-4
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-4.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-4.run
+-rw-r--r-- 1 root root     13 Nov 27 06:45 y-4.trs
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-5
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-5.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-5.run
+-rw-r--r-- 1 root root     20 Nov 27 06:45 y-5.trs
+-rw-r--r-- 1 root root     16 Nov 27 06:45 y-6
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-6.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-6.run
+-rw-r--r-- 1 root root     16 Nov 27 06:45 y-6.trs
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-7
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-7.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-7.run
+-rw-r--r-- 1 root root     19 Nov 27 06:45 y-7.trs
+-rw-r--r-- 1 root root     24 Nov 27 06:45 y-8
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-8.log
+-rw-r--r-- 1 root root      0 Nov 27 06:45 y-8.run
+-rw-r--r-- 1 root root     24 Nov 27 06:45 y-8.trs
++ for t in $rechecked
++ test -f y-1.run
++ for t in $rechecked
++ test -f y-10.run
++ for t in $rechecked
++ test -f y-100.run
++ for t in $rechecked
++ test -f y-102.run
++ for t in $rechecked
++ test -f y-11.run
++ for t in $rechecked
++ test -f y-12.run
++ for t in $rechecked
++ test -f y-2.run
++ for t in $rechecked
++ test -f y-3.run
++ for t in $rechecked
++ test -f y-4.run
++ for t in $rechecked
++ test -f y-5.run
++ for t in $rechecked
++ test -f y-6.run
++ for t in $rechecked
++ test -f y-7.run
++ for t in $rechecked
++ test -f y-8.run
++ find . -name 'n-*.run'
++ grep .
++ : For shells with busted 'set -e.'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-metadata-recheck.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-metadata-recheck.dir
++ set +x
+PASS t/test-metadata-recheck.sh (exit status: 0)

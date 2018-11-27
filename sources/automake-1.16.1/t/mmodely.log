@@ -1,0 +1,157 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/mmodely.dir
++ cat
++ cat
++ cat
++ cat
++ sleep 2
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for bison... bison -y
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+test -f zardoz.c || /bin/sh ./ylwrap zardoz.y y.tab.c zardoz.c y.tab.h `echo zardoz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output zardoz.output -- false  
+cc -DPACKAGE_NAME=\"mmodely\" -DPACKAGE_TARNAME=\"mmodely\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"mmodely\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"mmodely\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT zardoz.o -MD -MP -MF .deps/zardoz.Tpo -c -o zardoz.o zardoz.c
+mv -f .deps/zardoz.Tpo .deps/zardoz.Po
+test -f joe.c || /bin/sh ./ylwrap joe.l lex.yy.c joe.c -- false  
+cc -DPACKAGE_NAME=\"mmodely\" -DPACKAGE_TARNAME=\"mmodely\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"mmodely\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"mmodely\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT joe.o -MD -MP -MF .deps/joe.Tpo -c -o joe.o joe.c
+mv -f .deps/joe.Tpo .deps/joe.Po
+cc  -g -O2   -o zardoz zardoz.o joe.o -lfl 
++ cat
++ cat
++ chmod +x myyacc.sh mylex.sh
+++ pwd
++ PATH=/sources/automake-1.16.1/t/mmodely.dir:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ make maintainer-clean
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f joe.c
+rm -f zardoz.c
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f ./.deps/joe.Po
+rm -f ./.deps/zardoz.Po
+rm -f Makefile
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for bison... bison -y
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ run_make YACC=myyacc.sh LEX=mylex.sh LEX_OUTPUT_ROOT=lex.yy zardoz.c joe.c
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make YACC=myyacc.sh LEX=mylex.sh LEX_OUTPUT_ROOT=lex.yy zardoz.c joe.c
++ set +x
+test -f zardoz.c || /bin/sh ./ylwrap zardoz.y y.tab.c zardoz.c y.tab.h `echo zardoz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output zardoz.output -- myyacc.sh  
+test -f joe.c || /bin/sh ./ylwrap joe.l lex.yy.c joe.c -- mylex.sh  
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -F zardoz.y zardoz.c
+/sources/automake-1.16.1/t/mmodely.dir/zardoz.y
++ /bin/grep -F joe.l joe.c
+/sources/automake-1.16.1/t/mmodely.dir/joe.l
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/mmodely.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/mmodely.dir
++ set +x
+PASS t/mmodely.sh (exit status: 0)

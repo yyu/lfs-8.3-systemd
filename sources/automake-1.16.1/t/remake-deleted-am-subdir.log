@@ -1,0 +1,126 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ cat
++ echo '# this is foo.am'
++ mkdir sub1 sub2
++ echo 'include $(srcdir)/bar.am'
++ echo '# this is bar.am'
++ echo 'include $(top_srcdir)/foo.am'
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F 'this is foo.am' Makefile.in
+# this is foo.am
++ /bin/grep -F 'this is bar.am' sub1/Makefile.in
+# this is bar.am
++ /bin/grep -F 'this is foo.am' sub2/Makefile.in
+# this is foo.am
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub1'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub2'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir'
++ sleep 2
++ echo '# this is sub1/Makefile.am'
++ rm -f sub1/bar.am
++ make all
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub1'
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/missing automake-1.16 --foreign sub1/Makefile
+ cd .. && /bin/sh ./config.status sub1/Makefile 
+config.status: creating sub1/Makefile
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub2'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir'
++ /bin/grep -F 'this is bar' sub1/Makefile.in sub1/Makefile
++ /bin/grep -F 'this is sub1/Makefile.am' sub1/Makefile.in
+# this is sub1/Makefile.am
++ /bin/grep -F 'this is sub1/Makefile.am' sub1/Makefile
+# this is sub1/Makefile.am
++ sleep 2
++ for d in . sub2
++ sed 's|.*include.*foo\.am.*|# this is ./Makefile.am|' ./Makefile.am
++ mv -f t ./Makefile.am
++ for d in . sub2
++ sed 's|.*include.*foo\.am.*|# this is sub2/Makefile.am|' sub2/Makefile.am
++ mv -f t sub2/Makefile.am
++ rm -f foo.am
++ make all
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub1'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub2'
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/missing automake-1.16 --foreign sub2/Makefile
+ cd .. && /bin/sh ./config.status sub2/Makefile 
+config.status: creating sub2/Makefile
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-deleted-am-subdir.dir'
++ /bin/grep -F 'this is foo' sub1/Makefile sub1/Makefile.am sub1/Makefile.in sub2/Makefile sub2/Makefile.am sub2/Makefile.in Makefile Makefile.am Makefile.in
++ for d in . sub1 sub2
++ /bin/grep -F 'this is ./Makefile.am' ./Makefile.in
+# this is ./Makefile.am
++ /bin/grep -F 'this is ./Makefile.am' ./Makefile
+# this is ./Makefile.am
++ for d in . sub1 sub2
++ /bin/grep -F 'this is sub1/Makefile.am' sub1/Makefile.in
+# this is sub1/Makefile.am
++ /bin/grep -F 'this is sub1/Makefile.am' sub1/Makefile
+# this is sub1/Makefile.am
++ for d in . sub1 sub2
++ /bin/grep -F 'this is sub2/Makefile.am' sub2/Makefile.in
+# this is sub2/Makefile.am
++ /bin/grep -F 'this is sub2/Makefile.am' sub2/Makefile
+# this is sub2/Makefile.am
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-deleted-am-subdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-deleted-am-subdir.dir
++ set +x
+PASS t/remake-deleted-am-subdir.sh (exit status: 0)

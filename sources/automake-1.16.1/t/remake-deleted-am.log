@@ -1,0 +1,78 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-deleted-am.dir
++ echo AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ cat
++ echo '# this is foo'
++ echo '# this is bar'
++ echo '# this is baz'
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F 'this is foo' Makefile.in
+# this is foo
++ /bin/grep -F 'this is bar' Makefile.in
+# this is bar
++ /bin/grep -F 'this is baz' Makefile.in
+# this is baz
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+make: Nothing to be done for 'all'.
++ sleep 2
++ sed '/^include foo\.am$/d' Makefile.am
++ mv -f t Makefile.am
++ rm -f foo.am
++ make Makefile
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+make: 'Makefile' is up to date.
++ /bin/grep -F 'this is foo' Makefile.in Makefile
++ /bin/grep -F 'this is bar' Makefile.in
+# this is bar
++ /bin/grep -F 'this is bar' Makefile
+# this is bar
++ /bin/grep -F 'this is baz' Makefile.in
+# this is baz
++ /bin/grep -F 'this is baz' Makefile
+# this is baz
++ sleep 2
++ echo '# empty empty'
++ rm -f bar.am baz.am
++ make Makefile
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-deleted-am.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+make: 'Makefile' is up to date.
++ /bin/grep -F 'empty empty' Makefile.in
+# empty empty
++ /bin/grep -F 'empty empty' Makefile
+# empty empty
++ grep 'this is ba[rz]' Makefile Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-deleted-am.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-deleted-am.dir
++ set +x
+PASS t/remake-deleted-am.sh (exit status: 0)

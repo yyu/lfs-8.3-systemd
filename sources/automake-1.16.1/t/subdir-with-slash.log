@@ -1,0 +1,113 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subdir-with-slash.dir
++ cat
++ echo SUBDIRS = src/subdir
++ mkdir src
++ mkdir src/subdir
++ mkdir src/subdir2
++ :
++ :
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --copy --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/subdir/Makefile
+config.status: creating src/subdir2/Makefile
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir'
+if test -d "subdir-with-slash-1.0"; then find "subdir-with-slash-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subdir-with-slash-1.0" || { sleep 5 && rm -rf "subdir-with-slash-1.0"; }; else :; fi
+test -d "subdir-with-slash-1.0" || mkdir "subdir-with-slash-1.0"
+ (cd src/subdir && make  top_distdir=../../subdir-with-slash-1.0 distdir=../../subdir-with-slash-1.0/src/subdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+ (cd ../subdir2 && make  top_distdir=../subdir/../../subdir-with-slash-1.0 distdir=../subdir/../../subdir-with-slash-1.0/src/subdir/../subdir2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+test -n "" \
+|| find "subdir-with-slash-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subdir-with-slash.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subdir-with-slash-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir'
++ test -f subdir-with-slash-1.0/src/subdir/foo
++ test -f subdir-with-slash-1.0/src/subdir2/foo
++ make clean
+Making clean in src/subdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+Making clean in ../subdir2
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make[2]: Nothing to be done for 'clean'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+make[2]: Nothing to be done for 'clean-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir'
++ make distclean
+Making distclean in src/subdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+Making distclean in ../subdir2
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir/src/subdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-with-slash.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-with-slash.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e src/subdir2/Makefile
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subdir-with-slash.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subdir-with-slash.dir
++ set +x
+PASS t/subdir-with-slash.sh (exit status: 0)

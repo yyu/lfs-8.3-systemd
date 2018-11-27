@@ -1,0 +1,95 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/backcompat3.dir
++ empty=
++ AUTOMAKE='automake-1.16 --foreign -Werror -Wall -Wno-obsolete'
++ cat
++ cat
++ cat configure.ac
+AC_INIT([ac_name], [ac_version])
+AM_INIT_AUTOMAKE([am_name], [am_version])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete -a
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ cat
++ make got
++ diff exp got
++ cat
++ cat configure.ac
+AC_INIT([ac_name], [ac_version], [ac_bugreport], [ac_tarname],
+        [ac_url])],
+AM_INIT_AUTOMAKE([am_name], [am_version])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+./configure: line 1706: ],: command not found
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ cat
++ make got
++ diff exp got
++ cat
++ cat configure.ac
+AC_INIT([ac_name], [ac_version])
+AM_INIT_AUTOMAKE([am_name], [am_version], [am_foo_quux])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ cat
++ make got
++ diff exp got
++ /bin/grep -F am_foo_quux Makefile.in Makefile configure config.status
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/backcompat3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/backcompat3.dir
++ set +x
+PASS t/backcompat3.sh (exit status: 0)

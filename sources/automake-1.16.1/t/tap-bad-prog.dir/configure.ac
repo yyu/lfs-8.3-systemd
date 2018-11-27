@@ -1,0 +1,4 @@
+AC_INIT([tap-bad-prog], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT

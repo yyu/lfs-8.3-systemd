@@ -206,7 +206,7 @@ BOOT:
 #endif
 #ifndef _PATH_LOG
         /* This is the default value: */
-        { "_PATH_LOG", 9, "/dev/log" },
+        { "_PATH_LOG", 9, "" },
 #endif
         { NULL, 0, 0 } };
 	const struct pv_s *value_for_pv = values_for_pv;

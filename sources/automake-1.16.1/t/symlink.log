@@ -1,0 +1,53 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/symlink.dir
++ :
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: required directory ./subdir does not exist
+configure.ac:3: error: installing 'subdir/install-sh'; error while making link: No such file or directory
+configure.ac:3: error: installing 'subdir/missing'; error while making link: No such file or directory
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:3: .*missing.*error while making link' stderr
+configure.ac:3: error: installing 'subdir/missing'; error while making link: No such file or directory
++ grep '^configure\.ac:3: .*install-sh.*error while making link' stderr
+configure.ac:3: error: installing 'subdir/install-sh'; error while making link: No such file or directory
+++ grep -c 'error while making link' stderr
++ test 2 -eq 2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/symlink.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/symlink.dir
++ set +x
+PASS t/symlink.sh (exit status: 0)

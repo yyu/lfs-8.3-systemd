@@ -1,0 +1,31 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/mdate2.dir
++ cat
++ cat
++ :
++ :
++ echo '@setfilename textutils.info'
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall ././Makefile
++ grep mdate-sh Makefile.in
++ grep -v SHELL
+	mdate-sh missing texinfo.tex
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/mdate2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/mdate2.dir
++ set +x
+PASS t/mdate2.sh (exit status: 0)

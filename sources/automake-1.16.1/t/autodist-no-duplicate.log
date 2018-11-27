@@ -1,0 +1,230 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/autodist-no-duplicate.dir
++ re='Files .*automatically distributed.*if found'
+++ automake-1.16 --foreign -Werror -Wall --help
+++ sed -n '/^Files .*automatically distributed.*if found.*always/,/^ *$/p'
+++ sed 1d
++ list1='  ABOUT-GNU           INSTALL             config.rpath        ltconfig
+  ABOUT-NLS           NEWS                config.sub          ltmain.sh
+  AUTHORS             README              depcomp             mdate-sh
+  BACKLOG             THANKS              install-sh          missing
+  COPYING             TODO                libversion.in       mkinstalldirs
+  COPYING.DOC         ar-lib              ltcf-c.sh           py-compile
+  COPYING.LESSER      compile             ltcf-cxx.sh         texinfo.tex
+  COPYING.LIB         config.guess        ltcf-gcj.sh         ylwrap
+  ChangeLog'
+++ echo ABOUT-GNU INSTALL config.rpath ltconfig ABOUT-NLS NEWS config.sub ltmain.sh AUTHORS README depcomp mdate-sh BACKLOG THANKS install-sh missing COPYING TODO libversion.in mkinstalldirs COPYING.DOC ar-lib ltcf-c.sh py-compile COPYING.LESSER compile ltcf-cxx.sh texinfo.tex COPYING.LIB config.guess ltcf-gcj.sh ylwrap ChangeLog
++ list1='ABOUT-GNU INSTALL config.rpath ltconfig ABOUT-NLS NEWS config.sub ltmain.sh AUTHORS README depcomp mdate-sh BACKLOG THANKS install-sh missing COPYING TODO libversion.in mkinstalldirs COPYING.DOC ar-lib ltcf-c.sh py-compile COPYING.LESSER compile ltcf-cxx.sh texinfo.tex COPYING.LIB config.guess ltcf-gcj.sh ylwrap ChangeLog'
+++ automake-1.16 --foreign -Werror -Wall --help
+++ sed -n '/^Files .*automatically distributed.*if found.*under certain conditions/,/^ *$/p'
+++ sed 1d
++ list2='  acconfig.h          config.h.bot        configure           configure.in
+  aclocal.m4          config.h.top        configure.ac        stamp-vti'
+++ echo acconfig.h config.h.bot configure configure.in aclocal.m4 config.h.top configure.ac stamp-vti
++ list2='acconfig.h config.h.bot configure configure.in aclocal.m4 config.h.top configure.ac stamp-vti'
++ test -n 'ABOUT-GNU INSTALL config.rpath ltconfig ABOUT-NLS NEWS config.sub ltmain.sh AUTHORS README depcomp mdate-sh BACKLOG THANKS install-sh missing COPYING TODO libversion.in mkinstalldirs COPYING.DOC ar-lib ltcf-c.sh py-compile COPYING.LESSER compile ltcf-cxx.sh texinfo.tex COPYING.LIB config.guess ltcf-gcj.sh ylwrap ChangeLog'
++ test -n 'acconfig.h config.h.bot configure configure.in aclocal.m4 config.h.top configure.ac stamp-vti'
++ st=0
++ for i in 1 2
++ eval 'list=${list1}'
+++ list='ABOUT-GNU INSTALL config.rpath ltconfig ABOUT-NLS NEWS config.sub ltmain.sh AUTHORS README depcomp mdate-sh BACKLOG THANKS install-sh missing COPYING TODO libversion.in mkinstalldirs COPYING.DOC ar-lib ltcf-c.sh py-compile COPYING.LESSER compile ltcf-cxx.sh texinfo.tex COPYING.LIB config.guess ltcf-gcj.sh ylwrap ChangeLog'
++ for f in $list
++ echo ABOUT-GNU
++ for f in $list
++ echo INSTALL
++ for f in $list
++ echo config.rpath
++ for f in $list
++ echo ltconfig
++ for f in $list
++ echo ABOUT-NLS
++ for f in $list
++ echo NEWS
++ for f in $list
++ echo config.sub
++ for f in $list
++ echo ltmain.sh
++ for f in $list
++ echo AUTHORS
++ for f in $list
++ echo README
++ for f in $list
++ echo depcomp
++ for f in $list
++ echo mdate-sh
++ for f in $list
++ echo BACKLOG
++ for f in $list
++ echo THANKS
++ for f in $list
++ sort
++ echo install-sh
++ for f in $list
++ echo missing
++ for f in $list
++ echo COPYING
++ for f in $list
++ echo TODO
++ for f in $list
++ echo libversion.in
++ for f in $list
++ echo mkinstalldirs
++ for f in $list
++ echo COPYING.DOC
++ for f in $list
++ echo ar-lib
++ for f in $list
++ echo ltcf-c.sh
++ for f in $list
++ echo py-compile
++ for f in $list
++ echo COPYING.LESSER
++ for f in $list
++ echo compile
++ for f in $list
++ echo ltcf-cxx.sh
++ for f in $list
++ echo texinfo.tex
++ for f in $list
++ echo COPYING.LIB
++ for f in $list
++ echo config.guess
++ for f in $list
++ echo ltcf-gcj.sh
++ for f in $list
++ echo ylwrap
++ for f in $list
++ echo ChangeLog
++ uniq files1.lst
++ cat files1.lst
+ABOUT-GNU
+ABOUT-NLS
+AUTHORS
+BACKLOG
+COPYING
+COPYING.DOC
+COPYING.LESSER
+COPYING.LIB
+ChangeLog
+INSTALL
+NEWS
+README
+THANKS
+TODO
+ar-lib
+compile
+config.guess
+config.rpath
+config.sub
+depcomp
+install-sh
+libversion.in
+ltcf-c.sh
+ltcf-cxx.sh
+ltcf-gcj.sh
+ltconfig
+ltmain.sh
+mdate-sh
+missing
+mkinstalldirs
+py-compile
+texinfo.tex
+ylwrap
++ cat files1.uniq
+ABOUT-GNU
+ABOUT-NLS
+AUTHORS
+BACKLOG
+COPYING
+COPYING.DOC
+COPYING.LESSER
+COPYING.LIB
+ChangeLog
+INSTALL
+NEWS
+README
+THANKS
+TODO
+ar-lib
+compile
+config.guess
+config.rpath
+config.sub
+depcomp
+install-sh
+libversion.in
+ltcf-c.sh
+ltcf-cxx.sh
+ltcf-gcj.sh
+ltconfig
+ltmain.sh
+mdate-sh
+missing
+mkinstalldirs
+py-compile
+texinfo.tex
+ylwrap
++ diff files1.lst files1.uniq
++ for i in 1 2
++ eval 'list=${list2}'
+++ list='acconfig.h config.h.bot configure configure.in aclocal.m4 config.h.top configure.ac stamp-vti'
++ for f in $list
++ echo acconfig.h
++ for f in $list
++ echo config.h.bot
++ for f in $list
++ echo configure
++ for f in $list
++ echo configure.in
++ for f in $list
++ echo aclocal.m4
++ for f in $list
++ echo config.h.top
++ for f in $list
++ echo configure.ac
++ sort
++ for f in $list
++ echo stamp-vti
++ uniq files2.lst
++ cat files2.lst
+acconfig.h
+aclocal.m4
+config.h.bot
+config.h.top
+configure
+configure.ac
+configure.in
+stamp-vti
++ cat files2.uniq
+acconfig.h
+aclocal.m4
+config.h.bot
+config.h.top
+configure
+configure.ac
+configure.in
+stamp-vti
++ diff files2.lst files2.uniq
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/autodist-no-duplicate.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/autodist-no-duplicate.dir
++ set +x
+PASS t/autodist-no-duplicate.sh (exit status: 0)

@@ -1,0 +1,152 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dollarvar2.dir
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wnone -Wportability
++ AUTOMAKE_run -e 1 -Wnone -Wportability
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wportability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'recursive variable expansion' stderr
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ AUTOMAKE_fails -Wnone -Wportability-recursive
++ AUTOMAKE_run -e 1 -Wnone -Wportability-recursive
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -Wportability-recursive
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'recursive variable expansion' stderr
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ automake-1.16 --foreign -Werror -Wall -Wno-all
++ automake-1.16 --foreign -Werror -Wall -Wno-portability
++ automake-1.16 --foreign -Werror -Wall -Wall -Wno-portability-recursive
++ automake-1.16 --foreign -Werror -Wall -Wportability -Wno-portability-recursive
++ echo 'AUTOMAKE_OPTIONS = -Wno-portability'
++ automake-1.16 --foreign -Werror -Wall
++ echo 'AUTOMAKE_OPTIONS += -Wportability-recursive'
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'recursive variable expansion' stderr
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ cat
++ automake-1.16 --foreign -Werror -Wall -Wno-portability
++ AUTOMAKE_fails -Wportability -Wno-portability-recursive
++ AUTOMAKE_run -e 1 -Wportability -Wno-portability-recursive
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wportability -Wno-portability-recursive
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: var-with-dash: non-POSIX variable name
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep var-with-dash stderr
+Makefile.am:3: warning: var-with-dash: non-POSIX variable name
++ grep 'recursive variable expansion' stderr
++ AUTOMAKE_fails -Wno-portability -Wportability-recursive
++ AUTOMAKE_run -e 1 -Wno-portability -Wportability-recursive
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-portability -Wportability-recursive
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep var-with-dash stderr
++ grep 'recursive variable expansion' stderr
+Makefile.am:2: warning: foo$(x: non-POSIX recursive variable expansion
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dollarvar2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dollarvar2.dir
++ set +x
+PASS t/dollarvar2.sh (exit status: 0)

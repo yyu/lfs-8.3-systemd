@@ -1,0 +1,115 @@
+make: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/make.dir
++ cat
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ export ACLOCAL
++ export AUTOCONF
++ export AUTOMAKE
++ save=make
++ for flag in '' -w
++ MAKE='make '
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make  sets $(MAKE)... yes
+checking whether make  supports nested variables... yes
+checking whether make  supports the include directive... yes (GNU style)
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ /bin/grep -F 'am__include = include' Makefile
+am__include = include
++ sleep 2
++ touch configure.ac
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && aclocal-1.16 -Werror 
+ cd . && automake-1.16 --foreign -Werror -Wall --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports the include directive... yes (GNU style)
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+make: Nothing to be done for 'all'.
++ /bin/grep -F 'am__include = include' Makefile
+am__include = include
++ rm -f config.cache
++ for flag in '' -w
++ MAKE='make -w'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make -w sets $(MAKE)... yes
+checking whether make -w supports nested variables... yes
+checking whether make -w supports the include directive... yes (GNU style)
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ /bin/grep -F 'am__include = include' Makefile
+am__include = include
++ sleep 2
++ touch configure.ac
++ make -w
+make: Entering directory '/sources/automake-1.16.1/t/make.dir'
+CDPATH="${ZSH_VERSION+.}:" && cd . && aclocal-1.16 -Werror 
+ cd . && automake-1.16 --foreign -Werror -Wall --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports the include directive... yes (GNU style)
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+make: Nothing to be done for 'all'.
+make: Leaving directory '/sources/automake-1.16.1/t/make.dir'
++ /bin/grep -F 'am__include = include' Makefile
+am__include = include
++ rm -f config.cache
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/make.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/make.dir
++ set +x
+PASS t/make.sh (exit status: 0)

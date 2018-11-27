@@ -1,0 +1,73 @@
+./t/compile5-w.sh: will source ./t/compile5.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/compile5-w.dir
+++ get_shell_script compile
+++ am_source=compile
+++ am_target=compile
+++ test '!' -f compile
+++ rm -f compile
+++ test xyes = xyes
+++ sed '1s|#!.*|#! /bin/sh|' /sources/automake-1.16.1/lib/compile
+++ chmod a+x compile
+++ sed 10q compile
+#! /bin/sh
+# Wrapper for compilers which do not understand '-c -o'.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1999-2018 Free Software Foundation, Inc.
+# Written by Tom Tromey <tromey@cygnus.com>.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+++ unset am_target am_source
+++ cat
+++ chmod +x ./cl
+++ cat
+++ :
+++ cat
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:4: installing './config.guess'
+configure.ac:4: installing './config.sub'
+++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating check_host
+++ . ./check_host
++++ case 'linux-gnu' in
++++ skip_ 'target OS is not MinGW'
++++ warn_ 'compile5-w: skipped test: target OS is not MinGW'
++++ echo 'compile5-w: skipped test: target OS is not MinGW'
++++ _am_exit 77
++++ set +e
++++ test 77 = 77
++++ am__test_skipped=yes
++++ exit 77
++++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+SKIP t/compile5-w.sh (exit status: 77)

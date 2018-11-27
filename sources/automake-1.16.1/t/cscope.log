@@ -1,0 +1,582 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cscope.dir
++ plan_ 18
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x18 = xunknown
++ test x18 = xlater
++ test x18 = xlazy
++ test x18 = xnow
++ test 18 -ge 0
++ planned_=18
++ echo 1..18
+1..18
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/cscope.dir
++ cat
++ mkdir sub sub/subsub
++ cat
++ cat
++ echo 'int foo_func () { return 0; }'
++ echo 'int main () { return 0; }'
++ cat
++ :
++ echo 'int main () { return 0; }'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -i -a
++ cscope -q --version
+./t/cscope.tap: line 72: cscope: command not found
++ have_cscope=no
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ cd /sources/automake-1.16.1/t/cscope.dir
++ pfx='relative VPATH'
++ mkdir build
++ cd build
++ my_configure ..
++ command_ok_ '[relative VPATH] configure' ../configure EMACS=no --with-lispdir=/who/cares
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='[relative VPATH] configure'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ../configure EMACS=no --with-lispdir=/who/cares
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for emacs... no
+checking where .elc files should go... /who/cares
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ result_ ok -D '' -r '' -- '[relative VPATH] configure'
++ set +x
+ok 1 - [relative VPATH] configure
+PASS: t/cscope.tap 1 - [relative VPATH] configure
++ test_cscope
++ r=ok
++ make -n cscope
+rm -f cscope.files
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/cscope.dir/build'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo cscopelist-recursive | sed s/-recursive//`; \
+case "cscopelist-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub' ;; \
+  *) list='sub' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making cscopelist in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build/sub'
+/tools/bin/mkdir -p subsub
+echo 'int generated_subsub () { return 0; }' > subsub/gen.c
+list=' subsub/dist.c subsub/gen.c  '; \
+case "../../sub" in \
+  [\\/]* | ?:[\\/]*) sdir="../../sub" ;; \
+  *) sdir=sub/../../sub ;; \
+esac; \
+for i in $list; do \
+  if test -f "$i"; then \
+    echo "sub/$i"; \
+  else \
+    echo "$sdir/$i"; \
+  fi; \
+done >> ../cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build'
+list=' foo.c bar.cpp baz.f90  foo.el'; \
+case ".." in \
+  [\\/]* | ?:[\\/]*) sdir=".." ;; \
+  *) sdir=./.. ;; \
+esac; \
+for i in $list; do \
+  if test -f "$i"; then \
+    echo "./$i"; \
+  else \
+    echo "$sdir/$i"; \
+  fi; \
+done >> ./cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build'
+test ! -s cscope.files \
+  || cscope -b -q   -i cscope.files 
++ result_ ok '[relative VPATH] make -n cscope'
++ set +x
+ok 2 - [relative VPATH] make -n cscope
+PASS: t/cscope.tap 2 - [relative VPATH] make -n cscope
++ test no = no
++ touch cscope.files cscope.out cscope.in.out cscope.po.out
++ skip_row_ 3 -r 'no proper cscope program available'
++ skip_count_=3
++ shift
+++ seq_ 3
+++ case $# in
+++ seq_first=1
+++ seq_incr=1
+++ seq_last=3
+++ i=1
+++ test 1 -le 3
+++ echo 1
+++ i=2
+++ test 2 -le 3
+++ echo 2
+++ i=3
+++ test 3 -le 3
+++ echo 3
+++ i=4
+++ test 4 -le 3
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 3 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 3 # SKIP no proper cscope program available
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 4 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 4 # SKIP no proper cscope program available
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 5 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 5 # SKIP no proper cscope program available
++ return 0
++ test_cleanup
++ r=ok
++ test -f configure
++ make distcleancheck
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build/sub'
+test -z "bar" || rm -f bar
+test -z "subsub/gen.c" || rm -f subsub/gen.c
+rm -f *.
+rm -f subsub/*.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../sub" || test -z "" || rm -f 
+rm -f subsub/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build'
+test -z "foo" || rm -f foo
+rm -f foo.elc
+rm -f *.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e cscope.files
++ test '!' -e cscope.out
++ test '!' -e cscope.in.out
++ test '!' -e cscope.po.out
++ result_ ok '[relative VPATH] make distcheck'
++ set +x
+ok 6 - [relative VPATH] make distcheck
+PASS: t/cscope.tap 6 - [relative VPATH] make distcheck
++ cd /sources/automake-1.16.1/t/cscope.dir
++ pfx='absolute VPATH'
++ mkdir build2
++ cd build2
++ my_configure /sources/automake-1.16.1/t/cscope.dir
++ command_ok_ '[absolute VPATH] configure' /sources/automake-1.16.1/t/cscope.dir/configure EMACS=no --with-lispdir=/who/cares
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='[absolute VPATH] configure'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /sources/automake-1.16.1/t/cscope.dir/configure EMACS=no --with-lispdir=/who/cares
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for emacs... no
+checking where .elc files should go... /who/cares
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ result_ ok -D '' -r '' -- '[absolute VPATH] configure'
++ set +x
+ok 7 - [absolute VPATH] configure
+PASS: t/cscope.tap 7 - [absolute VPATH] configure
++ test_cscope
++ r=ok
++ make -n cscope
+rm -f cscope.files
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/cscope.dir/build2'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo cscopelist-recursive | sed s/-recursive//`; \
+case "cscopelist-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub' ;; \
+  *) list='sub' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making cscopelist in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build2/sub'
+/tools/bin/mkdir -p subsub
+echo 'int generated_subsub () { return 0; }' > subsub/gen.c
+list=' subsub/dist.c subsub/gen.c  '; \
+case "/sources/automake-1.16.1/t/cscope.dir/sub" in \
+  [\\/]* | ?:[\\/]*) sdir="/sources/automake-1.16.1/t/cscope.dir/sub" ;; \
+  *) sdir=sub//sources/automake-1.16.1/t/cscope.dir/sub ;; \
+esac; \
+for i in $list; do \
+  if test -f "$i"; then \
+    echo "sub/$i"; \
+  else \
+    echo "$sdir/$i"; \
+  fi; \
+done >> ../cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build2/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build2'
+list=' foo.c bar.cpp baz.f90  foo.el'; \
+case "/sources/automake-1.16.1/t/cscope.dir" in \
+  [\\/]* | ?:[\\/]*) sdir="/sources/automake-1.16.1/t/cscope.dir" ;; \
+  *) sdir=.//sources/automake-1.16.1/t/cscope.dir ;; \
+esac; \
+for i in $list; do \
+  if test -f "$i"; then \
+    echo "./$i"; \
+  else \
+    echo "$sdir/$i"; \
+  fi; \
+done >> ./cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build2'
+test ! -s cscope.files \
+  || cscope -b -q   -i cscope.files 
++ result_ ok '[absolute VPATH] make -n cscope'
++ set +x
+ok 8 - [absolute VPATH] make -n cscope
+PASS: t/cscope.tap 8 - [absolute VPATH] make -n cscope
++ test no = no
++ touch cscope.files cscope.out cscope.in.out cscope.po.out
++ skip_row_ 3 -r 'no proper cscope program available'
++ skip_count_=3
++ shift
+++ seq_ 3
+++ case $# in
+++ seq_first=1
+++ seq_incr=1
+++ seq_last=3
+++ i=1
+++ test 1 -le 3
+++ echo 1
+++ i=2
+++ test 2 -le 3
+++ echo 2
+++ i=3
+++ test 3 -le 3
+++ echo 3
+++ i=4
+++ test 4 -le 3
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 9 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 9 # SKIP no proper cscope program available
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 10 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 10 # SKIP no proper cscope program available
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 11 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 11 # SKIP no proper cscope program available
++ return 0
++ test_cleanup
++ r=ok
++ test -f configure
++ make distcleancheck
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build2/sub'
+test -z "bar" || rm -f bar
+test -z "subsub/gen.c" || rm -f subsub/gen.c
+rm -f *.
+rm -f subsub/*.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "/sources/automake-1.16.1/t/cscope.dir/sub" || test -z "" || rm -f 
+rm -f subsub/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build2/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/build2'
+test -z "foo" || rm -f foo
+rm -f foo.elc
+rm -f *.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "/sources/automake-1.16.1/t/cscope.dir" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/build2'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e cscope.files
++ test '!' -e cscope.out
++ test '!' -e cscope.in.out
++ test '!' -e cscope.po.out
++ result_ ok '[absolute VPATH] make distcheck'
++ set +x
+ok 12 - [absolute VPATH] make distcheck
+PASS: t/cscope.tap 12 - [absolute VPATH] make distcheck
++ cd /sources/automake-1.16.1/t/cscope.dir
++ pfx='in-tree build'
++ my_configure .
++ command_ok_ '[in-tree build] configure' ./configure EMACS=no --with-lispdir=/who/cares
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='[in-tree build] configure'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure EMACS=no --with-lispdir=/who/cares
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for emacs... no
+checking where .elc files should go... /who/cares
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ result_ ok -D '' -r '' -- '[in-tree build] configure'
++ set +x
+ok 13 - [in-tree build] configure
+PASS: t/cscope.tap 13 - [in-tree build] configure
++ test_cscope
++ r=ok
++ make -n cscope
+rm -f cscope.files
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/cscope.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo cscopelist-recursive | sed s/-recursive//`; \
+case "cscopelist-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub' ;; \
+  *) list='sub' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making cscopelist in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/sub'
+/tools/bin/mkdir -p subsub
+echo 'int generated_subsub () { return 0; }' > subsub/gen.c
+list=' subsub/dist.c subsub/gen.c  '; \
+case "." in \
+  [\\/]* | ?:[\\/]*) sdir="." ;; \
+  *) sdir=sub/. ;; \
+esac; \
+for i in $list; do \
+  if test -f "$i"; then \
+    echo "sub/$i"; \
+  else \
+    echo "$sdir/$i"; \
+  fi; \
+done >> ../cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir'
+list=' foo.c bar.cpp baz.f90  foo.el'; \
+case "." in \
+  [\\/]* | ?:[\\/]*) sdir="." ;; \
+  *) sdir=./. ;; \
+esac; \
+for i in $list; do \
+  if test -f "$i"; then \
+    echo "./$i"; \
+  else \
+    echo "$sdir/$i"; \
+  fi; \
+done >> ./cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir'
+test ! -s cscope.files \
+  || cscope -b -q   -i cscope.files 
++ result_ ok '[in-tree build] make -n cscope'
++ set +x
+ok 14 - [in-tree build] make -n cscope
+PASS: t/cscope.tap 14 - [in-tree build] make -n cscope
++ test no = no
++ touch cscope.files cscope.out cscope.in.out cscope.po.out
++ skip_row_ 3 -r 'no proper cscope program available'
++ skip_count_=3
++ shift
+++ seq_ 3
+++ case $# in
+++ seq_first=1
+++ seq_incr=1
+++ seq_last=3
+++ i=1
+++ test 1 -le 3
+++ echo 1
+++ i=2
+++ test 2 -le 3
+++ echo 2
+++ i=3
+++ test 3 -le 3
+++ echo 3
+++ i=4
+++ test 4 -le 3
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 15 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 15 # SKIP no proper cscope program available
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 16 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 16 # SKIP no proper cscope program available
++ for i_ in $(seq_ $skip_count_)
++ skip_ -r 'no proper cscope program available'
++ result_ ok -D SKIP -r 'no proper cscope program available'
++ set +x
+ok 17 # SKIP no proper cscope program available
+SKIP: t/cscope.tap 17 # SKIP no proper cscope program available
++ return 0
++ test_cleanup
++ r=ok
++ test -f configure
++ make distclean
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir/sub'
+test -z "bar" || rm -f bar
+test -z "subsub/gen.c" || rm -f subsub/gen.c
+rm -f *.
+rm -f subsub/*.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f subsub/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cscope.dir'
+test -z "foo" || rm -f foo
+rm -f foo.elc
+rm -f *.
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cscope.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e cscope.files
++ test '!' -e cscope.out
++ test '!' -e cscope.in.out
++ test '!' -e cscope.po.out
++ result_ ok '[in-tree build] make distcheck'
++ set +x
+ok 18 - [in-tree build] make distcheck
+PASS: t/cscope.tap 18 - [in-tree build] make distcheck
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 18 = later
++ test 0 -eq 0
++ test 9 -eq 18
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x

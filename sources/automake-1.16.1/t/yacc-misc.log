@@ -1,0 +1,129 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-misc.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ test -f ylwrap
++ mkdir sub
++ cd sub
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+/bin/sh ../ylwrap ../parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-misc\" -DPACKAGE_TARNAME=\"yacc-misc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-misc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-misc\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-misc\" -DPACKAGE_TARNAME=\"yacc-misc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-misc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-misc\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo parse.o foo.o  
+/bin/sh ../ylwrap ../bar.y y.tab.c bar.c y.tab.h `echo bar.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-misc\" -DPACKAGE_TARNAME=\"yacc-misc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-misc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-misc\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+cc  -g -O2   -o bar bar.o foo.o  
++ grep '^#.*/sub/\.\./' bar.c
++ grep '^#.*/sub/\.\./' parse.c
++ make distclean
+test -z "foo bar" || rm -f foo bar
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
++ test -f bar.c
++ test -f parse.c
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+test -z "foo bar" || rm -f foo bar
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar.c
+rm -f parse.c
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ../autom4te.cache
+rm -f ./.deps/bar.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
++ test '!' -e bar.c
++ test '!' -e parse.c
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-misc.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-misc.dir
++ set +x
+PASS t/yacc-misc.sh (exit status: 0)

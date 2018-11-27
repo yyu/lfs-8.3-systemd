@@ -1,0 +1,32 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-dirlist-abspath.dir
++ mkdir acdir-more sub sub/acdir
+++ pwd
++ echo /sources/automake-1.16.1/t/aclocal-dirlist-abspath.dir/acdir-more
++ echo 'AC_DEFUN([AM_FOO], [foo-foo--foo])'
++ cd sub
++ cat
++ aclocal-1.16 -Werror --system-acdir acdir
++ autoconf
++ grep m4_include aclocal.m4
++ grep foo-foo--foo configure
+foo-foo--foo
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-dirlist-abspath.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-dirlist-abspath.dir
++ set +x
+PASS t/aclocal-dirlist-abspath.sh (exit status: 0)

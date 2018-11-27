@@ -1,0 +1,28 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-no-install-no-mkdir.dir
++ cat
++ mkdir sys-acdir
++ cat
++ aclocal-1.16 -Werror -I foo --system-acdir=sys-acdir
+aclocal-1.16: warnings are treated as errors
+aclocal-1.16: warning: couldn't open directory 'foo': No such file or directory
++ test '!' -e foo
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-no-install-no-mkdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-no-install-no-mkdir.dir
++ set +x
+PASS t/aclocal-no-install-no-mkdir.sh (exit status: 0)

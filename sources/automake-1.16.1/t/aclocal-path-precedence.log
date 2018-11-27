@@ -1,0 +1,52 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-path-precedence.dir
++ cat
++ mkdir mdir1 mdir2 mdir3 sysdir extradir
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ echo ./extradir
++ ACLOCAL_PATH=mdir1:mdir2
++ aclocal-1.16 -Werror -I mdir3 --system-acdir sysdir
++ autoconf
++ /bin/grep -F :: configure
+::pass-foo::
+::pass-bar::
+::pass-libtool::
+::pass-gettext::
++ /bin/grep -F ::pass-foo:: configure
+::pass-foo::
++ /bin/grep -F ::pass-bar:: configure
+::pass-bar::
++ /bin/grep -F ::pass-gettext:: configure
+::pass-gettext::
++ /bin/grep -F ::pass-libtool:: configure
+::pass-libtool::
++ /bin/grep -F am__api_version configure
+am__api_version='1.16'
+ACLOCAL=${ACLOCAL-"${am_missing_run}aclocal-${am__api_version}"}
+AUTOMAKE=${AUTOMAKE-"${am_missing_run}automake-${am__api_version}"}
++ /bin/grep -F ::fail configure
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-path-precedence.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-path-precedence.dir
++ set +x
+PASS t/aclocal-path-precedence.sh (exit status: 0)

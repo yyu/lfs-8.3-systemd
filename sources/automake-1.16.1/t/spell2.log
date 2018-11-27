@@ -1,0 +1,47 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/spell2.dir
++ echo AC_PROG_CC
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: variable 'qardoz_LDADD' is defined but no program or
+Makefile.am:3: library has 'qardoz' as canonical name (possible typo)
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'Makefile.am:3:.*qardoz' stderr
+Makefile.am:3: warning: variable 'qardoz_LDADD' is defined but no program or
+Makefile.am:3: library has 'qardoz' as canonical name (possible typo)
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/spell2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/spell2.dir
++ set +x
+PASS t/spell2.sh (exit status: 0)

@@ -1,0 +1,230 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-reset-term.dir
++ TERM=ansi
++ export TERM
++ cat
++ cat
++ cat
++ chmod a+x foobar
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ mkcheck TESTS_ENVIRONMENT=TERM=dumb
++ run_make -O -e IGNORE TESTS_ENVIRONMENT=TERM=dumb check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS_ENVIRONMENT=TERM=dumb check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+[0;32mPASS[m: foobar
+[0;32m============================================================================[m
+[0;32mTestsuite summary for parallel-tests-reset-term 1.0[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+[0;32mPASS[m: foobar
+[0;32m============================================================================[m
+[0;32mTestsuite summary for parallel-tests-reset-term 1.0[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
++ cat foobar.log
+TERM='dumb'
+PASS foobar (exit status: 0)
++ cat test-suite.log
+=====================================================
+   parallel-tests-reset-term 1.0: ./test-suite.log
+=====================================================
+
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ return 0
++ cat stdout
++ grep 'PASS.*foobar'
++ grep '\['
+[0;32mPASS[m: foobar
++ mkcheck AM_TESTS_ENVIRONMENT=TERM=dumb
++ run_make -O -e IGNORE AM_TESTS_ENVIRONMENT=TERM=dumb check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make AM_TESTS_ENVIRONMENT=TERM=dumb check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+[0;32mPASS[m: foobar
+[0;32m============================================================================[m
+[0;32mTestsuite summary for parallel-tests-reset-term 1.0[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+[0;32mPASS[m: foobar
+[0;32m============================================================================[m
+[0;32mTestsuite summary for parallel-tests-reset-term 1.0[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-reset-term.dir'
++ cat foobar.log
+TERM='dumb'
+PASS foobar (exit status: 0)
++ cat test-suite.log
+=====================================================
+   parallel-tests-reset-term 1.0: ./test-suite.log
+=====================================================
+
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ return 0
++ cat stdout
++ grep 'PASS.*foobar'
++ grep '\['
+[0;32mPASS[m: foobar
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-reset-term.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-reset-term.dir
++ set +x
+PASS t/parallel-tests-reset-term.sh (exit status: 0)

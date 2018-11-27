@@ -1,0 +1,68 @@
+pr211: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/pr211.dir
++ cat
++ cat
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wnone -a
++ AUTOMAKE_run -e 1 -Wnone -a
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wnone -a
++ am__got_rc=1
++ cat stderr
+configure.ac:5: installing './config.guess'
+configure.ac:5: installing './config.sub'
+Makefile.am: error: object 'foo.$(OBJEXT)' created both with libtool and without
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ /bin/grep -F 'foo.$(OBJEXT)' stderr
+Makefile.am: error: object 'foo.$(OBJEXT)' created both with libtool and without
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/pr211.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/pr211.dir
++ set +x
+PASS t/pr211.sh (exit status: 0)

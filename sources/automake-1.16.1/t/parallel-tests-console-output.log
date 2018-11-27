@@ -1,0 +1,218 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-console-output.dir
++ cat
++ cat
++ cat
++ mkdir sub a a/b
++ cat
++ cp pass.test sub/xpass.test
++ cat
++ cat
++ cat
++ cp error.test sub/error2.test
++ cat
++ chmod a+x pass.test fail.test xfail.test sub/xpass.test a/b/skip.test error.test sub/error2.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir/build'
+FAIL: fail.test
+PASS: pass.test
+ERROR: error.test
+XPASS: sub/xpass.test
+XFAIL: xfail.test
+ERROR: sub/error2.test
+SKIP: a/b/skip.test
+============================================================================
+Testsuite summary for parallel-tests-console-output 1.0
+============================================================================
+# TOTAL: 7
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ LC_ALL=C
++ grep '^[A-Z][A-Z]*:' stdout
++ cat got
+FAIL: fail.test
+PASS: pass.test
+ERROR: error.test
+XPASS: sub/xpass.test
+XFAIL: xfail.test
+ERROR: sub/error2.test
+SKIP: a/b/skip.test
++ diff ../exp got
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir'
+FAIL: fail.test
+PASS: pass.test
+ERROR: error.test
+XPASS: sub/xpass.test
+XFAIL: xfail.test
+ERROR: sub/error2.test
+SKIP: a/b/skip.test
+============================================================================
+Testsuite summary for parallel-tests-console-output 1.0
+============================================================================
+# TOTAL: 7
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-console-output.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ LC_ALL=C
++ grep '^[A-Z][A-Z]*:' stdout
++ cat got
+FAIL: fail.test
+PASS: pass.test
+ERROR: error.test
+XPASS: sub/xpass.test
+XFAIL: xfail.test
+ERROR: sub/error2.test
+SKIP: a/b/skip.test
++ diff ./exp got
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-console-output.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-console-output.dir
++ set +x
+PASS t/parallel-tests-console-output.sh (exit status: 0)

@@ -1,0 +1,589 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-mild-stress.dir
++ magic1=::MagicStringOne::
++ magic2=__MagicStringTwo__
++ magic3=%%MagicStringThree%%
++ echo 'all:; @echo include is supported'
++ echo 'include incl.mk'
++ echo '.include "incl.mk"'
++ make -f gnu-style.mk
++ grep 'include is supported'
+include is supported
++ echo 'remake-mild-stress: GNU make include style supported'
+remake-mild-stress: GNU make include style supported
++ include_zardoz='include zardoz'
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating zardoz
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make nil
+make: Nothing to be done for 'nil'.
++ grep '^#H:' zardoz.in
+#H: ::MagicStringOne::
++ /bin/grep -F ::MagicStringOne:: zardoz
+#H: ::MagicStringOne::
++ /bin/grep -F ::MagicStringOne:: zardoz.in
+#H: ::MagicStringOne::
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+test -d "remake-mild-stress-1.0" || mkdir "remake-mild-stress-1.0"
+test -n "" \
+|| find "remake-mild-stress-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-mild-stress-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+tardir=remake-mild-stress-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-mild-stress-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+case 'remake-mild-stress-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-mild-stress-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-mild-stress-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-mild-stress-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-mild-stress-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-mild-stress-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-mild-stress-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-mild-stress-1.0.zip ;;\
+esac
+chmod -R a-w remake-mild-stress-1.0
+chmod u+w remake-mild-stress-1.0
+mkdir remake-mild-stress-1.0/_build remake-mild-stress-1.0/_build/sub remake-mild-stress-1.0/_inst
+chmod a-w remake-mild-stress-1.0
+test -d remake-mild-stress-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-mild-stress-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-mild-stress-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-mild-stress-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating zardoz
+config.status: linking ../../Makefile to Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+test -d "remake-mild-stress-1.0" || mkdir "remake-mild-stress-1.0"
+test -n "" \
+|| find "remake-mild-stress-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-mild-stress-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+tardir=remake-mild-stress-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-mild-stress-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "Makefile" || rm -f Makefile
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f zardoz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+========================================================
+remake-mild-stress-1.0 archives ready for distribution: 
+remake-mild-stress-1.0.tar.gz
+========================================================
++ make distclean
+test -z "" || rm -f 
+test . = "." || test -z "Makefile" || rm -f Makefile
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f zardoz
++ ls -l
+total 296
+-rw-r--r-- 1 root root     32 Nov 27 06:47 Makefile
+-rw-r--r-- 1 root root  27316 Nov 27 06:47 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:47 autom4te.cache
+-rw-r--r-- 1 root root     19 Nov 27 06:47 bsd-style.mk
+-rwxr-xr-x 1 root root   7383 Nov 27 06:47 compile
+-rwxr-xr-x 1 root root 105462 Nov 27 06:47 configure
+-rw-r--r-- 1 root root    127 Nov 27 06:47 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:47 depcomp
+-rw-r--r-- 1 root root     16 Nov 27 06:47 gnu-style.mk
+-rw-r--r-- 1 root root     33 Nov 27 06:47 incl.mk
+-rwxr-xr-x 1 root root  15368 Nov 27 06:47 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:47 missing
+-rw-r--r-- 1 root root  60979 Nov 27 06:47 remake-mild-stress-1.0.tar.gz
+-rw-r--r-- 1 root root     45 Nov 27 06:47 zardoz.am
+-rw-r--r-- 1 root root  16809 Nov 27 06:47 zardoz.in
++ test -f Makefile
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating zardoz
++ sleep 2
++ sed s/%MAGIC3%/%%MagicStringThree%%/
++ sed 's/^#H:.*/#H: __MagicStringTwo__/' zardoz.am
++ cat
++ mv -f t zardoz.am
++ cat zardoz.am
+EXTRA_DIST = Makefile
+#H: __MagicStringTwo__
+# Used by "make distcheck" below.
+check-local: my-check
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make nil
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/missing automake-1.16 --foreign zardoz
+ cd . && /bin/sh ./config.status zardoz 
+config.status: creating zardoz
+make: Nothing to be done for 'nil'.
++ /bin/grep -F my-check zardoz
+check-local: my-check
++ /bin/grep -F ::MagicStringOne:: zardoz zardoz.in
++ /bin/grep -F __MagicStringTwo__ zardoz
+#H: __MagicStringTwo__
++ /bin/grep -F __MagicStringTwo__ zardoz.in
+#H: __MagicStringTwo__
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating zardoz
++ sleep 2
++ sed 's/^\(AC_CONFIG_FILES\)(.*/\1([zardoz:top.in:quux.in:bot.in])/'
++ mv -f t configure.ac
++ cat configure.ac
+AC_INIT([remake-mild-stress], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([zardoz:top.in:quux.in:bot.in])
+AC_CONFIG_LINKS([Makefile:Makefile])
+AC_OUTPUT
++ sed '/^#H:/d' zardoz.am
++ echo 'FOO = dummy'
++ echo 'BAR = $(BAZ)'
++ echo 'BAZ = %%MagicStringThree%%'
++ is_gmake
+./t/remake-mild-stress.sh: line 126: is_gmake: command not found
++ make zardoz
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating zardoz
+make: 'zardoz' is up to date.
++ make test
+ls -l ;: For debugging.
+total 384
+-rw-r--r-- 1 root root    404 Nov 27 06:47 Makefile
+-rw-r--r-- 1 root root  27316 Nov 27 06:47 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:47 autom4te.cache
+-rw-r--r-- 1 root root     27 Nov 27 06:47 bot.in
+-rw-r--r-- 1 root root     19 Nov 27 06:47 bsd-style.mk
+-rwxr-xr-x 1 root root   7383 Nov 27 06:47 compile
+-rw-r--r-- 1 root root   5133 Nov 27 06:47 config.log
+-rwxr-xr-x 1 root root  26755 Nov 27 06:47 config.status
+-rwxr-xr-x 1 root root 105506 Nov 27 06:47 configure
+-rw-r--r-- 1 root root    149 Nov 27 06:47 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:47 depcomp
+-rw-r--r-- 1 root root     16 Nov 27 06:47 gnu-style.mk
+-rw-r--r-- 1 root root     33 Nov 27 06:47 incl.mk
+-rwxr-xr-x 1 root root  15368 Nov 27 06:47 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:47 missing
+-rw-r--r-- 1 root root     90 Nov 27 06:47 quux.am
+-rw-r--r-- 1 root root  17013 Nov 27 06:47 quux.in
+-rw-r--r-- 1 root root  60979 Nov 27 06:47 remake-mild-stress-1.0.tar.gz
+-rw-r--r-- 1 root root     13 Nov 27 06:47 top.in
+-rw-r--r-- 1 root root  17762 Nov 27 06:47 zardoz
+-rw-r--r-- 1 root root    101 Nov 27 06:47 zardoz.am
+-rw-r--r-- 1 root root  16923 Nov 27 06:47 zardoz.in
+test x'dummy' = x'dummy'
++ /bin/grep -F my-check zardoz
+check-local: my-check
++ /bin/grep -F %%MagicStringThree%% quux.in
++ /bin/grep -F %%MagicStringThree%% zardoz
+BAZ = %%MagicStringThree%%
++ /bin/grep -F ::MagicStringOne:: zardoz
++ /bin/grep -F __MagicStringTwo__ zardoz
++ echo endif
++ is_gmake
+./t/remake-mild-stress.sh: line 136: is_gmake: command not found
++ make zardoz
+make: 'zardoz' is up to date.
++ make test
+ls -l ;: For debugging.
+total 384
+-rw-r--r-- 1 root root    404 Nov 27 06:47 Makefile
+-rw-r--r-- 1 root root  27316 Nov 27 06:47 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:47 autom4te.cache
+-rw-r--r-- 1 root root     27 Nov 27 06:47 bot.in
+-rw-r--r-- 1 root root     19 Nov 27 06:47 bsd-style.mk
+-rwxr-xr-x 1 root root   7383 Nov 27 06:47 compile
+-rw-r--r-- 1 root root   5133 Nov 27 06:47 config.log
+-rwxr-xr-x 1 root root  26755 Nov 27 06:47 config.status
+-rwxr-xr-x 1 root root 105506 Nov 27 06:47 configure
+-rw-r--r-- 1 root root    149 Nov 27 06:47 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:47 depcomp
+-rw-r--r-- 1 root root     16 Nov 27 06:47 gnu-style.mk
+-rw-r--r-- 1 root root     33 Nov 27 06:47 incl.mk
+-rwxr-xr-x 1 root root  15368 Nov 27 06:47 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:47 missing
+-rw-r--r-- 1 root root     90 Nov 27 06:47 quux.am
+-rw-r--r-- 1 root root  17013 Nov 27 06:47 quux.in
+-rw-r--r-- 1 root root  60979 Nov 27 06:47 remake-mild-stress-1.0.tar.gz
+-rw-r--r-- 1 root root     13 Nov 27 06:47 top.in
+-rw-r--r-- 1 root root  17762 Nov 27 06:47 zardoz
+-rw-r--r-- 1 root root      6 Nov 27 06:47 zardoz.am
+-rw-r--r-- 1 root root  16923 Nov 27 06:47 zardoz.in
+test x'dummy' = x'dummy'
++ rm -f zardoz.in zardoz.am
++ is_gmake
+./t/remake-mild-stress.sh: line 139: is_gmake: command not found
++ make zardoz
+make: 'zardoz' is up to date.
++ make test
+ls -l ;: For debugging.
+total 360
+-rw-r--r-- 1 root root    404 Nov 27 06:47 Makefile
+-rw-r--r-- 1 root root  27316 Nov 27 06:47 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:47 autom4te.cache
+-rw-r--r-- 1 root root     27 Nov 27 06:47 bot.in
+-rw-r--r-- 1 root root     19 Nov 27 06:47 bsd-style.mk
+-rwxr-xr-x 1 root root   7383 Nov 27 06:47 compile
+-rw-r--r-- 1 root root   5133 Nov 27 06:47 config.log
+-rwxr-xr-x 1 root root  26755 Nov 27 06:47 config.status
+-rwxr-xr-x 1 root root 105506 Nov 27 06:47 configure
+-rw-r--r-- 1 root root    149 Nov 27 06:47 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:47 depcomp
+-rw-r--r-- 1 root root     16 Nov 27 06:47 gnu-style.mk
+-rw-r--r-- 1 root root     33 Nov 27 06:47 incl.mk
+-rwxr-xr-x 1 root root  15368 Nov 27 06:47 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:47 missing
+-rw-r--r-- 1 root root     90 Nov 27 06:47 quux.am
+-rw-r--r-- 1 root root  17013 Nov 27 06:47 quux.in
+-rw-r--r-- 1 root root  60979 Nov 27 06:47 remake-mild-stress-1.0.tar.gz
+-rw-r--r-- 1 root root     13 Nov 27 06:47 top.in
+-rw-r--r-- 1 root root  17762 Nov 27 06:47 zardoz
+test x'dummy' = x'dummy'
++ echo 'FOO = $(BAR)'
++ is_gmake
+./t/remake-mild-stress.sh: line 143: is_gmake: command not found
++ make zardoz
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/missing automake-1.16 --foreign zardoz:top.in:quux.in:bot.in
+quux.am:5: warning: FOO multiply defined in condition TRUE ...
+quux.am:4: ... 'FOO' previously defined here
+ cd . && /bin/sh ./config.status zardoz 
+config.status: creating zardoz
+make: 'zardoz' is up to date.
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+test -d "remake-mild-stress-1.0" || mkdir "remake-mild-stress-1.0"
+test -n "" \
+|| find "remake-mild-stress-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-mild-stress-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+tardir=remake-mild-stress-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-mild-stress-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+case 'remake-mild-stress-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-mild-stress-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-mild-stress-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-mild-stress-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-mild-stress-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-mild-stress-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-mild-stress-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-mild-stress-1.0.zip ;;\
+esac
+chmod -R a-w remake-mild-stress-1.0
+chmod u+w remake-mild-stress-1.0
+mkdir remake-mild-stress-1.0/_build remake-mild-stress-1.0/_build/sub remake-mild-stress-1.0/_inst
+chmod a-w remake-mild-stress-1.0
+test -d remake-mild-stress-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-mild-stress-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-mild-stress-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-mild-stress-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating zardoz
+config.status: linking ../../Makefile to Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+ls -l . ../.. ;: For debugging.
+.:
+total 56
+lrwxrwxrwx 1 root root    14 Nov 27 06:47 Makefile -> ../../Makefile
+-rw-r--r-- 1 root root  5460 Nov 27 06:47 config.log
+-rwxr-xr-x 1 root root 27061 Nov 27 06:47 config.status
+-rw-r--r-- 1 root root 18138 Nov 27 06:47 zardoz
+
+../..:
+total 236
+-r--r--r-- 1 root root    404 Nov 27 06:47 Makefile
+drwxr-xr-x 3 root root   4096 Nov 27 06:47 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:47 _inst
+-r--r--r-- 1 root root  27316 Nov 27 06:47 aclocal.m4
+-r--r--r-- 1 root root     27 Nov 27 06:47 bot.in
+-r-xr-xr-x 1 root root   7383 Nov 27 06:47 compile
+-r-xr-xr-x 1 root root 105506 Nov 27 06:47 configure
+-r--r--r-- 1 root root    149 Nov 27 06:47 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:47 depcomp
+-r-xr-xr-x 1 root root  15368 Nov 27 06:47 install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:47 missing
+-r--r--r-- 1 root root    103 Nov 27 06:47 quux.am
+-r--r--r-- 1 root root  17014 Nov 27 06:47 quux.in
+-r--r--r-- 1 root root     13 Nov 27 06:47 top.in
+test -f ../../quux.am
+test -f ../../quux.in
+test -f ../../bot.in
+test -f ../../top.in
+test ! -r ../../zardoz.am
+test ! -r ../../zardoz.in
+grep FOO zardoz ;: For debugging.
+FOO = $(BAR)
+test x'%%MagicStringThree%%' = x'%%MagicStringThree%%'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+test -d "remake-mild-stress-1.0" || mkdir "remake-mild-stress-1.0"
+test -n "" \
+|| find "remake-mild-stress-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-mild-stress-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+tardir=remake-mild-stress-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-mild-stress-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "Makefile" || rm -f Makefile
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f zardoz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-mild-stress.dir/remake-mild-stress-1.0/_build/sub'
+if test -d "remake-mild-stress-1.0"; then find "remake-mild-stress-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-mild-stress-1.0" || { sleep 5 && rm -rf "remake-mild-stress-1.0"; }; else :; fi
+========================================================
+remake-mild-stress-1.0 archives ready for distribution: 
+remake-mild-stress-1.0.tar.gz
+========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-mild-stress.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-mild-stress.dir
++ set +x
+PASS t/remake-mild-stress.sh (exit status: 0)

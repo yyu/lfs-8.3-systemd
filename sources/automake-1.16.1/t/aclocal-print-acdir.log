@@ -1,0 +1,33 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-print-acdir.dir
++ aclocal-1.16 -Werror --print-ac-dir
+
+++ aclocal-1.16 -Werror --print-ac-dir
++ test '' = ''
++ aclocal-1.16 -Werror --system-acdir /bar --print-ac-dir
+/bar
+++ aclocal-1.16 -Werror --system-acdir /bar --print-ac-dir
++ test /bar = /bar
++ aclocal-1.16 -Werror --automake-acdir /bar --print-ac-dir
+
+++ aclocal-1.16 -Werror --automake-acdir /bar --print-ac-dir
++ test '' = ''
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-print-acdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-print-acdir.dir
++ set +x
+PASS t/aclocal-print-acdir.sh (exit status: 0)

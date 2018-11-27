@@ -1,0 +1,78 @@
+compile3: trying some XSI constructs with /bin/sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/compile3.dir
++ get_shell_script compile
++ am_source=compile
++ am_target=compile
++ test '!' -f compile
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/compile compile
++ sed 10q compile
+#! /bin/sh
+# Wrapper for compilers which do not understand '-c -o'.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1999-2018 Free Software Foundation, Inc.
+# Written by Tom Tromey <tromey@cygnus.com>.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
++ unset am_target am_source
++ cat
++ chmod +x ./cl
++ for sp in '' ' '
+++ LIB=
+++ ./compile ./cl foo.c -o foo -lbar -Lgazonk -Ibaz -Xlinker foobar -Wl,-foo,bar
++ opts='foo.c -Fefoo bar.lib -Ibaz -link -LIBPATH:gazonk foobar -foo bar'
++ test 'xfoo.c -Fefoo bar.lib -Ibaz -link -LIBPATH:gazonk foobar -foo bar' = 'xfoo.c -Fefoo bar.lib -Ibaz -link -LIBPATH:gazonk foobar -foo bar'
+++ ./compile ./cl -c foo.c -o foo.obj -Ibaz
++ opts='-c foo.c -Fofoo.obj -Ibaz'
++ test 'x-c foo.c -Fofoo.obj -Ibaz' = 'x-c foo.c -Fofoo.obj -Ibaz'
+++ ./compile ./cl -c foo.c -o foo.o -Ibaz
++ opts='-c foo.c -Fofoo.o -Ibaz'
++ test 'x-c foo.c -Fofoo.o -Ibaz' = 'x-c foo.c -Fofoo.o -Ibaz'
+++ ./compile ./cl -c foo.cc -o foo.o -Ibaz
++ opts='-c -Tpfoo.cc -Fofoo.o -Ibaz'
++ test 'x-c -Tpfoo.cc -Fofoo.o -Ibaz' = 'x-c -Tpfoo.cc -Fofoo.o -Ibaz'
+++ eat=1
+++ ./compile ./cl -c foo.c -o foo.obj -Ibaz
++ opts='-c foo.c -Fofoo.obj -Ibaz'
++ test 'x-c foo.c -Fofoo.obj -Ibaz' = 'x-c foo.c -Fofoo.obj -Ibaz'
++ for sp in '' ' '
+++ LIB=
+++ ./compile ./cl foo.c -o foo -l bar -L gazonk -I baz -Xlinker foobar -Wl,-foo,bar
++ opts='foo.c -Fefoo bar.lib -Ibaz -link -LIBPATH:gazonk foobar -foo bar'
++ test 'xfoo.c -Fefoo bar.lib -Ibaz -link -LIBPATH:gazonk foobar -foo bar' = 'xfoo.c -Fefoo bar.lib -Ibaz -link -LIBPATH:gazonk foobar -foo bar'
+++ ./compile ./cl -c foo.c -o foo.obj -I baz
++ opts='-c foo.c -Fofoo.obj -Ibaz'
++ test 'x-c foo.c -Fofoo.obj -Ibaz' = 'x-c foo.c -Fofoo.obj -Ibaz'
+++ ./compile ./cl -c foo.c -o foo.o -I baz
++ opts='-c foo.c -Fofoo.o -Ibaz'
++ test 'x-c foo.c -Fofoo.o -Ibaz' = 'x-c foo.c -Fofoo.o -Ibaz'
+++ ./compile ./cl -c foo.cc -o foo.o -I baz
++ opts='-c -Tpfoo.cc -Fofoo.o -Ibaz'
++ test 'x-c -Tpfoo.cc -Fofoo.o -Ibaz' = 'x-c -Tpfoo.cc -Fofoo.o -Ibaz'
+++ eat=1
+++ ./compile ./cl -c foo.c -o foo.obj -I baz
++ opts='-c foo.c -Fofoo.obj -Ibaz'
++ test 'x-c foo.c -Fofoo.obj -Ibaz' = 'x-c foo.c -Fofoo.obj -Ibaz'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/compile3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/compile3.dir
++ set +x
+PASS t/compile3.sh (exit status: 0)

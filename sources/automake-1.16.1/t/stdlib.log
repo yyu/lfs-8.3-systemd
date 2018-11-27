@@ -1,0 +1,71 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/stdlib.dir
++ cat
++ cat
++ cat
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: error: 'sub/foo' is not a standard library name
+Makefile.am:1: did you mean 'sub/libfoo.a'?
+automake-1.16: warning: source file 'sub/foo.c' is in a subdirectory,
+automake-1.16: but option 'subdir-objects' is disabled
+Makefile.am:1:   while processing library 'sub/foo'
+automake-1.16: warning: possible forward-incompatibility.
+automake-1.16: At least a source file is in a subdirectory, but the 'subdir-objects'
+automake-1.16: automake option hasn't been enabled.  For now, the corresponding output
+automake-1.16: object file(s) will be placed in the top-level directory.  However,
+automake-1.16: this behaviour will change in future Automake versions: they will
+automake-1.16: unconditionally cause object files to be placed in the same subdirectory
+automake-1.16: of the corresponding sources.
+automake-1.16: You are advised to start using 'subdir-objects' option throughout your
+automake-1.16: project, to avoid future incompatibilities.
+foo.mk:5: error: 'zardoz.a' is not a standard library name
+foo.mk:5: did you mean 'libzardoz.a'?
+Makefile.am:2:   'foo.mk' included from here
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ badname='not a standard library name'
++ grep '^Makefile\.am:1:.*'\''sub/foo'\''.*not a standard library name' stderr
+Makefile.am:1: error: 'sub/foo' is not a standard library name
++ grep '^Makefile\.am:1:.*sub/libfoo\.a' stderr
+Makefile.am:1: did you mean 'sub/libfoo.a'?
++ grep '^foo\.mk:5:.*'\''zardoz\.a'\''.*not a standard library name' stderr
+foo.mk:5: error: 'zardoz.a' is not a standard library name
++ grep '^foo\.mk:5:.*libzardoz\.a' stderr
+foo.mk:5: did you mean 'libzardoz.a'?
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/stdlib.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/stdlib.dir
++ set +x
+PASS t/stdlib.sh (exit status: 0)

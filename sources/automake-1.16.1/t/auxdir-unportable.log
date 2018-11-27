@@ -1,0 +1,154 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/auxdir-unportable.dir
++ plan_ 4
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x4 = xunknown
++ test x4 = xlater
++ test x4 = xlazy
++ test x4 = xnow
++ test 4 -ge 0
++ planned_=4
++ echo 1..4
+1..4
++ cat
++ :
++ aclocal-1.16 -Werror
++ am_warn_unportable_auxdir non-existent
++ details=non-existent
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: required directory ./aux does not exist
+automake-1.16: warnings are treated as errors
+configure.ac:2: warning: name 'aux' is reserved on W32 and DOS platforms
+configure.ac:3: error: required file 'aux/install-sh' not found
+configure.ac:3:   'automake --add-missing' can install 'install-sh'
+configure.ac:3: error: required file 'aux/missing' not found
+configure.ac:3:   'automake --add-missing' can install 'missing'
++ cat stdout
++ test tap = none
++ test -z ''
++ test 1 -eq 1
++ am__desc='automake exited 1'
++ command_ok_ 'automake exited 1' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake exited 1'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'automake exited 1'
++ set +x
+ok 1 - automake exited 1
+PASS: t/auxdir-unportable.tap 1 - automake exited 1
++ command_ok_ 'warn about non-existent unportable auxdir name' grep '^configure\.ac:2:.*aux.*W32' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='warn about non-existent unportable auxdir name'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep '^configure\.ac:2:.*aux.*W32' stderr
+configure.ac:2: warning: name 'aux' is reserved on W32 and DOS platforms
++ result_ ok -D '' -r '' -- 'warn about non-existent unportable auxdir name'
++ set +x
+ok 2 - warn about non-existent unportable auxdir name
+PASS: t/auxdir-unportable.tap 2 - warn about non-existent unportable auxdir name
++ mkdir aux
++ am_warn_unportable_auxdir existent
++ details=existent
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+configure.ac:2: warning: name 'aux' is reserved on W32 and DOS platforms
+configure.ac:3: error: required file 'aux/install-sh' not found
+configure.ac:3:   'automake --add-missing' can install 'install-sh'
+configure.ac:3: error: required file 'aux/missing' not found
+configure.ac:3:   'automake --add-missing' can install 'missing'
++ cat stdout
++ test tap = none
++ test -z ''
++ test 1 -eq 1
++ am__desc='automake exited 1'
++ command_ok_ 'automake exited 1' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake exited 1'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'automake exited 1'
++ set +x
+ok 3 - automake exited 1
+PASS: t/auxdir-unportable.tap 3 - automake exited 1
++ command_ok_ 'warn about existent unportable auxdir name' grep '^configure\.ac:2:.*aux.*W32' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='warn about existent unportable auxdir name'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep '^configure\.ac:2:.*aux.*W32' stderr
+configure.ac:2: warning: name 'aux' is reserved on W32 and DOS platforms
++ result_ ok -D '' -r '' -- 'warn about existent unportable auxdir name'
++ set +x
+ok 4 - warn about existent unportable auxdir name
+PASS: t/auxdir-unportable.tap 4 - warn about existent unportable auxdir name
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 4 = later
++ test 0 -eq 0
++ test 4 -eq 4
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/auxdir-unportable.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/auxdir-unportable.dir
++ set +x

@@ -1,0 +1,407 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subobj11a.dir
++ cat
++ cat
++ mkdir src
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ ./configure --enable-dependency-tracking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+++ sed -n 's/^ *DEPDIR *= *//p' Makefile
++ depdir=.deps
++ test x.deps '!=' x
++ depdir=src/.deps
++ ls -l src/.deps
+total 4
+-rw-r--r-- 1 root root 8 Nov 27 06:49 foo.Po
++ test -f src/.deps/foo.Po
++ echo 'quux:; echo "z@rd@z" >$@'
++ make quux
+echo "z@rd@z" >quux
++ /bin/grep -F z@rd@z quux
+z@rd@z
++ make
+depbase=`echo src/foo.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj11a\" -DPACKAGE_TARNAME=\"subobj11a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj11a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj11a\" -DVERSION=\"1.0\" -I.     -g -O2 -MT src/foo.o -MD -MP -MF $depbase.Tpo -c -o src/foo.o src/foo.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o foo .//src/foo.o  
++ DISTCHECK_CONFIGURE_FLAGS=--enable-dependency-tracking
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+test -d "subobj11a-1.0" || mkdir "subobj11a-1.0"
+test -n "" \
+|| find "subobj11a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subobj11a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subobj11a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir'
+tardir=subobj11a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >subobj11a-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+case 'subobj11a-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc subobj11a-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc subobj11a-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc subobj11a-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc subobj11a-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c subobj11a-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc subobj11a-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip subobj11a-1.0.zip ;;\
+esac
+chmod -R a-w subobj11a-1.0
+chmod u+w subobj11a-1.0
+mkdir subobj11a-1.0/_build subobj11a-1.0/_build/sub subobj11a-1.0/_inst
+chmod a-w subobj11a-1.0
+test -d subobj11a-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd subobj11a-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd subobj11a-1.0/_build/sub \
+  && ../../configure \
+     \
+    --enable-dependency-tracking \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf subobj11a-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+depbase=`echo src/foo.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj11a\" -DPACKAGE_TARNAME=\"subobj11a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj11a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj11a\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT src/foo.o -MD -MP -MF $depbase.Tpo -c -o src/foo.o ../../src/foo.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o foo .//src/foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+  /usr/bin/install -c foo '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-13278//sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+  /usr/bin/install -c foo '/tmp/am-dc-13278//sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ ( cd '/tmp/am-dc-13278//sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+test -d "subobj11a-1.0" || mkdir "subobj11a-1.0"
+test -n "" \
+|| find "subobj11a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subobj11a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+tardir=subobj11a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >subobj11a-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f .//src/*.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f src/.deps/.dirstamp
+rm -f src/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./src/.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+===============================================
+subobj11a-1.0 archives ready for distribution: 
+subobj11a-1.0.tar.gz
+===============================================
++ DISTCHECK_CONFIGURE_FLAGS=--disable-dependency-tracking
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+test -d "subobj11a-1.0" || mkdir "subobj11a-1.0"
+test -n "" \
+|| find "subobj11a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subobj11a.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subobj11a-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir'
+tardir=subobj11a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >subobj11a-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+case 'subobj11a-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc subobj11a-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc subobj11a-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc subobj11a-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc subobj11a-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c subobj11a-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc subobj11a-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip subobj11a-1.0.zip ;;\
+esac
+chmod -R a-w subobj11a-1.0
+chmod u+w subobj11a-1.0
+mkdir subobj11a-1.0/_build subobj11a-1.0/_build/sub subobj11a-1.0/_inst
+chmod a-w subobj11a-1.0
+test -d subobj11a-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd subobj11a-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd subobj11a-1.0/_build/sub \
+  && ../../configure \
+     \
+    --disable-dependency-tracking \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf subobj11a-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"subobj11a\" -DPACKAGE_TARNAME=\"subobj11a\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj11a\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj11a\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -c -o src/foo.o ../../src/foo.c
+cc  -g -O2   -o foo .//src/foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+  /usr/bin/install -c foo '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-15792//sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+  /usr/bin/install -c foo '/tmp/am-dc-15792//sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+ ( cd '/tmp/am-dc-15792//sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+test -d "subobj11a-1.0" || mkdir "subobj11a-1.0"
+test -n "" \
+|| find "subobj11a-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subobj11a-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+tardir=subobj11a-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >subobj11a-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f .//src/*.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f src/.deps/.dirstamp
+rm -f src/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./src/.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj11a.dir/subobj11a-1.0/_build/sub'
+if test -d "subobj11a-1.0"; then find "subobj11a-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj11a-1.0" || { sleep 5 && rm -rf "subobj11a-1.0"; }; else :; fi
+===============================================
+subobj11a-1.0 archives ready for distribution: 
+subobj11a-1.0.tar.gz
+===============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subobj11a.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subobj11a.dir
++ set +x
+PASS t/subobj11a.sh (exit status: 0)

@@ -1,0 +1,475 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-fancy.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+PASS: all.test 1 ? a question
+FAIL: all.test 2 ? a question
+PASS: all.test 3 +plus
+FAIL: all.test 4 +plus
+PASS: all.test 5 -minus
+FAIL: all.test 6 -minus
+PASS: all.test 7 #55
+FAIL: all.test 8 #55
+PASS: all.test 9
+PASS: all.test 10
+FAIL: all.test 11
+FAIL: all.test 12
+SKIP: all.test 13 # SKIP
+SKIP: all.test 14 # SKIP --who cares?
+SKIP: all.test 15 ? # SKIP !
+SKIP: all.test 16 ! # SKIP ?
+XFAIL: all.test 17 # TODO
+XFAIL: all.test 18 # TODO --who cares?
+XFAIL: all.test 19 ? # TODO !
+XFAIL: all.test 20 ! # TODO ?
+XPASS: all.test 21 ~ # TODO
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 21
+# PASS:  6
+# SKIP:  4
+# XFAIL: 4
+# FAIL:  6
+# XPASS: 1
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=21 pass=6 fail=6 xfail=4 xpass=1 skip=4 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=21 pass=6 fail=6 xfail=4 xpass=1 skip=4 error=0
+++ total=21
+++ pass=6
+++ fail=6
+++ xfail=4
+++ xpass=1
+++ skip=4
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1 ? a question
+FAIL: all.test 2 ? a question
+PASS: all.test 3 +plus
+FAIL: all.test 4 +plus
+PASS: all.test 5 -minus
+FAIL: all.test 6 -minus
+PASS: all.test 7 #55
+FAIL: all.test 8 #55
+PASS: all.test 9
+PASS: all.test 10
+FAIL: all.test 11
+FAIL: all.test 12
+SKIP: all.test 13 # SKIP
+SKIP: all.test 14 # SKIP --who cares?
+SKIP: all.test 15 ? # SKIP !
+SKIP: all.test 16 ! # SKIP ?
+XFAIL: all.test 17 # TODO
+XFAIL: all.test 18 # TODO --who cares?
+XFAIL: all.test 19 ? # TODO !
+XFAIL: all.test 20 ! # TODO ?
+XPASS: all.test 21 ~ # TODO
+# TOTAL: 21
+# PASS:  6
+# SKIP:  4
+# XFAIL: 4
+# FAIL:  6
+# XPASS: 1
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 6 -eq 6
+++ grep -c '^XFAIL:' stdout
++ test 4 -eq 4
+++ grep -c '^SKIP:' stdout
++ test 4 -eq 4
+++ grep -c '^FAIL:' stdout
++ test 6 -eq 6
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *21$' stdout
+# TOTAL: 21
++ grep '^# PASS:  *6$' stdout
+# PASS:  6
++ grep '^# XFAIL:  *4$' stdout
+# XFAIL: 4
++ grep '^# SKIP:  *4$' stdout
+# SKIP:  4
++ grep '^# FAIL:  *6$' stdout
+# FAIL:  6
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ weirdchars=''\''"$!&()[]<>;^?*/@%=,.:'
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+PASS: all.test 1 '"$!&()[]<>;^?*/@%=,.:
+FAIL: all.test 2 '"$!&()[]<>;^?*/@%=,.:
+XPASS: all.test 3 '"$!&()[]<>;^?*/@%=,.: # TODO
+XFAIL: all.test 4 '"$!&()[]<>;^?*/@%=,.: # TODO
+SKIP: all.test 5 '"$!&()[]<>;^?*/@%=,.: # SKIP
+ERROR: all.test - Bail out! '"$!&()[]<>;^?*/@%=,.:
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=6 pass=1 fail=1 xfail=1 xpass=1 skip=1 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=6 pass=1 fail=1 xfail=1 xpass=1 skip=1 error=1
+++ total=6
+++ pass=1
+++ fail=1
+++ xfail=1
+++ xpass=1
+++ skip=1
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1 '"$!&()[]<>;^?*/@%=,.:
+FAIL: all.test 2 '"$!&()[]<>;^?*/@%=,.:
+XPASS: all.test 3 '"$!&()[]<>;^?*/@%=,.: # TODO
+XFAIL: all.test 4 '"$!&()[]<>;^?*/@%=,.: # TODO
+SKIP: all.test 5 '"$!&()[]<>;^?*/@%=,.: # SKIP
+ERROR: all.test - Bail out! '"$!&()[]<>;^?*/@%=,.:
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *6$' stdout
+# TOTAL: 6
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ /bin/grep -F 'PASS: all.test 1 '\''"$!&()[]<>;^?*/@%=,.:' stdout
+PASS: all.test 1 '"$!&()[]<>;^?*/@%=,.:
++ /bin/grep -F 'FAIL: all.test 2 '\''"$!&()[]<>;^?*/@%=,.:' stdout
+FAIL: all.test 2 '"$!&()[]<>;^?*/@%=,.:
++ /bin/grep -F 'XPASS: all.test 3 '\''"$!&()[]<>;^?*/@%=,.:' stdout
+XPASS: all.test 3 '"$!&()[]<>;^?*/@%=,.: # TODO
++ /bin/grep -F 'XFAIL: all.test 4 '\''"$!&()[]<>;^?*/@%=,.:' stdout
+XFAIL: all.test 4 '"$!&()[]<>;^?*/@%=,.: # TODO
++ /bin/grep -F 'SKIP: all.test 5 '\''"$!&()[]<>;^?*/@%=,.:' stdout
+SKIP: all.test 5 '"$!&()[]<>;^?*/@%=,.: # SKIP
++ /bin/grep -F 'ERROR: all.test - Bail out! '\''"$!&()[]<>;^?*/@%=,.:' stdout
+ERROR: all.test - Bail out! '"$!&()[]<>;^?*/@%=,.:
++ bs='\'
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+PASS: all.test 1 \
+FAIL: all.test 2 \
+XPASS: all.test 3 # TODO \
+XFAIL: all.test 4 # TODO \
+SKIP: all.test 5 # SKIP \
+ERROR: all.test - Bail out! \
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-fancy.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=6 pass=1 fail=1 xfail=1 xpass=1 skip=1 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=6 pass=1 fail=1 xfail=1 xpass=1 skip=1 error=1
+++ total=6
+++ pass=1
+++ fail=1
+++ xfail=1
+++ xpass=1
+++ skip=1
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1 \
+FAIL: all.test 2 \
+XPASS: all.test 3 # TODO \
+XFAIL: all.test 4 # TODO \
+SKIP: all.test 5 # SKIP \
+ERROR: all.test - Bail out! \
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 1 -eq 1
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *6$' stdout
+# TOTAL: 6
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *1$' stdout
+# XPASS: 1
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^PASS: all\.test 1 \\$' stdout
+PASS: all.test 1 \
++ grep '^FAIL: all\.test 2 \\$' stdout
+FAIL: all.test 2 \
++ grep '^XPASS: all\.test 3 # TODO \\$' stdout
+XPASS: all.test 3 # TODO \
++ grep '^XFAIL: all\.test 4 # TODO \\$' stdout
+XFAIL: all.test 4 # TODO \
++ grep '^SKIP: all\.test 5 # SKIP \\$' stdout
+SKIP: all.test 5 # SKIP \
++ grep '^ERROR: all\.test - Bail out! \\$' stdout
+ERROR: all.test - Bail out! \
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-fancy.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-fancy.dir
++ set +x
+PASS t/tap-fancy.sh (exit status: 0)

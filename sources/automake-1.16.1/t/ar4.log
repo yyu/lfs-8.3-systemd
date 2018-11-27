@@ -1,0 +1,56 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ar4.dir
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ st=0
++ ./configure AR=/bin/false
++ st=1
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking the archiver (/bin/false) interface... unknown
++ cat stderr
+configure: error: could not determine /bin/false interface
++ test 1 -eq 1
++ grep '^checking.* archiver .*interface.*\.\.\. unknown' stdout
+checking the archiver (/bin/false) interface... unknown
++ grep '^configure: error: could not determine /bin/false interface' stderr
+configure: error: could not determine /bin/false interface
++ ls '*conftest*'
+ls: cannot access '*conftest*': No such file or directory
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ar4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ar4.dir
++ set +x
+PASS t/ar4.sh (exit status: 0)

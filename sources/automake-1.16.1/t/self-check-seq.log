@@ -1,0 +1,492 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/self-check-seq.dir
++ plan_ 14
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x14 = xunknown
++ test x14 = xlater
++ test x14 = xlazy
++ test x14 = xnow
++ test 14 -ge 0
++ planned_=14
++ echo 1..14
+1..14
++ unset stderr_fileno_
++ check_work 'one-argument form' 5 '1
+2
+3
+4
+5'
++ desc='one-argument form'
++ args=5
++ exp='1
+2
+3
+4
+5'
++ st=0
+++ seq_ 5
+++ case $# in
+++ seq_first=1
+++ seq_incr=1
+++ seq_last=5
+++ i=1
+++ test 1 -le 5
+++ echo 1
+++ i=2
+++ test 2 -le 5
+++ echo 2
+++ i=3
+++ test 3 -le 5
+++ echo 3
+++ i=4
+++ test 4 -le 5
+++ echo 4
+++ i=5
+++ test 5 -le 5
+++ echo 5
+++ i=6
+++ test 6 -le 5
++ got='1
+2
+3
+4
+5'
++ command_ok_ 'one-argument form [exit status = 0]' test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='one-argument form [exit status = 0]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'one-argument form [exit status = 0]'
++ set +x
+ok 1 - one-argument form [exit status = 0]
+PASS: t/self-check-seq.tap 1 - one-argument form [exit status = 0]
++ command_ok_ 'one-argument form [output]' test 'x1
+2
+3
+4
+5' = 'x1
+2
+3
+4
+5'
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='one-argument form [output]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 'x1
+2
+3
+4
+5' = 'x1
+2
+3
+4
+5'
++ result_ ok -D '' -r '' -- 'one-argument form [output]'
++ set +x
+ok 2 - one-argument form [output]
+PASS: t/self-check-seq.tap 2 - one-argument form [output]
++ check_work 'two-arguments form' '7 11' '7
+8
+9
+10
+11'
++ desc='two-arguments form'
++ args='7 11'
++ exp='7
+8
+9
+10
+11'
++ st=0
+++ seq_ 7 11
+++ case $# in
+++ seq_first=7
+++ seq_incr=1
+++ seq_last=11
+++ i=7
+++ test 7 -le 11
+++ echo 7
+++ i=8
+++ test 8 -le 11
+++ echo 8
+++ i=9
+++ test 9 -le 11
+++ echo 9
+++ i=10
+++ test 10 -le 11
+++ echo 10
+++ i=11
+++ test 11 -le 11
+++ echo 11
+++ i=12
+++ test 12 -le 11
++ got='7
+8
+9
+10
+11'
++ command_ok_ 'two-arguments form [exit status = 0]' test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='two-arguments form [exit status = 0]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'two-arguments form [exit status = 0]'
++ set +x
+ok 3 - two-arguments form [exit status = 0]
+PASS: t/self-check-seq.tap 3 - two-arguments form [exit status = 0]
++ command_ok_ 'two-arguments form [output]' test 'x7
+8
+9
+10
+11' = 'x7
+8
+9
+10
+11'
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='two-arguments form [output]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 'x7
+8
+9
+10
+11' = 'x7
+8
+9
+10
+11'
++ result_ ok -D '' -r '' -- 'two-arguments form [output]'
++ set +x
+ok 4 - two-arguments form [output]
+PASS: t/self-check-seq.tap 4 - two-arguments form [output]
++ check_work 'three-arguments form (1)' '120 5 135' '120
+125
+130
+135'
++ desc='three-arguments form (1)'
++ args='120 5 135'
++ exp='120
+125
+130
+135'
++ st=0
+++ seq_ 120 5 135
+++ case $# in
+++ seq_first=120
+++ seq_incr=5
+++ seq_last=135
+++ i=120
+++ test 120 -le 135
+++ echo 120
+++ i=125
+++ test 125 -le 135
+++ echo 125
+++ i=130
+++ test 130 -le 135
+++ echo 130
+++ i=135
+++ test 135 -le 135
+++ echo 135
+++ i=140
+++ test 140 -le 135
++ got='120
+125
+130
+135'
++ command_ok_ 'three-arguments form (1) [exit status = 0]' test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='three-arguments form (1) [exit status = 0]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'three-arguments form (1) [exit status = 0]'
++ set +x
+ok 5 - three-arguments form (1) [exit status = 0]
+PASS: t/self-check-seq.tap 5 - three-arguments form (1) [exit status = 0]
++ command_ok_ 'three-arguments form (1) [output]' test 'x120
+125
+130
+135' = 'x120
+125
+130
+135'
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='three-arguments form (1) [output]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 'x120
+125
+130
+135' = 'x120
+125
+130
+135'
++ result_ ok -D '' -r '' -- 'three-arguments form (1) [output]'
++ set +x
+ok 6 - three-arguments form (1) [output]
+PASS: t/self-check-seq.tap 6 - three-arguments form (1) [output]
++ check_work 'three-arguments form (1)' '13 4 23' '13
+17
+21'
++ desc='three-arguments form (1)'
++ args='13 4 23'
++ exp='13
+17
+21'
++ st=0
+++ seq_ 13 4 23
+++ case $# in
+++ seq_first=13
+++ seq_incr=4
+++ seq_last=23
+++ i=13
+++ test 13 -le 23
+++ echo 13
+++ i=17
+++ test 17 -le 23
+++ echo 17
+++ i=21
+++ test 21 -le 23
+++ echo 21
+++ i=25
+++ test 25 -le 23
++ got='13
+17
+21'
++ command_ok_ 'three-arguments form (1) [exit status = 0]' test 0 -eq 0
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='three-arguments form (1) [exit status = 0]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'three-arguments form (1) [exit status = 0]'
++ set +x
+ok 7 - three-arguments form (1) [exit status = 0]
+PASS: t/self-check-seq.tap 7 - three-arguments form (1) [exit status = 0]
++ command_ok_ 'three-arguments form (1) [output]' test 'x13
+17
+21' = 'x13
+17
+21'
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='three-arguments form (1) [output]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 'x13
+17
+21' = 'x13
+17
+21'
++ result_ ok -D '' -r '' -- 'three-arguments form (1) [output]'
++ set +x
+ok 8 - three-arguments form (1) [output]
+PASS: t/self-check-seq.tap 8 - three-arguments form (1) [output]
++ check_err 'no argument is an error' '' 'missing argument'
++ desc='no argument is an error'
++ args=
++ err='missing argument'
++ seq_
++ case $# in
++ fatal_ 'seq_: missing argument'
++ bailout_ 'seq_: missing argument'
++ echo 'Bail out!' 'seq_: missing argument'
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ st=99
++ sed 's/^/: /' output
+: Bail out! seq_: missing argument
++ command_ok_ 'no argument is an error [exit status = 99]' test 99 -eq 99
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='no argument is an error [exit status = 99]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 99 -eq 99
++ result_ ok -D '' -r '' -- 'no argument is an error [exit status = 99]'
++ set +x
+ok 9 - no argument is an error [exit status = 99]
+PASS: t/self-check-seq.tap 9 - no argument is an error [exit status = 99]
++ command_ok_ 'no argument is an error [error message]' grep -c 'seq_: missing argument' output
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='no argument is an error [error message]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep -c 'seq_: missing argument' output
+1
++ result_ ok -D '' -r '' -- 'no argument is an error [error message]'
++ set +x
+ok 10 - no argument is an error [error message]
+PASS: t/self-check-seq.tap 10 - no argument is an error [error message]
++ check_err 'four arguments is an error' '1 1 2 1' 'too many arguments'
++ desc='four arguments is an error'
++ args='1 1 2 1'
++ err='too many arguments'
++ seq_ 1 1 2 1
++ case $# in
++ fatal_ 'seq_: too many arguments'
++ bailout_ 'seq_: too many arguments'
++ echo 'Bail out!' 'seq_: too many arguments'
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ st=99
++ sed 's/^/: /' output
+: Bail out! seq_: too many arguments
++ command_ok_ 'four arguments is an error [exit status = 99]' test 99 -eq 99
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='four arguments is an error [exit status = 99]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 99 -eq 99
++ result_ ok -D '' -r '' -- 'four arguments is an error [exit status = 99]'
++ set +x
+ok 11 - four arguments is an error [exit status = 99]
+PASS: t/self-check-seq.tap 11 - four arguments is an error [exit status = 99]
++ command_ok_ 'four arguments is an error [error message]' grep -c 'seq_: too many arguments' output
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='four arguments is an error [error message]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep -c 'seq_: too many arguments' output
+1
++ result_ ok -D '' -r '' -- 'four arguments is an error [error message]'
++ set +x
+ok 12 - four arguments is an error [error message]
+PASS: t/self-check-seq.tap 12 - four arguments is an error [error message]
++ check_err 'six arguments is an error' '1 1 1 1 1 1' 'too many arguments'
++ desc='six arguments is an error'
++ args='1 1 1 1 1 1'
++ err='too many arguments'
++ seq_ 1 1 1 1 1 1
++ case $# in
++ fatal_ 'seq_: too many arguments'
++ bailout_ 'seq_: too many arguments'
++ echo 'Bail out!' 'seq_: too many arguments'
++ _am_exit 99
++ set +e
++ test 77 = 99
++ exit 99
++ exit 99
++ st=99
++ sed 's/^/: /' output
+: Bail out! seq_: too many arguments
++ command_ok_ 'six arguments is an error [exit status = 99]' test 99 -eq 99
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='six arguments is an error [exit status = 99]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 99 -eq 99
++ result_ ok -D '' -r '' -- 'six arguments is an error [exit status = 99]'
++ set +x
+ok 13 - six arguments is an error [exit status = 99]
+PASS: t/self-check-seq.tap 13 - six arguments is an error [exit status = 99]
++ command_ok_ 'six arguments is an error [error message]' grep -c 'seq_: too many arguments' output
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='six arguments is an error [error message]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep -c 'seq_: too many arguments' output
+1
++ result_ ok -D '' -r '' -- 'six arguments is an error [error message]'
++ set +x
+ok 14 - six arguments is an error [error message]
+PASS: t/self-check-seq.tap 14 - six arguments is an error [error message]
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 14 = later
++ test 0 -eq 0
++ test 14 -eq 14
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/self-check-seq.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/self-check-seq.dir
++ set +x

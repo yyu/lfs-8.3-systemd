@@ -1,0 +1,5 @@
+AC_INIT([auxdir-pr19311], [1.0])
+AC_PROG_CC
+AC_CONFIG_AUX_DIR([build-aux])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([Makefile])

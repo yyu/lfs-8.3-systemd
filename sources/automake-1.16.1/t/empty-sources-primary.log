@@ -1,0 +1,115 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/empty-sources-primary.dir
++ plan_ 5
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x5 = xunknown
++ test x5 = xlater
++ test x5 = xlazy
++ test x5 = xnow
++ test 5 -ge 0
++ planned_=5
++ echo 1..5
+1..5
++ cat
++ cat
++ command_ok_ aclocal aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=aclocal
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- aclocal
++ set +x
+ok 1 - aclocal
+PASS: t/empty-sources-primary.tap 1 - aclocal
++ command_ok_ automake automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=automake
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- automake
++ set +x
+ok 2 - automake
+PASS: t/empty-sources-primary.tap 2 - automake
++ command_ok_ 'default _SOURCES' /bin/grep -F ' pavel.c' Makefile.in
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='default _SOURCES'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/grep -F ' pavel.c' Makefile.in
+pavel_SOURCES = pavel.c
+SOURCES = pavel.c $(pavel2_SOURCES) $(zoo_SOURCES) \
+DIST_SOURCES = pavel.c $(pavel2_SOURCES) $(zoo_SOURCES) \
++ result_ ok -D '' -r '' -- 'default _SOURCES'
++ set +x
+ok 3 - default _SOURCES
+PASS: t/empty-sources-primary.tap 3 - default _SOURCES
++ command_ok_ 'empty _SOURCES (basic)' not /bin/grep -F pavel2. Makefile.in
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='empty _SOURCES (basic)'
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not /bin/grep -F pavel2. Makefile.in
++ /bin/grep -F pavel2. Makefile.in
++ result_ ok -D '' -r '' -- 'empty _SOURCES (basic)'
++ set +x
+ok 4 - empty _SOURCES (basic)
+PASS: t/empty-sources-primary.tap 4 - empty _SOURCES (basic)
++ command_ok_ 'empty _SOURCES (elaborate)' not /bin/grep -F zoo. Makefile.in
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='empty _SOURCES (elaborate)'
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not /bin/grep -F zoo. Makefile.in
++ /bin/grep -F zoo. Makefile.in
++ result_ ok -D '' -r '' -- 'empty _SOURCES (elaborate)'
++ set +x
+ok 5 - empty _SOURCES (elaborate)
+PASS: t/empty-sources-primary.tap 5 - empty _SOURCES (elaborate)
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 5 = later
++ test 0 -eq 0
++ test 5 -eq 5
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/empty-sources-primary.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/empty-sources-primary.dir
++ set +x

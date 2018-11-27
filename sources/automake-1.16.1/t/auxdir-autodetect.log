@@ -1,0 +1,207 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/auxdir-autodetect.dir
++ nil=__no_such_program
++ unset NONESUCH
++ cat
++ mkdir d3
++ mkdir d3/d2
++ mkdir d3/d2/d1
++ mkdir d3/d2/d1/d0
++ echo 'echo %%d3%% $*'
++ chmod +x d3/missing
++ echo 'echo %%d2%% $*'
++ chmod +x d3/d2/missing
++ echo 'echo %%d1%% $*'
++ chmod +x d3/d2/d1/missing
++ echo 'echo %%d0%% $*'
++ chmod +x d3/d2/d1/d0/missing
++ mv configure.ac d3/d2/d1/d0/
++ cd d3/d2/d1/d0
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ : We must end up with AC_CONFIG_AUX_DIR = .
++ :
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+%%d0%% --is-lightweight
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ out=out0
++ make test
+/bin/sh /sources/automake-1.16.1/t/auxdir-autodetect.dir/d3/d2/d1/d0/missing __no_such_program >out0
++ cat out0
+%%d0%% __no_such_program
++ grep '%%d0%%.*__no_such_program' out0
+%%d0%% __no_such_program
++ grep '%%d[123]' out0
++ rm -f missing install-sh
++ : We must end up with AC_CONFIG_AUX_DIR = ..
++ :
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: required file './missing' not found
+configure.ac:2:   'automake --add-missing' can install 'missing'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*[^.]\./missing.*not found' stderr
+configure.ac:2: error: required file './missing' not found
++ rm -f install-sh
++ :
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+%%d1%% --is-lightweight
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ out=out1
++ make test
+/bin/sh /sources/automake-1.16.1/t/auxdir-autodetect.dir/d3/d2/d1/missing __no_such_program >out1
++ cat out1
+%%d1%% __no_such_program
++ grep '%%d1%%.*__no_such_program' out1
+%%d1%% __no_such_program
++ grep '%%d[023]' out1
++ rm -f ../missing ../install-sh
++ : We must end up with AC_CONFIG_AUX_DIR = ../..
++ :
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: required file './missing' not found
+configure.ac:2:   'automake --add-missing' can install 'missing'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*[^.]\./missing.*not found' stderr
+configure.ac:2: error: required file './missing' not found
++ rm -f install-sh
++ :
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: required file '../missing' not found
+configure.ac:2:   'automake --add-missing' can install 'missing'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*[^.]\.\./missing.*not found' stderr
+configure.ac:2: error: required file '../missing' not found
++ rm -f ../install-sh
++ :
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+%%d2%% --is-lightweight
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ out=out2
++ make test
+/bin/sh /sources/automake-1.16.1/t/auxdir-autodetect.dir/d3/d2/missing __no_such_program >out2
++ cat out2
+%%d2%% __no_such_program
++ grep '%%d2%%.*__no_such_program' out2
+%%d2%% __no_such_program
++ grep '%%d[013]' out2
++ rm -f ../../missing ../../install-sh
++ : AC_CONFIG_AUX_DIR will not be found: Automake must fail
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: required file './install-sh' not found
+configure.ac:2:   'automake --add-missing' can install 'install-sh'
+configure.ac:2: error: required file './missing' not found
+configure.ac:2:   'automake --add-missing' can install 'missing'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*missing.*not found' stderr
+configure.ac:2: error: required file './missing' not found
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/auxdir-autodetect.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/auxdir-autodetect.dir
++ set +x
+PASS t/auxdir-autodetect.sh (exit status: 0)

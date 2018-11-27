@@ -1,0 +1,745 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ rm -f config.log
++ log_files='test-suite.log foo.log bar.log'
++ for targ in check recheck $log_files
++ make -n check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+list='foo.log bar.log';           test -z "$list" || rm -f $list
+list='foo.trs bar.trs'; test -z "$list" || rm -f $list
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+trs_list=`for i in $bases; do echo $i.trs; done`; \
+log_list=`echo $log_list`; trs_list=`echo $trs_list`; \
+make  test-suite.log TEST_LOGS="$log_list"; \
+exit $?;
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='bar.test'; \
+case 'bar.log' in */*) case 'bar' in */*) b='bar';; *) b=`echo 'bar.log' | sed 's/\.log$//'`; esac;; *) b='bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "bar.log" in */*) am__odir=`echo "./bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='bar.test'; \
+case 'bar.log' in */*) case 'bar' in */*) b='bar';; *) b=`echo 'bar.log' | sed 's/\.log$//'`; esac;; *) b='bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "bar.log" in */*) am__odir=`echo "./bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "parallel-tests-dry-run-1 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for parallel-tests-dry-run-1 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
++ none_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -r test-suite.log
++ test -f test-suite.log
++ for i in $*
++ test -r foo.log
++ test -f foo.log
++ for i in $*
++ test -r bar.log
++ test -f bar.log
++ test 0 -eq 0
++ for targ in check recheck $log_files
++ make -n recheck
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+bases=`for i in $bases; do echo $i; done \
+         | gawk '{ recheck = 1; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) { if ((getline line2 < ($0 ".log")) < 0) recheck = 0; break; } else if (line ~ /^[ 	]*:recheck:[ 	]*[nN][Oo]/) { recheck = 0; break; } else if (line ~ /^[ 	]*:recheck:[ 	]*[yY][eE][sS]/) { break; } }; if (recheck) print $0; close ($0 ".trs"); close ($0 ".log"); }'` || exit 1; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+log_list=`echo $log_list`; \
+make  test-suite.log \
+        am__force_recheck=am--force-recheck \
+        TEST_LOGS="$log_list"; \
+exit $?
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+bases=''; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases=''; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "parallel-tests-dry-run-1 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for parallel-tests-dry-run-1 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
++ none_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -r test-suite.log
++ test -f test-suite.log
++ for i in $*
++ test -r foo.log
++ test -f foo.log
++ for i in $*
++ test -r bar.log
++ test -f bar.log
++ test 0 -eq 0
++ for targ in check recheck $log_files
++ make -n test-suite.log
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='bar.test'; \
+case 'bar.log' in */*) case 'bar' in */*) b='bar';; *) b=`echo 'bar.log' | sed 's/\.log$//'`; esac;; *) b='bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "bar.log" in */*) am__odir=`echo "./bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+p='bar.test'; \
+case 'bar.log' in */*) case 'bar' in */*) b='bar';; *) b=`echo 'bar.log' | sed 's/\.log$//'`; esac;; *) b='bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "bar.log" in */*) am__odir=`echo "./bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "parallel-tests-dry-run-1 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for parallel-tests-dry-run-1 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
++ none_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -r test-suite.log
++ test -f test-suite.log
++ for i in $*
++ test -r foo.log
++ test -f foo.log
++ for i in $*
++ test -r bar.log
++ test -f bar.log
++ test 0 -eq 0
++ for targ in check recheck $log_files
++ make -n foo.log
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
++ none_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -r test-suite.log
++ test -f test-suite.log
++ for i in $*
++ test -r foo.log
++ test -f foo.log
++ for i in $*
++ test -r bar.log
++ test -f bar.log
++ test 0 -eq 0
++ for targ in check recheck $log_files
++ make -n bar.log
+p='bar.test'; \
+case 'bar.log' in */*) case 'bar' in */*) b='bar';; *) b=`echo 'bar.log' | sed 's/\.log$//'`; esac;; *) b='bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "bar.log" in */*) am__odir=`echo "./bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
++ none_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -r test-suite.log
++ test -f test-suite.log
++ for i in $*
++ test -r foo.log
++ test -f foo.log
++ for i in $*
++ test -r bar.log
++ test -f bar.log
++ test 0 -eq 0
++ touch test-suite.log foo.log bar.log
++ make -n mostlyclean
+test -z "foo.log bar.log" || rm -f foo.log bar.log
+test -z "foo.trs bar.trs" || rm -f foo.trs bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ all_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -f test-suite.log
++ for i in $*
++ test -f foo.log
++ for i in $*
++ test -f bar.log
++ test 0 -eq 0
++ make -n clean
+test -z "foo.log bar.log" || rm -f foo.log bar.log
+test -z "foo.trs bar.trs" || rm -f foo.trs bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ all_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -f test-suite.log
++ for i in $*
++ test -f foo.log
++ for i in $*
++ test -f bar.log
++ test 0 -eq 0
++ cat
++ cat
++ chmod a+x foo.test bar.test
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+PASS: foo.test
+FAIL: bar.test
+============================================================================
+Testsuite summary for parallel-tests-dry-run-1 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:474: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+make: *** [Makefile:774: check-am] Error 2
++ for targ in recheck clean mostlyclean distclean
++ make -n recheck
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+bases=`for i in $bases; do echo $i; done \
+         | gawk '{ recheck = 1; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) { if ((getline line2 < ($0 ".log")) < 0) recheck = 0; break; } else if (line ~ /^[ 	]*:recheck:[ 	]*[nN][Oo]/) { recheck = 0; break; } else if (line ~ /^[ 	]*:recheck:[ 	]*[yY][eE][sS]/) { break; } }; if (recheck) print $0; close ($0 ".trs"); close ($0 ".log"); }'` || exit 1; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+log_list=`echo $log_list`; \
+make  test-suite.log \
+        am__force_recheck=am--force-recheck \
+        TEST_LOGS="$log_list"; \
+exit $?
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
+:
+p='bar.test'; \
+case 'bar.log' in */*) case 'bar' in */*) b='bar';; *) b=`echo 'bar.log' | sed 's/\.log$//'`; esac;; *) b='bar';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "bar.log" in */*) am__odir=`echo "./bar.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='bar.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='bar.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "parallel-tests-dry-run-1 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for parallel-tests-dry-run-1 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-dry-run-1.dir'
++ all_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -f test-suite.log
++ for i in $*
++ test -f foo.log
++ for i in $*
++ test -f bar.log
++ test 0 -eq 0
++ for targ in recheck clean mostlyclean distclean
++ make -n clean
+test -z "foo.log bar.log" || rm -f foo.log bar.log
+test -z "foo.trs bar.trs" || rm -f foo.trs bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ all_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -f test-suite.log
++ for i in $*
++ test -f foo.log
++ for i in $*
++ test -f bar.log
++ test 0 -eq 0
++ for targ in recheck clean mostlyclean distclean
++ make -n mostlyclean
+test -z "foo.log bar.log" || rm -f foo.log bar.log
+test -z "foo.trs bar.trs" || rm -f foo.trs bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ all_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -f test-suite.log
++ for i in $*
++ test -f foo.log
++ for i in $*
++ test -f bar.log
++ test 0 -eq 0
++ for targ in recheck clean mostlyclean distclean
++ make -n distclean
+test -z "foo.log bar.log" || rm -f foo.log bar.log
+test -z "foo.trs bar.trs" || rm -f foo.trs bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ all_exist test-suite.log foo.log bar.log
++ st=0
++ for i in $*
++ test -f test-suite.log
++ for i in $*
++ test -f foo.log
++ for i in $*
++ test -f bar.log
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-dry-run-1.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-dry-run-1.dir
++ set +x
+PASS t/parallel-tests-dry-run-1.sh (exit status: 0)

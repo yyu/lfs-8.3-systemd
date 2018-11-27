@@ -1,0 +1,214 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-whitespace-normalization.dir
++ cat
++ :
++ spaces_a=' 		  	'
++ spaces_b='		 	   '
++ echo TESTS += numbers.test
++ cat
++ cat
++ echo TESTS += description.test
++ cat
++ cat
++ echo TESTS += bailout.test
++ cat
++ cat
++ echo TESTS += bailout2.test
++ cat
++ cat
++ echo AM_TEST_LOG_DRIVER_FLAGS = --comments
++ echo TESTS += cmnt.test
++ cat
++ cat
++ chmod a+x bailout.test bailout2.test cmnt.test description.test numbers.test
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ mv Makefile.am Makefile.am~
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ mv -f Makefile.am~ Makefile.am
+++ echo 'TEST_LOG_DRIVER = $(srcdir)/tap-driver'
+++ automake-1.16 --foreign -Werror -Wall Makefile
+++ ./config.status Makefile
+config.status: creating Makefile
+++ :
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:477: test-suite.log] Error 1
+make[1]: *** [Makefile:585: check-TESTS] Error 2
+make: *** [Makefile:777: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-whitespace-normalization.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-whitespace-normalization.dir'
+PASS: numbers.test 1
+PASS: numbers.test 2
+PASS: numbers.test 3
+FAIL: numbers.test 4
+FAIL: numbers.test 5
+FAIL: numbers.test 6
+PASS: description.test 1 +foo
+PASS: description.test 2 +bar
+PASS: description.test 3 +baz
+FAIL: description.test 4 -foo
+FAIL: description.test 5 -bar
+FAIL: description.test 6 -baz
+PASS: description.test 7 u		 	   v 		  	w
+FAIL: description.test 8 x 		  	y	z
+ERROR: bailout.test - Bail out! We're out of disk space.
+ERROR: bailout2.test - Bail out! foo
+PASS: cmnt.test 1
+# cmnt.test: Leading whitespace gets added
+# cmnt.test: Extra leading whitespace is stripped
+# cmnt.test: Trailing whitespace is stripped
+# cmnt.test: Middle	whitespace  is	  		    kept
+# cmnt.test: And  only	middle 	whitespace
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 17
+# PASS:  8
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  7
+# XPASS: 0
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-whitespace-normalization.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-whitespace-normalization.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ LC_ALL=C
++ sort exp
++ mv -f t exp
++ LC_ALL=C
++ sort
++ LC_ALL=C
++ grep '[a-z0-9][a-z0-9]*\.test' stdout
++ cat exp
+# cmnt.test: And  only	middle 	whitespace
+# cmnt.test: Extra leading whitespace is stripped
+# cmnt.test: Leading whitespace gets added
+# cmnt.test: Middle	whitespace  is	  		    kept
+# cmnt.test: Trailing whitespace is stripped
+ERROR: bailout.test - Bail out! We're out of disk space.
+ERROR: bailout2.test - Bail out! foo
+FAIL: description.test 4 -foo
+FAIL: description.test 5 -bar
+FAIL: description.test 6 -baz
+FAIL: description.test 8 x 		  	y	z
+FAIL: numbers.test 4
+FAIL: numbers.test 5
+FAIL: numbers.test 6
+PASS: cmnt.test 1
+PASS: description.test 1 +foo
+PASS: description.test 2 +bar
+PASS: description.test 3 +baz
+PASS: description.test 7 u		 	   v 		  	w
+PASS: numbers.test 1
+PASS: numbers.test 2
+PASS: numbers.test 3
++ cat got
+# cmnt.test: And  only	middle 	whitespace
+# cmnt.test: Extra leading whitespace is stripped
+# cmnt.test: Leading whitespace gets added
+# cmnt.test: Middle	whitespace  is	  		    kept
+# cmnt.test: Trailing whitespace is stripped
+ERROR: bailout.test - Bail out! We're out of disk space.
+ERROR: bailout2.test - Bail out! foo
+FAIL: description.test 4 -foo
+FAIL: description.test 5 -bar
+FAIL: description.test 6 -baz
+FAIL: description.test 8 x 		  	y	z
+FAIL: numbers.test 4
+FAIL: numbers.test 5
+FAIL: numbers.test 6
+PASS: cmnt.test 1
+PASS: description.test 1 +foo
+PASS: description.test 2 +bar
+PASS: description.test 3 +baz
+PASS: description.test 7 u		 	   v 		  	w
+PASS: numbers.test 1
+PASS: numbers.test 2
+PASS: numbers.test 3
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-whitespace-normalization.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-whitespace-normalization.dir
++ set +x
+PASS t/tap-whitespace-normalization.sh (exit status: 0)

@@ -1,0 +1,38 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/mdate4.dir
++ cat
++ cat
++ mkdir sub
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+sub/Makefile.am:1: installing 'sub/mdate-sh'
+sub/Makefile.am:1: installing 'sub/texinfo.tex'
++ ls -l sub
+total 32
+-rw-r--r-- 1 root root    31 Nov 27 06:43 Makefile.am
+-rw-r--r-- 1 root root 23243 Nov 27 06:43 Makefile.in
+lrwxrwxrwx 1 root root    37 Nov 27 06:43 mdate-sh -> /sources/automake-1.16.1/lib/mdate-sh
+lrwxrwxrwx 1 root root    40 Nov 27 06:43 texinfo.tex -> /sources/automake-1.16.1/lib/texinfo.tex
+-rw-r--r-- 1 root root    50 Nov 27 06:43 textutils.texi
++ test -f sub/mdate-sh
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/mdate4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/mdate4.dir
++ set +x
+PASS t/mdate4.sh (exit status: 0)

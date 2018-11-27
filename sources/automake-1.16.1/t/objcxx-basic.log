@@ -1,0 +1,63 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/objcxx-basic.dir
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepOBJCXX does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepOBJCXX' is to add 'AC_PROG_OBJCXX'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: Objective C++ source seen but 'OBJCXX' is undefined
+Makefile.am:   The usual way to define 'OBJCXX' is to add 'AC_PROG_OBJCXX'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep ''\''OBJCXX'\''.* undefined' stderr
+Makefile.am: error: Objective C++ source seen but 'OBJCXX' is undefined
++ grep 'add .*'\''AC_PROG_OBJCXX'\''' stderr
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepOBJCXX' is to add 'AC_PROG_OBJCXX'
+Makefile.am:   The usual way to define 'OBJCXX' is to add 'AC_PROG_OBJCXX'
++ rm -rf autom4te.cache
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -E '^\.SUFFIXES:.* \.mm( |$)' Makefile.in
+.SUFFIXES: .mm .o .obj
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/objcxx-basic.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/objcxx-basic.dir
++ set +x
+PASS t/objcxx-basic.sh (exit status: 0)

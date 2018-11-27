@@ -1,0 +1,113 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-remake-misc.dir
++ cat
++ cat
++ mkdir sub
++ :
++ mkdir m4
++ echo 'AC_DEFUN([SOME_DEFS], [])'
++ echo 'AC_DEFUN([MORE_DEFS], [AC_SUBST([GREPME])])'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --copy --add-missing
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build'
++ sleep 2
++ echo 'AC_DEFUN([SOME_DEFS], [MORE_DEFS])'
++ echo 'AC_SUBST([METOO])'
++ cd sub
++ make
+cd .. && make  am--refresh
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build'
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/aclocal-remake-misc.dir/missing aclocal-1.16 
+ cd .. && /bin/sh /sources/automake-1.16.1/t/aclocal-remake-misc.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/aclocal-remake-misc.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build'
+make: Nothing to be done for 'all'.
++ cd ..
++ grep GREPME Makefile
+GREPME = 
++ grep GREPME sub/Makefile
+GREPME = 
++ grep GREPME sub/Makefile
+GREPME = 
++ grep METOO Makefile
+METOO = 
++ grep METOO sub/Makefile
+METOO = 
++ grep METOO sub/Makefile
+METOO = 
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build'
+if test -d "aclocal-remake-misc-1.0"; then find "aclocal-remake-misc-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "aclocal-remake-misc-1.0" || { sleep 5 && rm -rf "aclocal-remake-misc-1.0"; }; else :; fi
+test -d "aclocal-remake-misc-1.0" || mkdir "aclocal-remake-misc-1.0"
+ (cd sub && make  top_distdir=../aclocal-remake-misc-1.0 distdir=../aclocal-remake-misc-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build/sub'
+test -n "" \
+|| find "aclocal-remake-misc-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/aclocal-remake-misc.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "aclocal-remake-misc-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-remake-misc.dir/build'
++ test -f aclocal-remake-misc-1.0/m4/moredefs.m4
++ test -f aclocal-remake-misc-1.0/m4/somedefs.m4
++ test -f aclocal-remake-misc-1.0/acinclude.m4
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-remake-misc.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-remake-misc.dir
++ set +x
+PASS t/aclocal-remake-misc.sh (exit status: 0)

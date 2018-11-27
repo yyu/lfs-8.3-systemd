@@ -1,0 +1,57 @@
+strip --keep-section=.strtab testfile
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip --keep-section=.symtab testfile
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip --keep-section=.strtab testfile69.so
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip --keep-section=.symtab --remove-comment testfile69.so
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip -g --remove-section=.symtab testfile
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip -g --remove-section=.s[yt][mr]tab --keep-section=.stab* testfile
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip -g --remove-section=.symtab testfile69.so
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+strip -g --remove-section=.s[yt][mr]tab --keep-section=.comment testfile69.so
+elflint testfile.elf
+No errors
+elflint testfile.debug
+No errors
+readelf testfile.elf
+readelf testfile.debug
+PASS run-strip-remove-keep.sh (exit status: 0)

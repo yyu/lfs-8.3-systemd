@@ -1,0 +1,36 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/vars.dir
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ for i in 1 2 3 4
++ grep '^MY_FLAGS_1 *= *-DABC=345 *$' Makefile.in
+MY_FLAGS_1 = -DABC=345
++ for i in 1 2 3 4
++ grep '^MY_FLAGS_2 *= *-DABC=345 *$' Makefile.in
+MY_FLAGS_2 = -DABC=345
++ for i in 1 2 3 4
++ grep '^MY_FLAGS_3 *= *-DABC=345 *$' Makefile.in
+MY_FLAGS_3 = -DABC=345
++ for i in 1 2 3 4
++ grep '^MY_FLAGS_4 *= *-DABC=345 *$' Makefile.in
+MY_FLAGS_4 = -DABC=345
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/vars.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/vars.dir
++ set +x
+PASS t/vars.sh (exit status: 0)

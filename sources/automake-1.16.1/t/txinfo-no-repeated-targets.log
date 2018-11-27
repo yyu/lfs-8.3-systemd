@@ -1,0 +1,53 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/txinfo-no-repeated-targets.dir
++ cat
++ echo '@setfilename maude.info'
++ echo '@setfilename liver.info'
++ echo '@setfilename heart.info'
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ for t in info dist-info dvi-am install-html uninstall-pdf-am
++ /bin/grep -E '(^| )info*.:' Makefile.in
+info: info-am
+++ /bin/grep -E -c '(^| )info(:| *.:)' Makefile.in
++ test 1 -eq 1
++ for t in info dist-info dvi-am install-html uninstall-pdf-am
++ /bin/grep -E '(^| )dist-info*.:' Makefile.in
+dist-info: $(INFO_DEPS)
+++ /bin/grep -E -c '(^| )dist-info(:| *.:)' Makefile.in
++ test 1 -eq 1
++ for t in info dist-info dvi-am install-html uninstall-pdf-am
++ /bin/grep -E '(^| )dvi-am*.:' Makefile.in
+dvi-am: $(DVIS)
+++ /bin/grep -E -c '(^| )dvi-am(:| *.:)' Makefile.in
++ test 1 -eq 1
++ for t in info dist-info dvi-am install-html uninstall-pdf-am
++ /bin/grep -E '(^| )install-html*.:' Makefile.in
+install-html: install-html-am
+++ /bin/grep -E -c '(^| )install-html(:| *.:)' Makefile.in
++ test 1 -eq 1
++ for t in info dist-info dvi-am install-html uninstall-pdf-am
++ /bin/grep -E '(^| )uninstall-pdf-am*.:' Makefile.in
+uninstall-pdf-am:
+++ /bin/grep -E -c '(^| )uninstall-pdf-am(:| *.:)' Makefile.in
++ test 1 -eq 1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/txinfo-no-repeated-targets.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/txinfo-no-repeated-targets.dir
++ set +x
+PASS t/txinfo-no-repeated-targets.sh (exit status: 0)

@@ -1,0 +1,429 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/color-tests.dir
++ red='\[0;31m'
++ grn='\[0;32m'
++ lgn='\[1;32m'
++ blu='\[1;34m'
++ mgn='\[0;35m'
++ std='\[m'
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cp fail xfail
++ cp pass xpass
++ chmod +x pass fail skip xpass xfail error
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+parallel-tests: installing './test-driver'
++ for vpath in false :
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ AM_COLOR_TESTS=always
++ export AM_COLOR_TESTS
++ run_make -e FAIL -O TERM=dumb check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TERM=dumb check
++ set +x
+make[2]: *** [Makefile:478: test-suite.log] Error 1
+make[1]: *** [Makefile:586: check-TESTS] Error 2
+make: *** [Makefile:821: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  pass fail skip xpass xfail error
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir'
+make[1]: Nothing to be done for 'pass'.
+make[1]: Nothing to be done for 'fail'.
+make[1]: Nothing to be done for 'skip'.
+make[1]: Nothing to be done for 'xpass'.
+make[1]: Nothing to be done for 'xfail'.
+make[1]: Nothing to be done for 'error'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir'
+[0;32mPASS[m: pass
+[0;31mFAIL[m: fail
+[1;34mSKIP[m: skip
+[0;31mXPASS[m: xpass
+[1;32mXFAIL[m: xfail
+[0;35mERROR[m: error
+[0;31m============================================================================[m
+[0;31mTestsuite summary for color-tests 1.0[m
+[0;31m============================================================================[m
+[1m# TOTAL: 6[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+[0;31m# FAIL:  1[m
+[0;31m# XPASS: 1[m
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test_color
++ cat stdout
++ grep '^\[0;32mPASS\[m: .*pass'
+[0;32mPASS[m: pass
++ cat stdout
++ grep '^\[0;31mFAIL\[m: .*fail'
+[0;31mFAIL[m: fail
++ cat stdout
++ grep '^\[1;34mSKIP\[m: .*skip'
+[1;34mSKIP[m: skip
++ cat stdout
++ grep '^\[1;32mXFAIL\[m: .*xfail'
+[1;32mXFAIL[m: xfail
++ cat stdout
++ grep '^\[0;31mXPASS\[m: .*xpass'
+[0;31mXPASS[m: xpass
++ test x = xyes
++ cat stdout
++ grep '^\[0;35mERROR\[m: .*error'
+[0;35mERROR[m: error
++ :
++ unset AM_COLOR_TESTS
++ run_make -e FAIL -O TERM=ansi check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TERM=ansi check
++ set +x
+make[2]: *** [Makefile:478: test-suite.log] Error 1
+make[1]: *** [Makefile:586: check-TESTS] Error 2
+make: *** [Makefile:821: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  pass fail skip xpass xfail error
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir'
+make[1]: Nothing to be done for 'pass'.
+make[1]: Nothing to be done for 'fail'.
+make[1]: Nothing to be done for 'skip'.
+make[1]: Nothing to be done for 'xpass'.
+make[1]: Nothing to be done for 'xfail'.
+make[1]: Nothing to be done for 'error'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir'
+PASS: pass
+FAIL: fail
+SKIP: skip
+XPASS: xpass
+XFAIL: xfail
+ERROR: error
+============================================================================
+Testsuite summary for color-tests 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test_no_color
++ /bin/grep -F '= Xalways; then' stdout
++ cat stdout
++ grep $'\E'
++ : For shells with broken 'set -e'
++ make distclean
+test -z "pass.log fail.log skip.log xpass.log xfail.log error.log" || rm -f pass.log fail.log skip.log xpass.log xfail.log error.log
+test -z "pass.trs fail.trs skip.trs xpass.trs xfail.trs error.trs" || rm -f pass.trs fail.trs skip.trs xpass.trs xfail.trs error.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd .
++ for vpath in false :
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ AM_COLOR_TESTS=always
++ export AM_COLOR_TESTS
++ run_make -e FAIL -O TERM=dumb check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TERM=dumb check
++ set +x
+make[2]: *** [Makefile:478: test-suite.log] Error 1
+make[1]: *** [Makefile:586: check-TESTS] Error 2
+make: *** [Makefile:821: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  pass fail skip xpass xfail error
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make[1]: Nothing to be done for '../pass'.
+make[1]: Nothing to be done for '../fail'.
+make[1]: Nothing to be done for '../skip'.
+make[1]: Nothing to be done for '../xpass'.
+make[1]: Nothing to be done for '../xfail'.
+make[1]: Nothing to be done for '../error'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+[0;32mPASS[m: pass
+[0;31mFAIL[m: fail
+[1;34mSKIP[m: skip
+[0;31mXPASS[m: xpass
+[1;32mXFAIL[m: xfail
+[0;35mERROR[m: error
+[0;31m============================================================================[m
+[0;31mTestsuite summary for color-tests 1.0[m
+[0;31m============================================================================[m
+[1m# TOTAL: 6[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+[0;31m# FAIL:  1[m
+[0;31m# XPASS: 1[m
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test_color
++ cat stdout
++ grep '^\[0;32mPASS\[m: .*pass'
+[0;32mPASS[m: pass
++ cat stdout
++ grep '^\[0;31mFAIL\[m: .*fail'
+[0;31mFAIL[m: fail
++ cat stdout
++ grep '^\[1;34mSKIP\[m: .*skip'
+[1;34mSKIP[m: skip
++ cat stdout
++ grep '^\[1;32mXFAIL\[m: .*xfail'
+[1;32mXFAIL[m: xfail
++ cat stdout
++ grep '^\[0;31mXPASS\[m: .*xpass'
+[0;31mXPASS[m: xpass
++ test x = xyes
++ cat stdout
++ grep '^\[0;35mERROR\[m: .*error'
+[0;35mERROR[m: error
++ :
++ unset AM_COLOR_TESTS
++ run_make -e FAIL -O TERM=ansi check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TERM=ansi check
++ set +x
+make[2]: *** [Makefile:478: test-suite.log] Error 1
+make[1]: *** [Makefile:586: check-TESTS] Error 2
+make: *** [Makefile:821: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  pass fail skip xpass xfail error
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make[1]: Nothing to be done for '../pass'.
+make[1]: Nothing to be done for '../fail'.
+make[1]: Nothing to be done for '../skip'.
+make[1]: Nothing to be done for '../xpass'.
+make[1]: Nothing to be done for '../xfail'.
+make[1]: Nothing to be done for '../error'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+PASS: pass
+FAIL: fail
+SKIP: skip
+XPASS: xpass
+XFAIL: xfail
+ERROR: error
+============================================================================
+Testsuite summary for color-tests 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/color-tests.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test_no_color
++ /bin/grep -F '= Xalways; then' stdout
++ cat stdout
++ grep $'\E'
++ : For shells with broken 'set -e'
++ make distclean
+test -z "pass.log fail.log skip.log xpass.log xfail.log error.log" || rm -f pass.log fail.log skip.log xpass.log xfail.log error.log
+test -z "pass.trs fail.trs skip.trs xpass.trs xfail.trs error.trs" || rm -f pass.trs fail.trs skip.trs xpass.trs xfail.trs error.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd ..
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/color-tests.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/color-tests.dir
++ set +x
+PASS t/color-tests.sh (exit status: 0)

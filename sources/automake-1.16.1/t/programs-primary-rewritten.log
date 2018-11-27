@@ -1,0 +1,73 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/programs-primary-rewritten.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep PROGRAMS Makefile.in
+check_PROGRAMS = a$(EXEEXT)
+bin_PROGRAMS = b$(EXEEXT) @FOO@
+noinst_PROGRAMS = $(am__EXEEXT_1) $(am__EXEEXT_2)
+EXTRA_PROGRAMS =
+PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
+install-binPROGRAMS: $(bin_PROGRAMS)
+	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
+uninstall-binPROGRAMS:
+	@list='$(bin_PROGRAMS)'; test -n "$(bindir)" || list=; \
+clean-binPROGRAMS:
+	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+clean-checkPROGRAMS:
+	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+clean-noinstPROGRAMS:
+	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+	$(MAKE) $(AM_MAKEFLAGS) $(check_PROGRAMS)
+all-am: Makefile $(PROGRAMS)
+clean-am: clean-binPROGRAMS clean-checkPROGRAMS clean-generic \
+	clean-noinstPROGRAMS mostlyclean-am
+install-exec-am: install-binPROGRAMS
+uninstall-am: uninstall-binPROGRAMS
+	clean-binPROGRAMS clean-checkPROGRAMS clean-cscope \
+	clean-generic clean-noinstPROGRAMS cscope cscopelist-am ctags \
+	html-am info info-am install install-am install-binPROGRAMS \
+	uninstall-am uninstall-binPROGRAMS
+	is $(check_PROGRAMS) == a.bin
+	is $(bin_PROGRAMS) == b.bin c
+	is $(noinst_PROGRAMS) == zardoz.bin maude.bin
++ grep '^check_PROGRAMS = a$(EXEEXT)$' Makefile.in
+check_PROGRAMS = a$(EXEEXT)
++ grep '^bin_PROGRAMS = b$(EXEEXT) @FOO@$' Makefile.in
+bin_PROGRAMS = b$(EXEEXT) @FOO@
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+is a.bin == a.bin
+is b.bin c == b.bin c
+is zardoz.bin maude.bin == zardoz.bin maude.bin
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/programs-primary-rewritten.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/programs-primary-rewritten.dir
++ set +x
+PASS t/programs-primary-rewritten.sh (exit status: 0)

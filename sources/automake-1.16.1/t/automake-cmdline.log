@@ -1,0 +1,522 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/automake-cmdline.dir
++ plan_ 14
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x14 = xunknown
++ test x14 = xlater
++ test x14 = xlazy
++ test x14 = xnow
++ test 14 -ge 0
++ planned_=14
++ echo 1..14
+1..14
++ do_check 'invalid long option' 'unrecognized option.*--voo' --voo
++ test 3 -ge 3
++ desc='invalid long option'
++ shift
++ regex='unrecognized option.*--voo'
++ shift
++ AUTOMAKE_fails -d 'invalid long option (run)' -- --voo
++ AUTOMAKE_run -e 1 -d 'invalid long option (run)' -- --voo
++ am__desc=
++ am__exp_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__desc='invalid long option (run)'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --voo
++ am__got_rc=1
++ cat stderr
+automake-1.16: error: unrecognized option '--voo'.
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ cat stdout
++ test tap = none
++ test -z 'invalid long option (run)'
++ command_ok_ 'invalid long option (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='invalid long option (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'invalid long option (run)'
++ set +x
+ok 1 - invalid long option (run)
+PASS: t/automake-cmdline.tap 1 - invalid long option (run)
++ command_ok_ 'invalid long option (stderr)' grep 'unrecognized option.*--voo' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='invalid long option (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'unrecognized option.*--voo' stderr
+automake-1.16: error: unrecognized option '--voo'.
++ result_ ok -D '' -r '' -- 'invalid long option (stderr)'
++ set +x
+ok 2 - invalid long option (stderr)
+PASS: t/automake-cmdline.tap 2 - invalid long option (stderr)
++ cat stderr
+automake-1.16: error: unrecognized option '--voo'.
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ do_check 'empty argument' 'empty argument' ''
++ test 3 -ge 3
++ desc='empty argument'
++ shift
++ regex='empty argument'
++ shift
++ AUTOMAKE_fails -d 'empty argument (run)' -- ''
++ AUTOMAKE_run -e 1 -d 'empty argument (run)' -- ''
++ am__desc=
++ am__exp_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__desc='empty argument (run)'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall ''
++ am__got_rc=1
++ cat stderr
+automake-1.16: error: empty argument
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information
++ cat stdout
++ test tap = none
++ test -z 'empty argument (run)'
++ command_ok_ 'empty argument (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='empty argument (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'empty argument (run)'
++ set +x
+ok 3 - empty argument (run)
+PASS: t/automake-cmdline.tap 3 - empty argument (run)
++ command_ok_ 'empty argument (stderr)' grep 'empty argument' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='empty argument (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'empty argument' stderr
+automake-1.16: error: empty argument
++ result_ ok -D '' -r '' -- 'empty argument (stderr)'
++ set +x
+ok 4 - empty argument (stderr)
+PASS: t/automake-cmdline.tap 4 - empty argument (stderr)
++ cat stderr
+automake-1.16: error: empty argument
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information
++ do_check 'missing argument for long option' 'option.*-W.*requires an argument' -W
++ test 3 -ge 3
++ desc='missing argument for long option'
++ shift
++ regex='option.*-W.*requires an argument'
++ shift
++ AUTOMAKE_fails -d 'missing argument for long option (run)' -- -W
++ AUTOMAKE_run -e 1 -d 'missing argument for long option (run)' -- -W
++ am__desc=
++ am__exp_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__desc='missing argument for long option (run)'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -W
++ am__got_rc=1
++ cat stderr
+automake-1.16: error: option '-W' requires an argument
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ cat stdout
++ test tap = none
++ test -z 'missing argument for long option (run)'
++ command_ok_ 'missing argument for long option (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='missing argument for long option (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'missing argument for long option (run)'
++ set +x
+ok 5 - missing argument for long option (run)
+PASS: t/automake-cmdline.tap 5 - missing argument for long option (run)
++ command_ok_ 'missing argument for long option (stderr)' grep 'option.*-W.*requires an argument' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='missing argument for long option (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'option.*-W.*requires an argument' stderr
+automake-1.16: error: option '-W' requires an argument
++ result_ ok -D '' -r '' -- 'missing argument for long option (stderr)'
++ set +x
+ok 6 - missing argument for long option (stderr)
+PASS: t/automake-cmdline.tap 6 - missing argument for long option (stderr)
++ cat stderr
+automake-1.16: error: option '-W' requires an argument
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ do_check 'missing argument for short option' 'option.*--warnings.*requires an argument' --warnings
++ test 3 -ge 3
++ desc='missing argument for short option'
++ shift
++ regex='option.*--warnings.*requires an argument'
++ shift
++ AUTOMAKE_fails -d 'missing argument for short option (run)' -- --warnings
++ AUTOMAKE_run -e 1 -d 'missing argument for short option (run)' -- --warnings
++ am__desc=
++ am__exp_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__desc='missing argument for short option (run)'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --warnings
++ am__got_rc=1
++ cat stderr
+automake-1.16: error: option '--warnings' requires an argument
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ cat stdout
++ test tap = none
++ test -z 'missing argument for short option (run)'
++ command_ok_ 'missing argument for short option (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='missing argument for short option (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'missing argument for short option (run)'
++ set +x
+ok 7 - missing argument for short option (run)
+PASS: t/automake-cmdline.tap 7 - missing argument for short option (run)
++ command_ok_ 'missing argument for short option (stderr)' grep 'option.*--warnings.*requires an argument' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='missing argument for short option (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'option.*--warnings.*requires an argument' stderr
+automake-1.16: error: option '--warnings' requires an argument
++ result_ ok -D '' -r '' -- 'missing argument for short option (stderr)'
++ set +x
+ok 8 - missing argument for short option (stderr)
+PASS: t/automake-cmdline.tap 8 - missing argument for short option (stderr)
++ cat stderr
+automake-1.16: error: option '--warnings' requires an argument
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ do_check ''\''--help'\'' as option argument' 'unknown warning.*--help' --warnings --help
++ test 4 -ge 3
++ desc=''\''--help'\'' as option argument'
++ shift
++ regex='unknown warning.*--help'
++ shift
++ AUTOMAKE_fails -d ''\''--help'\'' as option argument (run)' -- --warnings --help
++ AUTOMAKE_run -e 1 -d ''\''--help'\'' as option argument (run)' -- --warnings --help
++ am__desc=
++ am__exp_rc=0
++ test 7 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ am__desc=''\''--help'\'' as option argument (run)'
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --warnings --help
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: unknown warning category '--help'
+configure.ac: error: no proper invocation of AM_INIT_AUTOMAKE was found.
+configure.ac: You should verify that configure.ac invokes AM_INIT_AUTOMAKE,
+configure.ac: that aclocal.m4 is present in the top-level directory,
+configure.ac: and that aclocal.m4 was recently regenerated (using aclocal)
+automake-1.16: error: no 'Makefile.am' found for any configure output
++ cat stdout
++ test tap = none
++ test -z ''\''--help'\'' as option argument (run)'
++ command_ok_ ''\''--help'\'' as option argument (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=''\''--help'\'' as option argument (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- ''\''--help'\'' as option argument (run)'
++ set +x
+ok 9 - '--help' as option argument (run)
+PASS: t/automake-cmdline.tap 9 - '--help' as option argument (run)
++ command_ok_ ''\''--help'\'' as option argument (stderr)' grep 'unknown warning.*--help' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''--help'\'' as option argument (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'unknown warning.*--help' stderr
+automake-1.16: warning: unknown warning category '--help'
++ result_ ok -D '' -r '' -- ''\''--help'\'' as option argument (stderr)'
++ set +x
+ok 10 - '--help' as option argument (stderr)
+PASS: t/automake-cmdline.tap 10 - '--help' as option argument (stderr)
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: unknown warning category '--help'
+configure.ac: error: no proper invocation of AM_INIT_AUTOMAKE was found.
+configure.ac: You should verify that configure.ac invokes AM_INIT_AUTOMAKE,
+configure.ac: that aclocal.m4 is present in the top-level directory,
+configure.ac: and that aclocal.m4 was recently regenerated (using aclocal)
+automake-1.16: error: no 'Makefile.am' found for any configure output
++ do_check ''\''--help'\'' as option argument' 'unknown warning.*--help' --warnings --help
++ test 4 -ge 3
++ desc=''\''--help'\'' as option argument'
++ shift
++ regex='unknown warning.*--help'
++ shift
++ AUTOMAKE_fails -d ''\''--help'\'' as option argument (run)' -- --warnings --help
++ AUTOMAKE_run -e 1 -d ''\''--help'\'' as option argument (run)' -- --warnings --help
++ am__desc=
++ am__exp_rc=0
++ test 7 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ am__desc=''\''--help'\'' as option argument (run)'
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --warnings --help
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: unknown warning category '--help'
+configure.ac: error: no proper invocation of AM_INIT_AUTOMAKE was found.
+configure.ac: You should verify that configure.ac invokes AM_INIT_AUTOMAKE,
+configure.ac: that aclocal.m4 is present in the top-level directory,
+configure.ac: and that aclocal.m4 was recently regenerated (using aclocal)
+automake-1.16: error: no 'Makefile.am' found for any configure output
++ cat stdout
++ test tap = none
++ test -z ''\''--help'\'' as option argument (run)'
++ command_ok_ ''\''--help'\'' as option argument (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=''\''--help'\'' as option argument (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- ''\''--help'\'' as option argument (run)'
++ set +x
+ok 11 - '--help' as option argument (run)
+PASS: t/automake-cmdline.tap 11 - '--help' as option argument (run)
++ command_ok_ ''\''--help'\'' as option argument (stderr)' grep 'unknown warning.*--help' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''--help'\'' as option argument (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'unknown warning.*--help' stderr
+automake-1.16: warning: unknown warning category '--help'
++ result_ ok -D '' -r '' -- ''\''--help'\'' as option argument (stderr)'
++ set +x
+ok 12 - '--help' as option argument (stderr)
+PASS: t/automake-cmdline.tap 12 - '--help' as option argument (stderr)
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: unknown warning category '--help'
+configure.ac: error: no proper invocation of AM_INIT_AUTOMAKE was found.
+configure.ac: You should verify that configure.ac invokes AM_INIT_AUTOMAKE,
+configure.ac: that aclocal.m4 is present in the top-level directory,
+configure.ac: and that aclocal.m4 was recently regenerated (using aclocal)
+automake-1.16: error: no 'Makefile.am' found for any configure output
++ do_check 'ambiguous incomplete option' 'unrecognized option.*--ver' --ver
++ test 3 -ge 3
++ desc='ambiguous incomplete option'
++ shift
++ regex='unrecognized option.*--ver'
++ shift
++ AUTOMAKE_fails -d 'ambiguous incomplete option (run)' -- --ver
++ AUTOMAKE_run -e 1 -d 'ambiguous incomplete option (run)' -- --ver
++ am__desc=
++ am__exp_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__desc='ambiguous incomplete option (run)'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ shift
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --ver
++ am__got_rc=1
++ cat stderr
+automake-1.16: error: unrecognized option '--ver'.
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ cat stdout
++ test tap = none
++ test -z 'ambiguous incomplete option (run)'
++ command_ok_ 'ambiguous incomplete option (run)' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='ambiguous incomplete option (run)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'ambiguous incomplete option (run)'
++ set +x
+ok 13 - ambiguous incomplete option (run)
+PASS: t/automake-cmdline.tap 13 - ambiguous incomplete option (run)
++ command_ok_ 'ambiguous incomplete option (stderr)' grep 'unrecognized option.*--ver' stderr
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='ambiguous incomplete option (stderr)'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep 'unrecognized option.*--ver' stderr
+automake-1.16: error: unrecognized option '--ver'.
++ result_ ok -D '' -r '' -- 'ambiguous incomplete option (stderr)'
++ set +x
+ok 14 - ambiguous incomplete option (stderr)
+PASS: t/automake-cmdline.tap 14 - ambiguous incomplete option (stderr)
++ cat stderr
+automake-1.16: error: unrecognized option '--ver'.
+automake-1.16: Try '/sources/automake-1.16.1/bin/automake-1.16 --help' for more information.
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 14 = later
++ test 0 -eq 0
++ test 14 -eq 14
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/automake-cmdline.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/automake-cmdline.dir
++ set +x

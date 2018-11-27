@@ -1,0 +1,147 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/conflnk3.dir
++ cat
++ :
++ :
++ mkdir sdir
++ :
++ :
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ grep my_src_dir Makefile.in
++ grep my_dest Makefile.in
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdir/Makefile
+config.status: linking src2 to sdir/dest2
+config.status: linking sdir/src3 to sdir/dest3
+config.status: linking src to dest
+config.status: linking sdir/dest2 to dest4
+config.status: linking src to dest5
++ test -r sdir/dest2
++ test -r sdir/dest3
++ test -r dest
++ test -r dest4
++ test -r dest5
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir'
+if test -d "conflnk3-1.0"; then find "conflnk3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "conflnk3-1.0" || { sleep 5 && rm -rf "conflnk3-1.0"; }; else :; fi
+test -d "conflnk3-1.0" || mkdir "conflnk3-1.0"
+ (cd sdir && make  top_distdir=../conflnk3-1.0 distdir=../conflnk3-1.0/sdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir/sdir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir/sdir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir/sdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir/sdir'
+test -n "" \
+|| find "conflnk3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/conflnk3.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "conflnk3-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir'
+test ! -r conflnk3-1.0/sdir/dest3
+test ! -r conflnk3-1.0/sdir/dest2
+test ! -r conflnk3-1.0/dest3
+test ! -r conflnk3-1.0/dest2
+test -f conflnk3-1.0/src2
+test ! -r conflnk3-1.0/sdir/src3
+test ! -r conflnk3-1.0/src3
++ make distclean
+Making distclean in sdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir/sdir'
+test -z "dest2 dest3" || rm -f dest2 dest3
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir/sdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir'
+test -z "dest4" || rm -f dest4
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e sdir/dest2
++ test '!' -e sdir/dest3
++ test -r dest
++ test -r dest5
++ rm -f dest dest5
++ test '!' -e dest4
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdir/Makefile
+config.status: linking ../src2 to sdir/dest2
+config.status: linking ../sdir/src3 to sdir/dest3
+config.status: linking ../src to dest
+config.status: linking sdir/dest2 to dest4
+config.status: linking ../src to dest5
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir/build'
+if test -d "conflnk3-1.0"; then find "conflnk3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "conflnk3-1.0" || { sleep 5 && rm -rf "conflnk3-1.0"; }; else :; fi
+test -d "conflnk3-1.0" || mkdir "conflnk3-1.0"
+ (cd sdir && make  top_distdir=../conflnk3-1.0 distdir=../conflnk3-1.0/sdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir/build/sdir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/conflnk3.dir/build/sdir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir/build/sdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir/build/sdir'
+test -n "" \
+|| find "conflnk3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/conflnk3.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "conflnk3-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk3.dir/build'
+test ! -r conflnk3-1.0/sdir/dest3
+test ! -r conflnk3-1.0/sdir/dest2
+test ! -r conflnk3-1.0/dest3
+test ! -r conflnk3-1.0/dest2
+test -f conflnk3-1.0/src2
+test ! -r conflnk3-1.0/sdir/src3
+test ! -r conflnk3-1.0/src3
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/conflnk3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/conflnk3.dir
++ set +x
+PASS t/conflnk3.sh (exit status: 0)

@@ -1,0 +1,656 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lex-line.dir
++ cat
++ mkdir dir sub sub/dir
++ cat
++ cat
++ cat
++ cp zardoz.l dir/quux.l
++ cp zardoz.l sub/zardoz.l
++ cp zardoz.l sub/dir/quux.l
++ c_outputs='zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a -Wno-unsupported
+configure.ac: installing './ylwrap'
++ for vpath in : false
++ :
++ srcdir=..
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... lex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-line.dir/build/sub'
+\
+ \
+/bin/sh ../../ylwrap `test -f 'zardoz.l' || echo '../../sub/'`zardoz.l lex.yy.c foo-zardoz.c -- lex -v 
+lex version 2.6.4 usage statistics:
+  scanner options: -vI8 -Cem
+  15/2000 NFA states
+  8/1000 DFA states (16 words)
+  2 rules
+  Compressed tables always back-up
+  1/40 start conditions
+  10 epsilon states, 4 double epsilon states
+  3/100 character classes needed 1/500 words of storage, 0 reused
+  12 state/nextstate pairs created
+  8/4 unique/duplicate transitions
+  12/1000 base-def entries created
+  17/2000 (peak 22) nxt-chk entries created
+  12/2500 (peak 20) template nxt-chk entries created
+  1 empty table entries
+  4 protos created
+  4 templates created, 4 uses
+  5/256 equivalence classes created
+  3/256 meta-equivalence classes created
+  0 (0 saved) hash collisions, 3 DFAs equal
+  0 sets of reallocations needed
+  319 total table entries needed
+depbase=`echo foo-zardoz.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I../../sub     -g -O2 -MT foo-zardoz.o -MD -MP -MF $depbase.Tpo -c -o foo-zardoz.o foo-zardoz.c &&\
+mv -f $depbase.Tpo $depbase.Po
+foo-zardoz.c: In function 'yy_init_buffer':
+foo-zardoz.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+cc  -g -O2   -o foo foo-zardoz.o -lfl 
+/bin/sh ../../ylwrap ../../sub/dir/quux.l lex.yy.c dir/quux.c -- lex  
+depbase=`echo dir/quux.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I../../sub     -g -O2 -MT dir/quux.o -MD -MP -MF $depbase.Tpo -c -o dir/quux.o dir/quux.c &&\
+mv -f $depbase.Tpo $depbase.Po
+dir/quux.c: In function 'yy_init_buffer':
+dir/quux.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+cc  -g -O2   -o bar dir/quux.o -lfl 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-line.dir/build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-line.dir/build'
+/bin/sh ../ylwrap ../zardoz.l lex.yy.c zardoz.c -- lex  
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I..     -g -O2 -MT zardoz.o -MD -MP -MF .deps/zardoz.Tpo -c -o zardoz.o zardoz.c
+zardoz.c: In function 'yy_init_buffer':
+zardoz.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/zardoz.Tpo .deps/zardoz.Po
+cc  -g -O2   -o foo zardoz.o -lfl 
+\
+ \
+/bin/sh ../ylwrap `test -f 'dir/quux.l' || echo '../'`dir/quux.l lex.yy.c bar-quux.c -- lex -v 
+lex version 2.6.4 usage statistics:
+  scanner options: -vI8 -Cem
+  15/2000 NFA states
+  8/1000 DFA states (16 words)
+  2 rules
+  Compressed tables always back-up
+  1/40 start conditions
+  10 epsilon states, 4 double epsilon states
+  3/100 character classes needed 1/500 words of storage, 0 reused
+  12 state/nextstate pairs created
+  8/4 unique/duplicate transitions
+  12/1000 base-def entries created
+  17/2000 (peak 22) nxt-chk entries created
+  12/2500 (peak 20) template nxt-chk entries created
+  1 empty table entries
+  4 protos created
+  4 templates created, 4 uses
+  5/256 equivalence classes created
+  3/256 meta-equivalence classes created
+  0 (0 saved) hash collisions, 3 DFAs equal
+  0 sets of reallocations needed
+  319 total table entries needed
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I. -I..     -g -O2 -MT bar-quux.o -MD -MP -MF .deps/bar-quux.Tpo -c -o bar-quux.o bar-quux.c
+bar-quux.c: In function 'yy_init_buffer':
+bar-quux.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/bar-quux.Tpo .deps/bar-quux.Po
+cc  -g -O2   -o bar bar-quux.o -lfl 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-line.dir/build'
++ ls -l . sub sub/dir
+.:
+total 428
+-rw-r--r-- 1 root root 29413 Nov 27 06:42 Makefile
+-rwxr-xr-x 1 root root 49176 Nov 27 06:42 bar
+-rw-r--r-- 1 root root 44452 Nov 27 06:42 bar-quux.c
+-rw-r--r-- 1 root root 53624 Nov 27 06:42 bar-quux.o
+-rw-r--r-- 1 root root 58932 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root 29122 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 49152 Nov 27 06:42 foo
+drwxr-xr-x 4 root root  4096 Nov 27 06:42 sub
+-rw-r--r-- 1 root root 44428 Nov 27 06:42 zardoz.c
+-rw-r--r-- 1 root root 53616 Nov 27 06:42 zardoz.o
+
+sub:
+total 228
+-rw-r--r-- 1 root root 17470 Nov 27 06:42 Makefile
+-rwxr-xr-x 1 root root 49168 Nov 27 06:42 bar
+drwxr-xr-x 3 root root  4096 Nov 27 06:42 dir
+-rwxr-xr-x 1 root root 49176 Nov 27 06:42 foo
+-rw-r--r-- 1 root root 44497 Nov 27 06:42 foo-zardoz.c
+-rw-r--r-- 1 root root 53640 Nov 27 06:42 foo-zardoz.o
+
+sub/dir:
+total 100
+-rw-r--r-- 1 root root 44501 Nov 27 06:42 quux.c
+-rw-r--r-- 1 root root 53632 Nov 27 06:42 quux.o
++ /bin/grep -E 'line|\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
+zardoz.c:#line 2 "zardoz.c"
+zardoz.c:/* TODO: this is always defined, so inline it */
+zardoz.c:	 * each newline.
+zardoz.c:	/* Whether we're considered to be at the beginning of a line.
+zardoz.c:    int yy_bs_lineno; /**< The line count. */
+zardoz.c:extern int yylineno;
+zardoz.c:int yylineno = 1;
+zardoz.c:#line 1 "../zardoz.l"
+zardoz.c:#line 2 "../zardoz.l"
+zardoz.c:#line 446 "zardoz.c"
+zardoz.c:#line 447 "zardoz.c"
+zardoz.c:int yyget_lineno ( void );
+zardoz.c:void yyset_lineno ( int _line_number  );
+zardoz.c:#line 4 "../zardoz.l"
+zardoz.c:#line 666 "zardoz.c"
+zardoz.c:#line 5 "../zardoz.l"
+zardoz.c:#line 6 "../zardoz.l"
+zardoz.c:#line 7 "../zardoz.l"
+zardoz.c:#line 738 "zardoz.c"
+zardoz.c:     * In that case, we don't want to reset the lineno or column.
+zardoz.c:        b->yy_bs_lineno = 1;
+zardoz.c:/** Get the current line number.
+zardoz.c:int yyget_lineno  (void)
+zardoz.c:    return yylineno;
+zardoz.c:/** Set the current line number.
+zardoz.c: * @param _line_number line number
+zardoz.c:void yyset_lineno (int  _line_number )
+zardoz.c:    yylineno = _line_number;
+zardoz.c:#line 7 "../zardoz.l"
+bar-quux.c:#line 2 "bar-quux.c"
+bar-quux.c:/* TODO: this is always defined, so inline it */
+bar-quux.c:	 * each newline.
+bar-quux.c:	/* Whether we're considered to be at the beginning of a line.
+bar-quux.c:    int yy_bs_lineno; /**< The line count. */
+bar-quux.c:extern int yylineno;
+bar-quux.c:int yylineno = 1;
+bar-quux.c:#line 1 "../dir/quux.l"
+bar-quux.c:#line 2 "../dir/quux.l"
+bar-quux.c:#line 446 "bar-quux.c"
+bar-quux.c:#line 447 "bar-quux.c"
+bar-quux.c:int yyget_lineno ( void );
+bar-quux.c:void yyset_lineno ( int _line_number  );
+bar-quux.c:#line 4 "../dir/quux.l"
+bar-quux.c:#line 666 "bar-quux.c"
+bar-quux.c:#line 5 "../dir/quux.l"
+bar-quux.c:#line 6 "../dir/quux.l"
+bar-quux.c:#line 7 "../dir/quux.l"
+bar-quux.c:#line 738 "bar-quux.c"
+bar-quux.c:     * In that case, we don't want to reset the lineno or column.
+bar-quux.c:        b->yy_bs_lineno = 1;
+bar-quux.c:/** Get the current line number.
+bar-quux.c:int yyget_lineno  (void)
+bar-quux.c:    return yylineno;
+bar-quux.c:/** Set the current line number.
+bar-quux.c: * @param _line_number line number
+bar-quux.c:void yyset_lineno (int  _line_number )
+bar-quux.c:    yylineno = _line_number;
+bar-quux.c:#line 7 "../dir/quux.l"
+sub/foo-zardoz.c:#line 2 "foo-zardoz.c"
+sub/foo-zardoz.c:/* TODO: this is always defined, so inline it */
+sub/foo-zardoz.c:	 * each newline.
+sub/foo-zardoz.c:	/* Whether we're considered to be at the beginning of a line.
+sub/foo-zardoz.c:    int yy_bs_lineno; /**< The line count. */
+sub/foo-zardoz.c:extern int yylineno;
+sub/foo-zardoz.c:int yylineno = 1;
+sub/foo-zardoz.c:#line 1 "../../sub/zardoz.l"
+sub/foo-zardoz.c:#line 2 "../../sub/zardoz.l"
+sub/foo-zardoz.c:#line 446 "foo-zardoz.c"
+sub/foo-zardoz.c:#line 447 "foo-zardoz.c"
+sub/foo-zardoz.c:int yyget_lineno ( void );
+sub/foo-zardoz.c:void yyset_lineno ( int _line_number  );
+sub/foo-zardoz.c:#line 4 "../../sub/zardoz.l"
+sub/foo-zardoz.c:#line 666 "foo-zardoz.c"
+sub/foo-zardoz.c:#line 5 "../../sub/zardoz.l"
+sub/foo-zardoz.c:#line 6 "../../sub/zardoz.l"
+sub/foo-zardoz.c:#line 7 "../../sub/zardoz.l"
+sub/foo-zardoz.c:#line 738 "foo-zardoz.c"
+sub/foo-zardoz.c:     * In that case, we don't want to reset the lineno or column.
+sub/foo-zardoz.c:        b->yy_bs_lineno = 1;
+sub/foo-zardoz.c:/** Get the current line number.
+sub/foo-zardoz.c:int yyget_lineno  (void)
+sub/foo-zardoz.c:    return yylineno;
+sub/foo-zardoz.c:/** Set the current line number.
+sub/foo-zardoz.c: * @param _line_number line number
+sub/foo-zardoz.c:void yyset_lineno (int  _line_number )
+sub/foo-zardoz.c:    yylineno = _line_number;
+sub/foo-zardoz.c:#line 7 "../../sub/zardoz.l"
+sub/dir/quux.c:#line 2 "dir/quux.c"
+sub/dir/quux.c:/* TODO: this is always defined, so inline it */
+sub/dir/quux.c:	 * each newline.
+sub/dir/quux.c:	/* Whether we're considered to be at the beginning of a line.
+sub/dir/quux.c:    int yy_bs_lineno; /**< The line count. */
+sub/dir/quux.c:extern int yylineno;
+sub/dir/quux.c:int yylineno = 1;
+sub/dir/quux.c:#line 1 "../../sub/dir/quux.l"
+sub/dir/quux.c:#line 2 "../../sub/dir/quux.l"
+sub/dir/quux.c:#line 446 "dir/quux.c"
+sub/dir/quux.c:#line 447 "dir/quux.c"
+sub/dir/quux.c:int yyget_lineno ( void );
+sub/dir/quux.c:void yyset_lineno ( int _line_number  );
+sub/dir/quux.c:#line 4 "../../sub/dir/quux.l"
+sub/dir/quux.c:#line 666 "dir/quux.c"
+sub/dir/quux.c:#line 5 "../../sub/dir/quux.l"
+sub/dir/quux.c:#line 6 "../../sub/dir/quux.l"
+sub/dir/quux.c:#line 7 "../../sub/dir/quux.l"
+sub/dir/quux.c:#line 738 "dir/quux.c"
+sub/dir/quux.c:     * In that case, we don't want to reset the lineno or column.
+sub/dir/quux.c:        b->yy_bs_lineno = 1;
+sub/dir/quux.c:/** Get the current line number.
+sub/dir/quux.c:int yyget_lineno  (void)
+sub/dir/quux.c:    return yylineno;
+sub/dir/quux.c:/** Set the current line number.
+sub/dir/quux.c: * @param _line_number line number
+sub/dir/quux.c:void yyset_lineno (int  _line_number )
+sub/dir/quux.c:    yylineno = _line_number;
+sub/dir/quux.c:#line 7 "../../sub/dir/quux.l"
++ grep '#.*line.*build.*\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ /bin/grep -E '#.*line *"?/.*\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*line.*lex\.yy' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*\.l.*\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ :
++ grep '#.*line.*"\.\./zardoz\.l"' zardoz.c
+#line 1 "../zardoz.l"
+#line 2 "../zardoz.l"
+#line 4 "../zardoz.l"
+#line 5 "../zardoz.l"
+#line 6 "../zardoz.l"
+#line 7 "../zardoz.l"
+#line 7 "../zardoz.l"
++ grep '#.*line.*"\.\./dir/quux\.l"' bar-quux.c
+#line 1 "../dir/quux.l"
+#line 2 "../dir/quux.l"
+#line 4 "../dir/quux.l"
+#line 5 "../dir/quux.l"
+#line 6 "../dir/quux.l"
+#line 7 "../dir/quux.l"
+#line 7 "../dir/quux.l"
++ grep '#.*line.*"\.\./\.\./sub/zardoz\.l"' sub/foo-zardoz.c
+#line 1 "../../sub/zardoz.l"
+#line 2 "../../sub/zardoz.l"
+#line 4 "../../sub/zardoz.l"
+#line 5 "../../sub/zardoz.l"
+#line 6 "../../sub/zardoz.l"
+#line 7 "../../sub/zardoz.l"
+#line 7 "../../sub/zardoz.l"
++ grep '#.*line.*"\.\./\.\./sub/dir/quux\.l"' sub/dir/quux.c
+#line 1 "../../sub/dir/quux.l"
+#line 2 "../../sub/dir/quux.l"
+#line 4 "../../sub/dir/quux.l"
+#line 5 "../../sub/dir/quux.l"
+#line 6 "../../sub/dir/quux.l"
+#line 7 "../../sub/dir/quux.l"
+#line 7 "../../sub/dir/quux.l"
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for flex... lex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-line.dir/sub'
+\
+ \
+/bin/sh ../ylwrap `test -f 'zardoz.l' || echo './'`zardoz.l lex.yy.c foo-zardoz.c -- lex -v 
+lex version 2.6.4 usage statistics:
+  scanner options: -vI8 -Cem
+  15/2000 NFA states
+  8/1000 DFA states (16 words)
+  2 rules
+  Compressed tables always back-up
+  1/40 start conditions
+  10 epsilon states, 4 double epsilon states
+  3/100 character classes needed 1/500 words of storage, 0 reused
+  12 state/nextstate pairs created
+  8/4 unique/duplicate transitions
+  12/1000 base-def entries created
+  17/2000 (peak 22) nxt-chk entries created
+  12/2500 (peak 20) template nxt-chk entries created
+  1 empty table entries
+  4 protos created
+  4 templates created, 4 uses
+  5/256 equivalence classes created
+  3/256 meta-equivalence classes created
+  0 (0 saved) hash collisions, 3 DFAs equal
+  0 sets of reallocations needed
+  319 total table entries needed
+depbase=`echo foo-zardoz.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT foo-zardoz.o -MD -MP -MF $depbase.Tpo -c -o foo-zardoz.o foo-zardoz.c &&\
+mv -f $depbase.Tpo $depbase.Po
+foo-zardoz.c: In function 'yy_init_buffer':
+foo-zardoz.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+cc  -g -O2   -o foo foo-zardoz.o -lfl 
+/bin/sh ../ylwrap dir/quux.l lex.yy.c dir/quux.c -- lex  
+depbase=`echo dir/quux.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT dir/quux.o -MD -MP -MF $depbase.Tpo -c -o dir/quux.o dir/quux.c &&\
+mv -f $depbase.Tpo $depbase.Po
+dir/quux.c: In function 'yy_init_buffer':
+dir/quux.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+cc  -g -O2   -o bar dir/quux.o -lfl 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-line.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/lex-line.dir'
+/bin/sh ./ylwrap zardoz.l lex.yy.c zardoz.c -- lex  
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT zardoz.o -MD -MP -MF .deps/zardoz.Tpo -c -o zardoz.o zardoz.c
+zardoz.c: In function 'yy_init_buffer':
+zardoz.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/zardoz.Tpo .deps/zardoz.Po
+cc  -g -O2   -o foo zardoz.o -lfl 
+\
+ \
+/bin/sh ./ylwrap `test -f 'dir/quux.l' || echo './'`dir/quux.l lex.yy.c bar-quux.c -- lex -v 
+lex version 2.6.4 usage statistics:
+  scanner options: -vI8 -Cem
+  15/2000 NFA states
+  8/1000 DFA states (16 words)
+  2 rules
+  Compressed tables always back-up
+  1/40 start conditions
+  10 epsilon states, 4 double epsilon states
+  3/100 character classes needed 1/500 words of storage, 0 reused
+  12 state/nextstate pairs created
+  8/4 unique/duplicate transitions
+  12/1000 base-def entries created
+  17/2000 (peak 22) nxt-chk entries created
+  12/2500 (peak 20) template nxt-chk entries created
+  1 empty table entries
+  4 protos created
+  4 templates created, 4 uses
+  5/256 equivalence classes created
+  3/256 meta-equivalence classes created
+  0 (0 saved) hash collisions, 3 DFAs equal
+  0 sets of reallocations needed
+  319 total table entries needed
+cc -DPACKAGE_NAME=\"lex-line\" -DPACKAGE_TARNAME=\"lex-line\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"lex-line\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"lex-line\" -DVERSION=\"1.0\" -DYYTEXT_POINTER=1 -I.     -g -O2 -MT bar-quux.o -MD -MP -MF .deps/bar-quux.Tpo -c -o bar-quux.o bar-quux.c
+bar-quux.c: In function 'yy_init_buffer':
+bar-quux.c:1319:40: warning: implicit declaration of function 'isatty' [-Wimplicit-function-declaration]
+ 
+                                        ^     
+mv -f .deps/bar-quux.Tpo .deps/bar-quux.Po
+cc  -g -O2   -o bar bar-quux.o -lfl 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/lex-line.dir'
++ ls -l . sub sub/dir
+.:
+total 728
+-rw-r--r-- 1 root root  29359 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root    221 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  29341 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:42 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rwxr-xr-x 1 root root  49160 Nov 27 06:42 bar
+-rw-r--r-- 1 root root  44431 Nov 27 06:42 bar-quux.c
+-rw-r--r-- 1 root root  53616 Nov 27 06:42 bar-quux.o
+drwxr-xr-x 4 root root   4096 Nov 27 06:42 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root  58901 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29273 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 147103 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    137 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 dir
+-rwxr-xr-x 1 root root  49152 Nov 27 06:42 foo
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
+drwxr-xr-x 4 root root   4096 Nov 27 06:42 sub
+lrwxrwxrwx 1 root root     35 Nov 27 06:42 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+-rw-r--r-- 1 root root  44407 Nov 27 06:42 zardoz.c
+-rw-r--r-- 1 root root    187 Nov 27 06:42 zardoz.l
+-rw-r--r-- 1 root root  53608 Nov 27 06:42 zardoz.o
+
+sub:
+total 252
+-rw-r--r-- 1 root root 17400 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root   308 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root 17409 Nov 27 06:42 Makefile.in
+-rwxr-xr-x 1 root root 49152 Nov 27 06:42 bar
+drwxr-xr-x 3 root root  4096 Nov 27 06:42 dir
+-rwxr-xr-x 1 root root 49160 Nov 27 06:42 foo
+-rw-r--r-- 1 root root 44427 Nov 27 06:42 foo-zardoz.c
+-rw-r--r-- 1 root root 53624 Nov 27 06:42 foo-zardoz.o
+-rw-r--r-- 1 root root   187 Nov 27 06:42 zardoz.l
+
+sub/dir:
+total 104
+-rw-r--r-- 1 root root 44431 Nov 27 06:42 quux.c
+-rw-r--r-- 1 root root   187 Nov 27 06:42 quux.l
+-rw-r--r-- 1 root root 53608 Nov 27 06:42 quux.o
++ /bin/grep -E 'line|\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
+zardoz.c:#line 2 "zardoz.c"
+zardoz.c:/* TODO: this is always defined, so inline it */
+zardoz.c:	 * each newline.
+zardoz.c:	/* Whether we're considered to be at the beginning of a line.
+zardoz.c:    int yy_bs_lineno; /**< The line count. */
+zardoz.c:extern int yylineno;
+zardoz.c:int yylineno = 1;
+zardoz.c:#line 1 "zardoz.l"
+zardoz.c:#line 2 "zardoz.l"
+zardoz.c:#line 446 "zardoz.c"
+zardoz.c:#line 447 "zardoz.c"
+zardoz.c:int yyget_lineno ( void );
+zardoz.c:void yyset_lineno ( int _line_number  );
+zardoz.c:#line 4 "zardoz.l"
+zardoz.c:#line 666 "zardoz.c"
+zardoz.c:#line 5 "zardoz.l"
+zardoz.c:#line 6 "zardoz.l"
+zardoz.c:#line 7 "zardoz.l"
+zardoz.c:#line 738 "zardoz.c"
+zardoz.c:     * In that case, we don't want to reset the lineno or column.
+zardoz.c:        b->yy_bs_lineno = 1;
+zardoz.c:/** Get the current line number.
+zardoz.c:int yyget_lineno  (void)
+zardoz.c:    return yylineno;
+zardoz.c:/** Set the current line number.
+zardoz.c: * @param _line_number line number
+zardoz.c:void yyset_lineno (int  _line_number )
+zardoz.c:    yylineno = _line_number;
+zardoz.c:#line 7 "zardoz.l"
+bar-quux.c:#line 2 "bar-quux.c"
+bar-quux.c:/* TODO: this is always defined, so inline it */
+bar-quux.c:	 * each newline.
+bar-quux.c:	/* Whether we're considered to be at the beginning of a line.
+bar-quux.c:    int yy_bs_lineno; /**< The line count. */
+bar-quux.c:extern int yylineno;
+bar-quux.c:int yylineno = 1;
+bar-quux.c:#line 1 "dir/quux.l"
+bar-quux.c:#line 2 "dir/quux.l"
+bar-quux.c:#line 446 "bar-quux.c"
+bar-quux.c:#line 447 "bar-quux.c"
+bar-quux.c:int yyget_lineno ( void );
+bar-quux.c:void yyset_lineno ( int _line_number  );
+bar-quux.c:#line 4 "dir/quux.l"
+bar-quux.c:#line 666 "bar-quux.c"
+bar-quux.c:#line 5 "dir/quux.l"
+bar-quux.c:#line 6 "dir/quux.l"
+bar-quux.c:#line 7 "dir/quux.l"
+bar-quux.c:#line 738 "bar-quux.c"
+bar-quux.c:     * In that case, we don't want to reset the lineno or column.
+bar-quux.c:        b->yy_bs_lineno = 1;
+bar-quux.c:/** Get the current line number.
+bar-quux.c:int yyget_lineno  (void)
+bar-quux.c:    return yylineno;
+bar-quux.c:/** Set the current line number.
+bar-quux.c: * @param _line_number line number
+bar-quux.c:void yyset_lineno (int  _line_number )
+bar-quux.c:    yylineno = _line_number;
+bar-quux.c:#line 7 "dir/quux.l"
+sub/foo-zardoz.c:#line 2 "foo-zardoz.c"
+sub/foo-zardoz.c:/* TODO: this is always defined, so inline it */
+sub/foo-zardoz.c:	 * each newline.
+sub/foo-zardoz.c:	/* Whether we're considered to be at the beginning of a line.
+sub/foo-zardoz.c:    int yy_bs_lineno; /**< The line count. */
+sub/foo-zardoz.c:extern int yylineno;
+sub/foo-zardoz.c:int yylineno = 1;
+sub/foo-zardoz.c:#line 1 "zardoz.l"
+sub/foo-zardoz.c:#line 2 "zardoz.l"
+sub/foo-zardoz.c:#line 446 "foo-zardoz.c"
+sub/foo-zardoz.c:#line 447 "foo-zardoz.c"
+sub/foo-zardoz.c:int yyget_lineno ( void );
+sub/foo-zardoz.c:void yyset_lineno ( int _line_number  );
+sub/foo-zardoz.c:#line 4 "zardoz.l"
+sub/foo-zardoz.c:#line 666 "foo-zardoz.c"
+sub/foo-zardoz.c:#line 5 "zardoz.l"
+sub/foo-zardoz.c:#line 6 "zardoz.l"
+sub/foo-zardoz.c:#line 7 "zardoz.l"
+sub/foo-zardoz.c:#line 738 "foo-zardoz.c"
+sub/foo-zardoz.c:     * In that case, we don't want to reset the lineno or column.
+sub/foo-zardoz.c:        b->yy_bs_lineno = 1;
+sub/foo-zardoz.c:/** Get the current line number.
+sub/foo-zardoz.c:int yyget_lineno  (void)
+sub/foo-zardoz.c:    return yylineno;
+sub/foo-zardoz.c:/** Set the current line number.
+sub/foo-zardoz.c: * @param _line_number line number
+sub/foo-zardoz.c:void yyset_lineno (int  _line_number )
+sub/foo-zardoz.c:    yylineno = _line_number;
+sub/foo-zardoz.c:#line 7 "zardoz.l"
+sub/dir/quux.c:#line 2 "dir/quux.c"
+sub/dir/quux.c:/* TODO: this is always defined, so inline it */
+sub/dir/quux.c:	 * each newline.
+sub/dir/quux.c:	/* Whether we're considered to be at the beginning of a line.
+sub/dir/quux.c:    int yy_bs_lineno; /**< The line count. */
+sub/dir/quux.c:extern int yylineno;
+sub/dir/quux.c:int yylineno = 1;
+sub/dir/quux.c:#line 1 "dir/quux.l"
+sub/dir/quux.c:#line 2 "dir/quux.l"
+sub/dir/quux.c:#line 446 "dir/quux.c"
+sub/dir/quux.c:#line 447 "dir/quux.c"
+sub/dir/quux.c:int yyget_lineno ( void );
+sub/dir/quux.c:void yyset_lineno ( int _line_number  );
+sub/dir/quux.c:#line 4 "dir/quux.l"
+sub/dir/quux.c:#line 666 "dir/quux.c"
+sub/dir/quux.c:#line 5 "dir/quux.l"
+sub/dir/quux.c:#line 6 "dir/quux.l"
+sub/dir/quux.c:#line 7 "dir/quux.l"
+sub/dir/quux.c:#line 738 "dir/quux.c"
+sub/dir/quux.c:     * In that case, we don't want to reset the lineno or column.
+sub/dir/quux.c:        b->yy_bs_lineno = 1;
+sub/dir/quux.c:/** Get the current line number.
+sub/dir/quux.c:int yyget_lineno  (void)
+sub/dir/quux.c:    return yylineno;
+sub/dir/quux.c:/** Set the current line number.
+sub/dir/quux.c: * @param _line_number line number
+sub/dir/quux.c:void yyset_lineno (int  _line_number )
+sub/dir/quux.c:    yylineno = _line_number;
+sub/dir/quux.c:#line 7 "dir/quux.l"
++ grep '#.*line.*build.*\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ /bin/grep -E '#.*line *"?/.*\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*line.*lex\.yy' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ grep '#.*\.l.*\.l' zardoz.c bar-quux.c sub/foo-zardoz.c sub/dir/quux.c
++ false
++ grep '#.*line.*"zardoz\.l"' zardoz.c
+#line 1 "zardoz.l"
+#line 2 "zardoz.l"
+#line 4 "zardoz.l"
+#line 5 "zardoz.l"
+#line 6 "zardoz.l"
+#line 7 "zardoz.l"
+#line 7 "zardoz.l"
++ grep '#.*line.*"dir/quux\.l"' bar-quux.c
+#line 1 "dir/quux.l"
+#line 2 "dir/quux.l"
+#line 4 "dir/quux.l"
+#line 5 "dir/quux.l"
+#line 6 "dir/quux.l"
+#line 7 "dir/quux.l"
+#line 7 "dir/quux.l"
++ grep '#.*line.*"zardoz\.l"' sub/foo-zardoz.c
+#line 1 "zardoz.l"
+#line 2 "zardoz.l"
+#line 4 "zardoz.l"
+#line 5 "zardoz.l"
+#line 6 "zardoz.l"
+#line 7 "zardoz.l"
+#line 7 "zardoz.l"
++ grep '#.*line.*"dir/quux\.l"' sub/dir/quux.c
+#line 1 "dir/quux.l"
+#line 2 "dir/quux.l"
+#line 4 "dir/quux.l"
+#line 5 "dir/quux.l"
+#line 6 "dir/quux.l"
+#line 7 "dir/quux.l"
+#line 7 "dir/quux.l"
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/lex-line.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/lex-line.dir
++ set +x
+PASS t/lex-line.sh (exit status: 0)

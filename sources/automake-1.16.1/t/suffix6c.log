@@ -1,0 +1,129 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/suffix6c.dir
++ cat
++ unset OBJEXT
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ cat
++ echo %ONE%
++ make
+{ echo '=.zoo.oOo=' && cat foo.zoo; } >foo.oOo
+cat >foo.XxX foo.oOo  
++ cat foo.oOo
+=.zoo.oOo=
+%ONE%
++ cat foo.XxX
+=.zoo.oOo=
+%ONE%
++ diff foo.XxX foo.exp
++ rm -f foo.XxX foo.exp foo.oOo foo.zoo exp
++ cat
++ echo %TWO%
++ run_make OBJEXT=o
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make OBJEXT=o
++ set +x
+{ echo '=.zoo.o=' && cat foo.zoo; } >foo.o
+cat >foo.XxX foo.o  
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cat foo.o
+=.zoo.o=
+%TWO%
++ cat foo.XxX
+=.zoo.o=
+%TWO%
++ diff foo.XxX foo.exp
++ rm -f foo.XxX foo.exp foo.o foo.zoo exp
++ cat
++ echo %THREE%
++ run_make OBJEXT=obj
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make OBJEXT=obj
++ set +x
+{ echo '=.zoo.obj=' && cat foo.zoo; } >foo.obj
+cat >foo.XxX foo.obj  
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cat foo.obj
+=.zoo.obj=
+%THREE%
++ cat foo.XxX
+=.zoo.obj=
+%THREE%
++ diff foo.XxX foo.exp
++ rm -f foo.XxX foo.exp foo.obj foo.zoo exp
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/suffix6c.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/suffix6c.dir
++ set +x
+PASS t/suffix6c.sh (exit status: 0)

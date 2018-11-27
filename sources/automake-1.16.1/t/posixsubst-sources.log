@@ -1,0 +1,385 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/posixsubst-sources.dir
++ cat
++ cat
++ cat
++ echo 'int foo(void) { return 0; }'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+echo 'int bar.c (void) { return 0; }' | sed 's/\.c //' > bar.c
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+echo 'int baz.c (void) { return 0; }' | sed 's/\.c //' > baz.c
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.c
+mv -f .deps/baz.Tpo .deps/baz.Po
+cc  -g -O2   -o foo main.o foo.o bar.o baz.o  
++ make test1 test2
+ls -l . .
+.:
+total 408
+-rw-r--r-- 1 root root  25219 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    748 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  25063 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rw-r--r-- 1 root root     28 Nov 27 06:45 bar.c
+-rw-r--r-- 1 root root   2480 Nov 27 06:45 bar.o
+-rw-r--r-- 1 root root     28 Nov 27 06:45 baz.c
+-rw-r--r-- 1 root root   2480 Nov 27 06:45 baz.o
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   8838 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  29282 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 141214 Nov 27 06:45 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root  21632 Nov 27 06:45 foo
+-rw-r--r-- 1 root root     28 Nov 27 06:45 foo.c
+-rw-r--r-- 1 root root   2480 Nov 27 06:45 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rw-r--r-- 1 root root     90 Nov 27 06:45 main.c
+-rw-r--r-- 1 root root   3320 Nov 27 06:45 main.o
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+
+.:
+total 408
+-rw-r--r-- 1 root root  25219 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    748 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  25063 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rw-r--r-- 1 root root     28 Nov 27 06:45 bar.c
+-rw-r--r-- 1 root root   2480 Nov 27 06:45 bar.o
+-rw-r--r-- 1 root root     28 Nov 27 06:45 baz.c
+-rw-r--r-- 1 root root   2480 Nov 27 06:45 baz.o
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   8838 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  29282 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 141214 Nov 27 06:45 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root  21632 Nov 27 06:45 foo
+-rw-r--r-- 1 root root     28 Nov 27 06:45 foo.c
+-rw-r--r-- 1 root root   2480 Nov 27 06:45 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rw-r--r-- 1 root root     90 Nov 27 06:45 main.c
+-rw-r--r-- 1 root root   3320 Nov 27 06:45 main.o
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+test -f ./bar.c
+test -f baz.c
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+test -d "posixsubst-sources-1.0" || mkdir "posixsubst-sources-1.0"
+test -n "" \
+|| find "posixsubst-sources-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/posixsubst-sources.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "posixsubst-sources-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir'
+ls -l posixsubst-sources-1.0
+total 288
+-rw-r--r-- 1 root root    748 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  25063 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:45 aclocal.m4
+-rw-r--r-- 1 root root     28 Nov 27 06:45 bar.c
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rwxr-xr-x 1 root root 141214 Nov 27 06:45 configure
+-rw-r--r-- 1 root root    103 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rw-r--r-- 1 root root     28 Nov 27 06:45 foo.c
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rw-r--r-- 1 root root     90 Nov 27 06:45 main.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+test -f posixsubst-sources-1.0/bar.c
+test -f posixsubst-sources-1.0/foo.c
+test -f posixsubst-sources-1.0/main.c
+test ! -r posixsubst-sources-1.0/baz.c
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+test -d "posixsubst-sources-1.0" || mkdir "posixsubst-sources-1.0"
+test -n "" \
+|| find "posixsubst-sources-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/posixsubst-sources.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "posixsubst-sources-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir'
+tardir=posixsubst-sources-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >posixsubst-sources-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+case 'posixsubst-sources-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc posixsubst-sources-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc posixsubst-sources-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc posixsubst-sources-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc posixsubst-sources-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c posixsubst-sources-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc posixsubst-sources-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip posixsubst-sources-1.0.zip ;;\
+esac
+chmod -R a-w posixsubst-sources-1.0
+chmod u+w posixsubst-sources-1.0
+mkdir posixsubst-sources-1.0/_build posixsubst-sources-1.0/_build/sub posixsubst-sources-1.0/_inst
+chmod a-w posixsubst-sources-1.0
+test -d posixsubst-sources-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd posixsubst-sources-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd posixsubst-sources-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf posixsubst-sources-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+echo 'int baz.c (void) { return 0; }' | sed 's/\.c //' > baz.c
+cc -DPACKAGE_NAME=\"posixsubst-sources\" -DPACKAGE_TARNAME=\"posixsubst-sources\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"posixsubst-sources\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"posixsubst-sources\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.c
+mv -f .deps/baz.Tpo .deps/baz.Po
+cc  -g -O2   -o foo main.o foo.o bar.o baz.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+ls -l . ../..
+.:
+total 116
+-rw-r--r-- 1 root root 25606 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root  2528 Nov 27 06:45 bar.o
+-rw-r--r-- 1 root root    28 Nov 27 06:45 baz.c
+-rw-r--r-- 1 root root  2520 Nov 27 06:45 baz.o
+-rw-r--r-- 1 root root  9616 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root 29588 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 21712 Nov 27 06:45 foo
+-rw-r--r-- 1 root root  2528 Nov 27 06:45 foo.o
+-rw-r--r-- 1 root root  3368 Nov 27 06:45 main.o
+
+../..:
+total 296
+-r--r--r-- 1 root root    748 Nov 27 06:45 Makefile.am
+-r--r--r-- 1 root root  25063 Nov 27 06:45 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:45 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 _inst
+-r--r--r-- 1 root root  41888 Nov 27 06:45 aclocal.m4
+-r--r--r-- 1 root root     28 Nov 27 06:45 bar.c
+-r-xr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-r-xr-xr-x 1 root root 141214 Nov 27 06:45 configure
+-r--r--r-- 1 root root    103 Nov 27 06:45 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-r--r--r-- 1 root root     28 Nov 27 06:45 foo.c
+-r-xr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-r--r--r-- 1 root root     90 Nov 27 06:45 main.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:45 missing
+test -f ../../bar.c
+test -f baz.c
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+test -d "posixsubst-sources-1.0" || mkdir "posixsubst-sources-1.0"
+test -n "" \
+|| find "posixsubst-sources-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "posixsubst-sources-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+ls -l posixsubst-sources-1.0
+total 288
+-r--r--r-- 1 root root    748 Nov 27 06:45 Makefile.am
+-r--r--r-- 1 root root  25063 Nov 27 06:45 Makefile.in
+-r--r--r-- 1 root root  41888 Nov 27 06:45 aclocal.m4
+-r--r--r-- 1 root root     28 Nov 27 06:45 bar.c
+-r-xr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-r-xr-xr-x 1 root root 141214 Nov 27 06:45 configure
+-r--r--r-- 1 root root    103 Nov 27 06:45 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-r--r--r-- 1 root root     28 Nov 27 06:45 foo.c
+-r-xr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-r--r--r-- 1 root root     90 Nov 27 06:45 main.c
+-r-xr-xr-x 1 root root   6878 Nov 27 06:45 missing
+test -f posixsubst-sources-1.0/bar.c
+test -f posixsubst-sources-1.0/foo.c
+test -f posixsubst-sources-1.0/main.c
+test ! -r posixsubst-sources-1.0/baz.c
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_inst/bin'
+  /usr/bin/install -c foo '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-50199//sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_inst/bin'
+  /usr/bin/install -c foo '/tmp/am-dc-50199//sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+ ( cd '/tmp/am-dc-50199//sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+test -d "posixsubst-sources-1.0" || mkdir "posixsubst-sources-1.0"
+test -n "" \
+|| find "posixsubst-sources-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "posixsubst-sources-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+tardir=posixsubst-sources-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >posixsubst-sources-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+test -z "foo" || rm -f foo
+test -z "baz.c bar.c " || rm -f baz.c bar.c 
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f ./.deps/baz.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/main.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/posixsubst-sources.dir/posixsubst-sources-1.0/_build/sub'
+if test -d "posixsubst-sources-1.0"; then find "posixsubst-sources-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "posixsubst-sources-1.0" || { sleep 5 && rm -rf "posixsubst-sources-1.0"; }; else :; fi
+========================================================
+posixsubst-sources-1.0 archives ready for distribution: 
+posixsubst-sources-1.0.tar.gz
+========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/posixsubst-sources.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/posixsubst-sources.dir
++ set +x
+PASS t/posixsubst-sources.sh (exit status: 0)

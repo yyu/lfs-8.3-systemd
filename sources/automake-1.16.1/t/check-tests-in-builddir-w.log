@@ -1,0 +1,335 @@
+./t/check-tests-in-builddir-w.sh: will source ./t/check-tests-in-builddir.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir
+++ cat
+++ cat
+++ cat
+++ chmod a+x foo.test
+++ unset FOO_EXIT_STATUS
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall -a
+++ mkdir build
+++ cd build
+++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ cat
+++ chmod a+x bar.test
+++ run_make -M check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 2 -gt 0
+++ case $1 in
+++ am__make_redirect_stdall=yes
+++ shift
+++ test 1 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ make --version -v
+++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+++ am__using_gmake=yes
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make check
+++ set +x
+++ test 0 -eq 253
+++ test yes = yes
+++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+PASS: foo.test
+PASS: bar.test
+==================
+All 2 tests passed
+==================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+++ case $am__make_rc_exp in
+++ test 0 -ge 0
+++ test 0 -le 255
+++ test 0 -eq 0
+++ test xyes = xyes
+++ grep '^PASS: .*foo\.test *$' output
+PASS: foo.test
+++ grep '^PASS: bar\.test *$' output
+PASS: bar.test
+++ rm -f test-suite.log foo.log bar.log
+++ run_make -M -e FAIL FOO_EXIT_STATUS=1 check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_redirect_stdall=yes
+++ shift
+++ test 4 -gt 0
+++ case $1 in
+++ am__make_rc_exp=FAIL
+++ shift
+++ shift
+++ test 2 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make FOO_EXIT_STATUS=1 check
+++ set +x
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test yes = yes
+++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+FAIL: foo.test
+PASS: bar.test
+===================
+1 of 2 tests failed
+===================
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+make: *** [Makefile:539: check-am] Error 2
+++ case $am__make_rc_exp in
+++ test 2 -gt 0
+++ test xyes = xyes
+++ grep '^FAIL: .*foo\.test *$' output
+FAIL: foo.test
+++ grep '^PASS: bar\.test *$' output
+PASS: bar.test
+++ rm -f test-suite.log foo.log bar.log
+++ cp bar.test foo.test
+++ run_make -M FOO_EXIT_STATUS=1 check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 3 -gt 0
+++ case $1 in
+++ am__make_redirect_stdall=yes
+++ shift
+++ test 2 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make FOO_EXIT_STATUS=1 check
+++ set +x
+++ test 0 -eq 253
+++ test yes = yes
+++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+PASS: foo.test
+PASS: bar.test
+==================
+All 2 tests passed
+==================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+++ case $am__make_rc_exp in
+++ test 0 -ge 0
+++ test 0 -le 255
+++ test 0 -eq 0
+++ grep '^PASS: foo\.test *$' output
+PASS: foo.test
+++ grep '^PASS: bar\.test *$' output
+PASS: bar.test
+++ FOO_EXIT_STATUS=1
+++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+if test -d "check-tests-in-builddir-w-1.0"; then find "check-tests-in-builddir-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check-tests-in-builddir-w-1.0" || { sleep 5 && rm -rf "check-tests-in-builddir-w-1.0"; }; else :; fi
+test -d "check-tests-in-builddir-w-1.0" || mkdir "check-tests-in-builddir-w-1.0"
+test -n "" \
+|| find "check-tests-in-builddir-w-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "check-tests-in-builddir-w-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+tardir=check-tests-in-builddir-w-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >check-tests-in-builddir-w-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build'
+if test -d "check-tests-in-builddir-w-1.0"; then find "check-tests-in-builddir-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check-tests-in-builddir-w-1.0" || { sleep 5 && rm -rf "check-tests-in-builddir-w-1.0"; }; else :; fi
+case 'check-tests-in-builddir-w-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc check-tests-in-builddir-w-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc check-tests-in-builddir-w-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc check-tests-in-builddir-w-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc check-tests-in-builddir-w-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c check-tests-in-builddir-w-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc check-tests-in-builddir-w-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip check-tests-in-builddir-w-1.0.zip ;;\
+esac
+chmod -R a-w check-tests-in-builddir-w-1.0
+chmod u+w check-tests-in-builddir-w-1.0
+mkdir check-tests-in-builddir-w-1.0/_build check-tests-in-builddir-w-1.0/_build/sub check-tests-in-builddir-w-1.0/_inst
+chmod a-w check-tests-in-builddir-w-1.0
+test -d check-tests-in-builddir-w-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd check-tests-in-builddir-w-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd check-tests-in-builddir-w-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf check-tests-in-builddir-w-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+PASS: foo.test
+PASS: bar.test
+==================
+All 2 tests passed
+==================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+if test -d "check-tests-in-builddir-w-1.0"; then find "check-tests-in-builddir-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check-tests-in-builddir-w-1.0" || { sleep 5 && rm -rf "check-tests-in-builddir-w-1.0"; }; else :; fi
+test -d "check-tests-in-builddir-w-1.0" || mkdir "check-tests-in-builddir-w-1.0"
+test -n "" \
+|| find "check-tests-in-builddir-w-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "check-tests-in-builddir-w-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+tardir=check-tests-in-builddir-w-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >check-tests-in-builddir-w-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+if test -d "check-tests-in-builddir-w-1.0"; then find "check-tests-in-builddir-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check-tests-in-builddir-w-1.0" || { sleep 5 && rm -rf "check-tests-in-builddir-w-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-tests-in-builddir-w.dir/build/check-tests-in-builddir-w-1.0/_build/sub'
+if test -d "check-tests-in-builddir-w-1.0"; then find "check-tests-in-builddir-w-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "check-tests-in-builddir-w-1.0" || { sleep 5 && rm -rf "check-tests-in-builddir-w-1.0"; }; else :; fi
+===============================================================
+check-tests-in-builddir-w-1.0 archives ready for distribution: 
+check-tests-in-builddir-w-1.0.tar.gz
+===============================================================
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check-tests-in-builddir-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check-tests-in-builddir-w.dir
++ set +x
+PASS t/check-tests-in-builddir-w.sh (exit status: 0)

@@ -1,0 +1,143 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/alpha.dir
++ cat
++ cat
++ mkdir sub
++ cat
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ run_make -E -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+Making check in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/alpha.dir'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/alpha.dir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/alpha.dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir'
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
+NEWS not updated; not releasing
+make[3]: *** [Makefile:423: distdir-am] Error 1
+make[2]: *** [Makefile:420: distdir] Error 2
+make[1]: *** [Makefile:617: check-am] Error 2
+make: *** [Makefile:320: check-recursive] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ grep 'NEWS not updated' stderr
+NEWS not updated; not releasing
++ test '!' -e works
++ echo 'alpha 1.0a released'
++ make check
+Making check in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/alpha.dir'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/alpha.dir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/alpha.dir'
+if test -d "alpha-1.0a"; then find "alpha-1.0a" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "alpha-1.0a" || { sleep 5 && rm -rf "alpha-1.0a"; }; else :; fi
+test -d "alpha-1.0a" || mkdir "alpha-1.0a"
+ (cd sub && make  top_distdir=../alpha-1.0a distdir=../alpha-1.0a/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir/sub'
+test -n "" \
+|| find "alpha-1.0a" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/alpha.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "alpha-1.0a"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir'
+test -f alpha-1.0a/README-alpha
+test -f alpha-1.0a/sub/README
+test ! -f alpha-1.0a/sub/README-alpha
+: > works
+make[2]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/alpha.dir'
++ test -f works
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/alpha.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/alpha.dir
++ set +x
+PASS t/alpha.sh (exit status: 0)

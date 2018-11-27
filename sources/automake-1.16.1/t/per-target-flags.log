@@ -1,0 +1,86 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/per-target-flags.dir
++ makefiles='Makefile libMakefile Makefile2 libMakefile2'
++ cat
++ aclocal-1.16 -Werror
++ cat
++ cat
++ cat - Makefile.am
++ cat - libMakefile.am
+++ for mkf in $makefiles
+++ echo Makefile.in
+++ for mkf in $makefiles
+++ echo libMakefile.in
+++ for mkf in $makefiles
+++ echo Makefile2.in
+++ for mkf in $makefiles
+++ echo libMakefile2.in
++ makefiles='Makefile.in
+libMakefile.in
+Makefile2.in
+libMakefile2.in'
++ automake-1.16 --foreign -Werror -Wall
++ for mkf in $makefiles
++ test -f Makefile.in
++ for mkf in $makefiles
++ test -f libMakefile.in
++ for mkf in $makefiles
++ test -f Makefile2.in
++ for mkf in $makefiles
++ test -f libMakefile2.in
++ /bin/grep -F ')-c' Makefile.in libMakefile.in Makefile2.in libMakefile2.in
++ /bin/grep -F .o.o Makefile.in libMakefile.in Makefile2.in libMakefile2.in
++ /bin/grep -F .obj.obj Makefile.in libMakefile.in Makefile2.in libMakefile2.in
++ /bin/grep -F '.$(OBJEXT).$(OBJEXT)' Makefile.in libMakefile.in Makefile2.in libMakefile2.in
++ /bin/grep -E '[^-](foo|bar)\.[o$]' Makefile.in libMakefile.in Makefile2.in libMakefile2.in
++ grep '\$.COMPILE' Makefile.in libMakefile.in Makefile2.in libMakefile2.in
++ grep -v ' -c'
++ /bin/grep -F 'foo-foo.$(OBJEXT)' Makefile.in
+am_foo_OBJECTS = foo-foo.$(OBJEXT)
++ /bin/grep -F 'foo-foo.$(OBJEXT)' Makefile2.in
+am_foo_OBJECTS = foo-foo.$(OBJEXT)
++ /bin/grep -F 'libfoo_a-foo.$(OBJEXT)' libMakefile.in
+am_libfoo_a_OBJECTS = libfoo_a-foo.$(OBJEXT) libfoo_a-bar.$(OBJEXT)
++ /bin/grep -F 'libfoo_a-foo.$(OBJEXT)' libMakefile2.in
+am_libfoo_a_OBJECTS = libfoo_a-foo.$(OBJEXT) libfoo_a-bar.$(OBJEXT)
++ /bin/grep -F 'libfoo_a-bar.$(OBJEXT)' libMakefile.in
+am_libfoo_a_OBJECTS = libfoo_a-foo.$(OBJEXT) libfoo_a-bar.$(OBJEXT)
++ /bin/grep -F 'libfoo_a-bar.$(OBJEXT)' libMakefile2.in
+am_libfoo_a_OBJECTS = libfoo_a-foo.$(OBJEXT) libfoo_a-bar.$(OBJEXT)
++ /bin/grep -F '$(foo_CFLAGS)' Makefile.in
+foo_LINK = $(CCLD) $(foo_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo_CFLAGS) $(CFLAGS) -MT foo-foo.o -MD -MP -MF $(DEPDIR)/foo-foo.Tpo -c -o foo-foo.o `test -f 'foo.c' || echo '$(srcdir)/'`foo.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo_CFLAGS) $(CFLAGS) -c -o foo-foo.o `test -f 'foo.c' || echo '$(srcdir)/'`foo.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo_CFLAGS) $(CFLAGS) -MT foo-foo.obj -MD -MP -MF $(DEPDIR)/foo-foo.Tpo -c -o foo-foo.obj `if test -f 'foo.c'; then $(CYGPATH_W) 'foo.c'; else $(CYGPATH_W) '$(srcdir)/foo.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo_CFLAGS) $(CFLAGS) -c -o foo-foo.obj `if test -f 'foo.c'; then $(CYGPATH_W) 'foo.c'; else $(CYGPATH_W) '$(srcdir)/foo.c'; fi`
++ /bin/grep -F '$(foo_CFLAGS)' Makefile2.in
+foo_LINK = $(CCLD) $(foo_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o \
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo_CFLAGS) $(CFLAGS) -c -o foo-foo.o `test -f 'foo.c' || echo '$(srcdir)/'`foo.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo_CFLAGS) $(CFLAGS) -c -o foo-foo.obj `if test -f 'foo.c'; then $(CYGPATH_W) 'foo.c'; else $(CYGPATH_W) '$(srcdir)/foo.c'; fi`
++ /bin/grep -F '$(libfoo_a_CFLAGS)' libMakefile.in
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfoo_a_CFLAGS) $(CFLAGS) -MT libfoo_a-foo.o -MD -MP -MF $(DEPDIR)/libfoo_a-foo.Tpo -c -o libfoo_a-foo.o `test -f 'foo.c' || echo '$(srcdir)/'`foo.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfoo_a_CFLAGS) $(CFLAGS) -c -o libfoo_a-foo.o `test -f 'foo.c' || echo '$(srcdir)/'`foo.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfoo_a_CFLAGS) $(CFLAGS) -MT libfoo_a-foo.obj -MD -MP -MF $(DEPDIR)/libfoo_a-foo.Tpo -c -o libfoo_a-foo.obj `if test -f 'foo.c'; then $(CYGPATH_W) 'foo.c'; else $(CYGPATH_W) '$(srcdir)/foo.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfoo_a_CFLAGS) $(CFLAGS) -c -o libfoo_a-foo.obj `if test -f 'foo.c'; then $(CYGPATH_W) 'foo.c'; else $(CYGPATH_W) '$(srcdir)/foo.c'; fi`
++ /bin/grep -F '$(libfoo_a_CFLAGS)' libMakefile2.in
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfoo_a_CFLAGS) $(CFLAGS) -c -o libfoo_a-foo.o `test -f 'foo.c' || echo '$(srcdir)/'`foo.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libfoo_a_CFLAGS) $(CFLAGS) -c -o libfoo_a-foo.obj `if test -f 'foo.c'; then $(CYGPATH_W) 'foo.c'; else $(CYGPATH_W) '$(srcdir)/foo.c'; fi`
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/per-target-flags.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/per-target-flags.dir
++ set +x
+PASS t/per-target-flags.sh (exit status: 0)

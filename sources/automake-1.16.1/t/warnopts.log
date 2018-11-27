@@ -1,0 +1,61 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/warnopts.dir
++ cat
++ mkdir sub
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: variable 'foo_SOURCES' is defined but no program or
+Makefile.am:3: library has 'foo' as canonical name (possible typo)
+sub/Makefile.am:2: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile.am:.*foo_SOURCES' stderr
+Makefile.am:3: warning: variable 'foo_SOURCES' is defined but no program or
++ grep '^sub/Makefile.am:.*INCLUDES' stderr
+sub/Makefile.am:2: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
++ grep '^sub/Makefile.am:.*foo_SOURCES' stderr
++ grep '^Makefile.am:.*INCLUDES' stderr
+++ grep -v 'warnings are treated as errors' stderr
+++ wc -l
++ test 3 -eq 3
++ rm -rf autom4te.cache
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/warnopts.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/warnopts.dir
++ set +x
+PASS t/warnopts.sh (exit status: 0)

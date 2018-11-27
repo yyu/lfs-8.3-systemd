@@ -1,0 +1,59 @@
+libobj13: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/libobj13.dir
++ cat
++ cat
++ :
++ aclocal-1.16 -Werror
++ :
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:5: installing './ar-lib'
+configure.ac:6: installing './config.guess'
+configure.ac:6: installing './config.sub'
++ echo 'libfoo_la_SOURCES += foo.c'
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:3: error: automatically discovered file 'foo.c' should not be explicitly mentioned
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'foo\.c.*explicitly mentioned' stderr
+Makefile.am:3: error: automatically discovered file 'foo.c' should not be explicitly mentioned
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/libobj13.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/libobj13.dir
++ set +x
+PASS t/libobj13.sh (exit status: 0)

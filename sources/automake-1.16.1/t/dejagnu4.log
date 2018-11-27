@@ -1,0 +1,365 @@
+dejagnu4: running runtest SOMEPROGRAM=someprogram --version
+WARNING: Couldn't find the global config file.
+DejaGnu version	1.6.1
+Expect version	5.45.4
+Tcl version	8.6
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dejagnu4.dir
++ cat
++ chmod +x hammer
++ cat
++ chmod +x spanner
++ cat
++ cat
++ mkdir hammer.test spanner.test
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-DEJAGNU
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+Making a new site.exp file ...
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:07 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:07 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir'
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+if test -d "dejagnu4-1.0"; then find "dejagnu4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dejagnu4-1.0" || { sleep 5 && rm -rf "dejagnu4-1.0"; }; else :; fi
+test -d "dejagnu4-1.0" || mkdir "dejagnu4-1.0"
+test -n "" \
+|| find "dejagnu4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dejagnu4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dejagnu4-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+tardir=dejagnu4-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >dejagnu4-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+if test -d "dejagnu4-1.0"; then find "dejagnu4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dejagnu4-1.0" || { sleep 5 && rm -rf "dejagnu4-1.0"; }; else :; fi
+case 'dejagnu4-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc dejagnu4-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc dejagnu4-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc dejagnu4-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc dejagnu4-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c dejagnu4-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc dejagnu4-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip dejagnu4-1.0.zip ;;\
+esac
+chmod -R a-w dejagnu4-1.0
+chmod u+w dejagnu4-1.0
+mkdir dejagnu4-1.0/_build dejagnu4-1.0/_build/sub dejagnu4-1.0/_inst
+chmod a-w dejagnu4-1.0
+test -d dejagnu4-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd dejagnu4-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd dejagnu4-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf dejagnu4-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make  check-DEJAGNU
+make[2]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+Making a new site.exp file ...
+srcdir='../..'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=../../hammer SPANNER=../../spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:08 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../../hammer.test/hammer.exp ...
+
+		=== hammer Summary ===
+
+# of expected passes		1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:08 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ../../spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+if test -d "dejagnu4-1.0"; then find "dejagnu4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dejagnu4-1.0" || { sleep 5 && rm -rf "dejagnu4-1.0"; }; else :; fi
+test -d "dejagnu4-1.0" || mkdir "dejagnu4-1.0"
+test -n "" \
+|| find "dejagnu4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dejagnu4-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+tardir=dejagnu4-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >dejagnu4-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+if test -d "dejagnu4-1.0"; then find "dejagnu4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dejagnu4-1.0" || { sleep 5 && rm -rf "dejagnu4-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+rm -f site.exp site.bak
+l='hammer spanner'; for tool in $l; do \
+  rm -f $tool.sum $tool.log; \
+done
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir/dejagnu4-1.0/_build/sub'
+if test -d "dejagnu4-1.0"; then find "dejagnu4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dejagnu4-1.0" || { sleep 5 && rm -rf "dejagnu4-1.0"; }; else :; fi
+==============================================
+dejagnu4-1.0 archives ready for distribution: 
+dejagnu4-1.0.tar.gz
+==============================================
++ sed 's/E\(verything\)/Not e\1/' hammer
++ mv -f thammer hammer
++ chmod +x hammer
++ rm -f hammer.log hammer.sum spanner.log spanner.sum
++ make check
+make  check-DEJAGNU
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='hammer spanner'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir HAMMER=./hammer SPANNER=./spanner ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:09 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== hammer tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./hammer.test/hammer.exp ...
+FAIL: test
+
+		=== hammer Summary ===
+
+# of unexpected failures	1
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:09 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== spanner tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./spanner.test/spanner.exp ...
+
+		=== spanner Summary ===
+
+# of expected passes		1
+make[1]: *** [Makefile:264: check-DEJAGNU] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu4.dir'
+make: *** [Makefile:468: check-am] Error 2
++ test -f hammer.log
++ test -f hammer.sum
++ test -f spanner.log
++ test -f spanner.sum
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dejagnu4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dejagnu4.dir
++ set +x
+PASS t/dejagnu4.sh (exit status: 0)

@@ -1,0 +1,188 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-exeext.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ /bin/grep -E 'EXEEXT|\.log|\.test' Makefile.in
+TESTS = x y$(EXEEXT) a.test b.test
+EXTRA_PROGRAMS = y$(EXEEXT)
+am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+          if ((getline line2 < ($$0 ".log")) < 0) \
+  close ($$0 ".log"); \
+# standard input, create the global log from their .trs and .log files.
+      while ((rc = (getline line < ($$0 ".log"))) != 0) \
+          fatal("failed to read from " $$0 ".log"); \
+  close ($$0 ".log"); \
+# the '.log' extension removed).  The result is saved in the shell variable
+# we cannot use something simpler, involving e.g., "$(TEST_LOGS:.log=)",
+  bases=`for i in $$bases; do echo $$i; done | sed 's/\.log$$//'`; \
+TEST_SUITE_LOG = test-suite.log
+TEST_EXTENSIONS = @EXEEXT@ .test
+          *) b=`echo '$@' | sed 's/\.log$$//'`; \
+am__test_logs1 = $(TESTS:=.log)
+am__test_logs2 = $(am__test_logs1:@EXEEXT@.log=.log)
+TEST_LOGS = $(am__test_logs2:.test.log=.log)
+EXEEXT = @EXEEXT@
+.SUFFIXES: .log .test .test$(EXEEXT) .trs
+y$(EXEEXT): $(y_OBJECTS) $(y_DEPENDENCIES) $(EXTRA_y_DEPENDENCIES) 
+	@rm -f y$(EXEEXT)
+# "rm -f foo.log; make foo.trs" re-run 'foo.test', and re-create
+# both 'foo.log' and 'foo.trs'.  Break the recipe in two subshells
+.log.trs:
+am--fnord $(TEST_LOGS) $(TEST_LOGS:.log=.trs): $(am__force_recheck)
+	              am__f_ok $$i.trs && am__f_ok $$i.log || echo $$i; \
+	  redo_logs=`for i in $$redo_bases; do echo $$i.log; done`; \
+	    test -f $$i.log && test -r $$i.log \
+	      || { echo "$$errmsg $$i.log" >&2; st=1; }; \
+	@list='$(RECHECK_LOGS:.log=.trs)'; test -z "$$list" || rm -f $$list
+	log_list=`for i in $$bases; do echo $$i.log; done`; \
+	log_list=`for i in $$bases; do echo $$i.log; done`; \
+x.log: x
+	--log-file $$b.log --trs-file $$b.trs \
+y.log: y$(EXEEXT)
+	@p='y$(EXEEXT)'; \
+	--log-file $$b.log --trs-file $$b.trs \
+.test.log:
+	--log-file $$b.log --trs-file $$b.trs \
+@am__EXEEXT_TRUE@.test$(EXEEXT).log:
+@am__EXEEXT_TRUE@	@p='$<'; \
+@am__EXEEXT_TRUE@	$(am__set_b); \
+@am__EXEEXT_TRUE@	$(am__check_pre) $(TEST_LOG_DRIVER) --test-name "$$f" \
+@am__EXEEXT_TRUE@	--log-file $$b.log --trs-file $$b.trs \
+@am__EXEEXT_TRUE@	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
+@am__EXEEXT_TRUE@	"$$tst" $(AM_TESTS_FD_REDIRECT)
+	-test -z "$(TEST_LOGS:.log=.trs)" || rm -f $(TEST_LOGS:.log=.trs)
++ ./configure EXEEXT=
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ touch x y a.test b.test
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
+PASS: x
+PASS: y
+PASS: a.test
+PASS: b.test
+============================================================================
+Testsuite summary for parallel-tests-exeext 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
++ make distclean
+rm -f *.
+test -z "x.log y.log a.log b.log" || rm -f x.log y.log a.log b.log
+test -z "x.trs y.trs a.trs b.trs" || rm -f x.trs y.trs a.trs b.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ rm -f x y a.test b.test '*.log' '*.trs'
++ ./configure EXEEXT=.bin
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ touch x y.bin a.test b.test.bin
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
+PASS: x
+PASS: y.bin
+PASS: a.test
+PASS: b.test.bin
+============================================================================
+Testsuite summary for parallel-tests-exeext 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-exeext.dir'
++ ls -l
+total 336
+-rw-r--r-- 1 root root  32391 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    159 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  31750 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root     29 Nov 27 06:44 a.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 a.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 a.trs
+-rw-r--r-- 1 root root  28353 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rw-r--r-- 1 root root     33 Nov 27 06:44 b.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 b.test.bin
+-rw-r--r-- 1 root root     82 Nov 27 06:44 b.trs
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5220 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25685 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104434 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    261 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root    251 Nov 27 06:44 test-suite.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 x
+-rw-r--r-- 1 root root     24 Nov 27 06:44 x.log
+-rw-r--r-- 1 root root     82 Nov 27 06:44 x.trs
+-rw-r--r-- 1 root root      0 Nov 27 06:44 y.bin
+-rw-r--r-- 1 root root     28 Nov 27 06:44 y.log
+-rw-r--r-- 1 root root     82 Nov 27 06:44 y.trs
++ test -f y.log
++ test '!' -e y.bin.log
++ test -f b.log
++ test '!' -e b.test.log
++ /bin/grep -E '^y\.log: y(\$\(EXEEXT\)|\.bin)' Makefile
+y.log: y$(EXEEXT)
++ /bin/grep -E '^\.test(\$\(EXEEXT\)|\.bin)\.log:' Makefile
+.test$(EXEEXT).log:
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-exeext.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-exeext.dir
++ set +x
+PASS t/parallel-tests-exeext.sh (exit status: 0)

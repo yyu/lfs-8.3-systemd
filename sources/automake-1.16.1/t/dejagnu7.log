@@ -1,0 +1,100 @@
+dejagnu7: running runtest SOMEPROGRAM=someprogram --version
+WARNING: Couldn't find the global config file.
+DejaGnu version	1.6.1
+Expect version	5.45.4
+Tcl version	8.6
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dejagnu7.dir
++ runtest --help
++ grep '.*--status'
+WARNING: Couldn't find the global config file.
+	--status		Set the exit status to fail on Tcl errors
++ cat
++ chmod +x failtcl
++ cat
++ cat
++ mkdir failtcl.test
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-DEJAGNU
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu7.dir'
+Making a new site.exp file ...
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='failtcl'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir --status FAILTCL=./failtcl ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:11 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== failtcl tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./failtcl.test/failtcl.exp ...
+ERROR: tcl error sourcing ./failtcl.test/failtcl.exp.
+ERROR: missing close-brace
+    while executing
+"expect {"
+    (file "./failtcl.test/failtcl.exp" line 3)
+    invoked from within
+"source ./failtcl.test/failtcl.exp"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 source ./failtcl.test/failtcl.exp"
+    invoked from within
+"catch "uplevel #0 source $test_file_name""
+
+		=== failtcl Summary ===
+
+make[1]: *** [Makefile:262: check-DEJAGNU] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu7.dir'
+make: *** [Makefile:466: check-am] Error 2
++ test -f failtcl.log
++ test -f failtcl.sum
++ /bin/grep -F 'missing close-brace' failtcl.sum
+ERROR: missing close-brace
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dejagnu7.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dejagnu7.dir
++ set +x
+PASS t/dejagnu7.sh (exit status: 0)

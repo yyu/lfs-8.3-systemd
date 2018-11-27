@@ -1,0 +1,112 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/missing-auxfile-stops-makefiles-creation.dir
++ cat
++ echo SUBDIRS =
++ for i in 1 2 3 4 5
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ echo 'SUBDIRS += sub1'
++ mkdir sub1
++ echo python_PYTHON = foo.py
++ for i in 1 2 3 4 5
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ echo 'SUBDIRS += sub2'
++ mkdir sub2
++ echo python_PYTHON = foo.py
++ for i in 1 2 3 4 5
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ echo 'SUBDIRS += sub3'
++ mkdir sub3
++ echo python_PYTHON = foo.py
++ for i in 1 2 3 4 5
++ echo 'AC_CONFIG_FILES([sub4/Makefile])'
++ echo 'SUBDIRS += sub4'
++ mkdir sub4
++ echo python_PYTHON = foo.py
++ for i in 1 2 3 4 5
++ echo 'AC_CONFIG_FILES([sub5/Makefile])'
++ echo 'SUBDIRS += sub5'
++ mkdir sub5
++ echo python_PYTHON = foo.py
++ :
++ aclocal-1.16 -Werror
++ unset AUTOMAKE_JOBS
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+sub2/Makefile.am:1: error: required file './py-compile' not found
+sub2/Makefile.am:1:   'automake --add-missing' can install 'py-compile'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ ls -l Makefile.in sub1/Makefile.in
+-rw-r--r-- 1 root root 23470 Nov 27 06:43 Makefile.in
+-rw-r--r-- 1 root root 10676 Nov 27 06:43 sub1/Makefile.in
++ test -f sub1/Makefile.in
++ test '!' -e sub2/Makefile.in
++ test '!' -e sub3/Makefile.in
++ test '!' -e sub4/Makefile.in
++ test '!' -e sub5/Makefile.in
++ rm -f Makefile.in sub1/Makefile.in
++ :
++ :
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+sub4/Makefile.am:1: error: required file './py-compile' not found
+sub4/Makefile.am:1:   'automake --add-missing' can install 'py-compile'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ ls -l Makefile.in sub1/Makefile.in sub2/Makefile.in sub3/Makefile.in
+-rw-r--r-- 1 root root 23470 Nov 27 06:43 Makefile.in
+-rw-r--r-- 1 root root 10676 Nov 27 06:43 sub1/Makefile.in
+-rw-r--r-- 1 root root 10676 Nov 27 06:43 sub2/Makefile.in
+-rw-r--r-- 1 root root 10676 Nov 27 06:43 sub3/Makefile.in
++ test -f sub1/Makefile.in
++ test -f sub2/Makefile.in
++ test -f sub3/Makefile.in
++ test '!' -e sub4/Makefile.in
++ test '!' -e sub5/Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/missing-auxfile-stops-makefiles-creation.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/missing-auxfile-stops-makefiles-creation.dir
++ set +x
+PASS t/missing-auxfile-stops-makefiles-creation.sh (exit status: 0)

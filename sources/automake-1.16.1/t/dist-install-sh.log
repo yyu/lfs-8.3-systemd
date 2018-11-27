@@ -1,0 +1,65 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dist-install-sh.dir
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-install-sh.dir'
+if test -d "dist-install-sh-1.0"; then find "dist-install-sh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-install-sh-1.0" || { sleep 5 && rm -rf "dist-install-sh-1.0"; }; else :; fi
+test -d "dist-install-sh-1.0" || mkdir "dist-install-sh-1.0"
+test -n "" \
+|| find "dist-install-sh-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-install-sh.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-install-sh-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-install-sh.dir'
+find dist-install-sh-1.0 ;: For debugging.
+dist-install-sh-1.0
+dist-install-sh-1.0/compile
+dist-install-sh-1.0/Makefile.in
+dist-install-sh-1.0/Makefile.am
+dist-install-sh-1.0/depcomp
+dist-install-sh-1.0/configure.ac
+dist-install-sh-1.0/configure
+dist-install-sh-1.0/install-sh
+dist-install-sh-1.0/aclocal.m4
+dist-install-sh-1.0/missing
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing    ' ' | grep '[ /]install-sh '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing  
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing ' ' | grep '[ /]install-sh '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing  
+test -f dist-install-sh-1.0/install-sh
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dist-install-sh.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dist-install-sh.dir
++ set +x
+PASS t/dist-install-sh.sh (exit status: 0)

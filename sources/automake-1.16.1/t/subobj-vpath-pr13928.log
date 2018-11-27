@@ -1,0 +1,565 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir
++ cat
++ cat
++ mkdir sub
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ mkfiles='Makefile.in sub/Makefile.in'
++ /bin/grep -E '(test|ba[rz])\.|DEPDIR|dirstamp|srcdir' Makefile.in sub/Makefile.in
+Makefile.in:VPATH = @srcdir@
+Makefile.in:@OBVIOUS_TRUE@am__append_1 = ${srcdir}/$(LESS)/test.c
+Makefile.in:ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+Makefile.in:am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+Makefile.in:DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
+Makefile.in:am_test_OBJECTS = test.$(OBJEXT)
+Makefile.in:am__test2_SOURCES_DIST = ${srcdir}/$(LESS)/test.c
+Makefile.in:am__dirstamp = $(am__leading_dot)dirstamp
+Makefile.in:@OBVIOUS_TRUE@am__objects_1 = $(LESS)/test.$(OBJEXT)
+Makefile.in:depcomp = $(SHELL) $(top_srcdir)/depcomp
+Makefile.in:am__depfiles_remade = $(LESS)/$(DEPDIR)/test.Po ./$(DEPDIR)/test.Po
+Makefile.in:    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+Makefile.in:am__DIST_COMMON = $(srcdir)/Makefile.in compile depcomp install-sh \
+Makefile.in:DEPDIR = @DEPDIR@
+Makefile.in:abs_srcdir = @abs_srcdir@
+Makefile.in:abs_top_srcdir = @abs_top_srcdir@
+Makefile.in:srcdir = @srcdir@
+Makefile.in:top_srcdir = @top_srcdir@
+Makefile.in:test_SOURCES = $(srcdir)/test.c
+Makefile.in:$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+Makefile.in:	      echo ' cd $(srcdir) && $(AUTOMAKE) --foreign'; \
+Makefile.in:	      $(am__cd) $(srcdir) && $(AUTOMAKE) --foreign \
+Makefile.in:	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign Makefile'; \
+Makefile.in:	$(am__cd) $(top_srcdir) && \
+Makefile.in:Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
+Makefile.in:$(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
+Makefile.in:$(top_srcdir)/configure:  $(am__configure_deps)
+Makefile.in:	$(am__cd) $(srcdir) && $(AUTOCONF)
+Makefile.in:	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
+Makefile.in:$(LESS)/$(am__dirstamp):
+Makefile.in:	@: > $(LESS)/$(am__dirstamp)
+Makefile.in:$(LESS)/$(DEPDIR)/$(am__dirstamp):
+Makefile.in:	@$(MKDIR_P) $(LESS)/$(DEPDIR)
+Makefile.in:	@: > $(LESS)/$(DEPDIR)/$(am__dirstamp)
+Makefile.in:$(LESS)/test.$(OBJEXT): $(LESS)/$(am__dirstamp) \
+Makefile.in:	$(LESS)/$(DEPDIR)/$(am__dirstamp)
+Makefile.in:@AMDEP_TRUE@@am__include@ @am__quote@$(LESS)/$(DEPDIR)/test.Po@am__quote@ # am--include-marker
+Makefile.in:@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test.Po@am__quote@ # am--include-marker
+Makefile.in:@am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+Makefile.in:@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+Makefile.in:@am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+Makefile.in:@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+Makefile.in:	  && $(am__cd) $(top_srcdir) \
+Makefile.in:	case "$(srcdir)" in \
+Makefile.in:	  [\\/]* | ?:[\\/]*) sdir="$(srcdir)" ;; \
+Makefile.in:	  *) sdir=$(subdir)/$(srcdir) ;; \
+Makefile.in:	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
+Makefile.in:	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
+Makefile.in:	  sed -e "s|^$$srcdirstrip/||;t" \
+Makefile.in:	      -e "s|^$$topsrcdirstrip/|$(top_builddir)/|;t"`; \
+Makefile.in:	  if test -f $$file || test -d $$file; then d=.; else d=$(srcdir); fi; \
+Makefile.in:	    if test -d $(srcdir)/$$file && test $$d != $(srcdir); then \
+Makefile.in:	      cp -fpR $(srcdir)/$$file "$(distdir)$$dir" || exit 1; \
+Makefile.in:	    --srcdir=../.. --prefix="$$dc_install_base" \
+Makefile.in:	@if test '$(srcdir)' = . ; then \
+Makefile.in:	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+Makefile.in:	-test -z "$(LESS)/$(DEPDIR)/$(am__dirstamp)" || rm -f $(LESS)/$(DEPDIR)/$(am__dirstamp)
+Makefile.in:	-test -z "$(LESS)/$(am__dirstamp)" || rm -f $(LESS)/$(am__dirstamp)
+Makefile.in:		-rm -f $(LESS)/$(DEPDIR)/test.Po
+Makefile.in:	-rm -f ./$(DEPDIR)/test.Po
+Makefile.in:	-rm -rf $(top_srcdir)/autom4te.cache
+Makefile.in:		-rm -f $(LESS)/$(DEPDIR)/test.Po
+Makefile.in:	-rm -f ./$(DEPDIR)/test.Po
+Makefile.in:	ls -la @srcdir@ .
+Makefile.in:	test ! -f @srcdir@/test.$(OBJEXT)
+Makefile.in:	test -f test.$(OBJEXT)
+Makefile.in:	test ! -f @srcdir@/more/test.$(OBJEXT)
+Makefile.in:	test -f more/test.$(OBJEXT)
+Makefile.in:	test ! -f @srcdir@/bar.$(OBJEXT)
+Makefile.in:	test -f bar.$(OBJEXT)
+Makefile.in:	test ! -f @srcdir@/baz.$(OBJEXT)
+Makefile.in:	test -f baz.$(OBJEXT)
+Makefile.in:	test ! -d @srcdir@/$(DEPDIR)
+Makefile.in:	test ! -d @srcdir@/more/$(DEPDIR)
+Makefile.in:	test -d $(DEPDIR)
+Makefile.in:	test -d more/$(DEPDIR)
+sub/Makefile.in:VPATH = @srcdir@
+sub/Makefile.in:ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+sub/Makefile.in:am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+sub/Makefile.in:DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
+sub/Makefile.in:am__dirstamp = $(am__leading_dot)dirstamp
+sub/Makefile.in:am_foo_OBJECTS = $(top_builddir)/bar.$(OBJEXT) \
+sub/Makefile.in:	$(top_builddir)/baz.$(OBJEXT)
+sub/Makefile.in:depcomp = $(SHELL) $(top_srcdir)/depcomp
+sub/Makefile.in:am__depfiles_remade = $(top_builddir)/$(DEPDIR)/bar.Po \
+sub/Makefile.in:	$(top_builddir)/$(DEPDIR)/baz.Po
+sub/Makefile.in:    if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
+sub/Makefile.in:am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
+sub/Makefile.in:DEPDIR = @DEPDIR@
+sub/Makefile.in:abs_srcdir = @abs_srcdir@
+sub/Makefile.in:abs_top_srcdir = @abs_top_srcdir@
+sub/Makefile.in:srcdir = @srcdir@
+sub/Makefile.in:top_srcdir = @top_srcdir@
+sub/Makefile.in:	      $(top_srcdir)/bar.c \
+sub/Makefile.in:              ${top_srcdir}/baz.c
+sub/Makefile.in:$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+sub/Makefile.in:	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign sub/Makefile'; \
+sub/Makefile.in:	$(am__cd) $(top_srcdir) && \
+sub/Makefile.in:Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
+sub/Makefile.in:$(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
+sub/Makefile.in:$(top_srcdir)/configure:  $(am__configure_deps)
+sub/Makefile.in:$(top_builddir)/$(am__dirstamp):
+sub/Makefile.in:	@: > $(top_builddir)/$(am__dirstamp)
+sub/Makefile.in:$(top_builddir)/$(DEPDIR)/$(am__dirstamp):
+sub/Makefile.in:	@$(MKDIR_P) $(top_builddir)/$(DEPDIR)
+sub/Makefile.in:	@: > $(top_builddir)/$(DEPDIR)/$(am__dirstamp)
+sub/Makefile.in:$(top_builddir)/bar.$(OBJEXT): $(top_builddir)/$(am__dirstamp) \
+sub/Makefile.in:	$(top_builddir)/$(DEPDIR)/$(am__dirstamp)
+sub/Makefile.in:$(top_builddir)/baz.$(OBJEXT): $(top_builddir)/$(am__dirstamp) \
+sub/Makefile.in:	$(top_builddir)/$(DEPDIR)/$(am__dirstamp)
+sub/Makefile.in:@AMDEP_TRUE@@am__include@ @am__quote@$(top_builddir)/$(DEPDIR)/bar.Po@am__quote@ # am--include-marker
+sub/Makefile.in:@AMDEP_TRUE@@am__include@ @am__quote@$(top_builddir)/$(DEPDIR)/baz.Po@am__quote@ # am--include-marker
+sub/Makefile.in:@am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+sub/Makefile.in:@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+sub/Makefile.in:@am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+sub/Makefile.in:@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+sub/Makefile.in:	  && $(am__cd) $(top_srcdir) \
+sub/Makefile.in:	case "$(srcdir)" in \
+sub/Makefile.in:	  [\\/]* | ?:[\\/]*) sdir="$(srcdir)" ;; \
+sub/Makefile.in:	  *) sdir=$(subdir)/$(srcdir) ;; \
+sub/Makefile.in:	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
+sub/Makefile.in:	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
+sub/Makefile.in:	  sed -e "s|^$$srcdirstrip/||;t" \
+sub/Makefile.in:	      -e "s|^$$topsrcdirstrip/|$(top_builddir)/|;t"`; \
+sub/Makefile.in:	  if test -f $$file || test -d $$file; then d=.; else d=$(srcdir); fi; \
+sub/Makefile.in:	    if test -d $(srcdir)/$$file && test $$d != $(srcdir); then \
+sub/Makefile.in:	      cp -fpR $(srcdir)/$$file "$(distdir)$$dir" || exit 1; \
+sub/Makefile.in:	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+sub/Makefile.in:	-test -z "$(top_builddir)/$(DEPDIR)/$(am__dirstamp)" || rm -f $(top_builddir)/$(DEPDIR)/$(am__dirstamp)
+sub/Makefile.in:	-test -z "$(top_builddir)/$(am__dirstamp)" || rm -f $(top_builddir)/$(am__dirstamp)
+sub/Makefile.in:		-rm -f $(top_builddir)/$(DEPDIR)/bar.Po
+sub/Makefile.in:	-rm -f $(top_builddir)/$(DEPDIR)/baz.Po
+sub/Makefile.in:		-rm -f $(top_builddir)/$(DEPDIR)/bar.Po
+sub/Makefile.in:	-rm -f $(top_builddir)/$(DEPDIR)/baz.Po
++ /bin/grep -E '\$.(top_)?srcdir./(test|ba[rz])\.[o$]' Makefile.in sub/Makefile.in
++ /bin/grep -F '\$.(top_)?srcdir./.*$(am__dirstamp)' Makefile.in sub/Makefile.in
++ /bin/grep -F '\$.(top_)?srcdir./.*$(DEPDIR)' Makefile.in sub/Makefile.in
++ cat
++ mkdir more
++ cp test.c more/test.c
++ echo 'int foo (void);'
++ cat
++ cat
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/sub'
+depbase=`echo ../bar.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I../../sub     -g -O2 -MT ../bar.o -MD -MP -MF $depbase.Tpo -c -o ../bar.o ../../sub/../bar.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo ../baz.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I../../sub     -g -O2 -MT ../baz.o -MD -MP -MF $depbase.Tpo -c -o ../baz.o ../../sub/../baz.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o foo ../bar.o ../baz.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build'
+depbase=`echo test.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT test.o -MD -MP -MF $depbase.Tpo -c -o test.o ../test.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o test test.o  
+depbase=`echo more/test.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT more/test.o -MD -MP -MF $depbase.Tpo -c -o more/test.o ../more/test.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o test2 more/test.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build'
++ make test-objs
+ls -la .. .
+.:
+total 152
+drwxr-xr-x 5 root root  4096 Nov 27 06:49 .
+drwxr-xr-x 6 root root  4096 Nov 27 06:49 ..
+drwxr-xr-x 2 root root  4096 Nov 27 06:49 .deps
+-rw-r--r-- 1 root root     0 Nov 27 06:49 .dirstamp
+-rw-r--r-- 1 root root 28350 Nov 27 06:49 Makefile
+-rw-r--r-- 1 root root  3120 Nov 27 06:49 bar.o
+-rw-r--r-- 1 root root  2520 Nov 27 06:49 baz.o
+-rw-r--r-- 1 root root  9104 Nov 27 06:49 config.log
+-rwxr-xr-x 1 root root 29287 Nov 27 06:49 config.status
+drwxr-xr-x 3 root root  4096 Nov 27 06:49 more
+drwxr-xr-x 2 root root  4096 Nov 27 06:49 sub
+-rwxr-xr-x 1 root root 20512 Nov 27 06:49 test
+-rw-r--r-- 1 root root  2880 Nov 27 06:49 test.o
+-rwxr-xr-x 1 root root 20512 Nov 27 06:49 test2
+
+..:
+total 440
+drwxr-xr-x  6 root root   4096 Nov 27 06:49 .
+drwxr-xr-x 50 1000  998 131072 Nov 27 06:49 ..
+-rw-r--r--  1 root root    649 Nov 27 06:49 Makefile.am
+-rw-r--r--  1 root root  28126 Nov 27 06:49 Makefile.in
+-rw-r--r--  1 root root  41888 Nov 27 06:49 aclocal.m4
+drwxr-xr-x  2 root root   4096 Nov 27 06:49 autom4te.cache
+-rw-r--r--  1 root root     54 Nov 27 06:49 bar.c
+-rw-r--r--  1 root root     48 Nov 27 06:49 baz.c
+drwxr-xr-x  5 root root   4096 Nov 27 06:49 build
+-rwxr-xr-x  1 root root   7383 Nov 27 06:49 compile
+-rwxr-xr-x  1 root root 141676 Nov 27 06:49 configure
+-rw-r--r--  1 root root    183 Nov 27 06:49 configure.ac
+-rwxr-xr-x  1 root root  23568 Nov 27 06:49 depcomp
+-rwxr-xr-x  1 root root  15368 Nov 27 06:49 install-sh
+-rwxr-xr-x  1 root root   6878 Nov 27 06:49 missing
+drwxr-xr-x  2 root root   4096 Nov 27 06:49 more
+drwxr-xr-x  2 root root   4096 Nov 27 06:49 sub
+-rw-r--r--  1 root root     32 Nov 27 06:49 test.c
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build'
+if test -d "subobj-vpath-pr13928-1.0"; then find "subobj-vpath-pr13928-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj-vpath-pr13928-1.0" || { sleep 5 && rm -rf "subobj-vpath-pr13928-1.0"; }; else :; fi
+test -d "subobj-vpath-pr13928-1.0" || mkdir "subobj-vpath-pr13928-1.0"
+ (cd sub && make  top_distdir=../subobj-vpath-pr13928-1.0 distdir=../subobj-vpath-pr13928-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/sub'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/sub'
+test -n "" \
+|| find "subobj-vpath-pr13928-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subobj-vpath-pr13928-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build'
+tardir=subobj-vpath-pr13928-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >subobj-vpath-pr13928-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build'
+if test -d "subobj-vpath-pr13928-1.0"; then find "subobj-vpath-pr13928-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj-vpath-pr13928-1.0" || { sleep 5 && rm -rf "subobj-vpath-pr13928-1.0"; }; else :; fi
+case 'subobj-vpath-pr13928-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc subobj-vpath-pr13928-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc subobj-vpath-pr13928-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc subobj-vpath-pr13928-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc subobj-vpath-pr13928-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c subobj-vpath-pr13928-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc subobj-vpath-pr13928-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip subobj-vpath-pr13928-1.0.zip ;;\
+esac
+chmod -R a-w subobj-vpath-pr13928-1.0
+chmod u+w subobj-vpath-pr13928-1.0
+mkdir subobj-vpath-pr13928-1.0/_build subobj-vpath-pr13928-1.0/_build/sub subobj-vpath-pr13928-1.0/_inst
+chmod a-w subobj-vpath-pr13928-1.0
+test -d subobj-vpath-pr13928-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd subobj-vpath-pr13928-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd subobj-vpath-pr13928-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf subobj-vpath-pr13928-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making all in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+depbase=`echo ../bar.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I../../../sub     -g -O2 -MT ../bar.o -MD -MP -MF $depbase.Tpo -c -o ../bar.o ../../../sub/../bar.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo ../baz.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I../../../sub     -g -O2 -MT ../baz.o -MD -MP -MF $depbase.Tpo -c -o ../baz.o ../../../sub/../baz.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o foo ../bar.o ../baz.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+depbase=`echo test.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT test.o -MD -MP -MF $depbase.Tpo -c -o test.o ../../test.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o test test.o  
+depbase=`echo more/test.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-vpath-pr13928\" -DPACKAGE_TARNAME=\"subobj-vpath-pr13928\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-vpath-pr13928\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-vpath-pr13928\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT more/test.o -MD -MP -MF $depbase.Tpo -c -o more/test.o ../../more/test.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o test2 more/test.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making dvi in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making check in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+ls -la ../.. .
+.:
+total 156
+drwxr-xr-x 5 root root  4096 Nov 27 06:49 .
+drwxr-xr-x 3 root root  4096 Nov 27 06:49 ..
+drwxr-xr-x 2 root root  4096 Nov 27 06:49 .deps
+-rw-r--r-- 1 root root     0 Nov 27 06:49 .dirstamp
+-rw-r--r-- 1 root root 28794 Nov 27 06:49 Makefile
+-rw-r--r-- 1 root root  3152 Nov 27 06:49 bar.o
+-rw-r--r-- 1 root root  2552 Nov 27 06:49 baz.o
+-rw-r--r-- 1 root root 10232 Nov 27 06:49 config.log
+-rwxr-xr-x 1 root root 29830 Nov 27 06:49 config.status
+drwxr-xr-x 3 root root  4096 Nov 27 06:49 more
+drwxr-xr-x 2 root root  4096 Nov 27 06:49 sub
+-rwxr-xr-x 1 root root 20544 Nov 27 06:49 test
+-rw-r--r-- 1 root root  2912 Nov 27 06:49 test.o
+-rwxr-xr-x 1 root root 20560 Nov 27 06:49 test2
+
+../..:
+total 312
+dr-xr-xr-x 6 root root   4096 Nov 27 06:49 .
+drwxr-xr-x 6 root root   4096 Nov 27 06:49 ..
+-r--r--r-- 1 root root    649 Nov 27 06:49 Makefile.am
+-r--r--r-- 1 root root  28126 Nov 27 06:49 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:49 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:49 _inst
+-r--r--r-- 1 root root  41888 Nov 27 06:49 aclocal.m4
+-r--r--r-- 1 root root     54 Nov 27 06:49 bar.c
+-r--r--r-- 1 root root     48 Nov 27 06:49 baz.c
+-r-xr-xr-x 1 root root   7383 Nov 27 06:49 compile
+-r-xr-xr-x 1 root root 141676 Nov 27 06:49 configure
+-r--r--r-- 1 root root    183 Nov 27 06:49 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:49 depcomp
+-r-xr-xr-x 1 root root  15368 Nov 27 06:49 install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:49 missing
+dr-xr-xr-x 2 root root   4096 Nov 27 06:49 more
+dr-xr-xr-x 2 root root   4096 Nov 27 06:49 sub
+-r--r--r-- 1 root root     32 Nov 27 06:49 test.c
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_inst/bin'
+  /usr/bin/install -c foo '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making installcheck in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making uninstall in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+ ( cd '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_inst/bin' && rm -f foo )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-31493//sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_inst/bin'
+  /usr/bin/install -c foo '/tmp/am-dc-31493//sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making uninstall in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+ ( cd '/tmp/am-dc-31493//sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_inst/bin' && rm -f foo )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+if test -d "subobj-vpath-pr13928-1.0"; then find "subobj-vpath-pr13928-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj-vpath-pr13928-1.0" || { sleep 5 && rm -rf "subobj-vpath-pr13928-1.0"; }; else :; fi
+test -d "subobj-vpath-pr13928-1.0" || mkdir "subobj-vpath-pr13928-1.0"
+ (cd sub && make  top_distdir=../subobj-vpath-pr13928-1.0 distdir=../subobj-vpath-pr13928-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+test -n "" \
+|| find "subobj-vpath-pr13928-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "subobj-vpath-pr13928-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+tardir=subobj-vpath-pr13928-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >subobj-vpath-pr13928-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+if test -d "subobj-vpath-pr13928-1.0"; then find "subobj-vpath-pr13928-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj-vpath-pr13928-1.0" || { sleep 5 && rm -rf "subobj-vpath-pr13928-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+Making distclean in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f ../*.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../sub" || test -z "" || rm -f 
+test -z "../.deps/.dirstamp" || rm -f ../.deps/.dirstamp
+test -z "../.dirstamp" || rm -f ../.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ../.deps/bar.Po
+rm -f ../.deps/baz.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+test -z "test test2" || rm -f test test2
+rm -f *.o
+rm -f more/*.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+test -z "more/.deps/.dirstamp" || rm -f more/.deps/.dirstamp
+test -z "more/.dirstamp" || rm -f more/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f more/.deps/test.Po
+rm -f ./.deps/test.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subobj-vpath-pr13928.dir/build/subobj-vpath-pr13928-1.0/_build/sub'
+if test -d "subobj-vpath-pr13928-1.0"; then find "subobj-vpath-pr13928-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "subobj-vpath-pr13928-1.0" || { sleep 5 && rm -rf "subobj-vpath-pr13928-1.0"; }; else :; fi
+==========================================================
+subobj-vpath-pr13928-1.0 archives ready for distribution: 
+subobj-vpath-pr13928-1.0.tar.gz
+==========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subobj-vpath-pr13928.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subobj-vpath-pr13928.dir
++ set +x
+PASS t/subobj-vpath-pr13928.sh (exit status: 0)

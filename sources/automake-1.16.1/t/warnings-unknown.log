@@ -1,0 +1,56 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/warnings-unknown.dir
++ AUTOMAKE='automake-1.16 --foreign -Werror'
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wbazquux
++ AUTOMAKE_run -e 1 -Wbazquux
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wbazquux
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: unknown warning category 'bazquux'
+configure.ac:2: warning: unknown warning category 'no-zardoz'
+Makefile.am:1: warning: unknown warning category 'foobar'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:2:.* unknown warning category.*zardoz' stderr
+configure.ac:2: warning: unknown warning category 'no-zardoz'
++ grep '^Makefile\.am:1:.* unknown warning category.*foobar' stderr
+Makefile.am:1: warning: unknown warning category 'foobar'
++ grep '^automake-1.16:.* unknown warning category.*bazquux' stderr
+automake-1.16: warning: unknown warning category 'bazquux'
++ automake-1.16 --foreign -Werror -Wno-unsupported -Wbazquux
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/warnings-unknown.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/warnings-unknown.dir
++ set +x
+PASS t/warnings-unknown.sh (exit status: 0)

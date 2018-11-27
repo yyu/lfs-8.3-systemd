@@ -1,0 +1,25 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/override-conditional-pr13940.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+automake-1.16: warnings are treated as errors
+Makefile.am:8: warning: all-local was already defined in condition FOO, which is included in condition TRUE ...
+Makefile.am:5: ... 'all-local' previously defined here
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/override-conditional-pr13940.sh (exit status: 1)

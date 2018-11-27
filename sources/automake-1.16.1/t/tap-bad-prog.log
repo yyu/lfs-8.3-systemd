@@ -1,0 +1,306 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-bad-prog.dir
++ fetch_tap_driver
++ AM_TAP_AWK=gawk
++ export AM_TAP_AWK
++ get_shell_script tap-driver.sh tap-driver
++ am_source=tap-driver.sh
++ am_target=tap-driver
++ test '!' -f tap-driver
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
++ unset am_target am_source
++ plan_ 6
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x6 = xunknown
++ test x6 = xlater
++ test x6 = xlazy
++ test x6 = xnow
++ test 6 -ge 0
++ planned_=6
++ echo 1..6
+1..6
++ cat
++ cat
++ cat
++ cp noexec.test noread.test
++ chmod a-r noread.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ command_ok_ '"make check" returns non-zero exit status' run_make -O -e FAIL check
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='"make check" returns non-zero exit status'
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:474: test-suite.log] Error 1
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make: *** [Makefile:774: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-bad-prog.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-bad-prog.dir'
+ERROR: none.test - missing test plan
+ERROR: none.test - exited with status 127 (command not found?)
+ERROR: noread.test - missing test plan
+ERROR: noread.test - exited with status 126
+ERROR: noexec.test - missing test plan
+ERROR: noexec.test - exited with status 126
+============================================================================
+Testsuite summary for tap-bad-prog 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 6
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-bad-prog.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-bad-prog.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ result_ ok -D '' -r '' -- '"make check" returns non-zero exit status'
++ set +x
+ok 1 - "make check" returns non-zero exit status
+PASS: t/tap-bad-prog.tap 1 - "make check" returns non-zero exit status
++ command_ok_ 'non-existent test is reported' grep '^ERROR: none\.test' stdout
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='non-existent test is reported'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ grep '^ERROR: none\.test' stdout
+ERROR: none.test - missing test plan
+ERROR: none.test - exited with status 127 (command not found?)
++ result_ ok -D '' -r '' -- 'non-existent test is reported'
++ set +x
+ok 2 - non-existent test is reported
+PASS: t/tap-bad-prog.tap 2 - non-existent test is reported
++ desc='non-executable test is reported'
++ ./noexec.test
+./t/tap-bad-prog.tap: line 62: ./noexec.test: Permission denied
++ command_ok_ 'non-executable test is reported' -- grep '^ERROR: noexec\.test' stdout
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='non-executable test is reported'
++ shift
++ test 4 -gt 0
++ case $1 in
++ shift
++ break
++ tap_result_=ok
++ grep '^ERROR: noexec\.test' stdout
+ERROR: noexec.test - missing test plan
+ERROR: noexec.test - exited with status 126
++ result_ ok -D '' -r '' -- 'non-executable test is reported'
++ set +x
+ok 3 - non-executable test is reported
+PASS: t/tap-bad-prog.tap 3 - non-executable test is reported
++ desc='non-readable test is reported'
++ test -r noread.test
++ skip_ -r 'any file is readable' 'non-readable test is reported'
++ result_ ok -D SKIP -r 'any file is readable' 'non-readable test is reported'
++ set +x
+ok 4 - non-readable test is reported # SKIP any file is readable
+SKIP: t/tap-bad-prog.tap 4 - non-readable test is reported # SKIP any file is readable
++ command_ok_ 'no spurious "missing plan" message' -D TODO -- not grep 'missing.* plan' stdout
++ tap_directive_=
++ tap_reason_=
++ test 8 -gt 0
++ tap_description_='no spurious "missing plan" message'
++ shift
++ test 7 -gt 0
++ case $1 in
++ tap_directive_=TODO
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ shift
++ break
++ tap_result_=ok
++ not grep 'missing.* plan' stdout
++ grep 'missing.* plan' stdout
+ERROR: none.test - missing test plan
+ERROR: noread.test - missing test plan
+ERROR: noexec.test - missing test plan
++ tap_result_='not ok'
++ result_ 'not ok' -D TODO -r '' -- 'no spurious "missing plan" message'
++ set +x
+not ok 5 - no spurious "missing plan" message # TODO
+XFAIL: t/tap-bad-prog.tap 5 - no spurious "missing plan" message # TODO
++ command_ok_ 'no spurious results' -D TODO -r 'still get "missing plan"' count_test_results total=3 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=3
++ tap_directive_=
++ tap_reason_=
++ test 13 -gt 0
++ tap_description_='no spurious results'
++ shift
++ test 12 -gt 0
++ case $1 in
++ tap_directive_=TODO
++ shift
++ shift
++ test 10 -gt 0
++ case $1 in
++ tap_reason_='still get "missing plan"'
++ shift
++ shift
++ test 8 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ count_test_results total=3 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=3
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=3 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=3
+++ total=3
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=3
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+ERROR: none.test - missing test plan
+ERROR: none.test - exited with status 127 (command not found?)
+ERROR: noread.test - missing test plan
+ERROR: noread.test - exited with status 126
+ERROR: noexec.test - missing test plan
+ERROR: noexec.test - exited with status 126
+# TOTAL: 6
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 6
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 6 -eq 3
++ rc=1
++ grep '^# TOTAL:  *3$' stdout
++ rc=1
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *3$' stdout
++ rc=1
++ test 1 -eq 0
++ tap_result_='not ok'
++ result_ 'not ok' -D TODO -r 'still get "missing plan"' -- 'no spurious results'
++ set +x
+not ok 6 - no spurious results # TODO still get "missing plan"
+XFAIL: t/tap-bad-prog.tap 6 - no spurious results # TODO still get "missing plan"
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 6 = later
++ test 0 -eq 0
++ test 3 -eq 6
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x

@@ -1,0 +1,551 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-am2.dir
++ mkdir sub
++ cat
++ list='1 2 3'
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub1/Makefile])'
++ echo 'SUBDIRS += sub1'
++ mkdir sub1 sub1/sub
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub2/Makefile])'
++ echo 'SUBDIRS += sub2'
++ mkdir sub2 sub2/sub
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for i in $list
++ echo 'AC_CONFIG_FILES([sub3/Makefile])'
++ echo 'SUBDIRS += sub3'
++ mkdir sub3 sub3/sub
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ mkdir build-aux
++ aclocal-1.16 -Werror
++ unset AUTOMAKE_JOBS
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ mv stderr expected
++ AUTOMAKE_JOBS=5
++ export AUTOMAKE_JOBS
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ for i in 1 2 3 4 5 6 7 8
++ rm -f install-sh missing depcomp
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
+Makefile.am: installing './depcomp'
+/sources/automake-1.16.1/lib/am/depend2.am: error: am__fastdepCC does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'am__fastdepCC' is to add 'AC_PROG_CC'
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+/sources/automake-1.16.1/lib/am/depend2.am: error: AMDEP does not appear in AM_CONDITIONAL
+/sources/automake-1.16.1/lib/am/depend2.am:   The usual way to define 'AMDEP' is to add one of the compiler tests
+/sources/automake-1.16.1/lib/am/depend2.am:     AC_PROG_CC, AC_PROG_CXX, AC_PROG_OBJC, AC_PROG_OBJCXX,
+/sources/automake-1.16.1/lib/am/depend2.am:     AM_PROG_AS, AM_PROG_GCJ, AM_PROG_UPC
+/sources/automake-1.16.1/lib/am/depend2.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again
+Makefile.am: error: C source seen but 'CC' is undefined
+Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub1/Makefile.am: error: C source seen but 'CC' is undefined
+sub1/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub1/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub2/Makefile.am: error: C source seen but 'CC' is undefined
+sub2/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub2/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
+sub3/Makefile.am: error: C source seen but 'CC' is undefined
+sub3/Makefile.am:   The usual way to define 'CC' is to add 'AC_PROG_CC'
+sub3/Makefile.am:   to 'configure.ac' and run 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ diff expected stderr
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-am2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-am2.dir
++ set +x
+PASS t/parallel-am2.sh (exit status: 0)

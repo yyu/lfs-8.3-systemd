@@ -1,0 +1,192 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir
++ LANG=C
++ LANGUAGE=C
++ LC_ALL=C
++ export LANG LANGUAGE LC_ALL
++ cat
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ cond=:
++ cat
++ ulimit -t 8
++ ulimit -t 8
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a -Wno-portability
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ :
++ do_check test-suite.log TESTS=test-suite.test
++ log=test-suite.log
++ shift
++ run_make -M -e IGNORE -- TESTS=test-suite.test check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 5 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=test-suite.test check
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[2]: Circular test-suite.log <- test-suite.log dependency dropped.
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[3]: Circular test-suite.log <- test-suite.log dependency dropped.
+fatal: making test-suite.log: possible infinite recursion detected
+fatal: making test-suite.log: failed to create test-suite.trs
+fatal: making test-suite.log: failed to create test-suite.log
+make[3]: *** [Makefile:477: test-suite.log] Error 1
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+fatal: making test-suite.log: failed to create test-suite.trs
+fatal: making test-suite.log: failed to create test-suite.log
+make[2]: *** [Makefile:477: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[1]: *** [Makefile:586: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make: *** [Makefile:778: check-am] Error 2
++ case $am__make_rc_exp in
++ : Ignore exit status
++ /bin/grep -F ::OOPS:: output
++ test '!' -e test-suite.log
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ grep '[Cc]ircular.*dependency' output
++ /bin/grep -F test-suite.log
+make[2]: Circular test-suite.log <- test-suite.log dependency dropped.
+make[3]: Circular test-suite.log <- test-suite.log dependency dropped.
++ test 2 -gt 0
++ rm -f config.log test-suite.test
++ :
++ :
++ :
++ :
++ :
++ do_check foobar.log 'TEST_LOGS=0.log 1.log foobar.log 2.log 3.log' TEST_SUITE_LOG=foobar.log
++ log=foobar.log
++ shift
++ run_make -M -e IGNORE -- 'TEST_LOGS=0.log 1.log foobar.log 2.log 3.log' TEST_SUITE_LOG=foobar.log check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 7 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 6 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TEST_LOGS=0.log 1.log foobar.log 2.log 3.log' TEST_SUITE_LOG=foobar.log check
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+PASS: 0.test
+PASS: 1.test
+make[2]: Circular foobar.log <- foobar.log dependency dropped.
+PASS: 2.test
+PASS: 3.test
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[3]: Circular foobar.log <- foobar.log dependency dropped.
+fatal: making foobar.log: possible infinite recursion detected
+fatal: making foobar.log: failed to create foobar.trs
+fatal: making foobar.log: failed to create foobar.log
+make[3]: *** [Makefile:477: foobar.log] Error 1
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+fatal: making foobar.log: failed to create foobar.trs
+fatal: making foobar.log: failed to create foobar.log
+make[2]: *** [Makefile:477: foobar.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make[1]: *** [Makefile:586: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-fork-bomb.dir'
+make: *** [Makefile:778: check-am] Error 2
++ case $am__make_rc_exp in
++ : Ignore exit status
++ /bin/grep -F ::OOPS:: output
++ test '!' -e foobar.log
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ grep '[Cc]ircular.*dependency' output
++ /bin/grep -F foobar.log
+make[2]: Circular foobar.log <- foobar.log dependency dropped.
+make[3]: Circular foobar.log <- foobar.log dependency dropped.
++ test 2 -gt 0
++ rm -f 0.log 1.log 2.log 3.log 0.test 1.test 2.test 3.test foobar.test
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-fork-bomb.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-fork-bomb.dir
++ set +x
+PASS t/parallel-tests-fork-bomb.sh (exit status: 0)

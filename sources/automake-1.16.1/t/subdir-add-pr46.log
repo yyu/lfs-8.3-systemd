@@ -1,0 +1,144 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subdir-add-pr46.dir
++ cat
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+make: Nothing to be done for 'all'.
++ sleep 2
++ sed -e '/^AC_OUTPUT$/i\
+AC_CONFIG_FILES([maude/Makefile])\
+m4_include([confile.m4])\
+'
++ mv -f configure.tmp configure.ac
++ cat configure.ac
+AC_INIT([subdir-add-pr46], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([maude/Makefile])
+m4_include([confile.m4])
+
+AC_OUTPUT
++ :
++ mkdir maude
++ cat
++ :
++ echo 'SUBDIRS = maude'
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/subdir-add-pr46.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/subdir-add-pr46.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/subdir-add-pr46.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating maude/Makefile
+Making all in maude
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir/maude'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir/maude'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir'
++ grep '^SUBDIRS = *maude *$' Makefile.in
+SUBDIRS = maude
++ grep '^SUBDIRS = *maude *$' Makefile
+SUBDIRS = maude
++ test -f maude/Makefile
++ mkdir maude2
++ sleep 2
++ cat
++ :
++ echo 'SUBDIRS += maude2'
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/subdir-add-pr46.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/subdir-add-pr46.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/subdir-add-pr46.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating maude/Makefile
+config.status: creating maude2/Makefile
+Making all in maude
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir/maude'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir/maude'
+Making all in maude2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir/maude2'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir/maude2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-add-pr46.dir'
++ grep '^SUBDIRS =.* maude2' Makefile.in
+SUBDIRS = maude maude2
++ grep '^SUBDIRS =.* maude2' Makefile
+SUBDIRS = maude maude2
++ for ext in '.in' ''
++ for d in . maude maude2
++ grep '^GREPME =' ./Makefile.in
+GREPME = @GREPME@
++ for d in . maude maude2
++ grep '^GREPME =' maude/Makefile.in
+GREPME = @GREPME@
++ for d in . maude maude2
++ grep '^GREPME =' maude2/Makefile.in
+GREPME = @GREPME@
++ for ext in '.in' ''
++ for d in . maude maude2
++ grep '^GREPME =' ./Makefile
+GREPME = 
++ for d in . maude maude2
++ grep '^GREPME =' maude/Makefile
+GREPME = 
++ for d in . maude maude2
++ grep '^GREPME =' maude2/Makefile
+GREPME = 
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subdir-add-pr46.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subdir-add-pr46.dir
++ set +x
+PASS t/subdir-add-pr46.sh (exit status: 0)

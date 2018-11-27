@@ -1,0 +1,113 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-d-vpath.dir
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ yacc -d parse.y
++ mv y.tab.c parse.c
++ mv y.tab.h parse.h
++ grep foobar parse.c
+  "'r'", "$accept", "foobar", YY_NULLPTR
++ grep FOOBAR parse.h
+    FOOBAR = 258
+#define FOOBAR 258
++ mkdir sub
++ cd sub
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ sleep 2
++ cat
++ make
+/bin/sh ../ylwrap ../parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc -d 
+updating parse.h
+cc -DPACKAGE_NAME=\"yacc-d-vpath\" -DPACKAGE_TARNAME=\"yacc-d-vpath\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-vpath\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-vpath\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-d-vpath\" -DPACKAGE_TARNAME=\"yacc-d-vpath\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-d-vpath\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-d-vpath\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo parse.o foo.o  
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-vpath.dir/sub'
+if test -d "yacc-d-vpath-1.0"; then find "yacc-d-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-vpath-1.0" || { sleep 5 && rm -rf "yacc-d-vpath-1.0"; }; else :; fi
+test -d "yacc-d-vpath-1.0" || mkdir "yacc-d-vpath-1.0"
+test -n "" \
+|| find "yacc-d-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-d-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-d-vpath-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-vpath.dir/sub'
++ /bin/grep -F fubar yacc-d-vpath-1.0/parse.c
+  "'r'", "$accept", "fubar", YY_NULLPTR
++ /bin/grep -F FUBAR yacc-d-vpath-1.0/parse.h
+    FUBAR = 258
+#define FUBAR 258
++ sleep 2
++ cat
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-d-vpath.dir/sub'
+/bin/sh ../ylwrap ../parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc -d 
+updating parse.h
+if test -d "yacc-d-vpath-1.0"; then find "yacc-d-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-d-vpath-1.0" || { sleep 5 && rm -rf "yacc-d-vpath-1.0"; }; else :; fi
+test -d "yacc-d-vpath-1.0" || mkdir "yacc-d-vpath-1.0"
+test -n "" \
+|| find "yacc-d-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-d-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-d-vpath-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-d-vpath.dir/sub'
++ /bin/grep -F maude yacc-d-vpath-1.0/parse.c
+  "'e'", "$accept", "maude", YY_NULLPTR
++ /bin/grep -F MAUDE yacc-d-vpath-1.0/parse.h
+    MAUDE = 258
+#define MAUDE 258
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-d-vpath.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-d-vpath.dir
++ set +x
+PASS t/yacc-d-vpath.sh (exit status: 0)

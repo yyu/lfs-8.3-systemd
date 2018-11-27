@@ -1,0 +1,84 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/vala-grepping.dir
++ cat
++ cat
++ cat
++ mkdir sub
++ cat
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:6: installing './ar-lib'
++ grep '\$(VALAC).* \$(AM_VALAFLAGS) \$(VALAFLAGS) ' Makefile.in
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C zardoz-foo.vala zardoz-bar.vala
++ grep '\$(VALAC).* \$(zardoz_VALAFLAGS) \$(VALAFLAGS) ' Makefile.in
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(zardoz_VALAFLAGS) $(VALAFLAGS) -C zardoz.vala
++ /bin/grep -F am_zardoz_OBJECTS Makefile.in
+am_zardoz_OBJECTS = zardoz.$(OBJEXT)
+zardoz_OBJECTS = $(am_zardoz_OBJECTS)
++ /bin/grep -F am_libzardoz_la_OBJECTS Makefile.in
+am_libzardoz_la_OBJECTS = zardoz-foo.lo zardoz-bar.lo
+libzardoz_la_OBJECTS = $(am_libzardoz_la_OBJECTS)
++ /bin/grep -F zardoz_vala.stamp: Makefile.in
+$(srcdir)/zardoz_vala.stamp: zardoz.vala
++ /bin/grep -F libzardoz_la_vala.stamp: Makefile.in
+$(srcdir)/libzardoz_la_vala.stamp: zardoz-foo.vala zardoz-bar.vala
+++ /bin/grep -F -c .stamp: Makefile.in
++ test 2 -eq 2
++ /bin/grep -F zardoz.c Makefile.in
+	ltmain.sh missing zardoz-bar.c zardoz-foo.c zardoz.c
+$(srcdir)/zardoz.c: $(srcdir)/zardoz_vala.stamp
+	-rm -f $(srcdir)/zardoz.c
+	-rm -f zardoz.c
++ /bin/grep -F zardoz-foo.c Makefile.in
+	ltmain.sh missing zardoz-bar.c zardoz-foo.c zardoz.c
+$(srcdir)/zardoz-foo.c: $(srcdir)/libzardoz_la_vala.stamp
+	-rm -f $(srcdir)/zardoz-foo.c
+	-rm -f zardoz-foo.c
++ /bin/grep -F zardoz-bar.c Makefile.in
+	ltmain.sh missing zardoz-bar.c zardoz-foo.c zardoz.c
+$(srcdir)/zardoz-bar.c: $(srcdir)/libzardoz_la_vala.stamp
+	-rm -f $(srcdir)/zardoz-bar.c
+	-rm -f zardoz-bar.c
++ grep '\$(VALAC).* \$(AM_VALAFLAGS) \$(VALAFLAGS) ' sub/Makefile.in
+	$(AM_V_VALAC)$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C bar.vala baz.vala
++ /bin/grep -F foo_VALAFLAGS sub/Makefile.in
++ /bin/grep -F am_foo_OBJECTS sub/Makefile.in
+am_foo_OBJECTS = bar.$(OBJEXT) baz.$(OBJEXT) mu.$(OBJEXT) \
+foo_OBJECTS = $(am_foo_OBJECTS)
++ /bin/grep -F bar.c sub/Makefile.in
+	$(top_srcdir)/depcomp bar.c baz.c
+$(srcdir)/bar.c: $(srcdir)/foo_vala.stamp
+	-rm -f $(srcdir)/bar.c
+	-rm -f bar.c
++ /bin/grep -F baz.c sub/Makefile.in
+	$(top_srcdir)/depcomp bar.c baz.c
+$(srcdir)/baz.c: $(srcdir)/foo_vala.stamp
+	-rm -f $(srcdir)/baz.c
+	-rm -f baz.c
++ /bin/grep -F foo_vala.stamp: sub/Makefile.in
+$(srcdir)/foo_vala.stamp: bar.vala baz.vala
+++ /bin/grep -F -c .stamp: sub/Makefile.in
++ test 1 -eq 1
++ grep '\$[0-9][0-9]*t' Makefile.in sub/Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/vala-grepping.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/vala-grepping.dir
++ set +x
+PASS t/vala-grepping.sh (exit status: 0)

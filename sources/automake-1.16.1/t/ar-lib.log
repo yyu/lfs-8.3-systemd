@@ -1,0 +1,97 @@
+ar-lib: trying some XSI constructs with /bin/sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ar-lib.dir
++ get_shell_script ar-lib
++ am_source=ar-lib
++ am_target=ar-lib
++ test '!' -f ar-lib
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/ar-lib ar-lib
++ sed 10q ar-lib
+#! /bin/sh
+# Wrapper for Microsoft lib.exe
+
+me=ar-lib
+scriptversion=2012-03-01.08; # UTC
+
+# Copyright (C) 2010-2018 Free Software Foundation, Inc.
+# Written by Peter Rosin <peda@lysator.liu.se>.
+#
+# This program is free software; you can redistribute it and/or modify
++ unset am_target am_source
++ cat
++ chmod +x ./lib
+++ ./ar-lib ./lib cr foo.lib foo.obj
++ opts='lib -NOLOGO -OUT:foo.lib foo.obj'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.obj' = 'xlib -NOLOGO -OUT:foo.lib foo.obj'
++ touch foo.lib
+++ ./ar-lib ./lib r foo.lib foo.obj
++ opts='lib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj' = 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
+++ ./ar-lib ./lib q foo.lib foo.obj
++ opts='lib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj' = 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
+++ ./ar-lib ./lib ru foo.lib foo.obj
++ opts='lib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj' = 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
+++ ./ar-lib ./lib rs foo.lib foo.obj
++ opts='lib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj' = 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
+++ ./ar-lib ./lib rS foo.lib foo.obj
++ opts='lib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj' = 'xlib -NOLOGO -OUT:foo.lib foo.lib foo.obj'
+++ ./ar-lib ./lib r foo.lib @list
++ opts='lib -NOLOGO -OUT:foo.lib foo.lib @list'
++ test 'xlib -NOLOGO -OUT:foo.lib foo.lib @list' = 'xlib -NOLOGO -OUT:foo.lib foo.lib @list'
+++ ./ar-lib ./lib d foo.lib foo.obj
++ opts='lib -NOLOGO -REMOVE:foo.obj foo.lib'
++ test 'xlib -NOLOGO -REMOVE:foo.obj foo.lib' = 'xlib -NOLOGO -REMOVE:foo.obj foo.lib'
++ echo foo.obj
+++ ./ar-lib ./lib d foo.lib @foolist
++ opts='lib -NOLOGO -REMOVE:foo.obj foo.lib'
++ test 'xlib -NOLOGO -REMOVE:foo.obj foo.lib' = 'xlib -NOLOGO -REMOVE:foo.obj foo.lib'
+++ ./ar-lib ./lib t foo.lib
++ opts='lib -NOLOGO -LIST foo.lib'
++ test 'xlib -NOLOGO -LIST foo.lib' = 'xlib -NOLOGO -LIST foo.lib'
+++ ./ar-lib ./lib tv foo.lib
++ opts='lib -NOLOGO -LIST foo.lib'
++ test 'xlib -NOLOGO -LIST foo.lib' = 'xlib -NOLOGO -LIST foo.lib'
++ touch fake.lib
+++ ./ar-lib ./lib x fake.lib
++ opts='lib -NOLOGO -EXTRACT:fake.obj fake.lib'
++ test 'xlib -NOLOGO -EXTRACT:fake.obj fake.lib' = 'xlib -NOLOGO -EXTRACT:fake.obj fake.lib'
+++ ./ar-lib ./lib x foo.lib foo.obj
++ opts='lib -NOLOGO -EXTRACT:foo.obj foo.lib'
++ test 'xlib -NOLOGO -EXTRACT:foo.obj foo.lib' = 'xlib -NOLOGO -EXTRACT:foo.obj foo.lib'
+++ ./ar-lib ./lib x foo.lib @foolist
++ opts='lib -NOLOGO -EXTRACT:foo.obj foo.lib'
++ test 'xlib -NOLOGO -EXTRACT:foo.obj foo.lib' = 'xlib -NOLOGO -EXTRACT:foo.obj foo.lib'
+++ ./ar-lib ./lib -lib -LTCG x foo.lib foo.obj
++ opts='lib -lib -LTCG -NOLOGO -EXTRACT:foo.obj foo.lib'
++ test 'xlib -lib -LTCG -NOLOGO -EXTRACT:foo.obj foo.lib' = 'xlib -lib -LTCG -NOLOGO -EXTRACT:foo.obj foo.lib'
++ touch fake2.lib
+++ ./ar-lib ./lib x fake2.lib
++ opts='lib -NOLOGO -EXTRACT:dir\fake2.obj fake2.lib'
++ test 'xlib -NOLOGO -EXTRACT:dir\fake2.obj fake2.lib' = 'xlib -NOLOGO -EXTRACT:dir\fake2.obj fake2.lib'
+++ ./ar-lib ./lib s foo.lib
++ opts=
++ test x = x
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ar-lib.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ar-lib.dir
++ set +x
+PASS t/ar-lib.sh (exit status: 0)

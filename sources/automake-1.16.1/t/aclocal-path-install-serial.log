@@ -1,0 +1,171 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-path-install-serial.dir
++ cat
++ mkdir sdir pdir m4
+++ pwd
++ ACLOCAL='aclocal-1.16 -Werror --system-acdir=/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir'
++ ACLOCAL_PATH=./pdir
++ export ACLOCAL_PATH
++ cat
++ cat
++ set_serial 2 sdir/foo.m4
++ serial=2
++ file=sdir/foo.m4
++ sed '/^# serial/d' sdir/foo.m4
++ case $serial in
++ echo '# serial 2'
++ cat t
++ rm -f t
++ cat sdir/foo.m4
+# serial 2
+AC_DEFUN([AM_FOO], [::sdir::])
++ set_serial 1 pdir/foo.m4
++ serial=1
++ file=pdir/foo.m4
++ sed '/^# serial/d' pdir/foo.m4
++ case $serial in
++ echo '# serial 1'
++ cat t
++ rm -f t
++ cat pdir/foo.m4
+# serial 1
+AC_DEFUN([AM_FOO], [::pdir::])
++ win sdir
++ case $1 in
++ ok=sdir
++ ko=pdir
++ rm -rf configure aclocal.m4 'autom4te*.cache' 'm4/*'
++ aclocal-1.16 -Werror --system-acdir=/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir -I m4 --install
+aclocal-1.16: installing 'm4/foo.m4' from '/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir/foo.m4'
++ test -f m4/foo.m4
++ autoconf
++ /bin/grep -F ::sdir: m4/foo.m4
+AC_DEFUN([AM_FOO], [::sdir::])
++ /bin/grep -F ::sdir:: configure
+::sdir::
++ /bin/grep -F ::pdir:: m4/foo.m4 configure
++ :
++ set_serial 3.3 sdir/foo.m4
++ serial=3.3
++ file=sdir/foo.m4
++ sed '/^# serial/d' sdir/foo.m4
++ case $serial in
++ echo '# serial 3.3'
++ cat t
++ rm -f t
++ cat sdir/foo.m4
+# serial 3.3
+AC_DEFUN([AM_FOO], [::sdir::])
++ set_serial 5.7 pdir/foo.m4
++ serial=5.7
++ file=pdir/foo.m4
++ sed '/^# serial/d' pdir/foo.m4
++ case $serial in
++ echo '# serial 5.7'
++ cat t
++ rm -f t
++ cat pdir/foo.m4
+# serial 5.7
+AC_DEFUN([AM_FOO], [::pdir::])
++ win pdir
++ case $1 in
++ ok=pdir
++ ko=sdir
++ rm -rf configure aclocal.m4 autom4te.cache m4/foo.m4
++ aclocal-1.16 -Werror --system-acdir=/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir -I m4 --install
+aclocal-1.16: installing 'm4/foo.m4' from 'pdir/foo.m4'
++ test -f m4/foo.m4
++ autoconf
++ /bin/grep -F ::pdir: m4/foo.m4
+AC_DEFUN([AM_FOO], [::pdir::])
++ /bin/grep -F ::pdir:: configure
+::pdir::
++ /bin/grep -F ::sdir:: m4/foo.m4 configure
++ :
++ set_serial 0 sdir/foo.m4
++ serial=0
++ file=sdir/foo.m4
++ sed '/^# serial/d' sdir/foo.m4
++ case $serial in
++ echo '# serial 0'
++ cat t
++ rm -f t
++ cat sdir/foo.m4
+# serial 0
+AC_DEFUN([AM_FOO], [::sdir::])
++ set_serial none pdir/foo.m4
++ serial=none
++ file=pdir/foo.m4
++ sed '/^# serial/d' pdir/foo.m4
++ case $serial in
++ mv -f t pdir/foo.m4
++ cat pdir/foo.m4
+AC_DEFUN([AM_FOO], [::pdir::])
++ win sdir
++ case $1 in
++ ok=sdir
++ ko=pdir
++ rm -rf configure aclocal.m4 autom4te.cache m4/foo.m4
++ aclocal-1.16 -Werror --system-acdir=/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir -I m4 --install
+aclocal-1.16: installing 'm4/foo.m4' from '/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir/foo.m4'
++ test -f m4/foo.m4
++ autoconf
++ /bin/grep -F ::sdir: m4/foo.m4
+AC_DEFUN([AM_FOO], [::sdir::])
++ /bin/grep -F ::sdir:: configure
+::sdir::
++ /bin/grep -F ::pdir:: m4/foo.m4 configure
++ :
++ set_serial none sdir/foo.m4
++ serial=none
++ file=sdir/foo.m4
++ sed '/^# serial/d' sdir/foo.m4
++ case $serial in
++ mv -f t sdir/foo.m4
++ cat sdir/foo.m4
+AC_DEFUN([AM_FOO], [::sdir::])
++ set_serial 1.2.3 pdir/foo.m4
++ serial=1.2.3
++ file=pdir/foo.m4
++ sed '/^# serial/d' pdir/foo.m4
++ case $serial in
++ echo '# serial 1.2.3'
++ cat t
++ rm -f t
++ cat pdir/foo.m4
+# serial 1.2.3
+AC_DEFUN([AM_FOO], [::pdir::])
++ win pdir
++ case $1 in
++ ok=pdir
++ ko=sdir
++ rm -rf configure aclocal.m4 autom4te.cache m4/foo.m4
++ aclocal-1.16 -Werror --system-acdir=/sources/automake-1.16.1/t/aclocal-path-install-serial.dir/sdir -I m4 --install
+aclocal-1.16: installing 'm4/foo.m4' from 'pdir/foo.m4'
++ test -f m4/foo.m4
++ autoconf
++ /bin/grep -F ::pdir: m4/foo.m4
+AC_DEFUN([AM_FOO], [::pdir::])
++ /bin/grep -F ::pdir:: configure
+::pdir::
++ /bin/grep -F ::sdir:: m4/foo.m4 configure
++ :
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-path-install-serial.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-path-install-serial.dir
++ set +x
+PASS t/aclocal-path-install-serial.sh (exit status: 0)

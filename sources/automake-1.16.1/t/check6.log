@@ -1,0 +1,101 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/check6.dir
++ cat
++ cat
++ cat
++ cp a b
++ cp a c
++ chmod a+x a b c
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check6.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check6.dir'
+XFAIL: a
+XFAIL: b
+XFAIL: c
+============================================================================
+Testsuite summary for check6 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  0
+# SKIP:  0
+# XFAIL: 3
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check6.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check6.dir'
++ make distclean
+test -z "a.log b.log c.log" || rm -f a.log b.log c.log
+test -z "a.trs b.trs c.trs" || rm -f a.trs b.trs c.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check6.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check6.dir/build'
+XFAIL: a
+XFAIL: b
+XFAIL: c
+============================================================================
+Testsuite summary for check6 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  0
+# SKIP:  0
+# XFAIL: 3
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check6.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check6.dir/build'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check6.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check6.dir
++ set +x
+PASS t/check6.sh (exit status: 0)

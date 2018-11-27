@@ -1,0 +1,460 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-basic.dir
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+/bin/sh ./ylwrap parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-basic\" -DPACKAGE_TARNAME=\"yacc-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-basic\" -DPACKAGE_TARNAME=\"yacc-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+foo.c: In function 'main':
+foo.c:1:15: warning: implicit declaration of function 'yyparse' [-Wimplicit-function-declaration]
+ int main () { yyparse (); return 1; }
+               ^~~~~~~
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo parse.o foo.o  
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c bar-parse.c y.tab.h `echo bar-parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-parse.output -- yacc -v 
+updating bar-parse.output
+cc -DPACKAGE_NAME=\"yacc-basic\" -DPACKAGE_TARNAME=\"yacc-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-basic\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar-parse.o -MD -MP -MF .deps/bar-parse.Tpo -c -o bar-parse.o bar-parse.c
+mv -f .deps/bar-parse.Tpo .deps/bar-parse.Po
+cc  -g -O2   -o bar bar-parse.o foo.o  
++ ls -l
+total 552
+-rw-r--r-- 1 root root  25301 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    162 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  25277 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root  30648 Nov 27 06:50 bar
+-rw-r--r-- 1 root root  42218 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root  14440 Nov 27 06:50 bar-parse.o
+-rw-r--r-- 1 root root    514 Nov 27 06:50 bar-parse.output
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   8880 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  29202 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 142621 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    108 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  30632 Nov 27 06:50 foo
+-rw-r--r-- 1 root root     38 Nov 27 06:50 foo.c
+-rw-r--r-- 1 root root   3192 Nov 27 06:50 foo.o
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root  42202 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root  14424 Nov 27 06:50 parse.o
+-rw-r--r-- 1 root root    132 Nov 27 06:50 parse.y
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
++ test -f parse.c
++ test -f bar-parse.c
++ test -f bar-parse.output
++ cross_compiling
++ test x '!=' x
++ echo a
++ ./foo
++ echo b
++ ./foo
++ echo a
++ ./bar
++ echo b
++ ./bar
++ : For shells with busted 'set -e.'
++ make echo-distcom
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in bar-parse.c compile depcomp install-sh missing parse.c ylwrap  
++ make -s echo-distcom
++ grep '[ /]parse\.c '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in bar-parse.c compile depcomp install-sh missing parse.c ylwrap  
++ make -s echo-distcom
++ grep '[ /]bar-parse\.c '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in bar-parse.c compile depcomp install-sh missing parse.c ylwrap  
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir'
+if test -d "yacc-basic-1.0"; then find "yacc-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-basic-1.0" || { sleep 5 && rm -rf "yacc-basic-1.0"; }; else :; fi
+test -d "yacc-basic-1.0" || mkdir "yacc-basic-1.0"
+test -n "" \
+|| find "yacc-basic-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-basic.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-basic-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir'
++ ls -l yacc-basic-1.0
+total 380
+-rw-r--r-- 1 root root    162 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  25277 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+-rw-r--r-- 1 root root  42218 Nov 27 06:50 bar-parse.c
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 142621 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    108 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root     38 Nov 27 06:50 foo.c
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root  42202 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root    132 Nov 27 06:50 parse.y
+-rwxr-xr-x 1 1000  998   6860 Mar  8  2018 ylwrap
++ test -f yacc-basic-1.0/parse.c
++ test -f yacc-basic-1.0/bar-parse.c
++ yl_distcheck
++ useless_vpath_rebuild
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ am__useless_vpath_rebuild=no
++ return 1
++ run_make distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir'
+if test -d "yacc-basic-1.0"; then find "yacc-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-basic-1.0" || { sleep 5 && rm -rf "yacc-basic-1.0"; }; else :; fi
+test -d "yacc-basic-1.0" || mkdir "yacc-basic-1.0"
+test -n "" \
+|| find "yacc-basic-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-basic.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-basic-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir'
+tardir=yacc-basic-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-basic-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir'
+if test -d "yacc-basic-1.0"; then find "yacc-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-basic-1.0" || { sleep 5 && rm -rf "yacc-basic-1.0"; }; else :; fi
+case 'yacc-basic-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc yacc-basic-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc yacc-basic-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc yacc-basic-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc yacc-basic-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c yacc-basic-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc yacc-basic-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip yacc-basic-1.0.zip ;;\
+esac
+chmod -R a-w yacc-basic-1.0
+chmod u+w yacc-basic-1.0
+mkdir yacc-basic-1.0/_build yacc-basic-1.0/_build/sub yacc-basic-1.0/_inst
+chmod a-w yacc-basic-1.0
+test -d yacc-basic-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd yacc-basic-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd yacc-basic-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf yacc-basic-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"yacc-basic\" -DPACKAGE_TARNAME=\"yacc-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-basic\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o ../../parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-basic\" -DPACKAGE_TARNAME=\"yacc-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-basic\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../foo.c
+../../foo.c: In function 'main':
+../../foo.c:1:15: warning: implicit declaration of function 'yyparse' [-Wimplicit-function-declaration]
+ int main () { yyparse (); return 1; }
+               ^~~~~~~
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo parse.o foo.o  
+cc -DPACKAGE_NAME=\"yacc-basic\" -DPACKAGE_TARNAME=\"yacc-basic\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-basic\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-basic\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT bar-parse.o -MD -MP -MF .deps/bar-parse.Tpo -c -o bar-parse.o ../../bar-parse.c
+mv -f .deps/bar-parse.Tpo .deps/bar-parse.Po
+cc  -g -O2   -o bar bar-parse.o foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_inst/bin'
+  /usr/bin/install -c foo bar '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_inst/bin' && rm -f foo bar )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-71928//sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_inst/bin'
+  /usr/bin/install -c foo bar '/tmp/am-dc-71928//sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+ ( cd '/tmp/am-dc-71928//sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_inst/bin' && rm -f foo bar )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+if test -d "yacc-basic-1.0"; then find "yacc-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-basic-1.0" || { sleep 5 && rm -rf "yacc-basic-1.0"; }; else :; fi
+test -d "yacc-basic-1.0" || mkdir "yacc-basic-1.0"
+test -n "" \
+|| find "yacc-basic-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-basic-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+tardir=yacc-basic-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-basic-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+if test -d "yacc-basic-1.0"; then find "yacc-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-basic-1.0" || { sleep 5 && rm -rf "yacc-basic-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+test -z "foo bar" || rm -f foo bar
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-basic.dir/yacc-basic-1.0/_build/sub'
+if test -d "yacc-basic-1.0"; then find "yacc-basic-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-basic-1.0" || { sleep 5 && rm -rf "yacc-basic-1.0"; }; else :; fi
+================================================
+yacc-basic-1.0 archives ready for distribution: 
+yacc-basic-1.0.tar.gz
+================================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f parse.c
++ test -f bar-parse.c
++ make distclean
+test -z "foo bar" || rm -f foo bar
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
++ ls -l
+total 480
+-rw-r--r-- 1 root root    162 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  25277 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root  42218 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root    514 Nov 27 06:50 bar-parse.output
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 142621 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    108 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root     38 Nov 27 06:50 foo.c
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root  42202 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root    132 Nov 27 06:50 parse.y
+-rw-r--r-- 1 root root 101819 Nov 27 06:50 yacc-basic-1.0.tar.gz
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
++ test -f parse.c
++ test -f bar-parse.c
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+test -z "foo bar" || rm -f foo bar
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar-parse.c
+rm -f parse.c
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
++ ls -l
+total 388
+-rw-r--r-- 1 root root    162 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  25277 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+-rw-r--r-- 1 root root    514 Nov 27 06:50 bar-parse.output
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 142621 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    108 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root     38 Nov 27 06:50 foo.c
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    132 Nov 27 06:50 parse.y
+-rw-r--r-- 1 root root 101819 Nov 27 06:50 yacc-basic-1.0.tar.gz
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
++ test '!' -e parse.c
++ test '!' -e bar-parse.c
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-basic.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-basic.dir
++ set +x
+PASS t/yacc-basic.sh (exit status: 0)

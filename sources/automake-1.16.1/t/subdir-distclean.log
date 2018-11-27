@@ -1,0 +1,222 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subdir-distclean.dir
++ cat
++ mkdir sub1 sub2 sub1/subsub
++ cat
++ cat
++ cat
++ cp sub2/Makefile.am sub1/subsub/Makefile.am
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -c --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub1/subsub/Makefile
++ test -f sub1/Makefile
++ test -f sub2/Makefile
++ test -f sub1/subsub/Makefile
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir'
++ test -f sub1/run
++ touch sub2/oops sub1/subsub/oops
++ make distclean
+Making distclean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+Making distclean in subsub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1/subsub'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+test -z "oops" || rm -f oops
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1/subsub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+test -z "run" || rm -f run
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+test -z "oops" || rm -f oops
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e sub1/run
++ test '!' -e sub2/oops
++ test '!' -e sub1/subsub/oops
++ test '!' -e sub1/Makefile
++ test '!' -e sub2/Makefile
++ test '!' -e sub1/subsub/Makefile
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub1/subsub/Makefile
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+: > run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build'
++ test -f sub1/Makefile
++ test -f sub2/Makefile
++ test -f sub1/subsub/Makefile
++ test -f sub1/run
++ touch sub2/oops sub1/subsub/oops
++ make maintainer-clean
+Making maintainer-clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+Making maintainer-clean in subsub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1/subsub'
+test -z "" || rm -f 
+test . = "../../../sub1/subsub" || test -z "" || rm -f 
+test -z "oops" || rm -f oops
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1/subsub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+test -z "run" || rm -f run
+test -z "" || rm -f 
+test . = "../../sub1" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub1'
+Making maintainer-clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub2'
+test -z "" || rm -f 
+test . = "../../sub2" || test -z "" || rm -f 
+test -z "oops" || rm -f oops
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build'
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/build'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ../autom4te.cache
+rm -f Makefile
++ test '!' -e sub1/run
++ test '!' -e sub2/oops
++ test '!' -e sub1/subsub/oops
++ test '!' -e sub1/Makefile
++ test '!' -e sub2/Makefile
++ test '!' -e sub1/subsub/Makefile
++ cd ..
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub1/subsub/Makefile
++ make distclean
+Making distclean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+Making distclean in subsub
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1/subsub'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+test -z "oops" || rm -f oops
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1/subsub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+test -z "run" || rm -f run
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+make[2]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub1'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+test -z "oops" || rm -f oops
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/subdir-distclean.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/subdir-distclean.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subdir-distclean.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subdir-distclean.dir
++ set +x
+PASS t/subdir-distclean.sh (exit status: 0)

@@ -1,0 +1,102 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dir-named-obj-is-bad.dir
++ mkdir obj
++ cat
++ :
++ echo 'SUBDIRS = obj'
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: naming a subdirectory 'obj' causes troubles with BSD make
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*'\''obj'\''.*BSD make' stderr
+Makefile.am:1: warning: naming a subdirectory 'obj' causes troubles with BSD make
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: warning: naming a subdirectory 'obj' causes troubles with BSD make
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:2:.*'\''obj'\''.*BSD make' stderr
+Makefile.am:2: warning: naming a subdirectory 'obj' causes troubles with BSD make
++ rm -rf autom4te.cache
++ cat
++ rm -f obj/Makefile.am
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+configure.ac:2: warning: naming a subdirectory 'obj' causes troubles with BSD make
+configure.ac:3: installing 'obj/install-sh'
+configure.ac:3: installing 'obj/missing'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:2:.*'\''obj'\''.*BSD make' stderr
+configure.ac:2: warning: naming a subdirectory 'obj' causes troubles with BSD make
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dir-named-obj-is-bad.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dir-named-obj-is-bad.dir
++ set +x
+PASS t/dir-named-obj-is-bad.sh (exit status: 0)

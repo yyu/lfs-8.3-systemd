@@ -1,0 +1,465 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-trs-basic.dir
++ cat
++ cat
++ cat
++ :
++ mkdir sub
++ :
++ FOO_STATUS=0
++ export FOO_STATUS
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ for vpath in : false
++ :
++ srcdir=..
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make tb
+bases='foo.log bar.log sub/zardoz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; echo "$bases" > tb
+++ cat tb
++ test 'xfoo bar sub/zardoz' = 'xfoo bar sub/zardoz'
++ rm -f tb
++ run_make 'TESTS=foo.test foo2.sh foo-log foolog.test a.log.b.sh 0.exe' tb
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=foo.test foo2.sh foo-log foolog.test a.log.b.sh 0.exe' tb
++ set +x
+bases='foo.log foo2.log foo-log.log foolog.log a.log.b.log 0.exe.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; echo "$bases" > tb
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
+++ cat tb
++ test 'xfoo foo2 foo-log foolog a.log.b 0.exe' = 'xfoo foo2 foo-log foolog a.log.b 0.exe'
++ rm -f tb
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make tb
+bases='foo.log bar.log sub/zardoz.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; echo "$bases" > tb
+++ cat tb
++ test 'xfoo bar sub/zardoz' = 'xfoo bar sub/zardoz'
++ rm -f tb
++ run_make 'TESTS=foo.test foo2.sh foo-log foolog.test a.log.b.sh 0.exe' tb
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=foo.test foo2.sh foo-log foolog.test a.log.b.sh 0.exe' tb
++ set +x
+bases='foo.log foo2.log foo-log.log foolog.log a.log.b.log 0.exe.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; echo "$bases" > tb
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
+++ cat tb
++ test 'xfoo foo2 foo-log foolog a.log.b 0.exe' = 'xfoo foo2 foo-log foolog a.log.b 0.exe'
++ rm -f tb
++ cd .
++ :
++ :
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+PASS: foo.test
+PASS: bar.sh
+PASS: sub/zardoz.test
+============================================================================
+Testsuite summary for test-trs-basic 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
++ test -f foo.trs
++ test -f bar.trs
++ test -f sub/zardoz.trs
++ make clean
+test -z "foo.log bar.log sub/zardoz.log" || rm -f foo.log bar.log sub/zardoz.log
+test -z "foo.trs bar.trs sub/zardoz.trs" || rm -f foo.trs bar.trs sub/zardoz.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test '!' -e foo.trs
++ test '!' -e bar.trs
++ test '!' -e sub/zardoz.trs
++ test -f unrelated.trs
++ test -f sub/foo.trs
++ FOO_STATUS=1
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+FAIL: foo.test
+PASS: bar.sh
+PASS: sub/zardoz.test
+============================================================================
+Testsuite summary for test-trs-basic 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:479: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[1]: *** [Makefile:587: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make: *** [Makefile:786: check-am] Error 2
++ test -f foo.trs
++ test -f bar.trs
++ test -f sub/zardoz.trs
++ make mostlyclean
+test -z "foo.log bar.log sub/zardoz.log" || rm -f foo.log bar.log sub/zardoz.log
+test -z "foo.trs bar.trs sub/zardoz.trs" || rm -f foo.trs bar.trs sub/zardoz.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test '!' -e foo.trs
++ test '!' -e bar.trs
++ test '!' -e sub/zardoz.trs
++ test -f unrelated.trs
++ test -f sub/foo.trs
++ run_make TESTS=foo.test check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=foo.test check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+PASS: foo.test
+============================================================================
+Testsuite summary for test-trs-basic 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ test '!' -e bar.trs
++ test '!' -e sub/zardoz.trs
++ make clean
+test -z "foo.log bar.log sub/zardoz.log" || rm -f foo.log bar.log sub/zardoz.log
+test -z "foo.trs bar.trs sub/zardoz.trs" || rm -f foo.trs bar.trs sub/zardoz.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test '!' -e foo.trs
++ run_make 'TESTS=foo.test bar.sh' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=foo.test bar.sh' check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+PASS: foo.test
+PASS: bar.sh
+============================================================================
+Testsuite summary for test-trs-basic 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ test -f bar.trs
++ test '!' -e sub/zardoz.trs
++ run_make TESTS=bar.sh clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=bar.sh clean
++ set +x
+test -z "bar.log" || rm -f bar.log
+test -z "bar.trs" || rm -f bar.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ test '!' -e bar.trs
++ make clean
+test -z "foo.log bar.log sub/zardoz.log" || rm -f foo.log bar.log sub/zardoz.log
+test -z "foo.trs bar.trs sub/zardoz.trs" || rm -f foo.trs bar.trs sub/zardoz.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ run_make TEST_LOGS=sub/zardoz.log check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_LOGS=sub/zardoz.log check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+PASS: sub/zardoz.test
+============================================================================
+Testsuite summary for test-trs-basic 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test '!' -e foo.trs
++ test '!' -e bar.trs
++ test -f sub/zardoz.trs
++ make clean
+test -z "foo.log bar.log sub/zardoz.log" || rm -f foo.log bar.log sub/zardoz.log
+test -z "foo.trs bar.trs sub/zardoz.trs" || rm -f foo.trs bar.trs sub/zardoz.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test '!' -e sub/zardoz.trs
++ run_make 'TEST_LOGS=foo.log bar.log' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TEST_LOGS=foo.log bar.log' check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+PASS: foo.test
+PASS: bar.sh
+============================================================================
+Testsuite summary for test-trs-basic 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-trs-basic.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f foo.trs
++ test -f bar.trs
++ test '!' -e sub/zardoz.trs
++ run_make TEST_LOGS=foo.log clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_LOGS=foo.log clean
++ set +x
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test '!' -e foo.trs
++ test -f bar.trs
++ test '!' -e sub/zardoz.trs
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-trs-basic.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-trs-basic.dir
++ set +x
+PASS t/test-trs-basic.sh (exit status: 0)

@@ -1,0 +1,18 @@
+COMPILE = @CC@ @CPPFLAGS@ @CFLAGS@
+LINK      = @CC@ @CFLAGS@ @LDFLAGS@ -o $@
+SHELL     = @SHELL@
+LIBTOOL_DEPS = @LIBTOOL_DEPS@
+
+all: libtool old@EXEEXT@
+
+old@EXEEXT@: old.@OBJEXT@
+	$(LINK) old.@OBJEXT@
+
+.SUFFIXES:
+.SUFFIXES: .c .@OBJEXT@
+
+.c.@OBJEXT@:
+	$(COMPILE) -c $<
+
+libtool: $(LIBTOOL_DEPS)
+	$(SHELL) ./config.status --recheck

@@ -1,0 +1,140 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir
++ cat
++ echo 'm4_include([a.m4])'
++ echo 'm4_include([b.m4])'
++ cat
++ echo 'm4_include([d.m4])'
++ echo 'AC_DEFUN([SOMETHING_ELSE])'
++ mkdir defs
++ echo 'AC_DEFUN([SOMETHING_ELSE])'
++ echo 'AC_DEFUN([ANOTHER_MACRO])'
++ cat
++ aclocal-1.16 -Werror -I defs
++ /bin/grep -F acinclude.m4 aclocal.m4
+m4_include([acinclude.m4])
++ /bin/grep -F a.m4 aclocal.m4
++ /bin/grep -F b.m4 aclocal.m4
++ /bin/grep -F c.m4 aclocal.m4
++ /bin/grep -F d.m4 aclocal.m4
++ /bin/grep -F defs/e.m4 aclocal.m4
++ /bin/grep -F defs/f.m4 aclocal.m4
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make testdist1
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir'
+if test -d "aclocal-m4-include-are-scanned-1.0"; then find "aclocal-m4-include-are-scanned-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "aclocal-m4-include-are-scanned-1.0" || { sleep 5 && rm -rf "aclocal-m4-include-are-scanned-1.0"; }; else :; fi
+test -d "aclocal-m4-include-are-scanned-1.0" || mkdir "aclocal-m4-include-are-scanned-1.0"
+test -n "" \
+|| find "aclocal-m4-include-are-scanned-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "aclocal-m4-include-are-scanned-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir'
+test -f aclocal-m4-include-are-scanned-1.0/acinclude.m4
+test -f aclocal-m4-include-are-scanned-1.0/a.m4
+test -f aclocal-m4-include-are-scanned-1.0/b.m4
+test -f aclocal-m4-include-are-scanned-1.0/c.m4
+test -f aclocal-m4-include-are-scanned-1.0/d.m4
+test ! -d aclocal-m4-include-are-scanned-1.0/defs
++ cp aclocal.m4 aclocal.old
++ sleep 2
++ echo 'AC_DEFUN([FOO], [ANOTHER_MACRO])'
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+make: Nothing to be done for 'all'.
++ is_newest aclocal.m4 aclocal.old
++ diff aclocal.m4 aclocal.old
++ sleep 2
++ echo FOO
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+make: Nothing to be done for 'all'.
++ /bin/grep -F defs/f.m4 aclocal.m4
+m4_include([defs/f.m4])
++ make testdist2
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir'
+if test -d "aclocal-m4-include-are-scanned-1.0"; then find "aclocal-m4-include-are-scanned-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "aclocal-m4-include-are-scanned-1.0" || { sleep 5 && rm -rf "aclocal-m4-include-are-scanned-1.0"; }; else :; fi
+test -d "aclocal-m4-include-are-scanned-1.0" || mkdir "aclocal-m4-include-are-scanned-1.0"
+test -n "" \
+|| find "aclocal-m4-include-are-scanned-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "aclocal-m4-include-are-scanned-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-m4-include-are-scanned.dir'
+test -f aclocal-m4-include-are-scanned-1.0/acinclude.m4
+test -f aclocal-m4-include-are-scanned-1.0/a.m4
+test -f aclocal-m4-include-are-scanned-1.0/b.m4
+test -f aclocal-m4-include-are-scanned-1.0/c.m4
+test -f aclocal-m4-include-are-scanned-1.0/d.m4
+test ! -f aclocal-m4-include-are-scanned-1.0/defs/e.m4
+test -f aclocal-m4-include-are-scanned-1.0/defs/f.m4
++ rm -f b.m4
++ aclocal-1.16 -Werror
++ cat stderr
+aclocal-1.16: error: a.m4:1: file 'b.m4' does not exist
++ grep 'a\.m4:1: .*b\.m4.*does not exist' stderr
+aclocal-1.16: error: a.m4:1: file 'b.m4' does not exist
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-m4-include-are-scanned.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-m4-include-are-scanned.dir
++ set +x
+PASS t/aclocal-m4-include-are-scanned.sh (exit status: 0)

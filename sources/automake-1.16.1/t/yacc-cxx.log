@@ -1,0 +1,514 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-cxx.dir
++ cat
++ cat
++ cat
++ cp parse1.yy parse2.y++
++ cp parse1.yy parse3.yxx
++ cp parse1.yy parse4.ypp
++ cat
++ cp foo.cc bar.c++
++ cp foo.cc bar2.cxx
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+/bin/sh ./ylwrap parse1.yy y.tab.c parse1.cc y.tab.h `echo parse1.cc | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse1.output -- yacc  
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse1.o -MD -MP -MF .deps/parse1.Tpo -c -o parse1.o parse1.cc
+mv -f .deps/parse1.Tpo .deps/parse1.Po
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cc
+mv -f .deps/foo.Tpo .deps/foo.Po
+c++  -g -O2   -o foo1 parse1.o foo.o  
+/bin/sh ./ylwrap parse2.y++ y.tab.c parse2.c++ y.tab.h `echo parse2.c++ | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse2.output -- yacc  
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse2.o -MD -MP -MF .deps/parse2.Tpo -c -o parse2.o parse2.c++
+mv -f .deps/parse2.Tpo .deps/parse2.Po
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c++
+mv -f .deps/bar.Tpo .deps/bar.Po
+c++  -g -O2   -o foo2 parse2.o bar.o  
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse3.yxx' || echo './'`parse3.yxx y.tab.c foo3-parse3.cxx y.tab.h `echo foo3-parse3.cxx | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo3-parse3.output -- yacc -v 
+updating foo3-parse3.output
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo3-parse3.o -MD -MP -MF .deps/foo3-parse3.Tpo -c -o foo3-parse3.o foo3-parse3.cxx
+mv -f .deps/foo3-parse3.Tpo .deps/foo3-parse3.Po
+c++  -g -O2   -o foo3 foo3-parse3.o foo.o  
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse4.ypp' || echo './'`parse4.ypp y.tab.c foo4-parse4.cpp y.tab.h `echo foo4-parse4.cpp | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo4-parse4.output -- yacc -v 
+updating foo4-parse4.output
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo4-parse4.o -MD -MP -MF .deps/foo4-parse4.Tpo -c -o foo4-parse4.o foo4-parse4.cpp
+mv -f .deps/foo4-parse4.Tpo .deps/foo4-parse4.Po
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2.o -MD -MP -MF .deps/bar2.Tpo -c -o bar2.o bar2.cxx
+mv -f .deps/bar2.Tpo .deps/bar2.Po
+c++  -g -O2   -o foo4 foo4-parse4.o bar2.o  
++ test -f parse1.cc
++ test -f parse2.c++
++ test -f foo3-parse3.cxx
++ test -f foo4-parse4.cpp
++ test -f foo3-parse3.output
++ test -f foo4-parse4.output
++ cross_compiling
++ test x '!=' x
++ for i in 1 2 3 4
++ echo a
++ ./foo1
++ echo b
++ ./foo1
++ : For shells with busted 'set -e.'
++ for i in 1 2 3 4
++ echo a
++ ./foo2
++ echo b
++ ./foo2
++ : For shells with busted 'set -e.'
++ for i in 1 2 3 4
++ echo a
++ ./foo3
++ echo b
++ ./foo3
++ : For shells with busted 'set -e.'
++ for i in 1 2 3 4
++ echo a
++ ./foo4
++ echo b
++ ./foo4
++ : For shells with busted 'set -e.'
++ make echo-distcom
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp foo3-parse3.cxx foo4-parse4.cpp install-sh missing parse1.cc parse2.c++ ylwrap  
++ make -s echo-distcom
++ grep '[ /]parse1\.cc '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp foo3-parse3.cxx foo4-parse4.cpp install-sh missing parse1.cc parse2.c++ ylwrap  
++ make -s echo-distcom
++ grep '[ /]parse2\.c++ '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp foo3-parse3.cxx foo4-parse4.cpp install-sh missing parse1.cc parse2.c++ ylwrap  
++ make -s echo-distcom
++ grep '[ /]foo3-parse3\.cxx '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp foo3-parse3.cxx foo4-parse4.cpp install-sh missing parse1.cc parse2.c++ ylwrap  
++ make -s echo-distcom
++ grep '[ /]foo4-parse4\.cpp '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp foo3-parse3.cxx foo4-parse4.cpp install-sh missing parse1.cc parse2.c++ ylwrap  
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir'
+if test -d "yacc-cxx-1.0"; then find "yacc-cxx-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-cxx-1.0" || { sleep 5 && rm -rf "yacc-cxx-1.0"; }; else :; fi
+test -d "yacc-cxx-1.0" || mkdir "yacc-cxx-1.0"
+test -n "" \
+|| find "yacc-cxx-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-cxx.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-cxx-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir'
++ ls -l yacc-cxx-1.0
+total 480
+-rw-r--r-- 1 root root    282 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  30877 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+-rw-r--r-- 1 root root    148 Nov 27 06:50 bar.c++
+-rw-r--r-- 1 root root    148 Nov 27 06:50 bar2.cxx
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 132969 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    107 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root    148 Nov 27 06:50 foo.cc
+-rw-r--r-- 1 root root  42355 Nov 27 06:50 foo3-parse3.cxx
+-rw-r--r-- 1 root root  42355 Nov 27 06:50 foo4-parse4.cpp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root  42329 Nov 27 06:50 parse1.cc
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse1.yy
+-rw-r--r-- 1 root root  42335 Nov 27 06:50 parse2.c++
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse2.y++
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse3.yxx
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse4.ypp
+-rwxr-xr-x 1 1000  998   6860 Mar  8  2018 ylwrap
++ test -f yacc-cxx-1.0/parse1.cc
++ test -f yacc-cxx-1.0/parse2.c++
++ test -f yacc-cxx-1.0/foo3-parse3.cxx
++ test -f yacc-cxx-1.0/foo4-parse4.cpp
++ yl_distcheck
++ useless_vpath_rebuild
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ am__useless_vpath_rebuild=no
++ return 1
++ run_make distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir'
+if test -d "yacc-cxx-1.0"; then find "yacc-cxx-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-cxx-1.0" || { sleep 5 && rm -rf "yacc-cxx-1.0"; }; else :; fi
+test -d "yacc-cxx-1.0" || mkdir "yacc-cxx-1.0"
+test -n "" \
+|| find "yacc-cxx-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-cxx.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-cxx-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir'
+tardir=yacc-cxx-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-cxx-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir'
+if test -d "yacc-cxx-1.0"; then find "yacc-cxx-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-cxx-1.0" || { sleep 5 && rm -rf "yacc-cxx-1.0"; }; else :; fi
+case 'yacc-cxx-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc yacc-cxx-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc yacc-cxx-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc yacc-cxx-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc yacc-cxx-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c yacc-cxx-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc yacc-cxx-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip yacc-cxx-1.0.zip ;;\
+esac
+chmod -R a-w yacc-cxx-1.0
+chmod u+w yacc-cxx-1.0
+mkdir yacc-cxx-1.0/_build yacc-cxx-1.0/_build/sub yacc-cxx-1.0/_inst
+chmod a-w yacc-cxx-1.0
+test -d yacc-cxx-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd yacc-cxx-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd yacc-cxx-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf yacc-cxx-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT parse1.o -MD -MP -MF .deps/parse1.Tpo -c -o parse1.o ../../parse1.cc
+mv -f .deps/parse1.Tpo .deps/parse1.Po
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../foo.cc
+mv -f .deps/foo.Tpo .deps/foo.Po
+c++  -g -O2   -o foo1 parse1.o foo.o  
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT parse2.o -MD -MP -MF .deps/parse2.Tpo -c -o parse2.o ../../parse2.c++
+mv -f .deps/parse2.Tpo .deps/parse2.Po
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../bar.c++
+mv -f .deps/bar.Tpo .deps/bar.Po
+c++  -g -O2   -o foo2 parse2.o bar.o  
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo3-parse3.o -MD -MP -MF .deps/foo3-parse3.Tpo -c -o foo3-parse3.o ../../foo3-parse3.cxx
+mv -f .deps/foo3-parse3.Tpo .deps/foo3-parse3.Po
+c++  -g -O2   -o foo3 foo3-parse3.o foo.o  
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo4-parse4.o -MD -MP -MF .deps/foo4-parse4.Tpo -c -o foo4-parse4.o ../../foo4-parse4.cpp
+mv -f .deps/foo4-parse4.Tpo .deps/foo4-parse4.Po
+c++ -DPACKAGE_NAME=\"yacc-cxx\" -DPACKAGE_TARNAME=\"yacc-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-cxx\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT bar2.o -MD -MP -MF .deps/bar2.Tpo -c -o bar2.o ../../bar2.cxx
+mv -f .deps/bar2.Tpo .deps/bar2.Po
+c++  -g -O2   -o foo4 foo4-parse4.o bar2.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_inst/bin'
+  /usr/bin/install -c foo1 foo2 foo3 foo4 '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_inst/bin' && rm -f foo1 foo2 foo3 foo4 )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-72600//sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_inst/bin'
+  /usr/bin/install -c foo1 foo2 foo3 foo4 '/tmp/am-dc-72600//sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+ ( cd '/tmp/am-dc-72600//sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_inst/bin' && rm -f foo1 foo2 foo3 foo4 )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+if test -d "yacc-cxx-1.0"; then find "yacc-cxx-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-cxx-1.0" || { sleep 5 && rm -rf "yacc-cxx-1.0"; }; else :; fi
+test -d "yacc-cxx-1.0" || mkdir "yacc-cxx-1.0"
+test -n "" \
+|| find "yacc-cxx-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-cxx-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+tardir=yacc-cxx-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-cxx-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+if test -d "yacc-cxx-1.0"; then find "yacc-cxx-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-cxx-1.0" || { sleep 5 && rm -rf "yacc-cxx-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+test -z "foo1 foo2 foo3 foo4" || rm -f foo1 foo2 foo3 foo4
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f ./.deps/bar2.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/foo3-parse3.Po
+rm -f ./.deps/foo4-parse4.Po
+rm -f ./.deps/parse1.Po
+rm -f ./.deps/parse2.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-cxx.dir/yacc-cxx-1.0/_build/sub'
+if test -d "yacc-cxx-1.0"; then find "yacc-cxx-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-cxx-1.0" || { sleep 5 && rm -rf "yacc-cxx-1.0"; }; else :; fi
+==============================================
+yacc-cxx-1.0 archives ready for distribution: 
+yacc-cxx-1.0.tar.gz
+==============================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ test -f parse1.cc
++ test -f parse2.c++
++ test -f foo3-parse3.cxx
++ test -f foo4-parse4.cpp
++ make distclean
+test -z "foo1 foo2 foo3 foo4" || rm -f foo1 foo2 foo3 foo4
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/bar.Po
+rm -f ./.deps/bar2.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/foo3-parse3.Po
+rm -f ./.deps/foo4-parse4.Po
+rm -f ./.deps/parse1.Po
+rm -f ./.deps/parse2.Po
+rm -f Makefile
++ ls -l
+total 608
+-rw-r--r-- 1 root root    282 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  30877 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rw-r--r-- 1 root root    148 Nov 27 06:50 bar.c++
+-rw-r--r-- 1 root root    148 Nov 27 06:50 bar2.cxx
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 132969 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    107 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root    148 Nov 27 06:50 foo.cc
+-rw-r--r-- 1 root root  42355 Nov 27 06:50 foo3-parse3.cxx
+-rw-r--r-- 1 root root    514 Nov 27 06:50 foo3-parse3.output
+-rw-r--r-- 1 root root  42355 Nov 27 06:50 foo4-parse4.cpp
+-rw-r--r-- 1 root root    514 Nov 27 06:50 foo4-parse4.output
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root  42329 Nov 27 06:50 parse1.cc
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse1.yy
+-rw-r--r-- 1 root root  42335 Nov 27 06:50 parse2.c++
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse2.y++
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse3.yxx
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse4.ypp
+-rw-r--r-- 1 root root 124386 Nov 27 06:50 yacc-cxx-1.0.tar.gz
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
++ test -f parse1.cc
++ test -f parse2.c++
++ test -f foo3-parse3.cxx
++ test -f foo4-parse4.cpp
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+test -z "foo1 foo2 foo3 foo4" || rm -f foo1 foo2 foo3 foo4
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f foo3-parse3.cxx
+rm -f foo4-parse4.cpp
+rm -f parse1.cc
+rm -f parse2.c++
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f ./.deps/bar.Po
+rm -f ./.deps/bar2.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/foo3-parse3.Po
+rm -f ./.deps/foo4-parse4.Po
+rm -f ./.deps/parse1.Po
+rm -f ./.deps/parse2.Po
+rm -f Makefile
++ ls -l
+total 428
+-rw-r--r-- 1 root root    282 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  30877 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+-rw-r--r-- 1 root root    148 Nov 27 06:50 bar.c++
+-rw-r--r-- 1 root root    148 Nov 27 06:50 bar2.cxx
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root 132969 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    107 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root    148 Nov 27 06:50 foo.cc
+-rw-r--r-- 1 root root    514 Nov 27 06:50 foo3-parse3.output
+-rw-r--r-- 1 root root    514 Nov 27 06:50 foo4-parse4.output
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse1.yy
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse2.y++
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse3.yxx
+-rw-r--r-- 1 root root    246 Nov 27 06:50 parse4.ypp
+-rw-r--r-- 1 root root 124386 Nov 27 06:50 yacc-cxx-1.0.tar.gz
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
++ test '!' -e parse1.cc
++ test '!' -e parse2.c++
++ test '!' -e foo3-parse3.cxx
++ test '!' -e foo4-parse4.cpp
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-cxx.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-cxx.dir
++ set +x
+PASS t/yacc-cxx.sh (exit status: 0)

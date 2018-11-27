@@ -1,0 +1,82 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-I-and-install.dir
++ cat
++ ACLOCAL='aclocal-1.16 -Werror --system-acdir acdir'
++ mkdir m4_1 m4_2 acdir acdir2
++ echo ./acdir2
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror --system-acdir acdir -I m4_1 -I m4_2
++ autoconf
++ /bin/grep -F :macro11: configure
+:macro11:
++ /bin/grep -F :macro21: configure
+:macro21:
++ /bin/grep -F :macro33: configure
+:macro33:
++ grep MACRO3 aclocal.m4
+AC_DEFUN([MACRO3], [:macro33:])
++ test '!' -e m4_1/macro.m4
++ test '!' -e m4_2/macro.m4
++ sleep 2
++ aclocal-1.16 -Werror --system-acdir acdir -I m4_2 -I m4_1
++ autoconf
++ /bin/grep -F :macro12: configure
+:macro12:
++ /bin/grep -F :macro21: configure
+:macro21:
++ /bin/grep -F :macro33: configure
+:macro33:
++ grep MACRO3 aclocal.m4
+AC_DEFUN([MACRO3], [:macro33:])
++ test '!' -e m4_1/macro.m4
++ test '!' -e m4_2/macro.m4
++ sleep 2
++ aclocal-1.16 -Werror --system-acdir acdir -I m4_1 -I m4_2 --install
+aclocal-1.16: installing 'm4_1/macro.m4' from 'acdir2/macro.m4'
++ autoconf
++ /bin/grep -F :macro11: configure
+:macro11:
++ /bin/grep -F :macro21: configure
+:macro21:
++ /bin/grep -F :macro33: configure
+:macro33:
++ grep MACRO3 aclocal.m4
++ test -f m4_1/macro.m4
++ test '!' -e m4_2/macro.m4
++ cp aclocal.m4 copy.m4
++ sleep 2
++ echo '#GREPME'
++ aclocal-1.16 -Werror --system-acdir acdir -I m4_1 -I m4_2 --install
++ autoconf
++ /bin/grep -F :macro11: configure
+:macro11:
++ /bin/grep -F :macro21: configure
+:macro21:
++ /bin/grep -F :macro33: configure
+:macro33:
++ grep MACRO3 aclocal.m4
++ grep GREPME m4_1/macro.m4
++ test -f m4_1/macro.m4
++ test '!' -e m4_2/macro.m4
++ diff aclocal.m4 copy.m4
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-I-and-install.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-I-and-install.dir
++ set +x
+PASS t/aclocal-I-and-install.sh (exit status: 0)

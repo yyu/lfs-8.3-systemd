@@ -1,0 +1,87 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lflags-cxx.dir
++ cat
++ chmod a+x fake-lex
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ grep '\$(LFLAGS).*\$(bar_LFLAGS)' Makefile.in
++ grep '\$(LFLAGS).*\$(AM_LFLAGS)' Makefile.in
++ :
++ :
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make LFLAGS=__user_flags__ foo.cc bar-bar.c++
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make LFLAGS=__user_flags__ foo.cc bar-bar.c++
++ set +x
+/bin/sh ./ylwrap foo.ll lex.yy.c foo.cc -- /sources/automake-1.16.1/t/lflags-cxx.dir/fake-lex __am_flags__ __user_flags__
+\
+ \
+/bin/sh ./ylwrap `test -f 'bar.l++' || echo './'`bar.l++ lex.yy.c bar-bar.c++ -- /sources/automake-1.16.1/t/lflags-cxx.dir/fake-lex __bar_flags__ __user_flags__
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cat foo.cc
+/* __am_flags__ __user_flags__ /sources/automake-1.16.1/t/lflags-cxx.dir/foo.ll */
+extern int dummy;
++ cat bar-bar.c++
+/* __bar_flags__ __user_flags__ /sources/automake-1.16.1/t/lflags-cxx.dir/bar.l++ */
+extern int dummy;
++ grep '__am_flags__.*__user_flags__' foo.cc
+/* __am_flags__ __user_flags__ /sources/automake-1.16.1/t/lflags-cxx.dir/foo.ll */
++ grep '__bar_flags__.*__user_flags__' bar-bar.c++
+/* __bar_flags__ __user_flags__ /sources/automake-1.16.1/t/lflags-cxx.dir/bar.l++ */
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/lflags-cxx.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/lflags-cxx.dir
++ set +x
+PASS t/lflags-cxx.sh (exit status: 0)

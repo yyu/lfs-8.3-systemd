@@ -1,0 +1,61 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/confsub.dir
++ cat
++ cat
++ mkdir subdir
++ cat
++ echo Before.
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F subdir/config.h subdir/Makefile.in
++ /bin/grep -F -v 'cd $(top_builddir)'
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating subdir/Makefile
+config.status: creating subdir/config.h
++ /bin/grep -F Before. subdir/config.h
+Before.
++ sleep 2
++ echo After.
++ make
+Making all in subdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/confsub.dir/subdir'
+cd .. && /bin/sh ./config.status subdir/config.h
+config.status: creating subdir/config.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/confsub.dir/subdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/confsub.dir/subdir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confsub.dir/subdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confsub.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confsub.dir'
++ /bin/grep -F After. subdir/config.h
+After.
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/confsub.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/confsub.dir
++ set +x
+PASS t/confsub.sh (exit status: 0)

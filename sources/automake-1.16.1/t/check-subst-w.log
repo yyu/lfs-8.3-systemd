@@ -1,0 +1,108 @@
+./t/check-subst-w.sh: will source ./t/check-subst.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/check-subst-w.dir
+++ cat
+++ cat
+++ test xyes '!=' xyes
+++ cat
+++ cat
+++ cp pass-script.test subst-pass-script.sh
+++ cp xfail-script.test subst-xfail-script.sh
+++ chmod a+x pass-script.test xfail-script.test
+++ test xyes = xyes
+++ chmod a+x subst-pass-script.sh subst-xfail-script.sh
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall -a
+++ for vpath in false :
+++ false
+++ srcdir=.
+++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ make all
+make: Nothing to be done for 'all'.
+++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-subst-w.dir'
+PASS: pass-script.test
+XFAIL: xfail-script.test
+PASS: subst-pass-script.sh
+XFAIL: subst-xfail-script.sh
+=====================================================
+All 4 tests behaved as expected (2 expected failures)
+=====================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-subst-w.dir'
+++ test xyes '!=' xyes
+++ make distclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+++ cd .
+++ for vpath in false :
+++ :
+++ mkdir build
+++ cd build
+++ srcdir=..
+++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ make all
+make: Nothing to be done for 'all'.
+++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-subst-w.dir/build'
+PASS: pass-script.test
+XFAIL: xfail-script.test
+PASS: subst-pass-script.sh
+XFAIL: subst-xfail-script.sh
+=====================================================
+All 4 tests behaved as expected (2 expected failures)
+=====================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-subst-w.dir/build'
+++ test xyes '!=' xyes
+++ make distclean
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+++ cd ..
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check-subst-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check-subst-w.dir
++ set +x
+PASS t/check-subst-w.sh (exit status: 0)

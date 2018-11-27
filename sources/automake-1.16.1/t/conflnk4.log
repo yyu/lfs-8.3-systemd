@@ -1,0 +1,163 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/conflnk4.dir
++ mkdir nonmk-subdir sdir sdir/mk-subdir
++ :
++ :
++ :
++ :
++ :
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdir/Makefile
+config.status: linking ../src to src
+config.status: linking ../sdir/src2 to sdir/src2
+config.status: linking ../nonmk-subdir/src3 to nonmk-subdir/src3
+config.status: linking ../sdir/mk-subdir/src4 to sdir/mk-subdir/src4
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build'
+if test -d "conflnk4-1.0"; then find "conflnk4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "conflnk4-1.0" || { sleep 5 && rm -rf "conflnk4-1.0"; }; else :; fi
+test -d "conflnk4-1.0" || mkdir "conflnk4-1.0"
+ (cd sdir && make  top_distdir=../conflnk4-1.0 distdir=../conflnk4-1.0/sdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+test -n "" \
+|| find "conflnk4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/conflnk4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "conflnk4-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build'
+test -f conflnk4-1.0/src
+test -f conflnk4-1.0/sdir/src2
+test -f conflnk4-1.0/nonmk-subdir/src3
+test -f conflnk4-1.0/sdir/mk-subdir/src4
++ make clean
+Making clean in sdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build'
++ test -f ../src
++ test -f ../sdir/src2
++ test -f ../nonmk-subdir/src3
++ test -f ../sdir/mk-subdir/src4
++ make distclean
+Making distclean in sdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+test -z "" || rm -f 
+test . = "../../sdir" || test -z "src2" || rm -f src2
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build/sdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/build'
+test -z "" || rm -f 
+test . = ".." || test -z "src nonmk-subdir/src3 sdir/mk-subdir/src4" || rm -f src nonmk-subdir/src3 sdir/mk-subdir/src4
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/build'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test -f ../src
++ test -f ../sdir/src2
++ test -f ../nonmk-subdir/src3
++ test -f ../sdir/mk-subdir/src4
++ test -r src
++ test -r sdir/src2
++ test -r nonmk-subdir/src3
++ test -r sdir/mk-subdir/src4
++ cd ..
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdir/Makefile
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir'
+if test -d "conflnk4-1.0"; then find "conflnk4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "conflnk4-1.0" || { sleep 5 && rm -rf "conflnk4-1.0"; }; else :; fi
+test -d "conflnk4-1.0" || mkdir "conflnk4-1.0"
+ (cd sdir && make  top_distdir=../conflnk4-1.0 distdir=../conflnk4-1.0/sdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/sdir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/sdir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/sdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/sdir'
+test -n "" \
+|| find "conflnk4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/conflnk4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "conflnk4-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir'
+test -f conflnk4-1.0/src
+test -f conflnk4-1.0/sdir/src2
+test -f conflnk4-1.0/nonmk-subdir/src3
+test -f conflnk4-1.0/sdir/mk-subdir/src4
++ make distclean
+Making distclean in sdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir/sdir'
+test -z "" || rm -f 
+test . = "." || test -z "src2" || rm -f src2
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir/sdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk4.dir'
+test -z "" || rm -f 
+test . = "." || test -z "src nonmk-subdir/src3 sdir/mk-subdir/src4" || rm -f src nonmk-subdir/src3 sdir/mk-subdir/src4
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk4.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test -f src
++ test -f sdir/src2
++ test -f nonmk-subdir/src3
++ test -f sdir/mk-subdir/src4
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/conflnk4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/conflnk4.dir
++ set +x
+PASS t/conflnk4.sh (exit status: 0)

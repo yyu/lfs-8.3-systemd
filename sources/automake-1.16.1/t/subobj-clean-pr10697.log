@@ -1,0 +1,544 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subobj-clean-pr10697.dir
++ cat
++ echo 'OBJEXT='\''@OBJEXT@'\'''
++ oPATH=/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/subobj-clean-pr10697.dir
++ mkdir rm-wrap
++ max_rm_invocations=3
++ count_file=/sources/automake-1.16.1/t/subobj-clean-pr10697.dir/rm-wrap/count
++ cat
++ chmod a+x rm-wrap/rm
++ echo 0
++ cat
++ mkdir sub1 sub2
++ echo 'int main (void)'
++ echo '{'
++ for i in 1 2
++ for j in a b c d e f
++ echo 'void a1 (void) { }'
++ echo '  a1 ();'
++ for j in a b c d e f
++ echo 'void b1 (void) { }'
++ echo '  b1 ();'
++ for j in a b c d e f
++ echo 'void c1 (void) { }'
++ echo '  c1 ();'
++ for j in a b c d e f
++ echo 'void d1 (void) { }'
++ echo '  d1 ();'
++ for j in a b c d e f
++ echo 'void e1 (void) { }'
++ echo '  e1 ();'
++ for j in a b c d e f
++ echo 'void f1 (void) { }'
++ echo '  f1 ();'
++ for i in 1 2
++ for j in a b c d e f
++ echo 'void a2 (void) { }'
++ echo '  a2 ();'
++ for j in a b c d e f
++ echo 'void b2 (void) { }'
++ echo '  b2 ();'
++ for j in a b c d e f
++ echo 'void c2 (void) { }'
++ echo '  c2 ();'
++ for j in a b c d e f
++ echo 'void d2 (void) { }'
++ echo '  d2 ();'
++ for j in a b c d e f
++ echo 'void e2 (void) { }'
++ echo '  e2 ();'
++ for j in a b c d e f
++ echo 'void f2 (void) { }'
++ echo '  f2 ();'
++ echo '  return 0;'
++ echo '}'
++ cat main.c
+int main (void)
+{
+  a1 ();
+  b1 ();
+  c1 ();
+  d1 ();
+  e1 ();
+  f1 ();
+  a2 ();
+  b2 ();
+  c2 ();
+  d2 ();
+  e2 ();
+  f2 ();
+  return 0;
+}
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating get-objext.sh
+config.status: executing depfiles commands
++ test -f get-objext.sh
++ . ./get-objext.sh
+++ OBJEXT=o
++ make
+depbase=`echo sub1/a.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/a.o -MD -MP -MF $depbase.Tpo -c -o sub1/a.o sub1/a.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/b.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/b.o -MD -MP -MF $depbase.Tpo -c -o sub1/b.o sub1/b.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/c.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/c.o -MD -MP -MF $depbase.Tpo -c -o sub1/c.o sub1/c.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/d.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/d.o -MD -MP -MF $depbase.Tpo -c -o sub1/d.o sub1/d.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/e.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/e.o -MD -MP -MF $depbase.Tpo -c -o sub1/e.o sub1/e.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/f.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/f.o -MD -MP -MF $depbase.Tpo -c -o sub1/f.o sub1/f.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/a.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/a.o -MD -MP -MF $depbase.Tpo -c -o sub2/a.o sub2/a.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/b.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/b.o -MD -MP -MF $depbase.Tpo -c -o sub2/b.o sub2/b.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/c.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/c.o -MD -MP -MF $depbase.Tpo -c -o sub2/c.o sub2/c.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/d.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/d.o -MD -MP -MF $depbase.Tpo -c -o sub2/d.o sub2/d.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/e.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/e.o -MD -MP -MF $depbase.Tpo -c -o sub2/e.o sub2/e.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/f.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/f.o -MD -MP -MF $depbase.Tpo -c -o sub2/f.o sub2/f.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF $depbase.Tpo -c -o main.o main.c &&\
+mv -f $depbase.Tpo $depbase.Po
+main.c: In function 'main':
+main.c:3:3: warning: implicit declaration of function 'a1' [-Wimplicit-function-declaration]
+   a1 ();
+   ^~
+main.c:4:3: warning: implicit declaration of function 'b1' [-Wimplicit-function-declaration]
+   b1 ();
+   ^~
+main.c:5:3: warning: implicit declaration of function 'c1' [-Wimplicit-function-declaration]
+   c1 ();
+   ^~
+main.c:6:3: warning: implicit declaration of function 'd1' [-Wimplicit-function-declaration]
+   d1 ();
+   ^~
+main.c:7:3: warning: implicit declaration of function 'e1' [-Wimplicit-function-declaration]
+   e1 ();
+   ^~
+main.c:8:3: warning: implicit declaration of function 'f1' [-Wimplicit-function-declaration]
+   f1 ();
+   ^~
+main.c:9:3: warning: implicit declaration of function 'a2' [-Wimplicit-function-declaration]
+   a2 ();
+   ^~
+main.c:10:3: warning: implicit declaration of function 'b2' [-Wimplicit-function-declaration]
+   b2 ();
+   ^~
+main.c:11:3: warning: implicit declaration of function 'c2' [-Wimplicit-function-declaration]
+   c2 ();
+   ^~
+main.c:12:3: warning: implicit declaration of function 'd2' [-Wimplicit-function-declaration]
+   d2 ();
+   ^~
+main.c:13:3: warning: implicit declaration of function 'e2' [-Wimplicit-function-declaration]
+   e2 ();
+   ^~
+main.c:14:3: warning: implicit declaration of function 'f2' [-Wimplicit-function-declaration]
+   f2 ();
+   ^~
+cc  -g -O2   -o foo sub1/a.o sub1/b.o sub1/c.o sub1/d.o sub1/e.o sub1/f.o sub2/a.o sub2/b.o sub2/c.o sub2/d.o sub2/e.o sub2/f.o main.o  
++ PATH=/sources/automake-1.16.1/t/subobj-clean-pr10697.dir/rm-wrap:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ make sanity-check-rm
+rm -f 1
+rm -f 2
+rm -f 3
+rm -f x && exit 1; :
+rm invoked more than 3 times
+echo "0" > rm-wrap/count
++ make mostlyclean
+rm -f *.o
+rm -f sub1/*.o
+rm -f sub2/*.o
++ ls -l . sub1 sub2
+.:
+total 404
+-rw-r--r-- 1 root root  27565 Nov 27 06:49 Makefile
+-rw-r--r-- 1 root root    351 Nov 27 06:49 Makefile.am
+-rw-r--r-- 1 root root  27765 Nov 27 06:49 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:49 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:49 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:49 compile
+-rw-r--r-- 1 root root   8920 Nov 27 06:49 config.log
+-rwxr-xr-x 1 root root  29425 Nov 27 06:49 config.status
+-rwxr-xr-x 1 root root 141383 Nov 27 06:49 configure
+-rw-r--r-- 1 root root    152 Nov 27 06:49 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:49 depcomp
+-rwxr-xr-x 1 root root  24584 Nov 27 06:49 foo
+-rw-r--r-- 1 root root     18 Nov 27 06:49 get-objext.in
+-rw-r--r-- 1 root root     11 Nov 27 06:49 get-objext.sh
+-rwxr-xr-x 1 root root  15368 Nov 27 06:49 install-sh
+-rw-r--r-- 1 root root    140 Nov 27 06:49 main.c
+-rwxr-xr-x 1 root root   6878 Nov 27 06:49 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:49 rm-wrap
+drwxr-xr-x 3 root root   4096 Nov 27 06:49 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:49 sub2
+
+sub1:
+total 24
+-rw-r--r-- 1 root root 19 Nov 27 06:49 a.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 b.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 c.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 d.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 e.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 f.c
+
+sub2:
+total 24
+-rw-r--r-- 1 root root 19 Nov 27 06:49 a.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 b.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 c.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 d.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 e.c
+-rw-r--r-- 1 root root 19 Nov 27 06:49 f.c
++ for i in 1 2
++ for j in a b c d e f
++ test '!' -e sub1/a.o
++ test '!' -e sub1/a.obj
++ test -f sub1/a.c
++ for j in a b c d e f
++ test '!' -e sub1/b.o
++ test '!' -e sub1/b.obj
++ test -f sub1/b.c
++ for j in a b c d e f
++ test '!' -e sub1/c.o
++ test '!' -e sub1/c.obj
++ test -f sub1/c.c
++ for j in a b c d e f
++ test '!' -e sub1/d.o
++ test '!' -e sub1/d.obj
++ test -f sub1/d.c
++ for j in a b c d e f
++ test '!' -e sub1/e.o
++ test '!' -e sub1/e.obj
++ test -f sub1/e.c
++ for j in a b c d e f
++ test '!' -e sub1/f.o
++ test '!' -e sub1/f.obj
++ test -f sub1/f.c
++ for i in 1 2
++ for j in a b c d e f
++ test '!' -e sub2/a.o
++ test '!' -e sub2/a.obj
++ test -f sub2/a.c
++ for j in a b c d e f
++ test '!' -e sub2/b.o
++ test '!' -e sub2/b.obj
++ test -f sub2/b.c
++ for j in a b c d e f
++ test '!' -e sub2/c.o
++ test '!' -e sub2/c.obj
++ test -f sub2/c.c
++ for j in a b c d e f
++ test '!' -e sub2/d.o
++ test '!' -e sub2/d.obj
++ test -f sub2/d.c
++ for j in a b c d e f
++ test '!' -e sub2/e.o
++ test '!' -e sub2/e.obj
++ test -f sub2/e.c
++ for j in a b c d e f
++ test '!' -e sub2/f.o
++ test '!' -e sub2/f.obj
++ test -f sub2/f.c
++ PATH=/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ rm -rf rm-wrap
++ make clean
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f sub1/*.o
+rm -f sub2/*.o
++ make
+depbase=`echo sub1/a.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/a.o -MD -MP -MF $depbase.Tpo -c -o sub1/a.o sub1/a.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/b.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/b.o -MD -MP -MF $depbase.Tpo -c -o sub1/b.o sub1/b.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/c.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/c.o -MD -MP -MF $depbase.Tpo -c -o sub1/c.o sub1/c.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/d.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/d.o -MD -MP -MF $depbase.Tpo -c -o sub1/d.o sub1/d.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/e.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/e.o -MD -MP -MF $depbase.Tpo -c -o sub1/e.o sub1/e.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/f.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/f.o -MD -MP -MF $depbase.Tpo -c -o sub1/f.o sub1/f.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/a.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/a.o -MD -MP -MF $depbase.Tpo -c -o sub2/a.o sub2/a.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/b.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/b.o -MD -MP -MF $depbase.Tpo -c -o sub2/b.o sub2/b.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/c.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/c.o -MD -MP -MF $depbase.Tpo -c -o sub2/c.o sub2/c.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/d.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/d.o -MD -MP -MF $depbase.Tpo -c -o sub2/d.o sub2/d.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/e.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/e.o -MD -MP -MF $depbase.Tpo -c -o sub2/e.o sub2/e.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/f.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/f.o -MD -MP -MF $depbase.Tpo -c -o sub2/f.o sub2/f.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF $depbase.Tpo -c -o main.o main.c &&\
+mv -f $depbase.Tpo $depbase.Po
+main.c: In function 'main':
+main.c:3:3: warning: implicit declaration of function 'a1' [-Wimplicit-function-declaration]
+   a1 ();
+   ^~
+main.c:4:3: warning: implicit declaration of function 'b1' [-Wimplicit-function-declaration]
+   b1 ();
+   ^~
+main.c:5:3: warning: implicit declaration of function 'c1' [-Wimplicit-function-declaration]
+   c1 ();
+   ^~
+main.c:6:3: warning: implicit declaration of function 'd1' [-Wimplicit-function-declaration]
+   d1 ();
+   ^~
+main.c:7:3: warning: implicit declaration of function 'e1' [-Wimplicit-function-declaration]
+   e1 ();
+   ^~
+main.c:8:3: warning: implicit declaration of function 'f1' [-Wimplicit-function-declaration]
+   f1 ();
+   ^~
+main.c:9:3: warning: implicit declaration of function 'a2' [-Wimplicit-function-declaration]
+   a2 ();
+   ^~
+main.c:10:3: warning: implicit declaration of function 'b2' [-Wimplicit-function-declaration]
+   b2 ();
+   ^~
+main.c:11:3: warning: implicit declaration of function 'c2' [-Wimplicit-function-declaration]
+   c2 ();
+   ^~
+main.c:12:3: warning: implicit declaration of function 'd2' [-Wimplicit-function-declaration]
+   d2 ();
+   ^~
+main.c:13:3: warning: implicit declaration of function 'e2' [-Wimplicit-function-declaration]
+   e2 ();
+   ^~
+main.c:14:3: warning: implicit declaration of function 'f2' [-Wimplicit-function-declaration]
+   f2 ();
+   ^~
+cc  -g -O2   -o foo sub1/a.o sub1/b.o sub1/c.o sub1/d.o sub1/e.o sub1/f.o sub2/a.o sub2/b.o sub2/c.o sub2/d.o sub2/e.o sub2/f.o main.o  
++ test -f sub1/a.o
++ test -f sub2/d.o
++ sleep 2
++ mv -f sub2/d.c sub2/x.c
++ rm -f sub1/a.c
++ sed -e '/ a1 ()/d' main.c
++ mv -f t main.c
++ sed -e '/sub1\/a\.c/d' -e 's|sub2/d\.c|sub2/x.c|' Makefile.am
++ mv -f t Makefile.am
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make
+ cd . && /bin/sh /sources/automake-1.16.1/t/subobj-clean-pr10697.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+depbase=`echo sub2/x.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/x.o -MD -MP -MF $depbase.Tpo -c -o sub2/x.o sub2/x.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF $depbase.Tpo -c -o main.o main.c &&\
+mv -f $depbase.Tpo $depbase.Po
+main.c: In function 'main':
+main.c:3:3: warning: implicit declaration of function 'b1' [-Wimplicit-function-declaration]
+   b1 ();
+   ^~
+main.c:4:3: warning: implicit declaration of function 'c1' [-Wimplicit-function-declaration]
+   c1 ();
+   ^~
+main.c:5:3: warning: implicit declaration of function 'd1' [-Wimplicit-function-declaration]
+   d1 ();
+   ^~
+main.c:6:3: warning: implicit declaration of function 'e1' [-Wimplicit-function-declaration]
+   e1 ();
+   ^~
+main.c:7:3: warning: implicit declaration of function 'f1' [-Wimplicit-function-declaration]
+   f1 ();
+   ^~
+main.c:8:3: warning: implicit declaration of function 'a2' [-Wimplicit-function-declaration]
+   a2 ();
+   ^~
+main.c:9:3: warning: implicit declaration of function 'b2' [-Wimplicit-function-declaration]
+   b2 ();
+   ^~
+main.c:10:3: warning: implicit declaration of function 'c2' [-Wimplicit-function-declaration]
+   c2 ();
+   ^~
+main.c:11:3: warning: implicit declaration of function 'd2' [-Wimplicit-function-declaration]
+   d2 ();
+   ^~
+main.c:12:3: warning: implicit declaration of function 'e2' [-Wimplicit-function-declaration]
+   e2 ();
+   ^~
+main.c:13:3: warning: implicit declaration of function 'f2' [-Wimplicit-function-declaration]
+   f2 ();
+   ^~
+cc  -g -O2   -o foo sub1/b.o sub1/c.o sub1/d.o sub1/e.o sub1/f.o sub2/a.o sub2/b.o sub2/c.o sub2/x.o sub2/e.o sub2/f.o main.o  
++ test -f sub2/x.o
++ test -f sub1/a.o
++ test -f sub2/a.o
++ make mostlyclean
+rm -f *.o
+rm -f sub1/*.o
+rm -f sub2/*.o
++ test '!' -e sub1/a.o
++ test '!' -e sub2/d.o
++ make clean
+test -z "foo" || rm -f foo
+rm -f *.o
+rm -f sub1/*.o
+rm -f sub2/*.o
++ make all
+depbase=`echo sub1/b.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/b.o -MD -MP -MF $depbase.Tpo -c -o sub1/b.o sub1/b.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/c.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/c.o -MD -MP -MF $depbase.Tpo -c -o sub1/c.o sub1/c.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/d.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/d.o -MD -MP -MF $depbase.Tpo -c -o sub1/d.o sub1/d.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/e.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/e.o -MD -MP -MF $depbase.Tpo -c -o sub1/e.o sub1/e.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub1/f.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub1/f.o -MD -MP -MF $depbase.Tpo -c -o sub1/f.o sub1/f.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/a.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/a.o -MD -MP -MF $depbase.Tpo -c -o sub2/a.o sub2/a.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/b.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/b.o -MD -MP -MF $depbase.Tpo -c -o sub2/b.o sub2/b.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/c.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/c.o -MD -MP -MF $depbase.Tpo -c -o sub2/c.o sub2/c.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/x.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/x.o -MD -MP -MF $depbase.Tpo -c -o sub2/x.o sub2/x.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/e.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/e.o -MD -MP -MF $depbase.Tpo -c -o sub2/e.o sub2/e.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo sub2/f.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT sub2/f.o -MD -MP -MF $depbase.Tpo -c -o sub2/f.o sub2/f.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"subobj-clean-pr10697\" -DPACKAGE_TARNAME=\"subobj-clean-pr10697\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subobj-clean-pr10697\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subobj-clean-pr10697\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF $depbase.Tpo -c -o main.o main.c &&\
+mv -f $depbase.Tpo $depbase.Po
+main.c: In function 'main':
+main.c:3:3: warning: implicit declaration of function 'b1' [-Wimplicit-function-declaration]
+   b1 ();
+   ^~
+main.c:4:3: warning: implicit declaration of function 'c1' [-Wimplicit-function-declaration]
+   c1 ();
+   ^~
+main.c:5:3: warning: implicit declaration of function 'd1' [-Wimplicit-function-declaration]
+   d1 ();
+   ^~
+main.c:6:3: warning: implicit declaration of function 'e1' [-Wimplicit-function-declaration]
+   e1 ();
+   ^~
+main.c:7:3: warning: implicit declaration of function 'f1' [-Wimplicit-function-declaration]
+   f1 ();
+   ^~
+main.c:8:3: warning: implicit declaration of function 'a2' [-Wimplicit-function-declaration]
+   a2 ();
+   ^~
+main.c:9:3: warning: implicit declaration of function 'b2' [-Wimplicit-function-declaration]
+   b2 ();
+   ^~
+main.c:10:3: warning: implicit declaration of function 'c2' [-Wimplicit-function-declaration]
+   c2 ();
+   ^~
+main.c:11:3: warning: implicit declaration of function 'd2' [-Wimplicit-function-declaration]
+   d2 ();
+   ^~
+main.c:12:3: warning: implicit declaration of function 'e2' [-Wimplicit-function-declaration]
+   e2 ();
+   ^~
+main.c:13:3: warning: implicit declaration of function 'f2' [-Wimplicit-function-declaration]
+   f2 ();
+   ^~
+cc  -g -O2   -o foo sub1/b.o sub1/c.o sub1/d.o sub1/e.o sub1/f.o sub2/a.o sub2/b.o sub2/c.o sub2/x.o sub2/e.o sub2/f.o main.o  
++ test '!' -e sub1/a.o
++ test '!' -e sub2/d.o
++ test -f sub1/b.o
++ test -f sub2/x.o
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subobj-clean-pr10697.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subobj-clean-pr10697.dir
++ set +x
+PASS t/subobj-clean-pr10697.sh (exit status: 0)

@@ -1,0 +1,9 @@
+orig_INSTALL='@INSTALL@'
+# In case we've falled back on the install-sh script (seen e.g.,
+# on AIX 7.1), we need to make sure we use its absolute path,
+# as we don't know from which directory we'll be run.
+case "$orig_INSTALL" in
+   /*) ;;
+  */*) orig_INSTALL=$(pwd)/$orig_INSTALL;;
+esac
+export orig_INSTALL

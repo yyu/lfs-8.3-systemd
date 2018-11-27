@@ -1,0 +1,174 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ set +e
++ unset am_explicit_skips stderr_fileno_
++ run_dummy_test 'exit 77'
++ env /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    exit 77
+  ' dummy.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
++ test 77 -eq 77
++ run_dummy_test 'sh -c "exit 77"' am_explicit_skips=no
++ env am_explicit_skips=no /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    sh -c "exit 77"
+  ' dummy.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ sh -c 'exit 77'
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
++ test 77 -eq 77
++ run_dummy_test '$PERL -e "exit 77"; true' am_explicit_skips=yes
++ env am_explicit_skips=yes /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    $PERL -e "exit 77"; true
+  ' dummy.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ /usr/bin/perl -e 'exit 77'
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 77
++ test no '!=' yes
++ echo 'dummy: implicit skip turned into failure'
+dummy: implicit skip turned into failure
++ exit_status=78
++ test 78 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
++ test 78 -eq 78
++ run_dummy_test 'sh -c "exit 77"; exit 0' am_explicit_skips=y
++ env am_explicit_skips=y /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    sh -c "exit 77"; exit 0
+  ' dummy.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ sh -c 'exit 77'
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 77
++ test no '!=' yes
++ echo 'dummy: implicit skip turned into failure'
+dummy: implicit skip turned into failure
++ exit_status=78
++ test 78 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
++ test 78 -eq 78
++ run_dummy_test 'skip_ "foo"; :' am_explicit_skips=y
++ env am_explicit_skips=y /bin/sh -c '
+    am_create_testdir=no
+   . test-init.sh
+    skip_ "foo"; :
+  ' dummy.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ skip_ foo
++ warn_ 'dummy: skipped test: foo'
++ echo 'dummy: skipped test: foo'
+dummy: skipped test: foo
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 77
++ test yes '!=' yes
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
++ test 77 -eq 77
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x
+PASS t/self-check-explicit-skips.sh (exit status: 0)

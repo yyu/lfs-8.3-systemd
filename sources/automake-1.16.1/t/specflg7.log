@@ -1,0 +1,67 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/specflg7.dir
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"specflg7\" -DPACKAGE_TARNAME=\"specflg7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"specflg7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"specflg7\" -DVERSION=\"1.0\" -I.    -DAM_FALSE -g -O2 -MT f-false.o -MD -MP -MF .deps/f-false.Tpo -c -o f-false.o `test -f 'false.c' || echo './'`false.c
+mv -f .deps/f-false.Tpo .deps/f-false.Po
+cc -DAM_FALSE -g -O2   -o false f-false.o  
+cc -DPACKAGE_NAME=\"specflg7\" -DPACKAGE_TARNAME=\"specflg7\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"specflg7\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"specflg7\" -DVERSION=\"1.0\" -I.    -DAM_TRUE -g -O2 -MT t-false.o -MD -MP -MF .deps/t-false.Tpo -c -o t-false.o `test -f 'false.c' || echo './'`false.c
+mv -f .deps/t-false.Tpo .deps/t-false.Po
+cc -DAM_TRUE -g -O2   -o true t-false.o  
++ ./true
++ grep true
+true
++ ./false
++ grep false
+false
+++ sed -n -e 's/^OBJEXT = //p'
++ objext=o
++ test -f ./t-false.o
++ test -f ./f-false.o
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/specflg7.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/specflg7.dir
++ set +x
+PASS t/specflg7.sh (exit status: 0)

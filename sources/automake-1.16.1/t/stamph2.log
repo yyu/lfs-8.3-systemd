@@ -1,0 +1,73 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/stamph2.dir
++ cat
++ :
++ mkdir sdir1
++ mkdir sdir2
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating 1.h
+config.status: creating 2.h
+config.status: creating 3.h
+config.status: creating sdir1/4.h
+config.status: creating sdir1/5.h
+config.status: creating sdir1/6.h
+config.status: creating sdir1/7.h
++ test -f stamp-h1
++ test -f stamp-h2
++ test -f stamp-h3
++ test -f sdir1/stamp-h4
++ test -f sdir1/stamp-h5
++ test -f sdir1/stamp-h6
++ test -f sdir1/stamp-h7
++ rm -f stamp-h1 stamp-h2 stamp-h3
++ rm -f sdir1/stamp-h4 sdir1/stamp-h5 sdir1/stamp-h6 sdir1/stamp-h7
++ ./config.status sdir1/7.h 2.h sdir1/4.h
+config.status: creating sdir1/7.h
+config.status: sdir1/7.h is unchanged
+config.status: creating 2.h
+config.status: 2.h is unchanged
+config.status: creating sdir1/4.h
+config.status: sdir1/4.h is unchanged
++ test '!' -e stamp-h1
++ test -f stamp-h2
++ test '!' -e stamp-h3
++ test -f sdir1/stamp-h4
++ test '!' -e sdir1/stamp-h5
++ test '!' -e sdir1/stamp-h6
++ test -f sdir1/stamp-h7
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/stamph2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/stamph2.dir
++ set +x
+PASS t/stamph2.sh (exit status: 0)

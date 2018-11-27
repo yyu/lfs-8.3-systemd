@@ -1,0 +1,483 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/silent-cxx.dir
++ mkdir sub
++ cat
++ cat
++ cat
++ cat
++ echo 'class Baz  { public: int i;  };'
++ echo 'class Quux { public: bool b; };'
++ cp foo.cpp sub/bar.cpp
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ autoconf
++ /bin/grep -F am_cv_CXX_dependencies_compiler_type configure
+if ${am_cv_CXX_dependencies_compiler_type+:} false; then :
+  am_cv_CXX_dependencies_compiler_type=none
+        am_cv_CXX_dependencies_compiler_type=$depmode
+  am_cv_CXX_dependencies_compiler_type=none
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $am_cv_CXX_dependencies_compiler_type" >&5
+$as_echo "$am_cv_CXX_dependencies_compiler_type" >&6; }
+CXXDEPMODE=depmode=$am_cv_CXX_dependencies_compiler_type
+  && test "$am_cv_CXX_dependencies_compiler_type" = gcc3; then
++ for config_args in --enable-dependency-tracking --disable-dependency-tracking
++ ./configure --enable-dependency-tracking --enable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ run_make -O
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+  CXX      bar.o
+  CXXLD    bar1
+  CXX      bar2-bar.o
+  CXXLD    bar2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+  CXX      foo.o
+  CXX      baz.o
+  CXX      quux.o
+  CXXLD    foo1
+  CXX      foo2-foo.o
+  CXX      foo2-baz.o
+  CXX      foo2-quux.o
+  CXXLD    foo2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -E ' (-c|-o)' stdout
++ grep 'mv ' stdout
++ grep 'CXX .*foo\.' stdout
+  CXX      foo.o
+  CXX      foo2-foo.o
++ grep 'CXX .*baz\.' stdout
+  CXX      baz.o
+  CXX      foo2-baz.o
++ grep 'CXX .*quux\.' stdout
+  CXX      quux.o
+  CXX      foo2-quux.o
++ grep 'CXX .*bar\.' stdout
+  CXX      bar.o
+  CXX      bar2-bar.o
++ grep 'CXXLD .*foo1' stdout
+  CXXLD    foo1
++ grep 'CXXLD .*bar1' stdout
+  CXXLD    bar1
++ grep 'CXXLD .*foo2' stdout
+  CXXLD    foo2
++ grep 'CXXLD .*bar2' stdout
+  CXXLD    bar2
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ run_make -O V=1
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make V=1
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+depbase=`echo bar.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.cpp &&\
+mv -f $depbase.Tpo $depbase.Po
+c++  -g -O2   -o bar1 bar.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar.o -MD -MP -MF .deps/bar2-bar.Tpo -c -o bar2-bar.o `test -f 'bar.cpp' || echo './'`bar.cpp
+mv -f .deps/bar2-bar.Tpo .deps/bar2-bar.Po
+c++  -g -O2   -o bar2 bar2-bar.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cpp
+mv -f .deps/foo.Tpo .deps/foo.Po
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.cxx
+mv -f .deps/baz.Tpo .deps/baz.Po
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT quux.o -MD -MP -MF .deps/quux.Tpo -c -o quux.o quux.cc
+mv -f .deps/quux.Tpo .deps/quux.Po
+c++  -g -O2   -o foo1 foo.o baz.o quux.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo.o -MD -MP -MF .deps/foo2-foo.Tpo -c -o foo2-foo.o `test -f 'foo.cpp' || echo './'`foo.cpp
+mv -f .deps/foo2-foo.Tpo .deps/foo2-foo.Po
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-baz.o -MD -MP -MF .deps/foo2-baz.Tpo -c -o foo2-baz.o `test -f 'baz.cxx' || echo './'`baz.cxx
+mv -f .deps/foo2-baz.Tpo .deps/foo2-baz.Po
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-quux.o -MD -MP -MF .deps/foo2-quux.Tpo -c -o foo2-quux.o `test -f 'quux.cc' || echo './'`quux.cc
+mv -f .deps/foo2-quux.Tpo .deps/foo2-quux.Po
+c++  -g -O2   -o foo2 foo2-foo.o foo2-baz.o foo2-quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep ' -c ' stdout
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.cpp &&\
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar.o -MD -MP -MF .deps/bar2-bar.Tpo -c -o bar2-bar.o `test -f 'bar.cpp' || echo './'`bar.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT quux.o -MD -MP -MF .deps/quux.Tpo -c -o quux.o quux.cc
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo.o -MD -MP -MF .deps/foo2-foo.Tpo -c -o foo2-foo.o `test -f 'foo.cpp' || echo './'`foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-baz.o -MD -MP -MF .deps/foo2-baz.Tpo -c -o foo2-baz.o `test -f 'baz.cxx' || echo './'`baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-quux.o -MD -MP -MF .deps/foo2-quux.Tpo -c -o foo2-quux.o `test -f 'quux.cc' || echo './'`quux.cc
++ grep ' -o ' stdout
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.cpp &&\
+c++  -g -O2   -o bar1 bar.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar.o -MD -MP -MF .deps/bar2-bar.Tpo -c -o bar2-bar.o `test -f 'bar.cpp' || echo './'`bar.cpp
+c++  -g -O2   -o bar2 bar2-bar.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT quux.o -MD -MP -MF .deps/quux.Tpo -c -o quux.o quux.cc
+c++  -g -O2   -o foo1 foo.o baz.o quux.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo.o -MD -MP -MF .deps/foo2-foo.Tpo -c -o foo2-foo.o `test -f 'foo.cpp' || echo './'`foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-baz.o -MD -MP -MF .deps/foo2-baz.Tpo -c -o foo2-baz.o `test -f 'baz.cxx' || echo './'`baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-quux.o -MD -MP -MF .deps/foo2-quux.Tpo -c -o foo2-quux.o `test -f 'quux.cc' || echo './'`quux.cc
+c++  -g -O2   -o foo2 foo2-foo.o foo2-baz.o foo2-quux.o  
++ /bin/grep -E '(CXX|LD) ' stdout
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ make maintainer-clean
+Making maintainer-clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f ./.deps/bar.Po
+rm -f ./.deps/bar2-bar.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f ./.deps/baz.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/foo2-baz.Po
+rm -f ./.deps/foo2-foo.Po
+rm -f ./.deps/foo2-quux.Po
+rm -f ./.deps/quux.Po
+rm -f Makefile
++ for config_args in --enable-dependency-tracking --disable-dependency-tracking
++ ./configure --disable-dependency-tracking --enable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ run_make -O
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+  CXX      bar.o
+  CXXLD    bar1
+  CXX      bar2-bar.o
+  CXXLD    bar2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+  CXX      foo.o
+  CXX      baz.o
+  CXX      quux.o
+  CXXLD    foo1
+  CXX      foo2-foo.o
+  CXX      foo2-baz.o
+  CXX      foo2-quux.o
+  CXXLD    foo2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -E ' (-c|-o)' stdout
++ grep 'mv ' stdout
++ grep 'CXX .*foo\.' stdout
+  CXX      foo.o
+  CXX      foo2-foo.o
++ grep 'CXX .*baz\.' stdout
+  CXX      baz.o
+  CXX      foo2-baz.o
++ grep 'CXX .*quux\.' stdout
+  CXX      quux.o
+  CXX      foo2-quux.o
++ grep 'CXX .*bar\.' stdout
+  CXX      bar.o
+  CXX      bar2-bar.o
++ grep 'CXXLD .*foo1' stdout
+  CXXLD    foo1
++ grep 'CXXLD .*bar1' stdout
+  CXXLD    bar1
++ grep 'CXXLD .*foo2' stdout
+  CXXLD    foo2
++ grep 'CXXLD .*bar2' stdout
+  CXXLD    bar2
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ run_make -O V=1
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make V=1
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar.o bar.cpp
+c++  -g -O2   -o bar1 bar.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar2-bar.o `test -f 'bar.cpp' || echo './'`bar.cpp
+c++  -g -O2   -o bar2 bar2-bar.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo.o foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o baz.o baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o quux.o quux.cc
+c++  -g -O2   -o foo1 foo.o baz.o quux.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-foo.o `test -f 'foo.cpp' || echo './'`foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-baz.o `test -f 'baz.cxx' || echo './'`baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-quux.o `test -f 'quux.cc' || echo './'`quux.cc
+c++  -g -O2   -o foo2 foo2-foo.o foo2-baz.o foo2-quux.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep ' -c ' stdout
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar.o bar.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar2-bar.o `test -f 'bar.cpp' || echo './'`bar.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo.o foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o baz.o baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o quux.o quux.cc
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-foo.o `test -f 'foo.cpp' || echo './'`foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-baz.o `test -f 'baz.cxx' || echo './'`baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-quux.o `test -f 'quux.cc' || echo './'`quux.cc
++ grep ' -o ' stdout
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar.o bar.cpp
+c++  -g -O2   -o bar1 bar.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o bar2-bar.o `test -f 'bar.cpp' || echo './'`bar.cpp
+c++  -g -O2   -o bar2 bar2-bar.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo.o foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o baz.o baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o quux.o quux.cc
+c++  -g -O2   -o foo1 foo.o baz.o quux.o  
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-foo.o `test -f 'foo.cpp' || echo './'`foo.cpp
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-baz.o `test -f 'baz.cxx' || echo './'`baz.cxx
+c++ -DPACKAGE_NAME=\"silent-cxx\" -DPACKAGE_TARNAME=\"silent-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -c -o foo2-quux.o `test -f 'quux.cc' || echo './'`quux.cc
+c++  -g -O2   -o foo2 foo2-foo.o foo2-baz.o foo2-quux.o  
++ /bin/grep -E '(CXX|LD) ' stdout
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
++ make maintainer-clean
+Making maintainer-clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f ./.deps/bar.Po
+rm -f ./.deps/bar2-bar.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-cxx.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f ./.deps/baz.Po
+rm -f ./.deps/foo.Po
+rm -f ./.deps/foo2-baz.Po
+rm -f ./.deps/foo2-foo.Po
+rm -f ./.deps/foo2-quux.Po
+rm -f ./.deps/quux.Po
+rm -f Makefile
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/silent-cxx.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/silent-cxx.dir
++ set +x
+PASS t/silent-cxx.sh (exit status: 0)

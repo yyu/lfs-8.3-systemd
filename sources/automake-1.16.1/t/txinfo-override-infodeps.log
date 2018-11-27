@@ -1,0 +1,90 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/txinfo-override-infodeps.dir
++ cat
++ echo '@setfilename baz.info'
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails --add-missing
++ AUTOMAKE_run -e 1 --add-missing
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: user variable 'INFO_DEPS' defined here ...
+/sources/automake-1.16.1/lib/am/texibuild.am: ... overrides Automake variable 'INFO_DEPS' defined here
+Makefile.am:2: installing './texinfo.tex'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*user variable.*INFO_DEPS' stderr
+Makefile.am:1: warning: user variable 'INFO_DEPS' defined here ...
++ grep 'overrides Automake variable.*INFO_DEPS' stderr
+/sources/automake-1.16.1/lib/am/texibuild.am: ... overrides Automake variable 'INFO_DEPS' defined here
++ automake-1.16 --foreign -Werror -Wall -Wno-override
+++ grep -c '^INFO_DEPS.*=' Makefile.in
++ test 1 -eq 1
++ grep '^INFO_DEPS *= *foo.info *$' Makefile.in
+INFO_DEPS = foo.info
++ cat
++ cat
++ rm -rf autom4te.cache
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+configure.ac:4: warning: user variable 'INFO_DEPS' defined here ...
+/sources/automake-1.16.1/lib/am/texibuild.am: ... overrides Automake variable 'INFO_DEPS' defined here
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:4:.*user variable.*INFO_DEPS' stderr
+configure.ac:4: warning: user variable 'INFO_DEPS' defined here ...
++ grep 'overrides Automake variable.*INFO_DEPS' stderr
+/sources/automake-1.16.1/lib/am/texibuild.am: ... overrides Automake variable 'INFO_DEPS' defined here
++ automake-1.16 --foreign -Werror -Wall -Wno-override
+++ grep -c '^INFO_DEPS.*=' Makefile.in
++ test 1 -eq 1
++ grep '^INFO_DEPS *= *@INFO_DEPS@ *$' Makefile.in
+INFO_DEPS = @INFO_DEPS@
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/txinfo-override-infodeps.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/txinfo-override-infodeps.dir
++ set +x
+PASS t/txinfo-override-infodeps.sh (exit status: 0)

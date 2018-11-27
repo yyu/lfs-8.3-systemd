@@ -1,0 +1,460 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-doc2.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x bar.test baz.test foo.test
++ mkdir build-aux
++ cp /sources/automake-1.16.1/lib/tap-driver.sh build-aux
++ export AUTOMAKE ACLOCAL AUTOCONF
++ autoreconf -vi
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal-1.16 -Werror 
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: not using Libtool
+autoreconf: running: autoconf
+autoreconf: configure.ac: not using Autoheader
+autoreconf: running: automake-1.16 --foreign -Werror -Wall --add-missing --copy --no-force
+configure.ac:3: installing 'build-aux/install-sh'
+configure.ac:3: installing 'build-aux/missing'
+autoreconf: Leaving directory `.'
++ ./configure --help
+`configure' configures GNU Try Tap 1.0 to adapt to many kinds of systems.
+
+Usage: ./configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root [DATAROOTDIR/doc/try-tap]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Program names:
+  --program-prefix=PREFIX            prepend PREFIX to installed program names
+  --program-suffix=SUFFIX            append SUFFIX to installed program names
+  --program-transform-name=PROGRAM   run sed PROGRAM on installed program names
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-silent-rules   less verbose build output (undo: "make V=1")
+  --disable-silent-rules  verbose build output (undo: "make V=0")
+
+Report bugs to <bug-automake@gnu.org>.
+GNU Try Tap home page: <http://www.gnu.org/software/try-tap/>.
+General help using GNU software: <http://www.gnu.org/gethelp/>.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ case $MAKE in
++ DMAKE_MODE=serial
++ export DMAKE_MODE
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:480: test-suite.log] Error 1
+make[1]: *** [Makefile:588: check-TESTS] Error 2
+make: *** [Makefile:780: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+PASS: foo.test 4 - Flies fly too :-)
+FAIL: bar.test 1 - Bummer, this test has failed.
+PASS: bar.test 2 - This passed though.
+ERROR: bar.test - Bail out! Ennui kicking in, sorry...
+PASS: baz.test 1
+ERROR: baz.test - exited with status 7
+============================================================================
+Testsuite summary for GNU Try Tap 1.0
+============================================================================
+# TOTAL: 9
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+Please report to bug-automake@gnu.org
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ cat
++ sed -n '/^PASS: foo\.test/,/^ERROR: baz\.test/p' stdout
++ cat exp
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+PASS: foo.test 4 - Flies fly too :-)
+FAIL: bar.test 1 - Bummer, this test has failed.
+PASS: bar.test 2 - This passed though.
+ERROR: bar.test - Bail out! Ennui kicking in, sorry...
+PASS: baz.test 1
+ERROR: baz.test - exited with status 7
++ cat got
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+PASS: foo.test 4 - Flies fly too :-)
+FAIL: bar.test 1 - Bummer, this test has failed.
+PASS: bar.test 2 - This passed though.
+ERROR: bar.test - Bail out! Ennui kicking in, sorry...
+PASS: baz.test 1
+ERROR: baz.test - exited with status 7
++ diff exp got
++ grep '^Please report to bug-automake@gnu\.org$' stdout
+Please report to bug-automake@gnu.org
++ run_make -O check 'TESTS=foo.test baz.test' 'TEST_LOG_DRIVER_FLAGS=--comments --ignore-exit'
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check 'TESTS=foo.test baz.test' 'TEST_LOG_DRIVER_FLAGS=--comments --ignore-exit'
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+# foo.test: I just love word plays...
+PASS: foo.test 4 - Flies fly too :-)
+PASS: baz.test 1
+============================================================================
+Testsuite summary for GNU Try Tap 1.0
+============================================================================
+# TOTAL: 5
+# PASS:  3
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cat
++ sed -n '/^PASS: foo\.test/,/^PASS: baz\.test/p' stdout
++ cat exp
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+# foo.test: I just love word plays...
+PASS: foo.test 4 - Flies fly too :-)
+PASS: baz.test 1
++ cat got
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+# foo.test: I just love word plays...
+PASS: foo.test 4 - Flies fly too :-)
+PASS: baz.test 1
++ diff exp got
++ cat
++ echo AM_TEST_LOG_DRIVER_FLAGS = --ignore-exit
++ ./config.status Makefile
+config.status: creating Makefile
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+if test -d "try-tap-1.0"; then find "try-tap-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "try-tap-1.0" || { sleep 5 && rm -rf "try-tap-1.0"; }; else :; fi
+test -d "try-tap-1.0" || mkdir "try-tap-1.0"
+test -n "" \
+|| find "try-tap-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/tap-doc2.dir/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "try-tap-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+tardir=try-tap-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >try-tap-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir'
+if test -d "try-tap-1.0"; then find "try-tap-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "try-tap-1.0" || { sleep 5 && rm -rf "try-tap-1.0"; }; else :; fi
+case 'try-tap-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc try-tap-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc try-tap-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc try-tap-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc try-tap-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c try-tap-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc try-tap-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip try-tap-1.0.zip ;;\
+esac
+chmod -R a-w try-tap-1.0
+chmod u+w try-tap-1.0
+mkdir try-tap-1.0/_build try-tap-1.0/_build/sub try-tap-1.0/_inst
+chmod a-w try-tap-1.0
+test -d try-tap-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd try-tap-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd try-tap-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf try-tap-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+PASS: foo.test 1 - Swallows fly
+XFAIL: foo.test 2 - Caterpillars fly # TODO metamorphosis in progress
+SKIP: foo.test 3 - Pigs fly # SKIP not enough acid
+PASS: foo.test 4 - Flies fly too :-)
+PASS: bar.test 1
+PASS: baz.test 1
+============================================================================
+Testsuite summary for GNU Try Tap 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+if test -d "try-tap-1.0"; then find "try-tap-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "try-tap-1.0" || { sleep 5 && rm -rf "try-tap-1.0"; }; else :; fi
+test -d "try-tap-1.0" || mkdir "try-tap-1.0"
+test -n "" \
+|| find "try-tap-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "try-tap-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+tardir=try-tap-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >try-tap-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+if test -d "try-tap-1.0"; then find "try-tap-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "try-tap-1.0" || { sleep 5 && rm -rf "try-tap-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+test -z "foo.log bar.log baz.log" || rm -f foo.log bar.log baz.log
+test -z "foo.trs bar.trs baz.trs" || rm -f foo.trs bar.trs baz.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-doc2.dir/try-tap-1.0/_build/sub'
+if test -d "try-tap-1.0"; then find "try-tap-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "try-tap-1.0" || { sleep 5 && rm -rf "try-tap-1.0"; }; else :; fi
+=============================================
+try-tap-1.0 archives ready for distribution: 
+try-tap-1.0.tar.gz
+=============================================
++ rm -f Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-doc2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-doc2.dir
++ set +x
+PASS t/tap-doc2.sh (exit status: 0)

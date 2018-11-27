@@ -1,0 +1,64 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-m4-pr10111.dir
++ cat
++ :
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-m4-pr10111.dir'
+if test -d "remake-m4-pr10111-1.0"; then find "remake-m4-pr10111-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-m4-pr10111-1.0" || { sleep 5 && rm -rf "remake-m4-pr10111-1.0"; }; else :; fi
+test -d "remake-m4-pr10111-1.0" || mkdir "remake-m4-pr10111-1.0"
+test -n "" \
+|| find "remake-m4-pr10111-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-m4-pr10111.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-m4-pr10111-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-m4-pr10111.dir'
++ cd remake-m4-pr10111-1.0
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ rm -f ../foobar.m4
++ make
+make: Nothing to be done for 'all'.
++ grep ': foobar was here :' ../configure
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/remake-m4-pr10111.sh (exit status: 1)

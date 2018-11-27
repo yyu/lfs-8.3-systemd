@@ -1,0 +1,58 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-driver-install.dir
++ cat
++ mkdir sub my_aux_dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
++ cat stderr
+configure.ac:3: installing 'my_aux_dir/install-sh'
+configure.ac:3: installing 'my_aux_dir/missing'
+parallel-tests: installing 'my_aux_dir/test-driver'
++ ls -l . sub my_aux_dir
+.:
+total 88
+-rw-r--r-- 1 root root    31 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root 36501 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root 27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root  4096 Nov 27 06:44 autom4te.cache
+-rw-r--r-- 1 root root   148 Nov 27 06:44 configure.ac
+drwxr-xr-x 2 root root  4096 Nov 27 06:44 my_aux_dir
+-rw-r--r-- 1 root root   151 Nov 27 06:44 stderr
+drwxr-xr-x 2 root root  4096 Nov 27 06:44 sub
+
+my_aux_dir:
+total 0
+lrwxrwxrwx 1 root root 39 Nov 27 06:44 install-sh -> /sources/automake-1.16.1/lib/install-sh
+lrwxrwxrwx 1 root root 36 Nov 27 06:44 missing -> /sources/automake-1.16.1/lib/missing
+lrwxrwxrwx 1 root root 40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+
+sub:
+total 28
+-rw-r--r-- 1 root root    17 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root 23661 Nov 27 06:44 Makefile.in
++ test -f my_aux_dir/test-driver
++ test '!' -e test-driver
++ test '!' -e sub/test-driver
++ grep '^parallel-tests:.*installing.*my_aux_dir/test-driver' stderr
+parallel-tests: installing 'my_aux_dir/test-driver'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-driver-install.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-driver-install.dir
++ set +x
+PASS t/parallel-tests-driver-install.sh (exit status: 0)

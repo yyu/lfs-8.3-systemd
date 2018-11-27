@@ -1,0 +1,60 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/compile2.dir
++ get_shell_script compile
++ am_source=compile
++ am_target=compile
++ test '!' -f compile
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/compile compile
++ sed 10q compile
+#! /bin/sh
+# Wrapper for compilers which do not understand '-c -o'.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1999-2018 Free Software Foundation, Inc.
+# Written by Tom Tromey <tromey@cygnus.com>.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
++ unset am_target am_source
++ cat
++ chmod +x ./mycc
++ mkdir libltdl libltdl/libltdl
++ amtest_source='libltdl\libltdl\slist.c'
++ amtest_object='libltdl\libltdl\libltdl_libltdl_la-slist.obj'
++ amtest_obj=slist.o
++ amtest_lock=slist_o.d
++ export amtest_source amtest_object amtest_obj amtest_lock
++ :
++ ./compile ./mycc -c 'libltdl\libltdl\slist.c' -o 'libltdl\libltdl\libltdl_libltdl_la-slist.obj'
++ test -f 'libltdl\libltdl\libltdl_libltdl_la-slist.obj'
++ test -d 'C:\'
++ case $PATH_SEPARATOR in
++ amtest_source='C:\libltdl\libltdl\slist.c'
++ amtest_object='C:\libltdl\libltdl\libltdl_libltdl_la-slist.obj'
++ amtest_obj=slist.o
++ amtest_lock=slist_o.d
++ export amtest_source amtest_object amtest_obj amtest_lock
++ :
++ ./compile ./mycc -c 'C:\libltdl\libltdl\slist.c' -o 'C:\libltdl\libltdl\libltdl_libltdl_la-slist.obj'
++ test -f 'C:\libltdl\libltdl\libltdl_libltdl_la-slist.obj'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/compile2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/compile2.dir
++ set +x
+PASS t/compile2.sh (exit status: 0)

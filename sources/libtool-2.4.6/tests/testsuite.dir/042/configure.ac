@@ -1,0 +1,11 @@
+AC_INIT([cdemo], 2.4.6, bug-libtool@gnu.org)
+AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_MACRO_DIRS([m4])
+AM_INIT_AUTOMAKE
+AC_PROG_CC
+LT_INIT
+AC_SUBST([LIBTOOL_DEPS])
+LT_LIB_M
+AC_CONFIG_FILES([Makefile])
+AC_CONFIG_HEADERS([config.h:config.in.h])
+AC_OUTPUT

@@ -1,0 +1,31 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-subdir-grepping.dir
++ cat
++ mkdir sub
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep '^Makefile' sub/Makefile.in
+Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
++ grep '\$(AUTOMAKE).* sub/Makefile' sub/Makefile.in
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign sub/Makefile'; \
+	  $(AUTOMAKE) --foreign sub/Makefile
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-subdir-grepping.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-subdir-grepping.dir
++ set +x
+PASS t/remake-subdir-grepping.sh (exit status: 0)

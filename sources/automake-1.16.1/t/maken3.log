@@ -1,0 +1,4160 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/maken3.dir
++ have_dotmake=false
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ have_dotmake=:
++ mkdir sub sub2
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a -Wno-override
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: creating sub2/Makefile
++ check_targets
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n all
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n all
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo all-recursive | sed s/-recursive//`; \
+case "all-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-all-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-all$' stdout
+: > stamp-all
++ test '!' -e stamp-all
++ case $target in
++ :
++ grep stamp-all-sub stdout
+: > stamp-all-sub
++ test '!' -e sub/stamp-all-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-all-should-not-be-executed
++ test '!' -e sub2/sub2-all-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-recursive | sed s/-recursive//`; \
+case "install-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make  install-exec-am install-data-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+: > stamp-install-sub
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make  install-exec-am install-data-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make  install-exec-am install-data-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[2]: Nothing to be done for 'install-exec-am'.
+: > stamp-install
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-install$' stdout
+: > stamp-install
++ test '!' -e stamp-install
++ case $target in
++ :
++ grep stamp-install-sub stdout
+: > stamp-install-sub
++ test '!' -e sub/stamp-install-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-should-not-be-executed
++ test '!' -e sub2/sub2-install-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-strip
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-strip
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+if test -z ''; then \
+  make  INSTALL_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" \
+    install_sh_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" INSTALL_STRIP_FLAG=-s \
+      install; \
+else \
+  make  INSTALL_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" \
+    install_sh_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" INSTALL_STRIP_FLAG=-s \
+    "INSTALL_PROGRAM_ENV=STRIPPROG=''" install; \
+fi
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-recursive | sed s/-recursive//`; \
+case "install-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make  install-exec-am install-data-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+: > stamp-install-sub
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make  install-exec-am install-data-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-should-not-be-executed
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make  install-exec-am install-data-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[3]: Nothing to be done for 'install-exec-am'.
+: > stamp-install
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-should-not-be-executed
++ test '!' -e sub2/sub2-install-strip-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n uninstall
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n uninstall
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo uninstall-recursive | sed s/-recursive//`; \
+case "uninstall-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making uninstall in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-uninstall-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making uninstall in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-uninstall-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-uninstall
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-uninstall$' stdout
+: > stamp-uninstall
++ test '!' -e stamp-uninstall
++ case $target in
++ :
++ grep stamp-uninstall-sub stdout
+: > stamp-uninstall-sub
++ test '!' -e sub/stamp-uninstall-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-uninstall-should-not-be-executed
++ test '!' -e sub2/sub2-uninstall-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n clean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo clean-recursive | sed s/-recursive//`; \
+case "clean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-clean-sub
+: > stamp-mostlyclean-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-clean-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-clean
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-clean$' stdout
+: > stamp-clean
++ test '!' -e stamp-clean
++ case $target in
++ :
++ grep stamp-clean-sub stdout
+: > stamp-clean-sub
++ test '!' -e sub/stamp-clean-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-clean-should-not-be-executed
++ test '!' -e sub2/sub2-clean-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n distclean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n distclean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo distclean-recursive | sed s/-recursive//`; \
+case "distclean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-clean-sub
+: > stamp-mostlyclean-sub
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean-sub
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-clean
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-distclean$' stdout
+: > stamp-distclean
++ test '!' -e stamp-distclean
++ case $target in
++ :
++ grep stamp-distclean-sub stdout
+: > stamp-distclean-sub
++ test '!' -e sub/stamp-distclean-sub
++ case $target in
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo check-recursive | sed s/-recursive//`; \
+case "check-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making check in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-check-sub
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making check in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-check-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make  check-TESTS check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+list='foo.log';           test -z "$list" || rm -f $list
+list='foo.trs'; test -z "$list" || rm -f $list
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+trs_list=`for i in $bases; do echo $i.trs; done`; \
+log_list=`echo $log_list`; trs_list=`echo $trs_list`; \
+make  test-suite.log TEST_LOGS="$log_list"; \
+exit $?;
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='foo.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '3'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '3'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='foo.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "maken3 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for maken3 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-check
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-check$' stdout
+: > stamp-check
++ test '!' -e stamp-check
++ case $target in
++ :
++ grep stamp-check-sub stdout
+: > stamp-check-sub
++ test '!' -e sub/stamp-check-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-check-should-not-be-executed
++ test '!' -e sub2/sub2-check-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n info
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n info
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo info-recursive | sed s/-recursive//`; \
+case "info-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making info in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-info-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making info in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-info-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-info
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-info$' stdout
+: > stamp-info
++ test '!' -e stamp-info
++ case $target in
++ :
++ grep stamp-info-sub stdout
+: > stamp-info-sub
++ test '!' -e sub/stamp-info-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-info-should-not-be-executed
++ test '!' -e sub2/sub2-info-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n html
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n html
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo html-recursive | sed s/-recursive//`; \
+case "html-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making html in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-html-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making html in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-html-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-html
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-html$' stdout
+: > stamp-html
++ test '!' -e stamp-html
++ case $target in
++ :
++ grep stamp-html-sub stdout
+: > stamp-html-sub
++ test '!' -e sub/stamp-html-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-html-should-not-be-executed
++ test '!' -e sub2/sub2-html-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n dvi
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n dvi
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo dvi-recursive | sed s/-recursive//`; \
+case "dvi-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making dvi in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-dvi-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making dvi in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-dvi-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-dvi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-dvi$' stdout
+: > stamp-dvi
++ test '!' -e stamp-dvi
++ case $target in
++ :
++ grep stamp-dvi-sub stdout
+: > stamp-dvi-sub
++ test '!' -e sub/stamp-dvi-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-dvi-should-not-be-executed
++ test '!' -e sub2/sub2-dvi-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n pdf
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n pdf
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo pdf-recursive | sed s/-recursive//`; \
+case "pdf-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making pdf in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-pdf-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making pdf in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-pdf-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-pdf
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-pdf$' stdout
+: > stamp-pdf
++ test '!' -e stamp-pdf
++ case $target in
++ :
++ grep stamp-pdf-sub stdout
+: > stamp-pdf-sub
++ test '!' -e sub/stamp-pdf-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-pdf-should-not-be-executed
++ test '!' -e sub2/sub2-pdf-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n ps
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n ps
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo ps-recursive | sed s/-recursive//`; \
+case "ps-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making ps in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-ps-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making ps in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-ps-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-ps
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-ps$' stdout
+: > stamp-ps
++ test '!' -e stamp-ps
++ case $target in
++ :
++ grep stamp-ps-sub stdout
+: > stamp-ps-sub
++ test '!' -e sub/stamp-ps-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-ps-should-not-be-executed
++ test '!' -e sub2/sub2-ps-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-info
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-info
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-info-recursive | sed s/-recursive//`; \
+case "install-info-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-info in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-info'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-info in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-info-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-info-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-info-should-not-be-executed
++ test '!' -e sub2/sub2-install-info-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-html
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-html
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-html-recursive | sed s/-recursive//`; \
+case "install-html-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-html in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-html'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-html in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-html-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-html-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-html-should-not-be-executed
++ test '!' -e sub2/sub2-install-html-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-dvi
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-dvi
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-dvi-recursive | sed s/-recursive//`; \
+case "install-dvi-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-dvi in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-dvi in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-dvi-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-dvi-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-dvi-should-not-be-executed
++ test '!' -e sub2/sub2-install-dvi-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-pdf
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-pdf
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-pdf-recursive | sed s/-recursive//`; \
+case "install-pdf-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-pdf in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-pdf'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-pdf in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-pdf-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-pdf-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-pdf-should-not-be-executed
++ test '!' -e sub2/sub2-install-pdf-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-ps
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-ps
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-ps-recursive | sed s/-recursive//`; \
+case "install-ps-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-ps in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-ps'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-ps in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-ps-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-ps-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-ps-should-not-be-executed
++ test '!' -e sub2/sub2-install-ps-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n installcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n installcheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo installcheck-recursive | sed s/-recursive//`; \
+case "installcheck-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making installcheck in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-installcheck-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making installcheck in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-installcheck-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-installcheck
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-installcheck$' stdout
+: > stamp-installcheck
++ test '!' -e stamp-installcheck
++ case $target in
++ :
++ grep stamp-installcheck-sub stdout
+: > stamp-installcheck-sub
++ test '!' -e sub/stamp-installcheck-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-installcheck-should-not-be-executed
++ test '!' -e sub2/sub2-installcheck-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n installdirs
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n installdirs
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo installdirs-recursive | sed s/-recursive//`; \
+case "installdirs-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making installdirs in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'installdirs'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making installdirs in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-installdirs-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'installdirs-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-installdirs-should-not-be-executed
++ test '!' -e sub2/sub2-installdirs-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n tags
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n tags
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo tags-recursive | sed s/-recursive//`; \
+case "tags-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making tags in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-tags-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making tags in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-tags-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+set x; \
+here=`pwd`; \
+if (etags --etags-include --version) >/dev/null 2>&1; then \
+  include_option=--etags-include; \
+  empty_fix=.; \
+else \
+  include_option=--include; \
+  empty_fix=; \
+fi; \
+list='sub sub2'; for subdir in $list; do \
+  if test "$subdir" = .; then :; else \
+    test ! -f $subdir/TAGS || \
+      set "$@" "$include_option=$here/$subdir/TAGS"; \
+  fi; \
+done; \
+list='   '; unique=`for i in $list; do if test -f "$i"; then echo $i; else echo ./$i; fi; done | gawk ' BEGIN { nonempty = 0; } { items[$0] = 1; nonempty = 1; } END { if (nonempty) { for (i in items) print i; }; } '`; \
+shift; \
+if test -z "$*$unique"; then :; else \
+  test -n "$unique" || unique=$empty_fix; \
+  if test $# -gt 0; then \
+    etags    \
+      "$@" $unique; \
+  else \
+    etags    \
+      $unique; \
+  fi; \
+fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ :
++ grep stamp-tags-sub stdout
+: > stamp-tags-sub
++ test '!' -e sub/stamp-tags-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-tags-should-not-be-executed
++ test '!' -e sub2/sub2-tags-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n mostlyclean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n mostlyclean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo mostlyclean-recursive | sed s/-recursive//`; \
+case "mostlyclean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making mostlyclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-mostlyclean-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making mostlyclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-mostlyclean-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-mostlyclean$' stdout
+: > stamp-mostlyclean
++ test '!' -e stamp-mostlyclean
++ case $target in
++ :
++ grep stamp-mostlyclean-sub stdout
+: > stamp-mostlyclean-sub
++ test '!' -e sub/stamp-mostlyclean-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-mostlyclean-should-not-be-executed
++ test '!' -e sub2/sub2-mostlyclean-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n maintainer-clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n maintainer-clean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo maintainer-clean-recursive | sed s/-recursive//`; \
+case "maintainer-clean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making maintainer-clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-clean-sub
+: > stamp-mostlyclean-sub
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean-sub
+echo "This command is intended for maintainers to use"
+echo "it deletes files that may require special tools to rebuild."
+: > stamp-maintainer-clean-sub
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making maintainer-clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+echo "This command is intended for maintainers to use"
+echo "it deletes files that may require special tools to rebuild."
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-clean
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+echo "This command is intended for maintainers to use"
+echo "it deletes files that may require special tools to rebuild."
+: > stamp-maintainer-clean
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-maintainer-clean$' stdout
+: > stamp-maintainer-clean
++ test '!' -e stamp-maintainer-clean
++ case $target in
++ :
++ grep stamp-maintainer-clean-sub stdout
+: > stamp-maintainer-clean-sub
++ test '!' -e sub/stamp-maintainer-clean-sub
++ case $target in
++ sed s/##//
++ mv -f t Makefile.am
++ automake-1.16 --foreign -Werror -Wall -Wno-override Makefile
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: creating sub2/Makefile
++ check_targets
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n all
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n all
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  all-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo all-recursive | sed s/-recursive//`; \
+case "all-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making all in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making all in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-all-should-not-be-executed
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-all$' stdout
+: > stamp-all
++ test '!' -e stamp-all
++ case $target in
++ :
++ grep stamp-all-sub stdout
+: > stamp-all-sub
++ test '!' -e sub/stamp-all-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-all-should-not-be-executed
++ test '!' -e sub2/sub2-all-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  install-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-recursive | sed s/-recursive//`; \
+case "install-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make  install-exec-am install-data-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+: > stamp-install-sub
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make  install-exec-am install-data-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-should-not-be-executed
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make  install-exec-am install-data-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[3]: Nothing to be done for 'install-exec-am'.
+: > stamp-install
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-install$' stdout
+: > stamp-install
++ test '!' -e stamp-install
++ case $target in
++ :
++ grep stamp-install-sub stdout
+: > stamp-install-sub
++ test '!' -e sub/stamp-install-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-should-not-be-executed
++ test '!' -e sub2/sub2-install-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-strip
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-strip
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+if test -z ''; then \
+  make  INSTALL_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" \
+    install_sh_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" INSTALL_STRIP_FLAG=-s \
+      install; \
+else \
+  make  INSTALL_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" \
+    install_sh_PROGRAM="/bin/sh /sources/automake-1.16.1/t/maken3.dir/install-sh -c -s" INSTALL_STRIP_FLAG=-s \
+    "INSTALL_PROGRAM_ENV=STRIPPROG=''" install; \
+fi
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make  install-recursive
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '2'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-recursive | sed s/-recursive//`; \
+case "install-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make  install-exec-am install-data-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[4]: Nothing to be done for 'install-exec-am'.
+: > stamp-install-sub
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install in sub2
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make  install-exec-am install-data-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-should-not-be-executed
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make  install-exec-am install-data-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[4]: Nothing to be done for 'install-exec-am'.
+: > stamp-install
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-should-not-be-executed
++ test '!' -e sub2/sub2-install-strip-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n uninstall
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n uninstall
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo uninstall-recursive | sed s/-recursive//`; \
+case "uninstall-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making uninstall in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-uninstall-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making uninstall in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-uninstall-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-uninstall
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-uninstall$' stdout
+: > stamp-uninstall
++ test '!' -e stamp-uninstall
++ case $target in
++ :
++ grep stamp-uninstall-sub stdout
+: > stamp-uninstall-sub
++ test '!' -e sub/stamp-uninstall-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-uninstall-should-not-be-executed
++ test '!' -e sub2/sub2-uninstall-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n clean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo clean-recursive | sed s/-recursive//`; \
+case "clean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-clean-sub
+: > stamp-mostlyclean-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-clean-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-clean
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-clean$' stdout
+: > stamp-clean
++ test '!' -e stamp-clean
++ case $target in
++ :
++ grep stamp-clean-sub stdout
+: > stamp-clean-sub
++ test '!' -e sub/stamp-clean-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-clean-should-not-be-executed
++ test '!' -e sub2/sub2-clean-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n distclean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n distclean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo distclean-recursive | sed s/-recursive//`; \
+case "distclean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-clean-sub
+: > stamp-mostlyclean-sub
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean-sub
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-clean
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-distclean$' stdout
+: > stamp-distclean
++ test '!' -e stamp-distclean
++ case $target in
++ :
++ grep stamp-distclean-sub stdout
+: > stamp-distclean-sub
++ test '!' -e sub/stamp-distclean-sub
++ case $target in
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '1'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo check-recursive | sed s/-recursive//`; \
+case "check-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making check in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-all-sub
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-check-sub
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making check in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-check-should-not-be-executed
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-all
+make  check-TESTS check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+list='foo.log';           test -z "$list" || rm -f $list
+list='foo.trs'; test -z "$list" || rm -f $list
+test -z "test-suite.log" || rm -f test-suite.log
+set +e; bases='foo.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+log_list=`for i in $bases; do echo $i.log; done`; \
+trs_list=`for i in $bases; do echo $i.trs; done`; \
+log_list=`echo $log_list`; trs_list=`echo $trs_list`; \
+make  test-suite.log TEST_LOGS="$log_list"; \
+exit $?;
+make[4]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+bases='foo.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+am__f_ok () { test -f "$1" && test -r "$1"; }; \
+redo_bases=`for i in $bases; do \
+              am__f_ok $i.trs && am__f_ok $i.log || echo $i; \
+            done`; \
+if test -n "$redo_bases"; then \
+  redo_logs=`for i in $redo_bases; do echo $i.log; done`; \
+  redo_results=`for i in $redo_bases; do echo $i.trs; done`; \
+  if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '4'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+    rm -f $redo_logs && rm -f $redo_results || exit 1; \
+  fi; \
+fi; \
+if test -n "$am__remaking_logs"; then \
+  echo "fatal: making test-suite.log: possible infinite" \
+       "recursion detected" >&2; \
+elif test -n "$redo_logs"; then \
+  am__remaking_logs=yes make  $redo_logs; \
+fi; \
+if (target_option=n; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '4'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then :; else \
+  st=0;  \
+  errmsg="fatal: making test-suite.log: failed to create"; \
+  for i in $redo_bases; do \
+    test -f $i.trs && test -r $i.trs \
+      || { echo "$errmsg $i.trs" >&2; st=1; }; \
+    test -f $i.log && test -r $i.log \
+      || { echo "$errmsg $i.log" >&2; st=1; }; \
+  done; \
+  test $st -eq 0 || exit 1; \
+fi
+make[5]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+p='foo.test'; \
+case 'foo.log' in */*) case 'foo' in */*) b='foo';; *) b=`echo 'foo.log' | sed 's/\.log$//'`; esac;; *) b='foo';; esac; \
+case $- in *e*) set +e;; esac; srcdirstrip=`echo "." | sed 's|.|.|g'`; case $p in ./*) f=`echo "$p" | sed "s|^$srcdirstrip/||"`;; *) f=$p;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; srcdir=.; export srcdir; case "foo.log" in */*) am__odir=`echo "./foo.log" | sed 's|/[^/]*$||'`;; *) am__odir=.;; esac; test "x$am__odir" = x"." || test -d "$am__odir" || /tools/bin/mkdir -p "$am__odir" || exit $?; if test -f "./$f"; then dir=./; elif test -f "$f"; then dir=; else dir="./"; fi; tst=$dir$f; log='foo.log'; if test -n ''; then am__enable_hard_errors=no; else am__enable_hard_errors=yes; fi; case "  " in *[\ \	]$f[\ \	]* | *[\ \	]$dir$f[\ \	]*) am__expect_failure=yes;; *) am__expect_failure=no;; esac;   /bin/sh ./test-driver --test-name "$f" \
+--log-file $b.log --trs-file $b.trs \
+--color-tests "$am__color_tests" --enable-hard-errors "$am__enable_hard_errors" --expect-failure "$am__expect_failure"   --    \
+"$tst" 
+make[5]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+case $- in *e*) set +e;; esac; { mgn= red= grn= lgn= blu= brg= std=; am__color_tests=no; if test "X" = Xno; then am__color_tests=no; elif test "X" = Xalways; then am__color_tests=yes; elif test "X$TERM" != Xdumb && { test -t 1; } 2>/dev/null; then am__color_tests=yes; fi; if test $am__color_tests = yes; then red='[0;31m'; grn='[0;32m'; lgn='[1;32m'; blu='[1;34m'; mgn='[0;35m'; brg='[1m'; std='[m'; fi; }; bases='foo.log'; bases=`for i in $bases; do echo $i; done | sed 's/\.log$//'`; bases=`echo $bases`; \
+ws='[ 	]'; \
+results=`for b in $bases; do echo $b.trs; done`; \
+test -n "$results" || results=/dev/null; \
+all=`  grep "^$ws*:test-result:"           $results | wc -l`; \
+pass=` grep "^$ws*:test-result:$ws*PASS"  $results | wc -l`; \
+fail=` grep "^$ws*:test-result:$ws*FAIL"  $results | wc -l`; \
+skip=` grep "^$ws*:test-result:$ws*SKIP"  $results | wc -l`; \
+xfail=`grep "^$ws*:test-result:$ws*XFAIL" $results | wc -l`; \
+xpass=`grep "^$ws*:test-result:$ws*XPASS" $results | wc -l`; \
+error=`grep "^$ws*:test-result:$ws*ERROR" $results | wc -l`; \
+if test `expr $fail + $xpass + $error` -eq 0; then \
+  success=true; \
+else \
+  success=false; \
+fi; \
+br='==================='; br=$br$br$br$br; \
+result_count () \
+{ \
+    if test x"$1" = x"--maybe-color"; then \
+      maybe_colorize=yes; \
+    elif test x"$1" = x"--no-color"; then \
+      maybe_colorize=no; \
+    else \
+      echo "test-suite.log: invalid 'result_count' usage" >&2; exit 4; \
+    fi; \
+    shift; \
+    desc=$1 count=$2; \
+    if test $maybe_colorize = yes && test $count -gt 0; then \
+      color_start=$3 color_end=$std; \
+    else \
+      color_start= color_end=; \
+    fi; \
+    echo "${color_start}# $desc $count${color_end}"; \
+}; \
+create_testsuite_report () \
+{ \
+  result_count $1 "TOTAL:" $all   "$brg"; \
+  result_count $1 "PASS: " $pass  "$grn"; \
+  result_count $1 "SKIP: " $skip  "$blu"; \
+  result_count $1 "XFAIL:" $xfail "$lgn"; \
+  result_count $1 "FAIL: " $fail  "$red"; \
+  result_count $1 "XPASS:" $xpass "$red"; \
+  result_count $1 "ERROR:" $error "$mgn"; \
+}; \
+{								\
+  echo "maken3 1.0: ./test-suite.log" |	\
+    { sed 's/.*/   &   /;h;s/./=/g;p;x;s/ *$//;p;g' && echo; };						\
+  create_testsuite_report --no-color;				\
+  echo;								\
+  echo ".. contents:: :depth: 2";				\
+  echo;								\
+  for b in $bases; do echo $b; done				\
+    | gawk ' function fatal(msg) { print "fatal: making test-suite.log: " msg | "cat >&2"; exit 1; } function rst_section(header) { print header; len = length(header); for (i = 1; i <= len; i = i + 1) printf "="; printf "\n\n"; } { copy_in_global_log = 1; global_test_result = "RUN"; while ((rc = (getline line < ($0 ".trs"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".trs"); if (line ~ /^[ 	]*:global-test-result:[ 	]*/) { sub("^[ 	]*:global-test-result:[ 	]*", "", line); sub("[ 	]*$", "", line); global_test_result = line; } else if (line ~ /^[ 	]*:copy-in-global-log:[ 	]*[nN][oO]/) copy_in_global_log = 0; }; if (copy_in_global_log) { rst_section(global_test_result ": " $0); while ((rc = (getline line < ($0 ".log"))) != 0) { if (rc < 0) fatal("failed to read from " $0 ".log"); print line; }; printf "\n"; }; close ($0 ".trs"); close ($0 ".log"); }';					\
+} >test-suite.log.tmp || exit 1;				\
+mv test-suite.log.tmp test-suite.log;			\
+if $success; then						\
+  col="$grn";							\
+ else								\
+  col="$red";							\
+  test x"$VERBOSE" = x || cat test-suite.log;		\
+fi;								\
+echo "${col}$br${std}"; 					\
+echo "${col}Testsuite summary for maken3 1.0${std}";	\
+echo "${col}$br${std}"; 					\
+create_testsuite_report --maybe-color;				\
+echo "$col$br$std";						\
+if $success; then :; else					\
+  echo "${col}See ./test-suite.log${std}";		\
+  if test -n ""; then			\
+    echo "${col}Please report to ${std}";	\
+  fi;								\
+  echo "$col$br$std";					\
+fi;								\
+$success || exit 1
+make[4]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-check
+make[3]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-check$' stdout
+: > stamp-check
++ test '!' -e stamp-check
++ case $target in
++ :
++ grep stamp-check-sub stdout
+: > stamp-check-sub
++ test '!' -e sub/stamp-check-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-check-should-not-be-executed
++ test '!' -e sub2/sub2-check-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n info
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n info
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo info-recursive | sed s/-recursive//`; \
+case "info-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making info in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-info-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making info in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-info-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-info
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-info$' stdout
+: > stamp-info
++ test '!' -e stamp-info
++ case $target in
++ :
++ grep stamp-info-sub stdout
+: > stamp-info-sub
++ test '!' -e sub/stamp-info-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-info-should-not-be-executed
++ test '!' -e sub2/sub2-info-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n html
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n html
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo html-recursive | sed s/-recursive//`; \
+case "html-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making html in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-html-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making html in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-html-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-html
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-html$' stdout
+: > stamp-html
++ test '!' -e stamp-html
++ case $target in
++ :
++ grep stamp-html-sub stdout
+: > stamp-html-sub
++ test '!' -e sub/stamp-html-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-html-should-not-be-executed
++ test '!' -e sub2/sub2-html-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n dvi
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n dvi
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo dvi-recursive | sed s/-recursive//`; \
+case "dvi-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making dvi in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-dvi-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making dvi in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-dvi-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-dvi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-dvi$' stdout
+: > stamp-dvi
++ test '!' -e stamp-dvi
++ case $target in
++ :
++ grep stamp-dvi-sub stdout
+: > stamp-dvi-sub
++ test '!' -e sub/stamp-dvi-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-dvi-should-not-be-executed
++ test '!' -e sub2/sub2-dvi-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n pdf
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n pdf
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo pdf-recursive | sed s/-recursive//`; \
+case "pdf-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making pdf in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-pdf-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making pdf in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-pdf-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-pdf
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-pdf$' stdout
+: > stamp-pdf
++ test '!' -e stamp-pdf
++ case $target in
++ :
++ grep stamp-pdf-sub stdout
+: > stamp-pdf-sub
++ test '!' -e sub/stamp-pdf-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-pdf-should-not-be-executed
++ test '!' -e sub2/sub2-pdf-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n ps
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n ps
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo ps-recursive | sed s/-recursive//`; \
+case "ps-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making ps in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-ps-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making ps in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-ps-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-ps
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-ps$' stdout
+: > stamp-ps
++ test '!' -e stamp-ps
++ case $target in
++ :
++ grep stamp-ps-sub stdout
+: > stamp-ps-sub
++ test '!' -e sub/stamp-ps-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-ps-should-not-be-executed
++ test '!' -e sub2/sub2-ps-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-info
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-info
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-info-recursive | sed s/-recursive//`; \
+case "install-info-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-info in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-info'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-info in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-info-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-info-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-info-should-not-be-executed
++ test '!' -e sub2/sub2-install-info-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-html
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-html
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-html-recursive | sed s/-recursive//`; \
+case "install-html-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-html in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-html'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-html in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-html-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-html-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-html-should-not-be-executed
++ test '!' -e sub2/sub2-install-html-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-dvi
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-dvi
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-dvi-recursive | sed s/-recursive//`; \
+case "install-dvi-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-dvi in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-dvi in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-dvi-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-dvi-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-dvi-should-not-be-executed
++ test '!' -e sub2/sub2-install-dvi-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-pdf
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-pdf
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-pdf-recursive | sed s/-recursive//`; \
+case "install-pdf-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-pdf in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-pdf'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-pdf in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-pdf-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-pdf-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-pdf-should-not-be-executed
++ test '!' -e sub2/sub2-install-pdf-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n install-ps
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n install-ps
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo install-ps-recursive | sed s/-recursive//`; \
+case "install-ps-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making install-ps in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'install-ps'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making install-ps in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-install-ps-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'install-ps-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-install-ps-should-not-be-executed
++ test '!' -e sub2/sub2-install-ps-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n installcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n installcheck
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo installcheck-recursive | sed s/-recursive//`; \
+case "installcheck-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making installcheck in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-installcheck-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making installcheck in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-installcheck-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-installcheck
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-installcheck$' stdout
+: > stamp-installcheck
++ test '!' -e stamp-installcheck
++ case $target in
++ :
++ grep stamp-installcheck-sub stdout
+: > stamp-installcheck-sub
++ test '!' -e sub/stamp-installcheck-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-installcheck-should-not-be-executed
++ test '!' -e sub2/sub2-installcheck-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n installdirs
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n installdirs
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo installdirs-recursive | sed s/-recursive//`; \
+case "installdirs-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making installdirs in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+make[1]: Nothing to be done for 'installdirs'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making installdirs in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-installdirs-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+make[1]: Nothing to be done for 'installdirs-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-installdirs-should-not-be-executed
++ test '!' -e sub2/sub2-installdirs-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n tags
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n tags
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo tags-recursive | sed s/-recursive//`; \
+case "tags-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making tags in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-tags-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making tags in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-tags-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+set x; \
+here=`pwd`; \
+if (etags --etags-include --version) >/dev/null 2>&1; then \
+  include_option=--etags-include; \
+  empty_fix=.; \
+else \
+  include_option=--include; \
+  empty_fix=; \
+fi; \
+list='sub sub2'; for subdir in $list; do \
+  if test "$subdir" = .; then :; else \
+    test ! -f $subdir/TAGS || \
+      set "$@" "$include_option=$here/$subdir/TAGS"; \
+  fi; \
+done; \
+list='   '; unique=`for i in $list; do if test -f "$i"; then echo $i; else echo ./$i; fi; done | gawk ' BEGIN { nonempty = 0; } { items[$0] = 1; nonempty = 1; } END { if (nonempty) { for (i in items) print i; }; } '`; \
+shift; \
+if test -z "$*$unique"; then :; else \
+  test -n "$unique" || unique=$empty_fix; \
+  if test $# -gt 0; then \
+    etags    \
+      "$@" $unique; \
+  else \
+    etags    \
+      $unique; \
+  fi; \
+fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ case $target in
++ :
++ grep stamp-tags-sub stdout
+: > stamp-tags-sub
++ test '!' -e sub/stamp-tags-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-tags-should-not-be-executed
++ test '!' -e sub2/sub2-tags-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n mostlyclean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n mostlyclean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo mostlyclean-recursive | sed s/-recursive//`; \
+case "mostlyclean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making mostlyclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-mostlyclean-sub
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making mostlyclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+: > sub2-mostlyclean-should-not-be-executed
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-mostlyclean$' stdout
+: > stamp-mostlyclean
++ test '!' -e stamp-mostlyclean
++ case $target in
++ :
++ grep stamp-mostlyclean-sub stdout
+: > stamp-mostlyclean-sub
++ test '!' -e sub/stamp-mostlyclean-sub
++ case $target in
++ :
++ grep should-not-be-executed stdout
+: > sub2-mostlyclean-should-not-be-executed
++ test '!' -e sub2/sub2-mostlyclean-should-not-be-executed
++ for target in all install install-strip uninstall clean distclean check info html dvi pdf ps install-info install-html install-dvi install-pdf install-ps installcheck installdirs tags mostlyclean maintainer-clean
++ run_make -O -- -n maintainer-clean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -n maintainer-clean
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+fail=; \
+if (target_option=k; case ${target_option-} in ?) ;; *) echo "am__make_running_with_option: internal error: invalid" "target option '${target_option-}' specified" >&2; exit 1;; esac; has_opt=no; sane_makeflags=$MAKEFLAGS; if { if test -z '0'; then false; elif test -n 'x86_64-pc-linux-gnu'; then true; elif test -n '4.2.1' && test -n '/sources/automake-1.16.1/t/maken3.dir'; then true; else false; fi; }; then sane_makeflags=$MFLAGS; else case $MAKEFLAGS in *\\[\ \	]*) bs=\\; sane_makeflags=`printf '%s\n' "$MAKEFLAGS" | sed "s/$bs$bs[$bs $bs	]*//g"`;; esac; fi; skip_next=no; strip_trailopt () { flg=`printf '%s\n' "$flg" | sed "s/$1.*$//"`; }; for flg in $sane_makeflags; do test $skip_next = yes && { skip_next=no; continue; }; case $flg in *=*|--*) continue;; -*I) strip_trailopt 'I'; skip_next=yes;; -*I?*) strip_trailopt 'I';; -*O) strip_trailopt 'O'; skip_next=yes;; -*O?*) strip_trailopt 'O';; -*l) strip_trailopt 'l'; skip_next=yes;; -*l?*) strip_trailopt 'l';; -[dEDm]) skip_next=yes;; -[JT]) skip_next=yes;; esac; case $flg in *$target_option*) has_opt=yes; break;; esac; done; test $has_opt = yes); then \
+  failcom='fail=yes'; \
+else \
+  failcom='exit 1'; \
+fi; \
+dot_seen=no; \
+target=`echo maintainer-clean-recursive | sed s/-recursive//`; \
+case "maintainer-clean-recursive" in \
+  distclean-* | maintainer-clean-*) list='sub sub2' ;; \
+  *) list='sub sub2' ;; \
+esac; \
+for subdir in $list; do \
+  echo "Making $target in $subdir"; \
+  if test "$subdir" = "."; then \
+    dot_seen=yes; \
+    local_target="$target-am"; \
+  else \
+    local_target="$target"; \
+  fi; \
+  (CDPATH="${ZSH_VERSION+.}:" && cd $subdir && make  $local_target) \
+  || eval $failcom; \
+done; \
+if test "$dot_seen" = "no"; then \
+  make  "$target-am" || exit 1; \
+fi; test -z "$fail"
+Making maintainer-clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+: > stamp-clean-sub
+: > stamp-mostlyclean-sub
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean-sub
+echo "This command is intended for maintainers to use"
+echo "it deletes files that may require special tools to rebuild."
+: > stamp-maintainer-clean-sub
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub'
+Making maintainer-clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+echo "This command is intended for maintainers to use"
+echo "it deletes files that may require special tools to rebuild."
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maken3.dir'
+: > stamp-clean
+test -z "foo.log" || rm -f foo.log
+test -z "foo.trs" || rm -f foo.trs
+test -z "test-suite.log" || rm -f test-suite.log
+: > stamp-mostlyclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+: > stamp-distclean
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+echo "This command is intended for maintainers to use"
+echo "it deletes files that may require special tools to rebuild."
+test -z "foo" || rm -f foo
+: > stamp-maintainer-clean
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maken3.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ case $target in
++ :
++ grep 'stamp-maintainer-clean$' stdout
+: > stamp-maintainer-clean
++ test '!' -e stamp-maintainer-clean
++ case $target in
++ :
++ grep stamp-maintainer-clean-sub stdout
+: > stamp-maintainer-clean-sub
++ test '!' -e sub/stamp-maintainer-clean-sub
++ case $target in
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/maken3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/maken3.dir
++ set +x
+PASS t/maken3.sh (exit status: 0)

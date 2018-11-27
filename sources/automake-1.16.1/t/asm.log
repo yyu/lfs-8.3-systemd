@@ -1,0 +1,124 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/asm.dir
++ mv configure.ac configure.stub
++ cat
++ echo '*** Try 1 -- should fail because we need CC and CCAS ***'
+*** Try 1 -- should fail because we need CC and CCAS ***
++ cat configure.stub -
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: Assembler source seen but 'CCAS' is undefined
+Makefile.am:   The usual way to define 'CCAS' is to add 'AM_PROG_AS'
+Makefile.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '[Aa]ssembler source.*CCAS.* undefined' stderr
+Makefile.am: error: Assembler source seen but 'CCAS' is undefined
++ grep 'define .*CCAS.* add .*AM_PROG_AS' stderr
+Makefile.am:   The usual way to define 'CCAS' is to add 'AM_PROG_AS'
++ rm -rf autom4te.cache
++ echo '*** Try 2 -- we still need CCAS ***'
+*** Try 2 -- we still need CCAS ***
++ cat configure.stub -
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: Assembler source seen but 'CCAS' is undefined
+Makefile.am:   The usual way to define 'CCAS' is to add 'AM_PROG_AS'
+Makefile.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '[Aa]ssembler source.*CCAS.* undefined' stderr
+Makefile.am: error: Assembler source seen but 'CCAS' is undefined
++ grep 'define .*CCAS.* add .*AM_PROG_AS' stderr
+Makefile.am:   The usual way to define 'CCAS' is to add 'AM_PROG_AS'
++ rm -rf autom4te.cache
++ echo '*** Try 3 -- we need CCASFLAGS ***'
+*** Try 3 -- we need CCASFLAGS ***
++ cat configure.stub -
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: Assembler source seen but 'CCASFLAGS' is undefined
+Makefile.am:   The usual way to define 'CCASFLAGS' is to add 'AM_PROG_AS'
+Makefile.am:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '[Aa]ssembler source.*CCASFLAGS.* undefined' stderr
+Makefile.am: error: Assembler source seen but 'CCASFLAGS' is undefined
++ grep 'define .*CCASFLAGS.* add .*AM_PROG_AS' stderr
+Makefile.am:   The usual way to define 'CCASFLAGS' is to add 'AM_PROG_AS'
++ rm -rf autom4te.cache
++ echo '*** Try 4 -- we have everything needed, expect success ***'
+*** Try 4 -- we have everything needed, expect success ***
++ cat configure.stub -
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ rm -rf autom4te.cache
++ echo '*** Try 5 -- we have everything needed, expect success ***'
+*** Try 5 -- we have everything needed, expect success ***
++ cat configure.stub -
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/asm.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/asm.dir
++ set +x
+PASS t/asm.sh (exit status: 0)

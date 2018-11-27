@@ -1,0 +1,662 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ cat
++ plan=1..15
++ echo 1..15
++ sed -e 's/^/ok /' stub.tap
++ sed -e 's/^/XPASS: all.test /' stub.exp
++ my_make_check xpass
++ xpass=0
++ xfail=0
++ skip=0
++ case $1 in
++ eval xpass=15
+++ xpass=15
++ cat all.test
+1..15
+ok 1 # TODO
+ok 2 # TODO foo?
+ok 3 # TODO: bar!
+ok 4 aa # TODO
+ok 5 bb # TODO       fnord 5
+ok 6 cc # TODO:	fnord 6
+ok 7 - x # TODO
+ok 8 - y # TODO fnord 	  8
+ok 9 - z # TODO: fnord 9  	
+ok 10# TODO x0
+ok 11	# TODO x1
+ok 12 		   # TODO x2
+ok 13 asd# TODO x3
+ok 14 sad	# TODO x4
+ok 15 das		   # TODO x5
++ run_make -O -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+XPASS: all.test 1 # TODO
+XPASS: all.test 2 # TODO foo?
+XPASS: all.test 3 # TODO : bar!
+XPASS: all.test 4 aa # TODO
+XPASS: all.test 5 bb # TODO fnord 5
+XPASS: all.test 6 cc # TODO :	fnord 6
+XPASS: all.test 7 - x # TODO
+XPASS: all.test 8 - y # TODO fnord 	  8
+XPASS: all.test 9 - z # TODO : fnord 9
+XPASS: all.test 10 # TODO x0
+XPASS: all.test 11 # TODO x1
+XPASS: all.test 12 # TODO x2
+XPASS: all.test 13 asd # TODO x3
+XPASS: all.test 14 sad # TODO x4
+XPASS: all.test 15 das # TODO x5
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 15
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 15
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ count_test_results total=15 pass=0 fail=0 error=0 xpass=15 xfail=0 skip=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=15 pass=0 fail=0 error=0 xpass=15 xfail=0 skip=0
+++ total=15
+++ pass=0
+++ fail=0
+++ error=0
+++ xpass=15
+++ xfail=0
+++ skip=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+XPASS: all.test 1 # TODO
+XPASS: all.test 2 # TODO foo?
+XPASS: all.test 3 # TODO : bar!
+XPASS: all.test 4 aa # TODO
+XPASS: all.test 5 bb # TODO fnord 5
+XPASS: all.test 6 cc # TODO :	fnord 6
+XPASS: all.test 7 - x # TODO
+XPASS: all.test 8 - y # TODO fnord 	  8
+XPASS: all.test 9 - z # TODO : fnord 9
+XPASS: all.test 10 # TODO x0
+XPASS: all.test 11 # TODO x1
+XPASS: all.test 12 # TODO x2
+XPASS: all.test 13 asd # TODO x3
+XPASS: all.test 14 sad # TODO x4
+XPASS: all.test 15 das # TODO x5
+# TOTAL: 15
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 15
+# ERROR: 0
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 15 -eq 15
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *15$' stdout
+# TOTAL: 15
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *15$' stdout
+# XPASS: 15
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ LC_ALL=C
++ grep '^[A-Z][A-Z]*:' stdout
++ sed -e 's/# TODO *:/# TODO:/' -e 's/# SKIP *:/# SKIP:/'
++ cat exp
+XPASS: all.test 1 # TODO
+XPASS: all.test 2 # TODO foo?
+XPASS: all.test 3 # TODO: bar!
+XPASS: all.test 4 aa # TODO
+XPASS: all.test 5 bb # TODO fnord 5
+XPASS: all.test 6 cc # TODO:	fnord 6
+XPASS: all.test 7 - x # TODO
+XPASS: all.test 8 - y # TODO fnord 	  8
+XPASS: all.test 9 - z # TODO: fnord 9
+XPASS: all.test 10 # TODO x0
+XPASS: all.test 11 # TODO x1
+XPASS: all.test 12 # TODO x2
+XPASS: all.test 13 asd # TODO x3
+XPASS: all.test 14 sad # TODO x4
+XPASS: all.test 15 das # TODO x5
++ cat got
+XPASS: all.test 1 # TODO
+XPASS: all.test 2 # TODO foo?
+XPASS: all.test 3 # TODO: bar!
+XPASS: all.test 4 aa # TODO
+XPASS: all.test 5 bb # TODO fnord 5
+XPASS: all.test 6 cc # TODO:	fnord 6
+XPASS: all.test 7 - x # TODO
+XPASS: all.test 8 - y # TODO fnord 	  8
+XPASS: all.test 9 - z # TODO: fnord 9
+XPASS: all.test 10 # TODO x0
+XPASS: all.test 11 # TODO x1
+XPASS: all.test 12 # TODO x2
+XPASS: all.test 13 asd # TODO x3
+XPASS: all.test 14 sad # TODO x4
+XPASS: all.test 15 das # TODO x5
++ diff exp got
++ echo 1..15
++ sed -e 's/^/not ok /' stub.tap
++ sed -e 's/^/XFAIL: all.test /' stub.exp
++ my_make_check xfail
++ xpass=0
++ xfail=0
++ skip=0
++ case $1 in
++ eval xfail=15
+++ xfail=15
++ cat all.test
+1..15
+not ok 1 # TODO
+not ok 2 # TODO foo?
+not ok 3 # TODO: bar!
+not ok 4 aa # TODO
+not ok 5 bb # TODO       fnord 5
+not ok 6 cc # TODO:	fnord 6
+not ok 7 - x # TODO
+not ok 8 - y # TODO fnord 	  8
+not ok 9 - z # TODO: fnord 9  	
+not ok 10# TODO x0
+not ok 11	# TODO x1
+not ok 12 		   # TODO x2
+not ok 13 asd# TODO x3
+not ok 14 sad	# TODO x4
+not ok 15 das		   # TODO x5
++ run_make -O -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+XFAIL: all.test 1 # TODO
+XFAIL: all.test 2 # TODO foo?
+XFAIL: all.test 3 # TODO : bar!
+XFAIL: all.test 4 aa # TODO
+XFAIL: all.test 5 bb # TODO fnord 5
+XFAIL: all.test 6 cc # TODO :	fnord 6
+XFAIL: all.test 7 - x # TODO
+XFAIL: all.test 8 - y # TODO fnord 	  8
+XFAIL: all.test 9 - z # TODO : fnord 9
+XFAIL: all.test 10 # TODO x0
+XFAIL: all.test 11 # TODO x1
+XFAIL: all.test 12 # TODO x2
+XFAIL: all.test 13 asd # TODO x3
+XFAIL: all.test 14 sad # TODO x4
+XFAIL: all.test 15 das # TODO x5
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 15
+# PASS:  0
+# SKIP:  0
+# XFAIL: 15
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ count_test_results total=15 pass=0 fail=0 error=0 xpass=0 xfail=15 skip=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=15 pass=0 fail=0 error=0 xpass=0 xfail=15 skip=0
+++ total=15
+++ pass=0
+++ fail=0
+++ error=0
+++ xpass=0
+++ xfail=15
+++ skip=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+XFAIL: all.test 1 # TODO
+XFAIL: all.test 2 # TODO foo?
+XFAIL: all.test 3 # TODO : bar!
+XFAIL: all.test 4 aa # TODO
+XFAIL: all.test 5 bb # TODO fnord 5
+XFAIL: all.test 6 cc # TODO :	fnord 6
+XFAIL: all.test 7 - x # TODO
+XFAIL: all.test 8 - y # TODO fnord 	  8
+XFAIL: all.test 9 - z # TODO : fnord 9
+XFAIL: all.test 10 # TODO x0
+XFAIL: all.test 11 # TODO x1
+XFAIL: all.test 12 # TODO x2
+XFAIL: all.test 13 asd # TODO x3
+XFAIL: all.test 14 sad # TODO x4
+XFAIL: all.test 15 das # TODO x5
+# TOTAL: 15
+# PASS:  0
+# SKIP:  0
+# XFAIL: 15
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 15 -eq 15
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *15$' stdout
+# TOTAL: 15
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *15$' stdout
+# XFAIL: 15
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ LC_ALL=C
++ grep '^[A-Z][A-Z]*:' stdout
++ sed -e 's/# TODO *:/# TODO:/' -e 's/# SKIP *:/# SKIP:/'
++ cat exp
+XFAIL: all.test 1 # TODO
+XFAIL: all.test 2 # TODO foo?
+XFAIL: all.test 3 # TODO: bar!
+XFAIL: all.test 4 aa # TODO
+XFAIL: all.test 5 bb # TODO fnord 5
+XFAIL: all.test 6 cc # TODO:	fnord 6
+XFAIL: all.test 7 - x # TODO
+XFAIL: all.test 8 - y # TODO fnord 	  8
+XFAIL: all.test 9 - z # TODO: fnord 9
+XFAIL: all.test 10 # TODO x0
+XFAIL: all.test 11 # TODO x1
+XFAIL: all.test 12 # TODO x2
+XFAIL: all.test 13 asd # TODO x3
+XFAIL: all.test 14 sad # TODO x4
+XFAIL: all.test 15 das # TODO x5
++ cat got
+XFAIL: all.test 1 # TODO
+XFAIL: all.test 2 # TODO foo?
+XFAIL: all.test 3 # TODO: bar!
+XFAIL: all.test 4 aa # TODO
+XFAIL: all.test 5 bb # TODO fnord 5
+XFAIL: all.test 6 cc # TODO:	fnord 6
+XFAIL: all.test 7 - x # TODO
+XFAIL: all.test 8 - y # TODO fnord 	  8
+XFAIL: all.test 9 - z # TODO: fnord 9
+XFAIL: all.test 10 # TODO x0
+XFAIL: all.test 11 # TODO x1
+XFAIL: all.test 12 # TODO x2
+XFAIL: all.test 13 asd # TODO x3
+XFAIL: all.test 14 sad # TODO x4
+XFAIL: all.test 15 das # TODO x5
++ diff exp got
++ echo 1..15
++ sed -e 's/^/ok /' -e s/TODO/SKIP/ stub.tap
++ sed -e s/TODO/SKIP/ -e 's/^/SKIP: all.test /' stub.exp
++ my_make_check skip
++ xpass=0
++ xfail=0
++ skip=0
++ case $1 in
++ eval skip=15
+++ skip=15
++ cat all.test
+1..15
+ok 1 # SKIP
+ok 2 # SKIP foo?
+ok 3 # SKIP: bar!
+ok 4 aa # SKIP
+ok 5 bb # SKIP       fnord 5
+ok 6 cc # SKIP:	fnord 6
+ok 7 - x # SKIP
+ok 8 - y # SKIP fnord 	  8
+ok 9 - z # SKIP: fnord 9  	
+ok 10# SKIP x0
+ok 11	# SKIP x1
+ok 12 		   # SKIP x2
+ok 13 asd# SKIP x3
+ok 14 sad	# SKIP x4
+ok 15 das		   # SKIP x5
++ run_make -O -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+SKIP: all.test 1 # SKIP
+SKIP: all.test 2 # SKIP foo?
+SKIP: all.test 3 # SKIP : bar!
+SKIP: all.test 4 aa # SKIP
+SKIP: all.test 5 bb # SKIP fnord 5
+SKIP: all.test 6 cc # SKIP :	fnord 6
+SKIP: all.test 7 - x # SKIP
+SKIP: all.test 8 - y # SKIP fnord 	  8
+SKIP: all.test 9 - z # SKIP : fnord 9
+SKIP: all.test 10 # SKIP x0
+SKIP: all.test 11 # SKIP x1
+SKIP: all.test 12 # SKIP x2
+SKIP: all.test 13 asd # SKIP x3
+SKIP: all.test 14 sad # SKIP x4
+SKIP: all.test 15 das # SKIP x5
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 15
+# PASS:  0
+# SKIP:  15
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ count_test_results total=15 pass=0 fail=0 error=0 xpass=0 xfail=0 skip=15
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=15 pass=0 fail=0 error=0 xpass=0 xfail=0 skip=15
+++ total=15
+++ pass=0
+++ fail=0
+++ error=0
+++ xpass=0
+++ xfail=0
+++ skip=15
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+SKIP: all.test 1 # SKIP
+SKIP: all.test 2 # SKIP foo?
+SKIP: all.test 3 # SKIP : bar!
+SKIP: all.test 4 aa # SKIP
+SKIP: all.test 5 bb # SKIP fnord 5
+SKIP: all.test 6 cc # SKIP :	fnord 6
+SKIP: all.test 7 - x # SKIP
+SKIP: all.test 8 - y # SKIP fnord 	  8
+SKIP: all.test 9 - z # SKIP : fnord 9
+SKIP: all.test 10 # SKIP x0
+SKIP: all.test 11 # SKIP x1
+SKIP: all.test 12 # SKIP x2
+SKIP: all.test 13 asd # SKIP x3
+SKIP: all.test 14 sad # SKIP x4
+SKIP: all.test 15 das # SKIP x5
+# TOTAL: 15
+# PASS:  0
+# SKIP:  15
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-todo-skip-whitespace.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 15 -eq 15
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *15$' stdout
+# TOTAL: 15
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *15$' stdout
+# SKIP:  15
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ LC_ALL=C
++ grep '^[A-Z][A-Z]*:' stdout
++ sed -e 's/# TODO *:/# TODO:/' -e 's/# SKIP *:/# SKIP:/'
++ cat exp
+SKIP: all.test 1 # SKIP
+SKIP: all.test 2 # SKIP foo?
+SKIP: all.test 3 # SKIP: bar!
+SKIP: all.test 4 aa # SKIP
+SKIP: all.test 5 bb # SKIP fnord 5
+SKIP: all.test 6 cc # SKIP:	fnord 6
+SKIP: all.test 7 - x # SKIP
+SKIP: all.test 8 - y # SKIP fnord 	  8
+SKIP: all.test 9 - z # SKIP: fnord 9
+SKIP: all.test 10 # SKIP x0
+SKIP: all.test 11 # SKIP x1
+SKIP: all.test 12 # SKIP x2
+SKIP: all.test 13 asd # SKIP x3
+SKIP: all.test 14 sad # SKIP x4
+SKIP: all.test 15 das # SKIP x5
++ cat got
+SKIP: all.test 1 # SKIP
+SKIP: all.test 2 # SKIP foo?
+SKIP: all.test 3 # SKIP: bar!
+SKIP: all.test 4 aa # SKIP
+SKIP: all.test 5 bb # SKIP fnord 5
+SKIP: all.test 6 cc # SKIP:	fnord 6
+SKIP: all.test 7 - x # SKIP
+SKIP: all.test 8 - y # SKIP fnord 	  8
+SKIP: all.test 9 - z # SKIP: fnord 9
+SKIP: all.test 10 # SKIP x0
+SKIP: all.test 11 # SKIP x1
+SKIP: all.test 12 # SKIP x2
+SKIP: all.test 13 asd # SKIP x3
+SKIP: all.test 14 sad # SKIP x4
+SKIP: all.test 15 das # SKIP x5
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-todo-skip-whitespace.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-todo-skip-whitespace.dir
++ set +x
+PASS t/tap-todo-skip-whitespace.sh (exit status: 0)

@@ -3,7 +3,7 @@
 # This file is built by utils/Makefile.PL.
 # Any changes made here will be lost!
 
-PERL = ../perl
+PERL = ../miniperl
 REALPERL = ../perl
 RUN =  # Used mainly cross-compilation setups.
 

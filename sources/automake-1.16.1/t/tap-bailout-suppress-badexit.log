@@ -1,0 +1,198 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-bailout-suppress-badexit.dir
++ tests='exit.test exit127.test sighup.test sigterm.test'
++ cat
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ mv Makefile.am Makefile.am~
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ mv -f Makefile.am~ Makefile.am
+++ echo 'TEST_LOG_DRIVER = $(srcdir)/tap-driver'
+++ automake-1.16 --foreign -Werror -Wall Makefile
+++ ./config.status Makefile
+config.status: creating Makefile
+++ :
++ cat
++ cat
++ cat
++ cat
++ chmod a+x exit.test exit127.test sighup.test sigterm.test
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:474: test-suite.log] Error 1
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make: *** [Makefile:774: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-bailout-suppress-badexit.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-bailout-suppress-badexit.dir'
+ERROR: exit.test - Bail out!
+ERROR: exit127.test - Bail out!
+ERROR: sighup.test - Bail out!
+ERROR: sigterm.test - Bail out!
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 4
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-bailout-suppress-badexit.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-bailout-suppress-badexit.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=4 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=4
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=4 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=4
+++ total=4
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=4
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+ERROR: exit.test - Bail out!
+ERROR: exit127.test - Bail out!
+ERROR: sighup.test - Bail out!
+ERROR: sigterm.test - Bail out!
+# TOTAL: 4
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 4
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 4 -eq 4
++ grep '^# TOTAL:  *4$' stdout
+# TOTAL: 4
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *4$' stdout
+# ERROR: 4
++ test 0 -eq 0
++ for tst in $tests
++ grep '^ERROR: exit.test - Bail out!' stdout
+ERROR: exit.test - Bail out!
++ for tst in $tests
++ grep '^ERROR: exit127.test - Bail out!' stdout
+ERROR: exit127.test - Bail out!
++ for tst in $tests
++ grep '^ERROR: sighup.test - Bail out!' stdout
+ERROR: sighup.test - Bail out!
++ for tst in $tests
++ grep '^ERROR: sigterm.test - Bail out!' stdout
+ERROR: sigterm.test - Bail out!
++ /bin/grep -E 'ERROR: .*(exit.*status|terminat.*signal)' stdout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-bailout-suppress-badexit.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-bailout-suppress-badexit.dir
++ set +x
+PASS t/tap-bailout-suppress-badexit.sh (exit status: 0)

@@ -1,0 +1,83 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/mkdirp-deprecation.dir
++ echo AM_PROG_MKDIR_P
++ :
++ aclocal-1.16 -Werror
++ autoconf -Werror -Wobsolete
++ cat stderr
+configure.ac:4: warning: AM_PROG_MKDIR_P: this macro is deprecated, and will soon be removed.
+configure.ac:4: You should use the Autoconf-provided 'AC_PROG_MKDIR_P' macro instead,
+configure.ac:4: and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.
+aclocal.m4:398: AM_PROG_MKDIR_P is expanded from...
+configure.ac:4: the top level
++ grep_err
++ loc='^configure.ac:4:'
++ grep '^configure.ac:4:.*AM_PROG_MKDIR_P.*deprecated' stderr
+configure.ac:4: warning: AM_PROG_MKDIR_P: this macro is deprecated, and will soon be removed.
++ grep '^configure.ac:4:.* use .*AC_PROG_MKDIR_P' stderr
+configure.ac:4: You should use the Autoconf-provided 'AC_PROG_MKDIR_P' macro instead,
++ grep '^configure.ac:4:.* use '\''$(MKDIR_P)'\'' instead of '\''$(mkdir_p)'\''.*Makefile' stderr
+configure.ac:4: and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.
++ autoconf -Werror -Wno-obsolete
++ AUTOMAKE_fails --verbose -Wnone -Wobsolete
++ AUTOMAKE_run -e 1 --verbose -Wnone -Wobsolete
++ am__desc=
++ am__exp_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --verbose -Wnone -Wobsolete
++ am__got_rc=1
++ cat stderr
+automake-1.16: thread 0: reading autoconf --trace=_AM_COND_IF:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_BUILD:\$f:\$l::\$d::\$n::\${::}% --trace=AC_INIT:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_LINKS:\$f:\$l::\$d::\$n::\${::}% --trace=AM_GNU_GETTEXT_INTL_SUBDIR:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_ELSE:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_SUBST_NOTMAKE:\$f:\$l::\$d::\$n::\${::}% --trace=sinclude:\$f:\$l::\$d::\$n::\${::}% --trace=AC_FC_SRCEXT:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_HOST:\$f:\$l::\$d::\$n::\${::}% --trace=m4_sinclude:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_AUX_DIR:\$f:\$l::\$d::\$n::\${::}% --trace=AM_PROG_MKDIR_P:\$f:\$l::\$d::\$n::\${::}% --trace=_LT_AC_TAGCONFIG:\$f:\$l::\$d::\$n::\${::}% --trace=m4_include:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CANONICAL_TARGET:\$f:\$l::\$d::\$n::\${::}% --trace=AM_INIT_AUTOMAKE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_LIBOBJ_DIR:\$f:\$l::\$d::\$n::\${::}% --trace=AM_GNU_GETTEXT:\$f:\$l::\$d::\$n::\${::}% --trace=AM_AUTOMAKE_VERSION:\$f:\$l::\$d::\$n::\${::}% --trace=AM_EXTRA_RECURSIVE_TARGETS:\$f:\$l::\$d::\$n::\${::}% --trace=LT_SUPPORTED_TAG:\$f:\$l::\$d::\$n::\${::}% --trace=AC_SUBST_TRACE:\$f:\$l::\$d::\$n::\${::}% --trace=AM_MAINTAINER_MODE:\$f:\$l::\$d::\$n::\${::}% --trace=AC_REQUIRE_AUX_FILE:\$f:\$l::\$d::\$n::\${::}% --trace=_AM_COND_ENDIF:\$f:\$l::\$d::\$n::\${::}% --trace=AC_LIBSOURCE:\$f:\$l::\$d::\$n::\${::}% --trace=AM_PROG_AR:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_HEADERS:\$f:\$l::\$d::\$n::\${::}% --trace=AC_CONFIG_FILES:\$f:\$l::\$d::\$n::\${::}% --trace=AM_CONDITIONAL:\$f:\$l::\$d::\$n::\${::}%
+automake-1.16: warnings are treated as errors
+configure.ac:4: warning: The 'AM_PROG_MKDIR_P' macro is deprecated, and its use is discouraged.
+configure.ac:4: You should use the Autoconf-provided 'AC_PROG_MKDIR_P' macro instead,
+configure.ac:4: and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/header-vars.am
+automake-1.16: thread 0: reading Makefile.am
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/configure.am
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/texinfos.am
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/distdir.am
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/footer.am
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/install.am
+automake-1.16: thread 0: reading /sources/automake-1.16.1/lib/am/clean.am
+automake-1.16: thread 0: not writing Makefile.in because of earlier errors
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep_err
++ loc='^configure.ac:4:'
++ grep '^configure.ac:4:.*AM_PROG_MKDIR_P.*deprecated' stderr
+configure.ac:4: warning: The 'AM_PROG_MKDIR_P' macro is deprecated, and its use is discouraged.
++ grep '^configure.ac:4:.* use .*AC_PROG_MKDIR_P' stderr
+configure.ac:4: You should use the Autoconf-provided 'AC_PROG_MKDIR_P' macro instead,
++ grep '^configure.ac:4:.* use '\''$(MKDIR_P)'\'' instead of '\''$(mkdir_p)'\''.*Makefile' stderr
+configure.ac:4: and use '$(MKDIR_P)' instead of '$(mkdir_p)'in your Makefile.am files.
++ automake-1.16 --foreign -Werror -Wall -Wno-obsolete
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/mkdirp-deprecation.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/mkdirp-deprecation.dir
++ set +x
+PASS t/mkdirp-deprecation.sh (exit status: 0)

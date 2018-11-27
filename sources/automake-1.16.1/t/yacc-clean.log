@@ -1,0 +1,571 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-clean.dir
++ cat
++ cat
++ mkdir sub1 sub2
++ cat
++ cat
++ cat
++ cp sub1/parse.y sub2/parse.y
++ cat
++ cp sub1/main.c sub2/main.c
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: executing depfiles commands
++ cp config.status config.sav
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+main.c: In function 'main':
+main.c:3:10: warning: implicit declaration of function 'yyparse' [-Wimplicit-function-declaration]
+   return yyparse ();
+          ^~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+/bin/sh ../ylwrap parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+parse.y: In function 'yylex':
+parse.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+parse.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc  -g -O2   -o foo main.o parse.o  
+\
+ \
+/bin/sh ../ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c bar-parse.c y.tab.h `echo bar-parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar-parse.o -MD -MP -MF .deps/bar-parse.Tpo -c -o bar-parse.o bar-parse.c
+parse.y: In function 'yylex':
+parse.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+parse.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/bar-parse.Tpo .deps/bar-parse.Po
+cc  -g -O2   -o bar main.o bar-parse.o  
+cp ./parse.y baz.y
+\
+/bin/sh ../ylwrap `test -f 'baz.y' || echo './'`baz.y y.tab.c baz.c y.tab.h `echo baz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output baz.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.c
+baz.y: In function 'yylex':
+baz.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+baz.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/baz.Tpo .deps/baz.Po
+cc  -g -O2   -o baz main.o baz.o  
+\
+/bin/sh ../ylwrap `test -f 'baz.y' || echo './'`baz.y y.tab.c qux-baz.c y.tab.h `echo qux-baz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output qux-baz.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT qux-baz.o -MD -MP -MF .deps/qux-baz.Tpo -c -o qux-baz.o qux-baz.c
+baz.y: In function 'yylex':
+baz.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+baz.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/qux-baz.Tpo .deps/qux-baz.Po
+cc  -g -O2   -o qux main.o qux-baz.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+main.c: In function 'main':
+main.c:3:10: warning: implicit declaration of function 'yyparse' [-Wimplicit-function-declaration]
+   return yyparse ();
+          ^~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+/bin/sh ../ylwrap parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc -d 
+updating parse.h
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+parse.y: In function 'yylex':
+parse.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+parse.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc  -g -O2   -o foo main.o parse.o  
+\
+ \
+/bin/sh ../ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c bar-parse.c y.tab.h `echo bar-parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-parse.output -- yacc -d 
+updating bar-parse.h
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar-parse.o -MD -MP -MF .deps/bar-parse.Tpo -c -o bar-parse.o bar-parse.c
+parse.y: In function 'yylex':
+parse.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+parse.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/bar-parse.Tpo .deps/bar-parse.Po
+cc  -g -O2   -o bar main.o bar-parse.o  
+cp ./parse.y baz.y
+\
+/bin/sh ../ylwrap `test -f 'baz.y' || echo './'`baz.y y.tab.c baz.c y.tab.h `echo baz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output baz.output -- yacc -d 
+updating baz.h
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.c
+baz.y: In function 'yylex':
+baz.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+baz.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/baz.Tpo .deps/baz.Po
+cc  -g -O2   -o baz main.o baz.o  
+\
+/bin/sh ../ylwrap `test -f 'baz.y' || echo './'`baz.y y.tab.c qux-baz.c y.tab.h `echo qux-baz.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output qux-baz.output -- yacc -d 
+updating qux-baz.h
+cc -DPACKAGE_NAME=\"yacc-clean\" -DPACKAGE_TARNAME=\"yacc-clean\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean\" -DVERSION=\"1.0\" -I.     -g -O2 -MT qux-baz.o -MD -MP -MF .deps/qux-baz.Tpo -c -o qux-baz.o qux-baz.c
+baz.y: In function 'yylex':
+baz.y:2:24: warning: implicit declaration of function 'getchar' [-Wimplicit-function-declaration]
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+baz.y:2:24: note: 'getchar' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
++#include <stdio.h>
+ %{
+ int yylex () { return (getchar ()); }
+                        ^~~~~~~
+mv -f .deps/qux-baz.Tpo .deps/qux-baz.Po
+cc  -g -O2   -o qux main.o qux-baz.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir'
++ ls -l . sub1 sub2
+.:
+total 384
+-rw-r--r-- 1 root root  24318 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23868 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   9106 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  29364 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root  29364 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 142819 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    155 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 404
+-rw-r--r-- 1 root root 20584 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root   294 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 20620 Nov 27 06:50 Makefile.in
+-rwxr-xr-x 1 root root 28616 Nov 27 06:50 bar
+-rw-r--r-- 1 root root 42172 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root 12032 Nov 27 06:50 bar-parse.o
+-rwxr-xr-x 1 root root 28600 Nov 27 06:50 baz
+-rw-r--r-- 1 root root 42144 Nov 27 06:50 baz.c
+-rw-r--r-- 1 root root 12016 Nov 27 06:50 baz.o
+-rw-r--r-- 1 root root    86 Nov 27 06:50 baz.y
+-rwxr-xr-x 1 root root 28616 Nov 27 06:50 foo
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root  3176 Nov 27 06:50 main.o
+-rw-r--r-- 1 root root 42156 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root 12016 Nov 27 06:50 parse.o
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
+-rwxr-xr-x 1 root root 28616 Nov 27 06:50 qux
+-rw-r--r-- 1 root root 42160 Nov 27 06:50 qux-baz.c
+-rw-r--r-- 1 root root 12032 Nov 27 06:50 qux-baz.o
+
+sub2:
+total 420
+-rw-r--r-- 1 root root 21352 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 21388 Nov 27 06:50 Makefile.in
+-rwxr-xr-x 1 root root 28616 Nov 27 06:50 bar
+-rw-r--r-- 1 root root 42376 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root  1947 Nov 27 06:50 bar-parse.h
+-rw-r--r-- 1 root root 12032 Nov 27 06:50 bar-parse.o
+-rwxr-xr-x 1 root root 28600 Nov 27 06:50 baz
+-rw-r--r-- 1 root root 42330 Nov 27 06:50 baz.c
+-rw-r--r-- 1 root root  1929 Nov 27 06:50 baz.h
+-rw-r--r-- 1 root root 12016 Nov 27 06:50 baz.o
+-rw-r--r-- 1 root root    86 Nov 27 06:50 baz.y
+-rwxr-xr-x 1 root root 28616 Nov 27 06:50 foo
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root  3176 Nov 27 06:50 main.o
+-rw-r--r-- 1 root root 42348 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root  1935 Nov 27 06:50 parse.h
+-rw-r--r-- 1 root root 12016 Nov 27 06:50 parse.o
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
+-rwxr-xr-x 1 root root 28616 Nov 27 06:50 qux
+-rw-r--r-- 1 root root 42358 Nov 27 06:50 qux-baz.c
+-rw-r--r-- 1 root root  1941 Nov 27 06:50 qux-baz.h
+-rw-r--r-- 1 root root 12024 Nov 27 06:50 qux-baz.o
++ test -f sub1/parse.y
++ test -f sub1/parse.c
++ test -f sub1/bar-parse.c
++ test -f sub1/baz.y
++ test -f sub1/baz.c
++ test -f sub1/qux-baz.c
++ test -f sub2/parse.y
++ test -f sub2/parse.c
++ test -f sub2/parse.h
++ test -f sub2/bar-parse.c
++ test -f sub2/bar-parse.h
++ test -f sub2/baz.y
++ test -f sub2/baz.c
++ test -f sub2/baz.h
++ test -f sub2/qux-baz.c
++ test -f sub2/qux-baz.h
++ for target in clean distclean
++ make clean
+Making clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f baz.c
+rm -f qux-baz.c
+test -z "baz.y" || rm -f baz.y
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f baz.c
+rm -f baz.h
+rm -f qux-baz.c
+rm -f qux-baz.h
+test -z "baz.y" || rm -f baz.y
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir'
++ ls -l . sub1 sub2
+.:
+total 384
+-rw-r--r-- 1 root root  24318 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23868 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   9106 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  29364 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root  29364 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 142819 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    155 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 148
+-rw-r--r-- 1 root root 20584 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root   294 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 20620 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42172 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root 42156 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
+
+sub2:
+total 156
+-rw-r--r-- 1 root root 21352 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 21388 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42376 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root  1947 Nov 27 06:50 bar-parse.h
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root 42348 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root  1935 Nov 27 06:50 parse.h
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
++ test -f sub1/parse.y
++ test -f sub1/parse.c
++ test -f sub1/bar-parse.c
++ test '!' -e sub1/baz.y
++ test '!' -e sub1/baz.c
++ test '!' -e sub1/qux-baz.c
++ test -f sub2/parse.y
++ test -f sub2/parse.c
++ test -f sub2/parse.h
++ test -f sub2/bar-parse.c
++ test -f sub2/bar-parse.h
++ test '!' -e sub2/baz.y
++ test '!' -e sub2/baz.c
++ test '!' -e sub2/baz.h
++ test '!' -e sub2/qux-baz.c
++ test '!' -e sub2/qux-baz.h
++ for target in clean distclean
++ make distclean
+Making distclean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f baz.c
+rm -f qux-baz.c
+test -z "baz.y" || rm -f baz.y
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/baz.Po
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f ./.deps/qux-baz.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f baz.c
+rm -f baz.h
+rm -f qux-baz.c
+rm -f qux-baz.h
+test -z "baz.y" || rm -f baz.y
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/baz.Po
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f ./.deps/qux-baz.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ ls -l . sub1 sub2
+.:
+total 316
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23868 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root  29364 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root 142819 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    155 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 124
+-rw-r--r-- 1 root root   294 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 20620 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42172 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root 42156 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
+
+sub2:
+total 132
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 21388 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42376 Nov 27 06:50 bar-parse.c
+-rw-r--r-- 1 root root  1947 Nov 27 06:50 bar-parse.h
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root 42348 Nov 27 06:50 parse.c
+-rw-r--r-- 1 root root  1935 Nov 27 06:50 parse.h
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
++ test -f sub1/parse.y
++ test -f sub1/parse.c
++ test -f sub1/bar-parse.c
++ test '!' -e sub1/baz.y
++ test '!' -e sub1/baz.c
++ test '!' -e sub1/qux-baz.c
++ test -f sub2/parse.y
++ test -f sub2/parse.c
++ test -f sub2/parse.h
++ test -f sub2/bar-parse.c
++ test -f sub2/bar-parse.h
++ test '!' -e sub2/baz.y
++ test '!' -e sub2/baz.c
++ test '!' -e sub2/baz.h
++ test '!' -e sub2/qux-baz.c
++ test '!' -e sub2/qux-baz.h
++ cp config.sav config.status
++ ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+Making maintainer-clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f baz.c
+rm -f qux-baz.c
+test -z "baz.y" || rm -f baz.y
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar-parse.c
+rm -f parse.c
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/baz.Po
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f ./.deps/qux-baz.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub1'
+Making maintainer-clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f baz.c
+rm -f baz.h
+rm -f qux-baz.c
+rm -f qux-baz.h
+test -z "baz.y" || rm -f baz.y
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar-parse.c
+rm -f bar-parse.h
+rm -f parse.c
+rm -f parse.h
+rm -f ./.deps/bar-parse.Po
+rm -f ./.deps/baz.Po
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f ./.deps/qux-baz.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ ls -l . sub1 sub2
+.:
+total 312
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23868 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:50 aclocal.m4
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root  29364 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root 142819 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    155 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 36
+-rw-r--r-- 1 root root   294 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 20620 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
+
+sub2:
+total 36
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 21388 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root    37 Nov 27 06:50 main.c
+-rw-r--r-- 1 root root    86 Nov 27 06:50 parse.y
++ test -f sub1/parse.y
++ test '!' -e sub1/parse.c
++ test '!' -e sub1/bar-parse.c
++ test -f sub2/parse.y
++ test '!' -e sub2/parse.c
++ test '!' -e sub2/parse.h
++ test '!' -e sub2/bar-parse.c
++ test '!' -e sub2/bar-parse.h
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-clean.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-clean.dir
++ set +x
+PASS t/yacc-clean.sh (exit status: 0)

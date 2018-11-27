@@ -1,0 +1,1 @@
+SUBDIRS = long_subdir_name_with_many_characters

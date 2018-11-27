@@ -1,0 +1,1093 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-makefile-vpath.dir
++ mv -f configure.ac configure.stub
++ cat
++ cat configure.stub -
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+echo '!Foo!' >foo
++ cat foo
+!Foo!
++ grep '!Foo!' foo
+!Foo!
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+case 'remake-makefile-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-makefile-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-makefile-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-makefile-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-makefile-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-makefile-vpath-1.0.zip ;;\
+esac
+chmod -R a-w remake-makefile-vpath-1.0
+chmod u+w remake-makefile-vpath-1.0
+mkdir remake-makefile-vpath-1.0/_build remake-makefile-vpath-1.0/_build/sub remake-makefile-vpath-1.0/_inst
+chmod a-w remake-makefile-vpath-1.0
+test -d remake-makefile-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-makefile-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+echo '!Foo!' >foo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+cat foo
+!Foo!
+grep '!Foo!' foo
+!Foo!
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+===========================================================
+remake-makefile-vpath-1.0 archives ready for distribution: 
+remake-makefile-vpath-1.0.tar.gz
+===========================================================
++ rm -f foo
++ sleep 2
++ cat
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+echo '!Baz!' >bar
++ cat bar
+!Baz!
++ grep '!Baz!' bar
+!Baz!
++ test '!' -e foo
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+case 'remake-makefile-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-makefile-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-makefile-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-makefile-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-makefile-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-makefile-vpath-1.0.zip ;;\
+esac
+chmod -R a-w remake-makefile-vpath-1.0
+chmod u+w remake-makefile-vpath-1.0
+mkdir remake-makefile-vpath-1.0/_build remake-makefile-vpath-1.0/_build/sub remake-makefile-vpath-1.0/_inst
+chmod a-w remake-makefile-vpath-1.0
+test -d remake-makefile-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-makefile-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+echo '!Baz!' >bar
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+cat bar
+!Baz!
+grep '!Baz!' bar
+!Baz!
+test ! -r ../../foo
+test ! -r foo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+test -z "bar" || rm -f bar
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+===========================================================
+remake-makefile-vpath-1.0 archives ready for distribution: 
+remake-makefile-vpath-1.0.tar.gz
+===========================================================
++ rm -f bar
++ sleep 2
++ cat
++ cat ../configure.stub -
++ cat
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing aclocal-1.16 
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make: Nothing to be done for 'all'.
++ cat quux
+!Zardoz!
++ grep '!Zardoz!' quux
+!Zardoz!
++ test '!' -e bar
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+case 'remake-makefile-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-makefile-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-makefile-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-makefile-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-makefile-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-makefile-vpath-1.0.zip ;;\
+esac
+chmod -R a-w remake-makefile-vpath-1.0
+chmod u+w remake-makefile-vpath-1.0
+mkdir remake-makefile-vpath-1.0/_build remake-makefile-vpath-1.0/_build/sub remake-makefile-vpath-1.0/_inst
+chmod a-w remake-makefile-vpath-1.0
+test -d remake-makefile-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-makefile-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+cat quux
+!Zardoz!
+grep '!Zardoz!' quux
+!Zardoz!
+test ! -r ../../bar
+test ! -r bar
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+test -z "quux" || rm -f quux
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+===========================================================
+remake-makefile-vpath-1.0 archives ready for distribution: 
+remake-makefile-vpath-1.0.tar.gz
+===========================================================
++ rm -f quux
++ sleep 2
++ mkdir ../m4
++ cat
++ sleep 2
++ cat ../configure.stub -
++ cat
++ make
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make: Nothing to be done for 'all'.
++ cat quux
+!%Foo%!
++ grep %Foo% quux
+!%Foo%!
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+case 'remake-makefile-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-makefile-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-makefile-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-makefile-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-makefile-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-makefile-vpath-1.0.zip ;;\
+esac
+chmod -R a-w remake-makefile-vpath-1.0
+chmod u+w remake-makefile-vpath-1.0
+mkdir remake-makefile-vpath-1.0/_build remake-makefile-vpath-1.0/_build/sub remake-makefile-vpath-1.0/_inst
+chmod a-w remake-makefile-vpath-1.0
+test -d remake-makefile-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-makefile-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+cat quux
+!%Foo%!
+grep '%Foo%' quux
+!%Foo%!
+test x'%Foo%' = x'%Foo%'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+test -z "quux" || rm -f quux
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+===========================================================
+remake-makefile-vpath-1.0 archives ready for distribution: 
+remake-makefile-vpath-1.0.tar.gz
+===========================================================
++ sleep 2
++ sed s/%Foo%/%Bar%/g ../Makefile.am
++ mv -f t ../Makefile.am
++ cat ../Makefile.am
+all-local: quux
+check-local:
+	cat quux
+	grep '%Bar%' quux
+	test x'$(QUUX)' = x'%Bar%'
++ rm -f ../aclocal.m4
++ cat
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing aclocal-1.16 
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make: Nothing to be done for 'all'.
++ cat quux
+!%Bar%!
++ grep %Bar% quux
+!%Bar%!
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+case 'remake-makefile-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-makefile-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-makefile-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-makefile-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-makefile-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-makefile-vpath-1.0.zip ;;\
+esac
+chmod -R a-w remake-makefile-vpath-1.0
+chmod u+w remake-makefile-vpath-1.0
+mkdir remake-makefile-vpath-1.0/_build remake-makefile-vpath-1.0/_build/sub remake-makefile-vpath-1.0/_inst
+chmod a-w remake-makefile-vpath-1.0
+test -d remake-makefile-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-makefile-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+cat quux
+!%Bar%!
+grep '%Bar%' quux
+!%Bar%!
+test x'%Bar%' = x'%Bar%'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+test -z "quux" || rm -f quux
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+===========================================================
+remake-makefile-vpath-1.0 archives ready for distribution: 
+remake-makefile-vpath-1.0.tar.gz
+===========================================================
++ sleep 2
++ rm -f ../m4/blah.m4
++ sed s/%Bar%/%Quux%/g ../Makefile.am
++ mv -f t ../Makefile.am
++ cat ../Makefile.am
+all-local: quux
+check-local:
+	cat quux
+	grep '%Quux%' quux
+	test x'$(QUUX)' = x'%Quux%'
++ cat
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing aclocal-1.16 
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make: Nothing to be done for 'all'.
++ cat quux
+!%Quux%!
++ grep %Quux% quux
+!%Quux%!
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+case 'remake-makefile-vpath-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-makefile-vpath-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-makefile-vpath-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-makefile-vpath-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-makefile-vpath-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-makefile-vpath-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-makefile-vpath-1.0.zip ;;\
+esac
+chmod -R a-w remake-makefile-vpath-1.0
+chmod u+w remake-makefile-vpath-1.0
+mkdir remake-makefile-vpath-1.0/_build remake-makefile-vpath-1.0/_build/sub remake-makefile-vpath-1.0/_inst
+chmod a-w remake-makefile-vpath-1.0
+test -d remake-makefile-vpath-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-makefile-vpath-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-makefile-vpath-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating quux
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+cat quux
+!%Quux%!
+grep '%Quux%' quux
+!%Quux%!
+test x'%Quux%' = x'%Quux%'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+test -d "remake-makefile-vpath-1.0" || mkdir "remake-makefile-vpath-1.0"
+test -n "" \
+|| find "remake-makefile-vpath-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-makefile-vpath-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+tardir=remake-makefile-vpath-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-makefile-vpath-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+test -z "quux" || rm -f quux
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-makefile-vpath.dir/build/remake-makefile-vpath-1.0/_build/sub'
+if test -d "remake-makefile-vpath-1.0"; then find "remake-makefile-vpath-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-makefile-vpath-1.0" || { sleep 5 && rm -rf "remake-makefile-vpath-1.0"; }; else :; fi
+===========================================================
+remake-makefile-vpath-1.0 archives ready for distribution: 
+remake-makefile-vpath-1.0.tar.gz
+===========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-makefile-vpath.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-makefile-vpath.dir
++ set +x
+PASS t/remake-makefile-vpath.sh (exit status: 0)

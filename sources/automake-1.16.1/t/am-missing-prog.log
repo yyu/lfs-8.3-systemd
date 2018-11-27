@@ -1,0 +1,353 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/am-missing-prog.dir
++ cat
++ mkdir bin
++ cat
++ cat
++ cat
++ chmod a+x bin/am-exit-63 bin/am-overridden bin/my-command
+++ pwd
++ PATH=/sources/automake-1.16.1/t/am-missing-prog.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure OVERRIDDEN_COMMAND=am-overridden
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ /bin/grep -F COMMAND Makefile.in Makefile
+Makefile.in:COMMAND_FOUND = @COMMAND_FOUND@
+Makefile.in:MISMATCHED_COMMAND = @MISMATCHED_COMMAND@
+Makefile.in:NO_SUCH_COMMAND = @NO_SUCH_COMMAND@
+Makefile.in:OVERRIDDEN_COMMAND = @OVERRIDDEN_COMMAND@
+Makefile.in:	st=0; $(NO_SUCH_COMMAND) >$o 2>$e || st=$$?; $(status_is) 127
+Makefile.in:	st=0; $(MISMATCHED_COMMAND) >$o 2>$e || st=$$?; $(status_is) 63
+Makefile.in:	st=0; $(OVERRIDDEN_COMMAND) >$o 2>$e || st=$$?; $(status_is) 0
+Makefile.in:	st=0; $(OVERRIDDEN_COMMAND) >$o 2>$e || st=$$?; \
+Makefile.in:	st=0; $(COMMAND_FOUND) >$o 2>$e || st=$$?; $(status_is) 0
+Makefile:COMMAND_FOUND = ${SHELL} /sources/automake-1.16.1/t/am-missing-prog.dir/missing my-command
+Makefile:MISMATCHED_COMMAND = ${SHELL} /sources/automake-1.16.1/t/am-missing-prog.dir/missing am-exit-63
+Makefile:NO_SUCH_COMMAND = ${SHELL} /sources/automake-1.16.1/t/am-missing-prog.dir/missing am-none-none
+Makefile:OVERRIDDEN_COMMAND = am-overridden
+Makefile:	st=0; $(NO_SUCH_COMMAND) >$o 2>$e || st=$$?; $(status_is) 127
+Makefile:	st=0; $(MISMATCHED_COMMAND) >$o 2>$e || st=$$?; $(status_is) 63
+Makefile:	st=0; $(OVERRIDDEN_COMMAND) >$o 2>$e || st=$$?; $(status_is) 0
+Makefile:	st=0; $(OVERRIDDEN_COMMAND) >$o 2>$e || st=$$?; \
+Makefile:	st=0; $(COMMAND_FOUND) >$o 2>$e || st=$$?; $(status_is) 0
++ grep '^NO_SUCH_COMMAND = ${SHELL} .*/missing .*am-none-none' Makefile
+NO_SUCH_COMMAND = ${SHELL} /sources/automake-1.16.1/t/am-missing-prog.dir/missing am-none-none
++ grep '^MISMATCHED_COMMAND = ${SHELL} .*/missing .*am-exit-63' Makefile
+MISMATCHED_COMMAND = ${SHELL} /sources/automake-1.16.1/t/am-missing-prog.dir/missing am-exit-63
++ grep '^COMMAND_FOUND = ${SHELL} .*/missing .*my-command' Makefile
+COMMAND_FOUND = ${SHELL} /sources/automake-1.16.1/t/am-missing-prog.dir/missing my-command
++ grep '^OVERRIDDEN_COMMAND = am-overridden *$' Makefile
+OVERRIDDEN_COMMAND = am-overridden
++ make test1 test2 test3 test4
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+st=0; /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/missing am-none-none >test1-stdout 2>test1-stderr || st=$?; grep . test1-stdout test1-stderr; echo test1: st=$st; test $st -eq 127
+test1-stderr:/sources/automake-1.16.1/t/am-missing-prog.dir/missing: line 81: am-none-none: command not found
+test1-stderr:WARNING: 'am-none-none' is missing on your system.
+test1-stderr:         You might have modified some files without having the proper
+test1-stderr:         tools for further handling them.  Check the 'README' file, it
+test1-stderr:         often tells you about the needed prerequisites for installing
+test1-stderr:         this package.  You may also peek at any GNU archive site, in
+test1-stderr:         case some other package contains this missing 'am-none-none' program.
+test1: st=127
+st=0; /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/missing am-exit-63 >test2-stdout 2>test2-stderr || st=$?; grep . test2-stdout test2-stderr; echo test2: st=$st; test $st -eq 63
+test2-stdout:Oops, I'm too old
+test2-stderr:WARNING: 'am-exit-63' is probably too old.
+test2-stderr:         You might have modified some files without having the proper
+test2-stderr:         tools for further handling them.  Check the 'README' file, it
+test2-stderr:         often tells you about the needed prerequisites for installing
+test2-stderr:         this package.  You may also peek at any GNU archive site, in
+test2-stderr:         case some other package contains this missing 'am-exit-63' program.
+test2: st=63
+st=0; am-overridden >test3-stdout 2>test3-stderr || st=$?; grep . test3-stdout test3-stderr; echo test3: st=$st; test $st -eq 0
+test3-stdout:Hey, I'm OK!
+test3: st=0
+st=0; am-overridden >test3-stdout 2>test3-stderr || st=$?; \
+test ! -s test3-stderr
+test "`cat test3-stdout`" = "Hey, I'm OK!"
+st=0; /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/missing my-command >test4-stdout 2>test4-stderr || st=$?; grep . test4-stdout test4-stderr; echo test4: st=$st; test $st -eq 0
+test4-stdout:SNAFU
+test4: st=0
+test ! -s test4-stderr
+test "`cat test4-stdout`" = SNAFU
++ make distcheck DISTCHECK_CONFIGURE_FLAGS=OVERRIDDEN_COMMAND=am-overridden
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+if test -d "am-missing-prog-1.0"; then find "am-missing-prog-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-missing-prog-1.0" || { sleep 5 && rm -rf "am-missing-prog-1.0"; }; else :; fi
+test -d "am-missing-prog-1.0" || mkdir "am-missing-prog-1.0"
+test -n "" \
+|| find "am-missing-prog-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "am-missing-prog-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir'
+tardir=am-missing-prog-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >am-missing-prog-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir'
+if test -d "am-missing-prog-1.0"; then find "am-missing-prog-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-missing-prog-1.0" || { sleep 5 && rm -rf "am-missing-prog-1.0"; }; else :; fi
+case 'am-missing-prog-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc am-missing-prog-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc am-missing-prog-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc am-missing-prog-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc am-missing-prog-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c am-missing-prog-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc am-missing-prog-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip am-missing-prog-1.0.zip ;;\
+esac
+chmod -R a-w am-missing-prog-1.0
+chmod u+w am-missing-prog-1.0
+mkdir am-missing-prog-1.0/_build am-missing-prog-1.0/_build/sub am-missing-prog-1.0/_inst
+chmod a-w am-missing-prog-1.0
+test -d am-missing-prog-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd am-missing-prog-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd am-missing-prog-1.0/_build/sub \
+  && ../../configure \
+     \
+    OVERRIDDEN_COMMAND=am-overridden \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf am-missing-prog-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+st=0; /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/missing am-none-none >test1-stdout 2>test1-stderr || st=$?; grep . test1-stdout test1-stderr; echo test1: st=$st; test $st -eq 127
+test1-stderr:/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/missing: line 81: am-none-none: command not found
+test1-stderr:WARNING: 'am-none-none' is missing on your system.
+test1-stderr:         You might have modified some files without having the proper
+test1-stderr:         tools for further handling them.  Check the 'README' file, it
+test1-stderr:         often tells you about the needed prerequisites for installing
+test1-stderr:         this package.  You may also peek at any GNU archive site, in
+test1-stderr:         case some other package contains this missing 'am-none-none' program.
+test1: st=127
+st=0; /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/missing am-exit-63 >test2-stdout 2>test2-stderr || st=$?; grep . test2-stdout test2-stderr; echo test2: st=$st; test $st -eq 63
+test2-stdout:Oops, I'm too old
+test2-stderr:WARNING: 'am-exit-63' is probably too old.
+test2-stderr:         You might have modified some files without having the proper
+test2-stderr:         tools for further handling them.  Check the 'README' file, it
+test2-stderr:         often tells you about the needed prerequisites for installing
+test2-stderr:         this package.  You may also peek at any GNU archive site, in
+test2-stderr:         case some other package contains this missing 'am-exit-63' program.
+test2: st=63
+st=0; /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/missing my-command >test4-stdout 2>test4-stderr || st=$?; grep . test4-stdout test4-stderr; echo test4: st=$st; test $st -eq 0
+test4-stdout:SNAFU
+test4: st=0
+test ! -s test4-stderr
+test "`cat test4-stdout`" = SNAFU
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+if test -d "am-missing-prog-1.0"; then find "am-missing-prog-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-missing-prog-1.0" || { sleep 5 && rm -rf "am-missing-prog-1.0"; }; else :; fi
+test -d "am-missing-prog-1.0" || mkdir "am-missing-prog-1.0"
+test -n "" \
+|| find "am-missing-prog-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "am-missing-prog-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+tardir=am-missing-prog-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >am-missing-prog-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+if test -d "am-missing-prog-1.0"; then find "am-missing-prog-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-missing-prog-1.0" || { sleep 5 && rm -rf "am-missing-prog-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+Makefile:565: warning: overriding recipe for target 'grep'
+Makefile:561: warning: ignoring old recipe for target 'grep'
+Makefile:565: warning: overriding recipe for target '"^WARNING'
+Makefile:561: warning: ignoring old recipe for target '"^WARNING'
+test -z "test[1234]-stdout test[1234]-stderr" || rm -f test[1234]-stdout test[1234]-stderr
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/am-missing-prog.dir/am-missing-prog-1.0/_build/sub'
+if test -d "am-missing-prog-1.0"; then find "am-missing-prog-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "am-missing-prog-1.0" || { sleep 5 && rm -rf "am-missing-prog-1.0"; }; else :; fi
+=====================================================
+am-missing-prog-1.0 archives ready for distribution: 
+am-missing-prog-1.0.tar.gz
+=====================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/am-missing-prog.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/am-missing-prog.dir
++ set +x
+PASS t/am-missing-prog.sh (exit status: 0)

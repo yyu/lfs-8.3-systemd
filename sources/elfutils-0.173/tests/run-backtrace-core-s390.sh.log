@@ -1,0 +1,20 @@
+./backtrace ./backtrace.s390.exec ./backtrace.s390.core
+0x400000	0x4af000	[exe]
+TID 58560:
+# 0 0x40c4a2    	raise
+# 1 0x4003e0 - 1	sigusr2
+# 2 0x4004f8 - 1	stdarg
+# 3 0x400520 - 1	backtracegen
+# 4 0x400540 - 1	start
+# 5 0x4033e0 - 1	start_thread
+# 6 0x428e18 - 1	thread_start
+TID 58559:
+# 0 0x404058    	pthread_join
+# 1 0x4007d8 - 1	main
+# 2 0x40dc1a - 1	__libc_start_main
+# 3 0x400290 - 1	_start
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: No DWARF information found
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: No DWARF information found
+# 1 0x4007d8 - 1	main
+# 3 0x400520 - 1	backtracegen
+PASS run-backtrace-core-s390.sh (exit status: 0)

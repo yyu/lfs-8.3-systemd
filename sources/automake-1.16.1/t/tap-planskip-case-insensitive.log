@@ -1,0 +1,335 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ i=0
++ for c1 in s S
++ for c2 in k K
++ for c3 in i I
++ for c4 in p P
++ i=1
++ case $i in
++ j=01
++ echo '1..0 # skip foobar'
++ for c4 in p P
++ i=2
++ case $i in
++ j=02
++ echo '1..0 # skiP foobar'
++ for c3 in i I
++ for c4 in p P
++ i=3
++ case $i in
++ j=03
++ echo '1..0 # skIp foobar'
++ for c4 in p P
++ i=4
++ case $i in
++ j=04
++ echo '1..0 # skIP foobar'
++ for c2 in k K
++ for c3 in i I
++ for c4 in p P
++ i=5
++ case $i in
++ j=05
++ echo '1..0 # sKip foobar'
++ for c4 in p P
++ i=6
++ case $i in
++ j=06
++ echo '1..0 # sKiP foobar'
++ for c3 in i I
++ for c4 in p P
++ i=7
++ case $i in
++ j=07
++ echo '1..0 # sKIp foobar'
++ for c4 in p P
++ i=8
++ case $i in
++ j=08
++ echo '1..0 # sKIP foobar'
++ for c1 in s S
++ for c2 in k K
++ for c3 in i I
++ for c4 in p P
++ i=9
++ case $i in
++ j=09
++ echo '1..0 # Skip foobar'
++ for c4 in p P
++ i=10
++ case $i in
++ j=10
++ echo '1..0 # SkiP foobar'
++ for c3 in i I
++ for c4 in p P
++ i=11
++ case $i in
++ j=11
++ echo '1..0 # SkIp foobar'
++ for c4 in p P
++ i=12
++ case $i in
++ j=12
++ echo '1..0 # SkIP foobar'
++ for c2 in k K
++ for c3 in i I
++ for c4 in p P
++ i=13
++ case $i in
++ j=13
++ echo '1..0 # SKip foobar'
++ for c4 in p P
++ i=14
++ case $i in
++ j=14
++ echo '1..0 # SKiP foobar'
++ for c3 in i I
++ for c4 in p P
++ i=15
++ case $i in
++ j=15
++ echo '1..0 # SKIp foobar'
++ for c4 in p P
++ i=16
++ case $i in
++ j=16
++ echo '1..0 # SKIP foobar'
+++ echo 01.test 02.test 03.test 04.test 05.test 06.test 07.test 08.test 09.test 10.test 11.test 12.test 13.test 14.test 15.test 16.test
++ run_make -O 'TESTS=01.test 02.test 03.test 04.test 05.test 06.test 07.test 08.test 09.test 10.test 11.test 12.test 13.test 14.test 15.test 16.test' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=01.test 02.test 03.test 04.test 05.test 06.test 07.test 08.test 09.test 10.test 11.test 12.test 13.test 14.test 15.test 16.test' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
+SKIP: 01.test - skip foobar
+SKIP: 02.test - skiP foobar
+SKIP: 03.test - skIp foobar
+SKIP: 04.test - skIP foobar
+SKIP: 05.test - sKip foobar
+SKIP: 06.test - sKiP foobar
+SKIP: 07.test - sKIp foobar
+SKIP: 08.test - sKIP foobar
+SKIP: 09.test - Skip foobar
+SKIP: 10.test - SkiP foobar
+SKIP: 11.test - SkIp foobar
+SKIP: 12.test - SkIP foobar
+SKIP: 13.test - SKip foobar
+SKIP: 14.test - SKiP foobar
+SKIP: 15.test - SKIp foobar
+SKIP: 16.test - foobar
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 16
+# PASS:  0
+# SKIP:  16
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ count_test_results total=16 pass=0 fail=0 xpass=0 xfail=0 skip=16 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=16 pass=0 fail=0 xpass=0 xfail=0 skip=16 error=0
+++ total=16
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=16
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
+SKIP: 01.test - skip foobar
+SKIP: 02.test - skiP foobar
+SKIP: 03.test - skIp foobar
+SKIP: 04.test - skIP foobar
+SKIP: 05.test - sKip foobar
+SKIP: 06.test - sKiP foobar
+SKIP: 07.test - sKIp foobar
+SKIP: 08.test - sKIP foobar
+SKIP: 09.test - Skip foobar
+SKIP: 10.test - SkiP foobar
+SKIP: 11.test - SkIp foobar
+SKIP: 12.test - SkIP foobar
+SKIP: 13.test - SKip foobar
+SKIP: 14.test - SKiP foobar
+SKIP: 15.test - SKIp foobar
+SKIP: 16.test - foobar
+# TOTAL: 16
+# PASS:  0
+# SKIP:  16
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-planskip-case-insensitive.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 16 -eq 16
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *16$' stdout
+# TOTAL: 16
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *16$' stdout
+# SKIP:  16
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ for tst in *.test
++ grep '^SKIP: 01.test .* foobar$' stdout
+SKIP: 01.test - skip foobar
++ for tst in *.test
++ grep '^SKIP: 02.test .* foobar$' stdout
+SKIP: 02.test - skiP foobar
++ for tst in *.test
++ grep '^SKIP: 03.test .* foobar$' stdout
+SKIP: 03.test - skIp foobar
++ for tst in *.test
++ grep '^SKIP: 04.test .* foobar$' stdout
+SKIP: 04.test - skIP foobar
++ for tst in *.test
++ grep '^SKIP: 05.test .* foobar$' stdout
+SKIP: 05.test - sKip foobar
++ for tst in *.test
++ grep '^SKIP: 06.test .* foobar$' stdout
+SKIP: 06.test - sKiP foobar
++ for tst in *.test
++ grep '^SKIP: 07.test .* foobar$' stdout
+SKIP: 07.test - sKIp foobar
++ for tst in *.test
++ grep '^SKIP: 08.test .* foobar$' stdout
+SKIP: 08.test - sKIP foobar
++ for tst in *.test
++ grep '^SKIP: 09.test .* foobar$' stdout
+SKIP: 09.test - Skip foobar
++ for tst in *.test
++ grep '^SKIP: 10.test .* foobar$' stdout
+SKIP: 10.test - SkiP foobar
++ for tst in *.test
++ grep '^SKIP: 11.test .* foobar$' stdout
+SKIP: 11.test - SkIp foobar
++ for tst in *.test
++ grep '^SKIP: 12.test .* foobar$' stdout
+SKIP: 12.test - SkIP foobar
++ for tst in *.test
++ grep '^SKIP: 13.test .* foobar$' stdout
+SKIP: 13.test - SKip foobar
++ for tst in *.test
++ grep '^SKIP: 14.test .* foobar$' stdout
+SKIP: 14.test - SKiP foobar
++ for tst in *.test
++ grep '^SKIP: 15.test .* foobar$' stdout
+SKIP: 15.test - SKIp foobar
++ for tst in *.test
++ grep '^SKIP: 16.test .* foobar$' stdout
+SKIP: 16.test - foobar
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-planskip-case-insensitive.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-planskip-case-insensitive.dir
++ set +x
+PASS t/tap-planskip-case-insensitive.sh (exit status: 0)

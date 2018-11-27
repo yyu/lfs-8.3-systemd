@@ -1,0 +1,503 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/self-check-is_newest.dir
++ plan_ 21
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x21 = xunknown
++ test x21 = xlater
++ test x21 = xlazy
++ test x21 = xnow
++ test 21 -ge 0
++ planned_=21
++ echo 1..21
+1..21
++ :
++ sleep 2
++ :
++ :
++ stat a b c
+  File: a
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345940     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:40.139490924 +0000
+Modify: 2018-11-27 06:48:40.139490924 +0000
+Change: 2018-11-27 06:48:40.139490924 +0000
+ Birth: -
+  File: b
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345984     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:42.143521879 +0000
+Modify: 2018-11-27 06:48:42.143521879 +0000
+Change: 2018-11-27 06:48:42.143521879 +0000
+ Birth: -
+  File: c
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345985     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:42.143521879 +0000
+Modify: 2018-11-27 06:48:42.143521879 +0000
+Change: 2018-11-27 06:48:42.143521879 +0000
+ Birth: -
++ Y c a
++ command_ok_ 'is_newest c a' is_newest c a
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest c a'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest c a
++ result_ ok -D '' -r '' -- 'is_newest c a'
++ set +x
+ok 1 - is_newest c a
+PASS: t/self-check-is_newest.tap 1 - is_newest c a
++ Y b a
++ command_ok_ 'is_newest b a' is_newest b a
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest b a'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest b a
++ result_ ok -D '' -r '' -- 'is_newest b a'
++ set +x
+ok 2 - is_newest b a
+PASS: t/self-check-is_newest.tap 2 - is_newest b a
++ N a b
++ command_ok_ 'not is_newest a b' not is_newest a b
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='not is_newest a b'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_newest a b
++ is_newest a b
+is_newest: these files are newer than 'a':
+* b
++ result_ ok -D '' -r '' -- 'not is_newest a b'
++ set +x
+ok 3 - not is_newest a b
+PASS: t/self-check-is_newest.tap 3 - not is_newest a b
++ Y c b
++ command_ok_ 'is_newest c b' is_newest c b
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest c b'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest c b
++ result_ ok -D '' -r '' -- 'is_newest c b'
++ set +x
+ok 4 - is_newest c b
+PASS: t/self-check-is_newest.tap 4 - is_newest c b
++ Y c c
++ command_ok_ 'is_newest c c' is_newest c c
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest c c'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest c c
++ result_ ok -D '' -r '' -- 'is_newest c c'
++ set +x
+ok 5 - is_newest c c
+PASS: t/self-check-is_newest.tap 5 - is_newest c c
++ Y c a b c
++ command_ok_ 'is_newest c a b c' is_newest c a b c
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='is_newest c a b c'
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest c a b c
++ result_ ok -D '' -r '' -- 'is_newest c a b c'
++ set +x
+ok 6 - is_newest c a b c
+PASS: t/self-check-is_newest.tap 6 - is_newest c a b c
++ copy_timestamp c d
++ touch -r c c
++ touch -r c d
++ stat c d
+  File: c
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345985     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:42.143521879 +0000
+Modify: 2018-11-27 06:48:42.143521879 +0000
+Change: 2018-11-27 06:48:42.159522126 +0000
+ Birth: -
+  File: d
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345986     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:42.143521879 +0000
+Modify: 2018-11-27 06:48:42.143521879 +0000
+Change: 2018-11-27 06:48:42.163522187 +0000
+ Birth: -
++ Y c d
++ command_ok_ 'is_newest c d' is_newest c d
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest c d'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest c d
++ result_ ok -D '' -r '' -- 'is_newest c d'
++ set +x
+ok 7 - is_newest c d
+PASS: t/self-check-is_newest.tap 7 - is_newest c d
++ mkdir u x
++ touch x/foo
++ sleep 2
++ touch x/foo
++ sleep 2
++ mkdir v y
++ touch y/foo
++ sleep 2
++ touch y/foo
++ stat u v x y x/foo y/foo
+  File: u
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 705h/1797d	Inode: 7345987     Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:42.167522249 +0000
+Modify: 2018-11-27 06:48:42.167522249 +0000
+Change: 2018-11-27 06:48:42.167522249 +0000
+ Birth: -
+  File: v
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 705h/1797d	Inode: 7345978     Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:46.171584099 +0000
+Modify: 2018-11-27 06:48:46.171584099 +0000
+Change: 2018-11-27 06:48:46.171584099 +0000
+ Birth: -
+  File: x
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 705h/1797d	Inode: 7345988     Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:42.167522249 +0000
+Modify: 2018-11-27 06:48:42.167522249 +0000
+Change: 2018-11-27 06:48:42.167522249 +0000
+ Birth: -
+  File: y
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 705h/1797d	Inode: 7345979     Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:46.171584099 +0000
+Modify: 2018-11-27 06:48:46.171584099 +0000
+Change: 2018-11-27 06:48:46.171584099 +0000
+ Birth: -
+  File: x/foo
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345991     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:44.167553142 +0000
+Modify: 2018-11-27 06:48:44.167553142 +0000
+Change: 2018-11-27 06:48:44.167553142 +0000
+ Birth: -
+  File: y/foo
+  Size: 0         	Blocks: 0          IO Block: 4096   regular empty file
+Device: 705h/1797d	Inode: 7345980     Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2018-11-27 06:48:48.175615056 +0000
+Modify: 2018-11-27 06:48:48.175615056 +0000
+Change: 2018-11-27 06:48:48.175615056 +0000
+ Birth: -
++ for older in u x
++ for newer in v y
++ Y v u
++ command_ok_ 'is_newest v u' is_newest v u
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest v u'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest v u
++ result_ ok -D '' -r '' -- 'is_newest v u'
++ set +x
+ok 8 - is_newest v u
+PASS: t/self-check-is_newest.tap 8 - is_newest v u
++ N u v
++ command_ok_ 'not is_newest u v' not is_newest u v
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='not is_newest u v'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_newest u v
++ is_newest u v
+is_newest: these files are newer than 'u':
+* v
++ result_ ok -D '' -r '' -- 'not is_newest u v'
++ set +x
+ok 9 - not is_newest u v
+PASS: t/self-check-is_newest.tap 9 - not is_newest u v
++ for newer in v y
++ Y y u
++ command_ok_ 'is_newest y u' is_newest y u
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest y u'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest y u
++ result_ ok -D '' -r '' -- 'is_newest y u'
++ set +x
+ok 10 - is_newest y u
+PASS: t/self-check-is_newest.tap 10 - is_newest y u
++ N u y
++ command_ok_ 'not is_newest u y' not is_newest u y
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='not is_newest u y'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_newest u y
++ is_newest u y
+is_newest: these files are newer than 'u':
+* y
++ result_ ok -D '' -r '' -- 'not is_newest u y'
++ set +x
+ok 11 - not is_newest u y
+PASS: t/self-check-is_newest.tap 11 - not is_newest u y
++ for older in u x
++ for newer in v y
++ Y v x
++ command_ok_ 'is_newest v x' is_newest v x
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest v x'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest v x
++ result_ ok -D '' -r '' -- 'is_newest v x'
++ set +x
+ok 12 - is_newest v x
+PASS: t/self-check-is_newest.tap 12 - is_newest v x
++ N x v
++ command_ok_ 'not is_newest x v' not is_newest x v
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='not is_newest x v'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_newest x v
++ is_newest x v
+is_newest: these files are newer than 'x':
+* v
++ result_ ok -D '' -r '' -- 'not is_newest x v'
++ set +x
+ok 13 - not is_newest x v
+PASS: t/self-check-is_newest.tap 13 - not is_newest x v
++ for newer in v y
++ Y y x
++ command_ok_ 'is_newest y x' is_newest y x
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest y x'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest y x
++ result_ ok -D '' -r '' -- 'is_newest y x'
++ set +x
+ok 14 - is_newest y x
+PASS: t/self-check-is_newest.tap 14 - is_newest y x
++ N x y
++ command_ok_ 'not is_newest x y' not is_newest x y
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='not is_newest x y'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_newest x y
++ is_newest x y
+is_newest: these files are newer than 'x':
+* y
++ result_ ok -D '' -r '' -- 'not is_newest x y'
++ set +x
+ok 15 - not is_newest x y
+PASS: t/self-check-is_newest.tap 15 - not is_newest x y
++ Y x/foo x
++ command_ok_ 'is_newest x/foo x' is_newest x/foo x
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest x/foo x'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest x/foo x
++ result_ ok -D '' -r '' -- 'is_newest x/foo x'
++ set +x
+ok 16 - is_newest x/foo x
+PASS: t/self-check-is_newest.tap 16 - is_newest x/foo x
++ N x x/foo
++ command_ok_ 'not is_newest x x/foo' not is_newest x x/foo
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='not is_newest x x/foo'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_newest x x/foo
++ is_newest x x/foo
+is_newest: these files are newer than 'x':
+* x/foo
++ result_ ok -D '' -r '' -- 'not is_newest x x/foo'
++ set +x
+ok 17 - not is_newest x x/foo
+PASS: t/self-check-is_newest.tap 17 - not is_newest x x/foo
++ copy_timestamp x u
++ touch -r x x
++ touch -r x u
++ Y x u
++ command_ok_ 'is_newest x u' is_newest x u
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest x u'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest x u
++ result_ ok -D '' -r '' -- 'is_newest x u'
++ set +x
+ok 18 - is_newest x u
+PASS: t/self-check-is_newest.tap 18 - is_newest x u
++ Y u x
++ command_ok_ 'is_newest u x' is_newest u x
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='is_newest u x'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest u x
++ result_ ok -D '' -r '' -- 'is_newest u x'
++ set +x
+ok 19 - is_newest u x
+PASS: t/self-check-is_newest.tap 19 - is_newest u x
++ Y y x u v
++ command_ok_ 'is_newest y x u v' is_newest y x u v
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='is_newest y x u v'
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest y x u v
++ result_ ok -D '' -r '' -- 'is_newest y x u v'
++ set +x
+ok 20 - is_newest y x u v
+PASS: t/self-check-is_newest.tap 20 - is_newest y x u v
++ Y y u x/foo a b c
++ command_ok_ 'is_newest y u x/foo a b c' is_newest y u x/foo a b c
++ tap_directive_=
++ tap_reason_=
++ test 8 -gt 0
++ tap_description_='is_newest y u x/foo a b c'
++ shift
++ test 7 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_newest y u x/foo a b c
++ result_ ok -D '' -r '' -- 'is_newest y u x/foo a b c'
++ set +x
+ok 21 - is_newest y u x/foo a b c
+PASS: t/self-check-is_newest.tap 21 - is_newest y u x/foo a b c
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 21 = later
++ test 0 -eq 0
++ test 21 -eq 21
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/self-check-is_newest.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/self-check-is_newest.dir
++ set +x

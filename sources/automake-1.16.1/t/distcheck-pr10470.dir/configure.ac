@@ -1,0 +1,3 @@
+AC_INIT([distcheck-pr10470], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])

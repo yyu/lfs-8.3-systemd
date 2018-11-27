@@ -1,0 +1,15 @@
+case '@host_os@' in
+  mingw*)
+    ;;
+  *)
+    skip_ "target OS is not MinGW"
+    ;;
+esac
+case @build_os@ in
+  mingw* | cygwin*)
+    ;;
+  *)
+    winepath -w / \
+      || skip_ "not on MinGW or Cygwin, and winepath not available"
+    ;;
+esac

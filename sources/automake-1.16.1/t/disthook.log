@@ -1,0 +1,307 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/disthook.dir
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ mkdir doc
++ :
++ :
++ echo will be clobbered
++ cat
++ chmod a-w write
++ chmod a-x execute
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir'
+echo I will be deleted > removed
+if test -d "disthook-1.0"; then find "disthook-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "disthook-1.0" || { sleep 5 && rm -rf "disthook-1.0"; }; else :; fi
+test -d "disthook-1.0" || mkdir "disthook-1.0"
+make  \
+  top_distdir="disthook-1.0" distdir="disthook-1.0" \
+  dist-hook
+make[2]: Entering directory '/sources/automake-1.16.1/t/disthook.dir'
+chmod u+w disthook-1.0/write disthook-1.0/doc
+chmod u+x disthook-1.0/execute
+rm -f disthook-1.0/removed
+rm -f disthook-1.0/doc/HACKING
+rm -f disthook-1.0/doc/RELEASE-DATE
+date > disthook-1.0/doc/RELEASE-DATE
+echo all is ok > disthook-1.0/write
+make[2]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir'
+test -n "" \
+|| find "disthook-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/disthook.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "disthook-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir'
++ ls -l disthook-1.0 disthook-1.0/doc
+disthook-1.0:
+total 228
+-rw-r--r-- 1 root root    750 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  17719 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rwxr-xr-x 1 root root   7383 Nov 27 06:40 compile
+-rwxr-xr-x 1 root root 104074 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     82 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:40 depcomp
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 doc
+-rwxr--r-- 1 root root     34 Nov 27 06:40 execute
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+-rw-r--r-- 1 root root     10 Nov 27 06:40 write
+
+disthook-1.0/doc:
+total 4
+-rw-r--r-- 1 root root  0 Nov 27 06:40 README
+-rw-r--r-- 1 root root 29 Nov 27 06:40 RELEASE-DATE
++ cd disthook-1.0
+++ cat write
++ test 'all is ok' = 'all is ok'
++ test '!' -e removed
++ test -f doc/README
++ test -f doc/RELEASE-DATE
++ test '!' -e doc/HACING
++ ./execute
+I run successfully
++ ./execute
++ grep 'I run successfully'
+I run successfully
++ cd ..
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/disthook.dir'
+if test -d "disthook-1.0"; then find "disthook-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "disthook-1.0" || { sleep 5 && rm -rf "disthook-1.0"; }; else :; fi
+test -d "disthook-1.0" || mkdir "disthook-1.0"
+make  \
+  top_distdir="disthook-1.0" distdir="disthook-1.0" \
+  dist-hook
+make[3]: Entering directory '/sources/automake-1.16.1/t/disthook.dir'
+chmod u+w disthook-1.0/write disthook-1.0/doc
+chmod u+x disthook-1.0/execute
+rm -f disthook-1.0/removed
+rm -f disthook-1.0/doc/HACKING
+rm -f disthook-1.0/doc/RELEASE-DATE
+date > disthook-1.0/doc/RELEASE-DATE
+echo all is ok > disthook-1.0/write
+make[3]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir'
+test -n "" \
+|| find "disthook-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/disthook.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "disthook-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir'
+tardir=disthook-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >disthook-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir'
+if test -d "disthook-1.0"; then find "disthook-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "disthook-1.0" || { sleep 5 && rm -rf "disthook-1.0"; }; else :; fi
+case 'disthook-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc disthook-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc disthook-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc disthook-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc disthook-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c disthook-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc disthook-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip disthook-1.0.zip ;;\
+esac
+chmod -R a-w disthook-1.0
+chmod u+w disthook-1.0
+mkdir disthook-1.0/_build disthook-1.0/_build/sub disthook-1.0/_inst
+chmod a-w disthook-1.0
+test -d disthook-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd disthook-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd disthook-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf disthook-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+ls -l ../.. ../../doc
+../..:
+total 236
+-r--r--r-- 1 root root    750 Nov 27 06:40 Makefile.am
+-r--r--r-- 1 root root  17719 Nov 27 06:40 Makefile.in
+drwxr-xr-x 3 root root   4096 Nov 27 06:40 _build
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 _inst
+-r--r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-r-xr-xr-x 1 root root   7383 Nov 27 06:40 compile
+-r-xr-xr-x 1 root root 104074 Nov 27 06:40 configure
+-r--r--r-- 1 root root     82 Nov 27 06:40 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:40 depcomp
+dr-xr-xr-x 2 root root   4096 Nov 27 06:40 doc
+-r-xr--r-- 1 root root     34 Nov 27 06:40 execute
+-r-xr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:40 missing
+-r--r--r-- 1 root root     10 Nov 27 06:40 write
+
+../../doc:
+total 4
+-r--r--r-- 1 root root  0 Nov 27 06:40 README
+-r--r--r-- 1 root root 29 Nov 27 06:40 RELEASE-DATE
+test "`cat ../../write`" = "all is ok"
+test -f ../../doc/README
+test -f ../../doc/RELEASE-DATE
+test ! -f ../../removed
+test ! -r ../../removed
+test ! -f ../../doc/HACKING
+test ! -r ../../doc/HACKING
+../../execute
+I run successfully
+../../execute | grep 'I run successfully'
+I run successfully
+echo ok > ../../../distcheck-run
+make[2]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+echo I will be deleted > removed
+if test -d "disthook-1.0"; then find "disthook-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "disthook-1.0" || { sleep 5 && rm -rf "disthook-1.0"; }; else :; fi
+test -d "disthook-1.0" || mkdir "disthook-1.0"
+make  \
+  top_distdir="disthook-1.0" distdir="disthook-1.0" \
+  dist-hook
+make[4]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+chmod u+w disthook-1.0/write disthook-1.0/doc
+chmod u+x disthook-1.0/execute
+rm -f disthook-1.0/removed
+rm -f disthook-1.0/doc/HACKING
+rm -f disthook-1.0/doc/RELEASE-DATE
+date > disthook-1.0/doc/RELEASE-DATE
+echo all is ok > disthook-1.0/write
+make[4]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+test -n "" \
+|| find "disthook-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/disthook.dir/disthook-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "disthook-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+tardir=disthook-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >disthook-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+if test -d "disthook-1.0"; then find "disthook-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "disthook-1.0" || { sleep 5 && rm -rf "disthook-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+test -z "removed" || rm -f removed
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/disthook.dir/disthook-1.0/_build/sub'
+if test -d "disthook-1.0"; then find "disthook-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "disthook-1.0" || { sleep 5 && rm -rf "disthook-1.0"; }; else :; fi
+==============================================
+disthook-1.0 archives ready for distribution: 
+disthook-1.0.tar.gz
+==============================================
++ test -f distcheck-run
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/disthook.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/disthook.dir
++ set +x
+PASS t/disthook.sh (exit status: 0)

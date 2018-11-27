@@ -1,0 +1,324 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-metadata-global-log.dir
++ cat
++ cat
++ cat
++ chmod a+x passthrough-driver
++ cat
++ cat
++ for RES in XPASS FAIL XFAIL SKIP ERROR UNKNOWN
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for RES in XPASS FAIL XFAIL SKIP ERROR UNKNOWN
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for RES in XPASS FAIL XFAIL SKIP ERROR UNKNOWN
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for RES in XPASS FAIL XFAIL SKIP ERROR UNKNOWN
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for RES in XPASS FAIL XFAIL SKIP ERROR UNKNOWN
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for RES in XPASS FAIL XFAIL SKIP ERROR UNKNOWN
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ echo TESTS = ERROR.test FAIL.test SKIP.test UNKNOWN.test XFAIL.test XPASS.test corn-1.test corn-2.test corn-3.test no-1.test no-2.test no-3.test no-4.test yes-1.test yes-2.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-log.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-metadata-global-log.dir'
+ERROR.test: RUN
+FAIL.test: RUN
+SKIP.test: RUN
+UNKNOWN.test: RUN
+XFAIL.test: RUN
+XPASS.test: RUN
+corn-1.test: RUN
+corn-2.test: RUN
+corn-3.test: RUN
+no-1.test: RUN
+no-2.test: RUN
+no-3.test: RUN
+no-4.test: RUN
+yes-1.test: RUN
+yes-2.test: RUN
+============================================================================
+Testsuite summary for test-metadata-global-log 1.0
+============================================================================
+# TOTAL: 14
+# PASS:  2
+# SKIP:  2
+# XFAIL: 1
+# FAIL:  5
+# XPASS: 2
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-log.dir'
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-metadata-global-log.dir'
+make: *** [Makefile:775: check-am] Error 2
++ :
++ cat test-suite.log
+====================================================
+   test-metadata-global-log 1.0: ./test-suite.log
+====================================================
+
+# TOTAL: 14
+# PASS:  2
+# SKIP:  2
+# XFAIL: 1
+# FAIL:  5
+# XPASS: 2
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+RUN: corn-1
+===========
+
+seen corn 1
+
+RUN: corn-2
+===========
+
+seen corn 2
+
+RUN: corn-3
+===========
+
+seen corn 31
+seen corn 32
+
+RUN: yes-1
+==========
+
+seen yes 1
+
+RUN: yes-2
+==========
+
+seen yes 2
+
++ grep '^seen yes 1$' test-suite.log
+seen yes 1
++ grep '^seen yes 2$' test-suite.log
+seen yes 2
++ grep '^seen corn 1$' test-suite.log
+seen corn 1
++ grep '^seen corn 2$' test-suite.log
+seen corn 2
++ grep '^seen corn 31$' test-suite.log
+seen corn 31
++ grep '^seen corn 32$' test-suite.log
+seen corn 32
++ /bin/grep -F 'not seen' test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-metadata-global-log.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-metadata-global-log.dir
++ set +x
+PASS t/test-metadata-global-log.sh (exit status: 0)

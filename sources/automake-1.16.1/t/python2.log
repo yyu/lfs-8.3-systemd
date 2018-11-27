@@ -1,0 +1,184 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/python2.dir
++ aclocal-1.16 -Werror
++ echo 1. pythondir not defined
+1. pythondir not defined
++ cat
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: 'python_PYTHON' is used but 'pythondir' is undefined
+Makefile.am:2:   The usual way to define 'pythondir' is to add 'AM_PATH_PYTHON'
+Makefile.am:2:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'pythondir.*undefined' stderr
+Makefile.am:2: error: 'python_PYTHON' is used but 'pythondir' is undefined
++ grep AM_PATH_PYTHON stderr
+Makefile.am:2:   The usual way to define 'pythondir' is to add 'AM_PATH_PYTHON'
++ echo 2. pkgpythondir not defined
+2. pkgpythondir not defined
++ cat
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: 'pkgpython_PYTHON' is used but 'pkgpythondir' is undefined
+Makefile.am:2:   The usual way to define 'pkgpythondir' is to add 'AM_PATH_PYTHON'
+Makefile.am:2:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'pkgpythondir.*undefined' stderr
+Makefile.am:2: error: 'pkgpython_PYTHON' is used but 'pkgpythondir' is undefined
++ grep AM_PATH_PYTHON stderr
+Makefile.am:2:   The usual way to define 'pkgpythondir' is to add 'AM_PATH_PYTHON'
++ echo 3. pyexecdir not defined
+3. pyexecdir not defined
++ cat
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: 'pyexec_PYTHON' is used but 'pyexecdir' is undefined
+Makefile.am:2:   The usual way to define 'pyexecdir' is to add 'AM_PATH_PYTHON'
+Makefile.am:2:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'pyexecdir.*undefined' stderr
+Makefile.am:2: error: 'pyexec_PYTHON' is used but 'pyexecdir' is undefined
++ grep AM_PATH_PYTHON stderr
+Makefile.am:2:   The usual way to define 'pyexecdir' is to add 'AM_PATH_PYTHON'
++ echo 4. pkgpyexecdir not defined
+4. pkgpyexecdir not defined
++ cat
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: 'pkgpyexec_PYTHON' is used but 'pkgpyexecdir' is undefined
+Makefile.am:2:   The usual way to define 'pkgpyexecdir' is to add 'AM_PATH_PYTHON'
+Makefile.am:2:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'pkgpyexecdir.*undefined' stderr
+Makefile.am:2: error: 'pkgpyexec_PYTHON' is used but 'pkgpyexecdir' is undefined
++ grep AM_PATH_PYTHON stderr
+Makefile.am:2:   The usual way to define 'pkgpyexecdir' is to add 'AM_PATH_PYTHON'
++ echo 5. PYTHON not defined.
+5. PYTHON not defined.
++ cat
++ AUTOMAKE_fails -a
++ AUTOMAKE_run -e 1 -a
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -a
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: Python sources seen but 'PYTHON' is undefined
+Makefile.am:2:   The usual way to define 'PYTHON' is to add 'AM_PATH_PYTHON'
+Makefile.am:2:   to 'configure.ac' and run 'aclocal' and 'autoconf' again.
+Makefile.am:2: installing './py-compile'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'PYTHON.*undefined' stderr
+Makefile.am:2: error: Python sources seen but 'PYTHON' is undefined
++ grep AM_PATH_PYTHON stderr
+Makefile.am:2:   The usual way to define 'PYTHON' is to add 'AM_PATH_PYTHON'
++ echo 6. Ok.
+6. Ok.
++ cat
++ rm -f py-compile
++ automake-1.16 --foreign -Werror -Wall -a
+Makefile.am:3: installing './py-compile'
++ test -f py-compile
++ echo 7. Ok again.
+7. Ok again.
++ cat
++ automake-1.16 --foreign -Werror -Wall -a
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/python2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/python2.dir
++ set +x
+PASS t/python2.sh (exit status: 0)

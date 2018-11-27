@@ -1,0 +1,65 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/mkinst3.dir
+++ pwd
++ cwd=/sources/automake-1.16.1/t/mkinst3.dir
++ mkdir '~a b'
++ mkdir '~a b/-x  y'
++ rm -rf '~a b'
++ get_shell_script mkinstalldirs
++ am_source=mkinstalldirs
++ am_target=mkinstalldirs
++ test '!' -f mkinstalldirs
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/mkinstalldirs mkinstalldirs
++ sed 10q mkinstalldirs
+#! /bin/sh
+# mkinstalldirs --- make directory hierarchy
+
+scriptversion=2018-03-07.03; # UTC
+
+# Original author: Noah Friedman <friedman@prep.ai.mit.edu>
+# Created: 1993-05-16
+# Public domain.
+#
+# This file is maintained in Automake, please report
++ unset am_target am_source
++ ./mkinstalldirs '~a b/-x  y'
+mkdir -p -- ~a b/-x  y
++ test -d '~a b/-x  y'
++ rm -rf '~a b'
++ mkdir bin
++ cat
++ chmod +x bin/mkdir
++ AM_PATH=/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export AM_PATH
++ PATH=/sources/automake-1.16.1/t/mkinst3.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ ./mkinstalldirs '~a b/-x  y'
+mkdir ~a b
+mkdir ~a b/-x  y
++ test -d '~a b/-x  y'
++ rm -rf '~a b'
++ ./mkinstalldirs '/sources/automake-1.16.1/t/mkinst3.dir///~a b//-x  y'
+mkdir /sources/automake-1.16.1/t/mkinst3.dir/~a b
+mkdir /sources/automake-1.16.1/t/mkinst3.dir/~a b/-x  y
++ test -d '/sources/automake-1.16.1/t/mkinst3.dir/~a b/-x  y'
++ rm -rf '~a b'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/mkinst3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/mkinst3.dir
++ set +x
+PASS t/mkinst3.sh (exit status: 0)

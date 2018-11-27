@@ -1,0 +1,68 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/vars3.dir
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --warnings=no-error,none,portability
++ cat stderr
+Makefile.am:1: warning: shell echo *: non-POSIX variable name
+Makefile.am:1: (probably a GNU make extension)
+Makefile.am:4: warning: addsuffix .a, $(A: non-POSIX variable name
+Makefile.am:4: (probably a GNU make extension)
+Makefile.am:5: warning: bad boy: non-POSIX variable name
+Makefile.am:5: (probably a GNU make extension)
+Makefile.am:7: warning: three errors: non-POSIX variable name
+Makefile.am:7: (probably a GNU make extension)
+Makefile.am:7: warning: on this: non-POSIX variable name
+Makefile.am:7: (probably a GNU make extension)
+Makefile.am:7: warning: long line: non-POSIX variable name
+Makefile.am:7: (probably a GNU make extension)
+Makefile.am:8: warning: o u c h: non-POSIX variable name
+Makefile.am:8: (probably a GNU make extension)
+Makefile.am:8: warning: wildcard *.c: non-POSIX variable name
+Makefile.am:8: (probably a GNU make extension)
+Makefile.am:9: warning: another Error: non-POSIX variable name
+Makefile.am:9: (probably a GNU make extension)
++ grep -v '^Makefile\.am:[145789]:' stderr
++ grep .
++ grep ':1:.*shell echo' stderr
+Makefile.am:1: warning: shell echo *: non-POSIX variable name
++ grep nextvariableisbad stderr
++ grep ':4:.*addsuffix' stderr
+Makefile.am:4: warning: addsuffix .a, $(A: non-POSIX variable name
++ grep ':5:.*bad boy' stderr
+Makefile.am:5: warning: bad boy: non-POSIX variable name
++ grep ':7:.*three errors' stderr
+Makefile.am:7: warning: three errors: non-POSIX variable name
++ grep ':7:.*on this' stderr
+Makefile.am:7: warning: on this: non-POSIX variable name
++ grep ':7:.*long line' stderr
+Makefile.am:7: warning: long line: non-POSIX variable name
++ grep ':8:.*o u c h' stderr
+Makefile.am:8: warning: o u c h: non-POSIX variable name
++ grep ':8:.*wildcard' stderr
+Makefile.am:8: warning: wildcard *.c: non-POSIX variable name
++ grep ':9:.*another Error' stderr
+Makefile.am:9: warning: another Error: non-POSIX variable name
++ /bin/grep -E 'ok|thisis|here' stderr
++ automake-1.16 --foreign -Werror -Wall -Wno-portability
++ echo 'AUTOMAKE_OPTIONS = -Wno-portability'
++ automake-1.16 --foreign -Werror -Wall
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/vars3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/vars3.dir
++ set +x
+PASS t/vars3.sh (exit status: 0)

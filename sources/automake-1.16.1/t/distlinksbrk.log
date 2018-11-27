@@ -1,0 +1,269 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/distlinksbrk.dir
++ lnk_base=BrknSymlnk
++ lnk1=BrknSymlnk__001
++ lnk2=BrknSymlnk__002
++ lnka=BrknSymlnk__aaa
++ lnkb=BrknSymlnk__bbb
++ ln -s nonesuch BrknSymlnk__001
+++ pwd
++ ln -s /sources/automake-1.16.1/t/distlinksbrk.dir/nonesuch BrknSymlnk__002
++ ln -s BrknSymlnk__001 BrknSymlnk__aaa
++ ln -s BrknSymlnk__aaa BrknSymlnk__bbb
++ test '!' -e BrknSymlnk__001
++ test '!' -e BrknSymlnk__002
++ test '!' -e BrknSymlnk__aaa
++ test '!' -e BrknSymlnk__bbb
++ test -h BrknSymlnk__001
++ test -h BrknSymlnk__002
++ test -h BrknSymlnk__aaa
++ test -h BrknSymlnk__bbb
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ ls -l
+total 196
+lrwxrwxrwx 1 root root      8 Nov 27 06:40 BrknSymlnk__001 -> nonesuch
+lrwxrwxrwx 1 root root     52 Nov 27 06:40 BrknSymlnk__002 -> /sources/automake-1.16.1/t/distlinksbrk.dir/nonesuch
+lrwxrwxrwx 1 root root     15 Nov 27 06:40 BrknSymlnk__aaa -> BrknSymlnk__001
+lrwxrwxrwx 1 root root     15 Nov 27 06:40 BrknSymlnk__bbb -> BrknSymlnk__aaa
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:40 compile
+-rwxr-xr-x 1 root root 104122 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     86 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:40 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
++ for lnk in $lnk1 $lnk2 $lnka $lnkb
++ echo 'EXTRA_DIST = BrknSymlnk__001'
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -M -e FAIL distdir
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make distdir
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make[1]: *** No rule to make target 'BrknSymlnk__001', needed by 'distdir-am'.  Stop.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make: *** [Makefile:257: distdir] Error 2
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F BrknSymlnk__001 output
+make[1]: *** No rule to make target 'BrknSymlnk__001', needed by 'distdir-am'.  Stop.
++ for lnk in $lnk1 $lnk2 $lnka $lnkb
++ echo 'EXTRA_DIST = BrknSymlnk__002'
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -M -e FAIL distdir
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distdir
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make[1]: *** No rule to make target 'BrknSymlnk__002', needed by 'distdir-am'.  Stop.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make: *** [Makefile:257: distdir] Error 2
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F BrknSymlnk__002 output
+make[1]: *** No rule to make target 'BrknSymlnk__002', needed by 'distdir-am'.  Stop.
++ for lnk in $lnk1 $lnk2 $lnka $lnkb
++ echo 'EXTRA_DIST = BrknSymlnk__aaa'
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -M -e FAIL distdir
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distdir
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make[1]: *** No rule to make target 'BrknSymlnk__aaa', needed by 'distdir-am'.  Stop.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make: *** [Makefile:257: distdir] Error 2
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F BrknSymlnk__aaa output
+make[1]: *** No rule to make target 'BrknSymlnk__aaa', needed by 'distdir-am'.  Stop.
++ for lnk in $lnk1 $lnk2 $lnka $lnkb
++ echo 'EXTRA_DIST = BrknSymlnk__bbb'
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -M -e FAIL distdir
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distdir
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make[1]: *** No rule to make target 'BrknSymlnk__bbb', needed by 'distdir-am'.  Stop.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distlinksbrk.dir'
+make: *** [Makefile:257: distdir] Error 2
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F BrknSymlnk__bbb output
+make[1]: *** No rule to make target 'BrknSymlnk__bbb', needed by 'distdir-am'.  Stop.
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/distlinksbrk.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/distlinksbrk.dir
++ set +x
+PASS t/distlinksbrk.sh (exit status: 0)

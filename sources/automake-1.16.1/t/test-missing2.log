@@ -1,0 +1,106 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-missing2.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make foobar1.log foobar2.log
+make: Nothing to be done for 'foobar1.log'.
+make: Nothing to be done for 'foobar2.log'.
++ test '!' -e foobar1.log
++ test '!' -e foobar1.trs
++ test '!' -e foobar2.log
++ test '!' -e foobar2.trs
++ run_make -e FAIL -M check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-missing2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-missing2.dir'
+make[3]: Entering directory '/sources/automake-1.16.1/t/test-missing2.dir'
+make[3]: Nothing to be done for 'foobar1.log'.
+make[3]: Nothing to be done for 'foobar2.log'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/test-missing2.dir'
+fatal: making test-suite.log: failed to create foobar1.trs
+fatal: making test-suite.log: failed to create foobar1.log
+fatal: making test-suite.log: failed to create foobar2.trs
+fatal: making test-suite.log: failed to create foobar2.log
+make[2]: *** [Makefile:473: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-missing2.dir'
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-missing2.dir'
+make: *** [Makefile:774: check-am] Error 2
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ grep 'test-suite\.log.*foobar1\.log' output
+fatal: making test-suite.log: failed to create foobar1.log
++ grep 'test-suite\.log.*foobar1\.trs' output
+fatal: making test-suite.log: failed to create foobar1.trs
++ grep 'test-suite\.log.*foobar2\.log' output
+fatal: making test-suite.log: failed to create foobar2.log
++ grep 'test-suite\.log.*foobar2\.trs' output
+fatal: making test-suite.log: failed to create foobar2.trs
++ test '!' -e test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-missing2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-missing2.dir
++ set +x
+PASS t/test-missing2.sh (exit status: 0)

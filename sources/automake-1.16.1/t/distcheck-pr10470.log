@@ -1,0 +1,31 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/distcheck-pr10470.dir
++ mkdir foo.d
++ sleep 1
++ sh -c 'cd foo.d && sleep '\''4'\'''
++ rm -rf foo.d
++ skip_ 'system is able to remove "in use" directories'
++ warn_ 'distcheck-pr10470: skipped test: system is able to remove "in use" directories'
++ echo 'distcheck-pr10470: skipped test: system is able to remove "in use" directories'
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+SKIP t/distcheck-pr10470.sh (exit status: 77)

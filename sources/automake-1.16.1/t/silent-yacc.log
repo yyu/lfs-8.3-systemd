@@ -1,0 +1,385 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/silent-yacc.dir
++ mkdir sub
++ cat
++ cat
++ cat
++ cat
++ cp foo.y sub/bar.y
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac: installing './ylwrap'
++ autoconf
++ /bin/grep -F foo2-foo.c Makefile.in
+	foo2-foo.c install-sh missing ylwrap
+foo2-foo2-foo.o: foo2-foo.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo2_CFLAGS) $(CFLAGS) -MT foo2-foo2-foo.o -MD -MP -MF $(DEPDIR)/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo '$(srcdir)/'`foo2-foo.c
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='foo2-foo.c' object='foo2-foo2-foo.o' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo2_CFLAGS) $(CFLAGS) -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo '$(srcdir)/'`foo2-foo.c
+foo2-foo2-foo.obj: foo2-foo.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo2_CFLAGS) $(CFLAGS) -MT foo2-foo2-foo.obj -MD -MP -MF $(DEPDIR)/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.obj `if test -f 'foo2-foo.c'; then $(CYGPATH_W) 'foo2-foo.c'; else $(CYGPATH_W) '$(srcdir)/foo2-foo.c'; fi`
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='foo2-foo.c' object='foo2-foo2-foo.obj' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo2_CFLAGS) $(CFLAGS) -c -o foo2-foo2-foo.obj `if test -f 'foo2-foo.c'; then $(CYGPATH_W) 'foo2-foo.c'; else $(CYGPATH_W) '$(srcdir)/foo2-foo.c'; fi`
+foo2-foo.c: foo.y
+	$(SHELL) $(YLWRAP) `test -f 'foo.y' || echo '$(srcdir)/'`foo.y y.tab.c foo2-foo.c y.tab.h `echo foo2-foo.c | $(am__yacc_c2h)` y.output foo2-foo.output -- $(YACC) $(foo2_YFLAGS) $(YFLAGS)
+	-rm -f foo2-foo.c
++ /bin/grep -F bar2-bar.c sub/Makefile.in
+	$(top_srcdir)/ylwrap bar.c bar2-bar.c
+bar2-bar2-bar.o: bar2-bar.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar2_CFLAGS) $(CFLAGS) -MT bar2-bar2-bar.o -MD -MP -MF $(DEPDIR)/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo '$(srcdir)/'`bar2-bar.c
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='bar2-bar.c' object='bar2-bar2-bar.o' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar2_CFLAGS) $(CFLAGS) -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo '$(srcdir)/'`bar2-bar.c
+bar2-bar2-bar.obj: bar2-bar.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar2_CFLAGS) $(CFLAGS) -MT bar2-bar2-bar.obj -MD -MP -MF $(DEPDIR)/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.obj `if test -f 'bar2-bar.c'; then $(CYGPATH_W) 'bar2-bar.c'; else $(CYGPATH_W) '$(srcdir)/bar2-bar.c'; fi`
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='bar2-bar.c' object='bar2-bar2-bar.obj' libtool=no @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(bar2_CFLAGS) $(CFLAGS) -c -o bar2-bar2-bar.obj `if test -f 'bar2-bar.c'; then $(CYGPATH_W) 'bar2-bar.c'; else $(CYGPATH_W) '$(srcdir)/bar2-bar.c'; fi`
+bar2-bar.c: bar.y
+	$(SHELL) $(YLWRAP) `test -f 'bar.y' || echo '$(srcdir)/'`bar.y y.tab.c bar2-bar.c y.tab.h `echo bar2-bar.c | $(am__yacc_c2h)` y.output bar2-bar.output -- $(YACC) $(bar2_YFLAGS) $(YFLAGS)
+	-rm -f bar2-bar.c
++ ./configure --enable-silent-rules
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ run_make -O
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+  YACC     bar.c
+  CC       bar.o
+  CCLD     bar1
+  YACC     bar2-bar.c
+updating bar2-bar.output
+  CC       bar2-bar2-bar.o
+  CCLD     bar2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+  YACC     foo.c
+  CC       foo.o
+  CCLD     foo1
+  YACC     foo2-foo.c
+updating foo2-foo.output
+  CC       foo2-foo2-foo.o
+  CCLD     foo2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -E ' (-c|-o)' stdout
++ /bin/grep -E '(mv|ylwrap) ' stdout
++ grep 'YACC .*foo\.' stdout
+  YACC     foo.c
+  YACC     foo2-foo.c
++ grep 'YACC .*bar\.' stdout
+  YACC     bar.c
+  YACC     bar2-bar.c
++ grep ' CC .*foo\.' stdout
+  CC       foo.o
+  CC       foo2-foo2-foo.o
++ grep ' CC .*bar\.' stdout
+  CC       bar.o
+  CC       bar2-bar2-bar.o
++ grep 'CCLD .*foo1' stdout
+  CCLD     foo1
++ grep 'CCLD .*bar1' stdout
+  CCLD     bar1
++ grep 'CCLD .*foo2' stdout
+  CCLD     foo2
++ grep 'CCLD .*bar2' stdout
+  CCLD     bar2
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ run_make -O
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+  CC       bar.o
+  CCLD     bar1
+  CC       bar2-bar2-bar.o
+  CCLD     bar2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+  CC       foo.o
+  CCLD     foo1
+  CC       foo2-foo2-foo.o
+  CCLD     foo2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -E ' (-c|-o)' stdout
++ /bin/grep -E '(mv|ylwrap) ' stdout
++ grep ' CC .*foo\.' stdout
+  CC       foo.o
+  CC       foo2-foo2-foo.o
++ grep ' CC .*bar\.' stdout
+  CC       bar.o
+  CC       bar2-bar2-bar.o
++ grep 'CCLD .*foo1' stdout
+  CCLD     foo1
++ grep 'CCLD .*bar1' stdout
+  CCLD     bar1
++ grep 'CCLD .*foo2' stdout
+  CCLD     foo2
++ grep 'CCLD .*bar2' stdout
+  CCLD     bar2
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ rm -f foo.c foo2-foo.c sub/bar.c sub/bar2-bar.c
++ run_make -O V=1
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make V=1
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+/bin/sh ../ylwrap bar.y y.tab.c bar.c y.tab.h `echo bar.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar.output -- yacc  
+depbase=`echo bar.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o bar1 bar.o  
+\
+ \
+/bin/sh ../ylwrap `test -f 'bar.y' || echo './'`bar.y y.tab.c bar2-bar.c y.tab.h `echo bar2-bar.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar2-bar.output -- yacc -v 
+bar2-bar.output is unchanged
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar2-bar.o -MD -MP -MF .deps/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo './'`bar2-bar.c
+mv -f .deps/bar2-bar2-bar.Tpo .deps/bar2-bar2-bar.Po
+cc  -g -O2   -o bar2 bar2-bar2-bar.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- yacc  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo1 foo.o  
+\
+ \
+/bin/sh ./ylwrap `test -f 'foo.y' || echo './'`foo.y y.tab.c foo2-foo.c y.tab.h `echo foo2-foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo2-foo.output -- yacc -v 
+foo2-foo.output is unchanged
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo2-foo.o -MD -MP -MF .deps/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo './'`foo2-foo.c
+mv -f .deps/foo2-foo2-foo.Tpo .deps/foo2-foo2-foo.Po
+cc  -g -O2   -o foo2 foo2-foo2-foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep ' -c ' stdout
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.c &&\
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar2-bar.o -MD -MP -MF .deps/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo './'`bar2-bar.c
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo2-foo.o -MD -MP -MF .deps/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo './'`foo2-foo.c
++ grep ' -o ' stdout
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.c &&\
+cc  -g -O2   -o bar1 bar.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar2-bar.o -MD -MP -MF .deps/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo './'`bar2-bar.c
+cc  -g -O2   -o bar2 bar2-bar2-bar.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+cc  -g -O2   -o foo1 foo.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo2-foo.o -MD -MP -MF .deps/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo './'`foo2-foo.c
+cc  -g -O2   -o foo2 foo2-foo2-foo.o  
++ grep 'ylwrap ' stdout
+/bin/sh ../ylwrap bar.y y.tab.c bar.c y.tab.h `echo bar.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar.output -- yacc  
+/bin/sh ../ylwrap `test -f 'bar.y' || echo './'`bar.y y.tab.c bar2-bar.c y.tab.h `echo bar2-bar.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar2-bar.output -- yacc -v 
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- yacc  
+/bin/sh ./ylwrap `test -f 'foo.y' || echo './'`foo.y y.tab.c foo2-foo.c y.tab.h `echo foo2-foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo2-foo.output -- yacc -v 
++ /bin/grep -E '(YACC|CC|CCLD) ' stdout
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+test -z "bar1 bar2" || rm -f bar1 bar2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+test -z "foo1 foo2" || rm -f foo1 foo2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ run_make -O V=1
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make V=1
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+depbase=`echo bar.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.c &&\
+mv -f $depbase.Tpo $depbase.Po
+cc  -g -O2   -o bar1 bar.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar2-bar.o -MD -MP -MF .deps/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo './'`bar2-bar.c
+mv -f .deps/bar2-bar2-bar.Tpo .deps/bar2-bar2-bar.Po
+cc  -g -O2   -o bar2 bar2-bar2-bar.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/silent-yacc.dir'
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo1 foo.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo2-foo.o -MD -MP -MF .deps/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo './'`foo2-foo.c
+mv -f .deps/foo2-foo2-foo.Tpo .deps/foo2-foo2-foo.Po
+cc  -g -O2   -o foo2 foo2-foo2-foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/silent-yacc.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep ' -c ' stdout
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.c &&\
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar2-bar.o -MD -MP -MF .deps/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo './'`bar2-bar.c
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo2-foo.o -MD -MP -MF .deps/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo './'`foo2-foo.c
++ grep ' -o ' stdout
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar.o -MD -MP -MF $depbase.Tpo -c -o bar.o bar.c &&\
+cc  -g -O2   -o bar1 bar.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar2-bar2-bar.o -MD -MP -MF .deps/bar2-bar2-bar.Tpo -c -o bar2-bar2-bar.o `test -f 'bar2-bar.c' || echo './'`bar2-bar.c
+cc  -g -O2   -o bar2 bar2-bar2-bar.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+cc  -g -O2   -o foo1 foo.o  
+cc -DPACKAGE_NAME=\"silent-yacc\" -DPACKAGE_TARNAME=\"silent-yacc\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"silent-yacc\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"silent-yacc\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2-foo2-foo.o -MD -MP -MF .deps/foo2-foo2-foo.Tpo -c -o foo2-foo2-foo.o `test -f 'foo2-foo.c' || echo './'`foo2-foo.c
+cc  -g -O2   -o foo2 foo2-foo2-foo.o  
++ /bin/grep -E '(YACC|CC|CCLD) ' stdout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/silent-yacc.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/silent-yacc.dir
++ set +x
+PASS t/silent-yacc.sh (exit status: 0)

@@ -1,0 +1,181 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/notrans.dir
++ cat
++ cat
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ grep '^install-man1:' Makefile.in
++ grep '\$(man_MANS)'
+install-man1: $(dist_man_MANS) $(man_MANS) $(nodist_man_MANS) $(notrans_dist_man_MANS) $(notrans_man_MANS) $(notrans_nodist_man1_MANS) $(notrans_nodist_man_MANS)
++ grep '^install-man2:' Makefile.in
++ grep '\$(dist_man_MANS)'
+install-man2: $(dist_man_MANS) $(man_MANS) $(nodist_man_MANS) $(notrans_dist_man2_MANS) $(notrans_dist_man_MANS) $(notrans_man_MANS) $(notrans_nodist_man_MANS)
++ grep '^install-man3:' Makefile.in
++ grep '\$(nodist_man_MANS)'
+install-man3: $(dist_man_MANS) $(man_MANS) $(nodist_man_MANS) $(notrans_dist_man_MANS) $(notrans_man3_MANS) $(notrans_man_MANS) $(notrans_nodist_man_MANS)
++ grep '^install-man4:' Makefile.in
++ grep '\$(notrans_man_MANS)'
+install-man4: $(dist_man_MANS) $(man_MANS) $(nodist_man4_MANS) $(nodist_man_MANS) $(notrans_dist_man_MANS) $(notrans_man_MANS) $(notrans_nodist_man_MANS)
++ grep '^install-man5:' Makefile.in
++ grep '\$(notrans_dist_man_MANS)'
+install-man5: $(dist_man5_MANS) $(dist_man_MANS) $(man_MANS) $(nodist_man_MANS) $(notrans_dist_man_MANS) $(notrans_man_MANS) $(notrans_nodist_man_MANS)
++ grep '\$(notrans_nodist_man_MANS)'
++ grep '^install-man6:' Makefile.in
+install-man6: $(dist_man_MANS) $(man_MANS) $(nodist_man_MANS) $(notrans_dist_man_MANS) $(notrans_man_MANS) $(notrans_nodist_man_MANS)
++ grep '^install-man8:' Makefile.in
++ grep '^install-man9:' Makefile.in
+++ pwd
++ cwd=/sources/automake-1.16.1/t/notrans.dir
++ ./configure --program-prefix=gnu- --prefix /sources/automake-1.16.1/t/notrans.dir/inst --mandir /sources/automake-1.16.1/t/notrans.dir/inst/man
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+: >y-bar.man
+: >y-bar2.man
+: >y-foo.man
+: >y-foo2.man
+: >y-baz.man
+: >y-baz2.man
+: >z-bar.man
+: >z-bar2.man
+: >z-foo.man
+: >z-foo2.man
+: >z-baz.man
+: >z-baz2.man
++ make test-install
+make[1]: Entering directory '/sources/automake-1.16.1/t/notrans.dir'
+make[1]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1'
+ /usr/bin/install -c -m 644 'z-baz.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1/z-baz.1'
+ /usr/bin/install -c -m 644 'z-baz2.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1/z-baz2.1'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1'
+ /usr/bin/install -c -m 644 'foo.1' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1/gnu-foo.1'
+ /usr/bin/install -c -m 644 'foo2.1' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1/gnu-foo2.1'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2'
+ /usr/bin/install -c -m 644 'z-bar.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2/z-bar.2'
+ /usr/bin/install -c -m 644 'z-bar2.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2/z-bar2.2'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2'
+ /usr/bin/install -c -m 644 'bar.2' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2/gnu-bar.2'
+ /usr/bin/install -c -m 644 'bar2.2' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2/gnu-bar2.2'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3'
+ /usr/bin/install -c -m 644 'z-foo.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3/z-foo.3'
+ /usr/bin/install -c -m 644 'z-foo2.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3/z-foo2.3'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3'
+ /usr/bin/install -c -m 644 'baz.3' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3/gnu-baz.3'
+ /usr/bin/install -c -m 644 'baz2.3' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3/gnu-baz2.3'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4'
+ /usr/bin/install -c -m 644 x-foo.4 x-foo2.4 '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4'
+ /usr/bin/install -c -m 644 'y-baz.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4/gnu-y-baz.4'
+ /usr/bin/install -c -m 644 'y-baz2.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4/gnu-y-baz2.4'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5'
+ /usr/bin/install -c -m 644 x-bar.5 x-bar2.5 '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5'
+ /usr/bin/install -c -m 644 'y-bar.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5/gnu-y-bar.5'
+ /usr/bin/install -c -m 644 'y-bar2.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5/gnu-y-bar2.5'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man6'
+ /usr/bin/install -c -m 644 x-baz.6 x-baz2.6 '/sources/automake-1.16.1/t/notrans.dir/inst/man/man6'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man6'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man7'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/notrans.dir/inst/man/man7'
+ /usr/bin/install -c -m 644 'y-foo.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man7/gnu-y-foo.7'
+ /usr/bin/install -c -m 644 'y-foo2.man' '/sources/automake-1.16.1/t/notrans.dir/inst/man/man7/gnu-y-foo2.7'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/notrans.dir'
+test -f inst/man/man1/gnu-foo.1
+test -f inst/man/man1/gnu-foo2.1
+test -f inst/man/man2/gnu-bar.2
+test -f inst/man/man2/gnu-bar2.2
+test -f inst/man/man3/gnu-baz.3
+test -f inst/man/man3/gnu-baz2.3
+test -f inst/man/man4/x-foo.4
+test -f inst/man/man4/x-foo2.4
+test -f inst/man/man5/x-bar.5
+test -f inst/man/man5/x-bar2.5
+test -f inst/man/man6/x-baz.6
+test -f inst/man/man6/x-baz2.6
+test -f inst/man/man7/gnu-y-foo.7
+test -f inst/man/man7/gnu-y-foo2.7
+test -f inst/man/man5/gnu-y-bar.5
+test -f inst/man/man5/gnu-y-bar2.5
+test -f inst/man/man4/gnu-y-baz.4
+test -f inst/man/man4/gnu-y-baz2.4
+test -f inst/man/man3/z-foo.3
+test -f inst/man/man3/z-foo2.3
+test -f inst/man/man2/z-bar.2
+test -f inst/man/man2/z-bar2.2
+test -f inst/man/man1/z-baz.1
+test -f inst/man/man1/z-baz2.1
+test ! -d inst/man/man8
+test ! -d inst/man/man9
+++ find inst/man -type f -print
+++ wc -l
++ test 24 -eq 24
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1' && rm -f z-baz.1 z-baz2.1 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man1' && rm -f gnu-foo.1 gnu-foo2.1 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2' && rm -f z-bar.2 z-bar2.2 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man2' && rm -f gnu-bar.2 gnu-bar2.2 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3' && rm -f z-foo.3 z-foo2.3 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man3' && rm -f gnu-baz.3 gnu-baz2.3 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4' && rm -f x-foo.4 x-foo2.4 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man4' && rm -f gnu-y-baz.4 gnu-y-baz2.4 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5' && rm -f x-bar.5 x-bar2.5 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man5' && rm -f gnu-y-bar.5 gnu-y-bar2.5 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man6' && rm -f x-baz.6 x-baz2.6 )
+ ( cd '/sources/automake-1.16.1/t/notrans.dir/inst/man/man7' && rm -f gnu-y-foo.7 gnu-y-foo2.7 )
+++ find inst/man -type f -print
+++ wc -l
++ test 0 -eq 0
++ rm -rf inst
++ make installdirs
+for dir in "/sources/automake-1.16.1/t/notrans.dir/inst/man/man1" "/sources/automake-1.16.1/t/notrans.dir/inst/man/man2" "/sources/automake-1.16.1/t/notrans.dir/inst/man/man3" "/sources/automake-1.16.1/t/notrans.dir/inst/man/man4" "/sources/automake-1.16.1/t/notrans.dir/inst/man/man5" "/sources/automake-1.16.1/t/notrans.dir/inst/man/man6" "/sources/automake-1.16.1/t/notrans.dir/inst/man/man7"; do \
+  test -z "$dir" || /tools/bin/mkdir -p "$dir"; \
+done
++ test -d inst/man/man1
++ test -d inst/man/man2
++ test -d inst/man/man3
++ test -d inst/man/man4
++ test -d inst/man/man5
++ test -d inst/man/man6
++ test -d inst/man/man7
++ test -d inst/man/man8
++ test -d inst/man/man9
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/notrans.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/notrans.dir
++ set +x
+PASS t/notrans.sh (exit status: 0)

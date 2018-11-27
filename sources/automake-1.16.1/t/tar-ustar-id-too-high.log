@@ -1,0 +1,122 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tar-ustar-id-too-high.dir
++ cat
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ mkdir bin
++ cat
++ chmod a+x bin/id
+++ pwd
++ PATH=/sources/automake-1.16.1/t/tar-ustar-id-too-high.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ am_uid=16777216
++ export am_uid
++ am_gid=1000
++ export am_gid
++ run_configure
++ st=0
++ ./configure
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '16777216' is supported by ustar format... no
+checking whether GID '1000' is supported by ustar format... yes
+checking how to create a ustar tar archive... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ test 0 -eq 0
++ checked 'whether UID '\''16777216'\'' is supported by ustar format' no
++ grep '^checking whether UID '\''16777216'\'' is supported by ustar format\.\.\. no$' stdout
+checking whether UID '16777216' is supported by ustar format... no
++ checked 'whether GID '\''1000'\'' is supported by ustar format' yes
++ grep '^checking whether GID '\''1000'\'' is supported by ustar format\.\.\. yes$' stdout
+checking whether GID '1000' is supported by ustar format... yes
++ checked 'how to create a ustar tar archive' none
++ grep '^checking how to create a ustar tar archive\.\.\. none$' stdout
+checking how to create a ustar tar archive... none
++ am_uid=1000
++ export am_uid
++ am_gid=17000000
++ export am_gid
++ run_configure
++ st=0
++ ./configure
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '1000' is supported by ustar format... yes
+checking whether GID '17000000' is supported by ustar format... no
+checking how to create a ustar tar archive... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ test 0 -eq 0
++ checked 'whether UID '\''1000'\'' is supported by ustar format' yes
++ grep '^checking whether UID '\''1000'\'' is supported by ustar format\.\.\. yes$' stdout
+checking whether UID '1000' is supported by ustar format... yes
++ checked 'whether GID '\''17000000'\'' is supported by ustar format' no
++ grep '^checking whether GID '\''17000000'\'' is supported by ustar format\.\.\. no$' stdout
+checking whether GID '17000000' is supported by ustar format... no
++ checked 'how to create a ustar tar archive' none
++ grep '^checking how to create a ustar tar archive\.\.\. none$' stdout
+checking how to create a ustar tar archive... none
++ two_to_twentyone=2097152
++ am_uid=2097152
++ export am_uid
++ am_gid=2097152
++ export am_gid
++ run_configure
++ st=0
++ ./configure
++ cat stdout
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether UID '2097152' is supported by ustar format... no
+checking whether GID '2097152' is supported by ustar format... no
+checking how to create a ustar tar archive... none
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ test 0 -eq 0
++ checked 'whether UID '\''2097152'\'' is supported by ustar format' no
++ grep '^checking whether UID '\''2097152'\'' is supported by ustar format\.\.\. no$' stdout
+checking whether UID '2097152' is supported by ustar format... no
++ checked 'whether GID '\''2097152'\'' is supported by ustar format' no
++ grep '^checking whether GID '\''2097152'\'' is supported by ustar format\.\.\. no$' stdout
+checking whether GID '2097152' is supported by ustar format... no
++ checked 'how to create a ustar tar archive' none
++ grep '^checking how to create a ustar tar archive\.\.\. none$' stdout
+checking how to create a ustar tar archive... none
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tar-ustar-id-too-high.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tar-ustar-id-too-high.dir
++ set +x
+PASS t/tar-ustar-id-too-high.sh (exit status: 0)

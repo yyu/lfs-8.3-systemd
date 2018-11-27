@@ -1,0 +1,1228 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-unplanned.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+ERROR: all.test 2 # UNPLANNED
+ERROR: all.test - too many tests run (expected 1, got 2)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=3 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=2
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=3 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=2
+++ total=3
+++ pass=1
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=2
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1
+ERROR: all.test 2 # UNPLANNED
+ERROR: all.test - too many tests run (expected 1, got 2)
+# TOTAL: 3
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 2
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 2 -eq 2
++ grep '^# TOTAL:  *3$' stdout
+# TOTAL: 3
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *2$' stdout
+# ERROR: 2
++ test 0 -eq 0
++ grep '^ERROR: all\.test - too many tests run (expected 1, got 2)$' stdout
+ERROR: all.test - too many tests run (expected 1, got 2)
++ grep '^ERROR: all\.test 2 # UNPLANNED$' stdout
+ERROR: all.test 2 # UNPLANNED
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 2
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=4 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=2
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=4 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=2
+++ total=4
+++ pass=2
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=2
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test - too many tests run (expected 2, got 3)
+# TOTAL: 4
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 2
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 2 -eq 2
++ grep '^# TOTAL:  *4$' stdout
+# TOTAL: 4
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *2$' stdout
+# ERROR: 2
++ test 0 -eq 0
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ grep '^ERROR: all\.test 3 # UNPLANNED$' stdout
+ERROR: all.test 3 # UNPLANNED
++ cat
++ run_make -O -e FAIL XFAIL_TESTS=all.test check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make XFAIL_TESTS=all.test check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+XFAIL: all.test 1
+SKIP: all.test 2 # SKIP
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test 4 # UNPLANNED
+ERROR: all.test 5 # UNPLANNED
+ERROR: all.test - too many tests run (expected 2, got 5)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  0
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 4
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=6 pass=0 fail=0 xpass=0 xfail=1 skip=1 error=4
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=6 pass=0 fail=0 xpass=0 xfail=1 skip=1 error=4
+++ total=6
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=1
+++ skip=1
+++ error=4
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+XFAIL: all.test 1
+SKIP: all.test 2 # SKIP
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test 4 # UNPLANNED
+ERROR: all.test 5 # UNPLANNED
+ERROR: all.test - too many tests run (expected 2, got 5)
+# TOTAL: 6
+# PASS:  0
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 4
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 4 -eq 4
++ grep '^# TOTAL:  *6$' stdout
+# TOTAL: 6
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *4$' stdout
+# ERROR: 4
++ test 0 -eq 0
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 5)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 5)
++ grep '^ERROR: all\.test 3 # UNPLANNED$' stdout
+ERROR: all.test 3 # UNPLANNED
++ grep '^ERROR: all\.test 4 # UNPLANNED$' stdout
+ERROR: all.test 4 # UNPLANNED
++ grep '^ERROR: all\.test 5 # UNPLANNED$' stdout
+ERROR: all.test 5 # UNPLANNED
++ cat
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+ERROR: all.test 2 # UNPLANNED
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test 4 foo # UNPLANNED
+ERROR: all.test 5 - bar bar # UNPLANNED
+ERROR: all.test 6 # UNPLANNED
+ERROR: all.test 7 # UNPLANNED
+ERROR: all.test 8 foo # UNPLANNED
+ERROR: all.test 9 - bar bar # UNPLANNED
+ERROR: all.test 10 # UNPLANNED
+ERROR: all.test 11 # UNPLANNED
+ERROR: all.test 12 foo # UNPLANNED
+ERROR: all.test 13 - bar bar # UNPLANNED
+ERROR: all.test 14 # UNPLANNED
+ERROR: all.test 15 # UNPLANNED
+ERROR: all.test 16 foo # UNPLANNED
+ERROR: all.test 17 - bar bar # UNPLANNED
+ERROR: all.test 18 # UNPLANNED
+ERROR: all.test 19 # UNPLANNED
+ERROR: all.test 20 foo # UNPLANNED
+ERROR: all.test 21 - bar bar # UNPLANNED
+ERROR: all.test - too many tests run (expected 1, got 21)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 22
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 21
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=22 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=21
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=22 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=21
+++ total=22
+++ pass=1
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=21
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1
+ERROR: all.test 2 # UNPLANNED
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test 4 foo # UNPLANNED
+ERROR: all.test 5 - bar bar # UNPLANNED
+ERROR: all.test 6 # UNPLANNED
+ERROR: all.test 7 # UNPLANNED
+ERROR: all.test 8 foo # UNPLANNED
+ERROR: all.test 9 - bar bar # UNPLANNED
+ERROR: all.test 10 # UNPLANNED
+ERROR: all.test 11 # UNPLANNED
+ERROR: all.test 12 foo # UNPLANNED
+ERROR: all.test 13 - bar bar # UNPLANNED
+ERROR: all.test 14 # UNPLANNED
+ERROR: all.test 15 # UNPLANNED
+ERROR: all.test 16 foo # UNPLANNED
+ERROR: all.test 17 - bar bar # UNPLANNED
+ERROR: all.test 18 # UNPLANNED
+ERROR: all.test 19 # UNPLANNED
+ERROR: all.test 20 foo # UNPLANNED
+ERROR: all.test 21 - bar bar # UNPLANNED
+ERROR: all.test - too many tests run (expected 1, got 21)
+# TOTAL: 22
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 21
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 21 -eq 21
++ grep '^# TOTAL:  *22$' stdout
+# TOTAL: 22
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *21$' stdout
+# ERROR: 21
++ test 0 -eq 0
++ echo 'PASS: all.test 1'
++ sed -e '/^$/d' -e 's/.*/ERROR: all.test & # UNPLANNED/' t
++ echo 'ERROR: all.test - too many tests run (expected 1, got 21)'
++ /bin/grep -F ': all.test' stdout
++ cat exp
+PASS: all.test 1
+ERROR: all.test 2 # UNPLANNED
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test 4 foo # UNPLANNED
+ERROR: all.test 5 - bar bar # UNPLANNED
+ERROR: all.test 6 # UNPLANNED
+ERROR: all.test 7 # UNPLANNED
+ERROR: all.test 8 foo # UNPLANNED
+ERROR: all.test 9 - bar bar # UNPLANNED
+ERROR: all.test 10 # UNPLANNED
+ERROR: all.test 11 # UNPLANNED
+ERROR: all.test 12 foo # UNPLANNED
+ERROR: all.test 13 - bar bar # UNPLANNED
+ERROR: all.test 14 # UNPLANNED
+ERROR: all.test 15 # UNPLANNED
+ERROR: all.test 16 foo # UNPLANNED
+ERROR: all.test 17 - bar bar # UNPLANNED
+ERROR: all.test 18 # UNPLANNED
+ERROR: all.test 19 # UNPLANNED
+ERROR: all.test 20 foo # UNPLANNED
+ERROR: all.test 21 - bar bar # UNPLANNED
+ERROR: all.test - too many tests run (expected 1, got 21)
++ cat got
+PASS: all.test 1
+ERROR: all.test 2 # UNPLANNED
+ERROR: all.test 3 # UNPLANNED
+ERROR: all.test 4 foo # UNPLANNED
+ERROR: all.test 5 - bar bar # UNPLANNED
+ERROR: all.test 6 # UNPLANNED
+ERROR: all.test 7 # UNPLANNED
+ERROR: all.test 8 foo # UNPLANNED
+ERROR: all.test 9 - bar bar # UNPLANNED
+ERROR: all.test 10 # UNPLANNED
+ERROR: all.test 11 # UNPLANNED
+ERROR: all.test 12 foo # UNPLANNED
+ERROR: all.test 13 - bar bar # UNPLANNED
+ERROR: all.test 14 # UNPLANNED
+ERROR: all.test 15 # UNPLANNED
+ERROR: all.test 16 foo # UNPLANNED
+ERROR: all.test 17 - bar bar # UNPLANNED
+ERROR: all.test 18 # UNPLANNED
+ERROR: all.test 19 # UNPLANNED
+ERROR: all.test 20 foo # UNPLANNED
+ERROR: all.test 21 - bar bar # UNPLANNED
+ERROR: all.test - too many tests run (expected 1, got 21)
++ diff exp got
++ for x in 'ok' 'ok 3' 'not ok' 'not ok # TODO' 'ok # TODO' 'ok # SKIP'
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+SKIP: all.test 2 # SKIP
+PASS: all.test 3
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  2
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ /bin/grep -F -c ': all.test' stdout
++ test 4 -eq 4
++ /bin/grep -E '^PASS: all\.test 1($| )' stdout
+PASS: all.test 1
++ /bin/grep -E '^SKIP: all\.test 2($| )' stdout
+SKIP: all.test 2 # SKIP
++ /bin/grep -E ': all\.test 3($| )' stdout
+PASS: all.test 3
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ for x in 'ok' 'ok 3' 'not ok' 'not ok # TODO' 'ok # TODO' 'ok # SKIP'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+SKIP: all.test 2 # SKIP
+PASS: all.test 3
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  2
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ /bin/grep -F -c ': all.test' stdout
++ test 4 -eq 4
++ /bin/grep -E '^PASS: all\.test 1($| )' stdout
+PASS: all.test 1
++ /bin/grep -E '^SKIP: all\.test 2($| )' stdout
+SKIP: all.test 2 # SKIP
++ /bin/grep -E ': all\.test 3($| )' stdout
+PASS: all.test 3
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ for x in 'ok' 'ok 3' 'not ok' 'not ok # TODO' 'ok # TODO' 'ok # SKIP'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+SKIP: all.test 2 # SKIP
+FAIL: all.test 3
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ /bin/grep -F -c ': all.test' stdout
++ test 4 -eq 4
++ /bin/grep -E '^PASS: all\.test 1($| )' stdout
+PASS: all.test 1
++ /bin/grep -E '^SKIP: all\.test 2($| )' stdout
+SKIP: all.test 2 # SKIP
++ /bin/grep -E ': all\.test 3($| )' stdout
+FAIL: all.test 3
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ for x in 'ok' 'ok 3' 'not ok' 'not ok # TODO' 'ok # TODO' 'ok # SKIP'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+SKIP: all.test 2 # SKIP
+XFAIL: all.test 3 # TODO
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ /bin/grep -F -c ': all.test' stdout
++ test 4 -eq 4
++ /bin/grep -E '^PASS: all\.test 1($| )' stdout
+PASS: all.test 1
++ /bin/grep -E '^SKIP: all\.test 2($| )' stdout
+SKIP: all.test 2 # SKIP
++ /bin/grep -E ': all\.test 3($| )' stdout
+XFAIL: all.test 3 # TODO
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ for x in 'ok' 'ok 3' 'not ok' 'not ok # TODO' 'ok # TODO' 'ok # SKIP'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+SKIP: all.test 2 # SKIP
+XPASS: all.test 3 # TODO
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  1
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ /bin/grep -F -c ': all.test' stdout
++ test 4 -eq 4
++ /bin/grep -E '^PASS: all\.test 1($| )' stdout
+PASS: all.test 1
++ /bin/grep -E '^SKIP: all\.test 2($| )' stdout
+SKIP: all.test 2 # SKIP
++ /bin/grep -E ': all\.test 3($| )' stdout
+XPASS: all.test 3 # TODO
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ for x in 'ok' 'ok 3' 'not ok' 'not ok # TODO' 'ok # TODO' 'ok # SKIP'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+PASS: all.test 1
+SKIP: all.test 2 # SKIP
+SKIP: all.test 3 # SKIP
+ERROR: all.test - too many tests run (expected 2, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  1
+# SKIP:  2
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-unplanned.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ /bin/grep -F -c ': all.test' stdout
++ test 4 -eq 4
++ /bin/grep -E '^PASS: all\.test 1($| )' stdout
+PASS: all.test 1
++ /bin/grep -E '^SKIP: all\.test 2($| )' stdout
+SKIP: all.test 2 # SKIP
++ /bin/grep -E ': all\.test 3($| )' stdout
+SKIP: all.test 3 # SKIP
++ grep '^ERROR: all\.test - too many tests run (expected 2, got 3)$' stdout
+ERROR: all.test - too many tests run (expected 2, got 3)
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-unplanned.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-unplanned.dir
++ set +x
+PASS t/tap-unplanned.sh (exit status: 0)

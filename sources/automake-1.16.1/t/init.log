@@ -1,0 +1,207 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/init.dir
++ for ac_init_args in '' '([x])'
++ for am_init_args in '' '([1.10])'
++ rm -rf aclocal.m4 'autom4te*.cache'
++ unindent
++ test x = x
+++ sed -e 's/  *# .*//'
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE
++ cat stderr
++ aclocal-1.16 -Werror
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ /bin/grep -F AC_PACKAGE_VERSION stderr
++ grep 'configure\.ac:.* AC_INIT .*arguments' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ for am_init_args in '' '([1.10])'
++ rm -rf aclocal.m4 autom4te.cache
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE([1.10])
++ cat stderr
++ aclocal-1.16 -Werror
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ /bin/grep -F AC_PACKAGE_VERSION stderr
++ grep 'configure\.ac:.* AC_INIT .*arguments' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ for ac_init_args in '' '([x])'
++ for am_init_args in '' '([1.10])'
++ rm -rf aclocal.m4 autom4te.cache
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([x])
+AM_INIT_AUTOMAKE
++ cat stderr
++ aclocal-1.16 -Werror
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ /bin/grep -F AC_PACKAGE_VERSION stderr
++ grep 'configure\.ac:.* AC_INIT .*arguments' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ for am_init_args in '' '([1.10])'
++ rm -rf aclocal.m4 autom4te.cache
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([x])
+AM_INIT_AUTOMAKE([1.10])
++ cat stderr
++ aclocal-1.16 -Werror
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ /bin/grep -F AC_PACKAGE_VERSION stderr
++ grep 'configure\.ac:.* AC_INIT .*arguments' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/init.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/init.dir
++ set +x
+PASS t/init.sh (exit status: 0)

@@ -1,0 +1,102 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-fail.dir
++ cat
++ cat
++ mkdir sub
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir'
++ sleep 2
++ echo 'if FOO'
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-fail.dir/missing automake-1.16 --foreign sub/Makefile
+sub/Makefile.am:1: error: FOO does not appear in AM_CONDITIONAL
+sub/Makefile.am:1: error: unterminated conditionals: FOO_TRUE
+make[1]: *** [Makefile:196: Makefile.in] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make: *** [Makefile:318: all-recursive] Error 1
++ :
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-fail.dir/missing automake-1.16 --foreign sub/Makefile
+ cd .. && /bin/sh ./config.status sub/Makefile 
+config.status: creating sub/Makefile
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir'
++ mv Makefile.am backup
++ echo 'if FOO'
++ make
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-fail.dir/missing automake-1.16 --foreign Makefile
+Makefile.am:1: error: FOO does not appear in AM_CONDITIONAL
+Makefile.am:1: error: unterminated conditionals: FOO_TRUE
+make: *** [Makefile:280: Makefile.in] Error 1
++ cp backup Makefile.am
++ mv sub/Makefile.am sub/backup
++ make
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-fail.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make[1]: *** No rule to make target 'Makefile.am', needed by 'Makefile.in'.  Stop.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make: *** [Makefile:320: all-recursive] Error 1
++ rm -f sub/Makefile.in
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make[1]: *** No rule to make target 'Makefile.am', needed by 'Makefile.in'.  Stop.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-fail.dir/sub'
+make: *** [Makefile:320: all-recursive] Error 1
++ mv sub/backup sub/Makefile.am
++ rm -f Makefile.am
++ make
+make: *** No rule to make target 'Makefile.am', needed by 'Makefile.in'.  Stop.
++ rm -f Makefile.in
++ make
+make: *** No rule to make target 'Makefile.am', needed by 'Makefile.in'.  Stop.
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-fail.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-fail.dir
++ set +x
+PASS t/remake-fail.sh (exit status: 0)

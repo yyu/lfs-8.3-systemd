@@ -1,0 +1,21 @@
+./backtrace ./backtrace.aarch64.exec ./backtrace.aarch64.core
+0x400000	0x4c0000	/tmp/elfutils/tests/backtrace-child
+0x7f818e1000	0x7f818e2000	linux-vdso.so.1
+TID 24044:
+# 0 0x40c6d0    	raise
+# 1 0x401ee0 - 1	sigusr2
+# 2 0x401fe0 - 1	stdarg
+# 3 0x402038 - 1	backtracegen
+# 4 0x402044 - 1	start
+# 5 0x4038d0 - 1	start_thread
+# 6 0x42d3a0 - 1	__clone
+TID 24043:
+# 0 0x4048bc    	pthread_join
+# 1 0x401c00 - 1	main
+# 2 0x40dc60 - 1	__libc_start_main
+# 3 0x401d34 - 1	$x
+# 4 0x401d34 - 1	$x
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: address out of range
+# 1 0x401c00 - 1	main
+# 3 0x402038 - 1	backtracegen
+PASS run-backtrace-core-aarch64.sh (exit status: 0)

@@ -1,0 +1,144 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/transform2.dir
++ cat
++ cat
++ cat
++ cp p1.c p2.c
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
+++ pwd
++ cwd=/sources/automake-1.16.1/t/transform2.dir
++ ./configure '--program-transform-name=s/[12]//' --prefix /sources/automake-1.16.1/t/transform2.dir/inst --mandir /sources/automake-1.16.1/t/transform2.dir/inst/man
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"transform2\" -DPACKAGE_TARNAME=\"transform2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"transform2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"transform2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT p1.o -MD -MP -MF .deps/p1.Tpo -c -o p1.o p1.c
+mv -f .deps/p1.Tpo .deps/p1.Po
+cc  -g -O2   -o p1 p1.o  
+cc -DPACKAGE_NAME=\"transform2\" -DPACKAGE_TARNAME=\"transform2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"transform2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"transform2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT p2.o -MD -MP -MF .deps/p2.Tpo -c -o p2.o p2.c
+mv -f .deps/p2.Tpo .deps/p2.Po
+cc  -g -O2   -o p2 p2.o  
++ make test-install
+make[1]: Entering directory '/sources/automake-1.16.1/t/transform2.dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform2.dir/inst/bin'
+  /usr/bin/install -c p1 '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./p'
+  /usr/bin/install -c p2 '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./p'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform2.dir/inst/bin'
+ /usr/bin/install -c s1.sh '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./s.sh'
+ /usr/bin/install -c s2.sh '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./s.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1'
+ /usr/bin/install -c -m 644 'm1.1' '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1/m.1'
+ /usr/bin/install -c -m 644 'm2.1' '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1/m.1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/transform2.dir'
+test -f inst/bin/p
+test -f inst/bin/s.sh
+test -f inst/man/man1/m.1
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/transform2.dir/inst/bin' && rm -f p p )
+ ( cd '/sources/automake-1.16.1/t/transform2.dir/inst/bin' && rm -f s.sh s.sh )
+ ( cd '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1' && rm -f m.1 m.1 )
+++ find inst -type f -print
+++ wc -l
++ test 0 -eq 0
++ echo Foo
++ echo Bar
++ chmod a+x foo bar.exe
++ cp foo bar
++ cmp foo bar
++ ./configure '--program-transform-name=s/.*/foo/' --prefix /sources/automake-1.16.1/t/transform2.dir/inst --mandir /sources/automake-1.16.1/t/transform2.dir/inst/man
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+make: Nothing to be done for 'all'.
++ make test-install-foo
+make[1]: Entering directory '/sources/automake-1.16.1/t/transform2.dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform2.dir/inst/bin'
+  /usr/bin/install -c p1 '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./foo'
+  /usr/bin/install -c p2 '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform2.dir/inst/bin'
+ /usr/bin/install -c s1.sh '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./foo'
+ /usr/bin/install -c s2.sh '/sources/automake-1.16.1/t/transform2.dir/inst/bin/./foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1'
+ /usr/bin/install -c -m 644 'm1.1' '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1/foo.1'
+ /usr/bin/install -c -m 644 'm2.1' '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1/foo.1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/transform2.dir'
+test -f inst/bin/foo
+test -f inst/bin/foo
+test -f inst/man/man1/foo.1
+test ! -f inst/bin/p1
+test ! -f inst/bin/p2
+test ! -f inst/bin/s1.sh
+test ! -f inst/bin/s2.sh
+test ! -f inst/man/man/m1.1
+test ! -f inst/man/man/m2.1
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/transform2.dir/inst/bin' && rm -f foo foo )
+ ( cd '/sources/automake-1.16.1/t/transform2.dir/inst/bin' && rm -f foo foo )
+ ( cd '/sources/automake-1.16.1/t/transform2.dir/inst/man/man1' && rm -f foo.1 foo.1 )
+++ find inst -type f -print
+++ wc -l
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/transform2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/transform2.dir
++ set +x
+PASS t/transform2.sh (exit status: 0)

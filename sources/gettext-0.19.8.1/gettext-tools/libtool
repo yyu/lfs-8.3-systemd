@@ -51,16 +51,16 @@ DLLTOOL="false"
 OBJDUMP="objdump"
 
 # Whether or not to build shared libraries.
-build_libtool_libs=no
+build_libtool_libs=yes
 
 # Whether or not to build static libraries.
-build_old_libs=yes
+build_old_libs=no
 
 # What type of objects to build.
 pic_mode=default
 
 # Whether or not to optimize for fast installation.
-fast_install=needless
+fast_install=yes
 
 # Shared archive member basename,for filename based shared library versioning on AIX.
 shared_archive_member_spec=
@@ -100,13 +100,13 @@ EGREP="/bin/grep -E"
 FGREP="/bin/grep -F"
 
 # A BSD- or MS-compatible name lister.
-NM="/tools/bin/nm -B"
+NM="/usr/bin/nm -B"
 
 # Whether we need soft or hard links.
 LN_S="ln -s"
 
 # What is the maximum length of a command?
-max_cmd_len=1572864
+max_cmd_len=6291456
 
 # Object file suffix (normally "o").
 objext=o
@@ -195,7 +195,7 @@ nm_file_list_spec="@"
 lt_sysroot=
 
 # Command to truncate a binary pipe.
-lt_truncate_bin="/tools/bin/dd bs=4096 count=1"
+lt_truncate_bin="/bin/dd bs=4096 count=1"
 
 # The name of the directory that contains temporary libtool files.
 objdir=.libs
@@ -285,10 +285,10 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/mnt/lfs/tools/lib/gcc/x86_64-pc-linux-gnu/8.2.0 /mnt/lfs/tools/lib/gcc /mnt/lfs/tools/x86_64-pc-linux-gnu/lib /mnt/lfs/tools/lib /tools/lib "
+sys_lib_search_path_spec="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0 /usr/lib /lib "
 
 # Detected run-time system search path for libraries.
-sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/local/lib /usr/local/lib/x86_64-linux-gnu /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu "
+sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/local/lib /opt/lib "
 
 # Explicit LT_SYS_LIBRARY_PATH set during ./configure time.
 configure_time_lt_sys_library_path=""
@@ -308,7 +308,7 @@ striplib="strip --strip-unneeded"
 
 
 # The linker used to build libraries.
-LD="/mnt/lfs/tools/x86_64-pc-linux-gnu/bin/ld -m elf_x86_64"
+LD="/usr/bin/ld -m elf_x86_64"
 
 # How to create reloadable object files.
 reload_flag=" -r"
@@ -339,7 +339,7 @@ link_static_flag="-static"
 compiler_c_o="yes"
 
 # Whether or not to add -lc for building shared libraries.
-build_libtool_need_lc=yes
+build_libtool_need_lc=no
 
 # Whether or not to disallow shared libs when runtime libs are static.
 allow_libtool_libs_with_static_runtimes=no
@@ -11813,7 +11813,7 @@ compiler_lib_search_path=""
 # ### BEGIN LIBTOOL TAG CONFIG: CXX
 
 # The linker used to build libraries.
-LD="/mnt/lfs/tools/x86_64-pc-linux-gnu/bin/ld -m elf_x86_64"
+LD="/usr/bin/ld -m elf_x86_64"
 
 # How to create reloadable object files.
 reload_flag=" -r"
@@ -11944,17 +11944,17 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs="/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0 /mnt/lfs/tools/bin/../lib/gcc /mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../x86_64-pc-linux-gnu/lib/../lib /mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib /tools/lib/../lib /mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../x86_64-pc-linux-gnu/lib /mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../.. /tools/lib"
+compiler_lib_search_dirs="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0 /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib /lib/../lib /usr/lib/../lib /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../.."
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
-predep_objects="/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crti.o /mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtbeginS.o"
-postdep_objects="/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtendS.o /mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crtn.o"
+predep_objects="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtbeginS.o"
+postdep_objects="/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crtn.o"
 predeps=""
 postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0 -L/mnt/lfs/tools/bin/../lib/gcc -L/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../x86_64-pc-linux-gnu/lib/../lib -L/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib -L/tools/lib/../lib -L/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../x86_64-pc-linux-gnu/lib -L/mnt/lfs/tools/bin/../lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../.. -L/tools/lib"
+compiler_lib_search_path="-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../.."
 
 # ### END LIBTOOL TAG CONFIG: CXX

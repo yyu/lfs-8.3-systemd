@@ -1,0 +1,710 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/c-demo.dir
++ cat
++ cross_compiling
++ test x '!=' x
++ run_tests=yes
++ export run_tests
++ mkdir build-aux lib src tests
++ cat
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:6: installing 'build-aux/ar-lib'
+configure.ac:5: installing 'build-aux/compile'
+configure.ac:4: installing 'build-aux/install-sh'
+configure.ac:4: installing 'build-aux/missing'
+lib/Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
++ test -f build-aux/depcomp
++ test -f build-aux/compile
++ ./configure --enable-dependency-tracking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating lib/Makefile
+config.status: creating tests/Makefile
+config.status: executing depfiles commands
++ cat
++ cat
++ cat
++ cat
++ make
+Making all in lib
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+sed -n 's/.*foo *(.*/&;/p' "./foo.c" >foo.h-t
+test 1 -eq `wc -l <foo.h-t`
+chmod a-w foo.h-t && mv -f foo.h-t foo.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I.     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f lib-convenience.a
+ar cru lib-convenience.a foo.o bar.o   
+ranlib lib-convenience.a
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+Making all in src
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I.  -I../lib -I../lib   -g -O2 -MT zardoz-main.o -MD -MP -MF .deps/zardoz-main.Tpo -c -o zardoz-main.o `test -f 'main.c' || echo './'`main.c
+main.c: In function 'main':
+main.c:5:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf ("%s, %s!\n", foo (), bar ());
+   ^~~~~~
+main.c:5:3: warning: incompatible implicit declaration of built-in function 'printf'
+main.c:5:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+main.c:3:1:
++#include <stdio.h>
+ int main (void)
+main.c:5:3:
+   printf ("%s, %s!\n", foo (), bar ());
+   ^~~~~~
+mv -f .deps/zardoz-main.Tpo .deps/zardoz-main.Po
+cc  -g -O2   -o zardoz zardoz-main.o ../lib/lib-convenience.a 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+Making all in tests
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
++ ls -l . src lib
+.:
+total 316
+-rw-r--r-- 1 root root  24770 Nov 27 06:39 Makefile
+-rw-r--r-- 1 root root    197 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root  24218 Nov 27 06:39 Makefile.in
+-rw-r--r-- 1 root root  43878 Nov 27 06:39 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:39 autom4te.cache
+drwxr-xr-x 2 root root   4096 Nov 27 06:39 build-aux
+-rw-r--r-- 1 root root   9758 Nov 27 06:39 config.log
+-rwxr-xr-x 1 root root  29834 Nov 27 06:39 config.status
+-rwxr-xr-x 1 root root 149766 Nov 27 06:39 configure
+-rw-r--r-- 1 root root    315 Nov 27 06:39 configure.ac
+drwxr-xr-x 3 root root   4096 Nov 27 06:39 lib
+drwxr-xr-x 3 root root   4096 Nov 27 06:39 src
+drwxr-xr-x 2 root root   4096 Nov 27 06:39 tests
+
+lib:
+total 76
+-rw-r--r-- 1 root root 17575 Nov 27 06:39 Makefile
+-rw-r--r-- 1 root root   768 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root 17383 Nov 27 06:39 Makefile.in
+-rw-r--r-- 1 root root    61 Nov 27 06:39 bar.c
+-rw-r--r-- 1 root root    45 Nov 27 06:39 bar.h
+-rw-r--r-- 1 root root  2720 Nov 27 06:39 bar.o
+-rw-r--r-- 1 root root   127 Nov 27 06:39 foo.c
+-r--r--r-- 1 root root    27 Nov 27 06:39 foo.h
+-rw-r--r-- 1 root root  2808 Nov 27 06:39 foo.o
+-rw-r--r-- 1 root root  5736 Nov 27 06:39 lib-convenience.a
+
+src:
+total 76
+-rw-r--r-- 1 root root 19188 Nov 27 06:39 Makefile
+-rw-r--r-- 1 root root   159 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root 19280 Nov 27 06:39 Makefile.in
+-rw-r--r-- 1 root root   106 Nov 27 06:39 main.c
+-rwxr-xr-x 1 root root 21912 Nov 27 06:39 zardoz
+-rw-r--r-- 1 root root  3712 Nov 27 06:39 zardoz-main.o
++ make test-objs
+test -f src/zardoz-main.o
+test -f lib/foo.o
+test -f lib/bar.o
++ VERBOSE=x
++ make check
+Making check in lib
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make  check-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+test -f ../tests/test.test
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+Making check in src
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+Making check in tests
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+PASS: test.test
+============================================================================
+Testsuite summary for GNU C Demo 22.3.2
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+test -f src/zardoz-main.o
+test -f lib/foo.o
+test -f lib/bar.o
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
++ cross_compiling
++ test x '!=' x
++ test -f tests/test-suite.log
++ grep 'Foo, Bar!' tests/test.log
+Foo, Bar!
++ test 'Foo, Bar!' = 'Foo, Bar!'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+if test -d "c-demo-22.3.2"; then find "c-demo-22.3.2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c-demo-22.3.2" || { sleep 5 && rm -rf "c-demo-22.3.2"; }; else :; fi
+test -d "c-demo-22.3.2" || mkdir "c-demo-22.3.2"
+ (cd lib && make  top_distdir=../c-demo-22.3.2 distdir=../c-demo-22.3.2/lib \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+ (cd src && make  top_distdir=../c-demo-22.3.2 distdir=../c-demo-22.3.2/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+ (cd tests && make  top_distdir=../c-demo-22.3.2 distdir=../c-demo-22.3.2/tests \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+test -n "" \
+|| find "c-demo-22.3.2" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/c-demo.dir/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "c-demo-22.3.2"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
+tardir=c-demo-22.3.2 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >c-demo-22.3.2.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
+if test -d "c-demo-22.3.2"; then find "c-demo-22.3.2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c-demo-22.3.2" || { sleep 5 && rm -rf "c-demo-22.3.2"; }; else :; fi
+case 'c-demo-22.3.2.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc c-demo-22.3.2.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc c-demo-22.3.2.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc c-demo-22.3.2.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc c-demo-22.3.2.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c c-demo-22.3.2.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc c-demo-22.3.2.shar.gz | unshar ;;\
+*.zip*) \
+  unzip c-demo-22.3.2.zip ;;\
+esac
+chmod -R a-w c-demo-22.3.2
+chmod u+w c-demo-22.3.2
+mkdir c-demo-22.3.2/_build c-demo-22.3.2/_build/sub c-demo-22.3.2/_inst
+chmod a-w c-demo-22.3.2
+test -d c-demo-22.3.2/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd c-demo-22.3.2/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd c-demo-22.3.2/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf c-demo-22.3.2.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating lib/Makefile
+config.status: creating tests/Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making all in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+sed -n 's/.*foo *(.*/&;/p' "../../../lib/foo.c" >foo.h-t
+test 1 -eq `wc -l <foo.h-t`
+chmod a-w foo.h-t && mv -f foo.h-t foo.h
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I. -I../../../lib     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o ../../../lib/foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I. -I../../../lib     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o ../../../lib/bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f lib-convenience.a
+ar cru lib-convenience.a foo.o bar.o   
+ranlib lib-convenience.a
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making all in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I. -I../../../src  -I../lib -I../../../lib   -g -O2 -MT zardoz-main.o -MD -MP -MF .deps/zardoz-main.Tpo -c -o zardoz-main.o `test -f 'main.c' || echo '../../../src/'`main.c
+../../../src/main.c: In function 'main':
+../../../src/main.c:5:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf ("%s, %s!\n", foo (), bar ());
+   ^~~~~~
+../../../src/main.c:5:3: warning: incompatible implicit declaration of built-in function 'printf'
+../../../src/main.c:5:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../../../src/main.c:3:1:
++#include <stdio.h>
+ int main (void)
+../../../src/main.c:5:3:
+   printf ("%s, %s!\n", foo (), bar ());
+   ^~~~~~
+mv -f .deps/zardoz-main.Tpo .deps/zardoz-main.Po
+cc  -g -O2   -o zardoz zardoz-main.o ../lib/lib-convenience.a 
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making all in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making dvi in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making dvi in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making dvi in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making check in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make  check-local
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+test -f ../../../tests/test.test
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making check in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making check in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make  check-TESTS
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+PASS: test.test
+============================================================================
+Testsuite summary for GNU C Demo 22.3.2
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+test -f src/zardoz-main.o
+test -f lib/foo.o
+test -f lib/bar.o
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making install in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making install in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_inst/bin'
+  /usr/bin/install -c zardoz '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making install in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making installcheck in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making installcheck in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making installcheck in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making uninstall in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making uninstall in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+ ( cd '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making uninstall in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making install in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making install in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+ /tools/bin/mkdir -p '/tmp/am-dc-16036//sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_inst/bin'
+  /usr/bin/install -c zardoz '/tmp/am-dc-16036//sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making install in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making uninstall in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making uninstall in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+ ( cd '/tmp/am-dc-16036//sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making uninstall in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+if test -d "c-demo-22.3.2"; then find "c-demo-22.3.2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c-demo-22.3.2" || { sleep 5 && rm -rf "c-demo-22.3.2"; }; else :; fi
+test -d "c-demo-22.3.2" || mkdir "c-demo-22.3.2"
+ (cd lib && make  top_distdir=../c-demo-22.3.2 distdir=../c-demo-22.3.2/lib \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+ (cd src && make  top_distdir=../c-demo-22.3.2 distdir=../c-demo-22.3.2/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+ (cd tests && make  top_distdir=../c-demo-22.3.2 distdir=../c-demo-22.3.2/tests \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+test -n "" \
+|| find "c-demo-22.3.2" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "c-demo-22.3.2"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+tardir=c-demo-22.3.2 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >c-demo-22.3.2.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+if test -d "c-demo-22.3.2"; then find "c-demo-22.3.2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c-demo-22.3.2" || { sleep 5 && rm -rf "c-demo-22.3.2"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+Making distclean in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+test -z "foo.h" || rm -f foo.h
+test -z "lib-convenience.a" || rm -f lib-convenience.a
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../lib" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/bar.Po
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/lib'
+Making distclean in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../src" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/zardoz-main.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/src'
+Making distclean in tests
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+test -z "test.log" || rm -f test.log
+test -z "test.trs" || rm -f test.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "../../../tests" || test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub/tests'
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/c-demo-22.3.2/_build/sub'
+if test -d "c-demo-22.3.2"; then find "c-demo-22.3.2" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c-demo-22.3.2" || { sleep 5 && rm -rf "c-demo-22.3.2"; }; else :; fi
+===============================================
+c-demo-22.3.2 archives ready for distribution: 
+c-demo-22.3.2.tar.gz
+===============================================
++ cross_compiling
++ test x '!=' x
++ grep '[ 	]depmode=none' Makefile
++ sed 's/^\(#define BARBAR \).*/\1 "Zap"/' lib/bar.h
++ mv -f t lib/bar.h
++ make
+Making all in lib
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I.     -g -O2 -MT bar.o -MD -MP -MF .deps/bar.Tpo -c -o bar.o bar.c
+mv -f .deps/bar.Tpo .deps/bar.Po
+rm -f lib-convenience.a
+ar cru lib-convenience.a foo.o bar.o   
+ranlib lib-convenience.a
+make[2]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+Making all in src
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+cc -DPACKAGE_NAME=\"GNU\ C\ Demo\" -DPACKAGE_TARNAME=\"c-demo\" -DPACKAGE_VERSION=\"22.3.2\" -DPACKAGE_STRING=\"GNU\ C\ Demo\ 22.3.2\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c-demo/\" -DPACKAGE=\"c-demo\" -DVERSION=\"22.3.2\" -I.  -I../lib -I../lib   -g -O2 -MT zardoz-main.o -MD -MP -MF .deps/zardoz-main.Tpo -c -o zardoz-main.o `test -f 'main.c' || echo './'`main.c
+main.c: In function 'main':
+main.c:5:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   printf ("%s, %s!\n", foo (), bar ());
+   ^~~~~~
+main.c:5:3: warning: incompatible implicit declaration of built-in function 'printf'
+main.c:5:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+main.c:3:1:
++#include <stdio.h>
+ int main (void)
+main.c:5:3:
+   printf ("%s, %s!\n", foo (), bar ());
+   ^~~~~~
+mv -f .deps/zardoz-main.Tpo .deps/zardoz-main.Po
+cc  -g -O2   -o zardoz zardoz-main.o ../lib/lib-convenience.a 
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+Making all in tests
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
++ ./src/zardoz
+Foo, Zap!
+++ ./src/zardoz
++ test 'Foo, Zap!' = 'Foo, Zap!'
++ make clean
+Making clean in lib
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+test -z "foo.h" || rm -f foo.h
+test -z "lib-convenience.a" || rm -f lib-convenience.a
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/lib'
+Making clean in src
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+test -z "zardoz" || rm -f zardoz
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/src'
+Making clean in tests
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+test -z "test.log" || rm -f test.log
+test -z "test.trs" || rm -f test.trs
+test -z "test-suite.log" || rm -f test-suite.log
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir/tests'
+make[1]: Entering directory '/sources/automake-1.16.1/t/c-demo.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/c-demo.dir'
++ test '!' -e lib/foo.h
++ test -f lib/bar.h
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/c-demo.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/c-demo.dir
++ set +x
+PASS t/c-demo.sh (exit status: 0)

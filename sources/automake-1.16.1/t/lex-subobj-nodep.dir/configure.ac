@@ -1,0 +1,6 @@
+AC_INIT([lex-subobj-nodep], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+AC_PROG_CC
+AC_PROG_LEX
+AC_OUTPUT

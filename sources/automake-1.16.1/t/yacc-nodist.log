@@ -1,0 +1,742 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-nodist.dir
++ cat
++ cat
++ mkdir sub1 sub2
++ cat
++ cat sub1/Makefile.am -
++ cat
++ cat - sub1/main.c
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: executing depfiles commands
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+main.c: In function 'main':
+main.c:3:10: warning: implicit declaration of function 'yyparse' [-Wimplicit-function-declaration]
+   return yyparse ();
+          ^~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+rm -f parse.y parse.y-t
+:; { : \
+  && echo "%{" \
+  && echo "int yylex () { return 0; }" \
+  && echo "void yyerror (char *s) {}" \
+  && echo "%}" \
+  && echo "%%" \
+  && echo "maude : 'm' 'a' 'u' 'd' 'e' {}"; \
+} > parse.y-t
+chmod a-w parse.y-t && mv -f parse.y-t parse.y
+\
+/bin/sh ../ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc  -g -O2   -o prog main.o parse.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+rm -f parse.y parse.y-t
+:; { : \
+  && echo "%{" \
+  && echo "int yylex () { return 0; }" \
+  && echo "void yyerror (char *s) {}" \
+  && echo "%}" \
+  && echo "%%" \
+  && echo "maude : 'm' 'a' 'u' 'd' 'e' {}"; \
+} > parse.y-t
+chmod a-w parse.y-t && mv -f parse.y-t parse.y
+\
+/bin/sh ../ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc -d 
+updating parse.h
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc  -g -O2   -o prog main.o parse.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
++ make test-build
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+ls -l . sub1 sub2
+.:
+total 356
+-rw-r--r-- 1 root root  24785 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root    507 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root  24313 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:51 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:51 compile
+-rw-r--r-- 1 root root   9126 Nov 27 06:51 config.log
+-rwxr-xr-x 1 root root  29381 Nov 27 06:51 config.status
+-rwxr-xr-x 1 root root 142831 Nov 27 06:51 configure
+-rw-r--r-- 1 root root    156 Nov 27 06:51 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:51 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:51 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:51 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:51 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:51 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:51 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 140
+-rw-r--r-- 1 root root 18806 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root   370 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root 18700 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root    37 Nov 27 06:51 main.c
+-rw-r--r-- 1 root root  3176 Nov 27 06:51 main.o
+-rw-r--r-- 1 root root 42359 Nov 27 06:51 parse.c
+-rw-r--r-- 1 root root 11600 Nov 27 06:51 parse.o
+-r--r--r-- 1 root root    93 Nov 27 06:51 parse.y
+-rwxr-xr-x 1 root root 28200 Nov 27 06:51 prog
+
+sub2:
+total 144
+-rw-r--r-- 1 root root 19195 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root   409 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root 19089 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root    56 Nov 27 06:51 main.c
+-rw-r--r-- 1 root root  3240 Nov 27 06:51 main.o
+-rw-r--r-- 1 root root 42551 Nov 27 06:51 parse.c
+-rw-r--r-- 1 root root  1935 Nov 27 06:51 parse.h
+-rw-r--r-- 1 root root 11600 Nov 27 06:51 parse.o
+-r--r--r-- 1 root root    93 Nov 27 06:51 parse.y
+-rwxr-xr-x 1 root root 28216 Nov 27 06:51 prog
+test -f sub1/parse.y
+test -f sub1/parse.c
+test -f sub2/parse.y
+test -f sub2/parse.c
+test -f sub2/parse.h
++ make test-dist
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+test -d "yacc-nodist-1.0" || mkdir "yacc-nodist-1.0"
+ (cd sub1 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+ (cd sub2 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+test -n "" \
+|| find "yacc-nodist-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-nodist.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-nodist-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+ls -l yacc-nodist-1.0 yacc-nodist-1.0/sub1 yacc-nodist-1.0/sub2
+yacc-nodist-1.0:
+total 288
+-rw-r--r-- 1 root root    507 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root  24313 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:51 aclocal.m4
+-rwxr-xr-x 1 root root   7383 Nov 27 06:51 compile
+-rwxr-xr-x 1 root root 142831 Nov 27 06:51 configure
+-rw-r--r-- 1 root root    156 Nov 27 06:51 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:51 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:51 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:51 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 sub1
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 sub2
+-rwxr-xr-x 1 1000  998   6860 Mar  8  2018 ylwrap
+
+yacc-nodist-1.0/sub1:
+total 28
+-rw-r--r-- 1 root root   370 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root 18700 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root    37 Nov 27 06:51 main.c
+
+yacc-nodist-1.0/sub2:
+total 28
+-rw-r--r-- 1 root root   409 Nov 27 06:51 Makefile.am
+-rw-r--r-- 1 root root 19089 Nov 27 06:51 Makefile.in
+-rw-r--r-- 1 root root    56 Nov 27 06:51 main.c
+test ! -r yacc-nodist-1.0/sub1/parse.y
+test ! -r yacc-nodist-1.0/sub1/parse.c
+test ! -r yacc-nodist-1.0/sub1/parse.h
+test ! -r yacc-nodist-1.0/sub2/parse.y
+test ! -r yacc-nodist-1.0/sub2/parse.c
+test ! -r yacc-nodist-1.0/sub2/parse.h
++ yl_distcheck
++ useless_vpath_rebuild
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ am__useless_vpath_rebuild=no
++ return 1
++ run_make distcheck
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make distcheck
++ set +x
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+test -d "yacc-nodist-1.0" || mkdir "yacc-nodist-1.0"
+ (cd sub1 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub1'
+ (cd sub2 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/sub2'
+test -n "" \
+|| find "yacc-nodist-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-nodist.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-nodist-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+tardir=yacc-nodist-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-nodist-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+case 'yacc-nodist-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc yacc-nodist-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc yacc-nodist-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc yacc-nodist-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc yacc-nodist-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c yacc-nodist-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc yacc-nodist-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip yacc-nodist-1.0.zip ;;\
+esac
+chmod -R a-w yacc-nodist-1.0
+chmod u+w yacc-nodist-1.0
+mkdir yacc-nodist-1.0/_build yacc-nodist-1.0/_build/sub yacc-nodist-1.0/_inst
+chmod a-w yacc-nodist-1.0
+test -d yacc-nodist-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd yacc-nodist-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd yacc-nodist-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf yacc-nodist-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making all in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I. -I../../../sub1     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../../sub1/main.c
+../../../sub1/main.c: In function 'main':
+../../../sub1/main.c:3:10: warning: implicit declaration of function 'yyparse' [-Wimplicit-function-declaration]
+   return yyparse ();
+          ^~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+rm -f parse.y parse.y-t
+:; { : \
+  && echo "%{" \
+  && echo "int yylex () { return 0; }" \
+  && echo "void yyerror (char *s) {}" \
+  && echo "%}" \
+  && echo "%%" \
+  && echo "maude : 'm' 'a' 'u' 'd' 'e' {}"; \
+} > parse.y-t
+chmod a-w parse.y-t && mv -f parse.y-t parse.y
+\
+/bin/sh ../../../ylwrap `test -f 'parse.y' || echo '../../../sub1/'`parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I. -I../../../sub1     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc  -g -O2   -o prog main.o parse.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making all in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+rm -f parse.y parse.y-t
+:; { : \
+  && echo "%{" \
+  && echo "int yylex () { return 0; }" \
+  && echo "void yyerror (char *s) {}" \
+  && echo "%}" \
+  && echo "%%" \
+  && echo "maude : 'm' 'a' 'u' 'd' 'e' {}"; \
+} > parse.y-t
+chmod a-w parse.y-t && mv -f parse.y-t parse.y
+\
+/bin/sh ../../../ylwrap `test -f 'parse.y' || echo '../../../sub2/'`parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc -d 
+updating parse.h
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I. -I../../../sub2     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../../sub2/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc -DPACKAGE_NAME=\"yacc-nodist\" -DPACKAGE_TARNAME=\"yacc-nodist\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-nodist\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-nodist\" -DVERSION=\"1.0\" -I. -I../../../sub2     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc  -g -O2   -o prog main.o parse.o  
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making dvi in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making dvi in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making check in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making check in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making all in sub1
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making all in sub2
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make  all-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+ls -l . sub1 sub2
+.:
+total 80
+-rw-r--r-- 1 root root 25076 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root  9997 Nov 27 06:51 config.log
+-rwxr-xr-x 1 root root 29596 Nov 27 06:51 config.status
+drwxr-xr-x 3 root root  4096 Nov 27 06:51 sub1
+drwxr-xr-x 3 root root  4096 Nov 27 06:51 sub2
+
+sub1:
+total 112
+-rw-r--r-- 1 root root 19127 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root  3232 Nov 27 06:51 main.o
+-rw-r--r-- 1 root root 42359 Nov 27 06:51 parse.c
+-rw-r--r-- 1 root root 11608 Nov 27 06:51 parse.o
+-r--r--r-- 1 root root    93 Nov 27 06:51 parse.y
+-rwxr-xr-x 1 root root 28248 Nov 27 06:51 prog
+
+sub2:
+total 116
+-rw-r--r-- 1 root root 19516 Nov 27 06:51 Makefile
+-rw-r--r-- 1 root root  3296 Nov 27 06:51 main.o
+-rw-r--r-- 1 root root 42551 Nov 27 06:51 parse.c
+-rw-r--r-- 1 root root  1935 Nov 27 06:51 parse.h
+-rw-r--r-- 1 root root 11608 Nov 27 06:51 parse.o
+-r--r--r-- 1 root root    93 Nov 27 06:51 parse.y
+-rwxr-xr-x 1 root root 28280 Nov 27 06:51 prog
+test -f sub1/parse.y
+test -f sub1/parse.c
+test -f sub2/parse.y
+test -f sub2/parse.c
+test -f sub2/parse.h
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+test -d "yacc-nodist-1.0" || mkdir "yacc-nodist-1.0"
+ (cd sub1 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make  distdir-am
+make[6]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+ (cd sub2 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make  distdir-am
+make[6]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[6]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+test -n "" \
+|| find "yacc-nodist-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-nodist-1.0"
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+ls -l yacc-nodist-1.0 yacc-nodist-1.0/sub1 yacc-nodist-1.0/sub2
+yacc-nodist-1.0:
+total 288
+-r--r--r-- 1 root root    507 Nov 27 06:51 Makefile.am
+-r--r--r-- 1 root root  24313 Nov 27 06:51 Makefile.in
+-r--r--r-- 1 root root  41888 Nov 27 06:51 aclocal.m4
+-r-xr-xr-x 1 root root   7383 Nov 27 06:51 compile
+-r-xr-xr-x 1 root root 142831 Nov 27 06:51 configure
+-r--r--r-- 1 root root    156 Nov 27 06:51 configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:51 depcomp
+-r-xr-xr-x 1 root root  15368 Nov 27 06:51 install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:51 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 sub1
+drwxr-xr-x 2 root root   4096 Nov 27 06:51 sub2
+-r-xr-xr-x 1 1000  998   6860 Mar  8  2018 ylwrap
+
+yacc-nodist-1.0/sub1:
+total 28
+-r--r--r-- 1 root root   370 Nov 27 06:51 Makefile.am
+-r--r--r-- 1 root root 18700 Nov 27 06:51 Makefile.in
+-r--r--r-- 1 root root    37 Nov 27 06:51 main.c
+
+yacc-nodist-1.0/sub2:
+total 28
+-r--r--r-- 1 root root   409 Nov 27 06:51 Makefile.am
+-r--r--r-- 1 root root 19089 Nov 27 06:51 Makefile.in
+-r--r--r-- 1 root root    56 Nov 27 06:51 main.c
+test ! -r yacc-nodist-1.0/sub1/parse.y
+test ! -r yacc-nodist-1.0/sub1/parse.c
+test ! -r yacc-nodist-1.0/sub1/parse.h
+test ! -r yacc-nodist-1.0/sub2/parse.y
+test ! -r yacc-nodist-1.0/sub2/parse.c
+test ! -r yacc-nodist-1.0/sub2/parse.h
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making install in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+  /usr/bin/install -c prog '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making install in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+  /usr/bin/install -c prog '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making installcheck in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making installcheck in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making uninstall in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+ ( cd '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin' && rm -f prog )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making uninstall in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+ ( cd '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin' && rm -f prog )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making install in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+ /tools/bin/mkdir -p '/tmp/am-dc-30488//sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+  /usr/bin/install -c prog '/tmp/am-dc-30488//sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making install in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+ /tools/bin/mkdir -p '/tmp/am-dc-30488//sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+  /usr/bin/install -c prog '/tmp/am-dc-30488//sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making uninstall in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+ ( cd '/tmp/am-dc-30488//sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin' && rm -f prog )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making uninstall in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+ ( cd '/tmp/am-dc-30488//sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_inst/bin' && rm -f prog )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+test -d "yacc-nodist-1.0" || mkdir "yacc-nodist-1.0"
+ (cd sub1 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+ (cd sub2 && make  top_distdir=../yacc-nodist-1.0 distdir=../yacc-nodist-1.0/sub2 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+test -n "" \
+|| find "yacc-nodist-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-nodist-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+tardir=yacc-nodist-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >yacc-nodist-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+Making distclean in sub1
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+test -z "prog" || rm -f prog
+rm -f parse.c
+test -z "parse.y" || rm -f parse.y
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../sub1" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub1'
+Making distclean in sub2
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+test -z "prog" || rm -f prog
+rm -f parse.c
+rm -f parse.h
+test -z "parse.y" || rm -f parse.y
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../sub2" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f ./.deps/parse.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub/sub2'
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-nodist.dir/yacc-nodist-1.0/_build/sub'
+if test -d "yacc-nodist-1.0"; then find "yacc-nodist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-nodist-1.0" || { sleep 5 && rm -rf "yacc-nodist-1.0"; }; else :; fi
+=================================================
+yacc-nodist-1.0 archives ready for distribution: 
+yacc-nodist-1.0.tar.gz
+=================================================
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-nodist.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-nodist.dir
++ set +x
+PASS t/yacc-nodist.sh (exit status: 0)

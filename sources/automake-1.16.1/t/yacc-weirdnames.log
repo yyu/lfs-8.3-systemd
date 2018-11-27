@@ -1,0 +1,123 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-weirdnames.dir
++ cat
++ cat
++ outputs=' parse.y.c      bar-parse.s.f..c   bar-parse.s.f..h
+          parse..5.c++   bar2-parse.yxx.cc  bar2-parse.yxx.hh '
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ /bin/grep -E '(\.[ch]|parse)' Makefile.in
+am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+am_bar_OBJECTS = bar-parse.s.f..$(OBJEXT)
+am_bar2_OBJECTS = bar2-parse.yxx.$(OBJEXT)
+am_foo_OBJECTS = parse.y.$(OBJEXT)
+am_foo2_OBJECTS = parse..5.$(OBJEXT)
+am__depfiles_remade = ./$(DEPDIR)/bar-parse.s.f..Po \
+	./$(DEPDIR)/bar2-parse.yxx.Po ./$(DEPDIR)/parse..5.Po \
+	./$(DEPDIR)/parse.y.Po
+am__DIST_COMMON = $(srcdir)/Makefile.in bar-parse.s.f..c \
+	bar-parse.s.f..h bar2-parse.yxx.cc bar2-parse.yxx.hh compile \
+	depcomp install-sh missing parse..5.c++ parse.y.c ylwrap
+foo_SOURCES = parse.y.y
+bar_SOURCES = parse.s.f..y
+foo2_SOURCES = parse..5.y++
+bar2_SOURCES = parse.yxx.yy
+.SUFFIXES: .c .c++ .cc .o .obj .y .y++ .yy
+bar-parse.s.f..h: bar-parse.s.f..c
+	@if test ! -f $@; then rm -f bar-parse.s.f..c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) bar-parse.s.f..c; else :; fi
+bar2-parse.yxx.hh: bar2-parse.yxx.cc
+	@if test ! -f $@; then rm -f bar2-parse.yxx.cc; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) bar2-parse.yxx.cc; else :; fi
+	-rm -f *.tab.c
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bar-parse.s.f..Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bar2-parse.yxx.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parse..5.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parse.y.Po@am__quote@ # am--include-marker
+.c.o:
+.c.obj:
+.c++.o:
+.c++.obj:
+.cc.o:
+.cc.obj:
+.y.c:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+bar-parse.s.f..c: parse.s.f..y
+	$(SHELL) $(YLWRAP) `test -f 'parse.s.f..y' || echo '$(srcdir)/'`parse.s.f..y y.tab.c bar-parse.s.f..c y.tab.h `echo bar-parse.s.f..c | $(am__yacc_c2h)` y.output bar-parse.s.f..output -- $(YACC) $(bar_YFLAGS) $(YFLAGS)
+.y++.c++:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+bar2-parse.yxx.cc: parse.yxx.yy
+	$(SHELL) $(YLWRAP) `test -f 'parse.yxx.yy' || echo '$(srcdir)/'`parse.yxx.yy y.tab.c bar2-parse.yxx.cc y.tab.h `echo bar2-parse.yxx.cc | $(am__yacc_c2h)` y.output bar2-parse.yxx.output -- $(YACC) $(bar2_YFLAGS) $(YFLAGS)
+.yy.cc:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+	-rm -f bar-parse.s.f..c
+	-rm -f bar-parse.s.f..h
+	-rm -f bar2-parse.yxx.cc
+	-rm -f bar2-parse.yxx.hh
+	-rm -f parse..5.c++
+	-rm -f parse.y.c
+		-rm -f ./$(DEPDIR)/bar-parse.s.f..Po
+	-rm -f ./$(DEPDIR)/bar2-parse.yxx.Po
+	-rm -f ./$(DEPDIR)/parse..5.Po
+	-rm -f ./$(DEPDIR)/parse.y.Po
+	-rm -rf $(top_srcdir)/autom4te.cache
+		-rm -f ./$(DEPDIR)/bar-parse.s.f..Po
+	-rm -f ./$(DEPDIR)/bar2-parse.yxx.Po
+	-rm -f ./$(DEPDIR)/parse..5.Po
+	-rm -f ./$(DEPDIR)/parse.y.Po
++ for s in $outputs
++ /bin/grep -F parse.y.c Makefile.in
+	depcomp install-sh missing parse..5.c++ parse.y.c ylwrap
+	-rm -f parse.y.c
++ for s in $outputs
++ /bin/grep -F bar-parse.s.f..c Makefile.in
+am__DIST_COMMON = $(srcdir)/Makefile.in bar-parse.s.f..c \
+bar-parse.s.f..h: bar-parse.s.f..c
+	@if test ! -f $@; then rm -f bar-parse.s.f..c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) bar-parse.s.f..c; else :; fi
+bar-parse.s.f..c: parse.s.f..y
+	$(SHELL) $(YLWRAP) `test -f 'parse.s.f..y' || echo '$(srcdir)/'`parse.s.f..y y.tab.c bar-parse.s.f..c y.tab.h `echo bar-parse.s.f..c | $(am__yacc_c2h)` y.output bar-parse.s.f..output -- $(YACC) $(bar_YFLAGS) $(YFLAGS)
+	-rm -f bar-parse.s.f..c
++ for s in $outputs
++ /bin/grep -F bar-parse.s.f..h Makefile.in
+	bar-parse.s.f..h bar2-parse.yxx.cc bar2-parse.yxx.hh compile \
+bar-parse.s.f..h: bar-parse.s.f..c
+	-rm -f bar-parse.s.f..h
++ for s in $outputs
++ /bin/grep -F parse..5.c++ Makefile.in
+	depcomp install-sh missing parse..5.c++ parse.y.c ylwrap
+	-rm -f parse..5.c++
++ for s in $outputs
++ /bin/grep -F bar2-parse.yxx.cc Makefile.in
+	bar-parse.s.f..h bar2-parse.yxx.cc bar2-parse.yxx.hh compile \
+bar2-parse.yxx.hh: bar2-parse.yxx.cc
+	@if test ! -f $@; then rm -f bar2-parse.yxx.cc; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) bar2-parse.yxx.cc; else :; fi
+bar2-parse.yxx.cc: parse.yxx.yy
+	$(SHELL) $(YLWRAP) `test -f 'parse.yxx.yy' || echo '$(srcdir)/'`parse.yxx.yy y.tab.c bar2-parse.yxx.cc y.tab.h `echo bar2-parse.yxx.cc | $(am__yacc_c2h)` y.output bar2-parse.yxx.output -- $(YACC) $(bar2_YFLAGS) $(YFLAGS)
+	-rm -f bar2-parse.yxx.cc
++ for s in $outputs
++ /bin/grep -F bar2-parse.yxx.hh Makefile.in
+	bar-parse.s.f..h bar2-parse.yxx.cc bar2-parse.yxx.hh compile \
+bar2-parse.yxx.hh: bar2-parse.yxx.cc
+	-rm -f bar2-parse.yxx.hh
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-weirdnames.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-weirdnames.dir
++ set +x
+PASS t/yacc-weirdnames.sh (exit status: 0)

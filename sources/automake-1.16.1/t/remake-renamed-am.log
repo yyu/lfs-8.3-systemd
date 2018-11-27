@@ -1,0 +1,69 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-renamed-am.dir
++ echo AC_OUTPUT
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+echo ok > has-run-1
++ test -f has-run-1
++ sleep 2
++ rm -f has-run-1
++ mv -f foo.am bar.am
++ echo include bar.am
++ make Makefile
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-renamed-am.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+make: 'Makefile' is up to date.
++ /bin/grep -F foo.am Makefile Makefile.in
++ sleep 2
++ rm -f has-run-1 bar.am
++ echo 'all-local:; echo ok > has-run-2'
++ echo 'include $(srcdir)/zardoz.am'
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-renamed-am.dir/missing automake-1.16 --foreign Makefile
+ cd . && /bin/sh ./config.status Makefile 
+config.status: creating Makefile
+echo ok > has-run-2
++ test '!' -e has-run-1
++ test -f has-run-2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-renamed-am.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-renamed-am.dir
++ set +x
+PASS t/remake-renamed-am.sh (exit status: 0)

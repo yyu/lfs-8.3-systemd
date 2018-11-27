@@ -1,0 +1,344 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-passthrough.dir
++ weirdchars=''\''"\$@!&()[]<>#;,:.^?*/'
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ run_make TESTS=ok.test check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=ok.test check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+PASS: ok.test 1
+PASS: ok.test 2
+PASS: ok.test 3 - foo
+PASS: ok.test 4 - x
+XFAIL: ok.test 5 # TODO low priority
+SKIP: ok.test 6 # SKIP who cares?
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cat ok.log
+1..6
+TAP plan in the previous line.
+ok	
+PASS: ok.test 1
+ok     2
+PASS: ok.test 2
+ok - foo
+PASS: ok.test 3 - foo
+ok 4 - x
+PASS: ok.test 4 - x
+  This is not a TAP line, but should still be copied in the log file!
+# some diagnostic	
+not ok # TODO low priority
+XFAIL: ok.test 5 # TODO low priority
+ok # SKIP who cares?
+SKIP: ok.test 6 # SKIP who cares?
+'"\$@!&()[]<>#;,:.^?*/
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^1\.\.6$' ok.log
+1..6
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^TAP plan in the previous line\.$' ok.log
+TAP plan in the previous line.
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^ok	$' ok.log
+ok	
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^ok     2$' ok.log
+ok     2
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^ok - foo$' ok.log
+ok - foo
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^ok 4 - x$' ok.log
+ok 4 - x
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^  This is not a TAP line, but should still be copied in the log file!$' ok.log
+  This is not a TAP line, but should still be copied in the log file!
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^# some diagnostic	$' ok.log
+# some diagnostic	
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^not ok # TODO low priority$' ok.log
+not ok # TODO low priority
++ for rx in '1\.\.6' 'TAP plan in the previous line\.' "ok${tab}" 'ok     2' 'ok - foo' 'ok 4 - x' '  This is not a TAP line, but should still be copied in the log file!' "# some diagnostic${tab}" 'not ok # TODO low priority' 'ok # SKIP who cares?'
++ grep '^ok # SKIP who cares?$' ok.log
+ok # SKIP who cares?
++ /bin/grep -F ''\''"\$@!&()[]<>#;,:.^?*/' ok.log
+'"\$@!&()[]<>#;,:.^?*/
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ st=0
++ run_make check 'TESTS=tiny.test ok.test ko.test bail.test skip.test err.test'
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check 'TESTS=tiny.test ok.test ko.test bail.test skip.test err.test'
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+PASS: tiny.test 1
+PASS: ok.test 1
+PASS: ko.test 1
+PASS: ko.test 2
+FAIL: ko.test 3 - foo
+FAIL: ko.test 4 - x
+XPASS: ko.test 5 # TODO dunno
+ERROR: bail.test - Bail out! Test is taking too long!
+SKIP: skip.test - Skipped: WWW::Mechanize not installed
+PASS: err.test 1
+ERROR: err.test 23 # OUT-OF-ORDER (expecting 2)
+ERROR: err.test - multiple test plans
+PASS: err.test 3
+ERROR: err.test 4 # UNPLANNED
+ERROR: err.test - too many tests run (expected 3, got 4)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 15
+# PASS:  6
+# SKIP:  1
+# XFAIL: 0
+# FAIL:  2
+# XPASS: 1
+# ERROR: 5
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough.dir'
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 2 -eq 0
++ return 1
++ st=1
++ cat tiny.log
+1..1
+ok
+PASS: tiny.test 1
++ cat ok.log
+1..1
+ok
+PASS: ok.test 1
+only one success here
++ cat ko.log
+1..5
+foo foo foo
+ok	
+PASS: ko.test 1
+ok     2
+PASS: ko.test 2
+not ok - foo
+FAIL: ko.test 3 - foo
+not ok 4 - x
+FAIL: ko.test 4 - x
+# diagnostic ko
+  bar	bar	bar
+ok # TODO dunno
+XPASS: ko.test 5 # TODO dunno
+'"\$@!&()[]<>#;,:.^?*/
++ cat bail.log
+Bail out! Test is taking too long!
+ERROR: bail.test - Bail out! Test is taking too long!
++ cat skip.log
+1..0 # Skipped: WWW::Mechanize not installed
+SKIP: skip.test - Skipped: WWW::Mechanize not installed
++ cat err.log
+1..3
+ok 1
+PASS: err.test 1
+Invalid test count
+ok 23
+ERROR: err.test 23 # OUT-OF-ORDER (expecting 2)
+Misplaced plan
+1..13
+ERROR: err.test - multiple test plans
+ok
+PASS: err.test 3
+Extra test
+ok
+ERROR: err.test 4 # UNPLANNED
+Last line
+ERROR: err.test - too many tests run (expected 3, got 4)
++ test 1 -gt 0
++ grep '^1\.\.1$' tiny.log
+1..1
++ grep '^ok$' tiny.log
+ok
++ grep '^only one success here$' ok.log
+only one success here
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^1\.\.5$' ko.log
+1..5
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^foo foo foo$' ko.log
+foo foo foo
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^ok	$' ko.log
+ok	
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^ok     2$' ko.log
+ok     2
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^not ok - foo$' ko.log
+not ok - foo
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^not ok 4 - x$' ko.log
+not ok 4 - x
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^# diagnostic ko$' ko.log
+# diagnostic ko
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^  bar	bar	bar$' ko.log
+  bar	bar	bar
++ for rx in '1\.\.5' 'foo foo foo' "ok${tab}" 'ok     2' 'not ok - foo' 'not ok 4 - x' '# diagnostic ko' "  bar${tab}bar${tab}bar" 'ok # TODO dunno'
++ grep '^ok # TODO dunno$' ko.log
+ok # TODO dunno
++ /bin/grep -F ''\''"\$@!&()[]<>#;,:.^?*/' ko.log
+'"\$@!&()[]<>#;,:.^?*/
++ grep '^Bail out! Test is taking too long!$' bail.log
+Bail out! Test is taking too long!
++ grep '^1\.\.0 # Skipped: WWW::Mechanize not installed$' skip.log
+1..0 # Skipped: WWW::Mechanize not installed
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^1\.\.3$' err.log
+1..3
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^Invalid test count$' err.log
+Invalid test count
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^ok 23$' err.log
+ok 23
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^Misplaced plan$' err.log
+Misplaced plan
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^1\.\.13$' err.log
+1..13
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^ERROR:.* multiple test plans' err.log
+ERROR: err.test - multiple test plans
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^Extra test$' err.log
+Extra test
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^Last line$' err.log
+Last line
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' err.log
+ERROR: err.test - too many tests run (expected 3, got 4)
++ for rx in '^1\.\.3$' '^Invalid test count$' '^ok 23$' '^Misplaced plan$' '^1\.\.13$' '^ERROR:.* multiple test plans' '^Extra test$' '^Last line$' '^ERROR:.* [tT]oo many tests run.*expected 3, got 4' '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2'
++ grep '^ERROR:.* err\.test 23 .*OUT[ -]OF[ -]ORDER.*expecting 2' err.log
+ERROR: err.test 23 # OUT-OF-ORDER (expecting 2)
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-passthrough.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-passthrough.dir
++ set +x
+PASS t/tap-passthrough.sh (exit status: 0)

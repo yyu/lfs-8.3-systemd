@@ -1,0 +1,44 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond14.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F helldl Makefile.in
+@COND1_TRUE@am__EXEEXT_1 = helldl$(EXEEXT)
+am__helldl_SOURCES_DIST = dlmain.c
+@COND1_TRUE@am_helldl_OBJECTS = dlmain.$(OBJEXT)
+helldl_OBJECTS = $(am_helldl_OBJECTS)
+helldl_LDADD = $(LDADD)
+SOURCES = $(helldl_SOURCES)
+DIST_SOURCES = $(am__helldl_SOURCES_DIST)
+@COND1_FALSE@BUILD_helldl = 
+@COND1_TRUE@BUILD_helldl = helldl
+@COND1_TRUE@helldl_SOURCES = dlmain.c
+@COND1_TRUE@helldl_DEPENDENCIES = libhello.la
+@COND1_FALSE@bin_SCRIPTS = helldl
+@COND1_TRUE@helldl$(EXEEXT): $(helldl_OBJECTS) $(helldl_DEPENDENCIES) $(EXTRA_helldl_DEPENDENCIES) 
+@COND1_TRUE@	@rm -f helldl$(EXEEXT)
+@COND1_TRUE@	$(AM_V_CCLD)$(LINK) $(helldl_OBJECTS) $(helldl_LDADD) $(LIBS)
+@COND1_FALSE@helldl$(EXEEXT):
+++ /bin/grep -F -c 'helldl$(EXEEXT):' Makefile.in
++ test 2 -eq 2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond14.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond14.dir
++ set +x
+PASS t/cond14.sh (exit status: 0)

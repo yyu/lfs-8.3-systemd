@@ -1,0 +1,248 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-macrodir.dir
++ plan_ 7
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x7 = xunknown
++ test x7 = xlater
++ test x7 = xlazy
++ test x7 = xnow
++ test 7 -ge 0
++ planned_=7
++ echo 1..7
+1..7
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/aclocal-macrodir.dir
++ unset ACLOCAL_PATH
++ tcount=0
++ r=invalid
++ description=
++ directive=
++ test_begin 'AC_CONFIG_MACRO_DIR is honored'
++ test -n ''
++ r=ok
++ description='AC_CONFIG_MACRO_DIR is honored'
++ directive=
++ echo 'AC_CONFIG_MACRO_DIR is honored'
++ shift
++ tcount=1
++ test 1 -gt 0
++ mkdir 1.d
++ cd 1.d
++ cat
++ mkdir macro-dir
++ echo 'AC_DEFUN([MY_FOO], [::my::foo::])'
++ aclocal-1.16 -Werror
++ /bin/grep -F 'm4_include([macro-dir/foo.m4])' aclocal.m4
+m4_include([macro-dir/foo.m4])
++ autoconf
++ not /bin/grep -F MY_FOO configure
++ /bin/grep -F MY_FOO configure
++ /bin/grep -F ::my::foo:: configure
+::my::foo::
++ test_end
++ test -z 'AC_CONFIG_MACRO_DIR is honored'
++ cd /sources/automake-1.16.1/t/aclocal-macrodir.dir
++ result_ ok -D '' -- 'AC_CONFIG_MACRO_DIR is honored'
++ set +x
+ok 1 - AC_CONFIG_MACRO_DIR is honored
+PASS: t/aclocal-macrodir.tap 1 - AC_CONFIG_MACRO_DIR is honored
++ test -z ''
++ test ok = ok
++ rm -rf 1.d
++ r=invalid
++ directive=
++ description=
++ test_begin 'AC_CONFIG_MACRO_DIR([foo]) interaction with --install'
++ test -n ''
++ r=ok
++ description='AC_CONFIG_MACRO_DIR([foo]) interaction with --install'
++ directive=
++ echo 'AC_CONFIG_MACRO_DIR([foo]) interaction with --install'
++ shift
++ tcount=2
++ test 2 -gt 0
++ mkdir 2.d
++ cd 2.d
++ cat
++ mkdir sys-dir the-dir
++ echo 'AC_DEFUN([THE_MACRO], [:])'
++ test '!' -r the-dir/my.m4
++ aclocal-1.16 -Werror --install --system-acdir ./sys-dir
+aclocal-1.16: installing 'the-dir/my.m4' from 'sys-dir/my.m4'
++ diff sys-dir/my.m4 the-dir/my.m4
++ test_end
++ test -z 'AC_CONFIG_MACRO_DIR([foo]) interaction with --install'
++ cd /sources/automake-1.16.1/t/aclocal-macrodir.dir
++ result_ ok -D '' -- 'AC_CONFIG_MACRO_DIR([foo]) interaction with --install'
++ set +x
+ok 2 - AC_CONFIG_MACRO_DIR([foo]) interaction with --install
+PASS: t/aclocal-macrodir.tap 2 - AC_CONFIG_MACRO_DIR([foo]) interaction with --install
++ test -z ''
++ test ok = ok
++ rm -rf 2.d
++ r=invalid
++ directive=
++ description=
++ test_begin ''\''-I'\'' option wins over AC_CONFIG_MACRO_DIR'
++ test -n ''
++ r=ok
++ description=''\''-I'\'' option wins over AC_CONFIG_MACRO_DIR'
++ directive=
++ echo ''\''-I'\'' option wins over AC_CONFIG_MACRO_DIR'
++ shift
++ tcount=3
++ test 3 -gt 0
++ mkdir 3.d
++ cd 3.d
++ cat
++ mkdir dir1 dir2
++ echo 'AC_DEFUN([MY_FOO], [::ko::ko::])'
++ echo 'AC_DEFUN([MY_FOO], [::ok::ok::])'
++ aclocal-1.16 -Werror -I dir2
++ /bin/grep -F 'm4_include([dir2/2.m4])' aclocal.m4
+m4_include([dir2/2.m4])
++ not /bin/grep -F 'm4_include([dir1/1.m4])' aclocal.m4
++ /bin/grep -F 'm4_include([dir1/1.m4])' aclocal.m4
++ autoconf
++ not /bin/grep -F ::ko::ko:: configure
++ /bin/grep -F ::ko::ko:: configure
++ /bin/grep -F ::ok::ok:: configure
+::ok::ok::
++ test_end
++ test -z ''\''-I'\'' option wins over AC_CONFIG_MACRO_DIR'
++ cd /sources/automake-1.16.1/t/aclocal-macrodir.dir
++ result_ ok -D '' -- ''\''-I'\'' option wins over AC_CONFIG_MACRO_DIR'
++ set +x
+ok 3 - '-I' option wins over AC_CONFIG_MACRO_DIR
+PASS: t/aclocal-macrodir.tap 3 - '-I' option wins over AC_CONFIG_MACRO_DIR
++ test -z ''
++ test ok = ok
++ rm -rf 3.d
++ r=invalid
++ directive=
++ description=
++ test_begin 'AC_CONFIG_MACRO_DIR([foo]) can create directory '\''foo'\'''
++ test -n ''
++ r=ok
++ description='AC_CONFIG_MACRO_DIR([foo]) can create directory '\''foo'\'''
++ directive=
++ echo 'AC_CONFIG_MACRO_DIR([foo]) can create directory '\''foo'\'''
++ shift
++ tcount=4
++ test 4 -gt 0
++ mkdir 4.d
++ cd 4.d
++ cat
++ mkdir acdir
++ echo 'AC_DEFUN([MY_MACRO], [:])'
++ test '!' -d foo
++ aclocal-1.16 -Werror --install --system-acdir ./acdir
+aclocal-1.16: installing 'foo/bar.m4' from 'acdir/bar.m4'
++ diff acdir/bar.m4 foo/bar.m4
++ test_end
++ test -z 'AC_CONFIG_MACRO_DIR([foo]) can create directory '\''foo'\'''
++ cd /sources/automake-1.16.1/t/aclocal-macrodir.dir
++ result_ ok -D '' -- 'AC_CONFIG_MACRO_DIR([foo]) can create directory '\''foo'\'''
++ set +x
+ok 4 - AC_CONFIG_MACRO_DIR([foo]) can create directory 'foo'
+PASS: t/aclocal-macrodir.tap 4 - AC_CONFIG_MACRO_DIR([foo]) can create directory 'foo'
++ test -z ''
++ test ok = ok
++ rm -rf 4.d
++ r=invalid
++ directive=
++ description=
++ test_begin 'AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported'
++ test -n ''
++ r=ok
++ description='AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported'
++ directive=
++ echo 'AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported'
++ shift
++ tcount=5
++ test 5 -gt 0
++ mkdir 5.d
++ cd 5.d
++ cat
++ aclocal-1.16 -Werror -Wno-error
++ cat stderr
+aclocal-1.16: warning: couldn't open directory 'non-existent': No such file or directory
++ grep 'couldn'\''t open directory '\''non-existent'\''' stderr
+aclocal-1.16: warning: couldn't open directory 'non-existent': No such file or directory
++ test -f aclocal.m4
++ rm -rf aclocal.m4 autom4te.cache
++ aclocal-1.16 -Werror -Werror -Wno-unsupported
++ test -f aclocal.m4
++ test_end
++ test -z 'AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported'
++ cd /sources/automake-1.16.1/t/aclocal-macrodir.dir
++ result_ ok -D '' -- 'AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported'
++ set +x
+ok 5 - AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported
+PASS: t/aclocal-macrodir.tap 5 - AC_CONFIG_MACRO_DIR([non-existent]) warns with -Wunsupported
++ test -z ''
++ test ok = ok
++ rm -rf 5.d
++ r=invalid
++ directive=
++ description=
++ test_begin 'AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist'
++ test -n ''
++ r=ok
++ description='AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist'
++ directive=
++ echo 'AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist'
++ shift
++ tcount=6
++ test 6 -gt 0
++ mkdir 6.d
++ cd 6.d
++ cat
++ cat
++ aclocal-1.16 -Werror -Wno-error
++ cat stderr
+aclocal-1.16: warning: couldn't open directory 'not-exist': No such file or directory
+++ grep -c 'couldn'\''t open directory '\''not-exist'\''' stderr
++ test 1 -eq 1
++ test_end
++ test -z 'AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist'
++ cd /sources/automake-1.16.1/t/aclocal-macrodir.dir
++ result_ ok -D '' -- 'AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist'
++ set +x
+ok 6 - AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist
+PASS: t/aclocal-macrodir.tap 6 - AC_CONFIG_MACRO_DIR([not-exist]) and ACLOCAL_AMFLAGS = -I not-exist
++ test -z ''
++ test ok = ok
++ rm -rf 6.d
++ r=invalid
++ directive=
++ description=
++ echo 'AC_INIT AC_CONFIG_MACRO_DIRS'
++ autoconf -o/dev/null -
+/dev/null:1659: error: possibly undefined macro: AC_CONFIG_MACRO_DIRS
+      If this token and others are legitimate, please use m4_pattern_allow.
+      See the Autoconf documentation.
++ skip_ -r 'autoconf is too old (AC_CONFIG_MACRO_DIRS not defined)'
++ result_ ok -D SKIP -r 'autoconf is too old (AC_CONFIG_MACRO_DIRS not defined)'
++ set +x
+ok 7 # SKIP autoconf is too old (AC_CONFIG_MACRO_DIRS not defined)
+SKIP: t/aclocal-macrodir.tap 7 # SKIP autoconf is too old (AC_CONFIG_MACRO_DIRS not defined)
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 7 = later
++ test 0 -eq 0
++ test 6 -eq 7
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x

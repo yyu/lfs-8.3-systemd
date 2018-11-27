@@ -1,0 +1,108 @@
+./t/missing-version-mismatch-w.sh: will source ./t/missing-version-mismatch.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/missing-version-mismatch-w.dir
+++ get_shell_script missing
+++ am_source=missing
+++ am_target=missing
+++ test '!' -f missing
+++ test xyes = xyes
+++ sed '1s|#!.*|#! /bin/sh|' /sources/automake-1.16.1/lib/missing
+++ chmod a+x missing
+++ sed 10q missing
+#! /bin/sh
+# Common wrapper for a few potentially missing GNU programs.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1996-2018 Free Software Foundation, Inc.
+# Originally written by Fran,cois Pinard <pinard@iro.umontreal.ca>, 1996.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+++ unset am_target am_source
+++ echo 'AC_INIT([x], [1.0]) AC_PREREQ([9999])'
+++ do_check autoconf autoconf
+++ progname=autoconf
+++ shift
+++ ./missing autoconf
+++ cat stderr
+configure.ac:1: error: Autoconf version 9999 or higher is required
+configure.ac:1: the top level
+autom4te: /usr/bin/m4 failed with exit status: 63
+WARNING: 'autoconf' is probably too old.
+         You should only need it if you modified 'configure.ac',
+         or m4 files included by it.
+         The 'autoconf' program is part of the GNU Autoconf package:
+         <https://www.gnu.org/software/autoconf/>
+         It also requires GNU m4 and Perl in order to run:
+         <https://www.gnu.org/software/m4/>
+         <https://www.perl.org/>
+++ /bin/grep -F 'WARNING: '\''autoconf'\'' is probably too old.' stderr
+WARNING: 'autoconf' is probably too old.
+++ do_check autoheader autoheader
+++ progname=autoheader
+++ shift
+++ ./missing autoheader
+++ cat stderr
+configure.ac:1: error: Autoconf version 9999 or higher is required
+configure.ac:1: the top level
+autom4te: /usr/bin/m4 failed with exit status: 63
+autoheader: '/usr/bin/autom4te' failed with exit status: 63
+WARNING: 'autoheader' is probably too old.
+         You should only need it if you modified 'acconfig.h' or
+         'configure.ac' or m4 files included by 'configure.ac'.
+         The 'autoheader' program is part of the GNU Autoconf package:
+         <https://www.gnu.org/software/autoconf/>
+         It also requires GNU m4 and Perl in order to run:
+         <https://www.gnu.org/software/m4/>
+         <https://www.perl.org/>
+++ /bin/grep -F 'WARNING: '\''autoheader'\'' is probably too old.' stderr
+WARNING: 'autoheader' is probably too old.
+++ do_check aclocal-1.16 aclocal-1.16
+++ progname=aclocal-1.16
+++ shift
+++ ./missing aclocal-1.16
+++ cat stderr
+configure.ac:1: error: Autoconf version 9999 or higher is required
+configure.ac:1: the top level
+autom4te: /usr/bin/m4 failed with exit status: 63
+aclocal-1.16: error: echo failed with exit status: 63
+WARNING: 'aclocal-1.16' is probably too old.
+         You should only need it if you modified 'acinclude.m4' or
+         'configure.ac' or m4 files included by 'configure.ac'.
+         The 'aclocal' program is part of the GNU Automake package:
+         <https://www.gnu.org/software/automake>
+         It also requires GNU Autoconf, GNU m4 and Perl in order to run:
+         <https://www.gnu.org/software/autoconf>
+         <https://www.gnu.org/software/m4/>
+         <https://www.perl.org/>
+++ /bin/grep -F 'WARNING: '\''aclocal-1.16'\'' is probably too old.' stderr
+WARNING: 'aclocal-1.16' is probably too old.
+++ cat
+++ echo AUTOMAKE_OPTIONS = 9999.9999
+++ aclocal-1.16 -Werror
+++ :
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/missing-version-mismatch-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/missing-version-mismatch-w.dir
++ set +x
+PASS t/missing-version-mismatch-w.sh (exit status: 0)

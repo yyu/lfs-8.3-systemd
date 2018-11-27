@@ -1,0 +1,52 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond15.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F helldl Makefile.in
+bin_PROGRAMS = helldl$(EXEEXT)
+helldl_SOURCES = helldl.c
+helldl_OBJECTS = helldl.$(OBJEXT)
+helldl_LDADD = $(LDADD)
+am__depfiles_remade = ./$(DEPDIR)/helldl.Po
+SOURCES = helldl.c
+DIST_SOURCES = helldl.c
+@COND1_FALSE@@COND2_FALSE@bin_SCRIPTS = helldl
+@COND1_TRUE@@COND2_TRUE@bin_SCRIPTS = helldl
+@COND1_FALSE@@COND2_TRUE@helldl$(EXEEXT): $(helldl_OBJECTS) $(helldl_DEPENDENCIES) $(EXTRA_helldl_DEPENDENCIES) 
+@COND1_FALSE@@COND2_TRUE@	@rm -f helldl$(EXEEXT)
+@COND1_FALSE@@COND2_TRUE@	$(AM_V_CCLD)$(LINK) $(helldl_OBJECTS) $(helldl_LDADD) $(LIBS)
+@COND1_TRUE@@COND2_FALSE@helldl$(EXEEXT): $(helldl_OBJECTS) $(helldl_DEPENDENCIES) $(EXTRA_helldl_DEPENDENCIES) 
+@COND1_TRUE@@COND2_FALSE@	@rm -f helldl$(EXEEXT)
+@COND1_TRUE@@COND2_FALSE@	$(AM_V_CCLD)$(LINK) $(helldl_OBJECTS) $(helldl_LDADD) $(LIBS)
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/helldl.Po@am__quote@ # am--include-marker
+		-rm -f ./$(DEPDIR)/helldl.Po
+		-rm -f ./$(DEPDIR)/helldl.Po
+@COND1_TRUE@@COND2_TRUE@helldl$(EXEEXT):
+@COND1_FALSE@@COND2_FALSE@helldl$(EXEEXT):
+++ /bin/grep -F -c 'helldl$(EXEEXT):' Makefile.in
++ num1=4
+++ /bin/grep -F -c '@COND1_FALSE@@COND2_TRUE@helldl$(EXEEXT):' Makefile.in
++ num2=1
++ test 4 -eq 4
++ test 1 -eq 1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond15.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond15.dir
++ set +x
+PASS t/cond15.sh (exit status: 0)

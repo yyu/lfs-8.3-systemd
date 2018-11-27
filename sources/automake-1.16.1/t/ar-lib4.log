@@ -1,0 +1,81 @@
+ar-lib4: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ar-lib4.dir
++ cp configure.ac X
++ cat
++ cat
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+libtoolize: 'AC_PROG_RANLIB' is rendered obsolete by 'LT_INIT'
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:6: error: required file './config.guess' not found
+configure.ac:6:   'automake --add-missing' can install 'config.guess'
+configure.ac:6: error: required file './config.sub' not found
+configure.ac:6:   'automake --add-missing' can install 'config.sub'
+automake-1.16: warnings are treated as errors
+/sources/automake-1.16.1/lib/am/ltlibrary.am: warning: 'libfoo.la': linking libtool libraries using a non-POSIX
+/sources/automake-1.16.1/lib/am/ltlibrary.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+Makefile.am:1:   while processing Libtool library 'libfoo.la'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'requires.*AM_PROG_AR' stderr
+/sources/automake-1.16.1/lib/am/ltlibrary.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
++ rm -rf autom4te.cache
++ cp X configure.ac
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:5: installing './ar-lib'
+configure.ac:7: installing './config.guess'
+configure.ac:7: installing './config.sub'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ar-lib4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ar-lib4.dir
++ set +x
+PASS t/ar-lib4.sh (exit status: 0)

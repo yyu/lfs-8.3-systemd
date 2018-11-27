@@ -1,0 +1,335 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-extensions.dir
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ valid_extensions='sh T t1 _foo BAR x_Y_z _'
++ echo TESTS =
++ echo ' sh T t1 _foo BAR x_Y_z _'
++ sed -e 's/ / ./g' -e 's/^/TEST_EXTENSIONS =/'
++ cat Makefile.am
+TESTS =
+TEST_EXTENSIONS = .sh .T .t1 ._foo .BAR .x_Y_z ._
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ grep -i log Makefile.in
+am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+am__copy_in_global_log_rx = ^[ 	]*:copy-in-global-log:[ 	]*
+          if ((getline line2 < ($$0 ".log")) < 0) \
+  close ($$0 ".log"); \
+# standard input, create the global log from their .trs and .log files.
+am__create_global_log = $(AWK) ' \
+  copy_in_global_log = 1; \
+      else if (line ~ /$(am__copy_in_global_log_rx)[nN][oO]/) \
+        copy_in_global_log = 0; \
+  if (copy_in_global_log) \
+      while ((rc = (getline line < ($$0 ".log"))) != 0) \
+          fatal("failed to read from " $$0 ".log"); \
+  close ($$0 ".log"); \
+# directory for the log if needed.  Stores in $dir the directory
+# containing $f, in $tst the test, in $log the log.  Executes the
+# will run the test scripts (or their associated LOG_COMPILER, if
+tst=$$dir$$f; log='$@'; 				\
+# extension removed (i.e., equivalently, the names of the test logs, with
+# the '.log' extension removed).  The result is saved in the shell variable
+# '$bases'.  This honors runtime overriding of TESTS and TEST_LOGS.  Sadly,
+# we cannot use something simpler, involving e.g., "$(TEST_LOGS:.log=)",
+  bases='$(TEST_LOGS)'; \
+  bases=`for i in $$bases; do echo $$i; done | sed 's/\.log$$//'`; \
+RECHECK_LOGS = $(TEST_LOGS)
+TEST_SUITE_LOG = test-suite.log
+am__test_logs1 = $(TESTS:=.log)
+am__test_logs2 = $(am__test_logs1:.sh.log=.log)
+SH_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+SH_LOG_COMPILE = $(SH_LOG_COMPILER) $(AM_SH_LOG_FLAGS) $(SH_LOG_FLAGS)
+          *) b=`echo '$@' | sed 's/\.log$$//'`; \
+am__test_logs3 = $(am__test_logs2:.T.log=.log)
+T_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+T_LOG_COMPILE = $(T_LOG_COMPILER) $(AM_T_LOG_FLAGS) $(T_LOG_FLAGS)
+am__test_logs4 = $(am__test_logs3:.t1.log=.log)
+T1_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+T1_LOG_COMPILE = $(T1_LOG_COMPILER) $(AM_T1_LOG_FLAGS) $(T1_LOG_FLAGS)
+am__test_logs5 = $(am__test_logs4:._foo.log=.log)
+_FOO_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+_FOO_LOG_COMPILE = $(_FOO_LOG_COMPILER) $(AM__FOO_LOG_FLAGS) \
+	$(_FOO_LOG_FLAGS)
+am__test_logs6 = $(am__test_logs5:.BAR.log=.log)
+BAR_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+BAR_LOG_COMPILE = $(BAR_LOG_COMPILER) $(AM_BAR_LOG_FLAGS) \
+	$(BAR_LOG_FLAGS)
+am__test_logs7 = $(am__test_logs6:.x_Y_z.log=.log)
+X_Y_Z_LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+X_Y_Z_LOG_COMPILE = $(X_Y_Z_LOG_COMPILER) $(AM_X_Y_Z_LOG_FLAGS) \
+	$(X_Y_Z_LOG_FLAGS)
+TEST_LOGS = $(am__test_logs7:._.log=.log)
+__LOG_DRIVER = $(SHELL) $(top_srcdir)/test-driver
+__LOG_COMPILE = $(__LOG_COMPILER) $(AM___LOG_FLAGS) $(__LOG_FLAGS)
+.SUFFIXES: .BAR .T ._ ._foo .log .sh .t1 .trs .x_Y_z
+# "rm -f foo.log; make foo.trs" re-run 'foo.test', and re-create
+# both 'foo.log' and 'foo.trs'.  Break the recipe in two subshells
+.log.trs:
+am--fnord $(TEST_LOGS) $(TEST_LOGS:.log=.trs): $(am__force_recheck)
+$(TEST_SUITE_LOG): $(TEST_LOGS)
+	              am__f_ok $$i.trs && am__f_ok $$i.log || echo $$i; \
+	  redo_logs=`for i in $$redo_bases; do echo $$i.log; done`; \
+	    rm -f $$redo_logs && rm -f $$redo_results || exit 1; \
+	if test -n "$$am__remaking_logs"; then \
+	  echo "fatal: making $(TEST_SUITE_LOG): possible infinite" \
+	elif test -n "$$redo_logs"; then \
+	  am__remaking_logs=yes $(MAKE) $(AM_MAKEFLAGS) $$redo_logs; \
+	  errmsg="fatal: making $(TEST_SUITE_LOG): failed to create"; \
+	    test -f $$i.log && test -r $$i.log \
+	      || { echo "$$errmsg $$i.log" >&2; st=1; }; \
+	  echo "$(PACKAGE_STRING): $(subdir)/$(TEST_SUITE_LOG)" |	\
+	    | $(am__create_global_log);					\
+	} >$(TEST_SUITE_LOG).tmp || exit 1;				\
+	mv $(TEST_SUITE_LOG).tmp $(TEST_SUITE_LOG);			\
+	  test x"$$VERBOSE" = x || cat $(TEST_SUITE_LOG);		\
+	  echo "$${col}See $(subdir)/$(TEST_SUITE_LOG)$${std}";		\
+	@list='$(RECHECK_LOGS)';           test -z "$$list" || rm -f $$list
+	@list='$(RECHECK_LOGS:.log=.trs)'; test -z "$$list" || rm -f $$list
+	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
+	log_list=`for i in $$bases; do echo $$i.log; done`; \
+	log_list=`echo $$log_list`; trs_list=`echo $$trs_list`; \
+	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
+	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
+	log_list=`for i in $$bases; do echo $$i.log; done`; \
+	log_list=`echo $$log_list`; \
+	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) \
+	        TEST_LOGS="$$log_list"; \
+.sh.log:
+	$(am__check_pre) $(SH_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_SH_LOG_DRIVER_FLAGS) $(SH_LOG_DRIVER_FLAGS) -- $(SH_LOG_COMPILE) \
+.T.log:
+	$(am__check_pre) $(T_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_T_LOG_DRIVER_FLAGS) $(T_LOG_DRIVER_FLAGS) -- $(T_LOG_COMPILE) \
+.t1.log:
+	$(am__check_pre) $(T1_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_T1_LOG_DRIVER_FLAGS) $(T1_LOG_DRIVER_FLAGS) -- $(T1_LOG_COMPILE) \
+._foo.log:
+	$(am__check_pre) $(_FOO_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM__FOO_LOG_DRIVER_FLAGS) $(_FOO_LOG_DRIVER_FLAGS) -- $(_FOO_LOG_COMPILE) \
+.BAR.log:
+	$(am__check_pre) $(BAR_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_BAR_LOG_DRIVER_FLAGS) $(BAR_LOG_DRIVER_FLAGS) -- $(BAR_LOG_COMPILE) \
+.x_Y_z.log:
+	$(am__check_pre) $(X_Y_Z_LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_X_Y_Z_LOG_DRIVER_FLAGS) $(X_Y_Z_LOG_DRIVER_FLAGS) -- $(X_Y_Z_LOG_COMPILE) \
+._.log:
+	$(am__check_pre) $(__LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM___LOG_DRIVER_FLAGS) $(__LOG_DRIVER_FLAGS) -- $(__LOG_COMPILE) \
+	-test -z "$(TEST_LOGS)" || rm -f $(TEST_LOGS)
+	-test -z "$(TEST_LOGS:.log=.trs)" || rm -f $(TEST_LOGS:.log=.trs)
+	-test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
++ for lc in $valid_extensions
+++ echo sh
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ uc=SH
++ /bin/grep -F '$(SH_LOG_COMPILER)' Makefile.in
+SH_LOG_COMPILE = $(SH_LOG_COMPILER) $(AM_SH_LOG_FLAGS) $(SH_LOG_FLAGS)
++ grep '^SH_LOG_COMPILE =' Makefile.in
+SH_LOG_COMPILE = $(SH_LOG_COMPILER) $(AM_SH_LOG_FLAGS) $(SH_LOG_FLAGS)
++ grep '^\.sh\.log:' Makefile.in
+.sh.log:
++ for lc in $valid_extensions
+++ echo T
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ uc=T
++ /bin/grep -F '$(T_LOG_COMPILER)' Makefile.in
+T_LOG_COMPILE = $(T_LOG_COMPILER) $(AM_T_LOG_FLAGS) $(T_LOG_FLAGS)
++ grep '^T_LOG_COMPILE =' Makefile.in
+T_LOG_COMPILE = $(T_LOG_COMPILER) $(AM_T_LOG_FLAGS) $(T_LOG_FLAGS)
++ grep '^\.T\.log:' Makefile.in
+.T.log:
++ for lc in $valid_extensions
+++ echo t1
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ uc=T1
++ /bin/grep -F '$(T1_LOG_COMPILER)' Makefile.in
+T1_LOG_COMPILE = $(T1_LOG_COMPILER) $(AM_T1_LOG_FLAGS) $(T1_LOG_FLAGS)
++ grep '^T1_LOG_COMPILE =' Makefile.in
+T1_LOG_COMPILE = $(T1_LOG_COMPILER) $(AM_T1_LOG_FLAGS) $(T1_LOG_FLAGS)
++ grep '^\.t1\.log:' Makefile.in
+.t1.log:
++ for lc in $valid_extensions
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+++ echo _foo
++ uc=_FOO
++ /bin/grep -F '$(_FOO_LOG_COMPILER)' Makefile.in
+_FOO_LOG_COMPILE = $(_FOO_LOG_COMPILER) $(AM__FOO_LOG_FLAGS) \
++ grep '^_FOO_LOG_COMPILE =' Makefile.in
+_FOO_LOG_COMPILE = $(_FOO_LOG_COMPILER) $(AM__FOO_LOG_FLAGS) \
++ grep '^\._foo\.log:' Makefile.in
+._foo.log:
++ for lc in $valid_extensions
+++ echo BAR
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ uc=BAR
++ /bin/grep -F '$(BAR_LOG_COMPILER)' Makefile.in
+BAR_LOG_COMPILE = $(BAR_LOG_COMPILER) $(AM_BAR_LOG_FLAGS) \
++ grep '^BAR_LOG_COMPILE =' Makefile.in
+BAR_LOG_COMPILE = $(BAR_LOG_COMPILER) $(AM_BAR_LOG_FLAGS) \
++ grep '^\.BAR\.log:' Makefile.in
+.BAR.log:
++ for lc in $valid_extensions
+++ echo x_Y_z
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ uc=X_Y_Z
++ /bin/grep -F '$(X_Y_Z_LOG_COMPILER)' Makefile.in
+X_Y_Z_LOG_COMPILE = $(X_Y_Z_LOG_COMPILER) $(AM_X_Y_Z_LOG_FLAGS) \
++ grep '^X_Y_Z_LOG_COMPILE =' Makefile.in
+X_Y_Z_LOG_COMPILE = $(X_Y_Z_LOG_COMPILER) $(AM_X_Y_Z_LOG_FLAGS) \
++ grep '^\.x_Y_z\.log:' Makefile.in
+.x_Y_z.log:
++ for lc in $valid_extensions
+++ echo _
+++ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
++ uc=_
++ /bin/grep -F '$(__LOG_COMPILER)' Makefile.in
+__LOG_COMPILE = $(__LOG_COMPILER) $(AM___LOG_FLAGS) $(__LOG_FLAGS)
++ grep '^__LOG_COMPILE =' Makefile.in
+__LOG_COMPILE = $(__LOG_COMPILER) $(AM___LOG_FLAGS) $(__LOG_FLAGS)
++ grep '^\._\.log:' Makefile.in
+._.log:
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make all check
+make: Nothing to be done for 'all'.
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-extensions.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-extensions.dir'
+============================================================================
+Testsuite summary for test-extensions 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-extensions.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-extensions.dir'
++ cat
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' mu
+++ sed -e 's/\./\\./'
++ suf2=mu
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* mu( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' .x-y
+++ sed -e 's/\./\\./'
++ suf2='\.x-y'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.x-y( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' a-b
+++ sed -e 's/\./\\./'
++ suf2=a-b
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* a-b( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' .t.1
+++ sed -e 's/\./\\./'
++ suf2='\.t.1'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.t.1( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' .6c
+++ sed -e 's/\./\\./'
++ suf2='\.6c'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.6c( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' .0
+++ sed -e 's/\./\\./'
++ suf2='\.0'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.0( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' .11
+++ sed -e 's/\./\\./'
++ suf2='\.11'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.11( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ sed -e 's/\./\\./'
+++ printf '%s\n' @suf@
++ suf2=@suf@
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* @suf@( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ sed -e 's/\./\\./'
+++ printf '%s\n' .@ext@
++ suf2='\.@ext@'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.@ext@( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' .=
+++ sed -e 's/\./\\./'
++ suf2='\.='
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* \.=( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ for suf in mu .x-y a-b .t.1 .6c .0 .11 @suf@ .@ext@ '.=' '_&_'
+++ printf '%s\n' '_&_'
+++ sed -e 's/\./\\./'
++ suf2='_&_'
++ /bin/grep -E '^Makefile\.am:2:.*invalid test extension.* _&_( |$)' stderr
+Makefile.am:2: error: invalid test extensions: mu .x-y a-b .t.1 .6c .0 .11 .= @suf@ .@ext@ .= .a@b _&_
++ /bin/grep -E '\.(sh|test|t33)' stderr
++ /bin/grep -E '(LOG_COMPILER|non-POSIX var|bad character)' stderr
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-extensions.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-extensions.dir
++ set +x
+PASS t/test-extensions.sh (exit status: 0)

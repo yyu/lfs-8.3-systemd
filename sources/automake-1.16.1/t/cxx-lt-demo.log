@@ -1,0 +1,800 @@
+cxx-lt-demo: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cxx-lt-demo.dir
++ cat
++ mkdir ax lib src
++ cat
++ cat
++ cat
++ cat
++ libtoolize --copy
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'ax'.
+libtoolize: copying file 'ax/ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
+configure.ac:8: installing 'ax/ar-lib'
+configure.ac:8: installing 'ax/compile'
+configure.ac:5: installing 'ax/config.guess'
+configure.ac:5: installing 'ax/config.sub'
+configure.ac:4: installing 'ax/install-sh'
+configure.ac:4: installing 'ax/missing'
+parallel-tests: installing 'ax/test-driver'
+lib/Makefile.am: installing 'ax/depcomp'
++ ls -l . ax
+.:
+total 996
+-rw-r--r-- 1 root root    225 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root  38620 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root 374112 Nov 27 06:40 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 autom4te.cache
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 ax
+-rwxr-xr-x 1 root root 572693 Nov 27 06:40 configure
+-rw-r--r-- 1 root root    296 Nov 27 06:39 configure.ac
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 lib
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 src
+-rw-r--r-- 1 root root    221 Nov 27 06:39 try.in
+
+ax:
+total 472
+-rwxr-xr-x 1 root root   5827 Nov 27 06:40 ar-lib
+-rwxr-xr-x 1 root root   7383 Nov 27 06:40 compile
+-rwxr-xr-x 1 root root  44166 Nov 27 06:40 config.guess
+-rwxr-xr-x 1 root root  36141 Nov 27 06:40 config.sub
+-rwxr-xr-x 1 root root  23568 Nov 27 06:40 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rw-r--r-- 1 root root 324089 Nov 27 06:39 ltmain.sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+-rwxr-xr-x 1 root root   4642 Nov 27 06:40 test-driver
++ for f in ltmain.sh depcomp compile config.guess config.sub
++ test -f ax/ltmain.sh
++ test '!' -h ax/ltmain.sh
++ for f in ltmain.sh depcomp compile config.guess config.sub
++ test -f ax/depcomp
++ test '!' -h ax/depcomp
++ for f in ltmain.sh depcomp compile config.guess config.sub
++ test -f ax/compile
++ test '!' -h ax/compile
++ for f in ltmain.sh depcomp compile config.guess config.sub
++ test -f ax/config.guess
++ test '!' -h ax/config.guess
++ for f in ltmain.sh depcomp compile config.guess config.sub
++ test -f ax/config.sub
++ test '!' -h ax/config.sub
++ cat
++ cat
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 6291456
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... c++ -E
+checking for ld used by c++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the c++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for c++ option to produce PIC... -fPIC -DPIC
+checking if c++ PIC flag -fPIC -DPIC works... yes
+checking if c++ static flag -static works... yes
+checking if c++ supports -c -o file.o... yes
+checking if c++ supports -c -o file.o... (cached) yes
+checking whether the c++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating lib/Makefile
+config.status: creating try.sh
+config.status: executing depfiles commands
+config.status: executing libtool commands
++ run_make CC=false
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make CC=false
++ set +x
+Making all in lib
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+echo '#include <string>' >libfoo.h++-t
+grep "target *(" "./libfoo.c++" >>libfoo.h++-t
+echo ';' >>libfoo.h++-t
+chmod a-w libfoo.h++-t && mv -f libfoo.h++-t libfoo.h++
+make  all-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+/bin/sh ../libtool  --tag=CXX   --mode=compile c++ -DPACKAGE_NAME=\"GNU\ C++/Libtool\ Demo\" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" -DPACKAGE_STRING=\"GNU\ C++/Libtool\ Demo\ 0.73\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT libfoo.lo -MD -MP -MF .deps/libfoo.Tpo -c -o libfoo.lo libfoo.c++
+libtool: compile:  c++ "-DPACKAGE_NAME=\"GNU C++/Libtool Demo\"" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" "-DPACKAGE_STRING=\"GNU C++/Libtool Demo 0.73\"" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT libfoo.lo -MD -MP -MF .deps/libfoo.Tpo -c libfoo.c++  -fPIC -DPIC -o .libs/libfoo.o
+libtool: compile:  c++ "-DPACKAGE_NAME=\"GNU C++/Libtool Demo\"" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" "-DPACKAGE_STRING=\"GNU C++/Libtool Demo 0.73\"" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT libfoo.lo -MD -MP -MF .deps/libfoo.Tpo -c libfoo.c++ -o libfoo.o >/dev/null 2>&1
+mv -f .deps/libfoo.Tpo .deps/libfoo.Plo
+/bin/sh ../libtool  --tag=CXX   --mode=link c++  -g -O2   -o libfoo.la -rpath /usr/local/lib libfoo.lo   
+libtool: link: c++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtbeginS.o  .libs/libfoo.o   -Wl,-rpath -Wl,/usr/lib/../lib -Wl,-rpath -Wl,/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../.. /usr/lib/../lib/libstdc++.so -lm -lc -lgcc_s /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crtn.o  -g -O2   -Wl,-soname -Wl,libfoo.so.0 -o .libs/libfoo.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libfoo.so.0" && ln -s "libfoo.so.0.0.0" "libfoo.so.0")
+libtool: link: (cd ".libs" && rm -f "libfoo.so" && ln -s "libfoo.so.0.0.0" "libfoo.so")
+libtool: link: ar cru .libs/libfoo.a  libfoo.o
+libtool: link: ranlib .libs/libfoo.a
+libtool: link: ( cd ".libs" && rm -f "libfoo.la" && ln -s "../libfoo.la" "libfoo.la" )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+Making all in src
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/src'
+c++ -DPACKAGE_NAME=\"GNU\ C++/Libtool\ Demo\" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" -DPACKAGE_STRING=\"GNU\ C++/Libtool\ Demo\ 0.73\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.  -I../lib   -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.cc
+mv -f .deps/main.Tpo .deps/main.Po
+/bin/sh ../libtool  --tag=CXX   --mode=link c++  -g -O2   -o zardoz main.o ../lib/libfoo.la 
+libtool: link: c++ -g -O2 -o .libs/zardoz main.o  ../lib/.libs/libfoo.so /usr/lib/../lib/libstdc++.so -lm -Wl,-rpath -Wl,/usr/lib/../lib
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/src'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l . src lib
+.:
+total 1472
+-rw-r--r-- 1 root root  39401 Nov 27 06:40 Makefile
+-rw-r--r-- 1 root root    225 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root  38620 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root 374112 Nov 27 06:40 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 autom4te.cache
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 ax
+-rw-r--r-- 1 root root  27620 Nov 27 06:40 config.log
+-rwxr-xr-x 1 root root  63996 Nov 27 06:40 config.status
+-rwxr-xr-x 1 root root 572693 Nov 27 06:40 configure
+-rw-r--r-- 1 root root    296 Nov 27 06:39 configure.ac
+drwxr-xr-x 4 root root   4096 Nov 27 06:40 lib
+-rwxr-xr-x 1 root root 344743 Nov 27 06:40 libtool
+drwxr-xr-x 4 root root   4096 Nov 27 06:40 src
+-rw-r--r-- 1 root root    221 Nov 27 06:39 try.in
+-rw-r--r-- 1 root root    221 Nov 27 06:40 try.sh
+
+lib:
+total 156
+-rw-r--r-- 1 root root 21783 Nov 27 06:40 Makefile
+-rw-r--r-- 1 root root   321 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root 21381 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root   127 Nov 27 06:40 libfoo.c++
+-r--r--r-- 1 root root    46 Nov 27 06:40 libfoo.h++
+-rw-r--r-- 1 root root   976 Nov 27 06:40 libfoo.la
+-rw-r--r-- 1 root root   270 Nov 27 06:40 libfoo.lo
+-rw-r--r-- 1 root root 88280 Nov 27 06:40 libfoo.o
+
+src:
+total 112
+-rw-r--r-- 1 root root 19933 Nov 27 06:40 Makefile
+-rw-r--r-- 1 root root   128 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root 19545 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root   144 Nov 27 06:40 main.cc
+-rw-r--r-- 1 root root 56272 Nov 27 06:40 main.o
+-rwxr-xr-x 1 root root  7529 Nov 27 06:40 zardoz
++ make test-objs
+test -f src/main.o
+test -f lib/libfoo.lo
++ VERBOSE=yes
++ make check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
+PASS: try.sh
+============================================================================
+Testsuite summary for GNU C++/Libtool Demo 0.73
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
++ grep 'Howdy.*Testsuite' try.log
+Howdy, Testsuite!
++ test 'Howdy, Testsuite!' = 'Howdy, Testsuite!'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
+if test -d "c---libtool-demo-0.73"; then find "c---libtool-demo-0.73" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c---libtool-demo-0.73" || { sleep 5 && rm -rf "c---libtool-demo-0.73"; }; else :; fi
+test -d "c---libtool-demo-0.73" || mkdir "c---libtool-demo-0.73"
+ (cd lib && make  top_distdir=../c---libtool-demo-0.73 distdir=../c---libtool-demo-0.73/lib \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/lib'
+ (cd src && make  top_distdir=../c---libtool-demo-0.73 distdir=../c---libtool-demo-0.73/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/src'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/src'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/src'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/src'
+test -n "" \
+|| find "c---libtool-demo-0.73" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/cxx-lt-demo.dir/ax/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "c---libtool-demo-0.73"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
+tardir=c---libtool-demo-0.73 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >c---libtool-demo-0.73.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir'
+if test -d "c---libtool-demo-0.73"; then find "c---libtool-demo-0.73" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c---libtool-demo-0.73" || { sleep 5 && rm -rf "c---libtool-demo-0.73"; }; else :; fi
+case 'c---libtool-demo-0.73.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc c---libtool-demo-0.73.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc c---libtool-demo-0.73.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc c---libtool-demo-0.73.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc c---libtool-demo-0.73.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c c---libtool-demo-0.73.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc c---libtool-demo-0.73.shar.gz | unshar ;;\
+*.zip*) \
+  unzip c---libtool-demo-0.73.zip ;;\
+esac
+chmod -R a-w c---libtool-demo-0.73
+chmod u+w c---libtool-demo-0.73
+mkdir c---libtool-demo-0.73/_build c---libtool-demo-0.73/_build/sub c---libtool-demo-0.73/_inst
+chmod a-w c---libtool-demo-0.73
+test -d c---libtool-demo-0.73/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd c---libtool-demo-0.73/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd c---libtool-demo-0.73/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf c---libtool-demo-0.73.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 6291456
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... c++ -E
+checking for ld used by c++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the c++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for c++ option to produce PIC... -fPIC -DPIC
+checking if c++ PIC flag -fPIC -DPIC works... yes
+checking if c++ static flag -static works... yes
+checking if c++ supports -c -o file.o... yes
+checking if c++ supports -c -o file.o... (cached) yes
+checking whether the c++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating lib/Makefile
+config.status: creating try.sh
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making all in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+echo '#include <string>' >libfoo.h++-t
+grep "target *(" "../../../lib/libfoo.c++" >>libfoo.h++-t
+echo ';' >>libfoo.h++-t
+chmod a-w libfoo.h++-t && mv -f libfoo.h++-t libfoo.h++
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+/bin/sh ../libtool  --tag=CXX   --mode=compile c++ -DPACKAGE_NAME=\"GNU\ C++/Libtool\ Demo\" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" -DPACKAGE_STRING=\"GNU\ C++/Libtool\ Demo\ 0.73\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../../../lib     -g -O2 -MT libfoo.lo -MD -MP -MF .deps/libfoo.Tpo -c -o libfoo.lo ../../../lib/libfoo.c++
+libtool: compile:  c++ "-DPACKAGE_NAME=\"GNU C++/Libtool Demo\"" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" "-DPACKAGE_STRING=\"GNU C++/Libtool Demo 0.73\"" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../../../lib -g -O2 -MT libfoo.lo -MD -MP -MF .deps/libfoo.Tpo -c ../../../lib/libfoo.c++  -fPIC -DPIC -o .libs/libfoo.o
+libtool: compile:  c++ "-DPACKAGE_NAME=\"GNU C++/Libtool Demo\"" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" "-DPACKAGE_STRING=\"GNU C++/Libtool Demo 0.73\"" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../../../lib -g -O2 -MT libfoo.lo -MD -MP -MF .deps/libfoo.Tpo -c ../../../lib/libfoo.c++ -o libfoo.o >/dev/null 2>&1
+mv -f .deps/libfoo.Tpo .deps/libfoo.Plo
+/bin/sh ../libtool  --tag=CXX   --mode=link c++  -g -O2   -o libfoo.la -rpath /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib libfoo.lo   
+libtool: link: c++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtbeginS.o  .libs/libfoo.o   -Wl,-rpath -Wl,/usr/lib/../lib -Wl,-rpath -Wl,/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../.. /usr/lib/../lib/libstdc++.so -lm -lc -lgcc_s /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crtn.o  -g -O2   -Wl,-soname -Wl,libfoo.so.0 -o .libs/libfoo.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libfoo.so.0" && ln -s "libfoo.so.0.0.0" "libfoo.so.0")
+libtool: link: (cd ".libs" && rm -f "libfoo.so" && ln -s "libfoo.so.0.0.0" "libfoo.so")
+libtool: link: ar cru .libs/libfoo.a  libfoo.o
+libtool: link: ranlib .libs/libfoo.a
+libtool: link: ( cd ".libs" && rm -f "libfoo.la" && ln -s "../libfoo.la" "libfoo.la" )
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making all in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+c++ -DPACKAGE_NAME=\"GNU\ C++/Libtool\ Demo\" -DPACKAGE_TARNAME=\"c---libtool-demo\" -DPACKAGE_VERSION=\"0.73\" -DPACKAGE_STRING=\"GNU\ C++/Libtool\ Demo\ 0.73\" -DPACKAGE_BUGREPORT=\"bug-automake@gnu.org\" -DPACKAGE_URL=\"http://www.gnu.org/software/c---libtool-demo/\" -DPACKAGE=\"c---libtool-demo\" -DVERSION=\"0.73\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -I../../../src  -I../lib   -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../../../src/main.cc
+mv -f .deps/main.Tpo .deps/main.Po
+/bin/sh ../libtool  --tag=CXX   --mode=link c++  -g -O2   -o zardoz main.o ../lib/libfoo.la 
+libtool: link: c++ -g -O2 -o .libs/zardoz main.o  ../lib/.libs/libfoo.so /usr/lib/../lib/libstdc++.so -lm -Wl,-rpath -Wl,/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib -Wl,-rpath -Wl,/usr/lib/../lib
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making dvi in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making dvi in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making check in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make  check-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[3]: Nothing to be done for 'check-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making check in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make  check-TESTS check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+PASS: try.sh
+============================================================================
+Testsuite summary for GNU C++/Libtool Demo 0.73
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+test -f src/main.o
+test -f lib/libfoo.lo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making install in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libfoo.la '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib'
+libtool: install: /usr/bin/install -c .libs/libfoo.so.0.0.0 /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so.0.0.0
+libtool: install: (cd /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib && { ln -s -f libfoo.so.0.0.0 libfoo.so.0 || { rm -f libfoo.so.0 && ln -s libfoo.so.0.0.0 libfoo.so.0; }; })
+libtool: install: (cd /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib && { ln -s -f libfoo.so.0.0.0 libfoo.so || { rm -f libfoo.so && ln -s libfoo.so.0.0.0 libfoo.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfoo.lai /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.la
+libtool: install: /usr/bin/install -c .libs/libfoo.a /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+libtool: install: chmod 644 /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+libtool: install: ranlib /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+libtool: finish: PATH="/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin:/sbin" ldconfig -n /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making install in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c zardoz '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin'
+libtool: install: /usr/bin/install -c .libs/zardoz /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin/zardoz
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making installcheck in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making installcheck in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making uninstall in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+ /bin/sh ../libtool   --mode=uninstall rm -f '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.la'
+libtool: uninstall: rm -f /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.la /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so.0.0.0 /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so.0 /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making uninstall in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+ ( cd '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making install in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make  install-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+ /tools/bin/mkdir -p '/tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib'
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libfoo.la '/tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib'
+libtool: install: /usr/bin/install -c .libs/libfoo.so.0.0.0 /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so.0.0.0
+libtool: install: (cd /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib && { ln -s -f libfoo.so.0.0.0 libfoo.so.0 || { rm -f libfoo.so.0 && ln -s libfoo.so.0.0.0 libfoo.so.0; }; })
+libtool: install: (cd /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib && { ln -s -f libfoo.so.0.0.0 libfoo.so || { rm -f libfoo.so && ln -s libfoo.so.0.0.0 libfoo.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfoo.lai /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.la
+libtool: install: /usr/bin/install -c .libs/libfoo.a /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+libtool: install: chmod 644 /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+libtool: install: ranlib /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+libtool: warning: remember to run 'libtool --finish /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib'
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making install in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+ /tools/bin/mkdir -p '/tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin'
+  /bin/sh ../libtool   --mode=install /usr/bin/install -c zardoz '/tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin'
+libtool: warning: '../lib/libfoo.la' has not been installed in '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib'
+libtool: install: /usr/bin/install -c .libs/zardoz /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin/zardoz
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making uninstall in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+ /bin/sh ../libtool   --mode=uninstall rm -f '/tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.la'
+libtool: uninstall: rm -f /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.la /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so.0.0.0 /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so.0 /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.so /tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/lib/libfoo.a
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making uninstall in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+ ( cd '/tmp/am-dc-25778//sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_inst/bin' && rm -f zardoz )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+if test -d "c---libtool-demo-0.73"; then find "c---libtool-demo-0.73" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c---libtool-demo-0.73" || { sleep 5 && rm -rf "c---libtool-demo-0.73"; }; else :; fi
+test -d "c---libtool-demo-0.73" || mkdir "c---libtool-demo-0.73"
+ (cd lib && make  top_distdir=../c---libtool-demo-0.73 distdir=../c---libtool-demo-0.73/lib \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+ (cd src && make  top_distdir=../c---libtool-demo-0.73 distdir=../c---libtool-demo-0.73/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+test -n "" \
+|| find "c---libtool-demo-0.73" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/ax/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "c---libtool-demo-0.73"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+tardir=c---libtool-demo-0.73 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >c---libtool-demo-0.73.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+if test -d "c---libtool-demo-0.73"; then find "c---libtool-demo-0.73" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c---libtool-demo-0.73" || { sleep 5 && rm -rf "c---libtool-demo-0.73"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+Making distclean in lib
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+test -z "libfoo.la" || rm -f libfoo.la
+rm -f ./so_locations
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../lib" || test -z "" || rm -f 
+test -z "libfoo.h++" || rm -f libfoo.h++
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/libfoo.Plo
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/lib'
+Making distclean in src
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+ rm -f zardoz
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../src" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/main.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub/src'
+make[2]: Entering directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+rm -rf .libs _libs
+test -z "try.log" || rm -f try.log
+test -z "try.trs" || rm -f try.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f *.lo
+test -z "try.sh" || rm -f try.sh
+test . = "../.." || test -z "" || rm -f 
+rm -f libtool config.lt
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cxx-lt-demo.dir/c---libtool-demo-0.73/_build/sub'
+if test -d "c---libtool-demo-0.73"; then find "c---libtool-demo-0.73" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "c---libtool-demo-0.73" || { sleep 5 && rm -rf "c---libtool-demo-0.73"; }; else :; fi
+=======================================================
+c---libtool-demo-0.73 archives ready for distribution: 
+c---libtool-demo-0.73.tar.gz
+=======================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cxx-lt-demo.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cxx-lt-demo.dir
++ set +x
+PASS t/cxx-lt-demo.sh (exit status: 0)

@@ -1,0 +1,22 @@
+./backtrace ./backtrace.ppc64le.fp.exec ./backtrace.ppc64le.fp.core
+0x10000000	0x10100000	/root/mjw/elfutils/tests/backtrace.ppc64le.fp.exec
+0x3fffa9410000	0x3fffa9420000	linux-vdso64.so.1
+TID 23728:
+# 0 0x100104bc    	raise
+# 1 0x10002a1c - 1	sigusr2
+# 2 0x10002a1c - 1	sigusr2
+# 3 0x10002b38 - 1	stdarg
+# 4 0x10002bc4 - 1	backtracegen
+# 5 0x10002bf0 - 1	start
+# 6 0x10004c28 - 1	start_thread
+TID 23727:
+# 0 0x10006034    	pthread_join
+# 1 0x100025bc - 1	main
+# 2 0x100025bc - 1	main
+# 3 0x100123c4 - 1	generic_start_main
+# 4 0x10012570 - 1	__libc_start_main
+/sources/elfutils-0.173/tests/backtrace: dwfl_thread_getframes: No DWARF information found
+# 1 0x100025bc - 1	main
+# 2 0x100025bc - 1	main
+# 4 0x10002bc4 - 1	backtracegen
+PASS run-backtrace-fp-core-ppc64le.sh (exit status: 0)

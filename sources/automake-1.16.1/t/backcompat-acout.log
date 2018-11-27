@@ -1,0 +1,643 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/backcompat-acout.dir
++ mkdir sub
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ ls -l
+total 64
+-rw-r--r-- 1 root root     0 Nov 27 06:38 Makefile.am
+-rwxr-xr-x 1 root root  7383 Nov 27 06:38 compile
+-rw-r--r-- 1 root root    80 Nov 27 06:38 configure.ac
+-rwxr-xr-x 1 root root 23568 Nov 27 06:38 depcomp
+-rw-r--r-- 1 root root     0 Nov 27 06:38 foo.in
+-rw-r--r-- 1 root root     0 Nov 27 06:38 foo1.in
+-rw-r--r-- 1 root root     0 Nov 27 06:38 foo2.in
+-rw-r--r-- 1 root root     0 Nov 27 06:38 foo3.in
+-rwxr-xr-x 1 root root 15368 Nov 27 06:38 install-sh
+-rwxr-xr-x 1 root root  6878 Nov 27 06:38 missing
+drwxr-xr-x 2 root root  4096 Nov 27 06:38 sub
+-rw-r--r-- 1 root root     0 Nov 27 06:38 zardoz
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf 'autom4te*.cache' aclocal.m4
++ unindent
++ test x = x
+++ sed -e 's/  *# .*//'
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:foo1.in])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:foo1.in])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:zardoz])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:zardoz])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:sub/bar.in])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:sub/bar.in])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:foo1.in:foo2.in])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:foo1.in:foo2.in])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:zardoz:zardoz])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:zardoz:zardoz])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:foo1.in:foo2.in:foo3.in])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:foo1.in:foo2.in:foo3.in])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ for args in 'foo' 'foo:foo1.in' 'foo:zardoz' 'foo:sub/bar.in' 'foo:foo1.in:foo2.in' 'foo:zardoz:zardoz' 'foo:foo1.in:foo2.in:foo3.in' 'foo:foo1.in:foo2.in:sub/bar.in:foo3.in'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([foo:foo1.in:foo2.in:sub/bar.in:foo3.in])
+AC_OUTPUT
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.acf
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([backcompat-acout], [1.0])
+AM_INIT_AUTOMAKE
+AC_OUTPUT([foo:foo1.in:foo2.in:sub/bar.in:foo3.in])
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ mv -f Makefile.in Makefile.aco
++ diff Makefile.acf Makefile.aco
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/backcompat-acout.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/backcompat-acout.dir
++ set +x
+PASS t/backcompat-acout.sh (exit status: 0)

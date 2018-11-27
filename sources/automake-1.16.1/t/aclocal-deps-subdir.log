@@ -1,0 +1,130 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-deps-subdir.dir
++ cat
++ cat
++ mkdir sub
++ :
++ mkdir m4
++ echo 'AC_DEFUN([FOO_TEST], [echo $@])'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --copy --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+GREPME
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
++ sleep 2
++ echo 'AU_ALIAS([FOO_TEST], [AC_SUBST])'
++ cd sub
++ make
+cd .. && make  am--refresh
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
+make: Nothing to be done for 'all'.
++ cd ..
++ grep GREPME Makefile
+GREPME = 
++ grep GREPME sub/Makefile
+GREPME = 
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
+if test -d "aclocal-deps-subdir-1.0"; then find "aclocal-deps-subdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "aclocal-deps-subdir-1.0" || { sleep 5 && rm -rf "aclocal-deps-subdir-1.0"; }; else :; fi
+test -d "aclocal-deps-subdir-1.0" || mkdir "aclocal-deps-subdir-1.0"
+ (cd sub && make  top_distdir=../aclocal-deps-subdir-1.0 distdir=../aclocal-deps-subdir-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+test -n "" \
+|| find "aclocal-deps-subdir-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "aclocal-deps-subdir-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
++ test -f aclocal-deps-subdir-1.0/m4/moredefs.m4
++ sleep 2
++ echo 'AC_DEFUN_ONCE([FOO_TEST], [AC_SUBST(__$1__)])'
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/aclocal-deps-subdir.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/aclocal-deps-subdir.dir'
++ grep 'm4/moredefs\.m4' aclocal.m4
+m4_include([m4/moredefs.m4])
++ grep __GREPME__ configure
+__GREPME__
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-deps-subdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-deps-subdir.dir
++ set +x
+PASS t/aclocal-deps-subdir.sh (exit status: 0)

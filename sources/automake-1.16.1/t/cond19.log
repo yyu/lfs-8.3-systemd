@@ -1,0 +1,82 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond19.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a -i
++ CONDITION1=true
++ CONDITION2=true
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test 'exp=dlmaina1.c dlmainb2.c dlmaina1.o dlmainb2.o'
+is dlmaina1.c dlmainb2.c dlmaina1.o dlmainb2.o == dlmaina1.c dlmainb2.c dlmaina1.o dlmainb2.o
++ CONDITION1=true
++ CONDITION2=false
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test 'exp=dlmainb1.c dlmaina2.c dlmainb1.o dlmaina2.o'
+is dlmainb1.c dlmaina2.c dlmainb1.o dlmaina2.o == dlmainb1.c dlmaina2.c dlmainb1.o dlmaina2.o
++ CONDITION1=false
++ CONDITION2=true
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test 'exp=dlmaina1.c dlmainb2.c dlmaina1.o dlmainb2.o'
+is dlmaina1.c dlmainb2.c dlmaina1.o dlmainb2.o == dlmaina1.c dlmainb2.c dlmaina1.o dlmainb2.o
++ CONDITION1=false
++ CONDITION2=false
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test 'exp=dlmainb1.c dlmaina2.c dlmainb1.o dlmaina2.o'
+is dlmainb1.c dlmaina2.c dlmainb1.o dlmaina2.o == dlmainb1.c dlmaina2.c dlmainb1.o dlmaina2.o
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond19.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond19.dir
++ set +x
+PASS t/cond19.sh (exit status: 0)

@@ -1,0 +1,29 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/all.dir
++ targets='all install-exec install-data uninstall'
++ echo 'all install-exec install-data uninstall:'
++ sed -e 's/[ :]/-local&/g'
++ cat Makefile.am
+all-local install-exec-local install-data-local uninstall-local:
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ for target in $targets
++ grep all-local Makefile.in
+all-local install-exec-local install-data-local uninstall-local:
++ grep 'all-am:.*all-local' Makefile.in
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/all.sh (exit status: 1)

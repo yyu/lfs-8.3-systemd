@@ -1,0 +1,768 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-global-result.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ cat
++ cat
++ cat
++ sed '1s/.*/1..4/' ok.test
++ echo 'not ok 4'
++ cat
++ sed '1s/.*/1..4/' ok.test
++ echo 'ok 4 # TODO'
++ echo 'Bail out!'
++ cat ok.test
++ echo 'Bail out!'
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
+++ echo bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test
++ tests='bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test'
++ run_make -O -e FAIL 'TESTS=bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test' check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-global-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-global-result.dir'
+ERROR: bail.test - Bail out!
+PASS: bail2.test 1
+XFAIL: bail2.test 2 # TODO
+SKIP: bail2.test 3 # SKIP
+ERROR: bail2.test - Bail out!
+SKIP: bail3.test - SKIP
+ERROR: bail3.test - Bail out!
+PASS: error.test 1
+SKIP: error.test 2 # SKIP
+ERROR: error.test 3 # UNPLANNED
+ERROR: error.test 4 # UNPLANNED
+ERROR: error.test - too many tests run (expected 2, got 4)
+PASS: error2.test 1
+XFAIL: error2.test 2 # TODO
+SKIP: error2.test 3 # SKIP
+ERROR: error2.test - too few tests run (expected 4, got 3)
+ERROR: error3.test - multiple test plans
+PASS: error3.test 1
+PASS: error3.test 2
+SKIP: error4.test - SKIP
+ERROR: error4.test 1 # UNPLANNED
+ERROR: error4.test 2 # UNPLANNED
+ERROR: error4.test - too many tests run (expected 0, got 2)
+XFAIL: error5.test 1 # TODO
+ERROR: error5.test 3 # OUT-OF-ORDER (expecting 2)
+ERROR: error5.test 2 # OUT-OF-ORDER (expecting 3)
+PASS: error5.test 4
+SKIP: error6.test 1 # SKIP
+ERROR: error6.test 7 # OUT-OF-ORDER (expecting 2)
+SKIP: error7.test 1 # SKIP
+XPASS: error7.test 2 # TODO
+XFAIL: error7.test 3 # TODO
+PASS: error7.test 4
+ERROR: error7.test - missing test plan
+FAIL: fail.test 1
+PASS: fail2.test 1
+XFAIL: fail2.test 2 # TODO
+SKIP: fail2.test 3 # SKIP
+FAIL: fail2.test 4
+PASS: hodgepodge-all.test 1
+SKIP: hodgepodge-all.test 2 # SKIP
+ERROR: hodgepodge-all.test 2 # OUT-OF-ORDER (expecting 3)
+ERROR: hodgepodge-all.test 3 # OUT-OF-ORDER (expecting 4)
+ERROR: hodgepodge-all.test 4 # UNPLANNED
+ERROR: hodgepodge-all.test - Bail out!
+FAIL: hodgepodge.test 1
+XPASS: hodgepodge.test 2 # TODO
+ERROR: hodgepodge.test - Bail out!
+PASS: ok.test 1
+XFAIL: ok.test 2 # TODO
+SKIP: ok.test 3 # SKIP
+SKIP: skip.test 1 # SKIP
+SKIP: skip.test 2 # SKIP
+SKIP: skip.test 3 # SKIP
+SKIP: skipall.test - SKIP
+XPASS: xpass.test 1 # TODO
+PASS: xpass2.test 1
+XFAIL: xpass2.test 2 # TODO
+SKIP: xpass2.test 3 # SKIP
+XPASS: xpass2.test 4 # TODO
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 60
+# PASS:  11
+# SKIP:  15
+# XFAIL: 7
+# FAIL:  3
+# XPASS: 4
+# ERROR: 20
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-global-result.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-global-result.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
+++ echo ' bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test '
+++ sed 's/\.test / /'
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ for tst in $(echo " $tests " | sed 's/\.test / /')
++ echo :copy-in-global-log: yes
++ rm -f test-suite.log
++ run_make -e FAIL 'TESTS=bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test' test-suite.log
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=bail.test bail2.test bail3.test error.test error2.test error3.test error4.test error5.test error6.test error7.test fail.test fail2.test hodgepodge-all.test hodgepodge.test ok.test skip.test skipall.test xpass.test xpass2.test' test-suite.log
++ set +x
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 60
+# PASS:  11
+# SKIP:  15
+# XFAIL: 7
+# FAIL:  3
+# XPASS: 4
+# ERROR: 20
+============================================================================
+See ./test-suite.log
+============================================================================
+make: *** [Makefile:475: test-suite.log] Error 1
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ cat test-suite.log
+============================================
+   tap-common-setup 1.0: ./test-suite.log
+============================================
+
+# TOTAL: 60
+# PASS:  11
+# SKIP:  15
+# XFAIL: 7
+# FAIL:  3
+# XPASS: 4
+# ERROR: 20
+
+.. contents:: :depth: 2
+
+ERROR: bail
+===========
+
+Bail out!
+ERROR: bail.test - Bail out!
+
+ERROR: bail2
+============
+
+1..3
+ok 1
+PASS: bail2.test 1
+not ok 2 # TODO
+XFAIL: bail2.test 2 # TODO
+ok 3 # SKIP
+SKIP: bail2.test 3 # SKIP
+Bail out!
+ERROR: bail2.test - Bail out!
+
+ERROR: bail3
+============
+
+1..0 # SKIP
+SKIP: bail3.test - SKIP
+Bail out!
+ERROR: bail3.test - Bail out!
+
+ERROR: error
+============
+
+1..2
+ok 1
+PASS: error.test 1
+ok 2 # SKIP
+SKIP: error.test 2 # SKIP
+not ok 3
+ERROR: error.test 3 # UNPLANNED
+not ok 4 # TODO
+ERROR: error.test 4 # UNPLANNED
+ERROR: error.test - too many tests run (expected 2, got 4)
+
+ERROR: error2
+=============
+
+1..4
+ok 1
+PASS: error2.test 1
+not ok 2 # TODO
+XFAIL: error2.test 2 # TODO
+ok 3 # SKIP
+SKIP: error2.test 3 # SKIP
+ERROR: error2.test - too few tests run (expected 4, got 3)
+
+ERROR: error3
+=============
+
+1..2
+1..2
+ERROR: error3.test - multiple test plans
+ok 1
+PASS: error3.test 1
+ok 2
+PASS: error3.test 2
+
+ERROR: error4
+=============
+
+1..0 # SKIP
+SKIP: error4.test - SKIP
+ok 1
+ERROR: error4.test 1 # UNPLANNED
+ok 2
+ERROR: error4.test 2 # UNPLANNED
+ERROR: error4.test - too many tests run (expected 0, got 2)
+
+ERROR: error5
+=============
+
+1..4
+not ok 1 # TODO
+XFAIL: error5.test 1 # TODO
+ok 3
+ERROR: error5.test 3 # OUT-OF-ORDER (expecting 2)
+ok 2
+ERROR: error5.test 2 # OUT-OF-ORDER (expecting 3)
+ok 4
+PASS: error5.test 4
+
+ERROR: error6
+=============
+
+1..2
+ok 1 # SKIP
+SKIP: error6.test 1 # SKIP
+ok 7
+ERROR: error6.test 7 # OUT-OF-ORDER (expecting 2)
+
+ERROR: error7
+=============
+
+ok 1 # SKIP
+SKIP: error7.test 1 # SKIP
+ok 2 # TODO
+XPASS: error7.test 2 # TODO
+not ok 3 # TODO
+XFAIL: error7.test 3 # TODO
+ok 4
+PASS: error7.test 4
+ERROR: error7.test - missing test plan
+
+FAIL: fail
+==========
+
+1..1
+not ok 1
+FAIL: fail.test 1
+
+FAIL: fail2
+===========
+
+1..4
+ok 1
+PASS: fail2.test 1
+not ok 2 # TODO
+XFAIL: fail2.test 2 # TODO
+ok 3 # SKIP
+SKIP: fail2.test 3 # SKIP
+not ok 4
+FAIL: fail2.test 4
+
+ERROR: hodgepodge-all
+=====================
+
+1..4
+ok 1
+PASS: hodgepodge-all.test 1
+ok 2 # SKIP
+SKIP: hodgepodge-all.test 2 # SKIP
+not ok 2 # TODO
+ERROR: hodgepodge-all.test 2 # OUT-OF-ORDER (expecting 3)
+not ok 3
+ERROR: hodgepodge-all.test 3 # OUT-OF-ORDER (expecting 4)
+ok 4 # TODO
+ERROR: hodgepodge-all.test 4 # UNPLANNED
+Bail out!
+ERROR: hodgepodge-all.test - Bail out!
+
+ERROR: hodgepodge
+=================
+
+1..2
+not ok 1
+FAIL: hodgepodge.test 1
+ok 2 # TODO
+XPASS: hodgepodge.test 2 # TODO
+Bail out!
+ERROR: hodgepodge.test - Bail out!
+
+PASS: ok
+========
+
+1..3
+ok 1
+PASS: ok.test 1
+not ok 2 # TODO
+XFAIL: ok.test 2 # TODO
+ok 3 # SKIP
+SKIP: ok.test 3 # SKIP
+
+SKIP: skip
+==========
+
+1..3
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
+ok 2 # SKIP
+SKIP: skip.test 2 # SKIP
+ok 3 # SKIP
+SKIP: skip.test 3 # SKIP
+
+SKIP: skipall
+=============
+
+1..0 # SKIP
+SKIP: skipall.test - SKIP
+foo
+# bar
+
+FAIL: xpass
+===========
+
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
+
+FAIL: xpass2
+============
+
+1..4
+ok 1
+PASS: xpass2.test 1
+not ok 2 # TODO
+XFAIL: xpass2.test 2 # TODO
+ok 3 # SKIP
+SKIP: xpass2.test 3 # SKIP
+ok 4 # TODO
+XPASS: xpass2.test 4 # TODO
+
++ have_rst_section 'PASS: ok'
+++ echo 'PASS: ok'
+++ sed s/./=/g
++ eqeq=========
++ sed -n '/^PASS: ok$/,/^========$/p' test-suite.log
++ echo 'PASS: ok'
++ echo ========
++ cat exp
+PASS: ok
+========
++ cat got
+PASS: ok
+========
++ diff exp got
++ have_rst_section 'SKIP: skip'
+++ echo 'SKIP: skip'
+++ sed s/./=/g
++ eqeq===========
++ sed -n '/^SKIP: skip$/,/^==========$/p' test-suite.log
++ echo 'SKIP: skip'
++ echo ==========
++ cat exp
+SKIP: skip
+==========
++ cat got
+SKIP: skip
+==========
++ diff exp got
++ have_rst_section 'SKIP: skipall'
+++ echo 'SKIP: skipall'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^SKIP: skipall$/,/^=============$/p' test-suite.log
++ echo 'SKIP: skipall'
++ echo =============
++ cat exp
+SKIP: skipall
+=============
++ cat got
+SKIP: skipall
+=============
++ diff exp got
++ have_rst_section 'FAIL: fail'
+++ echo 'FAIL: fail'
+++ sed s/./=/g
++ eqeq===========
++ sed -n '/^FAIL: fail$/,/^==========$/p' test-suite.log
++ echo 'FAIL: fail'
++ echo ==========
++ cat exp
+FAIL: fail
+==========
++ cat got
+FAIL: fail
+==========
++ diff exp got
++ have_rst_section 'FAIL: fail2'
+++ echo 'FAIL: fail2'
+++ sed s/./=/g
++ eqeq============
++ sed -n '/^FAIL: fail2$/,/^===========$/p' test-suite.log
++ echo 'FAIL: fail2'
++ echo ===========
++ cat exp
+FAIL: fail2
+===========
++ cat got
+FAIL: fail2
+===========
++ diff exp got
++ have_rst_section 'FAIL: xpass'
+++ echo 'FAIL: xpass'
+++ sed s/./=/g
++ eqeq============
++ sed -n '/^FAIL: xpass$/,/^===========$/p' test-suite.log
++ echo 'FAIL: xpass'
++ echo ===========
++ cat exp
+FAIL: xpass
+===========
++ cat got
+FAIL: xpass
+===========
++ diff exp got
++ have_rst_section 'FAIL: xpass2'
+++ echo 'FAIL: xpass2'
+++ sed s/./=/g
++ eqeq=============
++ sed -n '/^FAIL: xpass2$/,/^============$/p' test-suite.log
++ echo 'FAIL: xpass2'
++ echo ============
++ cat exp
+FAIL: xpass2
+============
++ cat got
+FAIL: xpass2
+============
++ diff exp got
++ have_rst_section 'ERROR: bail'
+++ echo 'ERROR: bail'
+++ sed s/./=/g
++ eqeq============
++ sed -n '/^ERROR: bail$/,/^===========$/p' test-suite.log
++ echo 'ERROR: bail'
++ echo ===========
++ cat exp
+ERROR: bail
+===========
++ cat got
+ERROR: bail
+===========
++ diff exp got
++ have_rst_section 'ERROR: bail2'
+++ echo 'ERROR: bail2'
+++ sed s/./=/g
++ eqeq=============
++ sed -n '/^ERROR: bail2$/,/^============$/p' test-suite.log
++ echo 'ERROR: bail2'
++ echo ============
++ cat exp
+ERROR: bail2
+============
++ cat got
+ERROR: bail2
+============
++ diff exp got
++ have_rst_section 'ERROR: bail3'
+++ echo 'ERROR: bail3'
+++ sed s/./=/g
++ eqeq=============
++ sed -n '/^ERROR: bail3$/,/^============$/p' test-suite.log
++ echo 'ERROR: bail3'
++ echo ============
++ cat exp
+ERROR: bail3
+============
++ cat got
+ERROR: bail3
+============
++ diff exp got
++ have_rst_section 'ERROR: error'
+++ echo 'ERROR: error'
+++ sed s/./=/g
++ eqeq=============
++ sed -n '/^ERROR: error$/,/^============$/p' test-suite.log
++ echo 'ERROR: error'
++ echo ============
++ cat exp
+ERROR: error
+============
++ cat got
+ERROR: error
+============
++ diff exp got
++ have_rst_section 'ERROR: error2'
+++ echo 'ERROR: error2'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^ERROR: error2$/,/^=============$/p' test-suite.log
++ echo 'ERROR: error2'
++ echo =============
++ cat exp
+ERROR: error2
+=============
++ cat got
+ERROR: error2
+=============
++ diff exp got
++ have_rst_section 'ERROR: error3'
+++ echo 'ERROR: error3'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^ERROR: error3$/,/^=============$/p' test-suite.log
++ echo 'ERROR: error3'
++ echo =============
++ cat exp
+ERROR: error3
+=============
++ cat got
+ERROR: error3
+=============
++ diff exp got
++ have_rst_section 'ERROR: error4'
+++ echo 'ERROR: error4'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^ERROR: error4$/,/^=============$/p' test-suite.log
++ echo 'ERROR: error4'
++ echo =============
++ cat exp
+ERROR: error4
+=============
++ cat got
+ERROR: error4
+=============
++ diff exp got
++ have_rst_section 'ERROR: error5'
+++ echo 'ERROR: error5'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^ERROR: error5$/,/^=============$/p' test-suite.log
++ echo 'ERROR: error5'
++ echo =============
++ cat exp
+ERROR: error5
+=============
++ cat got
+ERROR: error5
+=============
++ diff exp got
++ have_rst_section 'ERROR: error6'
+++ echo 'ERROR: error6'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^ERROR: error6$/,/^=============$/p' test-suite.log
++ echo 'ERROR: error6'
++ echo =============
++ cat exp
+ERROR: error6
+=============
++ cat got
+ERROR: error6
+=============
++ diff exp got
++ have_rst_section 'ERROR: error7'
+++ echo 'ERROR: error7'
+++ sed s/./=/g
++ eqeq==============
++ sed -n '/^ERROR: error7$/,/^=============$/p' test-suite.log
++ echo 'ERROR: error7'
++ echo =============
++ cat exp
+ERROR: error7
+=============
++ cat got
+ERROR: error7
+=============
++ diff exp got
++ have_rst_section 'ERROR: hodgepodge'
+++ echo 'ERROR: hodgepodge'
+++ sed s/./=/g
++ eqeq==================
++ sed -n '/^ERROR: hodgepodge$/,/^=================$/p' test-suite.log
++ echo 'ERROR: hodgepodge'
++ echo =================
++ cat exp
+ERROR: hodgepodge
+=================
++ cat got
+ERROR: hodgepodge
+=================
++ diff exp got
++ have_rst_section 'ERROR: hodgepodge-all'
+++ echo 'ERROR: hodgepodge-all'
+++ sed s/./=/g
++ eqeq======================
++ sed -n '/^ERROR: hodgepodge-all$/,/^=====================$/p' test-suite.log
++ echo 'ERROR: hodgepodge-all'
++ echo =====================
++ cat exp
+ERROR: hodgepodge-all
+=====================
++ cat got
+ERROR: hodgepodge-all
+=====================
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-global-result.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-global-result.dir
++ set +x
+PASS t/tap-global-result.sh (exit status: 0)

@@ -1,0 +1,542 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir
++ magic1=::MagicStringOne::
++ magic2=__MagicStringTwo__
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ cat
++ cat
++ cat
++ echo cat
++ aclocal-1.16 -Werror
++ sed '/^ *#.*generated automatically/d' aclocal.m4
++ mv -f t aclocal.m4
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ for vpath in : false
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
++ make
+make: Nothing to be done for 'all'.
++ sleep 2
++ echo 'AC_DEFUN([my_fingerprint], [::MagicStringOne::])dnl %%%'
++ remake_
++ make nil
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make: Nothing to be done for 'nil'.
++ /bin/grep -F FINGERPRINT Makefile
+FINGERPRINT = ::MagicStringOne::
+	test x'$(FINGERPRINT)' = x'DummyValue'
++ /bin/grep -F ::MagicStringOne:: Makefile
+FINGERPRINT = ::MagicStringOne::
+++ ./foo.sh
++ test x::MagicStringOne:: = x::MagicStringOne::
++ sleep 2
++ echo 'sed '\''s/.*dnl *%%%.*/AC_DEFUN([my_fingerprint], [__MagicStringTwo__])/'\'''
++ remake_
++ make nil
+/bin/sh ../tweak-aclocal-m4 <../aclocal.m4 >../aclocal.m4-t
+mv -f ../aclocal.m4-t ../aclocal.m4
+touch ../aclocal.m4
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make: Nothing to be done for 'nil'.
++ /bin/grep -F FINGERPRINT Makefile
+FINGERPRINT = __MagicStringTwo__
+	test x'$(FINGERPRINT)' = x'DummyValue'
++ /bin/grep -F ::MagicStringOne:: Makefile
++ /bin/grep -F __MagicStringTwo__ Makefile
+FINGERPRINT = __MagicStringTwo__
+++ ./foo.sh
++ test x__MagicStringTwo__ = x__MagicStringTwo__
++ sleep 2
++ echo cat
++ echo 'AC_DEFUN([my_fingerprint], [DummyValue])'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make distcheck
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+test -d "remake-after-aclocal-m4-1.0" || mkdir "remake-after-aclocal-m4-1.0"
+test -n "" \
+|| find "remake-after-aclocal-m4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-after-aclocal-m4-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build'
+tardir=remake-after-aclocal-m4-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-after-aclocal-m4-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+case 'remake-after-aclocal-m4-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-after-aclocal-m4-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-after-aclocal-m4-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-after-aclocal-m4-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-after-aclocal-m4-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-after-aclocal-m4-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-after-aclocal-m4-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-after-aclocal-m4-1.0.zip ;;\
+esac
+chmod -R a-w remake-after-aclocal-m4-1.0
+chmod u+w remake-after-aclocal-m4-1.0
+mkdir remake-after-aclocal-m4-1.0/_build remake-after-aclocal-m4-1.0/_build/sub remake-after-aclocal-m4-1.0/_inst
+chmod a-w remake-after-aclocal-m4-1.0
+test -d remake-after-aclocal-m4-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-after-aclocal-m4-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-after-aclocal-m4-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-after-aclocal-m4-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+test x'DummyValue' = x'DummyValue'
+test x"`./foo.sh`" = x"DummyValue"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+test -d "remake-after-aclocal-m4-1.0" || mkdir "remake-after-aclocal-m4-1.0"
+test -n "" \
+|| find "remake-after-aclocal-m4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-after-aclocal-m4-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+tardir=remake-after-aclocal-m4-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-after-aclocal-m4-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+test -z "foo.sh" || rm -f foo.sh
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/build/remake-after-aclocal-m4-1.0/_build/sub'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+=============================================================
+remake-after-aclocal-m4-1.0 archives ready for distribution: 
+remake-after-aclocal-m4-1.0.tar.gz
+=============================================================
++ /bin/grep -F ::MagicStringOne:: Makefile
++ /bin/grep -F __MagicStringTwo__ Makefile
++ make distclean
+test -z "foo.sh" || rm -f foo.sh
+test . = ".." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd ..
++ for vpath in : false
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
++ make
+make: Nothing to be done for 'all'.
++ sleep 2
++ echo 'AC_DEFUN([my_fingerprint], [::MagicStringOne::])dnl %%%'
++ remake_
++ make nil
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make: Nothing to be done for 'nil'.
++ /bin/grep -F FINGERPRINT Makefile
+FINGERPRINT = ::MagicStringOne::
+	test x'$(FINGERPRINT)' = x'DummyValue'
++ /bin/grep -F ::MagicStringOne:: Makefile
+FINGERPRINT = ::MagicStringOne::
+++ ./foo.sh
++ test x::MagicStringOne:: = x::MagicStringOne::
++ sleep 2
++ echo 'sed '\''s/.*dnl *%%%.*/AC_DEFUN([my_fingerprint], [__MagicStringTwo__])/'\'''
++ remake_
++ make nil
+/bin/sh ./tweak-aclocal-m4 <aclocal.m4 >aclocal.m4-t
+mv -f aclocal.m4-t aclocal.m4
+touch aclocal.m4
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make: Nothing to be done for 'nil'.
++ /bin/grep -F FINGERPRINT Makefile
+FINGERPRINT = __MagicStringTwo__
+	test x'$(FINGERPRINT)' = x'DummyValue'
++ /bin/grep -F ::MagicStringOne:: Makefile
++ /bin/grep -F __MagicStringTwo__ Makefile
+FINGERPRINT = __MagicStringTwo__
+++ ./foo.sh
++ test x__MagicStringTwo__ = x__MagicStringTwo__
++ sleep 2
++ echo cat
++ echo 'AC_DEFUN([my_fingerprint], [DummyValue])'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make distcheck
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+test -d "remake-after-aclocal-m4-1.0" || mkdir "remake-after-aclocal-m4-1.0"
+test -n "" \
+|| find "remake-after-aclocal-m4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-after-aclocal-m4-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir'
+tardir=remake-after-aclocal-m4-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-after-aclocal-m4-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+case 'remake-after-aclocal-m4-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-after-aclocal-m4-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-after-aclocal-m4-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-after-aclocal-m4-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-after-aclocal-m4-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-after-aclocal-m4-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-after-aclocal-m4-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-after-aclocal-m4-1.0.zip ;;\
+esac
+chmod -R a-w remake-after-aclocal-m4-1.0
+chmod u+w remake-after-aclocal-m4-1.0
+mkdir remake-after-aclocal-m4-1.0/_build remake-after-aclocal-m4-1.0/_build/sub remake-after-aclocal-m4-1.0/_inst
+chmod a-w remake-after-aclocal-m4-1.0
+test -d remake-after-aclocal-m4-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-after-aclocal-m4-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-after-aclocal-m4-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-after-aclocal-m4-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating foo.sh
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+test x'DummyValue' = x'DummyValue'
+test x"`./foo.sh`" = x"DummyValue"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+test -d "remake-after-aclocal-m4-1.0" || mkdir "remake-after-aclocal-m4-1.0"
+test -n "" \
+|| find "remake-after-aclocal-m4-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-after-aclocal-m4-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+tardir=remake-after-aclocal-m4-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-after-aclocal-m4-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+test -z "foo.sh" || rm -f foo.sh
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-after-aclocal-m4.dir/remake-after-aclocal-m4-1.0/_build/sub'
+if test -d "remake-after-aclocal-m4-1.0"; then find "remake-after-aclocal-m4-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-after-aclocal-m4-1.0" || { sleep 5 && rm -rf "remake-after-aclocal-m4-1.0"; }; else :; fi
+=============================================================
+remake-after-aclocal-m4-1.0 archives ready for distribution: 
+remake-after-aclocal-m4-1.0.tar.gz
+=============================================================
++ /bin/grep -F ::MagicStringOne:: Makefile
++ /bin/grep -F __MagicStringTwo__ Makefile
++ make distclean
+test -z "foo.sh" || rm -f foo.sh
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd .
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-after-aclocal-m4.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-after-aclocal-m4.dir
++ set +x
+PASS t/remake-after-aclocal-m4.sh (exit status: 0)

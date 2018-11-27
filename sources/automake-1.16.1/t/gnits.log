@@ -1,0 +1,53 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/gnits.dir
++ cat
++ cat
++ :
++ :
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails --gnits
++ AUTOMAKE_run -e 1 --gnits
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall --gnits
++ am__got_rc=1
++ cat stderr
+configure.ac:1: error: version '3.5.3.2' doesn't follow Gnits standards
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'configure.ac:.*3\.5\.3\.2' stderr
+configure.ac:1: error: version '3.5.3.2' doesn't follow Gnits standards
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/gnits.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/gnits.dir
++ set +x
+PASS t/gnits.sh (exit status: 0)

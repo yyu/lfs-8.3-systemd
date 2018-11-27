@@ -1,0 +1,222 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/check-subst.dir
++ cat
++ cat
++ test x '!=' xyes
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ cat
++ cp pass-script.test subst-pass-script.sh
++ cp xfail-script.test subst-xfail-script.sh
++ chmod a+x pass-script.test xfail-script.test
++ test x = xyes
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ for vpath in false :
++ false
++ srcdir=.
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make all
+make: Nothing to be done for 'all'.
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-subst.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-subst.dir'
+PASS: pass-script.test
+XFAIL: xfail-script.test
+PASS: subst-pass-script.sh
+XFAIL: subst-xfail-script.sh
+============================================================================
+Testsuite summary for check-subst 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  2
+# SKIP:  0
+# XFAIL: 2
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-subst.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-subst.dir'
++ test x '!=' xyes
++ ls -l
+total 352
+-rw-r--r-- 1 root root  30913 Nov 27 06:38 Makefile
+-rw-r--r-- 1 root root    141 Nov 27 06:38 Makefile.am
+-rw-r--r-- 1 root root  30258 Nov 27 06:38 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:38 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:38 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:38 compile
+-rw-r--r-- 1 root root   5056 Nov 27 06:38 config.log
+-rwxr-xr-x 1 root root  25524 Nov 27 06:38 config.status
+-rwxr-xr-x 1 root root 104249 Nov 27 06:38 configure
+-rw-r--r-- 1 root root    227 Nov 27 06:38 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:38 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:38 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:38 missing
+-rw-r--r-- 1 root root     39 Nov 27 06:38 pass-script.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:38 pass-script.test
+-rw-r--r-- 1 root root     82 Nov 27 06:38 pass-script.trs
+-rw-r--r-- 1 root root     43 Nov 27 06:38 subst-pass-script.log
+-rw-r--r-- 1 root root     18 Nov 27 06:38 subst-pass-script.sh
+-rw-r--r-- 1 root root     82 Nov 27 06:38 subst-pass-script.trs
+-rw-r--r-- 1 root root     45 Nov 27 06:38 subst-xfail-script.log
+-rw-r--r-- 1 root root     18 Nov 27 06:38 subst-xfail-script.sh
+-rw-r--r-- 1 root root     85 Nov 27 06:38 subst-xfail-script.trs
+lrwxrwxrwx 1 root root     40 Nov 27 06:38 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root    403 Nov 27 06:38 test-suite.log
+-rw-r--r-- 1 root root     41 Nov 27 06:38 xfail-script.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:38 xfail-script.test
+-rw-r--r-- 1 root root     85 Nov 27 06:38 xfail-script.trs
++ test -f pass-script.log
++ test -f xfail-script.log
++ test -f subst-pass-script.log
++ test -f subst-xfail-script.log
++ make distclean
+test -z "pass-script.log xfail-script.log subst-pass-script.log subst-xfail-script.log" || rm -f pass-script.log xfail-script.log subst-pass-script.log subst-xfail-script.log
+test -z "pass-script.trs xfail-script.trs subst-pass-script.trs subst-xfail-script.trs" || rm -f pass-script.trs xfail-script.trs subst-pass-script.trs subst-xfail-script.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd .
++ for vpath in false :
++ :
++ mkdir build
++ cd build
++ srcdir=..
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make all
+make: Nothing to be done for 'all'.
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check-subst.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/check-subst.dir/build'
+PASS: pass-script.test
+XFAIL: xfail-script.test
+PASS: subst-pass-script.sh
+XFAIL: subst-xfail-script.sh
+============================================================================
+Testsuite summary for check-subst 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  2
+# SKIP:  0
+# XFAIL: 2
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check-subst.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check-subst.dir/build'
++ test x '!=' xyes
++ ls -l
+total 104
+-rw-r--r-- 1 root root 30955 Nov 27 06:39 Makefile
+-rw-r--r-- 1 root root  5069 Nov 27 06:39 config.log
+-rwxr-xr-x 1 root root 25373 Nov 27 06:39 config.status
+-rw-r--r-- 1 root root    39 Nov 27 06:39 pass-script.log
+-rw-r--r-- 1 root root    82 Nov 27 06:39 pass-script.trs
+-rw-r--r-- 1 root root    43 Nov 27 06:39 subst-pass-script.log
+-rw-r--r-- 1 root root    82 Nov 27 06:39 subst-pass-script.trs
+-rw-r--r-- 1 root root    45 Nov 27 06:39 subst-xfail-script.log
+-rw-r--r-- 1 root root    85 Nov 27 06:39 subst-xfail-script.trs
+-rw-r--r-- 1 root root   403 Nov 27 06:39 test-suite.log
+-rw-r--r-- 1 root root    41 Nov 27 06:39 xfail-script.log
+-rw-r--r-- 1 root root    85 Nov 27 06:39 xfail-script.trs
++ test -f pass-script.log
++ test -f xfail-script.log
++ test -f subst-pass-script.log
++ test -f subst-xfail-script.log
++ make distclean
+test -z "pass-script.log xfail-script.log subst-pass-script.log subst-xfail-script.log" || rm -f pass-script.log xfail-script.log subst-pass-script.log subst-xfail-script.log
+test -z "pass-script.trs xfail-script.trs subst-pass-script.trs subst-xfail-script.trs" || rm -f pass-script.trs xfail-script.trs subst-pass-script.trs subst-xfail-script.trs
+test -z "test-suite.log" || rm -f test-suite.log
+test -z "" || rm -f 
+test . = ".." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ cd ..
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check-subst.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check-subst.dir
++ set +x
+PASS t/check-subst.sh (exit status: 0)

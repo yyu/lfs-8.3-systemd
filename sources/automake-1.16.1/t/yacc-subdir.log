@@ -1,0 +1,108 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-subdir.dir
++ cat
++ cat
++ mkdir foo
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ mkdir sub
++ cd sub
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make test1
+/bin/sh ../ylwrap ../foo/parse.y y.tab.c foo/parse.c y.tab.h `echo foo/parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo/parse.output -- yacc -d 
+updating foo/parse.h
+depbase=`echo foo/parse.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-subdir\" -DPACKAGE_TARNAME=\"yacc-subdir\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-subdir\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-subdir\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT foo/parse.o -MD -MP -MF $depbase.Tpo -c -o foo/parse.o foo/parse.c &&\
+mv -f $depbase.Tpo $depbase.Po
+test -f foo/parse.c
+test -f foo/parse.o
++ test -f foo/parse.h
++ rm -f foo/parse.h
++ make foo/parse.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-subdir.dir/sub'
+/bin/sh ../ylwrap ../foo/parse.y y.tab.c foo/parse.c y.tab.h `echo foo/parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo/parse.output -- yacc -d 
+updating foo/parse.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-subdir.dir/sub'
++ test -f foo/parse.h
++ sleep 2
++ touch ../foo/parse.y
++ make obj
+/bin/sh ../ylwrap ../foo/parse.y y.tab.c foo/parse.c y.tab.h `echo foo/parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo/parse.output -- yacc -d 
+foo/parse.h is unchanged
+depbase=`echo foo/parse.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-subdir\" -DPACKAGE_TARNAME=\"yacc-subdir\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-subdir\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-subdir\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT foo/parse.o -MD -MP -MF $depbase.Tpo -c -o foo/parse.o foo/parse.c &&\
+mv -f $depbase.Tpo $depbase.Po
++ is_newest ../foo/parse.y foo/parse.h
++ sleep 2
++ sed 's/%%/%token TOKEN\n%%/g' ../foo/parse.y
++ mv -f ../foo/parse.yt ../foo/parse.y
++ make obj
+/bin/sh ../ylwrap ../foo/parse.y y.tab.c foo/parse.c y.tab.h `echo foo/parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo/parse.output -- yacc -d 
+updating foo/parse.h
+depbase=`echo foo/parse.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-subdir\" -DPACKAGE_TARNAME=\"yacc-subdir\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-subdir\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-subdir\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT foo/parse.o -MD -MP -MF $depbase.Tpo -c -o foo/parse.o foo/parse.c &&\
+mv -f $depbase.Tpo $depbase.Po
++ is_newest foo/parse.h ../foo/parse.y
++ cd ..
++ sleep 2
++ cp foo/parse.y foo/parse2.y
++ cat
++ automake-1.16 --foreign -Werror -Wall -a
++ test -f ./ylwrap
++ cd sub
++ ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make test2
+/bin/sh ../ylwrap ../foo/parse2.y y.tab.c foo/parse2.c y.tab.h `echo foo/parse2.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo/parse2.output -- yacc -d 
+updating foo/parse2.h
+depbase=`echo foo/parse2.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+cc -DPACKAGE_NAME=\"yacc-subdir\" -DPACKAGE_TARNAME=\"yacc-subdir\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-subdir\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-subdir\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT foo/parse2.o -MD -MP -MF $depbase.Tpo -c -o foo/parse2.o foo/parse2.c &&\
+mv -f $depbase.Tpo $depbase.Po
+test -f foo/parse2.c
+test -f foo/parse2.o
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-subdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-subdir.dir
++ set +x
+PASS t/yacc-subdir.sh (exit status: 0)

@@ -1,0 +1,515 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/check10.dir
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x pass fail skip
++ cp pass pass2
++ cp pass xpass
++ cp xpass xpass2
++ cp fail xfail
++ cp fail fail2
++ cp xfail xfail2
++ cp skip skip2
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -e IGNORE TESTS=pass check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=pass check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE TESTS=fail check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=fail check
++ set +x
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make: *** [Makefile:539: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE TESTS=skip check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=skip check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE TESTS=xfail check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=xfail check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE TESTS=xpass check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TESTS=xpass check
++ set +x
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make: *** [Makefile:539: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE 'TESTS=pass pass2' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=pass pass2' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE 'TESTS=fail fail2' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=fail fail2' check
++ set +x
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make: *** [Makefile:539: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE 'TESTS=skip skip2' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=skip skip2' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE 'TESTS=xfail xfail2' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=xfail xfail2' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE 'TESTS=xpass xpass2' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=xpass xpass2' check
++ set +x
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make: *** [Makefile:539: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE 'TESTS=pass skip xfail' check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make 'TESTS=pass skip xfail' check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ run_make -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[1]: *** [Makefile:280: check-TESTS] Error 1
+make: *** [Makefile:539: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ cat stdout
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+PASS: pass
+=============
+1 test passed
+=============
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+FAIL: fail
+==================
+1 of 1 test failed
+==================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+SKIP: skip
+====================
+All 0 tests passed
+(1 test was not run)
+====================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+XFAIL: xfail
+===============================================
+1 test behaved as expected (1 expected failure)
+===============================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+XPASS: xpass
+==========================================================
+1 of 1 test did not behave as expected (1 unexpected pass)
+==========================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+PASS: pass
+PASS: pass2
+==================
+All 2 tests passed
+==================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+FAIL: fail
+FAIL: fail2
+===================
+2 of 2 tests failed
+===================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+SKIP: skip
+SKIP: skip2
+======================
+All 0 tests passed
+(2 tests were not run)
+======================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+XFAIL: xfail
+XFAIL: xfail2
+=====================================================
+All 2 tests behaved as expected (2 expected failures)
+=====================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+XPASS: xpass
+XPASS: xpass2
+=============================================================
+2 of 2 tests did not behave as expected (2 unexpected passes)
+=============================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+PASS: pass
+SKIP: skip
+XFAIL: xfail
+====================================================
+All 2 tests behaved as expected (1 expected failure)
+(1 test was not run)
+====================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/check10.dir'
+FAIL: fail
+PASS: pass
+SKIP: skip
+XFAIL: xfail
+XPASS: xpass
+FAIL: fail2
+PASS: pass2
+SKIP: skip2
+XFAIL: xfail2
+XPASS: xpass2
+=============================================================
+4 of 8 tests did not behave as expected (2 unexpected passes)
+(2 tests were not run)
+=============================================================
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check10.dir'
++ grep '1 [tT]ests' stdout
++ grep '[02-9] [tT]est ' stdout
++ grep '1 .* were ' stdout
++ grep '[02-9].* was .*run' stdout
++ grep 'All 1 ' stdout
++ /bin/grep -E '1 (un)?expected (failures|passes)' stdout
++ /bin/grep -E '[^1] (un)?expected (failure|pass)\)' stdout
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check10.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check10.dir
++ set +x
+PASS t/check10.sh (exit status: 0)

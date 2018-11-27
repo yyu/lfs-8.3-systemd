@@ -1,0 +1,210 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-msg0-result.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-msg0-result.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-msg0-result.dir'
+PASS: all.test 1 0
+PASS: all.test 2 - 0
+FAIL: all.test 3 0
+FAIL: all.test 4 - 0
+XPASS: all.test 5 0 # TODO
+XPASS: all.test 6 - 0 # TODO
+XFAIL: all.test 7 0 # TODO
+XFAIL: all.test 8 - 0 # TODO
+SKIP: all.test 9 0 # SKIP
+SKIP: all.test 10 - 0 # SKIP
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 10
+# PASS:  2
+# SKIP:  2
+# XFAIL: 2
+# FAIL:  2
+# XPASS: 2
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-msg0-result.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-msg0-result.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=10 pass=2 fail=2 xpass=2 xfail=2 skip=2 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=10 pass=2 fail=2 xpass=2 xfail=2 skip=2 error=0
+++ total=10
+++ pass=2
+++ fail=2
+++ xpass=2
+++ xfail=2
+++ skip=2
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1 0
+PASS: all.test 2 - 0
+FAIL: all.test 3 0
+FAIL: all.test 4 - 0
+XPASS: all.test 5 0 # TODO
+XPASS: all.test 6 - 0 # TODO
+XFAIL: all.test 7 0 # TODO
+XFAIL: all.test 8 - 0 # TODO
+SKIP: all.test 9 0 # SKIP
+SKIP: all.test 10 - 0 # SKIP
+# TOTAL: 10
+# PASS:  2
+# SKIP:  2
+# XFAIL: 2
+# FAIL:  2
+# XPASS: 2
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^SKIP:' stdout
++ test 2 -eq 2
+++ grep -c '^FAIL:' stdout
++ test 2 -eq 2
+++ grep -c '^XPASS:' stdout
++ test 2 -eq 2
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *10$' stdout
+# TOTAL: 10
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *2$' stdout
+# XFAIL: 2
++ grep '^# SKIP:  *2$' stdout
+# SKIP:  2
++ grep '^# FAIL:  *2$' stdout
+# FAIL:  2
++ grep '^# XPASS:  *2$' stdout
+# XPASS: 2
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ cat
++ /bin/grep -F ': all.test' stdout
++ cat exp
+PASS: all.test 1 0
+PASS: all.test 2 - 0
+FAIL: all.test 3 0
+FAIL: all.test 4 - 0
+XPASS: all.test 5 0 # TODO
+XPASS: all.test 6 - 0 # TODO
+XFAIL: all.test 7 0 # TODO
+XFAIL: all.test 8 - 0 # TODO
+SKIP: all.test 9 0 # SKIP
+SKIP: all.test 10 - 0 # SKIP
++ cat got
+PASS: all.test 1 0
+PASS: all.test 2 - 0
+FAIL: all.test 3 0
+FAIL: all.test 4 - 0
+XPASS: all.test 5 0 # TODO
+XPASS: all.test 6 - 0 # TODO
+XFAIL: all.test 7 0 # TODO
+XFAIL: all.test 8 - 0 # TODO
+SKIP: all.test 9 0 # SKIP
+SKIP: all.test 10 - 0 # SKIP
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-msg0-result.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-msg0-result.dir
++ set +x
+PASS t/tap-msg0-result.sh (exit status: 0)

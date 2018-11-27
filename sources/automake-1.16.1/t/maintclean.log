@@ -1,0 +1,130 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/maintclean.dir
++ cat
++ cat
++ mkdir sub
++ cat
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ test -d autom4te.cache
++ test_cache='test -d autom4te.cache'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating bar
+config.status: creating sub/Makefile
++ test -f bar
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maintclean.dir/sub'
+cp ./zap.sh zap && chmod a+x zap
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maintclean.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maintclean.dir'
+touch foo.c
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maintclean.dir'
++ test -f foo.c
++ test -f sub/zap
++ test -d autom4te.cache
++ make distclean
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maintclean.dir/sub'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maintclean.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maintclean.dir'
+test -z "bar" || rm -f bar
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maintclean.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test '!' -e bar
++ test '!' -e Makefile
++ test '!' -e sub/Makefile
++ test '!' -e config.status
++ test -f foo.c
++ test -f sub/zap
++ test -f sub/zap.sh
++ test -d autom4te.cache
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating bar
+config.status: creating sub/Makefile
++ test -f bar
++ make foo.c
+make: 'foo.c' is up to date.
++ test -f foo.c
++ cd sub
++ make zap
+make: 'zap' is up to date.
++ test -f zap
++ cd ..
++ make maintainer-clean
+Making maintainer-clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/maintclean.dir/sub'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+test -z "zap" || rm -f zap
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maintclean.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/maintclean.dir'
+test -z "bar" || rm -f bar
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+test -z "foo.c" || rm -f foo.c
+make[1]: Leaving directory '/sources/automake-1.16.1/t/maintclean.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ test -f sub/zap.sh
++ test '!' -e bar
++ test '!' -e foo.c
++ test '!' -e sub/zap
++ test '!' -e Makefile
++ test '!' -e sub/Makefile
++ test '!' -e config.status
++ test '!' -e autom4te.cache
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/maintclean.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/maintclean.dir
++ set +x
+PASS t/maintclean.sh (exit status: 0)

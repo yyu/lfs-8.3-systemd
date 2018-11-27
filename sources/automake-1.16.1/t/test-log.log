@@ -1,0 +1,767 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-log.dir
++ cat
++ cat
++ cmarker=:::
++ pmarker=%%%
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x error.test fail.test pass.test skip.test xfail.test xpass.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -e FAIL TEST_SUITE_LOG=my.log check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=my.log check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-log.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-log.dir'
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+FAIL: fail.test
+XPASS: xpass.test
+ERROR: error.test
+============================================================================
+Testsuite summary for test-log 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./my.log
+============================================================================
+make[2]: *** [Makefile:475: my.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-log.dir'
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-log.dir'
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 376
+-rw-r--r-- 1 root root  30226 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    135 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  29745 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   4884 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  25351 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 104074 Nov 27 06:45 configure
+-rw-r--r-- 1 root root     82 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rw-r--r-- 1 root root     65 Nov 27 06:45 error.log
+-rwxr-xr-x 1 root root     65 Nov 27 06:45 error.test
+-rw-r--r-- 1 root root     86 Nov 27 06:45 error.trs
+-rw-r--r-- 1 root root     60 Nov 27 06:45 fail.log
+-rwxr-xr-x 1 root root     62 Nov 27 06:45 fail.test
+-rw-r--r-- 1 root root     84 Nov 27 06:45 fail.trs
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+-rw-r--r-- 1 root root    634 Nov 27 06:45 my.log
+-rw-r--r-- 1 root root     60 Nov 27 06:45 pass.log
+-rwxr-xr-x 1 root root     70 Nov 27 06:45 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:45 pass.trs
+-rw-r--r-- 1 root root     61 Nov 27 06:45 skip.log
+-rwxr-xr-x 1 root root     63 Nov 27 06:45 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:45 skip.trs
+lrwxrwxrwx 1 root root     40 Nov 27 06:45 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root     64 Nov 27 06:45 xfail.log
+-rwxr-xr-x 1 root root     72 Nov 27 06:45 xfail.test
+-rw-r--r-- 1 root root     85 Nov 27 06:45 xfail.trs
+-rw-r--r-- 1 root root     64 Nov 27 06:45 xpass.log
+-rwxr-xr-x 1 root root     72 Nov 27 06:45 xpass.test
+-rw-r--r-- 1 root root     86 Nov 27 06:45 xpass.trs
++ test '!' -e test-suite.log
++ test '!' -e global.log
++ test -f my.log
++ st=0
++ for result in pass fail xfail xpass skip error
++ cat pass.log
+%%% pass %%%
+# ::: pass :::
+PASS pass.test (exit status: 0)
++ /bin/grep -F '%%% pass %%%' pass.log
+%%% pass %%%
++ /bin/grep -F '::: pass :::' pass.log
+# ::: pass :::
++ for result in pass fail xfail xpass skip error
++ cat fail.log
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
++ /bin/grep -F '%%% fail %%%' fail.log
+%%% fail %%%
++ /bin/grep -F '::: fail :::' fail.log
+# ::: fail :::
++ for result in pass fail xfail xpass skip error
++ cat xfail.log
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
++ /bin/grep -F '%%% xfail %%%' xfail.log
+%%% xfail %%%
++ /bin/grep -F '::: xfail :::' xfail.log
+# ::: xfail :::
++ for result in pass fail xfail xpass skip error
++ cat xpass.log
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
++ /bin/grep -F '%%% xpass %%%' xpass.log
+%%% xpass %%%
++ /bin/grep -F '::: xpass :::' xpass.log
+# ::: xpass :::
++ for result in pass fail xfail xpass skip error
++ cat skip.log
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
++ /bin/grep -F '%%% skip %%%' skip.log
+%%% skip %%%
++ /bin/grep -F '::: skip :::' skip.log
+# ::: skip :::
++ for result in pass fail xfail xpass skip error
++ cat error.log
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)
++ /bin/grep -F '%%% error %%%' error.log
+%%% error %%%
++ /bin/grep -F '::: error :::' error.log
+# ::: error :::
++ test 0 -eq 0
++ cat my.log
+============================
+   test-log 1.0: ./my.log
+============================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
+
+FAIL: fail
+==========
+
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
+
+XPASS: xpass
+============
+
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
+
+ERROR: error
+============
+
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)
+
++ for result in xfail fail xpass skip error
++ cat xfail.log
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
++ /bin/grep -F '%%% xfail %%%' my.log
+%%% xfail %%%
++ /bin/grep -F '::: xfail :::' my.log
+# ::: xfail :::
++ for result in xfail fail xpass skip error
++ cat fail.log
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
++ /bin/grep -F '%%% fail %%%' my.log
+%%% fail %%%
++ /bin/grep -F '::: fail :::' my.log
+# ::: fail :::
++ for result in xfail fail xpass skip error
++ cat xpass.log
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
++ /bin/grep -F '%%% xpass %%%' my.log
+%%% xpass %%%
++ /bin/grep -F '::: xpass :::' my.log
+# ::: xpass :::
++ for result in xfail fail xpass skip error
++ cat skip.log
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
++ /bin/grep -F '%%% skip %%%' my.log
+%%% skip %%%
++ /bin/grep -F '::: skip :::' my.log
+# ::: skip :::
++ for result in xfail fail xpass skip error
++ cat error.log
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)
++ /bin/grep -F '%%% error %%%' my.log
+%%% error %%%
++ /bin/grep -F '::: error :::' my.log
+# ::: error :::
+++ /bin/grep -F -c %%% my.log
++ test 5 -eq 5
+++ /bin/grep -F -c ::: my.log
++ test 5 -eq 5
++ /bin/grep -E ':.*[^x]pass' my.log
++ have_rst_section 'SKIP: skip' my.log
+++ sed s/./=/g
+++ echo 'SKIP: skip'
++ eqeq===========
++ sed -n '/^SKIP: skip$/,/^==========$/p' my.log
++ echo 'SKIP: skip'
++ echo ==========
++ cat exp
+SKIP: skip
+==========
++ cat got
+SKIP: skip
+==========
++ diff exp got
++ have_rst_section 'FAIL: fail' my.log
+++ echo 'FAIL: fail'
+++ sed s/./=/g
++ eqeq===========
++ sed -n '/^FAIL: fail$/,/^==========$/p' my.log
++ echo 'FAIL: fail'
++ echo ==========
++ cat exp
+FAIL: fail
+==========
++ cat got
+FAIL: fail
+==========
++ diff exp got
++ have_rst_section 'XFAIL: xfail' my.log
+++ sed s/./=/g
+++ echo 'XFAIL: xfail'
++ eqeq=============
++ sed -n '/^XFAIL: xfail$/,/^============$/p' my.log
++ echo 'XFAIL: xfail'
++ echo ============
++ cat exp
+XFAIL: xfail
+============
++ cat got
+XFAIL: xfail
+============
++ diff exp got
++ have_rst_section 'XPASS: xpass' my.log
+++ echo 'XPASS: xpass'
+++ sed s/./=/g
++ eqeq=============
++ sed -n '/^XPASS: xpass$/,/^============$/p' my.log
++ echo 'XPASS: xpass'
++ echo ============
++ cat exp
+XPASS: xpass
+============
++ cat got
+XPASS: xpass
+============
++ diff exp got
++ have_rst_section 'ERROR: error' my.log
+++ echo 'ERROR: error'
+++ sed s/./=/g
++ eqeq=============
++ sed -n '/^ERROR: error$/,/^============$/p' my.log
++ echo 'ERROR: error'
++ echo ============
++ cat exp
+ERROR: error
+============
++ cat got
+ERROR: error
+============
++ diff exp got
++ touch error2.log test-suite.log global.log
++ run_make TEST_SUITE_LOG=my.log mostlyclean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=my.log mostlyclean
++ set +x
+test -z "pass.log skip.log xfail.log fail.log xpass.log error.log" || rm -f pass.log skip.log xfail.log fail.log xpass.log error.log
+test -z "pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs" || rm -f pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs
+test -z "my.log" || rm -f my.log
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 332
+-rw-r--r-- 1 root root  30226 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    135 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  29745 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rw-r--r-- 1 root root   4884 Nov 27 06:45 config.log
+-rwxr-xr-x 1 root root  25351 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 104074 Nov 27 06:45 configure
+-rw-r--r-- 1 root root     82 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root     65 Nov 27 06:45 error.test
+-rw-r--r-- 1 root root      0 Nov 27 06:45 error2.log
+-rw-r--r-- 1 root root     26 Nov 27 06:45 exp
+-rwxr-xr-x 1 root root     62 Nov 27 06:45 fail.test
+-rw-r--r-- 1 root root      0 Nov 27 06:45 global.log
+-rw-r--r-- 1 root root     26 Nov 27 06:45 got
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+-rwxr-xr-x 1 root root     70 Nov 27 06:45 pass.test
+-rwxr-xr-x 1 root root     63 Nov 27 06:45 skip.test
+lrwxrwxrwx 1 root root     40 Nov 27 06:45 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root      0 Nov 27 06:45 test-suite.log
+-rwxr-xr-x 1 root root     72 Nov 27 06:45 xfail.test
+-rwxr-xr-x 1 root root     72 Nov 27 06:45 xpass.test
++ test '!' -e my.log
++ test '!' -e pass.log
++ test '!' -e fail.log
++ test '!' -e xfail.log
++ test '!' -e xpass.log
++ test '!' -e skip.log
++ test '!' -e error.log
++ test -f error2.log
++ test -f test-suite.log
++ test -f global.log
++ rm -f config.log error2.log global.log test-suite.log
++ run_make -O -e FAIL check VERBOSE=yes
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check VERBOSE=yes
++ set +x
+make[2]: *** [Makefile:475: global.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-log.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-log.dir'
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+FAIL: fail.test
+XPASS: xpass.test
+ERROR: error.test
+================================
+   test-log 1.0: ./global.log
+================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
+
+FAIL: fail
+==========
+
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
+
+XPASS: xpass
+============
+
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
+
+ERROR: error
+============
+
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)
+
+============================================================================
+Testsuite summary for test-log 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./global.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-log.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-log.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ cat global.log
+================================
+   test-log 1.0: ./global.log
+================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
+
+FAIL: fail
+==========
+
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
+
+XPASS: xpass
+============
+
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
+
+ERROR: error
+============
+
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)
+
++ test '!' -e my.log
++ test '!' -e test-suite.log
+++ cat stdout
++ out='make  check-TESTS
+make[1]: Entering directory '\''/sources/automake-1.16.1/t/test-log.dir'\''
+make[2]: Entering directory '\''/sources/automake-1.16.1/t/test-log.dir'\''
+PASS: pass.test
+SKIP: skip.test
+XFAIL: xfail.test
+FAIL: fail.test
+XPASS: xpass.test
+ERROR: error.test
+================================
+   test-log 1.0: ./global.log
+================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
+
+FAIL: fail
+==========
+
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
+
+XPASS: xpass
+============
+
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
+
+ERROR: error
+============
+
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)
+
+============================================================================
+Testsuite summary for test-log 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./global.log
+============================================================================
+make[2]: Leaving directory '\''/sources/automake-1.16.1/t/test-log.dir'\''
+make[1]: Leaving directory '\''/sources/automake-1.16.1/t/test-log.dir'\'''
+++ cat global.log
++ log='================================
+   test-log 1.0: ./global.log
+================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+%%% skip %%%
+# ::: skip :::
+SKIP skip.test (exit status: 77)
+
+XFAIL: xfail
+============
+
+%%% xfail %%%
+# ::: xfail :::
+XFAIL xfail.test (exit status: 1)
+
+FAIL: fail
+==========
+
+%%% fail %%%
+# ::: fail :::
+FAIL fail.test (exit status: 1)
+
+XPASS: xpass
+============
+
+%%% xpass %%%
+# ::: xpass :::
+XPASS xpass.test (exit status: 0)
+
+ERROR: error
+============
+
+%%% error %%%
+# ::: error :::
+ERROR error.test (exit status: 99)'
++ case $out in
++ touch error2.log test-suite.log my.log
++ make clean
+test -z "pass.log skip.log xfail.log fail.log xpass.log error.log" || rm -f pass.log skip.log xfail.log fail.log xpass.log error.log
+test -z "pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs" || rm -f pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs
+test -z "global.log" || rm -f global.log
++ ls -l
+total 328
+-rw-r--r-- 1 root root  30226 Nov 27 06:45 Makefile
+-rw-r--r-- 1 root root    135 Nov 27 06:45 Makefile.am
+-rw-r--r-- 1 root root  29745 Nov 27 06:45 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:45 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:45 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:45 compile
+-rwxr-xr-x 1 root root  25351 Nov 27 06:45 config.status
+-rwxr-xr-x 1 root root 104074 Nov 27 06:45 configure
+-rw-r--r-- 1 root root     82 Nov 27 06:45 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:45 depcomp
+-rwxr-xr-x 1 root root     65 Nov 27 06:45 error.test
+-rw-r--r-- 1 root root      0 Nov 27 06:45 error2.log
+-rw-r--r-- 1 root root     26 Nov 27 06:45 exp
+-rwxr-xr-x 1 root root     62 Nov 27 06:45 fail.test
+-rw-r--r-- 1 root root     26 Nov 27 06:45 got
+-rwxr-xr-x 1 root root  15368 Nov 27 06:45 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:45 missing
+-rw-r--r-- 1 root root      0 Nov 27 06:45 my.log
+-rwxr-xr-x 1 root root     70 Nov 27 06:45 pass.test
+-rwxr-xr-x 1 root root     63 Nov 27 06:45 skip.test
+-rw-r--r-- 1 root root   1481 Nov 27 06:45 stdout
+lrwxrwxrwx 1 root root     40 Nov 27 06:45 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root      0 Nov 27 06:45 test-suite.log
+-rwxr-xr-x 1 root root     72 Nov 27 06:45 xfail.test
+-rwxr-xr-x 1 root root     72 Nov 27 06:45 xpass.test
++ test '!' -e global.log
++ test '!' -e pass.log
++ test '!' -e fail.log
++ test '!' -e xfail.log
++ test '!' -e xpass.log
++ test '!' -e skip.log
++ test '!' -e error.log
++ test -f error2.log
++ test -f test-suite.log
++ test -f my.log
++ rm -f error2.log my.log test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-log.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-log.dir
++ set +x
+PASS t/test-log.sh (exit status: 0)

@@ -1,0 +1,1577 @@
+self-check-shell-no-trail-bslash: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/self-check-shell-no-trail-bslash.dir
++ cat
++ SHELL=/sources/automake-1.16.1/t/ax/shell-no-trail-bslash
++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'exit 0'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo is  o\k'
++ test 'is ok' = 'is ok'
++ echo 'echo is  ok\"'
++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./ok.sh
+is ok"
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./ok.sh
++ test 'is ok"' = 'is ok"'
++ tab='	'
++ nl='
+'
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\'
++ printf %s '\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\' stderr
+\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\' stderr
+\=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\'
++ printf %s 'echo bad\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\' stderr
+echo bad\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\' stderr
+echo bad\=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\'
++ printf %s ': a
+# multine
+: text\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\' stderr
+: a
+# multine
+: text\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\' stderr
+: a
+# multine
+: text\=== END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\\'
++ printf %s '\\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\\' stderr
+\\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\\' stderr
+\\=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\\'
++ printf %s 'echo bad\\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\\' stderr
+echo bad\\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\\' stderr
+echo bad\\=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\\'
++ printf %s ': a
+# multine
+: text\\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\\' stderr
+: a
+# multine
+: text\\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\\' stderr
+: a
+# multine
+: text\\=== END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\\\\\'
++ printf %s '\\\\\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\\\\\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\\\\\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\\\\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\\\\\' stderr
+\\\\\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\\\\\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\\\\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\\\\\' stderr
+\\\\\=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\\\\\'
++ printf %s 'echo bad\\\\\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\\\\\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\\\\\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\\\\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\\\\\' stderr
+echo bad\\\\\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\\\\\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\\\\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\\\\\' stderr
+echo bad\\\\\=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\\\\\'
++ printf %s ': a
+# multine
+: text\\\\\'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\\\\\'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\\\\\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\\\\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\\\\\' stderr
+: a
+# multine
+: text\\\\\
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\\\\\=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\\\\\'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\\\\\' stderr
+: a
+# multine
+: text\\\\\=== END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\ '
++ printf %s '\ '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\ '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\ ' stderr
+\ 
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\ ' stderr
+\ === END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\ '
++ printf %s 'echo bad\ '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\ '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\ ' stderr
+echo bad\ 
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\ ' stderr
+echo bad\ === END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\ '
++ printf %s ': a
+# multine
+: text\ '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\ '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\ ' stderr
+: a
+# multine
+: text\ 
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\ ' stderr
+: a
+# multine
+: text\ === END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\	'
++ printf %s '\	'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\	'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\	
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\	'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\	' stderr
+\	
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\	=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\	'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\	' stderr
+\	=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\	'
++ printf %s 'echo bad\	'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\	'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\	
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\	'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\	' stderr
+echo bad\	
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\	=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\	'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\	' stderr
+echo bad\	=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\	'
++ printf %s ': a
+# multine
+: text\	'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\	'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\	
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\	'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\	' stderr
+: a
+# multine
+: text\	
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\	=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\	'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\	' stderr
+: a
+# multine
+: text\	=== END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\ 		   '
++ printf %s '\ 		   '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\ 		   '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 		   
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\ 		   '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\ 		   ' stderr
+\ 		   
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 		   === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\ 		   '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\ 		   ' stderr
+\ 		   === END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\ 		   '
++ printf %s 'echo bad\ 		   '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\ 		   '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 		   
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\ 		   '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\ 		   ' stderr
+echo bad\ 		   
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 		   === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\ 		   '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\ 		   ' stderr
+echo bad\ 		   === END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\ 		   '
++ printf %s ': a
+# multine
+: text\ 		   '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\ 		   '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 		   
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\ 		   '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\ 		   ' stderr
+: a
+# multine
+: text\ 		   
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 		   === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\ 		   '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\ 		   ' stderr
+: a
+# multine
+: text\ 		   === END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\
+'
++ printf %s '\
+'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\
+'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\
+'
++ printf %s 'echo bad\
+'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\
+'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\
+'
++ printf %s ': a
+# multine
+: text\
+'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\
+'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+=== END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\ 
+ '
++ printf %s '\ 
+ '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\ 
+ '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 
+ 
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\ 
+ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\ 
+ ' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 
+ 
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 
+ === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\ 
+ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\ 
+ ' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\ 
+ === END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\ 
+ '
++ printf %s 'echo bad\ 
+ '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\ 
+ '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 
+ 
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\ 
+ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\ 
+ ' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 
+ 
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 
+ === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\ 
+ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\ 
+ ' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\ 
+ === END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\ 
+ '
++ printf %s ': a
+# multine
+: text\ 
+ '
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\ 
+ '
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 
+ 
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\ 
+ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\ 
+ ' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 
+ 
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 
+ === END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\ 
+ '
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\ 
+ ' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\ 
+ === END recipe/script
++ for sfx in '\' '\\' '\\\\\' '\ ' "\\$tab" "\\ $tab$tab   " "\\$nl" "\\ $nl " "\\$nl$nl$nl"
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='\
+
+
+'
++ printf %s '\
+
+
+'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c '\
+
+
+'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+
+
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\
+
+
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\
+
+
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+
+
+
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='\
+
+
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F '\
+
+
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+\
+
+
+=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd='echo bad\
+
+
+'
++ printf %s 'echo bad\
+
+
+'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c 'echo bad\
+
+
+'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+
+
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\
+
+
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\
+
+
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+
+
+
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd='echo bad\
+
+
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F 'echo bad\
+
+
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo bad\
+
+
+=== END recipe/script
++ for pfx in "" "echo bad" ": a${nl}# multine${nl}: text"
++ cmd=': a
+# multine
+: text\
+
+
+'
++ printf %s ': a
+# multine
+: text\
+
+
+'
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL -c "$cmd" 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash -c ': a
+# multine
+: text\
+
+
+'
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+
+
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\
+
+
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\
+
+
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+
+
+
+=== END recipe/script
++ for args in '-c "$cmd"' './bad.sh'
++ eval '$SHELL ./bad.sh 2>stderr && { cat stderr >&2; exit 1; }; :'
+++ /sources/automake-1.16.1/t/ax/shell-no-trail-bslash ./bad.sh
+++ :
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+
+
+=== END recipe/script
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ cmd=': a
+# multine
+: text\
+
+
+'
++ /usr/bin/perl -w -e '
+        undef $/;
+        $_ = <>;
+        index($_, $ENV{cmd}) >= 0 or exit 1;
+      '
++ /bin/grep -F ': a
+# multine
+: text\
+
+
+' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+: a
+# multine
+: text\
+
+
+=== END recipe/script
++ make good
+OK
++ run_make -E -e FAIL bad SHELL=/sources/automake-1.16.1/t/ax/shell-no-trail-bslash
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make bad SHELL=/sources/automake-1.16.1/t/ax/shell-no-trail-bslash
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
+=== BEGIN recipe/script
+echo \\ 
+=== END recipe/script
+make: *** [Makefile:7: bad] Error 3
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F 'recipe/script ends with backslash character' stderr
+/sources/automake-1.16.1/t/ax/shell-no-trail-bslash: recipe/script ends with backslash character
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/self-check-shell-no-trail-bslash.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/self-check-shell-no-trail-bslash.dir
++ set +x
+PASS t/self-check-shell-no-trail-bslash.sh (exit status: 0)

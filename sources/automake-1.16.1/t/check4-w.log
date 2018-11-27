@@ -1,0 +1,279 @@
+./t/check4-w.sh: will source ./t/check4.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/check4-w.dir
+++ cat
+++ mkdir dir
+++ cat
+++ echo TESTS = fail.sh
+++ cat
+++ cat
+++ chmod +x ok.sh dir/fail.sh
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall --add-missing
++++ pwd
+++ ./configure --prefix /sources/automake-1.16.1/t/check4-w.dir/inst
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating dir/Makefile
+++ run_make -O -e FAIL -- check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 4 -gt 0
+++ case $1 in
+++ am__make_rc_exp=FAIL
+++ shift
+++ shift
+++ test 2 -gt 0
+++ case $1 in
+++ shift
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ grep GNU
+++ make --version -v
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+++ am__using_gmake=yes
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make check
+++ set +x
+make[2]: *** [Makefile:255: check-TESTS] Error 1
+make[1]: *** [Makefile:381: check-am] Error 2
+make: *** [Makefile:341: check-recursive] Error 1
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+Making check in dir
+make[1]: Entering directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+FAIL: fail.sh
+==================
+1 of 1 test failed
+==================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ test 2 -gt 0
+++ grep '^FAIL: fail\.sh *$' stdout
+FAIL: fail.sh
+++ grep '^PASS: ok\.sh *$' stdout
+++ run_make -O -e IGNORE -- -k check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ shift
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make -k check
+++ set +x
+make[2]: *** [Makefile:255: check-TESTS] Error 1
+make[1]: *** [Makefile:381: check-am] Error 2
+make[1]: Target 'check' not remade because of errors.
+make: *** [Makefile:341: check-recursive] Error 1
+make: Target 'check' not remade because of errors.
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+Making check in dir
+make[1]: Entering directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+FAIL: fail.sh
+==================
+1 of 1 test failed
+==================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check4-w.dir/dir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/check4-w.dir'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/check4-w.dir'
+PASS: ok.sh
+=============
+1 test passed
+=============
+make[2]: Leaving directory '/sources/automake-1.16.1/t/check4-w.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/check4-w.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ grep '^FAIL: fail\.sh *$' stdout
+FAIL: fail.sh
+++ grep '^PASS: ok\.sh *$' stdout
+PASS: ok.sh
+++ run_make -O -e IGNORE -- -s -k check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 7 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 4 -gt 0
+++ case $1 in
+++ shift
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make -s -k check
+++ set +x
+make[2]: *** [Makefile:255: check-TESTS] Error 1
+make[1]: *** [Makefile:381: check-am] Error 2
+make[1]: Target 'check' not remade because of errors.
+make: *** [Makefile:341: check-recursive] Error 1
+make: Target 'check' not remade because of errors.
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+Making check in dir
+FAIL: fail.sh
+==================
+1 of 1 test failed
+==================
+PASS: ok.sh
+=============
+1 test passed
+=============
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ grep '^FAIL: fail\.sh *' stdout
+FAIL: fail.sh
+++ grep '^PASS: ok\.sh *' stdout
+PASS: ok.sh
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ run_make -e FAIL -O -- --no-print-directory -k check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 7 -gt 0
+++ case $1 in
+++ am__make_rc_exp=FAIL
+++ shift
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 4 -gt 0
+++ case $1 in
+++ shift
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make --no-print-directory -k check
+++ set +x
+make[2]: *** [Makefile:255: check-TESTS] Error 1
+make[1]: *** [Makefile:381: check-am] Error 2
+make[1]: Target 'check' not remade because of errors.
+make: *** [Makefile:341: check-recursive] Error 1
+make: Target 'check' not remade because of errors.
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+Making check in dir
+make  check-TESTS
+FAIL: fail.sh
+==================
+1 of 1 test failed
+==================
+make  check-TESTS
+PASS: ok.sh
+=============
+1 test passed
+=============
+++ test no = yes
+++ case $am__make_rc_exp in
+++ test 2 -gt 0
+++ grep '^FAIL: fail\.sh *$' stdout
+FAIL: fail.sh
+++ grep '^PASS: ok\.sh *$' stdout
+PASS: ok.sh
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check4-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check4-w.dir
++ set +x
+PASS t/check4-w.sh (exit status: 0)

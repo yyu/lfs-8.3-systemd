@@ -1,0 +1,6 @@
+AC_INIT([remake-timing-bug-pr8365], [1.0])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
+FOOBAR=zardoz
+AC_OUTPUT
+AC_SUBST([FOOBAR])

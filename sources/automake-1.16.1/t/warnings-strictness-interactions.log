@@ -1,0 +1,72 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/warnings-strictness-interactions.dir
++ AUTOMAKE='automake-1.16 -Werror'
++ cat
++ set_am_opts -Wportability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-strictness-interactions], [1.0])
+AM_INIT_AUTOMAKE([-Wportability])
+AC_CONFIG_FILES([Makefile])
++ set_am_opts foreign Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = foreign
+FOO := bar
++ aclocal-1.16 -Werror
++ automake-1.16 -Werror
++ rm -rf autom4te.cache
++ touch README INSTALL NEWS AUTHORS ChangeLog COPYING
++ set_am_opts -Wno-portability configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([warnings-strictness-interactions], [1.0])
+AM_INIT_AUTOMAKE([-Wno-portability])
+AC_CONFIG_FILES([Makefile])
++ set_am_opts gnu Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = gnu
+FOO := bar
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 -Werror
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:2: warning: ':='-style assignments are not portable
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ aclocal-1.16 -Werror
++ grep '^Makefile\.am:2:.*:=.*not portable' stderr
+Makefile.am:2: warning: ':='-style assignments are not portable
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/warnings-strictness-interactions.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/warnings-strictness-interactions.dir
++ set +x
+PASS t/warnings-strictness-interactions.sh (exit status: 0)

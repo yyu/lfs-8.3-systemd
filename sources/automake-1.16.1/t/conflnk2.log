@@ -1,0 +1,75 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/conflnk2.dir
++ cat
++ :
++ :
++ mkdir sdir
++ :
++ :
++ mkdir sdir-no-make
++ :
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdir/Makefile
+config.status: linking src to dest
+config.status: linking src2 to sdir/dest2
+config.status: linking sdir/src3 to sdir-no-make/dest3
+config.status: linking sdir-no-make/src4 to sdir/dest4
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk2.dir'
+if test -d "conflnk2-1.0"; then find "conflnk2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "conflnk2-1.0" || { sleep 5 && rm -rf "conflnk2-1.0"; }; else :; fi
+test -d "conflnk2-1.0" || mkdir "conflnk2-1.0"
+ (cd sdir && make  top_distdir=../conflnk2-1.0 distdir=../conflnk2-1.0/sdir \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/sources/automake-1.16.1/t/conflnk2.dir/sdir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/conflnk2.dir/sdir'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/conflnk2.dir/sdir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/conflnk2.dir/sdir'
+test -n "" \
+|| find "conflnk2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/conflnk2.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "conflnk2-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk2.dir'
+test -f conflnk2-1.0/src
+test -f conflnk2-1.0/src2
+test -f conflnk2-1.0/sdir/src3
+test -f conflnk2-1.0/sdir-no-make/src4
+test 2 -gt `find conflnk2-1.0/sdir -type d | wc -l`
+test 2 -gt `find conflnk2-1.0/sdir-no-make -type d | wc -l`
+test 4 -gt `find conflnk2-1.0 -type d | wc -l`
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/conflnk2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/conflnk2.dir
++ set +x
+PASS t/conflnk2.sh (exit status: 0)

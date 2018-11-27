@@ -1,0 +1,51 @@
+#                             -*- compilation -*-
+107. lt_dlopen.at:23: testing lt_dlopen error messages ...
+./lt_dlopen.at:31: test unsupported != "$allow_undefined_flag" || exit 77
+./lt_dlopen.at:85: $CC $CPPFLAGS $CFLAGS -c main.c
+stderr:
+stdout:
+./lt_dlopen.at:88: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c $file
+stderr:
+stdout:
+libtool: compile:  gcc -I/sources/libtool-2.4.6/libltdl -g -O2 -c good-plugin.c  -fPIC -DPIC -o .libs/good-plugin.o
+libtool: compile:  gcc -I/sources/libtool-2.4.6/libltdl -g -O2 -c good-plugin.c -o good-plugin.o >/dev/null 2>&1
+./lt_dlopen.at:88: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c $file
+stderr:
+stdout:
+libtool: compile:  gcc -I/sources/libtool-2.4.6/libltdl -g -O2 -c missing-symbol-plugin.c  -fPIC -DPIC -o .libs/missing-symbol-plugin.o
+libtool: compile:  gcc -I/sources/libtool-2.4.6/libltdl -g -O2 -c missing-symbol-plugin.c -o missing-symbol-plugin.o >/dev/null 2>&1
+./lt_dlopen.at:91: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o good-plugin.la -rpath $libdir 	 -module -avoid-version good-plugin.lo
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/good-plugin.o    -g -O2   -Wl,-soname -Wl,good-plugin.so -o .libs/good-plugin.so
+libtool: link: ar cru .libs/good-plugin.a  good-plugin.o
+libtool: link: ranlib .libs/good-plugin.a
+libtool: link: ( cd ".libs" && rm -f "good-plugin.la" && ln -s "../good-plugin.la" "good-plugin.la" )
+./lt_dlopen.at:93: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o missing-symbol-plugin.la -rpath $libdir	 -module -avoid-version missing-symbol-plugin.lo
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/missing-symbol-plugin.o    -g -O2   -Wl,-soname -Wl,missing-symbol-plugin.so -o .libs/missing-symbol-plugin.so
+libtool: link: ar cru .libs/missing-symbol-plugin.a  missing-symbol-plugin.o
+libtool: link: ranlib .libs/missing-symbol-plugin.a
+libtool: link: ( cd ".libs" && rm -f "missing-symbol-plugin.la" && ln -s "../missing-symbol-plugin.la" "missing-symbol-plugin.la" )
+./lt_dlopen.at:97: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o main$EXEEXT main.$OBJEXT 	 -dlopen good-plugin.la -dlopen missing-symbol-plugin.la $LIBLTDL
+stderr:
+stdout:
+libtool: link: rm -f .libs/main.nm .libs/main.nmS .libs/main.nmT
+libtool: link: rm -f ".libs/main.nmI"
+libtool: link: (cd .libs && gcc -g -O2 -c -fno-builtin "mainS.c")
+libtool: link: rm -f ".libs/mainS.c" ".libs/main.nm" ".libs/main.nmS" ".libs/main.nmT" ".libs/main.nmI"
+libtool: link: gcc -g -O2 -o main main.o .libs/mainS.o  /sources/libtool-2.4.6/libltdl/.libs/dlopen.a /sources/libtool-2.4.6/tests/../libltdl/.libs/libltdlc.a -ldl
+libtool: link: rm -f ".libs/mainS.o"
+./lt_dlopen.at:99: if "$lt_exe" ./good-plugin.la; then :; else lt_status=$?; 	   	   test "X$host" != "X$build" && test -x "$lt_exe" && exit 77; 	   exit $lt_status; fi
+stderr:
+stdout:
+plugin opened successfully!
+./lt_dlopen.at:100: if "$lt_exe" ./missing-symbol-plugin.la; then :; else lt_status=$?; 	   test "$lt_status" != 1 && 	   test "X$host" != "X$build" && test -x "$lt_exe" && exit 77; 	   exit $lt_status; fi
+stderr:
+stdout:
+plugin failed to open: file not found
+./lt_dlopen.at:101: $GREP 'missing symbol' stderr
+stdout:
+./lt_dlopen.at:101: exit code was 1, expected 0
+107. lt_dlopen.at:23: 107. lt_dlopen error messages (lt_dlopen.at:23): expected failure (lt_dlopen.at:101)

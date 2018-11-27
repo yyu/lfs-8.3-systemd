@@ -1,0 +1,105 @@
+dist-pr109765: running bzip2 --help
+bzip2, a block-sorting file compressor.  Version 1.0.6, 6-Sept-2010.
+
+   usage: bzip2 [flags and input files in any order]
+
+   -h --help           print this message
+   -d --decompress     force decompression
+   -z --compress       force compression
+   -k --keep           keep (don't delete) input files
+   -f --force          overwrite existing output files
+   -t --test           test compressed file integrity
+   -c --stdout         output to standard out
+   -q --quiet          suppress noncritical error messages
+   -v --verbose        be verbose (a 2nd -v gives more)
+   -L --license        display software version & license
+   -V --version        display software version & license
+   -s --small          use less memory (at most 2500k)
+   -1 .. -9            set block size to 100k .. 900k
+   --fast              alias for -1
+   --best              alias for -9
+
+   If invoked as `bzip2', default action is to compress.
+              as `bunzip2',  default action is to decompress.
+              as `bzcat', default action is to decompress to stdout.
+
+   If no file names are given, bzip2 compresses or decompresses
+   from standard input to standard output.  You can combine
+   short flags, so `-v -4' means the same as -v4 or -4v, &c.
+
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dist-pr109765.dir
++ echo AC_OUTPUT
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make dist-gzip dist-bzip2
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-pr109765.dir'
+if test -d "dist-pr109765-1.0"; then find "dist-pr109765-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-pr109765-1.0" || { sleep 5 && rm -rf "dist-pr109765-1.0"; }; else :; fi
+test -d "dist-pr109765-1.0" || mkdir "dist-pr109765-1.0"
+test -n "" \
+|| find "dist-pr109765-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-pr109765.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-pr109765-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-pr109765.dir'
+tardir=dist-pr109765-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >dist-pr109765-1.0.tar.gz
+if test -d "dist-pr109765-1.0"; then find "dist-pr109765-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-pr109765-1.0" || { sleep 5 && rm -rf "dist-pr109765-1.0"; }; else :; fi
+tardir=dist-pr109765-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >dist-pr109765-1.0.tar.bz2
+tar: dist-pr109765-1.0: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+if test -d "dist-pr109765-1.0"; then find "dist-pr109765-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-pr109765-1.0" || { sleep 5 && rm -rf "dist-pr109765-1.0"; }; else :; fi
++ gzip -dc dist-pr109765-1.0.tar.gz
++ tar tf -
++ cat one
+dist-pr109765-1.0/
+dist-pr109765-1.0/compile
+dist-pr109765-1.0/Makefile.in
+dist-pr109765-1.0/Makefile.am
+dist-pr109765-1.0/depcomp
+dist-pr109765-1.0/configure.ac
+dist-pr109765-1.0/configure
+dist-pr109765-1.0/install-sh
+dist-pr109765-1.0/aclocal.m4
+dist-pr109765-1.0/missing
++ bzip2 -dc dist-pr109765-1.0.tar.gz
++ tar tf -
+bzip2: dist-pr109765-1.0.tar.gz is not a bzip2 file.
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
++ cat two
++ _am_exit 1
++ set +e
++ test 77 = 1
++ exit 1
++ exit 1
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/dist-pr109765.sh (exit status: 1)

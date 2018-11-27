@@ -1,0 +1,426 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/suffix3.dir
++ plan_ 10
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x10 = xunknown
++ test x10 = xlater
++ test x10 = xlazy
++ test x10 = xnow
++ test 10 -ge 0
++ planned_=10
++ echo 1..10
+1..10
++ cat
++ cat
++ command_ok_ aclocal aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=aclocal
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- aclocal
++ set +x
+ok 1 - aclocal
+PASS: t/suffix3.tap 1 - aclocal
++ command_ok_ automake automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=automake
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- automake
++ set +x
+ok 2 - automake
+PASS: t/suffix3.tap 2 - automake
++ command_ok_ 'intermediate files not mentioned' not /bin/grep -F foo.c Makefile.in
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_='intermediate files not mentioned'
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not /bin/grep -F foo.c Makefile.in
++ /bin/grep -F foo.c Makefile.in
++ result_ ok -D '' -r '' -- 'intermediate files not mentioned'
++ set +x
+ok 3 - intermediate files not mentioned
+PASS: t/suffix3.tap 3 - intermediate files not mentioned
++ command_ok_ 'final object file figured out' /bin/grep -F 'foo.$(OBJEXT)' Makefile.in
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='final object file figured out'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ /bin/grep -F 'foo.$(OBJEXT)' Makefile.in
+am_foo_OBJECTS = foo.$(OBJEXT)
++ result_ ok -D '' -r '' -- 'final object file figured out'
++ set +x
+ok 4 - final object file figured out
+PASS: t/suffix3.tap 4 - final object file figured out
++ command_ok_ autoconf autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_=autoconf
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- autoconf
++ set +x
+ok 5 - autoconf
+PASS: t/suffix3.tap 5 - autoconf
++ command_ok_ configure ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_=configure
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ result_ ok -D '' -r '' -- configure
++ set +x
+ok 6 - configure
+PASS: t/suffix3.tap 6 - configure
++ cat
++ directive=
++ make_can_chain_suffix_rules
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ am__can_chain_suffix_rules=yes
++ return 0
++ for target in all distcheck
++ command_ok_ 'make all' -D '' -r 'suffix rules not chained' make all
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='make all'
++ shift
++ test 6 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make all
+sed 's/INTEGER/int/g' `test -f 'foo.zoo' || echo ./`foo.zoo >foo.cc
+c++ -DPACKAGE_NAME=\"suffix3\" -DPACKAGE_TARNAME=\"suffix3\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix3\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix3\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cc
+mv -f .deps/foo.Tpo .deps/foo.Po
+c++  -g -O2   -o foo foo.o  
+rm foo.cc
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make all'
++ set +x
+ok 7 - make all
+PASS: t/suffix3.tap 7 - make all
++ for target in all distcheck
++ command_ok_ 'make distcheck' -D '' -r 'suffix rules not chained' make distcheck
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_='make distcheck'
++ shift
++ test 6 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 4 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir'
+if test -d "suffix3-1.0"; then find "suffix3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix3-1.0" || { sleep 5 && rm -rf "suffix3-1.0"; }; else :; fi
+test -d "suffix3-1.0" || mkdir "suffix3-1.0"
+test -n "" \
+|| find "suffix3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix3.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "suffix3-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir'
+tardir=suffix3-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >suffix3-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir'
+if test -d "suffix3-1.0"; then find "suffix3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix3-1.0" || { sleep 5 && rm -rf "suffix3-1.0"; }; else :; fi
+case 'suffix3-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc suffix3-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc suffix3-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc suffix3-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc suffix3-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c suffix3-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc suffix3-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip suffix3-1.0.zip ;;\
+esac
+chmod -R a-w suffix3-1.0
+chmod u+w suffix3-1.0
+mkdir suffix3-1.0/_build suffix3-1.0/_build/sub suffix3-1.0/_inst
+chmod a-w suffix3-1.0
+test -d suffix3-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd suffix3-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd suffix3-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf suffix3-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+sed 's/INTEGER/int/g' `test -f '../../foo.zoo' || echo ../../`../../foo.zoo >foo.cc
+c++ -DPACKAGE_NAME=\"suffix3\" -DPACKAGE_TARNAME=\"suffix3\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix3\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix3\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cc
+mv -f .deps/foo.Tpo .deps/foo.Po
+c++  -g -O2   -o foo foo.o  
+rm foo.cc
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+sed 's/INTEGER/int/g' `test -f '../../foo.zoo' || echo ../../`../../foo.zoo >foo.cc
+c++ -DPACKAGE_NAME=\"suffix3\" -DPACKAGE_TARNAME=\"suffix3\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"suffix3\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"suffix3\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.cc
+mv -f .deps/foo.Tpo .deps/foo.Po
+c++  -g -O2   -o foo foo.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_inst/bin'
+  /usr/bin/install -c foo '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-65042//sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_inst/bin'
+  /usr/bin/install -c foo '/tmp/am-dc-65042//sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_inst/bin'
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+ ( cd '/tmp/am-dc-65042//sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_inst/bin' && rm -f foo )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+if test -d "suffix3-1.0"; then find "suffix3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix3-1.0" || { sleep 5 && rm -rf "suffix3-1.0"; }; else :; fi
+test -d "suffix3-1.0" || mkdir "suffix3-1.0"
+test -n "" \
+|| find "suffix3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "suffix3-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+tardir=suffix3-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >suffix3-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+if test -d "suffix3-1.0"; then find "suffix3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix3-1.0" || { sleep 5 && rm -rf "suffix3-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+test -z "foo" || rm -f foo
+test -z "foo.cc" || rm -f foo.cc
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir/suffix3-1.0/_build/sub'
+if test -d "suffix3-1.0"; then find "suffix3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix3-1.0" || { sleep 5 && rm -rf "suffix3-1.0"; }; else :; fi
+=============================================
+suffix3-1.0 archives ready for distribution: 
+suffix3-1.0.tar.gz
+=============================================
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make distcheck'
++ set +x
+ok 8 - make distcheck
+PASS: t/suffix3.tap 8 - make distcheck
++ command_ok_ 'make distdir' make distdir
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='make distdir'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/suffix3.dir'
+if test -d "suffix3-1.0"; then find "suffix3-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix3-1.0" || { sleep 5 && rm -rf "suffix3-1.0"; }; else :; fi
+test -d "suffix3-1.0" || mkdir "suffix3-1.0"
+test -n "" \
+|| find "suffix3-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix3.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "suffix3-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix3.dir'
++ result_ ok -D '' -r '' -- 'make distdir'
++ set +x
+ok 9 - make distdir
+PASS: t/suffix3.tap 9 - make distdir
++ command_ok_ 'intermediate file not distributed' test '!' -e suffix3-1.0/foo.cc
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='intermediate file not distributed'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test '!' -e suffix3-1.0/foo.cc
++ result_ ok -D '' -r '' -- 'intermediate file not distributed'
++ set +x
+ok 10 - intermediate file not distributed
+PASS: t/suffix3.tap 10 - intermediate file not distributed
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 10 = later
++ test 0 -eq 0
++ test 10 -eq 10
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/suffix3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/suffix3.dir
++ set +x

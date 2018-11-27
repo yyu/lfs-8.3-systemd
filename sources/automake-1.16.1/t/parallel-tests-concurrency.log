@@ -1,0 +1,259 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-concurrency.dir
++ case $MAKE in
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ j=-j
++ cat
++ cat
++ cat
++ chmod a+x ./x
++ mkdir sub
++ for i in 1 2 3
++ echo 'TESTS += foo1.test'
++ cp x foo1.test
++ echo 'TESTS += zap1'
++ cp x zap1
++ echo 'TESTS += sub/bar1.test'
++ cp x sub/bar1.test
++ echo 'TESTS += sub/mu1'
++ cp x sub/mu1
++ for i in 1 2 3
++ echo 'TESTS += foo2.test'
++ cp x foo2.test
++ echo 'TESTS += zap2'
++ cp x zap2
++ echo 'TESTS += sub/bar2.test'
++ cp x sub/bar2.test
++ echo 'TESTS += sub/mu2'
++ cp x sub/mu2
++ for i in 1 2 3
++ echo 'TESTS += foo3.test'
++ cp x foo3.test
++ echo 'TESTS += zap3'
++ cp x zap3
++ echo 'TESTS += sub/bar3.test'
++ cp x sub/bar3.test
++ echo 'TESTS += sub/mu3'
++ cp x sub/mu3
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ for build in serial parallel
++ mkdir serial
++ cd serial
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+make: Nothing to be done for 'all'.
++ cd ..
++ for build in serial parallel
++ mkdir parallel
++ cd parallel
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+make: Nothing to be done for 'all'.
++ cd ..
++ cd serial
++ cd ..
++ cd parallel
++ sleep 2
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/serial'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/serial'
+PASS: foo1.test
++ run_make -O -- -j4 check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ shift
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -j4 check
++ set +x
+PASS: zap1
+PASS: sub/bar1.test
+PASS: sub/mu1
+PASS: foo2.test
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+PASS: zap1
+PASS: foo1.test
+PASS: sub/mu1
+PASS: sub/bar1.test
+PASS: zap2
+PASS: foo2.test
+PASS: sub/mu2
+PASS: sub/bar2.test
+PASS: foo3.test
+PASS: zap3
+PASS: sub/mu3
+PASS: sub/bar3.test
+============================================================================
+Testsuite summary for parallel-tests-concurrency 1.0
+============================================================================
+# TOTAL: 12
+# PASS:  12
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cd ..
++ kill -0 22700
++ cat parallel/stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+PASS: zap1
+PASS: foo1.test
+PASS: sub/mu1
+PASS: sub/bar1.test
+PASS: zap2
+PASS: foo2.test
+PASS: sub/mu2
+PASS: sub/bar2.test
+PASS: foo3.test
+PASS: zap3
+PASS: sub/mu3
+PASS: sub/bar3.test
+============================================================================
+Testsuite summary for parallel-tests-concurrency 1.0
+============================================================================
+# TOTAL: 12
+# PASS:  12
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/parallel'
+++ grep -c '^PASS:' parallel/stdout
++ test 12 -eq 12
++ i=1
++ test '!' -f serial/test-suite.log
++ test 1 -le 120
++ i=2
++ sleep 1
+PASS: zap2
++ test '!' -f serial/test-suite.log
++ test 2 -le 120
++ i=3
++ sleep 1
+PASS: sub/bar2.test
++ test '!' -f serial/test-suite.log
++ test 3 -le 120
++ i=4
++ sleep 1
++ test '!' -f serial/test-suite.log
++ test 4 -le 120
++ i=5
++ sleep 1
+PASS: sub/mu2
++ test '!' -f serial/test-suite.log
++ test 5 -le 120
++ i=6
++ sleep 1
+PASS: foo3.test
++ test '!' -f serial/test-suite.log
++ test 6 -le 120
++ i=7
++ sleep 1
+PASS: zap3
++ test '!' -f serial/test-suite.log
++ test 7 -le 120
++ i=8
++ sleep 1
+PASS: sub/bar3.test
++ test '!' -f serial/test-suite.log
++ test 8 -le 120
++ i=9
++ sleep 1
+PASS: sub/mu3
+============================================================================
+Testsuite summary for parallel-tests-concurrency 1.0
+============================================================================
+# TOTAL: 12
+# PASS:  12
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/serial'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency.dir/serial'
++ test '!' -f serial/test-suite.log
++ sleep 2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-concurrency.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-concurrency.dir
++ set +x
+PASS t/parallel-tests-concurrency.sh (exit status: 0)

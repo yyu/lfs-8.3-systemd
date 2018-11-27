@@ -1,0 +1,392 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-interrupt.dir
++ plan_ 16
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x16 = xunknown
++ test x16 = xlater
++ test x16 = xlazy
++ test x16 = xnow
++ test 16 -ge 0
++ planned_=16
++ echo 1..16
+1..16
++ cat
++ cat
++ cat - /sources/automake-1.16.1/lib/test-driver
++ cat
++ chmod a+x foo.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ trapped_signals='1 2 13 15'
++ for sig in $trapped_signals
++ is_blocked_signal 1
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(1, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ rm -f pid fail config.log
++ r=ok
++ env PERL=/usr/bin/perl sig=1 make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+total 312
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root    121 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ trap 'exit 0' 0
++ /usr/bin/perl -e 'BEGIN { $| = 1 }; print "foo is starting to run\n"'
+foo is starting to run
++ ls -l
++ test 1 -gt 0
++ res=ok
++ cat foo.log
+ok - logfile created and readable [SIG 1]
+PASS: t/parallel-tests-interrupt.tap 1 - logfile created and readable [SIG 1]
+foo is starting to run
+ok - logfile contains output from test script [SIG 1]
+PASS: t/parallel-tests-interrupt.tap 2 - logfile contains output from test script [SIG 1]
+40648
+make[2]: *** [Makefile:602: foo.log] Error 129
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make: *** [Makefile:776: check-am] Error 2
++ echo 'ok - signal 1 to test driver causes "make check" to fail'
+ok - signal 1 to test driver causes "make check" to fail
+PASS: t/parallel-tests-interrupt.tap 3 - signal 1 to test driver causes "make check" to fail
++ ls -l
+total 308
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ cat foo.log
+cat: foo.log: No such file or directory
++ :
++ cat test-suite.log
+cat: test-suite.log: No such file or directory
++ :
++ r=ok
++ ls
++ /bin/grep -E 'foo.*\.(log|tmp)'
++ echo 'ok - test driver clean up log and tmp files after signal 1'
+ok - test driver clean up log and tmp files after signal 1
+PASS: t/parallel-tests-interrupt.tap 4 - test driver clean up log and tmp files after signal 1
++ for sig in $trapped_signals
++ is_blocked_signal 2
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(2, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ rm -f pid fail '*.log'
++ r=ok
++ env PERL=/usr/bin/perl sig=2 make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+total 312
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root    121 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ trap 'exit 0' 0
++ /usr/bin/perl -e 'BEGIN { $| = 1 }; print "foo is starting to run\n"'
+foo is starting to run
++ ls -l
++ test 2 -gt 0
++ res=ok
++ cat foo.log
+ok - logfile created and readable [SIG 2]
+PASS: t/parallel-tests-interrupt.tap 5 - logfile created and readable [SIG 2]
+foo is starting to run
+ok - logfile contains output from test script [SIG 2]
+PASS: t/parallel-tests-interrupt.tap 6 - logfile contains output from test script [SIG 2]
+40734
+make[2]: *** [Makefile:602: foo.log] Error 130
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make: *** [Makefile:776: check-am] Error 2
++ echo 'ok - signal 2 to test driver causes "make check" to fail'
+ok - signal 2 to test driver causes "make check" to fail
+PASS: t/parallel-tests-interrupt.tap 7 - signal 2 to test driver causes "make check" to fail
++ ls -l
+total 308
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ cat foo.log
+cat: foo.log: No such file or directory
++ :
++ cat test-suite.log
+cat: test-suite.log: No such file or directory
++ :
++ r=ok
++ ls
++ /bin/grep -E 'foo.*\.(log|tmp)'
++ echo 'ok - test driver clean up log and tmp files after signal 2'
+ok - test driver clean up log and tmp files after signal 2
+PASS: t/parallel-tests-interrupt.tap 8 - test driver clean up log and tmp files after signal 2
++ for sig in $trapped_signals
++ is_blocked_signal 13
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(13, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ rm -f pid fail '*.log'
++ r=ok
++ env PERL=/usr/bin/perl sig=13 make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+total 312
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root    121 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ trap 'exit 0' 0
++ /usr/bin/perl -e 'BEGIN { $| = 1 }; print "foo is starting to run\n"'
+foo is starting to run
++ ls -l
++ test 13 -gt 0
++ res=ok
++ cat foo.log
+ok - logfile created and readable [SIG 13]
+PASS: t/parallel-tests-interrupt.tap 9 - logfile created and readable [SIG 13]
+foo is starting to run
+ok - logfile contains output from test script [SIG 13]
+PASS: t/parallel-tests-interrupt.tap 10 - logfile contains output from test script [SIG 13]
+40817
+make[2]: *** [Makefile:602: foo.log] Error 141
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make: *** [Makefile:776: check-am] Error 2
++ echo 'ok - signal 13 to test driver causes "make check" to fail'
+ok - signal 13 to test driver causes "make check" to fail
+PASS: t/parallel-tests-interrupt.tap 11 - signal 13 to test driver causes "make check" to fail
++ ls -l
+total 308
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ cat foo.log
+cat: foo.log: No such file or directory
++ :
++ cat test-suite.log
+cat: test-suite.log: No such file or directory
++ :
++ r=ok
++ ls
++ /bin/grep -E 'foo.*\.(log|tmp)'
++ echo 'ok - test driver clean up log and tmp files after signal 13'
+ok - test driver clean up log and tmp files after signal 13
+PASS: t/parallel-tests-interrupt.tap 12 - test driver clean up log and tmp files after signal 13
++ for sig in $trapped_signals
++ is_blocked_signal 15
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(15, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ rm -f pid fail '*.log'
++ r=ok
++ env PERL=/usr/bin/perl sig=15 make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+total 312
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rw-r--r-- 1 root root    121 Nov 27 06:44 foo.log
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ trap 'exit 0' 0
++ /usr/bin/perl -e 'BEGIN { $| = 1 }; print "foo is starting to run\n"'
+foo is starting to run
++ ls -l
++ test 15 -gt 0
++ res=ok
++ cat foo.log
+ok - logfile created and readable [SIG 15]
+PASS: t/parallel-tests-interrupt.tap 13 - logfile created and readable [SIG 15]
+foo is starting to run
+ok - logfile contains output from test script [SIG 15]
+PASS: t/parallel-tests-interrupt.tap 14 - logfile contains output from test script [SIG 15]
+40914
+make[2]: *** [Makefile:602: foo.log] Error 143
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-interrupt.dir'
+make: *** [Makefile:776: check-am] Error 2
++ echo 'ok - signal 15 to test driver causes "make check" to fail'
+ok - signal 15 to test driver causes "make check" to fail
+PASS: t/parallel-tests-interrupt.tap 15 - signal 15 to test driver causes "make check" to fail
++ ls -l
+total 308
+-rw-r--r-- 1 root root  30553 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    146 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  29720 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rwxr-xr-x 1 root root  25623 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104292 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     98 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root   1438 Nov 27 06:44 foo.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rw-r--r-- 1 root root      6 Nov 27 06:44 pid
+-rw-r--r-- 1 root root   4666 Nov 27 06:44 test-driver
++ cat foo.log
+cat: foo.log: No such file or directory
++ :
++ cat test-suite.log
+cat: test-suite.log: No such file or directory
++ :
++ r=ok
++ ls
++ /bin/grep -E 'foo.*\.(log|tmp)'
++ echo 'ok - test driver clean up log and tmp files after signal 15'
+ok - test driver clean up log and tmp files after signal 15
+PASS: t/parallel-tests-interrupt.tap 16 - test driver clean up log and tmp files after signal 15
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 16 = later
++ test 0 -eq 0
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-interrupt.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-interrupt.dir
++ set +x

@@ -1,0 +1,252 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-configure-dependencies.dir
++ cat
++ cat
++ cat
++ echo '#!/bin/sh'
++ echo 'printf %s 1.0'
++ chmod a+x print-version
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test-1
+test 1.0 = 1.0
++ sleep 2
++ echo '#!/bin/sh'
++ echo 'printf %s 2.1'
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make test-2
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-configure-dependencies.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-configure-dependencies.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+test 2.1 = 2.1
++ make distclean
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test-2
+test 2.1 = 2.1
++ sleep 2
++ echo '#!/bin/sh'
++ echo 'printf %s 3.14'
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ make test-3
+ cd .. && /bin/sh /sources/automake-1.16.1/t/remake-configure-dependencies.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /sources/automake-1.16.1/t/remake-configure-dependencies.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ../configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+test 3.14 = 3.14
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build'
+if test -d "confdeps-3.14"; then find "confdeps-3.14" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confdeps-3.14" || { sleep 5 && rm -rf "confdeps-3.14"; }; else :; fi
+test -d "confdeps-3.14" || mkdir "confdeps-3.14"
+test -n "" \
+|| find "confdeps-3.14" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-configure-dependencies.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "confdeps-3.14"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build'
+tardir=confdeps-3.14 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >confdeps-3.14.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build'
+if test -d "confdeps-3.14"; then find "confdeps-3.14" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confdeps-3.14" || { sleep 5 && rm -rf "confdeps-3.14"; }; else :; fi
+case 'confdeps-3.14.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc confdeps-3.14.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc confdeps-3.14.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc confdeps-3.14.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc confdeps-3.14.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c confdeps-3.14.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc confdeps-3.14.shar.gz | unshar ;;\
+*.zip*) \
+  unzip confdeps-3.14.zip ;;\
+esac
+chmod -R a-w confdeps-3.14
+chmod u+w confdeps-3.14
+mkdir confdeps-3.14/_build confdeps-3.14/_build/sub confdeps-3.14/_inst
+chmod a-w confdeps-3.14
+test -d confdeps-3.14/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd confdeps-3.14/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd confdeps-3.14/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf confdeps-3.14.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+if test -d "confdeps-3.14"; then find "confdeps-3.14" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confdeps-3.14" || { sleep 5 && rm -rf "confdeps-3.14"; }; else :; fi
+test -d "confdeps-3.14" || mkdir "confdeps-3.14"
+test -n "" \
+|| find "confdeps-3.14" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "confdeps-3.14"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+tardir=confdeps-3.14 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >confdeps-3.14.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+if test -d "confdeps-3.14"; then find "confdeps-3.14" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confdeps-3.14" || { sleep 5 && rm -rf "confdeps-3.14"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-configure-dependencies.dir/build/confdeps-3.14/_build/sub'
+if test -d "confdeps-3.14"; then find "confdeps-3.14" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confdeps-3.14" || { sleep 5 && rm -rf "confdeps-3.14"; }; else :; fi
+===============================================
+confdeps-3.14 archives ready for distribution: 
+confdeps-3.14.tar.gz
+===============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-configure-dependencies.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-configure-dependencies.dir
++ set +x
+PASS t/remake-configure-dependencies.sh (exit status: 0)

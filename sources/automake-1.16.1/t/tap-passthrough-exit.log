@@ -1,0 +1,374 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-passthrough-exit.dir
++ cat
++ exit_statuses='1 2 77 99'
++ for e in $exit_statuses
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += exit-1.test
++ for e in $exit_statuses
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += exit-2.test
++ for e in $exit_statuses
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += exit-77.test
++ for e in $exit_statuses
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo TESTS += exit-99.test
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ mv Makefile.am Makefile.am~
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ mv -f Makefile.am~ Makefile.am
+++ echo 'TEST_LOG_DRIVER = $(srcdir)/tap-driver'
+++ automake-1.16 --foreign -Werror -Wall Makefile
+++ ./config.status Makefile
+config.status: creating Makefile
+++ :
++ st=0
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+PASS: exit-1.test 1
+ERROR: exit-1.test - exited with status 1
+PASS: exit-2.test 1
+ERROR: exit-2.test - exited with status 2
+PASS: exit-77.test 1
+ERROR: exit-77.test - exited with status 77
+PASS: exit-99.test 1
+ERROR: exit-99.test - exited with status 99
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 8
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 4
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+make: *** [Makefile:775: check-am] Error 2
++ st=2
++ for e in $exit_statuses
++ cat exit-1.log
+1..1
+ok 1
+PASS: exit-1.test 1
+ERROR: exit-1.test - exited with status 1
++ for e in $exit_statuses
++ cat exit-2.log
+1..1
+ok 1
+PASS: exit-2.test 1
+ERROR: exit-2.test - exited with status 2
++ for e in $exit_statuses
++ cat exit-77.log
+1..1
+ok 1
+PASS: exit-77.test 1
+ERROR: exit-77.test - exited with status 77
++ for e in $exit_statuses
++ cat exit-99.log
+1..1
+ok 1
+PASS: exit-99.test 1
+ERROR: exit-99.test - exited with status 99
++ cat test-suite.log
+============================================
+   tap-common-setup 1.0: ./test-suite.log
+============================================
+
+# TOTAL: 8
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 4
+
+.. contents:: :depth: 2
+
+ERROR: exit-1
+=============
+
+1..1
+ok 1
+PASS: exit-1.test 1
+ERROR: exit-1.test - exited with status 1
+
+ERROR: exit-2
+=============
+
+1..1
+ok 1
+PASS: exit-2.test 1
+ERROR: exit-2.test - exited with status 2
+
+ERROR: exit-77
+==============
+
+1..1
+ok 1
+PASS: exit-77.test 1
+ERROR: exit-77.test - exited with status 77
+
+ERROR: exit-99
+==============
+
+1..1
+ok 1
+PASS: exit-99.test 1
+ERROR: exit-99.test - exited with status 99
+
++ test 2 -gt 0
++ for e in $exit_statuses
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-1\.test - exited with status 1$' exit-1.log
+ERROR: exit-1.test - exited with status 1
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-1\.test - exited with status 1$' test-suite.log
+ERROR: exit-1.test - exited with status 1
++ for e in $exit_statuses
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-2\.test - exited with status 2$' exit-2.log
+ERROR: exit-2.test - exited with status 2
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-2\.test - exited with status 2$' test-suite.log
+ERROR: exit-2.test - exited with status 2
++ for e in $exit_statuses
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-77\.test - exited with status 77$' exit-77.log
+ERROR: exit-77.test - exited with status 77
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-77\.test - exited with status 77$' test-suite.log
+ERROR: exit-77.test - exited with status 77
++ for e in $exit_statuses
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-99\.test - exited with status 99$' exit-99.log
+ERROR: exit-99.test - exited with status 99
++ for log in exit-$e.log test-suite.log
++ grep '^ERROR: exit-99\.test - exited with status 99$' test-suite.log
+ERROR: exit-99.test - exited with status 99
++ run_make check TEST_LOG_DRIVER_FLAGS=--ignore-exit
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check TEST_LOG_DRIVER_FLAGS=--ignore-exit
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+PASS: exit-1.test 1
+PASS: exit-2.test 1
+PASS: exit-77.test 1
+PASS: exit-99.test 1
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-passthrough-exit.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ /bin/grep -F '.test - exited with status' config.log exit-1.log exit-2.log exit-77.log exit-99.log test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-passthrough-exit.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-passthrough-exit.dir
++ set +x
+PASS t/tap-passthrough-exit.sh (exit status: 0)

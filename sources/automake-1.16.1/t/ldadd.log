@@ -1,0 +1,65 @@
+ldadd: running libtool --version
+libtool (GNU libtool) 2.4.6
+Written by Gordon Matzigkeit, 1996
+
+Copyright (C) 2014 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ldadd.dir
++ cat
++ cat
++ :
++ :
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wno-extra-portability
++ AUTOMAKE_run -e 1 -Wno-extra-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-extra-portability
++ am__got_rc=1
++ cat stderr
+Makefile.am:3: error: use 'libtu_la_LIBADD', not 'libtu_la_LDADD'
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: variable 'libtu_la_LDADD' is defined but no program or
+Makefile.am:3: library has 'libtu_la' as canonical name (possible typo)
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep libtu_la_LDADD stderr
+Makefile.am:3: error: use 'libtu_la_LIBADD', not 'libtu_la_LDADD'
+Makefile.am:3: warning: variable 'libtu_la_LDADD' is defined but no program or
++ grep ' use '\''libtu_la_LIBADD'\''' stderr
+Makefile.am:3: error: use 'libtu_la_LIBADD', not 'libtu_la_LDADD'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ldadd.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ldadd.dir
++ set +x
+PASS t/ldadd.sh (exit status: 0)

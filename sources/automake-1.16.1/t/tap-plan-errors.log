@@ -1,0 +1,1218 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-plan-errors.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ err='- too few tests run (expected 2, got 1)'
++ my_check total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '- too few tests run (expected 2, got 1)'
++ cat all.test
+1..2
+ok 1
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+ERROR: all.test - too few tests run (expected 2, got 1)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=2
+++ pass=1
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+ERROR: all.test - too few tests run (expected 2, got 1)
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - too few tests run (expected 2, got 1)$' stdout
+ERROR: all.test - too few tests run (expected 2, got 1)
++ unset err
++ err='- too few tests run (expected 12, got 3)'
++ my_check total=4 pass=2 fail=0 xpass=0 xfail=1 skip=0 error=1
++ cat
++ test -n '- too few tests run (expected 12, got 3)'
++ cat all.test
+ok 1
+ok 2
+not ok 3 # TODO
+1..12
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+XFAIL: all.test 3 # TODO
+ERROR: all.test - too few tests run (expected 12, got 3)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  2
+# SKIP:  0
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=4 pass=2 fail=0 xpass=0 xfail=1 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=4 pass=2 fail=0 xpass=0 xfail=1 skip=0 error=1
+++ total=4
+++ pass=2
+++ fail=0
+++ xpass=0
+++ xfail=1
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+XFAIL: all.test 3 # TODO
+ERROR: all.test - too few tests run (expected 12, got 3)
+# TOTAL: 4
+# PASS:  2
+# SKIP:  0
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *4$' stdout
+# TOTAL: 4
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - too few tests run (expected 12, got 3)$' stdout
+ERROR: all.test - too few tests run (expected 12, got 3)
++ unset err
++ err='- too few tests run (expected 1, got 0)'
++ my_check total=1 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '- too few tests run (expected 1, got 0)'
++ cat all.test
+1..1
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+ERROR: all.test - too few tests run (expected 1, got 0)
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=1 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=1 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=1
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+ERROR: all.test - too few tests run (expected 1, got 0)
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *1$' stdout
+# TOTAL: 1
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - too few tests run (expected 1, got 0)$' stdout
+ERROR: all.test - too few tests run (expected 1, got 0)
++ unset err
++ err='2 # AFTER LATE PLAN'
++ my_check total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '2 # AFTER LATE PLAN'
++ cat all.test
+ok 1
+1..2
+ok 2
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+ERROR: all.test 2 # AFTER LATE PLAN
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=2
+++ pass=1
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+ERROR: all.test 2 # AFTER LATE PLAN
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test 2 # AFTER LATE PLAN$' stdout
+ERROR: all.test 2 # AFTER LATE PLAN
++ unset err
++ err='5 # AFTER LATE PLAN'
++ my_check total=5 pass=4 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '5 # AFTER LATE PLAN'
++ cat all.test
+ok 1
+ok 2
+ok 3
+ok 4
+1..5
+ok 5
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+PASS: all.test 3
+PASS: all.test 4
+ERROR: all.test 5 # AFTER LATE PLAN
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 5
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=5 pass=4 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=5 pass=4 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=5
+++ pass=4
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+PASS: all.test 3
+PASS: all.test 4
+ERROR: all.test 5 # AFTER LATE PLAN
+# TOTAL: 5
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 4 -eq 4
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *5$' stdout
+# TOTAL: 5
++ grep '^# PASS:  *4$' stdout
+# PASS:  4
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test 5 # AFTER LATE PLAN$' stdout
+ERROR: all.test 5 # AFTER LATE PLAN
++ unset err
++ err='- missing test plan'
++ my_check total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '- missing test plan'
++ cat all.test
+ok 1
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+ERROR: all.test - missing test plan
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=2 pass=1 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=2
+++ pass=1
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+ERROR: all.test - missing test plan
+# TOTAL: 2
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *2$' stdout
+# TOTAL: 2
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - missing test plan$' stdout
+ERROR: all.test - missing test plan
++ unset err
++ err='- multiple test plans'
++ my_check total=3 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '- multiple test plans'
++ cat all.test
+1..2
+ok 1
+ok 2
+1..2
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test - multiple test plans
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=3 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=3 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=3
+++ pass=2
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test - multiple test plans
+# TOTAL: 3
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *3$' stdout
+# TOTAL: 3
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - multiple test plans$' stdout
+ERROR: all.test - multiple test plans
++ unset err
++ err='- multiple test plans'
++ my_check total=4 pass=3 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '- multiple test plans'
++ cat all.test
+1..3
+ok 1
+ok 2
+1..2
+ok 3
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test - multiple test plans
+PASS: all.test 3
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 4
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=4 pass=3 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=4 pass=3 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=4
+++ pass=3
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test - multiple test plans
+PASS: all.test 3
+# TOTAL: 4
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 3 -eq 3
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *4$' stdout
+# TOTAL: 4
++ grep '^# PASS:  *3$' stdout
+# PASS:  3
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - multiple test plans$' stdout
+ERROR: all.test - multiple test plans
++ unset err
++ err='- multiple test plans'
++ my_check total=3 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=1
++ cat
++ test -n '- multiple test plans'
++ cat all.test
+1..2
+ok 1
+ok 2
+1..4
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test - multiple test plans
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=3 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=3 pass=2 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=3
+++ pass=2
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+PASS: all.test 1
+PASS: all.test 2
+ERROR: all.test - multiple test plans
+# TOTAL: 3
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-plan-errors.dir'
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 2 -eq 2
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *3$' stdout
+# TOTAL: 3
++ grep '^# PASS:  *2$' stdout
+# PASS:  2
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^ERROR: all\.test - multiple test plans$' stdout
+ERROR: all.test - multiple test plans
++ unset err
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-plan-errors.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-plan-errors.dir
++ set +x
+PASS t/tap-plan-errors.sh (exit status: 0)

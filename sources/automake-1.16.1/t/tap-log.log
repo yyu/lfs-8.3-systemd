@@ -1,0 +1,797 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-log.dir
++ cat
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ mv Makefile.am Makefile.am~
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ mv -f Makefile.am~ Makefile.am
+++ echo 'TEST_LOG_DRIVER = $(srcdir)/tap-driver'
+++ automake-1.16 --foreign -Werror -Wall Makefile
+++ ./config.status Makefile
+config.status: creating Makefile
+++ :
++ cmarker=:::
++ pmarker=%%%
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x error.test fail.test pass.test skip.test xfail.test xpass.test
++ run_make -e FAIL TEST_SUITE_LOG=my.log check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=my.log check
++ set +x
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-log.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-log.dir'
+PASS: pass.test 1
+SKIP: skip.test 1 # SKIP
+XFAIL: xfail.test 1 # TODO
+FAIL: fail.test 1
+XPASS: xpass.test 1 # TODO
+ERROR: error.test - Bail out!
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./my.log
+============================================================================
+make[2]: *** [Makefile:474: my.log] Error 1
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-log.dir'
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-log.dir'
+make: *** [Makefile:774: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ ls -l
+total 396
+-rw-r--r-- 1 root root  30340 Nov 27 06:53 Makefile
+-rw-r--r-- 1 root root    138 Nov 27 06:53 Makefile.am
+-rw-r--r-- 1 root root  29683 Nov 27 06:53 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:53 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   5437 Nov 27 06:53 config.log
+-rwxr-xr-x 1 root root  25487 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104196 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     90 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rw-r--r-- 1 root root     75 Nov 27 06:53 error.log
+-rwxr-xr-x 1 root root     87 Nov 27 06:53 error.test
+-rw-r--r-- 1 root root     86 Nov 27 06:53 error.trs
+-rw-r--r-- 1 root root     60 Nov 27 06:53 fail.log
+-rwxr-xr-x 1 root root     84 Nov 27 06:53 fail.test
+-rw-r--r-- 1 root root     84 Nov 27 06:53 fail.trs
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root    697 Nov 27 06:53 my.log
+-rw-r--r-- 1 root root     56 Nov 27 06:53 pass.log
+-rwxr-xr-x 1 root root     88 Nov 27 06:53 pass.test
+-rw-r--r-- 1 root root     82 Nov 27 06:53 pass.trs
+-rw-r--r-- 1 root root     70 Nov 27 06:53 skip.log
+-rwxr-xr-x 1 root root     87 Nov 27 06:53 skip.test
+-rw-r--r-- 1 root root     83 Nov 27 06:53 skip.trs
+-rwxr-xr-x 1 root root  19467 Nov 27 06:53 tap-driver
+-rw-r--r-- 1 root root     78 Nov 27 06:53 xfail.log
+-rwxr-xr-x 1 root root    101 Nov 27 06:53 xfail.test
+-rw-r--r-- 1 root root     84 Nov 27 06:53 xfail.trs
+-rw-r--r-- 1 root root     74 Nov 27 06:53 xpass.log
+-rwxr-xr-x 1 root root     97 Nov 27 06:53 xpass.test
+-rw-r--r-- 1 root root     85 Nov 27 06:53 xpass.trs
++ test '!' -e test-suite.log
++ test '!' -e global.log
++ test -f my.log
++ st=0
++ for result in pass fail xfail xpass skip error
++ cat pass.log
+%%% pass %%%
+# ::: pass :::
+1..1
+ok 1
+PASS: pass.test 1
++ /bin/grep -F '%%% pass %%%' pass.log
+%%% pass %%%
++ /bin/grep -F '::: pass :::' pass.log
+# ::: pass :::
++ for result in pass fail xfail xpass skip error
++ cat fail.log
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
++ /bin/grep -F '%%% fail %%%' fail.log
+%%% fail %%%
++ /bin/grep -F '::: fail :::' fail.log
+# ::: fail :::
++ for result in pass fail xfail xpass skip error
++ cat xfail.log
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
++ /bin/grep -F '%%% xfail %%%' xfail.log
+%%% xfail %%%
++ /bin/grep -F '::: xfail :::' xfail.log
+# ::: xfail :::
++ for result in pass fail xfail xpass skip error
++ cat xpass.log
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
++ /bin/grep -F '%%% xpass %%%' xpass.log
+%%% xpass %%%
++ /bin/grep -F '::: xpass :::' xpass.log
+# ::: xpass :::
++ for result in pass fail xfail xpass skip error
++ cat skip.log
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
++ /bin/grep -F '%%% skip %%%' skip.log
+%%% skip %%%
++ /bin/grep -F '::: skip :::' skip.log
+# ::: skip :::
++ for result in pass fail xfail xpass skip error
++ cat error.log
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!
++ /bin/grep -F '%%% error %%%' error.log
+%%% error %%%
++ /bin/grep -F '::: error :::' error.log
+# ::: error :::
++ test 0 -eq 0
++ cat my.log
+====================================
+   tap-common-setup 1.0: ./my.log
+====================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
+
+PASS: xfail
+===========
+
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
+
+FAIL: fail
+==========
+
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
+
+FAIL: xpass
+===========
+
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
+
+ERROR: error
+============
+
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!
+
++ for result in xfail fail xpass skip error
++ cat xfail.log
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
++ /bin/grep -F '%%% xfail %%%' my.log
+%%% xfail %%%
++ /bin/grep -F '::: xfail :::' my.log
+# ::: xfail :::
++ for result in xfail fail xpass skip error
++ cat fail.log
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
++ /bin/grep -F '%%% fail %%%' my.log
+%%% fail %%%
++ /bin/grep -F '::: fail :::' my.log
+# ::: fail :::
++ for result in xfail fail xpass skip error
++ cat xpass.log
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
++ /bin/grep -F '%%% xpass %%%' my.log
+%%% xpass %%%
++ /bin/grep -F '::: xpass :::' my.log
+# ::: xpass :::
++ for result in xfail fail xpass skip error
++ cat skip.log
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
++ /bin/grep -F '%%% skip %%%' my.log
+%%% skip %%%
++ /bin/grep -F '::: skip :::' my.log
+# ::: skip :::
++ for result in xfail fail xpass skip error
++ cat error.log
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!
++ /bin/grep -F '%%% error %%%' my.log
+%%% error %%%
++ /bin/grep -F '::: error :::' my.log
+# ::: error :::
+++ /bin/grep -F -c %%% my.log
++ test 5 -eq 5
+++ /bin/grep -F -c ::: my.log
++ test 5 -eq 5
++ /bin/grep -E '(^pass|[^x]pass)\.test' my.log
++ /bin/grep -F xfail.test my.log
+XFAIL: xfail.test 1 # TODO
++ /bin/grep -F skip.test my.log
+SKIP: skip.test 1 # SKIP
++ /bin/grep -F fail.test my.log
+XFAIL: xfail.test 1 # TODO
+FAIL: fail.test 1
++ /bin/grep -F xpass.test my.log
+XPASS: xpass.test 1 # TODO
++ /bin/grep -F error.test my.log
+ERROR: error.test - Bail out!
++ touch error2.log test-suite.log global.log
++ run_make TEST_SUITE_LOG=my.log mostlyclean
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TEST_SUITE_LOG=my.log mostlyclean
++ set +x
+test -z "pass.log skip.log xfail.log fail.log xpass.log error.log" || rm -f pass.log skip.log xfail.log fail.log xpass.log error.log
+test -z "pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs" || rm -f pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs
+test -z "my.log" || rm -f my.log
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 344
+-rw-r--r-- 1 root root  30340 Nov 27 06:53 Makefile
+-rw-r--r-- 1 root root    138 Nov 27 06:53 Makefile.am
+-rw-r--r-- 1 root root  29683 Nov 27 06:53 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:53 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   5437 Nov 27 06:53 config.log
+-rwxr-xr-x 1 root root  25487 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104196 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     90 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root     87 Nov 27 06:53 error.test
+-rw-r--r-- 1 root root      0 Nov 27 06:53 error2.log
+-rwxr-xr-x 1 root root     84 Nov 27 06:53 fail.test
+-rw-r--r-- 1 root root      0 Nov 27 06:53 global.log
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rwxr-xr-x 1 root root     88 Nov 27 06:53 pass.test
+-rwxr-xr-x 1 root root     87 Nov 27 06:53 skip.test
+-rwxr-xr-x 1 root root  19467 Nov 27 06:53 tap-driver
+-rw-r--r-- 1 root root      0 Nov 27 06:53 test-suite.log
+-rwxr-xr-x 1 root root    101 Nov 27 06:53 xfail.test
+-rwxr-xr-x 1 root root     97 Nov 27 06:53 xpass.test
++ test '!' -e my.log
++ test '!' -e pass.log
++ test '!' -e fail.log
++ test '!' -e xfail.log
++ test '!' -e xpass.log
++ test '!' -e skip.log
++ test '!' -e error.log
++ test -f error2.log
++ test -f test-suite.log
++ test -f global.log
++ rm -f config.log error2.log global.log test-suite.log
++ run_make -O -e FAIL check VERBOSE=yes
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check VERBOSE=yes
++ set +x
+make[2]: *** [Makefile:474: global.log] Error 1
+make[1]: *** [Makefile:582: check-TESTS] Error 2
+make: *** [Makefile:774: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-log.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-log.dir'
+PASS: pass.test 1
+SKIP: skip.test 1 # SKIP
+XFAIL: xfail.test 1 # TODO
+FAIL: fail.test 1
+XPASS: xpass.test 1 # TODO
+ERROR: error.test - Bail out!
+========================================
+   tap-common-setup 1.0: ./global.log
+========================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
+
+PASS: xfail
+===========
+
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
+
+FAIL: fail
+==========
+
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
+
+FAIL: xpass
+===========
+
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
+
+ERROR: error
+============
+
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!
+
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./global.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-log.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-log.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ cat global.log
+========================================
+   tap-common-setup 1.0: ./global.log
+========================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
+
+PASS: xfail
+===========
+
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
+
+FAIL: fail
+==========
+
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
+
+FAIL: xpass
+===========
+
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
+
+ERROR: error
+============
+
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!
+
++ test '!' -e my.log
++ test '!' -e test-suite.log
+++ cat stdout
++ out='make  check-TESTS
+make[1]: Entering directory '\''/sources/automake-1.16.1/t/tap-log.dir'\''
+make[2]: Entering directory '\''/sources/automake-1.16.1/t/tap-log.dir'\''
+PASS: pass.test 1
+SKIP: skip.test 1 # SKIP
+XFAIL: xfail.test 1 # TODO
+FAIL: fail.test 1
+XPASS: xpass.test 1 # TODO
+ERROR: error.test - Bail out!
+========================================
+   tap-common-setup 1.0: ./global.log
+========================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
+
+PASS: xfail
+===========
+
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
+
+FAIL: fail
+==========
+
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
+
+FAIL: xpass
+===========
+
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
+
+ERROR: error
+============
+
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!
+
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+============================================================================
+See ./global.log
+============================================================================
+make[2]: Leaving directory '\''/sources/automake-1.16.1/t/tap-log.dir'\''
+make[1]: Leaving directory '\''/sources/automake-1.16.1/t/tap-log.dir'\'''
+++ cat global.log
++ log='========================================
+   tap-common-setup 1.0: ./global.log
+========================================
+
+# TOTAL: 6
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 1
+
+.. contents:: :depth: 2
+
+SKIP: skip
+==========
+
+1..1
+%%% skip %%%
+# ::: skip :::
+ok 1 # SKIP
+SKIP: skip.test 1 # SKIP
+
+PASS: xfail
+===========
+
+%%% xfail %%%
+# ::: xfail :::
+1..1
+not ok 1 # TODO
+XFAIL: xfail.test 1 # TODO
+
+FAIL: fail
+==========
+
+1..1
+%%% fail %%%
+# ::: fail :::
+not ok 1
+FAIL: fail.test 1
+
+FAIL: xpass
+===========
+
+%%% xpass %%%
+# ::: xpass :::
+1..1
+ok 1 # TODO
+XPASS: xpass.test 1 # TODO
+
+ERROR: error
+============
+
+1..1
+%%% error %%%
+# ::: error :::
+Bail out!
+ERROR: error.test - Bail out!'
++ case $out in
++ touch error2.log test-suite.log my.log
++ make clean
+test -z "pass.log skip.log xfail.log fail.log xpass.log error.log" || rm -f pass.log skip.log xfail.log fail.log xpass.log error.log
+test -z "pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs" || rm -f pass.trs skip.trs xfail.trs fail.trs xpass.trs error.trs
+test -z "global.log" || rm -f global.log
++ ls -l
+total 340
+-rw-r--r-- 1 root root  30340 Nov 27 06:53 Makefile
+-rw-r--r-- 1 root root    138 Nov 27 06:53 Makefile.am
+-rw-r--r-- 1 root root  29683 Nov 27 06:53 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:53 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root  25487 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104196 Nov 27 06:50 configure
+-rw-r--r-- 1 root root     90 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root     87 Nov 27 06:53 error.test
+-rw-r--r-- 1 root root      0 Nov 27 06:53 error2.log
+-rwxr-xr-x 1 root root     84 Nov 27 06:53 fail.test
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rw-r--r-- 1 root root      0 Nov 27 06:53 my.log
+-rwxr-xr-x 1 root root     88 Nov 27 06:53 pass.test
+-rwxr-xr-x 1 root root     87 Nov 27 06:53 skip.test
+-rw-r--r-- 1 root root   1591 Nov 27 06:53 stdout
+-rwxr-xr-x 1 root root  19467 Nov 27 06:53 tap-driver
+-rw-r--r-- 1 root root      0 Nov 27 06:53 test-suite.log
+-rwxr-xr-x 1 root root    101 Nov 27 06:53 xfail.test
+-rwxr-xr-x 1 root root     97 Nov 27 06:53 xpass.test
++ test '!' -e global.log
++ test '!' -e pass.log
++ test '!' -e fail.log
++ test '!' -e xfail.log
++ test '!' -e xpass.log
++ test '!' -e skip.log
++ test '!' -e error.log
++ test -f error2.log
++ test -f test-suite.log
++ test -f my.log
++ rm -f error2.log my.log test-suite.log
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-log.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-log.dir
++ set +x
+PASS t/tap-log.sh (exit status: 0)

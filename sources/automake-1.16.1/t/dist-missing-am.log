@@ -1,0 +1,176 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dist-missing-am.dir
++ echo AC_OUTPUT
++ cat
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/dist-missing-am.dir
++ for vpath in false :
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-missing-am.dir'
+if test -d "dist-missing-am-1.0"; then find "dist-missing-am-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-missing-am-1.0" || { sleep 5 && rm -rf "dist-missing-am-1.0"; }; else :; fi
+test -d "dist-missing-am-1.0" || mkdir "dist-missing-am-1.0"
+test -n "" \
+|| find "dist-missing-am-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-missing-am.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-missing-am-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-missing-am.dir'
++ test -f dist-missing-am-1.0/zardoz.am
++ rm -f dist-missing-am-1.0/zardoz.am
++ false
++ cd dist-missing-am-1.0
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -e FAIL -M
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+ cd . && /bin/sh /sources/automake-1.16.1/t/dist-missing-am.dir/dist-missing-am-1.0/missing automake-1.16 --foreign Makefile
+automake-1.16: error: cannot open < zardoz.am: No such file or directory
+make: *** [Makefile:218: Makefile.in] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ grep 'cannot open.*zardoz\.am' output
+automake-1.16: error: cannot open < zardoz.am: No such file or directory
++ grep 'foobar\.am' output
++ cd /sources/automake-1.16.1/t/dist-missing-am.dir
++ for vpath in false :
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-missing-am.dir'
+if test -d "dist-missing-am-1.0"; then find "dist-missing-am-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-missing-am-1.0" || { sleep 5 && rm -rf "dist-missing-am-1.0"; }; else :; fi
+test -d "dist-missing-am-1.0" || mkdir "dist-missing-am-1.0"
+test -n "" \
+|| find "dist-missing-am-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-missing-am.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-missing-am-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-missing-am.dir'
++ test -f dist-missing-am-1.0/zardoz.am
++ rm -f dist-missing-am-1.0/zardoz.am
++ :
++ mkdir vpath-distcheck
++ cd vpath-distcheck
++ ../dist-missing-am-1.0/configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -e FAIL -M
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+ cd ../dist-missing-am-1.0 && /bin/sh /sources/automake-1.16.1/t/dist-missing-am.dir/dist-missing-am-1.0/missing automake-1.16 --foreign Makefile
+automake-1.16: error: cannot open < zardoz.am: No such file or directory
+make: *** [Makefile:218: ../dist-missing-am-1.0/Makefile.in] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ grep 'cannot open.*zardoz\.am' output
+automake-1.16: error: cannot open < zardoz.am: No such file or directory
++ grep 'foobar\.am' output
++ cd /sources/automake-1.16.1/t/dist-missing-am.dir
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dist-missing-am.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dist-missing-am.dir
++ set +x
+PASS t/dist-missing-am.sh (exit status: 0)

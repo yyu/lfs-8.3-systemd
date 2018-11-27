@@ -1,0 +1,182 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-subdir-long-time.dir
++ cat
++ echo SUBDIRS = sub
++ mkdir sub
++ :
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/remake-subdir-long-time.dir
++ mkdir bin
++ cat
++ chmod a+x bin/automake
++ cat
++ chmod a+x bin/aclocal
++ cp bin/automake bin/automake-1.16
++ cp bin/aclocal bin/aclocal-1.16
++ PATH=/sources/automake-1.16.1/t/remake-subdir-long-time.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ AUTOMAKE=automake
++ ACLOCAL=aclocal
++ export AUTOMAKE ACLOCAL
++ aclocal
++ automake
++ autoconf
++ test -f automake-has-run
++ test -f aclocal-has-run
++ rm -f automake-has-run aclocal-has-run
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ run_make ACLOCAL=false AUTOMAKE=false AUTOCONF=false
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make ACLOCAL=false AUTOMAKE=false AUTOCONF=false
++ set +x
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-subdir-long-time.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-subdir-long-time.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-subdir-long-time.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-subdir-long-time.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ sleep 2
++ sed 's|magic|magic2|' configure.ac
++ mv -f t configure.ac
++ cd sub
++ run_make Makefile AUTOMAKE=automake ACLOCAL=aclocal
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make Makefile AUTOMAKE=automake ACLOCAL=aclocal
++ set +x
+cd .. && make  am--refresh
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-subdir-long-time.dir'
+CDPATH="${ZSH_VERSION+.}:" && cd . && aclocal 
+ cd . && automake --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-subdir-long-time.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-subdir-long-time.dir'
+make: 'Makefile' is up to date.
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ cd ..
++ ls -l . sub
+.:
+total 300
+-rw-r--r-- 1 root root  24177 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root     14 Nov 27 06:47 Makefile.am
+-rw-r--r-- 1 root root  23521 Nov 27 06:48 Makefile.in
+-rw-r--r-- 1 root root     16 Nov 27 06:48 aclocal-has-run
+-rw-r--r-- 1 root root  27316 Nov 27 06:48 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 autom4te.cache
+-rw-r--r-- 1 root root     17 Nov 27 06:48 automake-has-run
+drwxr-xr-x 2 root root   4096 Nov 27 06:47 bin
+-rwxr-xr-x 1 root root   7383 Nov 27 06:47 compile
+-rw-r--r-- 1 root root   5202 Nov 27 06:48 config.log
+-rwxr-xr-x 1 root root  25550 Nov 27 06:48 config.status
+-rwxr-xr-x 1 root root 104378 Nov 27 06:48 configure
+-rw-r--r-- 1 root root    163 Nov 27 06:48 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:47 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:47 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:47 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:48 sub
+
+sub:
+total 24
+-rw-r--r-- 1 root root 11418 Nov 27 06:48 Makefile
+-rw-r--r-- 1 root root     0 Nov 27 06:47 Makefile.am
+-rw-r--r-- 1 root root 10745 Nov 27 06:48 Makefile.in
++ grep -i magic configure Makefile.in Makefile sub/Makefile.in sub/Makefile
+configure:MAGIC
+configure:MAGIC=magic2
+Makefile.in:MAGIC = @MAGIC@
+Makefile:MAGIC = magic2
+sub/Makefile.in:MAGIC = @MAGIC@
+sub/Makefile:MAGIC = magic2
++ /bin/grep -F magic2 configure
+MAGIC=magic2
++ /bin/grep -F magic2 Makefile
+MAGIC = magic2
++ /bin/grep -F magic2 sub/Makefile
+MAGIC = magic2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-subdir-long-time.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-subdir-long-time.dir
++ set +x
+PASS t/remake-subdir-long-time.sh (exit status: 0)

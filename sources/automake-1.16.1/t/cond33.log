@@ -1,0 +1,114 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond33.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
+++ pwd
++ cwd=/sources/automake-1.16.1/t/cond33.dir
++ mkdir nowhere
++ chmod a-w nowhere
++ ./configure --prefix=/sources/automake-1.16.1/t/cond33.dir/nowhere --bindir=/sources/automake-1.16.1/t/cond33.dir/bin --includedir=/sources/automake-1.16.1/t/cond33.dir/inc
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make installdirs
+for dir in "" "/sources/automake-1.16.1/t/cond33.dir/inc/foo"; do \
+  test -z "$dir" || /tools/bin/mkdir -p "$dir"; \
+done
++ test '!' -e bin
++ test -d inc/foo
++ test '!' -e inc/foo/foo.h
++ rm -rf inc
++ make install
+:>foo.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond33.dir'
+make[1]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/cond33.dir/inc/foo'
+ /usr/bin/install -c -m 644 foo.h '/sources/automake-1.16.1/t/cond33.dir/inc/foo'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond33.dir'
++ test '!' -e bin
++ test -f inc/foo/foo.h
++ make distdircheck
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond33.dir'
+:>x.sh
+if test -d "cond33-1.0"; then find "cond33-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "cond33-1.0" || { sleep 5 && rm -rf "cond33-1.0"; }; else :; fi
+test -d "cond33-1.0" || mkdir "cond33-1.0"
+test -n "" \
+|| find "cond33-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/cond33.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "cond33-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond33.dir'
+test -f cond33-1.0/foo.h
+test -f cond33-1.0/x.sh
++ rm -rf inc
++ ./configure two=two --prefix=/sources/automake-1.16.1/t/cond33.dir/nowhere --bindir=/sources/automake-1.16.1/t/cond33.dir/bin --includedir=/sources/automake-1.16.1/t/cond33.dir/inc
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make install
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond33.dir'
+make[1]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/cond33.dir/bin'
+ /usr/bin/install -c x.sh '/sources/automake-1.16.1/t/cond33.dir/bin'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond33.dir'
++ test '!' -e inc
++ test -f bin/x.sh
++ rm -rf inc
++ make installdirs
+for dir in "/sources/automake-1.16.1/t/cond33.dir/bin" ""; do \
+  test -z "$dir" || /tools/bin/mkdir -p "$dir"; \
+done
++ test '!' -e inc
++ test -d bin
++ make distdircheck
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond33.dir'
+if test -d "cond33-1.0"; then find "cond33-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "cond33-1.0" || { sleep 5 && rm -rf "cond33-1.0"; }; else :; fi
+test -d "cond33-1.0" || mkdir "cond33-1.0"
+test -n "" \
+|| find "cond33-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/cond33.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "cond33-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond33.dir'
+test -f cond33-1.0/foo.h
+test -f cond33-1.0/x.sh
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond33.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond33.dir
++ set +x
+PASS t/cond33.sh (exit status: 0)

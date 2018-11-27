@@ -1,0 +1,235 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/python.dir
++ echo AM_PATH_PYTHON
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:1: error: required file './py-compile' not found
+Makefile.am:1:   'automake --add-missing' can install 'py-compile'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.* required file.*py-compile' stderr
+Makefile.am:1: error: required file './py-compile' not found
++ automake-1.16 --foreign -Werror -Wall -a
+Makefile.am:1: installing './py-compile'
++ grep '^py_compile *=' Makefile.in
+py_compile = $(top_srcdir)/py-compile
++ test -f py-compile
++ automake-1.16 --foreign -Werror -Wall Makefile2
++ automake-1.16 --foreign -Werror -Wall Makefile3
++ grep py Makefile.in Makefile2.in Makefile3.in
+Makefile.in:# Copyright (C) 1994-2018 Free Software Foundation, Inc.
+Makefile.in:# gives unlimited permission to copy and/or distribute it,
+Makefile.in:	$(am__configure_deps) $(python_PYTHON) $(am__DIST_COMMON)
+Makefile.in:am__py_compile = PYTHON=$(PYTHON) $(SHELL) $(py_compile)
+Makefile.in:am__installdirs = "$(DESTDIR)$(pythondir)"
+Makefile.in:  sed -e 's|\.py$$||' -e 's|[^/]*$$|&.*.pyc\n&.*.pyo|'
+Makefile.in:py_compile = $(top_srcdir)/py-compile
+Makefile.in:	missing py-compile
+Makefile.in:pkgpyexecdir = @pkgpyexecdir@
+Makefile.in:pkgpythondir = @pkgpythondir@
+Makefile.in:pyexecdir = @pyexecdir@
+Makefile.in:pythondir = @pythondir@
+Makefile.in:python_PYTHON = foo.py
+Makefile.in:install-pythonPYTHON: $(python_PYTHON)
+Makefile.in:	@list='$(python_PYTHON)'; dlist=; list2=; test -n "$(pythondir)" || list=; \
+Makefile.in:	  echo " $(MKDIR_P) '$(DESTDIR)$(pythondir)'"; \
+Makefile.in:	  $(MKDIR_P) "$(DESTDIR)$(pythondir)" || exit 1; \
+Makefile.in:	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pythondir)'"; \
+Makefile.in:	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pythondir)" || exit $$?; \
+Makefile.in:	  $(am__py_compile) --destdir "$(DESTDIR)" \
+Makefile.in:	                    --basedir "$(pythondir)" $$dlist; \
+Makefile.in:uninstall-pythonPYTHON:
+Makefile.in:	@list='$(python_PYTHON)'; test -n "$(pythondir)" || list=; \
+Makefile.in:	py_files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+Makefile.in:	test -n "$$py_files" || exit 0; \
+Makefile.in:	dir='$(DESTDIR)$(pythondir)'; \
+Makefile.in:	pyc_files=`echo "$$py_files" | sed 's|$$|c|'`; \
+Makefile.in:	pyo_files=`echo "$$py_files" | sed 's|$$|o|'`; \
+Makefile.in:	for files in "$$py_files" "$$pyc_files" "$$pyo_files"; do \
+Makefile.in:	dir='$(DESTDIR)$(pythondir)/__pycache__'; \
+Makefile.in:	echo "$$py_files" | $(am__pep3147_tweak) | $(am__base_list) | \
+Makefile.in:	for dir in "$(DESTDIR)$(pythondir)"; do \
+Makefile.in:install-data-am: install-pythonPYTHON
+Makefile.in:uninstall-am: uninstall-pythonPYTHON
+Makefile.in:	install-pythonPYTHON install-strip installcheck \
+Makefile.in:	uninstall-pythonPYTHON
+Makefile2.in:# Copyright (C) 1994-2018 Free Software Foundation, Inc.
+Makefile2.in:# gives unlimited permission to copy and/or distribute it,
+Makefile2.in:	$(am__configure_deps) $(my_PYTHON) $(nobase_python_PYTHON) \
+Makefile2.in:	$(python_PYTHON) $(am__DIST_COMMON)
+Makefile2.in:am__py_compile = PYTHON=$(PYTHON) $(SHELL) $(py_compile)
+Makefile2.in:am__installdirs = "$(DESTDIR)$(mydir)" "$(DESTDIR)$(pythondir)" \
+Makefile2.in:	"$(DESTDIR)$(pythondir)" "$(DESTDIR)$(pythondir)"
+Makefile2.in:  sed -e 's|\.py$$||' -e 's|[^/]*$$|&.*.pyc\n&.*.pyo|'
+Makefile2.in:py_compile = $(top_srcdir)/py-compile
+Makefile2.in:	missing py-compile
+Makefile2.in:pkgpyexecdir = @pkgpyexecdir@
+Makefile2.in:pkgpythondir = @pkgpythondir@
+Makefile2.in:pyexecdir = @pyexecdir@
+Makefile2.in:pythondir = @pythondir@
+Makefile2.in:python_PYTHON = a.py
+Makefile2.in:nodist_python_PYTHON = b.py
+Makefile2.in:nobase_python_PYTHON = x/c.py
+Makefile2.in:my_PYTHON = d.py
+Makefile2.in:	  $(am__py_compile) --destdir "$(DESTDIR)" \
+Makefile2.in:	py_files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+Makefile2.in:	test -n "$$py_files" || exit 0; \
+Makefile2.in:	pyc_files=`echo "$$py_files" | sed 's|$$|c|'`; \
+Makefile2.in:	pyo_files=`echo "$$py_files" | sed 's|$$|o|'`; \
+Makefile2.in:	for files in "$$py_files" "$$pyc_files" "$$pyo_files"; do \
+Makefile2.in:	dir='$(DESTDIR)$(mydir)/__pycache__'; \
+Makefile2.in:	echo "$$py_files" | $(am__pep3147_tweak) | $(am__base_list) | \
+Makefile2.in:install-nobase_pythonPYTHON: $(nobase_python_PYTHON)
+Makefile2.in:	@list='$(nobase_python_PYTHON)'; test -n "$(pythondir)" || list=; \
+Makefile2.in:	  echo " $(MKDIR_P) '$(DESTDIR)$(pythondir)'"; \
+Makefile2.in:	  $(MKDIR_P) "$(DESTDIR)$(pythondir)" || exit 1; \
+Makefile2.in:	      echo "$(MKDIR_P) '$(DESTDIR)$(pythondir)/$$dir'"; \
+Makefile2.in:	      $(MKDIR_P) "$(DESTDIR)$(pythondir)/$$dir"; }; \
+Makefile2.in:	    echo " $(INSTALL_DATA) $$xfiles '$(DESTDIR)$(pythondir)/$$dir'"; \
+Makefile2.in:	    $(INSTALL_DATA) $$xfiles "$(DESTDIR)$(pythondir)/$$dir" || exit $$?; }; \
+Makefile2.in:	  $(am__py_compile) --destdir "$(DESTDIR)" \
+Makefile2.in:	                    --basedir "$(pythondir)" $$dlist; \
+Makefile2.in:uninstall-nobase_pythonPYTHON:
+Makefile2.in:	@list='$(nobase_python_PYTHON)'; test -n "$(pythondir)" || list=; \
+Makefile2.in:	$(am__nobase_strip_setup); py_files=`$(am__nobase_strip)`; \
+Makefile2.in:	test -n "$$py_files" || exit 0; \
+Makefile2.in:	dir='$(DESTDIR)$(pythondir)'; \
+Makefile2.in:	pyc_files=`echo "$$py_files" | sed 's|$$|c|'`; \
+Makefile2.in:	pyo_files=`echo "$$py_files" | sed 's|$$|o|'`; \
+Makefile2.in:	for files in "$$py_files" "$$pyc_files" "$$pyo_files"; do \
+Makefile2.in:	dir='$(DESTDIR)$(pythondir)/__pycache__'; \
+Makefile2.in:	echo "$$py_files" | $(am__pep3147_tweak) | $(am__base_list) | \
+Makefile2.in:install-nodist_pythonPYTHON: $(nodist_python_PYTHON)
+Makefile2.in:	@list='$(nodist_python_PYTHON)'; dlist=; list2=; test -n "$(pythondir)" || list=; \
+Makefile2.in:	  echo " $(MKDIR_P) '$(DESTDIR)$(pythondir)'"; \
+Makefile2.in:	  $(MKDIR_P) "$(DESTDIR)$(pythondir)" || exit 1; \
+Makefile2.in:	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pythondir)'"; \
+Makefile2.in:	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pythondir)" || exit $$?; \
+Makefile2.in:	  $(am__py_compile) --destdir "$(DESTDIR)" \
+Makefile2.in:	                    --basedir "$(pythondir)" $$dlist; \
+Makefile2.in:uninstall-nodist_pythonPYTHON:
+Makefile2.in:	@list='$(nodist_python_PYTHON)'; test -n "$(pythondir)" || list=; \
+Makefile2.in:	py_files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+Makefile2.in:	test -n "$$py_files" || exit 0; \
+Makefile2.in:	dir='$(DESTDIR)$(pythondir)'; \
+Makefile2.in:	pyc_files=`echo "$$py_files" | sed 's|$$|c|'`; \
+Makefile2.in:	pyo_files=`echo "$$py_files" | sed 's|$$|o|'`; \
+Makefile2.in:	for files in "$$py_files" "$$pyc_files" "$$pyo_files"; do \
+Makefile2.in:	dir='$(DESTDIR)$(pythondir)/__pycache__'; \
+Makefile2.in:	echo "$$py_files" | $(am__pep3147_tweak) | $(am__base_list) | \
+Makefile2.in:install-pythonPYTHON: $(python_PYTHON)
+Makefile2.in:	@list='$(python_PYTHON)'; dlist=; list2=; test -n "$(pythondir)" || list=; \
+Makefile2.in:	  echo " $(MKDIR_P) '$(DESTDIR)$(pythondir)'"; \
+Makefile2.in:	  $(MKDIR_P) "$(DESTDIR)$(pythondir)" || exit 1; \
+Makefile2.in:	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pythondir)'"; \
+Makefile2.in:	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pythondir)" || exit $$?; \
+Makefile2.in:	  $(am__py_compile) --destdir "$(DESTDIR)" \
+Makefile2.in:	                    --basedir "$(pythondir)" $$dlist; \
+Makefile2.in:uninstall-pythonPYTHON:
+Makefile2.in:	@list='$(python_PYTHON)'; test -n "$(pythondir)" || list=; \
+Makefile2.in:	py_files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+Makefile2.in:	test -n "$$py_files" || exit 0; \
+Makefile2.in:	dir='$(DESTDIR)$(pythondir)'; \
+Makefile2.in:	pyc_files=`echo "$$py_files" | sed 's|$$|c|'`; \
+Makefile2.in:	pyo_files=`echo "$$py_files" | sed 's|$$|o|'`; \
+Makefile2.in:	for files in "$$py_files" "$$pyc_files" "$$pyo_files"; do \
+Makefile2.in:	dir='$(DESTDIR)$(pythondir)/__pycache__'; \
+Makefile2.in:	echo "$$py_files" | $(am__pep3147_tweak) | $(am__base_list) | \
+Makefile2.in:	for dir in "$(DESTDIR)$(mydir)" "$(DESTDIR)$(pythondir)" "$(DESTDIR)$(pythondir)" "$(DESTDIR)$(pythondir)"; do \
+Makefile2.in:install-data-am: install-myPYTHON install-nobase_pythonPYTHON \
+Makefile2.in:	install-nodist_pythonPYTHON install-pythonPYTHON
+Makefile2.in:uninstall-am: uninstall-myPYTHON uninstall-nobase_pythonPYTHON \
+Makefile2.in:	uninstall-nodist_pythonPYTHON uninstall-pythonPYTHON
+Makefile2.in:	install-myPYTHON install-nobase_pythonPYTHON \
+Makefile2.in:	install-nodist_pythonPYTHON install-pdf install-pdf-am \
+Makefile2.in:	install-ps install-ps-am install-pythonPYTHON install-strip \
+Makefile2.in:	uninstall-myPYTHON uninstall-nobase_pythonPYTHON \
+Makefile2.in:	uninstall-nodist_pythonPYTHON uninstall-pythonPYTHON
+Makefile3.in:# Copyright (C) 1994-2018 Free Software Foundation, Inc.
+Makefile3.in:# gives unlimited permission to copy and/or distribute it,
+Makefile3.in:	$(am__configure_deps) $(noinst_PYTHON) $(python_PYTHON) \
+Makefile3.in:am__py_compile = PYTHON=$(PYTHON) $(SHELL) $(py_compile)
+Makefile3.in:am__installdirs = "$(DESTDIR)$(pythondir)"
+Makefile3.in:py_compile = $(top_srcdir)/py-compile
+Makefile3.in:	missing py-compile
+Makefile3.in:pkgpyexecdir = @pkgpyexecdir@
+Makefile3.in:pkgpythondir = @pkgpythondir@
+Makefile3.in:pyexecdir = @pyexecdir@
+Makefile3.in:pythondir = @pythondir@
+Makefile3.in:noinst_PYTHON = un.py
+Makefile3.in:python_PYTHON = in.py
+Makefile3.in:install-pythonPYTHON: $(python_PYTHON)
+Makefile3.in:	@list='$(python_PYTHON)'; dlist=; list2=; test -n "$(pythondir)" || list=; \
+Makefile3.in:	  echo " $(MKDIR_P) '$(DESTDIR)$(pythondir)'"; \
+Makefile3.in:	  $(MKDIR_P) "$(DESTDIR)$(pythondir)" || exit 1; \
+Makefile3.in:	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(pythondir)'"; \
+Makefile3.in:	  $(INSTALL_DATA) $$files "$(DESTDIR)$(pythondir)" || exit $$?; \
+Makefile3.in:	  $(am__py_compile) --destdir "$(DESTDIR)" \
+Makefile3.in:	                    --basedir "$(pythondir)" $$dlist; \
+Makefile3.in:uninstall-pythonPYTHON:
+Makefile3.in:	@list='$(python_PYTHON)'; test -n "$(pythondir)" || list=; \
+Makefile3.in:	py_files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+Makefile3.in:	test -n "$$py_files" || exit 0; \
+Makefile3.in:	dir='$(DESTDIR)$(pythondir)'; \
+Makefile3.in:	pyc_files=`echo "$$py_files" | sed 's|$$|c|'`; \
+Makefile3.in:	pyo_files=`echo "$$py_files" | sed 's|$$|o|'`; \
+Makefile3.in:	for files in "$$py_files" "$$pyc_files" "$$pyo_files"; do \
+Makefile3.in:	dir='$(DESTDIR)$(pythondir)/__pycache__'; \
+Makefile3.in:	echo "$$py_files" | $(am__pep3147_tweak) | $(am__base_list) | \
+Makefile3.in:	for dir in "$(DESTDIR)$(pythondir)"; do \
+Makefile3.in:install-data-am: install-pythonPYTHON
+Makefile3.in:uninstall-am: uninstall-pythonPYTHON
+Makefile3.in:	install-pythonPYTHON install-strip installcheck \
+Makefile3.in:	uninstall-pythonPYTHON
++ for f in Makefile.in Makefile2.in Makefile3.in
+++ grep -c '^py_compile =' Makefile.in
++ test 1 -eq 1
+++ grep -c '^am__py_compile =' Makefile.in
++ test 1 -eq 1
++ for f in Makefile.in Makefile2.in Makefile3.in
+++ grep -c '^py_compile =' Makefile2.in
++ test 1 -eq 1
+++ grep -c '^am__py_compile =' Makefile2.in
++ test 1 -eq 1
++ for f in Makefile.in Makefile2.in Makefile3.in
+++ grep -c '^py_compile =' Makefile3.in
++ test 1 -eq 1
+++ grep -c '^am__py_compile =' Makefile3.in
++ test 1 -eq 1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/python.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/python.dir
++ set +x
+PASS t/python.sh (exit status: 0)

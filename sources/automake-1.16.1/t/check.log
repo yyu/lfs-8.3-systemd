@@ -1,0 +1,34 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/check.dir
++ cat
++ test x = xyes
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep 'check-TESTS.*:' Makefile.in
+check-TESTS: 
++ grep check-DEJAGNU Makefile.in
++ sed -n '/^\.PHONY:/,/^$/p' Makefile.in
++ /bin/grep -E '(^| )check-TESTS($| )'
+.PHONY: all all-am am--refresh check check-TESTS check-am clean \
++ /bin/grep -E '^check:.* check-am( |$)' Makefile.in
+check: check-am
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/check.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/check.dir
++ set +x
+PASS t/check.sh (exit status: 0)

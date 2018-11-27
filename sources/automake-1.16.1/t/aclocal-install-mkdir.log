@@ -1,0 +1,62 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-install-mkdir.dir
++ cat
++ mkdir sys-acdir
++ cat
++ ACLOCAL='aclocal-1.16 -Werror --system-acdir=sys-acdir'
++ aclocal-1.16 -Werror --system-acdir=sys-acdir -I foo --install
+aclocal-1.16: installing 'foo/my-defs.m4' from 'sys-acdir/my-defs.m4'
++ test -f foo/my-defs.m4
+++ pwd
++ aclocal-1.16 -Werror --system-acdir=sys-acdir --install -I /sources/automake-1.16.1/t/aclocal-install-mkdir.dir/bar
+aclocal-1.16: installing '/sources/automake-1.16.1/t/aclocal-install-mkdir.dir/bar/my-defs.m4' from 'sys-acdir/my-defs.m4'
++ test -f bar/my-defs.m4
++ aclocal-1.16 -Werror --system-acdir=sys-acdir --install -I baz/sub/sub2
+aclocal-1.16: installing 'baz/sub/sub2/my-defs.m4' from 'sys-acdir/my-defs.m4'
++ test -f baz/sub/sub2/my-defs.m4
++ mkdir zardoz2
++ aclocal-1.16 -Werror --system-acdir=sys-acdir --install -I zardoz1 -I zardoz2
+aclocal-1.16: installing 'zardoz1/my-defs.m4' from 'sys-acdir/my-defs.m4'
++ test -d zardoz1
++ grep MY_MACRO zardoz1/my-defs.m4
+AC_DEFUN([MY_MACRO], [:])
++ ls zardoz2
++ grep .
+++ pwd
+++ pwd
++ ACLOCAL_PATH=/sources/automake-1.16.1/t/aclocal-install-mkdir.dir/none:/sources/automake-1.16.1/t/aclocal-install-mkdir.dir/none2
++ aclocal-1.16 -Werror --system-acdir=sys-acdir --install
+aclocal-1.16: error: installation of third-party macros impossible without -I options nor AC_CONFIG_MACRO_DIR{,S} m4 macro(s)
++ test '!' -e none
++ test '!' -e none2
+++ pwd
+++ pwd
++ ACLOCAL_PATH=/sources/automake-1.16.1/t/aclocal-install-mkdir.dir/none:/sources/automake-1.16.1/t/aclocal-install-mkdir.dir/none2
++ aclocal-1.16 -Werror --system-acdir=sys-acdir --install -I x
+aclocal-1.16: installing 'x/my-defs.m4' from 'sys-acdir/my-defs.m4'
++ test -f x/my-defs.m4
++ test '!' -e none
++ test '!' -e none2
++ aclocal-1.16 -Werror --system-acdir=sys-acdir --install -I none -I none2
+aclocal-1.16: error: couldn't open directory 'none2': No such file or directory
++ test '!' -e none
++ test '!' -e none2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-install-mkdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-install-mkdir.dir
++ set +x
+PASS t/aclocal-install-mkdir.sh (exit status: 0)

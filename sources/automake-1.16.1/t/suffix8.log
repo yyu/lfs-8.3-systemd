@@ -1,0 +1,644 @@
+suffix8: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/suffix8.dir
++ plan_ 10
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x10 = xunknown
++ test x10 = xlater
++ test x10 = xlazy
++ test x10 = xnow
++ test 10 -ge 0
++ planned_=10
++ echo 1..10
+1..10
++ cat
++ cat
++ echo 'int main (void) { return 0; }'
++ echo 'int bar (void) { return 0; }'
++ command_ok_ libtoolize libtoolize
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_=libtoolize
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ result_ ok -D '' -r '' -- libtoolize
++ set +x
+ok 1 - libtoolize
+PASS: t/suffix8.tap 1 - libtoolize
++ command_ok_ aclocal aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=aclocal
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- aclocal
++ set +x
+ok 2 - aclocal
+PASS: t/suffix8.tap 2 - aclocal
++ command_ok_ autoconf autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_=autoconf
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- autoconf
++ set +x
+ok 3 - autoconf
+PASS: t/suffix8.tap 3 - autoconf
++ command_ok_ automake automake-1.16 --foreign -Werror -Wall -a
++ tap_directive_=
++ tap_reason_=
++ test 6 -gt 0
++ tap_description_=automake
++ shift
++ test 5 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:4: installing './ar-lib'
+configure.ac:5: installing './config.guess'
+configure.ac:5: installing './config.sub'
++ result_ ok -D '' -r '' -- automake
++ set +x
+ok 4 - automake
+PASS: t/suffix8.tap 4 - automake
++ command_ok_ configure protect_output ./configure
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=configure
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ protect_output ./configure
++ st=0
++ ./configure
++ sed 's/^/  /' output
+  checking for a BSD-compatible install... /usr/bin/install -c
+  checking whether build environment is sane... yes
+  checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+  checking for gawk... gawk
+  checking whether make sets $(MAKE)... yes
+  checking whether make supports nested variables... yes
+  checking whether make supports the include directive... yes (GNU style)
+  checking for gcc... cc
+  checking whether the C compiler works... yes
+  checking for C compiler default output file name... a.out
+  checking for suffix of executables... 
+  checking whether we are cross compiling... no
+  checking for suffix of object files... o
+  checking whether we are using the GNU C compiler... yes
+  checking whether cc accepts -g... yes
+  checking for cc option to accept ISO C89... none needed
+  checking whether cc understands -c and -o together... yes
+  checking dependency style of cc... gcc3
+  checking for ar... ar
+  checking the archiver (ar) interface... ar
+  checking build system type... x86_64-pc-linux-gnu
+  checking host system type... x86_64-pc-linux-gnu
+  checking how to print strings... printf
+  checking for a sed that does not truncate output... /bin/sed
+  checking for grep that handles long lines and -e... /bin/grep
+  checking for egrep... /bin/grep -E
+  checking for fgrep... /bin/grep -F
+  checking for ld used by cc... /usr/bin/ld
+  checking if the linker (/usr/bin/ld) is GNU ld... yes
+  checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+  checking the name lister (/usr/bin/nm -B) interface... BSD nm
+  checking whether ln -s works... yes
+  checking the maximum length of command line arguments... 6291456
+  checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+  checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+  checking for /usr/bin/ld option to reload object files... -r
+  checking for objdump... objdump
+  checking how to recognize dependent libraries... pass_all
+  checking for dlltool... no
+  checking how to associate runtime and link libraries... printf %s\n
+  checking for archiver @FILE support... @
+  checking for strip... strip
+  checking for ranlib... ranlib
+  checking command to parse /usr/bin/nm -B output from cc object... ok
+  checking for sysroot... no
+  checking for a working dd... /bin/dd
+  checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+  checking for mt... no
+  checking if : is a manifest tool... no
+  checking how to run the C preprocessor... cc -E
+  checking for ANSI C header files... yes
+  checking for sys/types.h... yes
+  checking for sys/stat.h... yes
+  checking for stdlib.h... yes
+  checking for string.h... yes
+  checking for memory.h... yes
+  checking for strings.h... yes
+  checking for inttypes.h... yes
+  checking for stdint.h... yes
+  checking for unistd.h... yes
+  checking for dlfcn.h... yes
+  checking for objdir... .libs
+  checking if cc supports -fno-rtti -fno-exceptions... no
+  checking for cc option to produce PIC... -fPIC -DPIC
+  checking if cc PIC flag -fPIC -DPIC works... yes
+  checking if cc static flag -static works... yes
+  checking if cc supports -c -o file.o... yes
+  checking if cc supports -c -o file.o... (cached) yes
+  checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+  checking whether -lc should be explicitly linked in... no
+  checking dynamic linker characteristics... GNU/Linux ld.so
+  checking how to hardcode library paths into programs... immediate
+  checking whether stripping libraries is possible... yes
+  checking if libtool supports shared libraries... yes
+  checking whether to build shared libraries... yes
+  checking whether to build static libraries... yes
+  checking that generated files are newer than configure... done
+  configure: creating ./config.status
+  config.status: creating Makefile
+  config.status: executing depfiles commands
+  config.status: executing libtool commands
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- configure
++ set +x
+ok 5 - configure
+PASS: t/suffix8.tap 5 - configure
++ command_ok_ 'make test0' run_make OBJEXT=foo test0
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='make test0'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ run_make OBJEXT=foo test0
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make OBJEXT=foo test0
++ set +x
+echo foo.foo | grep '^foo\.foo$'
+foo.foo
+echo bar.lo | grep '^bar\.lo$'
+bar.lo
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ result_ ok -D '' -r '' -- 'make test0'
++ set +x
+ok 6 - make test0
+PASS: t/suffix8.tap 6 - make test0
++ command_ok_ 'make test1' make test1
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='make test1'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make test1
+echo foo.o | grep '^foo\.o$'
+foo.o
+echo bar.lo | grep '^bar\.lo$'
+bar.lo
++ result_ ok -D '' -r '' -- 'make test1'
++ set +x
+ok 7 - make test1
+PASS: t/suffix8.tap 7 - make test1
++ directive=
++ make_can_chain_suffix_rules
++ test -z ''
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ am__can_chain_suffix_rules=yes
++ return 0
++ for target in test2 all distcheck
++ command_ok_ 'make test2' -D '' -r 'suffix rules not chained' protect_output make test2
++ tap_directive_=
++ tap_reason_=
++ test 8 -gt 0
++ tap_description_='make test2'
++ shift
++ test 7 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ protect_output make test2
++ st=0
++ make test2
++ sed 's/^/  /' output
+  cp `test -f 'foo.x_' || echo ./`foo.x_ foo.y_
+  cp `test -f 'foo.y_' || echo ./`foo.y_ foo.o
+  cp `test -f 'bar.x_' || echo ./`bar.x_ bar.y_
+  cp `test -f 'bar.y_' || echo ./`bar.y_ bar.z_
+  cp `test -f 'bar.z_' || echo ./`bar.z_ bar.lo
+  test -f foo.o
+  test -f bar.lo
+  rm bar.y_ bar.z_ foo.y_
++ test 0 -eq 0
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make test2'
++ set +x
+ok 8 - make test2
+PASS: t/suffix8.tap 8 - make test2
++ for target in test2 all distcheck
++ command_ok_ 'make all' -D '' -r 'suffix rules not chained' protect_output make all
++ tap_directive_=
++ tap_reason_=
++ test 8 -gt 0
++ tap_description_='make all'
++ shift
++ test 7 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ protect_output make all
++ st=0
++ make all
++ sed 's/^/  /' output
+  : foo.o  
+  : -rpath /usr/local/lib bar.lo  
++ test 0 -eq 0
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make all'
++ set +x
+ok 9 - make all
+PASS: t/suffix8.tap 9 - make all
++ for target in test2 all distcheck
++ command_ok_ 'make distcheck' -D '' -r 'suffix rules not chained' protect_output make distcheck
++ tap_directive_=
++ tap_reason_=
++ test 8 -gt 0
++ tap_description_='make distcheck'
++ shift
++ test 7 -gt 0
++ case $1 in
++ tap_directive_=
++ shift
++ shift
++ test 5 -gt 0
++ case $1 in
++ tap_reason_='suffix rules not chained'
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ protect_output make distcheck
++ st=0
++ make distcheck
++ sed 's/^/  /' output
+  make  dist-gzip am__post_remove_distdir='@:'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir'
+  make  distdir-am
+  make[2]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir'
+  if test -d "suffix8-1.0"; then find "suffix8-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix8-1.0" || { sleep 5 && rm -rf "suffix8-1.0"; }; else :; fi
+  test -d "suffix8-1.0" || mkdir "suffix8-1.0"
+  test -n "" \
+  || find "suffix8-1.0" -type d ! -perm -755 \
+  	-exec chmod u+rwx,go+rx {} \; -o \
+    ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+    ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+    ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix8.dir/install-sh -c -m a+r {} {} \; \
+  || chmod -R a+r "suffix8-1.0"
+  make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir'
+  tardir=suffix8-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >suffix8-1.0.tar.gz
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir'
+  if test -d "suffix8-1.0"; then find "suffix8-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix8-1.0" || { sleep 5 && rm -rf "suffix8-1.0"; }; else :; fi
+  case 'suffix8-1.0.tar.gz' in \
+  *.tar.gz*) \
+    eval GZIP= gzip --best -dc suffix8-1.0.tar.gz | ${TAR-tar} xf - ;;\
+  *.tar.bz2*) \
+    bzip2 -dc suffix8-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+  *.tar.lz*) \
+    lzip -dc suffix8-1.0.tar.lz | ${TAR-tar} xf - ;;\
+  *.tar.xz*) \
+    xz -dc suffix8-1.0.tar.xz | ${TAR-tar} xf - ;;\
+  *.tar.Z*) \
+    uncompress -c suffix8-1.0.tar.Z | ${TAR-tar} xf - ;;\
+  *.shar.gz*) \
+    eval GZIP= gzip --best -dc suffix8-1.0.shar.gz | unshar ;;\
+  *.zip*) \
+    unzip suffix8-1.0.zip ;;\
+  esac
+  chmod -R a-w suffix8-1.0
+  chmod u+w suffix8-1.0
+  mkdir suffix8-1.0/_build suffix8-1.0/_build/sub suffix8-1.0/_inst
+  chmod a-w suffix8-1.0
+  test -d suffix8-1.0/_build || exit 0; \
+  dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd suffix8-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+    && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+    && am__cwd=`pwd` \
+    && CDPATH="${ZSH_VERSION+.}:" && cd suffix8-1.0/_build/sub \
+    && ../../configure \
+       \
+       \
+      --srcdir=../.. --prefix="$dc_install_base" \
+    && make  \
+    && make  dvi \
+    && make  check \
+    && make  install \
+    && make  installcheck \
+    && make  uninstall \
+    && make  distuninstallcheck_dir="$dc_install_base" \
+          distuninstallcheck \
+    && chmod -R a-w "$dc_install_base" \
+    && ({ \
+         (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+         && make  DESTDIR="$dc_destdir" install \
+         && make  DESTDIR="$dc_destdir" uninstall \
+         && make  DESTDIR="$dc_destdir" \
+              distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+        } || { rm -rf "$dc_destdir"; exit 1; }) \
+    && rm -rf "$dc_destdir" \
+    && make  dist \
+    && rm -rf suffix8-1.0.tar.gz \
+    && make  distcleancheck \
+    && cd "$am__cwd" \
+    || exit 1
+  checking for a BSD-compatible install... /usr/bin/install -c
+  checking whether build environment is sane... yes
+  checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+  checking for gawk... gawk
+  checking whether make sets $(MAKE)... yes
+  checking whether make supports nested variables... yes
+  checking whether make supports the include directive... yes (GNU style)
+  checking for gcc... cc
+  checking whether the C compiler works... yes
+  checking for C compiler default output file name... a.out
+  checking for suffix of executables... 
+  checking whether we are cross compiling... no
+  checking for suffix of object files... o
+  checking whether we are using the GNU C compiler... yes
+  checking whether cc accepts -g... yes
+  checking for cc option to accept ISO C89... none needed
+  checking whether cc understands -c and -o together... yes
+  checking dependency style of cc... gcc3
+  checking for ar... ar
+  checking the archiver (ar) interface... ar
+  checking build system type... x86_64-pc-linux-gnu
+  checking host system type... x86_64-pc-linux-gnu
+  checking how to print strings... printf
+  checking for a sed that does not truncate output... /bin/sed
+  checking for grep that handles long lines and -e... /bin/grep
+  checking for egrep... /bin/grep -E
+  checking for fgrep... /bin/grep -F
+  checking for ld used by cc... /usr/bin/ld
+  checking if the linker (/usr/bin/ld) is GNU ld... yes
+  checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+  checking the name lister (/usr/bin/nm -B) interface... BSD nm
+  checking whether ln -s works... yes
+  checking the maximum length of command line arguments... 6291456
+  checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+  checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+  checking for /usr/bin/ld option to reload object files... -r
+  checking for objdump... objdump
+  checking how to recognize dependent libraries... pass_all
+  checking for dlltool... no
+  checking how to associate runtime and link libraries... printf %s\n
+  checking for archiver @FILE support... @
+  checking for strip... strip
+  checking for ranlib... ranlib
+  checking command to parse /usr/bin/nm -B output from cc object... ok
+  checking for sysroot... no
+  checking for a working dd... /bin/dd
+  checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+  checking for mt... no
+  checking if : is a manifest tool... no
+  checking how to run the C preprocessor... cc -E
+  checking for ANSI C header files... yes
+  checking for sys/types.h... yes
+  checking for sys/stat.h... yes
+  checking for stdlib.h... yes
+  checking for string.h... yes
+  checking for memory.h... yes
+  checking for strings.h... yes
+  checking for inttypes.h... yes
+  checking for stdint.h... yes
+  checking for unistd.h... yes
+  checking for dlfcn.h... yes
+  checking for objdir... .libs
+  checking if cc supports -fno-rtti -fno-exceptions... no
+  checking for cc option to produce PIC... -fPIC -DPIC
+  checking if cc PIC flag -fPIC -DPIC works... yes
+  checking if cc static flag -static works... yes
+  checking if cc supports -c -o file.o... yes
+  checking if cc supports -c -o file.o... (cached) yes
+  checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+  checking whether -lc should be explicitly linked in... no
+  checking dynamic linker characteristics... GNU/Linux ld.so
+  checking how to hardcode library paths into programs... immediate
+  checking whether stripping libraries is possible... yes
+  checking if libtool supports shared libraries... yes
+  checking whether to build shared libraries... yes
+  checking whether to build static libraries... yes
+  checking that generated files are newer than configure... done
+  configure: creating ./config.status
+  config.status: creating Makefile
+  config.status: executing depfiles commands
+  config.status: executing libtool commands
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  cp `test -f '../../foo.x_' || echo ../../`../../foo.x_ foo.y_
+  cp `test -f 'foo.y_' || echo ../../`foo.y_ foo.o
+  : foo.o  
+  cp `test -f '../../bar.x_' || echo ../../`../../bar.x_ bar.y_
+  cp `test -f 'bar.y_' || echo ../../`bar.y_ bar.z_
+  cp `test -f 'bar.z_' || echo ../../`bar.z_ bar.lo
+  : -rpath /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib bar.lo  
+  rm bar.y_ bar.z_ foo.y_
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Nothing to be done for 'dvi'.
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  : foo.o  
+  : -rpath /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib bar.lo  
+  make  check-local
+  make[2]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  echo foo.o | grep '^foo\.o$'
+  foo.o
+  echo bar.lo | grep '^bar\.lo$'
+  bar.lo
+  test -f foo.o
+  test -f bar.lo
+  make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  : foo.o  
+  : -rpath /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib bar.lo  
+  make[2]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  : foo.o  
+  : -rpath /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib bar.lo  
+   /tools/bin/mkdir -p '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/bin'
+  make[2]: Nothing to be done for 'install-data-am'.
+  make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Nothing to be done for 'installcheck'.
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+   ( cd '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/bin' && rm -f foo )
+   /bin/sh ./libtool   --mode=uninstall rm -f '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib/libfoo.la'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  : foo.o  
+  : -rpath /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib bar.lo  
+  make[2]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  : foo.o  
+  : -rpath /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib bar.lo  
+   /tools/bin/mkdir -p '/tmp/am-dc-1731//sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/bin'
+  make[2]: Nothing to be done for 'install-data-am'.
+  make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+   ( cd '/tmp/am-dc-1731//sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/bin' && rm -f foo )
+   /bin/sh ./libtool   --mode=uninstall rm -f '/tmp/am-dc-1731//sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_inst/lib/libfoo.la'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make  dist-gzip am__post_remove_distdir='@:'
+  make[2]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make  distdir-am
+  make[3]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  if test -d "suffix8-1.0"; then find "suffix8-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix8-1.0" || { sleep 5 && rm -rf "suffix8-1.0"; }; else :; fi
+  test -d "suffix8-1.0" || mkdir "suffix8-1.0"
+  test -n "" \
+  || find "suffix8-1.0" -type d ! -perm -755 \
+  	-exec chmod u+rwx,go+rx {} \; -o \
+    ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+    ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+    ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/install-sh -c -m a+r {} {} \; \
+  || chmod -R a+r "suffix8-1.0"
+  make[3]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  tardir=suffix8-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >suffix8-1.0.tar.gz
+  make[2]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  if test -d "suffix8-1.0"; then find "suffix8-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix8-1.0" || { sleep 5 && rm -rf "suffix8-1.0"; }; else :; fi
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  make[1]: Entering directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+   rm -f foo
+  test -z "libfoo.la" || rm -f libfoo.la
+  rm -f ./so_locations
+  rm -rf .libs _libs
+  rm -f *.o
+  test -z "*.y_ *.z_" || rm -f *.y_ *.z_
+  rm -f *.lo
+  rm -f *.tab.c
+  test -z "" || rm -f 
+  test . = "../.." || test -z "" || rm -f 
+  rm -f libtool config.lt
+  rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+  rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+  rm -f config.status config.cache config.log configure.lineno config.status.lineno
+  rm -f Makefile
+  make[1]: Leaving directory '/sources/automake-1.16.1/t/suffix8.dir/suffix8-1.0/_build/sub'
+  if test -d "suffix8-1.0"; then find "suffix8-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "suffix8-1.0" || { sleep 5 && rm -rf "suffix8-1.0"; }; else :; fi
+  =============================================
+  suffix8-1.0 archives ready for distribution: 
+  suffix8-1.0.tar.gz
+  =============================================
++ test 0 -eq 0
++ result_ ok -D '' -r 'suffix rules not chained' -- 'make distcheck'
++ set +x
+ok 10 - make distcheck
+PASS: t/suffix8.tap 10 - make distcheck
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 10 = later
++ test 0 -eq 0
++ test 10 -eq 10
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/suffix8.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/suffix8.dir
++ set +x

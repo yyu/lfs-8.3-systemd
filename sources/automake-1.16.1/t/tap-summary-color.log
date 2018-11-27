@@ -1,0 +1,5589 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/tap-summary-color.dir
+++ br=============================================================================
+++ case $use_colors in
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ cat
+++ cat
+++ test yes = yes
+++ red='[0;31m'
+++ grn='[0;32m'
+++ lgn='[1;32m'
+++ blu='[1;34m'
+++ mgn='[0;35m'
+++ brg='[1m'
+++ std='[m'
+++ success_header='[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m'
+++ success_footer='[0;32m============================================================================[m'
+++ failure_header='[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m'
+++ failure_footer='[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m'
+++ aclocal-1.16 -Werror
+++ autoconf
+++ automake-1.16 --foreign -Werror -Wall --add-missing
+++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+++ echo 1..1
+++ echo ok
+++ do_check --pass
+++ case $#,$1 in
+++ expect_failure=no
+++ shift
+++ cat
+++ cat all.test
+1..1
+ok
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ make --version -v
+++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+++ am__using_gmake=yes
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+++ test 0 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test no = yes
+++ test 0 -eq 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ cat summary.got
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ echo 1..1
+++ echo 'ok # SKIP'
+++ do_check --pass
+++ case $#,$1 in
+++ expect_failure=no
+++ shift
+++ cat
+++ cat all.test
+1..1
+ok # SKIP
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+++ test 0 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[1;34mSKIP[m: all.test 1 # SKIP
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+[1;34m# SKIP:  1[m
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test no = yes
+++ test 0 -eq 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+[1;34m# SKIP:  1[m
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ cat summary.got
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+[1;34m# SKIP:  1[m
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ echo 1..1
+++ echo 'not ok # TODO'
+++ do_check --pass
+++ case $#,$1 in
+++ expect_failure=no
+++ shift
+++ cat
+++ cat all.test
+1..1
+not ok # TODO
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+++ test 0 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[1;32mXFAIL[m: all.test 1 # TODO
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test no = yes
+++ test 0 -eq 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ cat summary.got
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ echo 1..1
+++ echo not ok
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..1
+not ok
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;31mFAIL[m: all.test 1
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ echo 1..1
+++ echo 'ok # TODO'
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..1
+ok # TODO
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;31mXPASS[m: all.test 1 # TODO
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+[0;31m# XPASS: 1[m
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+[0;31m# XPASS: 1[m
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+[0;31m# XPASS: 1[m
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ echo 1..1
+++ echo 'Bail out!'
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..1
+Bail out!
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;35mERROR[m: all.test - Bail out!
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 1[m
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat
+++ do_check --pass
+++ case $#,$1 in
+++ expect_failure=no
+++ shift
+++ cat
+++ cat all.test
+1..3
+ok
+not ok # TODO
+ok # SKIP
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+++ test 0 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[1;32mXFAIL[m: all.test 2 # TODO
+[1;34mSKIP[m: all.test 3 # SKIP
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test no = yes
+++ test 0 -eq 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ cat summary.got
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..3
+ok
+ok # SKIP
+not ok
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[1;34mSKIP[m: all.test 2 # SKIP
+[0;31mFAIL[m: all.test 3
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+# XFAIL: 0
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+# XFAIL: 0
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+# XFAIL: 0
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..3
+ok
+ok # TODO
+not ok # TODO
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[0;31mXPASS[m: all.test 2 # TODO
+[1;32mXFAIL[m: all.test 3 # TODO
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+[0;31m# XPASS: 1[m
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+[0;31m# XPASS: 1[m
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+[0;32m# PASS:  1[m
+# SKIP:  0
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+[0;31m# XPASS: 1[m
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..3
+ok # SKIP
+not ok # TODO
+Bail out!
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[1;34mSKIP[m: all.test 1 # SKIP
+[1;32mXFAIL[m: all.test 2 # TODO
+[0;35mERROR[m: all.test - Bail out!
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+# PASS:  0
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+# PASS:  0
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 3[m
+# PASS:  0
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+1..6
+ok
+not ok
+ok # TODO
+not ok # TODO
+ok # SKIP
+Bail out!
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[0;31mFAIL[m: all.test 2
+[0;31mXPASS[m: all.test 3 # TODO
+[1;32mXFAIL[m: all.test 4 # TODO
+[1;34mSKIP[m: all.test 5 # SKIP
+[0;35mERROR[m: all.test - Bail out!
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 6[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+[0;31m# FAIL:  1[m
+[0;31m# XPASS: 1[m
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 6[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+[0;31m# FAIL:  1[m
+[0;31m# XPASS: 1[m
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 6[m
+[0;32m# PASS:  1[m
+[1;34m# SKIP:  1[m
+[1;32m# XFAIL: 1[m
+[0;31m# FAIL:  1[m
+[0;31m# XPASS: 1[m
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for i in 0 1 2 3 4 5 6 7 8 9
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ for j in 0 1 2 3 4 5 6 7 8 9
+++ echo ok
+++ echo 'not ok # TODO'
+++ echo 'ok # SKIP'
+++ cat tap
+++ cat tap
+++ cat tap
++++ wc -l
+++ test 900 -eq 900
+++ echo 1..900
+++ do_check --pass
+++ case $#,$1 in
+++ expect_failure=no
+++ shift
+++ cat
+++ cat all.test
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+1..900
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+++ test 0 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[1;32mXFAIL[m: all.test 2 # TODO
+[1;34mSKIP[m: all.test 3 # SKIP
+[0;32mPASS[m: all.test 4
+[1;32mXFAIL[m: all.test 5 # TODO
+[1;34mSKIP[m: all.test 6 # SKIP
+[0;32mPASS[m: all.test 7
+[1;32mXFAIL[m: all.test 8 # TODO
+[1;34mSKIP[m: all.test 9 # SKIP
+[0;32mPASS[m: all.test 10
+[1;32mXFAIL[m: all.test 11 # TODO
+[1;34mSKIP[m: all.test 12 # SKIP
+[0;32mPASS[m: all.test 13
+[1;32mXFAIL[m: all.test 14 # TODO
+[1;34mSKIP[m: all.test 15 # SKIP
+[0;32mPASS[m: all.test 16
+[1;32mXFAIL[m: all.test 17 # TODO
+[1;34mSKIP[m: all.test 18 # SKIP
+[0;32mPASS[m: all.test 19
+[1;32mXFAIL[m: all.test 20 # TODO
+[1;34mSKIP[m: all.test 21 # SKIP
+[0;32mPASS[m: all.test 22
+[1;32mXFAIL[m: all.test 23 # TODO
+[1;34mSKIP[m: all.test 24 # SKIP
+[0;32mPASS[m: all.test 25
+[1;32mXFAIL[m: all.test 26 # TODO
+[1;34mSKIP[m: all.test 27 # SKIP
+[0;32mPASS[m: all.test 28
+[1;32mXFAIL[m: all.test 29 # TODO
+[1;34mSKIP[m: all.test 30 # SKIP
+[0;32mPASS[m: all.test 31
+[1;32mXFAIL[m: all.test 32 # TODO
+[1;34mSKIP[m: all.test 33 # SKIP
+[0;32mPASS[m: all.test 34
+[1;32mXFAIL[m: all.test 35 # TODO
+[1;34mSKIP[m: all.test 36 # SKIP
+[0;32mPASS[m: all.test 37
+[1;32mXFAIL[m: all.test 38 # TODO
+[1;34mSKIP[m: all.test 39 # SKIP
+[0;32mPASS[m: all.test 40
+[1;32mXFAIL[m: all.test 41 # TODO
+[1;34mSKIP[m: all.test 42 # SKIP
+[0;32mPASS[m: all.test 43
+[1;32mXFAIL[m: all.test 44 # TODO
+[1;34mSKIP[m: all.test 45 # SKIP
+[0;32mPASS[m: all.test 46
+[1;32mXFAIL[m: all.test 47 # TODO
+[1;34mSKIP[m: all.test 48 # SKIP
+[0;32mPASS[m: all.test 49
+[1;32mXFAIL[m: all.test 50 # TODO
+[1;34mSKIP[m: all.test 51 # SKIP
+[0;32mPASS[m: all.test 52
+[1;32mXFAIL[m: all.test 53 # TODO
+[1;34mSKIP[m: all.test 54 # SKIP
+[0;32mPASS[m: all.test 55
+[1;32mXFAIL[m: all.test 56 # TODO
+[1;34mSKIP[m: all.test 57 # SKIP
+[0;32mPASS[m: all.test 58
+[1;32mXFAIL[m: all.test 59 # TODO
+[1;34mSKIP[m: all.test 60 # SKIP
+[0;32mPASS[m: all.test 61
+[1;32mXFAIL[m: all.test 62 # TODO
+[1;34mSKIP[m: all.test 63 # SKIP
+[0;32mPASS[m: all.test 64
+[1;32mXFAIL[m: all.test 65 # TODO
+[1;34mSKIP[m: all.test 66 # SKIP
+[0;32mPASS[m: all.test 67
+[1;32mXFAIL[m: all.test 68 # TODO
+[1;34mSKIP[m: all.test 69 # SKIP
+[0;32mPASS[m: all.test 70
+[1;32mXFAIL[m: all.test 71 # TODO
+[1;34mSKIP[m: all.test 72 # SKIP
+[0;32mPASS[m: all.test 73
+[1;32mXFAIL[m: all.test 74 # TODO
+[1;34mSKIP[m: all.test 75 # SKIP
+[0;32mPASS[m: all.test 76
+[1;32mXFAIL[m: all.test 77 # TODO
+[1;34mSKIP[m: all.test 78 # SKIP
+[0;32mPASS[m: all.test 79
+[1;32mXFAIL[m: all.test 80 # TODO
+[1;34mSKIP[m: all.test 81 # SKIP
+[0;32mPASS[m: all.test 82
+[1;32mXFAIL[m: all.test 83 # TODO
+[1;34mSKIP[m: all.test 84 # SKIP
+[0;32mPASS[m: all.test 85
+[1;32mXFAIL[m: all.test 86 # TODO
+[1;34mSKIP[m: all.test 87 # SKIP
+[0;32mPASS[m: all.test 88
+[1;32mXFAIL[m: all.test 89 # TODO
+[1;34mSKIP[m: all.test 90 # SKIP
+[0;32mPASS[m: all.test 91
+[1;32mXFAIL[m: all.test 92 # TODO
+[1;34mSKIP[m: all.test 93 # SKIP
+[0;32mPASS[m: all.test 94
+[1;32mXFAIL[m: all.test 95 # TODO
+[1;34mSKIP[m: all.test 96 # SKIP
+[0;32mPASS[m: all.test 97
+[1;32mXFAIL[m: all.test 98 # TODO
+[1;34mSKIP[m: all.test 99 # SKIP
+[0;32mPASS[m: all.test 100
+[1;32mXFAIL[m: all.test 101 # TODO
+[1;34mSKIP[m: all.test 102 # SKIP
+[0;32mPASS[m: all.test 103
+[1;32mXFAIL[m: all.test 104 # TODO
+[1;34mSKIP[m: all.test 105 # SKIP
+[0;32mPASS[m: all.test 106
+[1;32mXFAIL[m: all.test 107 # TODO
+[1;34mSKIP[m: all.test 108 # SKIP
+[0;32mPASS[m: all.test 109
+[1;32mXFAIL[m: all.test 110 # TODO
+[1;34mSKIP[m: all.test 111 # SKIP
+[0;32mPASS[m: all.test 112
+[1;32mXFAIL[m: all.test 113 # TODO
+[1;34mSKIP[m: all.test 114 # SKIP
+[0;32mPASS[m: all.test 115
+[1;32mXFAIL[m: all.test 116 # TODO
+[1;34mSKIP[m: all.test 117 # SKIP
+[0;32mPASS[m: all.test 118
+[1;32mXFAIL[m: all.test 119 # TODO
+[1;34mSKIP[m: all.test 120 # SKIP
+[0;32mPASS[m: all.test 121
+[1;32mXFAIL[m: all.test 122 # TODO
+[1;34mSKIP[m: all.test 123 # SKIP
+[0;32mPASS[m: all.test 124
+[1;32mXFAIL[m: all.test 125 # TODO
+[1;34mSKIP[m: all.test 126 # SKIP
+[0;32mPASS[m: all.test 127
+[1;32mXFAIL[m: all.test 128 # TODO
+[1;34mSKIP[m: all.test 129 # SKIP
+[0;32mPASS[m: all.test 130
+[1;32mXFAIL[m: all.test 131 # TODO
+[1;34mSKIP[m: all.test 132 # SKIP
+[0;32mPASS[m: all.test 133
+[1;32mXFAIL[m: all.test 134 # TODO
+[1;34mSKIP[m: all.test 135 # SKIP
+[0;32mPASS[m: all.test 136
+[1;32mXFAIL[m: all.test 137 # TODO
+[1;34mSKIP[m: all.test 138 # SKIP
+[0;32mPASS[m: all.test 139
+[1;32mXFAIL[m: all.test 140 # TODO
+[1;34mSKIP[m: all.test 141 # SKIP
+[0;32mPASS[m: all.test 142
+[1;32mXFAIL[m: all.test 143 # TODO
+[1;34mSKIP[m: all.test 144 # SKIP
+[0;32mPASS[m: all.test 145
+[1;32mXFAIL[m: all.test 146 # TODO
+[1;34mSKIP[m: all.test 147 # SKIP
+[0;32mPASS[m: all.test 148
+[1;32mXFAIL[m: all.test 149 # TODO
+[1;34mSKIP[m: all.test 150 # SKIP
+[0;32mPASS[m: all.test 151
+[1;32mXFAIL[m: all.test 152 # TODO
+[1;34mSKIP[m: all.test 153 # SKIP
+[0;32mPASS[m: all.test 154
+[1;32mXFAIL[m: all.test 155 # TODO
+[1;34mSKIP[m: all.test 156 # SKIP
+[0;32mPASS[m: all.test 157
+[1;32mXFAIL[m: all.test 158 # TODO
+[1;34mSKIP[m: all.test 159 # SKIP
+[0;32mPASS[m: all.test 160
+[1;32mXFAIL[m: all.test 161 # TODO
+[1;34mSKIP[m: all.test 162 # SKIP
+[0;32mPASS[m: all.test 163
+[1;32mXFAIL[m: all.test 164 # TODO
+[1;34mSKIP[m: all.test 165 # SKIP
+[0;32mPASS[m: all.test 166
+[1;32mXFAIL[m: all.test 167 # TODO
+[1;34mSKIP[m: all.test 168 # SKIP
+[0;32mPASS[m: all.test 169
+[1;32mXFAIL[m: all.test 170 # TODO
+[1;34mSKIP[m: all.test 171 # SKIP
+[0;32mPASS[m: all.test 172
+[1;32mXFAIL[m: all.test 173 # TODO
+[1;34mSKIP[m: all.test 174 # SKIP
+[0;32mPASS[m: all.test 175
+[1;32mXFAIL[m: all.test 176 # TODO
+[1;34mSKIP[m: all.test 177 # SKIP
+[0;32mPASS[m: all.test 178
+[1;32mXFAIL[m: all.test 179 # TODO
+[1;34mSKIP[m: all.test 180 # SKIP
+[0;32mPASS[m: all.test 181
+[1;32mXFAIL[m: all.test 182 # TODO
+[1;34mSKIP[m: all.test 183 # SKIP
+[0;32mPASS[m: all.test 184
+[1;32mXFAIL[m: all.test 185 # TODO
+[1;34mSKIP[m: all.test 186 # SKIP
+[0;32mPASS[m: all.test 187
+[1;32mXFAIL[m: all.test 188 # TODO
+[1;34mSKIP[m: all.test 189 # SKIP
+[0;32mPASS[m: all.test 190
+[1;32mXFAIL[m: all.test 191 # TODO
+[1;34mSKIP[m: all.test 192 # SKIP
+[0;32mPASS[m: all.test 193
+[1;32mXFAIL[m: all.test 194 # TODO
+[1;34mSKIP[m: all.test 195 # SKIP
+[0;32mPASS[m: all.test 196
+[1;32mXFAIL[m: all.test 197 # TODO
+[1;34mSKIP[m: all.test 198 # SKIP
+[0;32mPASS[m: all.test 199
+[1;32mXFAIL[m: all.test 200 # TODO
+[1;34mSKIP[m: all.test 201 # SKIP
+[0;32mPASS[m: all.test 202
+[1;32mXFAIL[m: all.test 203 # TODO
+[1;34mSKIP[m: all.test 204 # SKIP
+[0;32mPASS[m: all.test 205
+[1;32mXFAIL[m: all.test 206 # TODO
+[1;34mSKIP[m: all.test 207 # SKIP
+[0;32mPASS[m: all.test 208
+[1;32mXFAIL[m: all.test 209 # TODO
+[1;34mSKIP[m: all.test 210 # SKIP
+[0;32mPASS[m: all.test 211
+[1;32mXFAIL[m: all.test 212 # TODO
+[1;34mSKIP[m: all.test 213 # SKIP
+[0;32mPASS[m: all.test 214
+[1;32mXFAIL[m: all.test 215 # TODO
+[1;34mSKIP[m: all.test 216 # SKIP
+[0;32mPASS[m: all.test 217
+[1;32mXFAIL[m: all.test 218 # TODO
+[1;34mSKIP[m: all.test 219 # SKIP
+[0;32mPASS[m: all.test 220
+[1;32mXFAIL[m: all.test 221 # TODO
+[1;34mSKIP[m: all.test 222 # SKIP
+[0;32mPASS[m: all.test 223
+[1;32mXFAIL[m: all.test 224 # TODO
+[1;34mSKIP[m: all.test 225 # SKIP
+[0;32mPASS[m: all.test 226
+[1;32mXFAIL[m: all.test 227 # TODO
+[1;34mSKIP[m: all.test 228 # SKIP
+[0;32mPASS[m: all.test 229
+[1;32mXFAIL[m: all.test 230 # TODO
+[1;34mSKIP[m: all.test 231 # SKIP
+[0;32mPASS[m: all.test 232
+[1;32mXFAIL[m: all.test 233 # TODO
+[1;34mSKIP[m: all.test 234 # SKIP
+[0;32mPASS[m: all.test 235
+[1;32mXFAIL[m: all.test 236 # TODO
+[1;34mSKIP[m: all.test 237 # SKIP
+[0;32mPASS[m: all.test 238
+[1;32mXFAIL[m: all.test 239 # TODO
+[1;34mSKIP[m: all.test 240 # SKIP
+[0;32mPASS[m: all.test 241
+[1;32mXFAIL[m: all.test 242 # TODO
+[1;34mSKIP[m: all.test 243 # SKIP
+[0;32mPASS[m: all.test 244
+[1;32mXFAIL[m: all.test 245 # TODO
+[1;34mSKIP[m: all.test 246 # SKIP
+[0;32mPASS[m: all.test 247
+[1;32mXFAIL[m: all.test 248 # TODO
+[1;34mSKIP[m: all.test 249 # SKIP
+[0;32mPASS[m: all.test 250
+[1;32mXFAIL[m: all.test 251 # TODO
+[1;34mSKIP[m: all.test 252 # SKIP
+[0;32mPASS[m: all.test 253
+[1;32mXFAIL[m: all.test 254 # TODO
+[1;34mSKIP[m: all.test 255 # SKIP
+[0;32mPASS[m: all.test 256
+[1;32mXFAIL[m: all.test 257 # TODO
+[1;34mSKIP[m: all.test 258 # SKIP
+[0;32mPASS[m: all.test 259
+[1;32mXFAIL[m: all.test 260 # TODO
+[1;34mSKIP[m: all.test 261 # SKIP
+[0;32mPASS[m: all.test 262
+[1;32mXFAIL[m: all.test 263 # TODO
+[1;34mSKIP[m: all.test 264 # SKIP
+[0;32mPASS[m: all.test 265
+[1;32mXFAIL[m: all.test 266 # TODO
+[1;34mSKIP[m: all.test 267 # SKIP
+[0;32mPASS[m: all.test 268
+[1;32mXFAIL[m: all.test 269 # TODO
+[1;34mSKIP[m: all.test 270 # SKIP
+[0;32mPASS[m: all.test 271
+[1;32mXFAIL[m: all.test 272 # TODO
+[1;34mSKIP[m: all.test 273 # SKIP
+[0;32mPASS[m: all.test 274
+[1;32mXFAIL[m: all.test 275 # TODO
+[1;34mSKIP[m: all.test 276 # SKIP
+[0;32mPASS[m: all.test 277
+[1;32mXFAIL[m: all.test 278 # TODO
+[1;34mSKIP[m: all.test 279 # SKIP
+[0;32mPASS[m: all.test 280
+[1;32mXFAIL[m: all.test 281 # TODO
+[1;34mSKIP[m: all.test 282 # SKIP
+[0;32mPASS[m: all.test 283
+[1;32mXFAIL[m: all.test 284 # TODO
+[1;34mSKIP[m: all.test 285 # SKIP
+[0;32mPASS[m: all.test 286
+[1;32mXFAIL[m: all.test 287 # TODO
+[1;34mSKIP[m: all.test 288 # SKIP
+[0;32mPASS[m: all.test 289
+[1;32mXFAIL[m: all.test 290 # TODO
+[1;34mSKIP[m: all.test 291 # SKIP
+[0;32mPASS[m: all.test 292
+[1;32mXFAIL[m: all.test 293 # TODO
+[1;34mSKIP[m: all.test 294 # SKIP
+[0;32mPASS[m: all.test 295
+[1;32mXFAIL[m: all.test 296 # TODO
+[1;34mSKIP[m: all.test 297 # SKIP
+[0;32mPASS[m: all.test 298
+[1;32mXFAIL[m: all.test 299 # TODO
+[1;34mSKIP[m: all.test 300 # SKIP
+[0;32mPASS[m: all.test 301
+[1;32mXFAIL[m: all.test 302 # TODO
+[1;34mSKIP[m: all.test 303 # SKIP
+[0;32mPASS[m: all.test 304
+[1;32mXFAIL[m: all.test 305 # TODO
+[1;34mSKIP[m: all.test 306 # SKIP
+[0;32mPASS[m: all.test 307
+[1;32mXFAIL[m: all.test 308 # TODO
+[1;34mSKIP[m: all.test 309 # SKIP
+[0;32mPASS[m: all.test 310
+[1;32mXFAIL[m: all.test 311 # TODO
+[1;34mSKIP[m: all.test 312 # SKIP
+[0;32mPASS[m: all.test 313
+[1;32mXFAIL[m: all.test 314 # TODO
+[1;34mSKIP[m: all.test 315 # SKIP
+[0;32mPASS[m: all.test 316
+[1;32mXFAIL[m: all.test 317 # TODO
+[1;34mSKIP[m: all.test 318 # SKIP
+[0;32mPASS[m: all.test 319
+[1;32mXFAIL[m: all.test 320 # TODO
+[1;34mSKIP[m: all.test 321 # SKIP
+[0;32mPASS[m: all.test 322
+[1;32mXFAIL[m: all.test 323 # TODO
+[1;34mSKIP[m: all.test 324 # SKIP
+[0;32mPASS[m: all.test 325
+[1;32mXFAIL[m: all.test 326 # TODO
+[1;34mSKIP[m: all.test 327 # SKIP
+[0;32mPASS[m: all.test 328
+[1;32mXFAIL[m: all.test 329 # TODO
+[1;34mSKIP[m: all.test 330 # SKIP
+[0;32mPASS[m: all.test 331
+[1;32mXFAIL[m: all.test 332 # TODO
+[1;34mSKIP[m: all.test 333 # SKIP
+[0;32mPASS[m: all.test 334
+[1;32mXFAIL[m: all.test 335 # TODO
+[1;34mSKIP[m: all.test 336 # SKIP
+[0;32mPASS[m: all.test 337
+[1;32mXFAIL[m: all.test 338 # TODO
+[1;34mSKIP[m: all.test 339 # SKIP
+[0;32mPASS[m: all.test 340
+[1;32mXFAIL[m: all.test 341 # TODO
+[1;34mSKIP[m: all.test 342 # SKIP
+[0;32mPASS[m: all.test 343
+[1;32mXFAIL[m: all.test 344 # TODO
+[1;34mSKIP[m: all.test 345 # SKIP
+[0;32mPASS[m: all.test 346
+[1;32mXFAIL[m: all.test 347 # TODO
+[1;34mSKIP[m: all.test 348 # SKIP
+[0;32mPASS[m: all.test 349
+[1;32mXFAIL[m: all.test 350 # TODO
+[1;34mSKIP[m: all.test 351 # SKIP
+[0;32mPASS[m: all.test 352
+[1;32mXFAIL[m: all.test 353 # TODO
+[1;34mSKIP[m: all.test 354 # SKIP
+[0;32mPASS[m: all.test 355
+[1;32mXFAIL[m: all.test 356 # TODO
+[1;34mSKIP[m: all.test 357 # SKIP
+[0;32mPASS[m: all.test 358
+[1;32mXFAIL[m: all.test 359 # TODO
+[1;34mSKIP[m: all.test 360 # SKIP
+[0;32mPASS[m: all.test 361
+[1;32mXFAIL[m: all.test 362 # TODO
+[1;34mSKIP[m: all.test 363 # SKIP
+[0;32mPASS[m: all.test 364
+[1;32mXFAIL[m: all.test 365 # TODO
+[1;34mSKIP[m: all.test 366 # SKIP
+[0;32mPASS[m: all.test 367
+[1;32mXFAIL[m: all.test 368 # TODO
+[1;34mSKIP[m: all.test 369 # SKIP
+[0;32mPASS[m: all.test 370
+[1;32mXFAIL[m: all.test 371 # TODO
+[1;34mSKIP[m: all.test 372 # SKIP
+[0;32mPASS[m: all.test 373
+[1;32mXFAIL[m: all.test 374 # TODO
+[1;34mSKIP[m: all.test 375 # SKIP
+[0;32mPASS[m: all.test 376
+[1;32mXFAIL[m: all.test 377 # TODO
+[1;34mSKIP[m: all.test 378 # SKIP
+[0;32mPASS[m: all.test 379
+[1;32mXFAIL[m: all.test 380 # TODO
+[1;34mSKIP[m: all.test 381 # SKIP
+[0;32mPASS[m: all.test 382
+[1;32mXFAIL[m: all.test 383 # TODO
+[1;34mSKIP[m: all.test 384 # SKIP
+[0;32mPASS[m: all.test 385
+[1;32mXFAIL[m: all.test 386 # TODO
+[1;34mSKIP[m: all.test 387 # SKIP
+[0;32mPASS[m: all.test 388
+[1;32mXFAIL[m: all.test 389 # TODO
+[1;34mSKIP[m: all.test 390 # SKIP
+[0;32mPASS[m: all.test 391
+[1;32mXFAIL[m: all.test 392 # TODO
+[1;34mSKIP[m: all.test 393 # SKIP
+[0;32mPASS[m: all.test 394
+[1;32mXFAIL[m: all.test 395 # TODO
+[1;34mSKIP[m: all.test 396 # SKIP
+[0;32mPASS[m: all.test 397
+[1;32mXFAIL[m: all.test 398 # TODO
+[1;34mSKIP[m: all.test 399 # SKIP
+[0;32mPASS[m: all.test 400
+[1;32mXFAIL[m: all.test 401 # TODO
+[1;34mSKIP[m: all.test 402 # SKIP
+[0;32mPASS[m: all.test 403
+[1;32mXFAIL[m: all.test 404 # TODO
+[1;34mSKIP[m: all.test 405 # SKIP
+[0;32mPASS[m: all.test 406
+[1;32mXFAIL[m: all.test 407 # TODO
+[1;34mSKIP[m: all.test 408 # SKIP
+[0;32mPASS[m: all.test 409
+[1;32mXFAIL[m: all.test 410 # TODO
+[1;34mSKIP[m: all.test 411 # SKIP
+[0;32mPASS[m: all.test 412
+[1;32mXFAIL[m: all.test 413 # TODO
+[1;34mSKIP[m: all.test 414 # SKIP
+[0;32mPASS[m: all.test 415
+[1;32mXFAIL[m: all.test 416 # TODO
+[1;34mSKIP[m: all.test 417 # SKIP
+[0;32mPASS[m: all.test 418
+[1;32mXFAIL[m: all.test 419 # TODO
+[1;34mSKIP[m: all.test 420 # SKIP
+[0;32mPASS[m: all.test 421
+[1;32mXFAIL[m: all.test 422 # TODO
+[1;34mSKIP[m: all.test 423 # SKIP
+[0;32mPASS[m: all.test 424
+[1;32mXFAIL[m: all.test 425 # TODO
+[1;34mSKIP[m: all.test 426 # SKIP
+[0;32mPASS[m: all.test 427
+[1;32mXFAIL[m: all.test 428 # TODO
+[1;34mSKIP[m: all.test 429 # SKIP
+[0;32mPASS[m: all.test 430
+[1;32mXFAIL[m: all.test 431 # TODO
+[1;34mSKIP[m: all.test 432 # SKIP
+[0;32mPASS[m: all.test 433
+[1;32mXFAIL[m: all.test 434 # TODO
+[1;34mSKIP[m: all.test 435 # SKIP
+[0;32mPASS[m: all.test 436
+[1;32mXFAIL[m: all.test 437 # TODO
+[1;34mSKIP[m: all.test 438 # SKIP
+[0;32mPASS[m: all.test 439
+[1;32mXFAIL[m: all.test 440 # TODO
+[1;34mSKIP[m: all.test 441 # SKIP
+[0;32mPASS[m: all.test 442
+[1;32mXFAIL[m: all.test 443 # TODO
+[1;34mSKIP[m: all.test 444 # SKIP
+[0;32mPASS[m: all.test 445
+[1;32mXFAIL[m: all.test 446 # TODO
+[1;34mSKIP[m: all.test 447 # SKIP
+[0;32mPASS[m: all.test 448
+[1;32mXFAIL[m: all.test 449 # TODO
+[1;34mSKIP[m: all.test 450 # SKIP
+[0;32mPASS[m: all.test 451
+[1;32mXFAIL[m: all.test 452 # TODO
+[1;34mSKIP[m: all.test 453 # SKIP
+[0;32mPASS[m: all.test 454
+[1;32mXFAIL[m: all.test 455 # TODO
+[1;34mSKIP[m: all.test 456 # SKIP
+[0;32mPASS[m: all.test 457
+[1;32mXFAIL[m: all.test 458 # TODO
+[1;34mSKIP[m: all.test 459 # SKIP
+[0;32mPASS[m: all.test 460
+[1;32mXFAIL[m: all.test 461 # TODO
+[1;34mSKIP[m: all.test 462 # SKIP
+[0;32mPASS[m: all.test 463
+[1;32mXFAIL[m: all.test 464 # TODO
+[1;34mSKIP[m: all.test 465 # SKIP
+[0;32mPASS[m: all.test 466
+[1;32mXFAIL[m: all.test 467 # TODO
+[1;34mSKIP[m: all.test 468 # SKIP
+[0;32mPASS[m: all.test 469
+[1;32mXFAIL[m: all.test 470 # TODO
+[1;34mSKIP[m: all.test 471 # SKIP
+[0;32mPASS[m: all.test 472
+[1;32mXFAIL[m: all.test 473 # TODO
+[1;34mSKIP[m: all.test 474 # SKIP
+[0;32mPASS[m: all.test 475
+[1;32mXFAIL[m: all.test 476 # TODO
+[1;34mSKIP[m: all.test 477 # SKIP
+[0;32mPASS[m: all.test 478
+[1;32mXFAIL[m: all.test 479 # TODO
+[1;34mSKIP[m: all.test 480 # SKIP
+[0;32mPASS[m: all.test 481
+[1;32mXFAIL[m: all.test 482 # TODO
+[1;34mSKIP[m: all.test 483 # SKIP
+[0;32mPASS[m: all.test 484
+[1;32mXFAIL[m: all.test 485 # TODO
+[1;34mSKIP[m: all.test 486 # SKIP
+[0;32mPASS[m: all.test 487
+[1;32mXFAIL[m: all.test 488 # TODO
+[1;34mSKIP[m: all.test 489 # SKIP
+[0;32mPASS[m: all.test 490
+[1;32mXFAIL[m: all.test 491 # TODO
+[1;34mSKIP[m: all.test 492 # SKIP
+[0;32mPASS[m: all.test 493
+[1;32mXFAIL[m: all.test 494 # TODO
+[1;34mSKIP[m: all.test 495 # SKIP
+[0;32mPASS[m: all.test 496
+[1;32mXFAIL[m: all.test 497 # TODO
+[1;34mSKIP[m: all.test 498 # SKIP
+[0;32mPASS[m: all.test 499
+[1;32mXFAIL[m: all.test 500 # TODO
+[1;34mSKIP[m: all.test 501 # SKIP
+[0;32mPASS[m: all.test 502
+[1;32mXFAIL[m: all.test 503 # TODO
+[1;34mSKIP[m: all.test 504 # SKIP
+[0;32mPASS[m: all.test 505
+[1;32mXFAIL[m: all.test 506 # TODO
+[1;34mSKIP[m: all.test 507 # SKIP
+[0;32mPASS[m: all.test 508
+[1;32mXFAIL[m: all.test 509 # TODO
+[1;34mSKIP[m: all.test 510 # SKIP
+[0;32mPASS[m: all.test 511
+[1;32mXFAIL[m: all.test 512 # TODO
+[1;34mSKIP[m: all.test 513 # SKIP
+[0;32mPASS[m: all.test 514
+[1;32mXFAIL[m: all.test 515 # TODO
+[1;34mSKIP[m: all.test 516 # SKIP
+[0;32mPASS[m: all.test 517
+[1;32mXFAIL[m: all.test 518 # TODO
+[1;34mSKIP[m: all.test 519 # SKIP
+[0;32mPASS[m: all.test 520
+[1;32mXFAIL[m: all.test 521 # TODO
+[1;34mSKIP[m: all.test 522 # SKIP
+[0;32mPASS[m: all.test 523
+[1;32mXFAIL[m: all.test 524 # TODO
+[1;34mSKIP[m: all.test 525 # SKIP
+[0;32mPASS[m: all.test 526
+[1;32mXFAIL[m: all.test 527 # TODO
+[1;34mSKIP[m: all.test 528 # SKIP
+[0;32mPASS[m: all.test 529
+[1;32mXFAIL[m: all.test 530 # TODO
+[1;34mSKIP[m: all.test 531 # SKIP
+[0;32mPASS[m: all.test 532
+[1;32mXFAIL[m: all.test 533 # TODO
+[1;34mSKIP[m: all.test 534 # SKIP
+[0;32mPASS[m: all.test 535
+[1;32mXFAIL[m: all.test 536 # TODO
+[1;34mSKIP[m: all.test 537 # SKIP
+[0;32mPASS[m: all.test 538
+[1;32mXFAIL[m: all.test 539 # TODO
+[1;34mSKIP[m: all.test 540 # SKIP
+[0;32mPASS[m: all.test 541
+[1;32mXFAIL[m: all.test 542 # TODO
+[1;34mSKIP[m: all.test 543 # SKIP
+[0;32mPASS[m: all.test 544
+[1;32mXFAIL[m: all.test 545 # TODO
+[1;34mSKIP[m: all.test 546 # SKIP
+[0;32mPASS[m: all.test 547
+[1;32mXFAIL[m: all.test 548 # TODO
+[1;34mSKIP[m: all.test 549 # SKIP
+[0;32mPASS[m: all.test 550
+[1;32mXFAIL[m: all.test 551 # TODO
+[1;34mSKIP[m: all.test 552 # SKIP
+[0;32mPASS[m: all.test 553
+[1;32mXFAIL[m: all.test 554 # TODO
+[1;34mSKIP[m: all.test 555 # SKIP
+[0;32mPASS[m: all.test 556
+[1;32mXFAIL[m: all.test 557 # TODO
+[1;34mSKIP[m: all.test 558 # SKIP
+[0;32mPASS[m: all.test 559
+[1;32mXFAIL[m: all.test 560 # TODO
+[1;34mSKIP[m: all.test 561 # SKIP
+[0;32mPASS[m: all.test 562
+[1;32mXFAIL[m: all.test 563 # TODO
+[1;34mSKIP[m: all.test 564 # SKIP
+[0;32mPASS[m: all.test 565
+[1;32mXFAIL[m: all.test 566 # TODO
+[1;34mSKIP[m: all.test 567 # SKIP
+[0;32mPASS[m: all.test 568
+[1;32mXFAIL[m: all.test 569 # TODO
+[1;34mSKIP[m: all.test 570 # SKIP
+[0;32mPASS[m: all.test 571
+[1;32mXFAIL[m: all.test 572 # TODO
+[1;34mSKIP[m: all.test 573 # SKIP
+[0;32mPASS[m: all.test 574
+[1;32mXFAIL[m: all.test 575 # TODO
+[1;34mSKIP[m: all.test 576 # SKIP
+[0;32mPASS[m: all.test 577
+[1;32mXFAIL[m: all.test 578 # TODO
+[1;34mSKIP[m: all.test 579 # SKIP
+[0;32mPASS[m: all.test 580
+[1;32mXFAIL[m: all.test 581 # TODO
+[1;34mSKIP[m: all.test 582 # SKIP
+[0;32mPASS[m: all.test 583
+[1;32mXFAIL[m: all.test 584 # TODO
+[1;34mSKIP[m: all.test 585 # SKIP
+[0;32mPASS[m: all.test 586
+[1;32mXFAIL[m: all.test 587 # TODO
+[1;34mSKIP[m: all.test 588 # SKIP
+[0;32mPASS[m: all.test 589
+[1;32mXFAIL[m: all.test 590 # TODO
+[1;34mSKIP[m: all.test 591 # SKIP
+[0;32mPASS[m: all.test 592
+[1;32mXFAIL[m: all.test 593 # TODO
+[1;34mSKIP[m: all.test 594 # SKIP
+[0;32mPASS[m: all.test 595
+[1;32mXFAIL[m: all.test 596 # TODO
+[1;34mSKIP[m: all.test 597 # SKIP
+[0;32mPASS[m: all.test 598
+[1;32mXFAIL[m: all.test 599 # TODO
+[1;34mSKIP[m: all.test 600 # SKIP
+[0;32mPASS[m: all.test 601
+[1;32mXFAIL[m: all.test 602 # TODO
+[1;34mSKIP[m: all.test 603 # SKIP
+[0;32mPASS[m: all.test 604
+[1;32mXFAIL[m: all.test 605 # TODO
+[1;34mSKIP[m: all.test 606 # SKIP
+[0;32mPASS[m: all.test 607
+[1;32mXFAIL[m: all.test 608 # TODO
+[1;34mSKIP[m: all.test 609 # SKIP
+[0;32mPASS[m: all.test 610
+[1;32mXFAIL[m: all.test 611 # TODO
+[1;34mSKIP[m: all.test 612 # SKIP
+[0;32mPASS[m: all.test 613
+[1;32mXFAIL[m: all.test 614 # TODO
+[1;34mSKIP[m: all.test 615 # SKIP
+[0;32mPASS[m: all.test 616
+[1;32mXFAIL[m: all.test 617 # TODO
+[1;34mSKIP[m: all.test 618 # SKIP
+[0;32mPASS[m: all.test 619
+[1;32mXFAIL[m: all.test 620 # TODO
+[1;34mSKIP[m: all.test 621 # SKIP
+[0;32mPASS[m: all.test 622
+[1;32mXFAIL[m: all.test 623 # TODO
+[1;34mSKIP[m: all.test 624 # SKIP
+[0;32mPASS[m: all.test 625
+[1;32mXFAIL[m: all.test 626 # TODO
+[1;34mSKIP[m: all.test 627 # SKIP
+[0;32mPASS[m: all.test 628
+[1;32mXFAIL[m: all.test 629 # TODO
+[1;34mSKIP[m: all.test 630 # SKIP
+[0;32mPASS[m: all.test 631
+[1;32mXFAIL[m: all.test 632 # TODO
+[1;34mSKIP[m: all.test 633 # SKIP
+[0;32mPASS[m: all.test 634
+[1;32mXFAIL[m: all.test 635 # TODO
+[1;34mSKIP[m: all.test 636 # SKIP
+[0;32mPASS[m: all.test 637
+[1;32mXFAIL[m: all.test 638 # TODO
+[1;34mSKIP[m: all.test 639 # SKIP
+[0;32mPASS[m: all.test 640
+[1;32mXFAIL[m: all.test 641 # TODO
+[1;34mSKIP[m: all.test 642 # SKIP
+[0;32mPASS[m: all.test 643
+[1;32mXFAIL[m: all.test 644 # TODO
+[1;34mSKIP[m: all.test 645 # SKIP
+[0;32mPASS[m: all.test 646
+[1;32mXFAIL[m: all.test 647 # TODO
+[1;34mSKIP[m: all.test 648 # SKIP
+[0;32mPASS[m: all.test 649
+[1;32mXFAIL[m: all.test 650 # TODO
+[1;34mSKIP[m: all.test 651 # SKIP
+[0;32mPASS[m: all.test 652
+[1;32mXFAIL[m: all.test 653 # TODO
+[1;34mSKIP[m: all.test 654 # SKIP
+[0;32mPASS[m: all.test 655
+[1;32mXFAIL[m: all.test 656 # TODO
+[1;34mSKIP[m: all.test 657 # SKIP
+[0;32mPASS[m: all.test 658
+[1;32mXFAIL[m: all.test 659 # TODO
+[1;34mSKIP[m: all.test 660 # SKIP
+[0;32mPASS[m: all.test 661
+[1;32mXFAIL[m: all.test 662 # TODO
+[1;34mSKIP[m: all.test 663 # SKIP
+[0;32mPASS[m: all.test 664
+[1;32mXFAIL[m: all.test 665 # TODO
+[1;34mSKIP[m: all.test 666 # SKIP
+[0;32mPASS[m: all.test 667
+[1;32mXFAIL[m: all.test 668 # TODO
+[1;34mSKIP[m: all.test 669 # SKIP
+[0;32mPASS[m: all.test 670
+[1;32mXFAIL[m: all.test 671 # TODO
+[1;34mSKIP[m: all.test 672 # SKIP
+[0;32mPASS[m: all.test 673
+[1;32mXFAIL[m: all.test 674 # TODO
+[1;34mSKIP[m: all.test 675 # SKIP
+[0;32mPASS[m: all.test 676
+[1;32mXFAIL[m: all.test 677 # TODO
+[1;34mSKIP[m: all.test 678 # SKIP
+[0;32mPASS[m: all.test 679
+[1;32mXFAIL[m: all.test 680 # TODO
+[1;34mSKIP[m: all.test 681 # SKIP
+[0;32mPASS[m: all.test 682
+[1;32mXFAIL[m: all.test 683 # TODO
+[1;34mSKIP[m: all.test 684 # SKIP
+[0;32mPASS[m: all.test 685
+[1;32mXFAIL[m: all.test 686 # TODO
+[1;34mSKIP[m: all.test 687 # SKIP
+[0;32mPASS[m: all.test 688
+[1;32mXFAIL[m: all.test 689 # TODO
+[1;34mSKIP[m: all.test 690 # SKIP
+[0;32mPASS[m: all.test 691
+[1;32mXFAIL[m: all.test 692 # TODO
+[1;34mSKIP[m: all.test 693 # SKIP
+[0;32mPASS[m: all.test 694
+[1;32mXFAIL[m: all.test 695 # TODO
+[1;34mSKIP[m: all.test 696 # SKIP
+[0;32mPASS[m: all.test 697
+[1;32mXFAIL[m: all.test 698 # TODO
+[1;34mSKIP[m: all.test 699 # SKIP
+[0;32mPASS[m: all.test 700
+[1;32mXFAIL[m: all.test 701 # TODO
+[1;34mSKIP[m: all.test 702 # SKIP
+[0;32mPASS[m: all.test 703
+[1;32mXFAIL[m: all.test 704 # TODO
+[1;34mSKIP[m: all.test 705 # SKIP
+[0;32mPASS[m: all.test 706
+[1;32mXFAIL[m: all.test 707 # TODO
+[1;34mSKIP[m: all.test 708 # SKIP
+[0;32mPASS[m: all.test 709
+[1;32mXFAIL[m: all.test 710 # TODO
+[1;34mSKIP[m: all.test 711 # SKIP
+[0;32mPASS[m: all.test 712
+[1;32mXFAIL[m: all.test 713 # TODO
+[1;34mSKIP[m: all.test 714 # SKIP
+[0;32mPASS[m: all.test 715
+[1;32mXFAIL[m: all.test 716 # TODO
+[1;34mSKIP[m: all.test 717 # SKIP
+[0;32mPASS[m: all.test 718
+[1;32mXFAIL[m: all.test 719 # TODO
+[1;34mSKIP[m: all.test 720 # SKIP
+[0;32mPASS[m: all.test 721
+[1;32mXFAIL[m: all.test 722 # TODO
+[1;34mSKIP[m: all.test 723 # SKIP
+[0;32mPASS[m: all.test 724
+[1;32mXFAIL[m: all.test 725 # TODO
+[1;34mSKIP[m: all.test 726 # SKIP
+[0;32mPASS[m: all.test 727
+[1;32mXFAIL[m: all.test 728 # TODO
+[1;34mSKIP[m: all.test 729 # SKIP
+[0;32mPASS[m: all.test 730
+[1;32mXFAIL[m: all.test 731 # TODO
+[1;34mSKIP[m: all.test 732 # SKIP
+[0;32mPASS[m: all.test 733
+[1;32mXFAIL[m: all.test 734 # TODO
+[1;34mSKIP[m: all.test 735 # SKIP
+[0;32mPASS[m: all.test 736
+[1;32mXFAIL[m: all.test 737 # TODO
+[1;34mSKIP[m: all.test 738 # SKIP
+[0;32mPASS[m: all.test 739
+[1;32mXFAIL[m: all.test 740 # TODO
+[1;34mSKIP[m: all.test 741 # SKIP
+[0;32mPASS[m: all.test 742
+[1;32mXFAIL[m: all.test 743 # TODO
+[1;34mSKIP[m: all.test 744 # SKIP
+[0;32mPASS[m: all.test 745
+[1;32mXFAIL[m: all.test 746 # TODO
+[1;34mSKIP[m: all.test 747 # SKIP
+[0;32mPASS[m: all.test 748
+[1;32mXFAIL[m: all.test 749 # TODO
+[1;34mSKIP[m: all.test 750 # SKIP
+[0;32mPASS[m: all.test 751
+[1;32mXFAIL[m: all.test 752 # TODO
+[1;34mSKIP[m: all.test 753 # SKIP
+[0;32mPASS[m: all.test 754
+[1;32mXFAIL[m: all.test 755 # TODO
+[1;34mSKIP[m: all.test 756 # SKIP
+[0;32mPASS[m: all.test 757
+[1;32mXFAIL[m: all.test 758 # TODO
+[1;34mSKIP[m: all.test 759 # SKIP
+[0;32mPASS[m: all.test 760
+[1;32mXFAIL[m: all.test 761 # TODO
+[1;34mSKIP[m: all.test 762 # SKIP
+[0;32mPASS[m: all.test 763
+[1;32mXFAIL[m: all.test 764 # TODO
+[1;34mSKIP[m: all.test 765 # SKIP
+[0;32mPASS[m: all.test 766
+[1;32mXFAIL[m: all.test 767 # TODO
+[1;34mSKIP[m: all.test 768 # SKIP
+[0;32mPASS[m: all.test 769
+[1;32mXFAIL[m: all.test 770 # TODO
+[1;34mSKIP[m: all.test 771 # SKIP
+[0;32mPASS[m: all.test 772
+[1;32mXFAIL[m: all.test 773 # TODO
+[1;34mSKIP[m: all.test 774 # SKIP
+[0;32mPASS[m: all.test 775
+[1;32mXFAIL[m: all.test 776 # TODO
+[1;34mSKIP[m: all.test 777 # SKIP
+[0;32mPASS[m: all.test 778
+[1;32mXFAIL[m: all.test 779 # TODO
+[1;34mSKIP[m: all.test 780 # SKIP
+[0;32mPASS[m: all.test 781
+[1;32mXFAIL[m: all.test 782 # TODO
+[1;34mSKIP[m: all.test 783 # SKIP
+[0;32mPASS[m: all.test 784
+[1;32mXFAIL[m: all.test 785 # TODO
+[1;34mSKIP[m: all.test 786 # SKIP
+[0;32mPASS[m: all.test 787
+[1;32mXFAIL[m: all.test 788 # TODO
+[1;34mSKIP[m: all.test 789 # SKIP
+[0;32mPASS[m: all.test 790
+[1;32mXFAIL[m: all.test 791 # TODO
+[1;34mSKIP[m: all.test 792 # SKIP
+[0;32mPASS[m: all.test 793
+[1;32mXFAIL[m: all.test 794 # TODO
+[1;34mSKIP[m: all.test 795 # SKIP
+[0;32mPASS[m: all.test 796
+[1;32mXFAIL[m: all.test 797 # TODO
+[1;34mSKIP[m: all.test 798 # SKIP
+[0;32mPASS[m: all.test 799
+[1;32mXFAIL[m: all.test 800 # TODO
+[1;34mSKIP[m: all.test 801 # SKIP
+[0;32mPASS[m: all.test 802
+[1;32mXFAIL[m: all.test 803 # TODO
+[1;34mSKIP[m: all.test 804 # SKIP
+[0;32mPASS[m: all.test 805
+[1;32mXFAIL[m: all.test 806 # TODO
+[1;34mSKIP[m: all.test 807 # SKIP
+[0;32mPASS[m: all.test 808
+[1;32mXFAIL[m: all.test 809 # TODO
+[1;34mSKIP[m: all.test 810 # SKIP
+[0;32mPASS[m: all.test 811
+[1;32mXFAIL[m: all.test 812 # TODO
+[1;34mSKIP[m: all.test 813 # SKIP
+[0;32mPASS[m: all.test 814
+[1;32mXFAIL[m: all.test 815 # TODO
+[1;34mSKIP[m: all.test 816 # SKIP
+[0;32mPASS[m: all.test 817
+[1;32mXFAIL[m: all.test 818 # TODO
+[1;34mSKIP[m: all.test 819 # SKIP
+[0;32mPASS[m: all.test 820
+[1;32mXFAIL[m: all.test 821 # TODO
+[1;34mSKIP[m: all.test 822 # SKIP
+[0;32mPASS[m: all.test 823
+[1;32mXFAIL[m: all.test 824 # TODO
+[1;34mSKIP[m: all.test 825 # SKIP
+[0;32mPASS[m: all.test 826
+[1;32mXFAIL[m: all.test 827 # TODO
+[1;34mSKIP[m: all.test 828 # SKIP
+[0;32mPASS[m: all.test 829
+[1;32mXFAIL[m: all.test 830 # TODO
+[1;34mSKIP[m: all.test 831 # SKIP
+[0;32mPASS[m: all.test 832
+[1;32mXFAIL[m: all.test 833 # TODO
+[1;34mSKIP[m: all.test 834 # SKIP
+[0;32mPASS[m: all.test 835
+[1;32mXFAIL[m: all.test 836 # TODO
+[1;34mSKIP[m: all.test 837 # SKIP
+[0;32mPASS[m: all.test 838
+[1;32mXFAIL[m: all.test 839 # TODO
+[1;34mSKIP[m: all.test 840 # SKIP
+[0;32mPASS[m: all.test 841
+[1;32mXFAIL[m: all.test 842 # TODO
+[1;34mSKIP[m: all.test 843 # SKIP
+[0;32mPASS[m: all.test 844
+[1;32mXFAIL[m: all.test 845 # TODO
+[1;34mSKIP[m: all.test 846 # SKIP
+[0;32mPASS[m: all.test 847
+[1;32mXFAIL[m: all.test 848 # TODO
+[1;34mSKIP[m: all.test 849 # SKIP
+[0;32mPASS[m: all.test 850
+[1;32mXFAIL[m: all.test 851 # TODO
+[1;34mSKIP[m: all.test 852 # SKIP
+[0;32mPASS[m: all.test 853
+[1;32mXFAIL[m: all.test 854 # TODO
+[1;34mSKIP[m: all.test 855 # SKIP
+[0;32mPASS[m: all.test 856
+[1;32mXFAIL[m: all.test 857 # TODO
+[1;34mSKIP[m: all.test 858 # SKIP
+[0;32mPASS[m: all.test 859
+[1;32mXFAIL[m: all.test 860 # TODO
+[1;34mSKIP[m: all.test 861 # SKIP
+[0;32mPASS[m: all.test 862
+[1;32mXFAIL[m: all.test 863 # TODO
+[1;34mSKIP[m: all.test 864 # SKIP
+[0;32mPASS[m: all.test 865
+[1;32mXFAIL[m: all.test 866 # TODO
+[1;34mSKIP[m: all.test 867 # SKIP
+[0;32mPASS[m: all.test 868
+[1;32mXFAIL[m: all.test 869 # TODO
+[1;34mSKIP[m: all.test 870 # SKIP
+[0;32mPASS[m: all.test 871
+[1;32mXFAIL[m: all.test 872 # TODO
+[1;34mSKIP[m: all.test 873 # SKIP
+[0;32mPASS[m: all.test 874
+[1;32mXFAIL[m: all.test 875 # TODO
+[1;34mSKIP[m: all.test 876 # SKIP
+[0;32mPASS[m: all.test 877
+[1;32mXFAIL[m: all.test 878 # TODO
+[1;34mSKIP[m: all.test 879 # SKIP
+[0;32mPASS[m: all.test 880
+[1;32mXFAIL[m: all.test 881 # TODO
+[1;34mSKIP[m: all.test 882 # SKIP
+[0;32mPASS[m: all.test 883
+[1;32mXFAIL[m: all.test 884 # TODO
+[1;34mSKIP[m: all.test 885 # SKIP
+[0;32mPASS[m: all.test 886
+[1;32mXFAIL[m: all.test 887 # TODO
+[1;34mSKIP[m: all.test 888 # SKIP
+[0;32mPASS[m: all.test 889
+[1;32mXFAIL[m: all.test 890 # TODO
+[1;34mSKIP[m: all.test 891 # SKIP
+[0;32mPASS[m: all.test 892
+[1;32mXFAIL[m: all.test 893 # TODO
+[1;34mSKIP[m: all.test 894 # SKIP
+[0;32mPASS[m: all.test 895
+[1;32mXFAIL[m: all.test 896 # TODO
+[1;34mSKIP[m: all.test 897 # SKIP
+[0;32mPASS[m: all.test 898
+[1;32mXFAIL[m: all.test 899 # TODO
+[1;34mSKIP[m: all.test 900 # SKIP
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 900[m
+[0;32m# PASS:  300[m
+[1;34m# SKIP:  300[m
+[1;32m# XFAIL: 300[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test no = yes
+++ test 0 -eq 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 900[m
+[0;32m# PASS:  300[m
+[1;34m# SKIP:  300[m
+[1;32m# XFAIL: 300[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ cat summary.got
+[0;32m============================================================================[m
+[0;32mTestsuite summary for GNU AutoTAP 5.12[m
+[0;32m============================================================================[m
+[1m# TOTAL: 900[m
+[0;32m# PASS:  300[m
+[1;34m# SKIP:  300[m
+[1;32m# XFAIL: 300[m
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+[0;32m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat tap
+++ echo 'not ok'
+++ cat tap
++++ wc -l
+++ test 601 -eq 601
+++ echo 1..601
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+not ok
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+1..601
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[1;32mXFAIL[m: all.test 2 # TODO
+[1;34mSKIP[m: all.test 3 # SKIP
+[0;32mPASS[m: all.test 4
+[1;32mXFAIL[m: all.test 5 # TODO
+[1;34mSKIP[m: all.test 6 # SKIP
+[0;32mPASS[m: all.test 7
+[1;32mXFAIL[m: all.test 8 # TODO
+[1;34mSKIP[m: all.test 9 # SKIP
+[0;32mPASS[m: all.test 10
+[1;32mXFAIL[m: all.test 11 # TODO
+[1;34mSKIP[m: all.test 12 # SKIP
+[0;32mPASS[m: all.test 13
+[1;32mXFAIL[m: all.test 14 # TODO
+[1;34mSKIP[m: all.test 15 # SKIP
+[0;32mPASS[m: all.test 16
+[1;32mXFAIL[m: all.test 17 # TODO
+[1;34mSKIP[m: all.test 18 # SKIP
+[0;32mPASS[m: all.test 19
+[1;32mXFAIL[m: all.test 20 # TODO
+[1;34mSKIP[m: all.test 21 # SKIP
+[0;32mPASS[m: all.test 22
+[1;32mXFAIL[m: all.test 23 # TODO
+[1;34mSKIP[m: all.test 24 # SKIP
+[0;32mPASS[m: all.test 25
+[1;32mXFAIL[m: all.test 26 # TODO
+[1;34mSKIP[m: all.test 27 # SKIP
+[0;32mPASS[m: all.test 28
+[1;32mXFAIL[m: all.test 29 # TODO
+[1;34mSKIP[m: all.test 30 # SKIP
+[0;32mPASS[m: all.test 31
+[1;32mXFAIL[m: all.test 32 # TODO
+[1;34mSKIP[m: all.test 33 # SKIP
+[0;32mPASS[m: all.test 34
+[1;32mXFAIL[m: all.test 35 # TODO
+[1;34mSKIP[m: all.test 36 # SKIP
+[0;32mPASS[m: all.test 37
+[1;32mXFAIL[m: all.test 38 # TODO
+[1;34mSKIP[m: all.test 39 # SKIP
+[0;32mPASS[m: all.test 40
+[1;32mXFAIL[m: all.test 41 # TODO
+[1;34mSKIP[m: all.test 42 # SKIP
+[0;32mPASS[m: all.test 43
+[1;32mXFAIL[m: all.test 44 # TODO
+[1;34mSKIP[m: all.test 45 # SKIP
+[0;32mPASS[m: all.test 46
+[1;32mXFAIL[m: all.test 47 # TODO
+[1;34mSKIP[m: all.test 48 # SKIP
+[0;32mPASS[m: all.test 49
+[1;32mXFAIL[m: all.test 50 # TODO
+[1;34mSKIP[m: all.test 51 # SKIP
+[0;32mPASS[m: all.test 52
+[1;32mXFAIL[m: all.test 53 # TODO
+[1;34mSKIP[m: all.test 54 # SKIP
+[0;32mPASS[m: all.test 55
+[1;32mXFAIL[m: all.test 56 # TODO
+[1;34mSKIP[m: all.test 57 # SKIP
+[0;32mPASS[m: all.test 58
+[1;32mXFAIL[m: all.test 59 # TODO
+[1;34mSKIP[m: all.test 60 # SKIP
+[0;32mPASS[m: all.test 61
+[1;32mXFAIL[m: all.test 62 # TODO
+[1;34mSKIP[m: all.test 63 # SKIP
+[0;32mPASS[m: all.test 64
+[1;32mXFAIL[m: all.test 65 # TODO
+[1;34mSKIP[m: all.test 66 # SKIP
+[0;32mPASS[m: all.test 67
+[1;32mXFAIL[m: all.test 68 # TODO
+[1;34mSKIP[m: all.test 69 # SKIP
+[0;32mPASS[m: all.test 70
+[1;32mXFAIL[m: all.test 71 # TODO
+[1;34mSKIP[m: all.test 72 # SKIP
+[0;32mPASS[m: all.test 73
+[1;32mXFAIL[m: all.test 74 # TODO
+[1;34mSKIP[m: all.test 75 # SKIP
+[0;32mPASS[m: all.test 76
+[1;32mXFAIL[m: all.test 77 # TODO
+[1;34mSKIP[m: all.test 78 # SKIP
+[0;32mPASS[m: all.test 79
+[1;32mXFAIL[m: all.test 80 # TODO
+[1;34mSKIP[m: all.test 81 # SKIP
+[0;32mPASS[m: all.test 82
+[1;32mXFAIL[m: all.test 83 # TODO
+[1;34mSKIP[m: all.test 84 # SKIP
+[0;32mPASS[m: all.test 85
+[1;32mXFAIL[m: all.test 86 # TODO
+[1;34mSKIP[m: all.test 87 # SKIP
+[0;32mPASS[m: all.test 88
+[1;32mXFAIL[m: all.test 89 # TODO
+[1;34mSKIP[m: all.test 90 # SKIP
+[0;32mPASS[m: all.test 91
+[1;32mXFAIL[m: all.test 92 # TODO
+[1;34mSKIP[m: all.test 93 # SKIP
+[0;32mPASS[m: all.test 94
+[1;32mXFAIL[m: all.test 95 # TODO
+[1;34mSKIP[m: all.test 96 # SKIP
+[0;32mPASS[m: all.test 97
+[1;32mXFAIL[m: all.test 98 # TODO
+[1;34mSKIP[m: all.test 99 # SKIP
+[0;32mPASS[m: all.test 100
+[1;32mXFAIL[m: all.test 101 # TODO
+[1;34mSKIP[m: all.test 102 # SKIP
+[0;32mPASS[m: all.test 103
+[1;32mXFAIL[m: all.test 104 # TODO
+[1;34mSKIP[m: all.test 105 # SKIP
+[0;32mPASS[m: all.test 106
+[1;32mXFAIL[m: all.test 107 # TODO
+[1;34mSKIP[m: all.test 108 # SKIP
+[0;32mPASS[m: all.test 109
+[1;32mXFAIL[m: all.test 110 # TODO
+[1;34mSKIP[m: all.test 111 # SKIP
+[0;32mPASS[m: all.test 112
+[1;32mXFAIL[m: all.test 113 # TODO
+[1;34mSKIP[m: all.test 114 # SKIP
+[0;32mPASS[m: all.test 115
+[1;32mXFAIL[m: all.test 116 # TODO
+[1;34mSKIP[m: all.test 117 # SKIP
+[0;32mPASS[m: all.test 118
+[1;32mXFAIL[m: all.test 119 # TODO
+[1;34mSKIP[m: all.test 120 # SKIP
+[0;32mPASS[m: all.test 121
+[1;32mXFAIL[m: all.test 122 # TODO
+[1;34mSKIP[m: all.test 123 # SKIP
+[0;32mPASS[m: all.test 124
+[1;32mXFAIL[m: all.test 125 # TODO
+[1;34mSKIP[m: all.test 126 # SKIP
+[0;32mPASS[m: all.test 127
+[1;32mXFAIL[m: all.test 128 # TODO
+[1;34mSKIP[m: all.test 129 # SKIP
+[0;32mPASS[m: all.test 130
+[1;32mXFAIL[m: all.test 131 # TODO
+[1;34mSKIP[m: all.test 132 # SKIP
+[0;32mPASS[m: all.test 133
+[1;32mXFAIL[m: all.test 134 # TODO
+[1;34mSKIP[m: all.test 135 # SKIP
+[0;32mPASS[m: all.test 136
+[1;32mXFAIL[m: all.test 137 # TODO
+[1;34mSKIP[m: all.test 138 # SKIP
+[0;32mPASS[m: all.test 139
+[1;32mXFAIL[m: all.test 140 # TODO
+[1;34mSKIP[m: all.test 141 # SKIP
+[0;32mPASS[m: all.test 142
+[1;32mXFAIL[m: all.test 143 # TODO
+[1;34mSKIP[m: all.test 144 # SKIP
+[0;32mPASS[m: all.test 145
+[1;32mXFAIL[m: all.test 146 # TODO
+[1;34mSKIP[m: all.test 147 # SKIP
+[0;32mPASS[m: all.test 148
+[1;32mXFAIL[m: all.test 149 # TODO
+[1;34mSKIP[m: all.test 150 # SKIP
+[0;32mPASS[m: all.test 151
+[1;32mXFAIL[m: all.test 152 # TODO
+[1;34mSKIP[m: all.test 153 # SKIP
+[0;32mPASS[m: all.test 154
+[1;32mXFAIL[m: all.test 155 # TODO
+[1;34mSKIP[m: all.test 156 # SKIP
+[0;32mPASS[m: all.test 157
+[1;32mXFAIL[m: all.test 158 # TODO
+[1;34mSKIP[m: all.test 159 # SKIP
+[0;32mPASS[m: all.test 160
+[1;32mXFAIL[m: all.test 161 # TODO
+[1;34mSKIP[m: all.test 162 # SKIP
+[0;32mPASS[m: all.test 163
+[1;32mXFAIL[m: all.test 164 # TODO
+[1;34mSKIP[m: all.test 165 # SKIP
+[0;32mPASS[m: all.test 166
+[1;32mXFAIL[m: all.test 167 # TODO
+[1;34mSKIP[m: all.test 168 # SKIP
+[0;32mPASS[m: all.test 169
+[1;32mXFAIL[m: all.test 170 # TODO
+[1;34mSKIP[m: all.test 171 # SKIP
+[0;32mPASS[m: all.test 172
+[1;32mXFAIL[m: all.test 173 # TODO
+[1;34mSKIP[m: all.test 174 # SKIP
+[0;32mPASS[m: all.test 175
+[1;32mXFAIL[m: all.test 176 # TODO
+[1;34mSKIP[m: all.test 177 # SKIP
+[0;32mPASS[m: all.test 178
+[1;32mXFAIL[m: all.test 179 # TODO
+[1;34mSKIP[m: all.test 180 # SKIP
+[0;32mPASS[m: all.test 181
+[1;32mXFAIL[m: all.test 182 # TODO
+[1;34mSKIP[m: all.test 183 # SKIP
+[0;32mPASS[m: all.test 184
+[1;32mXFAIL[m: all.test 185 # TODO
+[1;34mSKIP[m: all.test 186 # SKIP
+[0;32mPASS[m: all.test 187
+[1;32mXFAIL[m: all.test 188 # TODO
+[1;34mSKIP[m: all.test 189 # SKIP
+[0;32mPASS[m: all.test 190
+[1;32mXFAIL[m: all.test 191 # TODO
+[1;34mSKIP[m: all.test 192 # SKIP
+[0;32mPASS[m: all.test 193
+[1;32mXFAIL[m: all.test 194 # TODO
+[1;34mSKIP[m: all.test 195 # SKIP
+[0;32mPASS[m: all.test 196
+[1;32mXFAIL[m: all.test 197 # TODO
+[1;34mSKIP[m: all.test 198 # SKIP
+[0;32mPASS[m: all.test 199
+[1;32mXFAIL[m: all.test 200 # TODO
+[1;34mSKIP[m: all.test 201 # SKIP
+[0;32mPASS[m: all.test 202
+[1;32mXFAIL[m: all.test 203 # TODO
+[1;34mSKIP[m: all.test 204 # SKIP
+[0;32mPASS[m: all.test 205
+[1;32mXFAIL[m: all.test 206 # TODO
+[1;34mSKIP[m: all.test 207 # SKIP
+[0;32mPASS[m: all.test 208
+[1;32mXFAIL[m: all.test 209 # TODO
+[1;34mSKIP[m: all.test 210 # SKIP
+[0;32mPASS[m: all.test 211
+[1;32mXFAIL[m: all.test 212 # TODO
+[1;34mSKIP[m: all.test 213 # SKIP
+[0;32mPASS[m: all.test 214
+[1;32mXFAIL[m: all.test 215 # TODO
+[1;34mSKIP[m: all.test 216 # SKIP
+[0;32mPASS[m: all.test 217
+[1;32mXFAIL[m: all.test 218 # TODO
+[1;34mSKIP[m: all.test 219 # SKIP
+[0;32mPASS[m: all.test 220
+[1;32mXFAIL[m: all.test 221 # TODO
+[1;34mSKIP[m: all.test 222 # SKIP
+[0;32mPASS[m: all.test 223
+[1;32mXFAIL[m: all.test 224 # TODO
+[1;34mSKIP[m: all.test 225 # SKIP
+[0;32mPASS[m: all.test 226
+[1;32mXFAIL[m: all.test 227 # TODO
+[1;34mSKIP[m: all.test 228 # SKIP
+[0;32mPASS[m: all.test 229
+[1;32mXFAIL[m: all.test 230 # TODO
+[1;34mSKIP[m: all.test 231 # SKIP
+[0;32mPASS[m: all.test 232
+[1;32mXFAIL[m: all.test 233 # TODO
+[1;34mSKIP[m: all.test 234 # SKIP
+[0;32mPASS[m: all.test 235
+[1;32mXFAIL[m: all.test 236 # TODO
+[1;34mSKIP[m: all.test 237 # SKIP
+[0;32mPASS[m: all.test 238
+[1;32mXFAIL[m: all.test 239 # TODO
+[1;34mSKIP[m: all.test 240 # SKIP
+[0;32mPASS[m: all.test 241
+[1;32mXFAIL[m: all.test 242 # TODO
+[1;34mSKIP[m: all.test 243 # SKIP
+[0;32mPASS[m: all.test 244
+[1;32mXFAIL[m: all.test 245 # TODO
+[1;34mSKIP[m: all.test 246 # SKIP
+[0;32mPASS[m: all.test 247
+[1;32mXFAIL[m: all.test 248 # TODO
+[1;34mSKIP[m: all.test 249 # SKIP
+[0;32mPASS[m: all.test 250
+[1;32mXFAIL[m: all.test 251 # TODO
+[1;34mSKIP[m: all.test 252 # SKIP
+[0;32mPASS[m: all.test 253
+[1;32mXFAIL[m: all.test 254 # TODO
+[1;34mSKIP[m: all.test 255 # SKIP
+[0;32mPASS[m: all.test 256
+[1;32mXFAIL[m: all.test 257 # TODO
+[1;34mSKIP[m: all.test 258 # SKIP
+[0;32mPASS[m: all.test 259
+[1;32mXFAIL[m: all.test 260 # TODO
+[1;34mSKIP[m: all.test 261 # SKIP
+[0;32mPASS[m: all.test 262
+[1;32mXFAIL[m: all.test 263 # TODO
+[1;34mSKIP[m: all.test 264 # SKIP
+[0;32mPASS[m: all.test 265
+[1;32mXFAIL[m: all.test 266 # TODO
+[1;34mSKIP[m: all.test 267 # SKIP
+[0;32mPASS[m: all.test 268
+[1;32mXFAIL[m: all.test 269 # TODO
+[1;34mSKIP[m: all.test 270 # SKIP
+[0;32mPASS[m: all.test 271
+[1;32mXFAIL[m: all.test 272 # TODO
+[1;34mSKIP[m: all.test 273 # SKIP
+[0;32mPASS[m: all.test 274
+[1;32mXFAIL[m: all.test 275 # TODO
+[1;34mSKIP[m: all.test 276 # SKIP
+[0;32mPASS[m: all.test 277
+[1;32mXFAIL[m: all.test 278 # TODO
+[1;34mSKIP[m: all.test 279 # SKIP
+[0;32mPASS[m: all.test 280
+[1;32mXFAIL[m: all.test 281 # TODO
+[1;34mSKIP[m: all.test 282 # SKIP
+[0;32mPASS[m: all.test 283
+[1;32mXFAIL[m: all.test 284 # TODO
+[1;34mSKIP[m: all.test 285 # SKIP
+[0;32mPASS[m: all.test 286
+[1;32mXFAIL[m: all.test 287 # TODO
+[1;34mSKIP[m: all.test 288 # SKIP
+[0;32mPASS[m: all.test 289
+[1;32mXFAIL[m: all.test 290 # TODO
+[1;34mSKIP[m: all.test 291 # SKIP
+[0;32mPASS[m: all.test 292
+[1;32mXFAIL[m: all.test 293 # TODO
+[1;34mSKIP[m: all.test 294 # SKIP
+[0;32mPASS[m: all.test 295
+[1;32mXFAIL[m: all.test 296 # TODO
+[1;34mSKIP[m: all.test 297 # SKIP
+[0;32mPASS[m: all.test 298
+[1;32mXFAIL[m: all.test 299 # TODO
+[1;34mSKIP[m: all.test 300 # SKIP
+[0;31mFAIL[m: all.test 301
+[0;32mPASS[m: all.test 302
+[1;32mXFAIL[m: all.test 303 # TODO
+[1;34mSKIP[m: all.test 304 # SKIP
+[0;32mPASS[m: all.test 305
+[1;32mXFAIL[m: all.test 306 # TODO
+[1;34mSKIP[m: all.test 307 # SKIP
+[0;32mPASS[m: all.test 308
+[1;32mXFAIL[m: all.test 309 # TODO
+[1;34mSKIP[m: all.test 310 # SKIP
+[0;32mPASS[m: all.test 311
+[1;32mXFAIL[m: all.test 312 # TODO
+[1;34mSKIP[m: all.test 313 # SKIP
+[0;32mPASS[m: all.test 314
+[1;32mXFAIL[m: all.test 315 # TODO
+[1;34mSKIP[m: all.test 316 # SKIP
+[0;32mPASS[m: all.test 317
+[1;32mXFAIL[m: all.test 318 # TODO
+[1;34mSKIP[m: all.test 319 # SKIP
+[0;32mPASS[m: all.test 320
+[1;32mXFAIL[m: all.test 321 # TODO
+[1;34mSKIP[m: all.test 322 # SKIP
+[0;32mPASS[m: all.test 323
+[1;32mXFAIL[m: all.test 324 # TODO
+[1;34mSKIP[m: all.test 325 # SKIP
+[0;32mPASS[m: all.test 326
+[1;32mXFAIL[m: all.test 327 # TODO
+[1;34mSKIP[m: all.test 328 # SKIP
+[0;32mPASS[m: all.test 329
+[1;32mXFAIL[m: all.test 330 # TODO
+[1;34mSKIP[m: all.test 331 # SKIP
+[0;32mPASS[m: all.test 332
+[1;32mXFAIL[m: all.test 333 # TODO
+[1;34mSKIP[m: all.test 334 # SKIP
+[0;32mPASS[m: all.test 335
+[1;32mXFAIL[m: all.test 336 # TODO
+[1;34mSKIP[m: all.test 337 # SKIP
+[0;32mPASS[m: all.test 338
+[1;32mXFAIL[m: all.test 339 # TODO
+[1;34mSKIP[m: all.test 340 # SKIP
+[0;32mPASS[m: all.test 341
+[1;32mXFAIL[m: all.test 342 # TODO
+[1;34mSKIP[m: all.test 343 # SKIP
+[0;32mPASS[m: all.test 344
+[1;32mXFAIL[m: all.test 345 # TODO
+[1;34mSKIP[m: all.test 346 # SKIP
+[0;32mPASS[m: all.test 347
+[1;32mXFAIL[m: all.test 348 # TODO
+[1;34mSKIP[m: all.test 349 # SKIP
+[0;32mPASS[m: all.test 350
+[1;32mXFAIL[m: all.test 351 # TODO
+[1;34mSKIP[m: all.test 352 # SKIP
+[0;32mPASS[m: all.test 353
+[1;32mXFAIL[m: all.test 354 # TODO
+[1;34mSKIP[m: all.test 355 # SKIP
+[0;32mPASS[m: all.test 356
+[1;32mXFAIL[m: all.test 357 # TODO
+[1;34mSKIP[m: all.test 358 # SKIP
+[0;32mPASS[m: all.test 359
+[1;32mXFAIL[m: all.test 360 # TODO
+[1;34mSKIP[m: all.test 361 # SKIP
+[0;32mPASS[m: all.test 362
+[1;32mXFAIL[m: all.test 363 # TODO
+[1;34mSKIP[m: all.test 364 # SKIP
+[0;32mPASS[m: all.test 365
+[1;32mXFAIL[m: all.test 366 # TODO
+[1;34mSKIP[m: all.test 367 # SKIP
+[0;32mPASS[m: all.test 368
+[1;32mXFAIL[m: all.test 369 # TODO
+[1;34mSKIP[m: all.test 370 # SKIP
+[0;32mPASS[m: all.test 371
+[1;32mXFAIL[m: all.test 372 # TODO
+[1;34mSKIP[m: all.test 373 # SKIP
+[0;32mPASS[m: all.test 374
+[1;32mXFAIL[m: all.test 375 # TODO
+[1;34mSKIP[m: all.test 376 # SKIP
+[0;32mPASS[m: all.test 377
+[1;32mXFAIL[m: all.test 378 # TODO
+[1;34mSKIP[m: all.test 379 # SKIP
+[0;32mPASS[m: all.test 380
+[1;32mXFAIL[m: all.test 381 # TODO
+[1;34mSKIP[m: all.test 382 # SKIP
+[0;32mPASS[m: all.test 383
+[1;32mXFAIL[m: all.test 384 # TODO
+[1;34mSKIP[m: all.test 385 # SKIP
+[0;32mPASS[m: all.test 386
+[1;32mXFAIL[m: all.test 387 # TODO
+[1;34mSKIP[m: all.test 388 # SKIP
+[0;32mPASS[m: all.test 389
+[1;32mXFAIL[m: all.test 390 # TODO
+[1;34mSKIP[m: all.test 391 # SKIP
+[0;32mPASS[m: all.test 392
+[1;32mXFAIL[m: all.test 393 # TODO
+[1;34mSKIP[m: all.test 394 # SKIP
+[0;32mPASS[m: all.test 395
+[1;32mXFAIL[m: all.test 396 # TODO
+[1;34mSKIP[m: all.test 397 # SKIP
+[0;32mPASS[m: all.test 398
+[1;32mXFAIL[m: all.test 399 # TODO
+[1;34mSKIP[m: all.test 400 # SKIP
+[0;32mPASS[m: all.test 401
+[1;32mXFAIL[m: all.test 402 # TODO
+[1;34mSKIP[m: all.test 403 # SKIP
+[0;32mPASS[m: all.test 404
+[1;32mXFAIL[m: all.test 405 # TODO
+[1;34mSKIP[m: all.test 406 # SKIP
+[0;32mPASS[m: all.test 407
+[1;32mXFAIL[m: all.test 408 # TODO
+[1;34mSKIP[m: all.test 409 # SKIP
+[0;32mPASS[m: all.test 410
+[1;32mXFAIL[m: all.test 411 # TODO
+[1;34mSKIP[m: all.test 412 # SKIP
+[0;32mPASS[m: all.test 413
+[1;32mXFAIL[m: all.test 414 # TODO
+[1;34mSKIP[m: all.test 415 # SKIP
+[0;32mPASS[m: all.test 416
+[1;32mXFAIL[m: all.test 417 # TODO
+[1;34mSKIP[m: all.test 418 # SKIP
+[0;32mPASS[m: all.test 419
+[1;32mXFAIL[m: all.test 420 # TODO
+[1;34mSKIP[m: all.test 421 # SKIP
+[0;32mPASS[m: all.test 422
+[1;32mXFAIL[m: all.test 423 # TODO
+[1;34mSKIP[m: all.test 424 # SKIP
+[0;32mPASS[m: all.test 425
+[1;32mXFAIL[m: all.test 426 # TODO
+[1;34mSKIP[m: all.test 427 # SKIP
+[0;32mPASS[m: all.test 428
+[1;32mXFAIL[m: all.test 429 # TODO
+[1;34mSKIP[m: all.test 430 # SKIP
+[0;32mPASS[m: all.test 431
+[1;32mXFAIL[m: all.test 432 # TODO
+[1;34mSKIP[m: all.test 433 # SKIP
+[0;32mPASS[m: all.test 434
+[1;32mXFAIL[m: all.test 435 # TODO
+[1;34mSKIP[m: all.test 436 # SKIP
+[0;32mPASS[m: all.test 437
+[1;32mXFAIL[m: all.test 438 # TODO
+[1;34mSKIP[m: all.test 439 # SKIP
+[0;32mPASS[m: all.test 440
+[1;32mXFAIL[m: all.test 441 # TODO
+[1;34mSKIP[m: all.test 442 # SKIP
+[0;32mPASS[m: all.test 443
+[1;32mXFAIL[m: all.test 444 # TODO
+[1;34mSKIP[m: all.test 445 # SKIP
+[0;32mPASS[m: all.test 446
+[1;32mXFAIL[m: all.test 447 # TODO
+[1;34mSKIP[m: all.test 448 # SKIP
+[0;32mPASS[m: all.test 449
+[1;32mXFAIL[m: all.test 450 # TODO
+[1;34mSKIP[m: all.test 451 # SKIP
+[0;32mPASS[m: all.test 452
+[1;32mXFAIL[m: all.test 453 # TODO
+[1;34mSKIP[m: all.test 454 # SKIP
+[0;32mPASS[m: all.test 455
+[1;32mXFAIL[m: all.test 456 # TODO
+[1;34mSKIP[m: all.test 457 # SKIP
+[0;32mPASS[m: all.test 458
+[1;32mXFAIL[m: all.test 459 # TODO
+[1;34mSKIP[m: all.test 460 # SKIP
+[0;32mPASS[m: all.test 461
+[1;32mXFAIL[m: all.test 462 # TODO
+[1;34mSKIP[m: all.test 463 # SKIP
+[0;32mPASS[m: all.test 464
+[1;32mXFAIL[m: all.test 465 # TODO
+[1;34mSKIP[m: all.test 466 # SKIP
+[0;32mPASS[m: all.test 467
+[1;32mXFAIL[m: all.test 468 # TODO
+[1;34mSKIP[m: all.test 469 # SKIP
+[0;32mPASS[m: all.test 470
+[1;32mXFAIL[m: all.test 471 # TODO
+[1;34mSKIP[m: all.test 472 # SKIP
+[0;32mPASS[m: all.test 473
+[1;32mXFAIL[m: all.test 474 # TODO
+[1;34mSKIP[m: all.test 475 # SKIP
+[0;32mPASS[m: all.test 476
+[1;32mXFAIL[m: all.test 477 # TODO
+[1;34mSKIP[m: all.test 478 # SKIP
+[0;32mPASS[m: all.test 479
+[1;32mXFAIL[m: all.test 480 # TODO
+[1;34mSKIP[m: all.test 481 # SKIP
+[0;32mPASS[m: all.test 482
+[1;32mXFAIL[m: all.test 483 # TODO
+[1;34mSKIP[m: all.test 484 # SKIP
+[0;32mPASS[m: all.test 485
+[1;32mXFAIL[m: all.test 486 # TODO
+[1;34mSKIP[m: all.test 487 # SKIP
+[0;32mPASS[m: all.test 488
+[1;32mXFAIL[m: all.test 489 # TODO
+[1;34mSKIP[m: all.test 490 # SKIP
+[0;32mPASS[m: all.test 491
+[1;32mXFAIL[m: all.test 492 # TODO
+[1;34mSKIP[m: all.test 493 # SKIP
+[0;32mPASS[m: all.test 494
+[1;32mXFAIL[m: all.test 495 # TODO
+[1;34mSKIP[m: all.test 496 # SKIP
+[0;32mPASS[m: all.test 497
+[1;32mXFAIL[m: all.test 498 # TODO
+[1;34mSKIP[m: all.test 499 # SKIP
+[0;32mPASS[m: all.test 500
+[1;32mXFAIL[m: all.test 501 # TODO
+[1;34mSKIP[m: all.test 502 # SKIP
+[0;32mPASS[m: all.test 503
+[1;32mXFAIL[m: all.test 504 # TODO
+[1;34mSKIP[m: all.test 505 # SKIP
+[0;32mPASS[m: all.test 506
+[1;32mXFAIL[m: all.test 507 # TODO
+[1;34mSKIP[m: all.test 508 # SKIP
+[0;32mPASS[m: all.test 509
+[1;32mXFAIL[m: all.test 510 # TODO
+[1;34mSKIP[m: all.test 511 # SKIP
+[0;32mPASS[m: all.test 512
+[1;32mXFAIL[m: all.test 513 # TODO
+[1;34mSKIP[m: all.test 514 # SKIP
+[0;32mPASS[m: all.test 515
+[1;32mXFAIL[m: all.test 516 # TODO
+[1;34mSKIP[m: all.test 517 # SKIP
+[0;32mPASS[m: all.test 518
+[1;32mXFAIL[m: all.test 519 # TODO
+[1;34mSKIP[m: all.test 520 # SKIP
+[0;32mPASS[m: all.test 521
+[1;32mXFAIL[m: all.test 522 # TODO
+[1;34mSKIP[m: all.test 523 # SKIP
+[0;32mPASS[m: all.test 524
+[1;32mXFAIL[m: all.test 525 # TODO
+[1;34mSKIP[m: all.test 526 # SKIP
+[0;32mPASS[m: all.test 527
+[1;32mXFAIL[m: all.test 528 # TODO
+[1;34mSKIP[m: all.test 529 # SKIP
+[0;32mPASS[m: all.test 530
+[1;32mXFAIL[m: all.test 531 # TODO
+[1;34mSKIP[m: all.test 532 # SKIP
+[0;32mPASS[m: all.test 533
+[1;32mXFAIL[m: all.test 534 # TODO
+[1;34mSKIP[m: all.test 535 # SKIP
+[0;32mPASS[m: all.test 536
+[1;32mXFAIL[m: all.test 537 # TODO
+[1;34mSKIP[m: all.test 538 # SKIP
+[0;32mPASS[m: all.test 539
+[1;32mXFAIL[m: all.test 540 # TODO
+[1;34mSKIP[m: all.test 541 # SKIP
+[0;32mPASS[m: all.test 542
+[1;32mXFAIL[m: all.test 543 # TODO
+[1;34mSKIP[m: all.test 544 # SKIP
+[0;32mPASS[m: all.test 545
+[1;32mXFAIL[m: all.test 546 # TODO
+[1;34mSKIP[m: all.test 547 # SKIP
+[0;32mPASS[m: all.test 548
+[1;32mXFAIL[m: all.test 549 # TODO
+[1;34mSKIP[m: all.test 550 # SKIP
+[0;32mPASS[m: all.test 551
+[1;32mXFAIL[m: all.test 552 # TODO
+[1;34mSKIP[m: all.test 553 # SKIP
+[0;32mPASS[m: all.test 554
+[1;32mXFAIL[m: all.test 555 # TODO
+[1;34mSKIP[m: all.test 556 # SKIP
+[0;32mPASS[m: all.test 557
+[1;32mXFAIL[m: all.test 558 # TODO
+[1;34mSKIP[m: all.test 559 # SKIP
+[0;32mPASS[m: all.test 560
+[1;32mXFAIL[m: all.test 561 # TODO
+[1;34mSKIP[m: all.test 562 # SKIP
+[0;32mPASS[m: all.test 563
+[1;32mXFAIL[m: all.test 564 # TODO
+[1;34mSKIP[m: all.test 565 # SKIP
+[0;32mPASS[m: all.test 566
+[1;32mXFAIL[m: all.test 567 # TODO
+[1;34mSKIP[m: all.test 568 # SKIP
+[0;32mPASS[m: all.test 569
+[1;32mXFAIL[m: all.test 570 # TODO
+[1;34mSKIP[m: all.test 571 # SKIP
+[0;32mPASS[m: all.test 572
+[1;32mXFAIL[m: all.test 573 # TODO
+[1;34mSKIP[m: all.test 574 # SKIP
+[0;32mPASS[m: all.test 575
+[1;32mXFAIL[m: all.test 576 # TODO
+[1;34mSKIP[m: all.test 577 # SKIP
+[0;32mPASS[m: all.test 578
+[1;32mXFAIL[m: all.test 579 # TODO
+[1;34mSKIP[m: all.test 580 # SKIP
+[0;32mPASS[m: all.test 581
+[1;32mXFAIL[m: all.test 582 # TODO
+[1;34mSKIP[m: all.test 583 # SKIP
+[0;32mPASS[m: all.test 584
+[1;32mXFAIL[m: all.test 585 # TODO
+[1;34mSKIP[m: all.test 586 # SKIP
+[0;32mPASS[m: all.test 587
+[1;32mXFAIL[m: all.test 588 # TODO
+[1;34mSKIP[m: all.test 589 # SKIP
+[0;32mPASS[m: all.test 590
+[1;32mXFAIL[m: all.test 591 # TODO
+[1;34mSKIP[m: all.test 592 # SKIP
+[0;32mPASS[m: all.test 593
+[1;32mXFAIL[m: all.test 594 # TODO
+[1;34mSKIP[m: all.test 595 # SKIP
+[0;32mPASS[m: all.test 596
+[1;32mXFAIL[m: all.test 597 # TODO
+[1;34mSKIP[m: all.test 598 # SKIP
+[0;32mPASS[m: all.test 599
+[1;32mXFAIL[m: all.test 600 # TODO
+[1;34mSKIP[m: all.test 601 # SKIP
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 601[m
+[0;32m# PASS:  200[m
+[1;34m# SKIP:  200[m
+[1;32m# XFAIL: 200[m
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 601[m
+[0;32m# PASS:  200[m
+[1;34m# SKIP:  200[m
+[1;32m# XFAIL: 200[m
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 601[m
+[0;32m# PASS:  200[m
+[1;34m# SKIP:  200[m
+[1;32m# XFAIL: 200[m
+[0;31m# FAIL:  1[m
+# XPASS: 0
+# ERROR: 0
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ cat tap
+++ sed 30q tap
+++ echo 'Bail out!'
++++ wc -l
+++ test 331 -eq 331
+++ echo 1..331
+++ do_check --fail
+++ case $#,$1 in
+++ expect_failure=yes
+++ shift
+++ cat
+++ cat all.test
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+ok
+not ok # TODO
+ok # SKIP
+Bail out!
+1..331
+++ test yes = yes
+++ make_args='TERM=dumb AM_COLOR_TESTS=always'
+++ run_make -O -e IGNORE TERM=dumb AM_COLOR_TESTS=always check
+++ am__make_redirect_stdout=no
+++ am__make_redirect_stderr=no
+++ am__make_redirect_stdall=no
+++ am__make_flags=
+++ am__make_rc_exp=0
+++ am_make_rc=0
+++ test 6 -gt 0
+++ case $1 in
+++ am__make_redirect_stdout=yes
+++ shift
+++ test 5 -gt 0
+++ case $1 in
+++ am__make_rc_exp=IGNORE
+++ shift
+++ shift
+++ test 3 -gt 0
+++ case $1 in
+++ break
+++ using_gmake
+++ case $am__using_gmake in
+++ return 0
+++ :
+++ test x '!=' x
+++ : exec make TERM=dumb AM_COLOR_TESTS=always check
+++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
+++ am_make_rc=2
+++ test 2 -eq 253
+++ test no = yes
+++ test yes = yes
+++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+[0;32mPASS[m: all.test 1
+[1;32mXFAIL[m: all.test 2 # TODO
+[1;34mSKIP[m: all.test 3 # SKIP
+[0;32mPASS[m: all.test 4
+[1;32mXFAIL[m: all.test 5 # TODO
+[1;34mSKIP[m: all.test 6 # SKIP
+[0;32mPASS[m: all.test 7
+[1;32mXFAIL[m: all.test 8 # TODO
+[1;34mSKIP[m: all.test 9 # SKIP
+[0;32mPASS[m: all.test 10
+[1;32mXFAIL[m: all.test 11 # TODO
+[1;34mSKIP[m: all.test 12 # SKIP
+[0;32mPASS[m: all.test 13
+[1;32mXFAIL[m: all.test 14 # TODO
+[1;34mSKIP[m: all.test 15 # SKIP
+[0;32mPASS[m: all.test 16
+[1;32mXFAIL[m: all.test 17 # TODO
+[1;34mSKIP[m: all.test 18 # SKIP
+[0;32mPASS[m: all.test 19
+[1;32mXFAIL[m: all.test 20 # TODO
+[1;34mSKIP[m: all.test 21 # SKIP
+[0;32mPASS[m: all.test 22
+[1;32mXFAIL[m: all.test 23 # TODO
+[1;34mSKIP[m: all.test 24 # SKIP
+[0;32mPASS[m: all.test 25
+[1;32mXFAIL[m: all.test 26 # TODO
+[1;34mSKIP[m: all.test 27 # SKIP
+[0;32mPASS[m: all.test 28
+[1;32mXFAIL[m: all.test 29 # TODO
+[1;34mSKIP[m: all.test 30 # SKIP
+[0;32mPASS[m: all.test 31
+[1;32mXFAIL[m: all.test 32 # TODO
+[1;34mSKIP[m: all.test 33 # SKIP
+[0;32mPASS[m: all.test 34
+[1;32mXFAIL[m: all.test 35 # TODO
+[1;34mSKIP[m: all.test 36 # SKIP
+[0;32mPASS[m: all.test 37
+[1;32mXFAIL[m: all.test 38 # TODO
+[1;34mSKIP[m: all.test 39 # SKIP
+[0;32mPASS[m: all.test 40
+[1;32mXFAIL[m: all.test 41 # TODO
+[1;34mSKIP[m: all.test 42 # SKIP
+[0;32mPASS[m: all.test 43
+[1;32mXFAIL[m: all.test 44 # TODO
+[1;34mSKIP[m: all.test 45 # SKIP
+[0;32mPASS[m: all.test 46
+[1;32mXFAIL[m: all.test 47 # TODO
+[1;34mSKIP[m: all.test 48 # SKIP
+[0;32mPASS[m: all.test 49
+[1;32mXFAIL[m: all.test 50 # TODO
+[1;34mSKIP[m: all.test 51 # SKIP
+[0;32mPASS[m: all.test 52
+[1;32mXFAIL[m: all.test 53 # TODO
+[1;34mSKIP[m: all.test 54 # SKIP
+[0;32mPASS[m: all.test 55
+[1;32mXFAIL[m: all.test 56 # TODO
+[1;34mSKIP[m: all.test 57 # SKIP
+[0;32mPASS[m: all.test 58
+[1;32mXFAIL[m: all.test 59 # TODO
+[1;34mSKIP[m: all.test 60 # SKIP
+[0;32mPASS[m: all.test 61
+[1;32mXFAIL[m: all.test 62 # TODO
+[1;34mSKIP[m: all.test 63 # SKIP
+[0;32mPASS[m: all.test 64
+[1;32mXFAIL[m: all.test 65 # TODO
+[1;34mSKIP[m: all.test 66 # SKIP
+[0;32mPASS[m: all.test 67
+[1;32mXFAIL[m: all.test 68 # TODO
+[1;34mSKIP[m: all.test 69 # SKIP
+[0;32mPASS[m: all.test 70
+[1;32mXFAIL[m: all.test 71 # TODO
+[1;34mSKIP[m: all.test 72 # SKIP
+[0;32mPASS[m: all.test 73
+[1;32mXFAIL[m: all.test 74 # TODO
+[1;34mSKIP[m: all.test 75 # SKIP
+[0;32mPASS[m: all.test 76
+[1;32mXFAIL[m: all.test 77 # TODO
+[1;34mSKIP[m: all.test 78 # SKIP
+[0;32mPASS[m: all.test 79
+[1;32mXFAIL[m: all.test 80 # TODO
+[1;34mSKIP[m: all.test 81 # SKIP
+[0;32mPASS[m: all.test 82
+[1;32mXFAIL[m: all.test 83 # TODO
+[1;34mSKIP[m: all.test 84 # SKIP
+[0;32mPASS[m: all.test 85
+[1;32mXFAIL[m: all.test 86 # TODO
+[1;34mSKIP[m: all.test 87 # SKIP
+[0;32mPASS[m: all.test 88
+[1;32mXFAIL[m: all.test 89 # TODO
+[1;34mSKIP[m: all.test 90 # SKIP
+[0;32mPASS[m: all.test 91
+[1;32mXFAIL[m: all.test 92 # TODO
+[1;34mSKIP[m: all.test 93 # SKIP
+[0;32mPASS[m: all.test 94
+[1;32mXFAIL[m: all.test 95 # TODO
+[1;34mSKIP[m: all.test 96 # SKIP
+[0;32mPASS[m: all.test 97
+[1;32mXFAIL[m: all.test 98 # TODO
+[1;34mSKIP[m: all.test 99 # SKIP
+[0;32mPASS[m: all.test 100
+[1;32mXFAIL[m: all.test 101 # TODO
+[1;34mSKIP[m: all.test 102 # SKIP
+[0;32mPASS[m: all.test 103
+[1;32mXFAIL[m: all.test 104 # TODO
+[1;34mSKIP[m: all.test 105 # SKIP
+[0;32mPASS[m: all.test 106
+[1;32mXFAIL[m: all.test 107 # TODO
+[1;34mSKIP[m: all.test 108 # SKIP
+[0;32mPASS[m: all.test 109
+[1;32mXFAIL[m: all.test 110 # TODO
+[1;34mSKIP[m: all.test 111 # SKIP
+[0;32mPASS[m: all.test 112
+[1;32mXFAIL[m: all.test 113 # TODO
+[1;34mSKIP[m: all.test 114 # SKIP
+[0;32mPASS[m: all.test 115
+[1;32mXFAIL[m: all.test 116 # TODO
+[1;34mSKIP[m: all.test 117 # SKIP
+[0;32mPASS[m: all.test 118
+[1;32mXFAIL[m: all.test 119 # TODO
+[1;34mSKIP[m: all.test 120 # SKIP
+[0;32mPASS[m: all.test 121
+[1;32mXFAIL[m: all.test 122 # TODO
+[1;34mSKIP[m: all.test 123 # SKIP
+[0;32mPASS[m: all.test 124
+[1;32mXFAIL[m: all.test 125 # TODO
+[1;34mSKIP[m: all.test 126 # SKIP
+[0;32mPASS[m: all.test 127
+[1;32mXFAIL[m: all.test 128 # TODO
+[1;34mSKIP[m: all.test 129 # SKIP
+[0;32mPASS[m: all.test 130
+[1;32mXFAIL[m: all.test 131 # TODO
+[1;34mSKIP[m: all.test 132 # SKIP
+[0;32mPASS[m: all.test 133
+[1;32mXFAIL[m: all.test 134 # TODO
+[1;34mSKIP[m: all.test 135 # SKIP
+[0;32mPASS[m: all.test 136
+[1;32mXFAIL[m: all.test 137 # TODO
+[1;34mSKIP[m: all.test 138 # SKIP
+[0;32mPASS[m: all.test 139
+[1;32mXFAIL[m: all.test 140 # TODO
+[1;34mSKIP[m: all.test 141 # SKIP
+[0;32mPASS[m: all.test 142
+[1;32mXFAIL[m: all.test 143 # TODO
+[1;34mSKIP[m: all.test 144 # SKIP
+[0;32mPASS[m: all.test 145
+[1;32mXFAIL[m: all.test 146 # TODO
+[1;34mSKIP[m: all.test 147 # SKIP
+[0;32mPASS[m: all.test 148
+[1;32mXFAIL[m: all.test 149 # TODO
+[1;34mSKIP[m: all.test 150 # SKIP
+[0;32mPASS[m: all.test 151
+[1;32mXFAIL[m: all.test 152 # TODO
+[1;34mSKIP[m: all.test 153 # SKIP
+[0;32mPASS[m: all.test 154
+[1;32mXFAIL[m: all.test 155 # TODO
+[1;34mSKIP[m: all.test 156 # SKIP
+[0;32mPASS[m: all.test 157
+[1;32mXFAIL[m: all.test 158 # TODO
+[1;34mSKIP[m: all.test 159 # SKIP
+[0;32mPASS[m: all.test 160
+[1;32mXFAIL[m: all.test 161 # TODO
+[1;34mSKIP[m: all.test 162 # SKIP
+[0;32mPASS[m: all.test 163
+[1;32mXFAIL[m: all.test 164 # TODO
+[1;34mSKIP[m: all.test 165 # SKIP
+[0;32mPASS[m: all.test 166
+[1;32mXFAIL[m: all.test 167 # TODO
+[1;34mSKIP[m: all.test 168 # SKIP
+[0;32mPASS[m: all.test 169
+[1;32mXFAIL[m: all.test 170 # TODO
+[1;34mSKIP[m: all.test 171 # SKIP
+[0;32mPASS[m: all.test 172
+[1;32mXFAIL[m: all.test 173 # TODO
+[1;34mSKIP[m: all.test 174 # SKIP
+[0;32mPASS[m: all.test 175
+[1;32mXFAIL[m: all.test 176 # TODO
+[1;34mSKIP[m: all.test 177 # SKIP
+[0;32mPASS[m: all.test 178
+[1;32mXFAIL[m: all.test 179 # TODO
+[1;34mSKIP[m: all.test 180 # SKIP
+[0;32mPASS[m: all.test 181
+[1;32mXFAIL[m: all.test 182 # TODO
+[1;34mSKIP[m: all.test 183 # SKIP
+[0;32mPASS[m: all.test 184
+[1;32mXFAIL[m: all.test 185 # TODO
+[1;34mSKIP[m: all.test 186 # SKIP
+[0;32mPASS[m: all.test 187
+[1;32mXFAIL[m: all.test 188 # TODO
+[1;34mSKIP[m: all.test 189 # SKIP
+[0;32mPASS[m: all.test 190
+[1;32mXFAIL[m: all.test 191 # TODO
+[1;34mSKIP[m: all.test 192 # SKIP
+[0;32mPASS[m: all.test 193
+[1;32mXFAIL[m: all.test 194 # TODO
+[1;34mSKIP[m: all.test 195 # SKIP
+[0;32mPASS[m: all.test 196
+[1;32mXFAIL[m: all.test 197 # TODO
+[1;34mSKIP[m: all.test 198 # SKIP
+[0;32mPASS[m: all.test 199
+[1;32mXFAIL[m: all.test 200 # TODO
+[1;34mSKIP[m: all.test 201 # SKIP
+[0;32mPASS[m: all.test 202
+[1;32mXFAIL[m: all.test 203 # TODO
+[1;34mSKIP[m: all.test 204 # SKIP
+[0;32mPASS[m: all.test 205
+[1;32mXFAIL[m: all.test 206 # TODO
+[1;34mSKIP[m: all.test 207 # SKIP
+[0;32mPASS[m: all.test 208
+[1;32mXFAIL[m: all.test 209 # TODO
+[1;34mSKIP[m: all.test 210 # SKIP
+[0;32mPASS[m: all.test 211
+[1;32mXFAIL[m: all.test 212 # TODO
+[1;34mSKIP[m: all.test 213 # SKIP
+[0;32mPASS[m: all.test 214
+[1;32mXFAIL[m: all.test 215 # TODO
+[1;34mSKIP[m: all.test 216 # SKIP
+[0;32mPASS[m: all.test 217
+[1;32mXFAIL[m: all.test 218 # TODO
+[1;34mSKIP[m: all.test 219 # SKIP
+[0;32mPASS[m: all.test 220
+[1;32mXFAIL[m: all.test 221 # TODO
+[1;34mSKIP[m: all.test 222 # SKIP
+[0;32mPASS[m: all.test 223
+[1;32mXFAIL[m: all.test 224 # TODO
+[1;34mSKIP[m: all.test 225 # SKIP
+[0;32mPASS[m: all.test 226
+[1;32mXFAIL[m: all.test 227 # TODO
+[1;34mSKIP[m: all.test 228 # SKIP
+[0;32mPASS[m: all.test 229
+[1;32mXFAIL[m: all.test 230 # TODO
+[1;34mSKIP[m: all.test 231 # SKIP
+[0;32mPASS[m: all.test 232
+[1;32mXFAIL[m: all.test 233 # TODO
+[1;34mSKIP[m: all.test 234 # SKIP
+[0;32mPASS[m: all.test 235
+[1;32mXFAIL[m: all.test 236 # TODO
+[1;34mSKIP[m: all.test 237 # SKIP
+[0;32mPASS[m: all.test 238
+[1;32mXFAIL[m: all.test 239 # TODO
+[1;34mSKIP[m: all.test 240 # SKIP
+[0;32mPASS[m: all.test 241
+[1;32mXFAIL[m: all.test 242 # TODO
+[1;34mSKIP[m: all.test 243 # SKIP
+[0;32mPASS[m: all.test 244
+[1;32mXFAIL[m: all.test 245 # TODO
+[1;34mSKIP[m: all.test 246 # SKIP
+[0;32mPASS[m: all.test 247
+[1;32mXFAIL[m: all.test 248 # TODO
+[1;34mSKIP[m: all.test 249 # SKIP
+[0;32mPASS[m: all.test 250
+[1;32mXFAIL[m: all.test 251 # TODO
+[1;34mSKIP[m: all.test 252 # SKIP
+[0;32mPASS[m: all.test 253
+[1;32mXFAIL[m: all.test 254 # TODO
+[1;34mSKIP[m: all.test 255 # SKIP
+[0;32mPASS[m: all.test 256
+[1;32mXFAIL[m: all.test 257 # TODO
+[1;34mSKIP[m: all.test 258 # SKIP
+[0;32mPASS[m: all.test 259
+[1;32mXFAIL[m: all.test 260 # TODO
+[1;34mSKIP[m: all.test 261 # SKIP
+[0;32mPASS[m: all.test 262
+[1;32mXFAIL[m: all.test 263 # TODO
+[1;34mSKIP[m: all.test 264 # SKIP
+[0;32mPASS[m: all.test 265
+[1;32mXFAIL[m: all.test 266 # TODO
+[1;34mSKIP[m: all.test 267 # SKIP
+[0;32mPASS[m: all.test 268
+[1;32mXFAIL[m: all.test 269 # TODO
+[1;34mSKIP[m: all.test 270 # SKIP
+[0;32mPASS[m: all.test 271
+[1;32mXFAIL[m: all.test 272 # TODO
+[1;34mSKIP[m: all.test 273 # SKIP
+[0;32mPASS[m: all.test 274
+[1;32mXFAIL[m: all.test 275 # TODO
+[1;34mSKIP[m: all.test 276 # SKIP
+[0;32mPASS[m: all.test 277
+[1;32mXFAIL[m: all.test 278 # TODO
+[1;34mSKIP[m: all.test 279 # SKIP
+[0;32mPASS[m: all.test 280
+[1;32mXFAIL[m: all.test 281 # TODO
+[1;34mSKIP[m: all.test 282 # SKIP
+[0;32mPASS[m: all.test 283
+[1;32mXFAIL[m: all.test 284 # TODO
+[1;34mSKIP[m: all.test 285 # SKIP
+[0;32mPASS[m: all.test 286
+[1;32mXFAIL[m: all.test 287 # TODO
+[1;34mSKIP[m: all.test 288 # SKIP
+[0;32mPASS[m: all.test 289
+[1;32mXFAIL[m: all.test 290 # TODO
+[1;34mSKIP[m: all.test 291 # SKIP
+[0;32mPASS[m: all.test 292
+[1;32mXFAIL[m: all.test 293 # TODO
+[1;34mSKIP[m: all.test 294 # SKIP
+[0;32mPASS[m: all.test 295
+[1;32mXFAIL[m: all.test 296 # TODO
+[1;34mSKIP[m: all.test 297 # SKIP
+[0;32mPASS[m: all.test 298
+[1;32mXFAIL[m: all.test 299 # TODO
+[1;34mSKIP[m: all.test 300 # SKIP
+[0;32mPASS[m: all.test 301
+[1;32mXFAIL[m: all.test 302 # TODO
+[1;34mSKIP[m: all.test 303 # SKIP
+[0;32mPASS[m: all.test 304
+[1;32mXFAIL[m: all.test 305 # TODO
+[1;34mSKIP[m: all.test 306 # SKIP
+[0;32mPASS[m: all.test 307
+[1;32mXFAIL[m: all.test 308 # TODO
+[1;34mSKIP[m: all.test 309 # SKIP
+[0;32mPASS[m: all.test 310
+[1;32mXFAIL[m: all.test 311 # TODO
+[1;34mSKIP[m: all.test 312 # SKIP
+[0;32mPASS[m: all.test 313
+[1;32mXFAIL[m: all.test 314 # TODO
+[1;34mSKIP[m: all.test 315 # SKIP
+[0;32mPASS[m: all.test 316
+[1;32mXFAIL[m: all.test 317 # TODO
+[1;34mSKIP[m: all.test 318 # SKIP
+[0;32mPASS[m: all.test 319
+[1;32mXFAIL[m: all.test 320 # TODO
+[1;34mSKIP[m: all.test 321 # SKIP
+[0;32mPASS[m: all.test 322
+[1;32mXFAIL[m: all.test 323 # TODO
+[1;34mSKIP[m: all.test 324 # SKIP
+[0;32mPASS[m: all.test 325
+[1;32mXFAIL[m: all.test 326 # TODO
+[1;34mSKIP[m: all.test 327 # SKIP
+[0;32mPASS[m: all.test 328
+[1;32mXFAIL[m: all.test 329 # TODO
+[1;34mSKIP[m: all.test 330 # SKIP
+[0;35mERROR[m: all.test - Bail out!
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 331[m
+[0;32m# PASS:  110[m
+[1;34m# SKIP:  110[m
+[1;32m# XFAIL: 110[m
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-summary-color.dir'
+++ test no = yes
+++ case $am__make_rc_exp in
+++ : Ignore exit status
+++ test yes = yes
+++ test 2 -gt 0
+++ /usr/bin/perl /sources/automake-1.16.1/t/ax/extract-testsuite-summary.pl stdout
+++ cat summary.exp
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 331[m
+[0;32m# PASS:  110[m
+[1;34m# SKIP:  110[m
+[1;32m# XFAIL: 110[m
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ cat summary.got
+[0;31m============================================================================[m
+[0;31mTestsuite summary for GNU AutoTAP 5.12[m
+[0;31m============================================================================[m
+[1m# TOTAL: 331[m
+[0;32m# PASS:  110[m
+[1;34m# SKIP:  110[m
+[1;32m# XFAIL: 110[m
+# FAIL:  0
+# XPASS: 0
+[0;35m# ERROR: 1[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31mPlease report to bug-automake@gnu.org[m
+[0;31m============================================================================[m
+++ test yes = yes
+++ compare=cmp
+++ cmp summary.exp summary.got
+++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-summary-color.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-summary-color.dir
++ set +x
+PASS t/tap-summary-color.sh (exit status: 0)

@@ -1,0 +1,175 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir
++ cat
++ cat
++ mkdir sub
++ cat
++ chmod a+x chk-compiler
++ cp chk-compiler test-compiler
++ cp chk-compiler noext-compiler
++ cat
++ chmod a+x foo.chk
++ cp foo.chk bar.test
++ cp foo.chk sub/test
++ cat
++ cp baz.c bla.c
++ cp baz.c bli.c
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+make: Nothing to be done for 'all'.
++ make check
+make  baz bla.test bli.suff
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir'
+cc -DPACKAGE_NAME=\"parallel-tests-log-compiler-2\" -DPACKAGE_TARNAME=\"parallel-tests-log-compiler-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-log-compiler-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-log-compiler-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT baz.o -MD -MP -MF .deps/baz.Tpo -c -o baz.o baz.c
+mv -f .deps/baz.Tpo .deps/baz.Po
+cc  -g -O2   -o baz baz.o  
+cc -DPACKAGE_NAME=\"parallel-tests-log-compiler-2\" -DPACKAGE_TARNAME=\"parallel-tests-log-compiler-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-log-compiler-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-log-compiler-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bla.o -MD -MP -MF .deps/bla.Tpo -c -o bla.o bla.c
+mv -f .deps/bla.Tpo .deps/bla.Po
+cc  -g -O2   -o bla.test bla.o  
+cc -DPACKAGE_NAME=\"parallel-tests-log-compiler-2\" -DPACKAGE_TARNAME=\"parallel-tests-log-compiler-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-log-compiler-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-log-compiler-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bli.o -MD -MP -MF .deps/bli.Tpo -c -o bli.o bli.c
+mv -f .deps/bli.Tpo .deps/bli.Po
+cc  -g -O2   -o bli.suff bli.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir'
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir'
+PASS: foo.chk
+PASS: bar.test
+PASS: baz
+PASS: bla.test
+PASS: bli.suff
+PASS: sub/test
+============================================================================
+Testsuite summary for parallel-tests-log-compiler-2 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-log-compiler-2.dir'
++ ls -l . sub
+.:
+total 540
+-rw-r--r-- 1 root root  38335 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    425 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  38129 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+-rw-r--r-- 1 root root     62 Nov 27 06:44 bar.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 bar.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 bar.trs
+-rwxr-xr-x 1 root root  20496 Nov 27 06:44 baz
+-rw-r--r-- 1 root root     32 Nov 27 06:44 baz.c
+-rw-r--r-- 1 root root     53 Nov 27 06:44 baz.log
+-rw-r--r-- 1 root root   2872 Nov 27 06:44 baz.o
+-rw-r--r-- 1 root root     82 Nov 27 06:44 baz.trs
+-rw-r--r-- 1 root root     32 Nov 27 06:44 bla.c
+-rw-r--r-- 1 root root     62 Nov 27 06:44 bla.log
+-rw-r--r-- 1 root root   2872 Nov 27 06:44 bla.o
+-rwxr-xr-x 1 root root  20496 Nov 27 06:44 bla.test
+-rw-r--r-- 1 root root     82 Nov 27 06:44 bla.trs
+-rw-r--r-- 1 root root     32 Nov 27 06:44 bli.c
+-rw-r--r-- 1 root root   2872 Nov 27 06:44 bli.o
+-rwxr-xr-x 1 root root  20496 Nov 27 06:44 bli.suff
+-rw-r--r-- 1 root root     63 Nov 27 06:44 bli.suff.log
+-rw-r--r-- 1 root root     82 Nov 27 06:44 bli.suff.trs
+-rwxr-xr-x 1 root root     55 Nov 27 06:44 chk-compiler
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   9058 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  29469 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 141346 Nov 27 06:44 configure
+-rw-r--r-- 1 root root    114 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 foo.chk
+-rw-r--r-- 1 root root     59 Nov 27 06:44 foo.log
+-rw-r--r-- 1 root root     82 Nov 27 06:44 foo.trs
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+-rwxr-xr-x 1 root root     55 Nov 27 06:44 noext-compiler
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 sub
+-rwxr-xr-x 1 root root     55 Nov 27 06:44 test-compiler
+lrwxrwxrwx 1 root root     40 Nov 27 06:44 test-driver -> /sources/automake-1.16.1/lib/test-driver
+-rw-r--r-- 1 root root    275 Nov 27 06:44 test-suite.log
+
+sub:
+total 12
+-rwxr-xr-x 1 root root 18 Nov 27 06:44 test
+-rw-r--r-- 1 root root 63 Nov 27 06:44 test.log
+-rw-r--r-- 1 root root 82 Nov 27 06:44 test.trs
++ cat test-suite.log
+=========================================================
+   parallel-tests-log-compiler-2 1.0: ./test-suite.log
+=========================================================
+
+# TOTAL: 6
+# PASS:  6
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
++ grep 'chk-compiler  *1  *2' foo.log
+./chk-compiler 1 2 ./foo.chk
++ grep 'test-compiler  *3  *4' bar.log
+./test-compiler 3 4 ./bar.test
++ grep 'noext-compiler  *5  *6' baz.log
+./noext-compiler 5 6 ./baz
++ grep 'test-compiler  *3  *4' bla.log
+./test-compiler 3 4 ./bla.test
++ grep 'noext-compiler  *5  *6' bli.suff.log
+./noext-compiler 5 6 ./bli.suff
++ grep 'noext-compiler  *5  *6' sub/test.log
+./noext-compiler 5 6 ./sub/test
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-log-compiler-2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-log-compiler-2.dir
++ set +x
+PASS t/parallel-tests-log-compiler-2.sh (exit status: 0)

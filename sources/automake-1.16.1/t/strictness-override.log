@@ -1,0 +1,476 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/strictness-override.dir
++ AUTOMAKE=automake-1.16
++ cat
++ aclocal-1.16 -Werror
++ touch INSTALL NEWS AUTHORS ChangeLog COPYING
++ rm -rf autom4te.cache
++ set_strictness '' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = 
++ set_strictness '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ ko --gnu
++ AUTOMAKE_fails --gnu
++ AUTOMAKE_run -e 1 --gnu
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ok --foreign
++ automake-1.16 -Werror --foreign
++ rm -rf autom4te.cache
++ set_strictness gnu Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = gnu
++ set_strictness '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ ko --gnu
++ AUTOMAKE_fails --gnu
++ AUTOMAKE_run -e 1 --gnu
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko --foreign
++ AUTOMAKE_fails --foreign
++ AUTOMAKE_run -e 1 --foreign
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ rm -rf autom4te.cache
++ set_strictness '' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = 
++ set_strictness gnu configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([gnu])
+AC_CONFIG_FILES([Makefile])
++ ko --gnu
++ AUTOMAKE_fails --gnu
++ AUTOMAKE_run -e 1 --gnu
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko --foreign
++ AUTOMAKE_fails --foreign
++ AUTOMAKE_run -e 1 --foreign
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ rm -rf autom4te.cache
++ set_strictness foreign Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = foreign
++ set_strictness '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ ok --gnu
++ automake-1.16 -Werror --gnu
++ ok
++ automake-1.16 -Werror
++ ok --foreign
++ automake-1.16 -Werror --foreign
++ rm -rf autom4te.cache
++ set_strictness '' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = 
++ set_strictness foreign configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([foreign])
+AC_CONFIG_FILES([Makefile])
++ ok --gnu
++ automake-1.16 -Werror --gnu
++ ok
++ automake-1.16 -Werror
++ ok --foreign
++ automake-1.16 -Werror --foreign
++ rm -rf autom4te.cache
++ set_strictness gnu Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = gnu
++ set_strictness gnu configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([gnu])
+AC_CONFIG_FILES([Makefile])
++ ko --gnu
++ AUTOMAKE_fails --gnu
++ AUTOMAKE_run -e 1 --gnu
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko --foreign
++ AUTOMAKE_fails --foreign
++ AUTOMAKE_run -e 1 --foreign
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ rm -rf autom4te.cache
++ set_strictness foreign Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = foreign
++ set_strictness foreign configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([foreign])
+AC_CONFIG_FILES([Makefile])
++ ok --gnu
++ automake-1.16 -Werror --gnu
++ ok
++ automake-1.16 -Werror
++ ok --foreign
++ automake-1.16 -Werror --foreign
++ rm -rf autom4te.cache
++ set_strictness foreign Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = foreign
++ set_strictness gnu configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([gnu])
+AC_CONFIG_FILES([Makefile])
++ ok --gnu
++ automake-1.16 -Werror --gnu
++ ok
++ automake-1.16 -Werror
++ ok --foreign
++ automake-1.16 -Werror --foreign
++ rm -rf autom4te.cache
++ set_strictness gnu Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = gnu
++ set_strictness foreign configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-override], [1.0])
+AM_INIT_AUTOMAKE([foreign])
+AC_CONFIG_FILES([Makefile])
++ ko --gnu
++ AUTOMAKE_fails --gnu
++ AUTOMAKE_run -e 1 --gnu
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ko --foreign
++ AUTOMAKE_fails --foreign
++ AUTOMAKE_run -e 1 --foreign
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/strictness-override.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/strictness-override.dir
++ set +x
+PASS t/strictness-override.sh (exit status: 0)

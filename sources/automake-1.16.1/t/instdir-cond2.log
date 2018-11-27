@@ -1,0 +1,52 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/instdir-cond2.dir
++ cat
++ :
++ :
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
+++ pwd
++ ./configure --prefix=/sources/automake-1.16.1/t/instdir-cond2.dir/inst
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make installdirs
+for dir in "/sources/automake-1.16.1/t/instdir-cond2.dir/inst/libexec/instdir-cond2" "/sources/automake-1.16.1/t/instdir-cond2.dir/inst/share/instdir-cond2"; do \
+  test -z "$dir" || /tools/bin/mkdir -p "$dir"; \
+done
++ test '!' -e inst
++ find inst
+inst
+inst/libexec
+inst/libexec/instdir-cond2
+inst/share
+inst/share/instdir-cond2
++ _am_exit 1
++ set +e
++ test 77 = 1
++ exit 1
++ exit 1
++ am_exit_trap 1
++ exit_status=1
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 1 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+XFAIL t/instdir-cond2.sh (exit status: 1)

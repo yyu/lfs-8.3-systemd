@@ -1,0 +1,47 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/colon7.dir
++ cat
++ mkdir subdir
++ :
++ :
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -F bar.in Makefile.in subdir/Makefile.in
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating subdir/bar
+config.status: creating Makefile
+config.status: creating subdir/Makefile
++ cd subdir
++ make test
+case './Makefile.am ./Makefile.in ./foo' in *subdir/foo*) exit 1;; *) exit 0;; esac
+echo ' ' ./Makefile.am ./Makefile.in ./foo ' ' | grep '[ /]foo '
+  ./Makefile.am ./Makefile.in ./foo  
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/colon7.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/colon7.dir
++ set +x
+PASS t/colon7.sh (exit status: 0)

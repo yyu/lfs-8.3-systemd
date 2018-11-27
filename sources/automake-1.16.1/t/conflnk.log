@@ -1,0 +1,87 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/conflnk.dir
++ echo 'SUBDIRS = sdir'
++ :
++ mkdir sdir
++ :
++ :
++ mkdir sdir-no-make
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sdir/Makefile
+config.status: linking src to dest
+config.status: linking src to dest2
+config.status: linking src to sdir/dest3
+config.status: linking sdir/src2 to dest4
+config.status: linking sdir/src2 to sdir/dest5
+config.status: linking src to sdir-no-make/dest6
++ make clean
+Making clean in sdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk.dir/sdir'
+make[1]: Nothing to be done for 'clean'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk.dir/sdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk.dir'
++ test -r dest
++ test -r dest2
++ test -r sdir/dest3
++ test -r dest4
++ test -r sdir/dest5
++ test -r sdir-no-make/dest6
++ test -f src
++ test -f sdir/src2
++ make distclean
+Making distclean in sdir
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk.dir/sdir'
+test -z "dest3 dest5" || rm -f dest3 dest5
+test . = "." || test -z "" || rm -f 
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk.dir/sdir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/conflnk.dir'
+test -z "dest dest2 dest4 sdir-no-make/dest6" || rm -f dest dest2 dest4 sdir-no-make/dest6
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/conflnk.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ test -f src
++ test -f sdir/src2
++ test -r dest
++ test -r dest2
++ test -r sdir/dest3
++ test -r dest4
++ test -r sdir/dest5
++ test -r sdir-no-make/dest6
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/conflnk.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/conflnk.dir
++ set +x
+PASS t/conflnk.sh (exit status: 0)

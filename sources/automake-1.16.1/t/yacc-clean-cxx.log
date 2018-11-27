@@ -1,0 +1,561 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-clean-cxx.dir
++ cat
++ cat
++ mkdir sub1 sub2
++ cat
++ cat
++ cat
++ cp sub1/parsefoo.yxx sub1/parsebar.yy
++ cp sub1/parsefoo.yxx sub2/parsefoo.yxx
++ cp sub1/parsefoo.yxx sub2/parsebar.yy
++ cat
++ cp sub1/mainfoo.cc sub1/mainbar.cpp
++ cp sub1/mainfoo.cc sub1/mainbaz.c++
++ cp sub1/mainfoo.cc sub1/mainqux.cxx
++ cp sub1/mainbar.cpp sub1/mainbaz.c++ sub1/mainfoo.cc sub1/mainqux.cxx sub2
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of c++... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: executing depfiles commands
++ cp config.status config.sav
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainfoo.o -MD -MP -MF .deps/mainfoo.Tpo -c -o mainfoo.o mainfoo.cc
+mv -f .deps/mainfoo.Tpo .deps/mainfoo.Po
+/bin/sh ../ylwrap parsefoo.yxx y.tab.c parsefoo.cxx y.tab.h `echo parsefoo.cxx | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parsefoo.output -- yacc  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parsefoo.o -MD -MP -MF .deps/parsefoo.Tpo -c -o parsefoo.o parsefoo.cxx
+mv -f .deps/parsefoo.Tpo .deps/parsefoo.Po
+c++  -g -O2   -o foo mainfoo.o parsefoo.o  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainbar.o -MD -MP -MF .deps/mainbar.Tpo -c -o mainbar.o mainbar.cpp
+mv -f .deps/mainbar.Tpo .deps/mainbar.Po
+\
+ \
+/bin/sh ../ylwrap `test -f 'parsebar.yy' || echo './'`parsebar.yy y.tab.c bar-parsebar.cc y.tab.h `echo bar-parsebar.cc | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-parsebar.output -- yacc  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar-parsebar.o -MD -MP -MF .deps/bar-parsebar.Tpo -c -o bar-parsebar.o bar-parsebar.cc
+mv -f .deps/bar-parsebar.Tpo .deps/bar-parsebar.Po
+c++  -g -O2   -o bar mainbar.o bar-parsebar.o  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainbaz.o -MD -MP -MF .deps/mainbaz.Tpo -c -o mainbaz.o mainbaz.c++
+mv -f .deps/mainbaz.Tpo .deps/mainbaz.Po
+cp ./parsefoo.yxx parsebaz.y++
+\
+/bin/sh ../ylwrap `test -f 'parsebaz.y++' || echo './'`parsebaz.y++ y.tab.c parsebaz.c++ y.tab.h `echo parsebaz.c++ | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parsebaz.output -- yacc  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parsebaz.o -MD -MP -MF .deps/parsebaz.Tpo -c -o parsebaz.o parsebaz.c++
+mv -f .deps/parsebaz.Tpo .deps/parsebaz.Po
+c++  -g -O2   -o baz mainbaz.o parsebaz.o  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainqux.o -MD -MP -MF .deps/mainqux.Tpo -c -o mainqux.o mainqux.cxx
+mv -f .deps/mainqux.Tpo .deps/mainqux.Po
+cp ./parsefoo.yxx parsequx.ypp
+\
+/bin/sh ../ylwrap `test -f 'parsequx.ypp' || echo './'`parsequx.ypp y.tab.c qux-parsequx.cpp y.tab.h `echo qux-parsequx.cpp | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output qux-parsequx.output -- yacc  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT qux-parsequx.o -MD -MP -MF .deps/qux-parsequx.Tpo -c -o qux-parsequx.o qux-parsequx.cpp
+mv -f .deps/qux-parsequx.Tpo .deps/qux-parsequx.Po
+c++  -g -O2   -o qux mainqux.o qux-parsequx.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainfoo.o -MD -MP -MF .deps/mainfoo.Tpo -c -o mainfoo.o mainfoo.cc
+mv -f .deps/mainfoo.Tpo .deps/mainfoo.Po
+/bin/sh ../ylwrap parsefoo.yxx y.tab.c parsefoo.cxx y.tab.h `echo parsefoo.cxx | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parsefoo.output -- yacc -d 
+updating parsefoo.hxx
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parsefoo.o -MD -MP -MF .deps/parsefoo.Tpo -c -o parsefoo.o parsefoo.cxx
+mv -f .deps/parsefoo.Tpo .deps/parsefoo.Po
+c++  -g -O2   -o foo mainfoo.o parsefoo.o  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainbar.o -MD -MP -MF .deps/mainbar.Tpo -c -o mainbar.o mainbar.cpp
+mv -f .deps/mainbar.Tpo .deps/mainbar.Po
+\
+ \
+/bin/sh ../ylwrap `test -f 'parsebar.yy' || echo './'`parsebar.yy y.tab.c bar-parsebar.cc y.tab.h `echo bar-parsebar.cc | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output bar-parsebar.output -- yacc -d 
+updating bar-parsebar.hh
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT bar-parsebar.o -MD -MP -MF .deps/bar-parsebar.Tpo -c -o bar-parsebar.o bar-parsebar.cc
+mv -f .deps/bar-parsebar.Tpo .deps/bar-parsebar.Po
+c++  -g -O2   -o bar mainbar.o bar-parsebar.o  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainbaz.o -MD -MP -MF .deps/mainbaz.Tpo -c -o mainbaz.o mainbaz.c++
+mv -f .deps/mainbaz.Tpo .deps/mainbaz.Po
+cp ./parsefoo.yxx parsebaz.y++
+\
+/bin/sh ../ylwrap `test -f 'parsebaz.y++' || echo './'`parsebaz.y++ y.tab.c parsebaz.c++ y.tab.h `echo parsebaz.c++ | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parsebaz.output -- yacc -d 
+updating parsebaz.h++
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parsebaz.o -MD -MP -MF .deps/parsebaz.Tpo -c -o parsebaz.o parsebaz.c++
+mv -f .deps/parsebaz.Tpo .deps/parsebaz.Po
+c++  -g -O2   -o baz mainbaz.o parsebaz.o  
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT mainqux.o -MD -MP -MF .deps/mainqux.Tpo -c -o mainqux.o mainqux.cxx
+mv -f .deps/mainqux.Tpo .deps/mainqux.Po
+cp ./parsefoo.yxx parsequx.ypp
+\
+/bin/sh ../ylwrap `test -f 'parsequx.ypp' || echo './'`parsequx.ypp y.tab.c qux-parsequx.cpp y.tab.h `echo qux-parsequx.cpp | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output qux-parsequx.output -- yacc -d 
+updating qux-parsequx.hpp
+c++ -DPACKAGE_NAME=\"yacc-clean-cxx\" -DPACKAGE_TARNAME=\"yacc-clean-cxx\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-clean-cxx\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-clean-cxx\" -DVERSION=\"1.0\" -I.     -g -O2 -MT qux-parsequx.o -MD -MP -MF .deps/qux-parsequx.Tpo -c -o qux-parsequx.o qux-parsequx.cpp
+mv -f .deps/qux-parsequx.Tpo .deps/qux-parsequx.Po
+c++  -g -O2   -o qux mainqux.o qux-parsequx.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
++ ls -l . sub1 sub2
+.:
+total 372
+-rw-r--r-- 1 root root  24410 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23878 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   8758 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  29446 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root  29446 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 133239 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    160 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 504
+-rw-r--r-- 1 root root 24191 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root   381 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 25263 Nov 27 06:50 Makefile.in
+-rwxr-xr-x 1 root root 34736 Nov 27 06:50 bar
+-rw-r--r-- 1 root root 42339 Nov 27 06:50 bar-parsebar.cc
+-rw-r--r-- 1 root root 18360 Nov 27 06:50 bar-parsebar.o
+-rwxr-xr-x 1 root root 34728 Nov 27 06:50 baz
+-rwxr-xr-x 1 root root 34728 Nov 27 06:50 foo
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainbar.o
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainbaz.o
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainfoo.o
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainqux.o
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root 42329 Nov 27 06:50 parsebaz.c++
+-rw-r--r-- 1 root root 18360 Nov 27 06:50 parsebaz.o
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebaz.y++
+-rw-r--r-- 1 root root 42329 Nov 27 06:50 parsefoo.cxx
+-rw-r--r-- 1 root root 18360 Nov 27 06:50 parsefoo.o
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsequx.ypp
+-rwxr-xr-x 1 root root 34736 Nov 27 06:50 qux
+-rw-r--r-- 1 root root 42345 Nov 27 06:50 qux-parsequx.cpp
+-rw-r--r-- 1 root root 18368 Nov 27 06:50 qux-parsequx.o
+
+sub2:
+total 524
+-rw-r--r-- 1 root root 25083 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 26155 Nov 27 06:50 Makefile.in
+-rwxr-xr-x 1 root root 34736 Nov 27 06:50 bar
+-rw-r--r-- 1 root root 42555 Nov 27 06:50 bar-parsebar.cc
+-rw-r--r-- 1 root root  1959 Nov 27 06:50 bar-parsebar.hh
+-rw-r--r-- 1 root root 18360 Nov 27 06:50 bar-parsebar.o
+-rwxr-xr-x 1 root root 34728 Nov 27 06:50 baz
+-rwxr-xr-x 1 root root 34728 Nov 27 06:50 foo
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainbar.o
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainbaz.o
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainfoo.o
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root  3872 Nov 27 06:50 mainqux.o
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root 42533 Nov 27 06:50 parsebaz.c++
+-rw-r--r-- 1 root root  1947 Nov 27 06:50 parsebaz.h++
+-rw-r--r-- 1 root root 18360 Nov 27 06:50 parsebaz.o
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebaz.y++
+-rw-r--r-- 1 root root 42536 Nov 27 06:50 parsefoo.cxx
+-rw-r--r-- 1 root root  1950 Nov 27 06:50 parsefoo.hxx
+-rw-r--r-- 1 root root 18360 Nov 27 06:50 parsefoo.o
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsequx.ypp
+-rwxr-xr-x 1 root root 34736 Nov 27 06:50 qux
+-rw-r--r-- 1 root root 42564 Nov 27 06:50 qux-parsequx.cpp
+-rw-r--r-- 1 root root  1962 Nov 27 06:50 qux-parsequx.hpp
+-rw-r--r-- 1 root root 18368 Nov 27 06:50 qux-parsequx.o
++ test -f sub1/parsefoo.cxx
++ test -f sub1/bar-parsebar.cc
++ test -f sub1/parsebaz.y++
++ test -f sub1/parsebaz.c++
++ test -f sub1/parsequx.ypp
++ test -f sub1/qux-parsequx.cpp
++ test -f sub2/parsefoo.cxx
++ test -f sub2/parsefoo.hxx
++ test -f sub2/bar-parsebar.cc
++ test -f sub2/bar-parsebar.hh
++ test -f sub2/parsebaz.y++
++ test -f sub2/parsebaz.c++
++ test -f sub2/parsebaz.h++
++ test -f sub2/parsequx.ypp
++ test -f sub2/qux-parsequx.cpp
++ test -f sub2/qux-parsequx.hpp
++ for target in clean distclean
++ make clean
+Making clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f parsebaz.c++
+rm -f qux-parsequx.cpp
+test -z "parsebaz.y++ parsequx.ypp" || rm -f parsebaz.y++ parsequx.ypp
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f parsebaz.c++
+rm -f parsebaz.h++
+rm -f qux-parsequx.cpp
+rm -f qux-parsequx.hpp
+test -z "parsebaz.y++ parsequx.ypp" || rm -f parsebaz.y++ parsequx.ypp
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
+make[1]: Nothing to be done for 'clean-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
++ ls -l . sub1 sub2
+.:
+total 372
+-rw-r--r-- 1 root root  24410 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23878 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   8758 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  29446 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root  29446 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 133239 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    160 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 168
+-rw-r--r-- 1 root root 24191 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root   381 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 25263 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42339 Nov 27 06:50 bar-parsebar.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root 42329 Nov 27 06:50 parsefoo.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
+
+sub2:
+total 180
+-rw-r--r-- 1 root root 25083 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 26155 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42555 Nov 27 06:50 bar-parsebar.cc
+-rw-r--r-- 1 root root  1959 Nov 27 06:50 bar-parsebar.hh
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root 42536 Nov 27 06:50 parsefoo.cxx
+-rw-r--r-- 1 root root  1950 Nov 27 06:50 parsefoo.hxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
++ test -f sub1/parsefoo.cxx
++ test -f sub1/bar-parsebar.cc
++ test '!' -e sub1/parsebaz.y++
++ test '!' -e sub1/parsebaz.c++
++ test '!' -e sub1/parsequx.ypp
++ test '!' -e sub1/qux-parsequx.cpp
++ test -f sub2/parsefoo.cxx
++ test -f sub2/parsefoo.hxx
++ test -f sub2/bar-parsebar.cc
++ test -f sub2/bar-parsebar.hh
++ test '!' -e sub2/parsebaz.y++
++ test '!' -e sub2/parsebaz.c++
++ test '!' -e sub2/parsebaz.h++
++ test '!' -e sub2/parsequx.ypp
++ test '!' -e sub2/qux-parsequx.cpp
++ test '!' -e sub2/qux-parsequx.hpp
++ for target in clean distclean
++ make distclean
+Making distclean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f parsebaz.c++
+rm -f qux-parsequx.cpp
+test -z "parsebaz.y++ parsequx.ypp" || rm -f parsebaz.y++ parsequx.ypp
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/bar-parsebar.Po
+rm -f ./.deps/mainbar.Po
+rm -f ./.deps/mainbaz.Po
+rm -f ./.deps/mainfoo.Po
+rm -f ./.deps/mainqux.Po
+rm -f ./.deps/parsebaz.Po
+rm -f ./.deps/parsefoo.Po
+rm -f ./.deps/qux-parsequx.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+Making distclean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f parsebaz.c++
+rm -f parsebaz.h++
+rm -f qux-parsequx.cpp
+rm -f qux-parsequx.hpp
+test -z "parsebaz.y++ parsequx.ypp" || rm -f parsebaz.y++ parsequx.ypp
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/bar-parsebar.Po
+rm -f ./.deps/mainbar.Po
+rm -f ./.deps/mainbaz.Po
+rm -f ./.deps/mainfoo.Po
+rm -f ./.deps/mainqux.Po
+rm -f ./.deps/parsebaz.Po
+rm -f ./.deps/parsefoo.Po
+rm -f ./.deps/qux-parsequx.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
++ ls -l . sub1 sub2
+.:
+total 304
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23878 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root  29446 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root 133239 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    160 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 144
+-rw-r--r-- 1 root root   381 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 25263 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42339 Nov 27 06:50 bar-parsebar.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root 42329 Nov 27 06:50 parsefoo.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
+
+sub2:
+total 152
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 26155 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root 42555 Nov 27 06:50 bar-parsebar.cc
+-rw-r--r-- 1 root root  1959 Nov 27 06:50 bar-parsebar.hh
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root 42536 Nov 27 06:50 parsefoo.cxx
+-rw-r--r-- 1 root root  1950 Nov 27 06:50 parsefoo.hxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
++ test -f sub1/parsefoo.cxx
++ test -f sub1/bar-parsebar.cc
++ test '!' -e sub1/parsebaz.y++
++ test '!' -e sub1/parsebaz.c++
++ test '!' -e sub1/parsequx.ypp
++ test '!' -e sub1/qux-parsequx.cpp
++ test -f sub2/parsefoo.cxx
++ test -f sub2/parsefoo.hxx
++ test -f sub2/bar-parsebar.cc
++ test -f sub2/bar-parsebar.hh
++ test '!' -e sub2/parsebaz.y++
++ test '!' -e sub2/parsebaz.c++
++ test '!' -e sub2/parsebaz.h++
++ test '!' -e sub2/parsequx.ypp
++ test '!' -e sub2/qux-parsequx.cpp
++ test '!' -e sub2/qux-parsequx.hpp
++ cp config.sav config.status
++ ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: executing depfiles commands
++ make maintainer-clean
+Making maintainer-clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f parsebaz.c++
+rm -f qux-parsequx.cpp
+test -z "parsebaz.y++ parsequx.ypp" || rm -f parsebaz.y++ parsequx.ypp
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar-parsebar.cc
+rm -f parsefoo.cxx
+rm -f ./.deps/bar-parsebar.Po
+rm -f ./.deps/mainbar.Po
+rm -f ./.deps/mainbaz.Po
+rm -f ./.deps/mainfoo.Po
+rm -f ./.deps/mainqux.Po
+rm -f ./.deps/parsebaz.Po
+rm -f ./.deps/parsefoo.Po
+rm -f ./.deps/qux-parsequx.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub1'
+Making maintainer-clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+test -z "foo bar baz qux" || rm -f foo bar baz qux
+rm -f parsebaz.c++
+rm -f parsebaz.h++
+rm -f qux-parsequx.cpp
+rm -f qux-parsequx.hpp
+test -z "parsebaz.y++ parsequx.ypp" || rm -f parsebaz.y++ parsequx.ypp
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f bar-parsebar.cc
+rm -f bar-parsebar.hh
+rm -f parsefoo.cxx
+rm -f parsefoo.hxx
+rm -f ./.deps/bar-parsebar.Po
+rm -f ./.deps/mainbar.Po
+rm -f ./.deps/mainbaz.Po
+rm -f ./.deps/mainfoo.Po
+rm -f ./.deps/mainqux.Po
+rm -f ./.deps/parsebaz.Po
+rm -f ./.deps/parsefoo.Po
+rm -f ./.deps/qux-parsequx.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-clean-cxx.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ ls -l . sub1 sub2
+.:
+total 300
+-rw-r--r-- 1 root root    122 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  23878 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  40273 Nov 27 06:50 aclocal.m4
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rwxr-xr-x 1 root root  29446 Nov 27 06:50 config.sav
+-rwxr-xr-x 1 root root 133239 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    160 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub1
+drwxr-xr-x 3 root root   4096 Nov 27 06:50 sub2
+lrwxrwxrwx 1 root root     35 Nov 27 06:50 ylwrap -> /sources/automake-1.16.1/lib/ylwrap
+
+sub1:
+total 56
+-rw-r--r-- 1 root root   381 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 25263 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
+
+sub2:
+total 56
+-rw-r--r-- 1 root root    54 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root 26155 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbar.cpp
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainbaz.c++
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainfoo.cc
+-rw-r--r-- 1 root root   161 Nov 27 06:50 mainqux.cxx
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsebar.yy
+-rw-r--r-- 1 root root   229 Nov 27 06:50 parsefoo.yxx
++ test -f sub1/parsefoo.yxx
++ test -f sub1/parsebar.yy
++ test '!' -e sub1/parsefoo.cxx
++ test '!' -e sub1/bar-parsebar.cc
++ test -f sub2/parsefoo.yxx
++ test -f sub2/parsebar.yy
++ test '!' -e sub2/parsefoo.cxx
++ test '!' -e sub2/parsefoo.hxx
++ test '!' -e sub2/bar-parsebar.cc
++ test '!' -e sub2/bar-parsebar.hh
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-clean-cxx.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-clean-cxx.dir
++ set +x
+PASS t/yacc-clean-cxx.sh (exit status: 0)

@@ -1,0 +1,269 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/confh.dir
++ cat
++ cat
++ mkdir include
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ autoheader
+autoheader: WARNING: Using auxiliary files such as `acconfig.h', `config.h.bot'
+autoheader: WARNING: and `config.h.top', to define templates for `config.h.in'
+autoheader: WARNING: is deprecated and discouraged.
+autoheader: 
+autoheader: WARNING: Using the third argument of `AC_DEFINE' and
+autoheader: WARNING: `AC_DEFINE_UNQUOTED' allows one to define a template without
+autoheader: WARNING: `acconfig.h':
+autoheader: 
+autoheader: WARNING:   AC_DEFINE([NEED_FUNC_MAIN], 1,
+autoheader: 		[Define if a function `main' is needed.])
+autoheader: 
+autoheader: WARNING: More sophisticated templates can also be produced, see the
+autoheader: WARNING: documentation.
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating include/config.h
++ make test1
+DIST_COMMON = ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./include/config.h.in acconfig.h compile depcomp install-sh missing
+echo ' ' ./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in ./include/config.h.in acconfig.h compile depcomp install-sh missing ' ' | grep '[ /]acconfig\.h '
+  ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in ./include/config.h.in acconfig.h compile depcomp install-sh missing  
++ make test2
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+test -d "confh-1.0" || mkdir "confh-1.0"
+test -n "" \
+|| find "confh-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/confh.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "confh-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir'
+ls -l confh-1.0/*
+-rw-r--r-- 1 root root    209 Nov 27 06:39 confh-1.0/Makefile.am
+-rw-r--r-- 1 root root  17682 Nov 27 06:39 confh-1.0/Makefile.in
+-rw-r--r-- 1 root root      0 Nov 27 06:39 confh-1.0/acconfig.h
+-rw-r--r-- 1 root root  27316 Nov 27 06:39 confh-1.0/aclocal.m4
+-rwxr-xr-x 1 root root   7383 Nov 27 06:39 confh-1.0/compile
+-rwxr-xr-x 1 root root 108489 Nov 27 06:39 confh-1.0/configure
+-rw-r--r-- 1 root root    117 Nov 27 06:39 confh-1.0/configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:39 confh-1.0/depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:39 confh-1.0/install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:39 confh-1.0/missing
+
+confh-1.0/include:
+total 4
+-rw-r--r-- 1 root root 633 Nov 27 06:39 config.h.in
+test -f confh-1.0/acconfig.h
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/confh.dir'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+test -d "confh-1.0" || mkdir "confh-1.0"
+test -n "" \
+|| find "confh-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/confh.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "confh-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/confh.dir'
+tardir=confh-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >confh-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+case 'confh-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc confh-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc confh-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc confh-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc confh-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c confh-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc confh-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip confh-1.0.zip ;;\
+esac
+chmod -R a-w confh-1.0
+chmod u+w confh-1.0
+mkdir confh-1.0/_build confh-1.0/_build/sub confh-1.0/_inst
+chmod a-w confh-1.0
+test -d confh-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd confh-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd confh-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf confh-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating include/config.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+DIST_COMMON = ../../Makefile.am ../../configure ../../configure.ac ../../aclocal.m4 ../../Makefile.in ../../include/config.h.in acconfig.h compile depcomp install-sh missing
+echo ' ' ../../Makefile.am ../../configure ../../configure.ac  ../../aclocal.m4 ../../Makefile.in ../../include/config.h.in acconfig.h compile depcomp install-sh missing ' ' | grep '[ /]acconfig\.h '
+  ../../Makefile.am ../../configure ../../configure.ac ../../aclocal.m4 ../../Makefile.in ../../include/config.h.in acconfig.h compile depcomp install-sh missing  
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+test -d "confh-1.0" || mkdir "confh-1.0"
+test -n "" \
+|| find "confh-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/confh.dir/confh-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "confh-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+ls -l confh-1.0/*
+-r--r--r-- 1 root root    209 Nov 27 06:39 confh-1.0/Makefile.am
+-r--r--r-- 1 root root  17682 Nov 27 06:39 confh-1.0/Makefile.in
+-r--r--r-- 1 root root      0 Nov 27 06:39 confh-1.0/acconfig.h
+-r--r--r-- 1 root root  27316 Nov 27 06:39 confh-1.0/aclocal.m4
+-r-xr-xr-x 1 root root   7383 Nov 27 06:39 confh-1.0/compile
+-r-xr-xr-x 1 root root 108489 Nov 27 06:39 confh-1.0/configure
+-r--r--r-- 1 root root    117 Nov 27 06:39 confh-1.0/configure.ac
+-r-xr-xr-x 1 root root  23568 Nov 27 06:39 confh-1.0/depcomp
+-r-xr-xr-x 1 root root  15368 Nov 27 06:39 confh-1.0/install-sh
+-r-xr-xr-x 1 root root   6878 Nov 27 06:39 confh-1.0/missing
+
+confh-1.0/include:
+total 4
+-r--r--r-- 1 root root 633 Nov 27 06:39 config.h.in
+test -f confh-1.0/acconfig.h
+make[2]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+test -d "confh-1.0" || mkdir "confh-1.0"
+test -n "" \
+|| find "confh-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/confh.dir/confh-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "confh-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+tardir=confh-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >confh-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f include/config.h include/stamp-h1
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/confh.dir/confh-1.0/_build/sub'
+if test -d "confh-1.0"; then find "confh-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "confh-1.0" || { sleep 5 && rm -rf "confh-1.0"; }; else :; fi
+===========================================
+confh-1.0 archives ready for distribution: 
+confh-1.0.tar.gz
+===========================================
++ mv Makefile.in Makefile.sav
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall Makefile
++ diff Makefile.sav Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/confh.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/confh.dir
++ set +x
+PASS t/confh.sh (exit status: 0)

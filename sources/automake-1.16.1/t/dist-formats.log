@@ -1,0 +1,3307 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dist-formats.dir
++ plan_ 66
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x66 = xunknown
++ test x66 = xlater
++ test x66 = xlazy
++ test x66 = xnow
++ test 66 -ge 0
++ planned_=66
++ echo 1..66
+1..66
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/dist-formats.dir
++ unset TAR
++ mkdir setup
++ cd setup
++ echo 'AC_INIT([x], [0]) AM_INIT_AUTOMAKE'
++ aclocal-1.16 -Werror
++ mv aclocal.m4 ..
++ cd ..
++ rm -rf setup
++ for MAKE_j4 in "$MAKE -j4" "$MAKE -j 4" false
++ echo all:
++ make -j4 -f -
+make: Nothing to be done for 'all'.
++ break
++ all_compression_formats='gzip lzip xz bzip2 zip'
+++ for x in $all_compression_formats
+++ setup_vars_for_compression_format gzip
+++ suffix=NONE
+++ compressor=NONE
+++ case $1 in
+++ suffix=tar.gz
+++ compressor=gzip
+++ echo gzip
+++ for x in $all_compression_formats
+++ setup_vars_for_compression_format lzip
+++ suffix=NONE
+++ compressor=NONE
+++ case $1 in
+++ suffix=tar.lz
+++ compressor=lzip
+++ echo lzip
+++ for x in $all_compression_formats
+++ setup_vars_for_compression_format xz
+++ suffix=NONE
+++ compressor=NONE
+++ case $1 in
+++ suffix=tar.xz
+++ compressor=xz
+++ echo xz
+++ for x in $all_compression_formats
+++ setup_vars_for_compression_format bzip2
+++ suffix=NONE
+++ compressor=NONE
+++ case $1 in
+++ suffix=tar.bz2
+++ compressor=bzip2
+++ echo bzip2
+++ for x in $all_compression_formats
+++ setup_vars_for_compression_format zip
+++ suffix=NONE
+++ compressor=NONE
+++ case $1 in
+++ suffix=zip
+++ compressor=zip
+++ echo zip
+++ tr '
+' ' '
++ all_compressors='gzip lzip xz bzip2 zip '
++ echo All compressors: gzip lzip xz bzip2 zip
+All compressors: gzip lzip xz bzip2 zip
+++ for c in $all_compressors
+++ tr '
+++ have_compressor gzip
+' ' '
+++ test 1 -eq 1
+++ test gzip = gzip
+++ return 0
+++ for c in $all_compressors
+++ have_compressor lzip
+++ test 1 -eq 1
+++ test lzip = gzip
+++ needed_programs=lzip
+++ checker_option=--version
+++ case $1 in
+++ for p in $needed_programs
+++ lzip --version
+./t/dist-formats.tap: line 99: lzip: command not found
+++ return 1
+++ echo lzip
+++ for c in $all_compressors
+++ have_compressor xz
+++ test 1 -eq 1
+++ test xz = gzip
+++ needed_programs=xz
+++ checker_option=--version
+++ case $1 in
+++ for p in $needed_programs
+++ xz --version
+xz (XZ Utils) 5.2.4
+liblzma 5.2.4
+++ return 0
+++ for c in $all_compressors
+++ have_compressor bzip2
+++ test 1 -eq 1
+++ test bzip2 = gzip
+++ needed_programs=bzip2
+++ checker_option=--version
+++ case $1 in
+++ checker_option=--help
+++ for p in $needed_programs
+++ bzip2 --help
+bzip2, a block-sorting file compressor.  Version 1.0.6, 6-Sept-2010.
+
+   usage: bzip2 [flags and input files in any order]
+
+   -h --help           print this message
+   -d --decompress     force decompression
+   -z --compress       force compression
+   -k --keep           keep (don't delete) input files
+   -f --force          overwrite existing output files
+   -t --test           test compressed file integrity
+   -c --stdout         output to standard out
+   -q --quiet          suppress noncritical error messages
+   -v --verbose        be verbose (a 2nd -v gives more)
+   -L --license        display software version & license
+   -V --version        display software version & license
+   -s --small          use less memory (at most 2500k)
+   -1 .. -9            set block size to 100k .. 900k
+   --fast              alias for -1
+   --best              alias for -9
+
+   If invoked as `bzip2', default action is to compress.
+              as `bunzip2',  default action is to decompress.
+              as `bzcat', default action is to decompress to stdout.
+
+   If no file names are given, bzip2 compresses or decompresses
+   from standard input to standard output.  You can combine
+   short flags, so `-v -4' means the same as -v4 or -4v, &c.
+
+++ return 0
+++ for c in $all_compressors
+++ have_compressor zip
+++ test 1 -eq 1
+++ test zip = gzip
+++ needed_programs=zip
+++ checker_option=--version
+++ case $1 in
+++ checker_option=-v
+++ needed_programs='zip unzip'
+++ for p in $needed_programs
+++ zip -v
+./t/dist-formats.tap: line 99: zip: command not found
+++ return 1
+++ echo zip
++ missing_compressors='lzip zip '
++ echo Missing compressors: lzip zip
+Missing compressors: lzip zip
++ start_subtest defaults
++ name=defaults
++ shift
++ test -n defaults
++ test 0 -gt 0
+++ echo
+++ tr , ' '
++ ac_opts=
+++ echo
+++ tr , ' '
++ am_opts=
++ mkdir defaults
++ cd defaults
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = '
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ command_ok_ 'default [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='default [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'default [automake]'
++ set +x
+ok 1 - default [automake]
+PASS: t/dist-formats.tap 1 - default [automake]
++ command_ok_ 'default [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='default [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'default [autoconf]'
++ set +x
+ok 2 - default [autoconf]
+PASS: t/dist-formats.tap 2 - default [autoconf]
++ command_ok_ 'default [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='default [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'default [configure]'
++ set +x
+ok 3 - default [configure]
+PASS: t/dist-formats.tap 3 - default [configure]
++ command_ok_ 'default [make distcheck]' make distcheck
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='default [make distcheck]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >defaults-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+case 'defaults-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc defaults-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc defaults-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc defaults-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc defaults-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c defaults-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc defaults-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip defaults-1.0.zip ;;\
+esac
+chmod -R a-w defaults-1.0
+chmod u+w defaults-1.0
+mkdir defaults-1.0/_build defaults-1.0/_build/sub defaults-1.0/_inst
+chmod a-w defaults-1.0
+test -d defaults-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd defaults-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd defaults-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf defaults-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >defaults-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults/defaults-1.0/_build/sub'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+==============================================
+defaults-1.0 archives ready for distribution: 
+defaults-1.0.tar.gz
+==============================================
++ result_ ok -D '' -r '' -- 'default [make distcheck]'
++ set +x
+ok 4 - default [make distcheck]
+PASS: t/dist-formats.tap 4 - default [make distcheck]
+++ ls defaults-1.0.tar.gz
++ command_ok_ ''\''make dist'\'' only builds *.tar.gz by default' test defaults-1.0.tar.gz = defaults-1.0.tar.gz
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=''\''make dist'\'' only builds *.tar.gz by default'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test defaults-1.0.tar.gz = defaults-1.0.tar.gz
++ result_ ok -D '' -r '' -- ''\''make dist'\'' only builds *.tar.gz by default'
++ set +x
+ok 5 - 'make dist' only builds *.tar.gz by default
+PASS: t/dist-formats.tap 5 - 'make dist' only builds *.tar.gz by default
++ rm -rf defaults-1.0.tar.gz
++ for fmt in $all_compression_formats
++ can_compress defaults gzip
++ test 2 -eq 2
++ tarname=defaults
++ format=gzip
++ setup_vars_for_compression_format gzip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.gz
++ compressor=gzip
++ command_ok_ ''\''dist-gzip'\'' target always created' make -n dist-gzip
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''dist-gzip'\'' target always created'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -n dist-gzip
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|defaults-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "defaults-1.0/$file"; then \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "defaults-1.0$dir" || exit 1; \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "defaults-1.0$dir" || exit 1; \
+  else \
+    test -f "defaults-1.0/$file" \
+    || cp -p $d/$file "defaults-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >defaults-1.0.tar.gz
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- ''\''dist-gzip'\'' target always created'
++ set +x
+ok 6 - 'dist-gzip' target always created
+PASS: t/dist-formats.tap 6 - 'dist-gzip' target always created
++ command_ok_if_have_compressor ''\''make dist-gzip'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ have_compressor gzip
++ case " $missing_compressors " in
++ :
++ command_ok_ ''\''make dist-gzip'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=''\''make dist-gzip'\'' work by default'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
+++ rm -rf '*defaults*'
+++ make dist-gzip
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >defaults-1.0.tar.gz
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+++ test -f defaults-1.0.tar.gz
+++ ls -l defaults-1.0.tar.gz
+-rw-r--r-- 1 root root 51284 Nov 27 06:40 defaults-1.0.tar.gz
++++ echo defaults-1.0.tar.gz
+++ test defaults-1.0.tar.gz = defaults-1.0.tar.gz
++ result_ ok -D '' -r '' -- ''\''make dist-gzip'\'' work by default'
++ set +x
+ok 7 - 'make dist-gzip' work by default
+PASS: t/dist-formats.tap 7 - 'make dist-gzip' work by default
++ unset suffix compressor format tarname
++ for fmt in $all_compression_formats
++ can_compress defaults lzip
++ test 2 -eq 2
++ tarname=defaults
++ format=lzip
++ setup_vars_for_compression_format lzip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.lz
++ compressor=lzip
++ command_ok_ ''\''dist-lzip'\'' target always created' make -n dist-lzip
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''dist-lzip'\'' target always created'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -n dist-lzip
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|defaults-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "defaults-1.0/$file"; then \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "defaults-1.0$dir" || exit 1; \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "defaults-1.0$dir" || exit 1; \
+  else \
+    test -f "defaults-1.0/$file" \
+    || cp -p $d/$file "defaults-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | lzip -c ${LZIP_OPT--9} >defaults-1.0.tar.lz
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- ''\''dist-lzip'\'' target always created'
++ set +x
+ok 8 - 'dist-lzip' target always created
+PASS: t/dist-formats.tap 8 - 'dist-lzip' target always created
++ command_ok_if_have_compressor ''\''make dist-lzip'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ have_compressor lzip
++ case " $missing_compressors " in
++ false
++ skip_ -r ''\''lzip'\'' not available' ''\''make dist-lzip'\'' work by default'
++ result_ ok -D SKIP -r ''\''lzip'\'' not available' ''\''make dist-lzip'\'' work by default'
++ set +x
+ok 9 - 'make dist-lzip' work by default # SKIP 'lzip' not available
+SKIP: t/dist-formats.tap 9 - 'make dist-lzip' work by default # SKIP 'lzip' not available
++ unset suffix compressor format tarname
++ for fmt in $all_compression_formats
++ can_compress defaults xz
++ test 2 -eq 2
++ tarname=defaults
++ format=xz
++ setup_vars_for_compression_format xz
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.xz
++ compressor=xz
++ command_ok_ ''\''dist-xz'\'' target always created' make -n dist-xz
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''dist-xz'\'' target always created'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -n dist-xz
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|defaults-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "defaults-1.0/$file"; then \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "defaults-1.0$dir" || exit 1; \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "defaults-1.0$dir" || exit 1; \
+  else \
+    test -f "defaults-1.0/$file" \
+    || cp -p $d/$file "defaults-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >defaults-1.0.tar.xz
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- ''\''dist-xz'\'' target always created'
++ set +x
+ok 10 - 'dist-xz' target always created
+PASS: t/dist-formats.tap 10 - 'dist-xz' target always created
++ command_ok_if_have_compressor ''\''make dist-xz'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ have_compressor xz
++ case " $missing_compressors " in
++ :
++ command_ok_ ''\''make dist-xz'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=''\''make dist-xz'\'' work by default'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
+++ rm -rf defaults-1.0.tar.gz
+++ make dist-xz
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >defaults-1.0.tar.xz
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+++ test -f defaults-1.0.tar.xz
+++ ls -l defaults-1.0.tar.xz
+-rw-r--r-- 1 root root 40756 Nov 27 06:40 defaults-1.0.tar.xz
++++ echo defaults-1.0.tar.xz
+++ test defaults-1.0.tar.xz = defaults-1.0.tar.xz
++ result_ ok -D '' -r '' -- ''\''make dist-xz'\'' work by default'
++ set +x
+ok 11 - 'make dist-xz' work by default
+PASS: t/dist-formats.tap 11 - 'make dist-xz' work by default
++ unset suffix compressor format tarname
++ for fmt in $all_compression_formats
++ can_compress defaults bzip2
++ test 2 -eq 2
++ tarname=defaults
++ format=bzip2
++ setup_vars_for_compression_format bzip2
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.bz2
++ compressor=bzip2
++ command_ok_ ''\''dist-bzip2'\'' target always created' make -n dist-bzip2
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''dist-bzip2'\'' target always created'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -n dist-bzip2
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|defaults-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "defaults-1.0/$file"; then \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "defaults-1.0$dir" || exit 1; \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "defaults-1.0$dir" || exit 1; \
+  else \
+    test -f "defaults-1.0/$file" \
+    || cp -p $d/$file "defaults-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >defaults-1.0.tar.bz2
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- ''\''dist-bzip2'\'' target always created'
++ set +x
+ok 12 - 'dist-bzip2' target always created
+PASS: t/dist-formats.tap 12 - 'dist-bzip2' target always created
++ command_ok_if_have_compressor ''\''make dist-bzip2'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ have_compressor bzip2
++ case " $missing_compressors " in
++ :
++ command_ok_ ''\''make dist-bzip2'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=''\''make dist-bzip2'\'' work by default'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
+++ rm -rf defaults-1.0.tar.xz
+++ make dist-bzip2
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+tardir=defaults-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >defaults-1.0.tar.bz2
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+++ test -f defaults-1.0.tar.bz2
+++ ls -l defaults-1.0.tar.bz2
+-rw-r--r-- 1 root root 43158 Nov 27 06:40 defaults-1.0.tar.bz2
++++ echo defaults-1.0.tar.bz2
+++ test defaults-1.0.tar.bz2 = defaults-1.0.tar.bz2
++ result_ ok -D '' -r '' -- ''\''make dist-bzip2'\'' work by default'
++ set +x
+ok 13 - 'make dist-bzip2' work by default
+PASS: t/dist-formats.tap 13 - 'make dist-bzip2' work by default
++ unset suffix compressor format tarname
++ for fmt in $all_compression_formats
++ can_compress defaults zip
++ test 2 -eq 2
++ tarname=defaults
++ format=zip
++ setup_vars_for_compression_format zip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=zip
++ compressor=zip
++ command_ok_ ''\''dist-zip'\'' target always created' make -n dist-zip
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''dist-zip'\'' target always created'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -n dist-zip
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
+test -d "defaults-1.0" || mkdir "defaults-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|defaults-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "defaults-1.0/$file"; then \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "defaults-1.0$dir" || exit 1; \
+      find "defaults-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "defaults-1.0$dir" || exit 1; \
+  else \
+    test -f "defaults-1.0/$file" \
+    || cp -p $d/$file "defaults-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+test -n "" \
+|| find "defaults-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/defaults/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "defaults-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/defaults'
+rm -f defaults-1.0.zip
+zip -rq defaults-1.0.zip defaults-1.0
+if test -d "defaults-1.0"; then find "defaults-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "defaults-1.0" || { sleep 5 && rm -rf "defaults-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- ''\''dist-zip'\'' target always created'
++ set +x
+ok 14 - 'dist-zip' target always created
+PASS: t/dist-formats.tap 14 - 'dist-zip' target always created
++ command_ok_if_have_compressor ''\''make dist-zip'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ have_compressor zip
++ case " $missing_compressors " in
++ false
++ skip_ -r ''\''zip'\'' not available' ''\''make dist-zip'\'' work by default'
++ result_ ok -D SKIP -r ''\''zip'\'' not available' ''\''make dist-zip'\'' work by default'
++ set +x
+ok 15 - 'make dist-zip' work by default # SKIP 'zip' not available
+SKIP: t/dist-formats.tap 15 - 'make dist-zip' work by default # SKIP 'zip' not available
++ unset suffix compressor format tarname
++ unset fmt
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ start_subtest am-nogz-only am_opts=no-dist-gzip ac_opts=
++ name=am-nogz-only
++ shift
++ test -n am-nogz-only
++ test 2 -gt 0
++ eval am_opts=no-dist-gzip ac_opts=
+++ am_opts=no-dist-gzip
+++ ac_opts=
+++ echo
+++ tr , ' '
++ ac_opts=
+++ echo no-dist-gzip
+++ tr , ' '
++ am_opts=no-dist-gzip
++ mkdir am-nogz-only
++ cd am-nogz-only
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = no-dist-gzip'
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ nogzip_automake_failure am 'Makefile\.am:1'
++ AUTOMAKE_fails -d 'no-dist-gzip (am) without other formats is an error'
++ AUTOMAKE_run -e 1 -d 'no-dist-gzip (am) without other formats is an error'
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ am__desc='no-dist-gzip (am) without other formats is an error'
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+Makefile.am:1: error: no-dist-gzip specified but no dist-* specified,
+Makefile.am:1: at least one archive format must be enabled
++ cat stdout
++ test tap = none
++ test -z 'no-dist-gzip (am) without other formats is an error'
++ command_ok_ 'no-dist-gzip (am) without other formats is an error' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='no-dist-gzip (am) without other formats is an error'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'no-dist-gzip (am) without other formats is an error'
++ set +x
+ok 16 - no-dist-gzip (am) without other formats is an error
+PASS: t/dist-formats.tap 16 - no-dist-gzip (am) without other formats is an error
++ command_ok_ 'no-dist-gzip (am) without other formats gives diagnostic' nogzip_stderr 'Makefile\.am:1'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='no-dist-gzip (am) without other formats gives diagnostic'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ nogzip_stderr 'Makefile\.am:1'
++ grep 'Makefile\.am:1:.*no-dist-gzip' stderr
+Makefile.am:1: error: no-dist-gzip specified but no dist-* specified,
++ grep 'Makefile\.am:1:.* at least one archive format must be enabled' stderr
+Makefile.am:1: at least one archive format must be enabled
++ result_ ok -D '' -r '' -- 'no-dist-gzip (am) without other formats gives diagnostic'
++ set +x
+ok 17 - no-dist-gzip (am) without other formats gives diagnostic
+PASS: t/dist-formats.tap 17 - no-dist-gzip (am) without other formats gives diagnostic
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ start_subtest ac-nogz-only am_opts= ac_opts=no-dist-gzip
++ name=ac-nogz-only
++ shift
++ test -n ac-nogz-only
++ test 2 -gt 0
++ eval am_opts= ac_opts=no-dist-gzip
+++ am_opts=
+++ ac_opts=no-dist-gzip
+++ echo no-dist-gzip
+++ tr , ' '
++ ac_opts=no-dist-gzip
+++ echo
+++ tr , ' '
++ am_opts=
++ mkdir ac-nogz-only
++ cd ac-nogz-only
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = '
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ nogzip_automake_failure ac 'configure\.ac:2'
++ AUTOMAKE_fails -d 'no-dist-gzip (ac) without other formats is an error'
++ AUTOMAKE_run -e 1 -d 'no-dist-gzip (ac) without other formats is an error'
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ am__desc='no-dist-gzip (ac) without other formats is an error'
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: no-dist-gzip specified but no dist-* specified,
+configure.ac:2: at least one archive format must be enabled
++ cat stdout
++ test tap = none
++ test -z 'no-dist-gzip (ac) without other formats is an error'
++ command_ok_ 'no-dist-gzip (ac) without other formats is an error' test 1 -eq 1
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='no-dist-gzip (ac) without other formats is an error'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 1 -eq 1
++ result_ ok -D '' -r '' -- 'no-dist-gzip (ac) without other formats is an error'
++ set +x
+ok 18 - no-dist-gzip (ac) without other formats is an error
+PASS: t/dist-formats.tap 18 - no-dist-gzip (ac) without other formats is an error
++ command_ok_ 'no-dist-gzip (ac) without other formats gives diagnostic' nogzip_stderr 'configure\.ac:2'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='no-dist-gzip (ac) without other formats gives diagnostic'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ nogzip_stderr 'configure\.ac:2'
++ grep 'configure\.ac:2:.*no-dist-gzip' stderr
+configure.ac:2: error: no-dist-gzip specified but no dist-* specified,
++ grep 'configure\.ac:2:.* at least one archive format must be enabled' stderr
+configure.ac:2: at least one archive format must be enabled
++ result_ ok -D '' -r '' -- 'no-dist-gzip (ac) without other formats gives diagnostic'
++ set +x
+ok 19 - no-dist-gzip (ac) without other formats gives diagnostic
+PASS: t/dist-formats.tap 19 - no-dist-gzip (ac) without other formats gives diagnostic
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ nogzip in am and bzip2 in am
++ test 6,in,and,in = 6,in,and,in
++ case $2,$6 in
++ :
++ format=bzip2
++ where_dist_nogzip=am
++ where_dist_format=am
++ shift 6
++ am_opts=
++ ac_opts=
++ append_to_opt am dist-bzip2
++ var=am_opts
++ val=dist-bzip2
++ eval 'am_opts=${am_opts:+"$am_opts,"}$val'
+++ am_opts=dist-bzip2
++ unset var val
++ append_to_opt am no-dist-gzip
++ var=am_opts
++ val=no-dist-gzip
++ eval 'am_opts=${am_opts:+"$am_opts,"}$val'
+++ am_opts=dist-bzip2,no-dist-gzip
++ unset var val
++ setup_vars_for_compression_format bzip2
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.bz2
++ compressor=bzip2
++ desc=
++ test -n dist-bzip2,no-dist-gzip
++ desc=am=dist-bzip2,no-dist-gzip
++ test -n ''
++ start_subtest nogzip-bzip2 am_opts=dist-bzip2,no-dist-gzip ac_opts=
++ name=nogzip-bzip2
++ shift
++ test -n nogzip-bzip2
++ test 2 -gt 0
++ eval am_opts=dist-bzip2,no-dist-gzip ac_opts=
+++ am_opts=dist-bzip2,no-dist-gzip
+++ ac_opts=
+++ echo
+++ tr , ' '
++ ac_opts=
+++ echo dist-bzip2,no-dist-gzip
+++ tr , ' '
++ am_opts='dist-bzip2 no-dist-gzip'
++ mkdir nogzip-bzip2
++ cd nogzip-bzip2
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = dist-bzip2 no-dist-gzip'
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [automake]'
++ set +x
+ok 20 - am=dist-bzip2,no-dist-gzip [automake]
+PASS: t/dist-formats.tap 20 - am=dist-bzip2,no-dist-gzip [automake]
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [autoconf]'
++ set +x
+ok 21 - am=dist-bzip2,no-dist-gzip [autoconf]
+PASS: t/dist-formats.tap 21 - am=dist-bzip2,no-dist-gzip [autoconf]
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [configure]'
++ set +x
+ok 22 - am=dist-bzip2,no-dist-gzip [configure]
+PASS: t/dist-formats.tap 22 - am=dist-bzip2,no-dist-gzip [configure]
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [ark-name]' make check-ark-name
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [ark-name]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-ark-name
+test nogzip-bzip2-1.0.tar.bz2 = nogzip-bzip2-1.0.tar.bz2
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [ark-name]'
++ set +x
+ok 23 - am=dist-bzip2,no-dist-gzip [ark-name]
+PASS: t/dist-formats.tap 23 - am=dist-bzip2,no-dist-gzip [ark-name]
++ command_ok_if_have_compressor 'am=dist-bzip2,no-dist-gzip [distcheck]' make distcheck
++ have_compressor bzip2
++ case " $missing_compressors " in
++ :
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [distcheck]' make distcheck
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [distcheck]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make distcheck
+make  dist-bzip2 am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2'
+if test -d "nogzip-bzip2-1.0"; then find "nogzip-bzip2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-bzip2-1.0" || { sleep 5 && rm -rf "nogzip-bzip2-1.0"; }; else :; fi
+test -d "nogzip-bzip2-1.0" || mkdir "nogzip-bzip2-1.0"
+test -n "" \
+|| find "nogzip-bzip2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nogzip-bzip2-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2'
+tardir=nogzip-bzip2-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >nogzip-bzip2-1.0.tar.bz2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2'
+if test -d "nogzip-bzip2-1.0"; then find "nogzip-bzip2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-bzip2-1.0" || { sleep 5 && rm -rf "nogzip-bzip2-1.0"; }; else :; fi
+case 'nogzip-bzip2-1.0.tar.bz2' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc nogzip-bzip2-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc nogzip-bzip2-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc nogzip-bzip2-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc nogzip-bzip2-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c nogzip-bzip2-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc nogzip-bzip2-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip nogzip-bzip2-1.0.zip ;;\
+esac
+chmod -R a-w nogzip-bzip2-1.0
+chmod u+w nogzip-bzip2-1.0
+mkdir nogzip-bzip2-1.0/_build nogzip-bzip2-1.0/_build/sub nogzip-bzip2-1.0/_inst
+chmod a-w nogzip-bzip2-1.0
+test -d nogzip-bzip2-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd nogzip-bzip2-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd nogzip-bzip2-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf nogzip-bzip2-1.0.tar.bz2 \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make  dist-bzip2 am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+if test -d "nogzip-bzip2-1.0"; then find "nogzip-bzip2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-bzip2-1.0" || { sleep 5 && rm -rf "nogzip-bzip2-1.0"; }; else :; fi
+test -d "nogzip-bzip2-1.0" || mkdir "nogzip-bzip2-1.0"
+test -n "" \
+|| find "nogzip-bzip2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nogzip-bzip2-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+tardir=nogzip-bzip2-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >nogzip-bzip2-1.0.tar.bz2
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+if test -d "nogzip-bzip2-1.0"; then find "nogzip-bzip2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-bzip2-1.0" || { sleep 5 && rm -rf "nogzip-bzip2-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-bzip2/nogzip-bzip2-1.0/_build/sub'
+if test -d "nogzip-bzip2-1.0"; then find "nogzip-bzip2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-bzip2-1.0" || { sleep 5 && rm -rf "nogzip-bzip2-1.0"; }; else :; fi
+==================================================
+nogzip-bzip2-1.0 archives ready for distribution: 
+nogzip-bzip2-1.0.tar.bz2
+==================================================
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [distcheck]'
++ set +x
+ok 24 - am=dist-bzip2,no-dist-gzip [distcheck]
+PASS: t/dist-formats.tap 24 - am=dist-bzip2,no-dist-gzip [distcheck]
++ command_ok_if_have_compressor 'am=dist-bzip2,no-dist-gzip [ark-exists]' make check-ark-exists
++ have_compressor bzip2
++ case " $missing_compressors " in
++ :
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [ark-exists]' make check-ark-exists
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [ark-exists]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-ark-exists
+test -f nogzip-bzip2-1.0.tar.bz2
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [ark-exists]'
++ set +x
+ok 25 - am=dist-bzip2,no-dist-gzip [ark-exists]
+PASS: t/dist-formats.tap 25 - am=dist-bzip2,no-dist-gzip [ark-exists]
++ command_ok_ 'am=dist-bzip2,no-dist-gzip [no .tar.gz]' make check-no-tar-gz
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-bzip2,no-dist-gzip [no .tar.gz]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-no-tar-gz
+test ! -f nogzip-bzip2-1.0.tar.gz
++ result_ ok -D '' -r '' -- 'am=dist-bzip2,no-dist-gzip [no .tar.gz]'
++ set +x
+ok 26 - am=dist-bzip2,no-dist-gzip [no .tar.gz]
+PASS: t/dist-formats.tap 26 - am=dist-bzip2,no-dist-gzip [no .tar.gz]
++ unset desc
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ nogzip in ac and xz in am
++ test 6,in,and,in = 6,in,and,in
++ case $2,$6 in
++ :
++ format=xz
++ where_dist_nogzip=ac
++ where_dist_format=am
++ shift 6
++ am_opts=
++ ac_opts=
++ append_to_opt am dist-xz
++ var=am_opts
++ val=dist-xz
++ eval 'am_opts=${am_opts:+"$am_opts,"}$val'
+++ am_opts=dist-xz
++ unset var val
++ append_to_opt ac no-dist-gzip
++ var=ac_opts
++ val=no-dist-gzip
++ eval 'ac_opts=${ac_opts:+"$ac_opts,"}$val'
+++ ac_opts=no-dist-gzip
++ unset var val
++ setup_vars_for_compression_format xz
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.xz
++ compressor=xz
++ desc=
++ test -n dist-xz
++ desc=am=dist-xz
++ test -n no-dist-gzip
++ desc='am=dist-xz ac=no-dist-gzip'
++ start_subtest nogzip-xz am_opts=dist-xz ac_opts=no-dist-gzip
++ name=nogzip-xz
++ shift
++ test -n nogzip-xz
++ test 2 -gt 0
++ eval am_opts=dist-xz ac_opts=no-dist-gzip
+++ am_opts=dist-xz
+++ ac_opts=no-dist-gzip
+++ echo no-dist-gzip
+++ tr , ' '
++ ac_opts=no-dist-gzip
+++ echo dist-xz
+++ tr , ' '
++ am_opts=dist-xz
++ mkdir nogzip-xz
++ cd nogzip-xz
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = dist-xz'
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [automake]'
++ set +x
+ok 27 - am=dist-xz ac=no-dist-gzip [automake]
+PASS: t/dist-formats.tap 27 - am=dist-xz ac=no-dist-gzip [automake]
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [autoconf]'
++ set +x
+ok 28 - am=dist-xz ac=no-dist-gzip [autoconf]
+PASS: t/dist-formats.tap 28 - am=dist-xz ac=no-dist-gzip [autoconf]
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [configure]'
++ set +x
+ok 29 - am=dist-xz ac=no-dist-gzip [configure]
+PASS: t/dist-formats.tap 29 - am=dist-xz ac=no-dist-gzip [configure]
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [ark-name]' make check-ark-name
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [ark-name]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-ark-name
+test nogzip-xz-1.0.tar.xz = nogzip-xz-1.0.tar.xz
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [ark-name]'
++ set +x
+ok 30 - am=dist-xz ac=no-dist-gzip [ark-name]
+PASS: t/dist-formats.tap 30 - am=dist-xz ac=no-dist-gzip [ark-name]
++ command_ok_if_have_compressor 'am=dist-xz ac=no-dist-gzip [distcheck]' make distcheck
++ have_compressor xz
++ case " $missing_compressors " in
++ :
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [distcheck]' make distcheck
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [distcheck]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make distcheck
+make  dist-xz am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz'
+if test -d "nogzip-xz-1.0"; then find "nogzip-xz-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-xz-1.0" || { sleep 5 && rm -rf "nogzip-xz-1.0"; }; else :; fi
+test -d "nogzip-xz-1.0" || mkdir "nogzip-xz-1.0"
+test -n "" \
+|| find "nogzip-xz-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nogzip-xz-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz'
+tardir=nogzip-xz-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >nogzip-xz-1.0.tar.xz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz'
+if test -d "nogzip-xz-1.0"; then find "nogzip-xz-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-xz-1.0" || { sleep 5 && rm -rf "nogzip-xz-1.0"; }; else :; fi
+case 'nogzip-xz-1.0.tar.xz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc nogzip-xz-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc nogzip-xz-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc nogzip-xz-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc nogzip-xz-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c nogzip-xz-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc nogzip-xz-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip nogzip-xz-1.0.zip ;;\
+esac
+chmod -R a-w nogzip-xz-1.0
+chmod u+w nogzip-xz-1.0
+mkdir nogzip-xz-1.0/_build nogzip-xz-1.0/_build/sub nogzip-xz-1.0/_inst
+chmod a-w nogzip-xz-1.0
+test -d nogzip-xz-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd nogzip-xz-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd nogzip-xz-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf nogzip-xz-1.0.tar.xz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make  dist-xz am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+if test -d "nogzip-xz-1.0"; then find "nogzip-xz-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-xz-1.0" || { sleep 5 && rm -rf "nogzip-xz-1.0"; }; else :; fi
+test -d "nogzip-xz-1.0" || mkdir "nogzip-xz-1.0"
+test -n "" \
+|| find "nogzip-xz-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "nogzip-xz-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+tardir=nogzip-xz-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >nogzip-xz-1.0.tar.xz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+if test -d "nogzip-xz-1.0"; then find "nogzip-xz-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-xz-1.0" || { sleep 5 && rm -rf "nogzip-xz-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/nogzip-xz/nogzip-xz-1.0/_build/sub'
+if test -d "nogzip-xz-1.0"; then find "nogzip-xz-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "nogzip-xz-1.0" || { sleep 5 && rm -rf "nogzip-xz-1.0"; }; else :; fi
+===============================================
+nogzip-xz-1.0 archives ready for distribution: 
+nogzip-xz-1.0.tar.xz
+===============================================
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [distcheck]'
++ set +x
+ok 31 - am=dist-xz ac=no-dist-gzip [distcheck]
+PASS: t/dist-formats.tap 31 - am=dist-xz ac=no-dist-gzip [distcheck]
++ command_ok_if_have_compressor 'am=dist-xz ac=no-dist-gzip [ark-exists]' make check-ark-exists
++ have_compressor xz
++ case " $missing_compressors " in
++ :
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [ark-exists]' make check-ark-exists
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [ark-exists]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-ark-exists
+test -f nogzip-xz-1.0.tar.xz
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [ark-exists]'
++ set +x
+ok 32 - am=dist-xz ac=no-dist-gzip [ark-exists]
+PASS: t/dist-formats.tap 32 - am=dist-xz ac=no-dist-gzip [ark-exists]
++ command_ok_ 'am=dist-xz ac=no-dist-gzip [no .tar.gz]' make check-no-tar-gz
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=dist-xz ac=no-dist-gzip [no .tar.gz]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-no-tar-gz
+test ! -f nogzip-xz-1.0.tar.gz
++ result_ ok -D '' -r '' -- 'am=dist-xz ac=no-dist-gzip [no .tar.gz]'
++ set +x
+ok 33 - am=dist-xz ac=no-dist-gzip [no .tar.gz]
+PASS: t/dist-formats.tap 33 - am=dist-xz ac=no-dist-gzip [no .tar.gz]
++ unset desc
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ nogzip in am and lzip in ac
++ test 6,in,and,in = 6,in,and,in
++ case $2,$6 in
++ :
++ format=lzip
++ where_dist_nogzip=am
++ where_dist_format=ac
++ shift 6
++ am_opts=
++ ac_opts=
++ append_to_opt ac dist-lzip
++ var=ac_opts
++ val=dist-lzip
++ eval 'ac_opts=${ac_opts:+"$ac_opts,"}$val'
+++ ac_opts=dist-lzip
++ unset var val
++ append_to_opt am no-dist-gzip
++ var=am_opts
++ val=no-dist-gzip
++ eval 'am_opts=${am_opts:+"$am_opts,"}$val'
+++ am_opts=no-dist-gzip
++ unset var val
++ setup_vars_for_compression_format lzip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.lz
++ compressor=lzip
++ desc=
++ test -n no-dist-gzip
++ desc=am=no-dist-gzip
++ test -n dist-lzip
++ desc='am=no-dist-gzip ac=dist-lzip'
++ start_subtest nogzip-lzip am_opts=no-dist-gzip ac_opts=dist-lzip
++ name=nogzip-lzip
++ shift
++ test -n nogzip-lzip
++ test 2 -gt 0
++ eval am_opts=no-dist-gzip ac_opts=dist-lzip
+++ am_opts=no-dist-gzip
+++ ac_opts=dist-lzip
+++ echo dist-lzip
+++ tr , ' '
++ ac_opts=dist-lzip
+++ echo no-dist-gzip
+++ tr , ' '
++ am_opts=no-dist-gzip
++ mkdir nogzip-lzip
++ cd nogzip-lzip
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = no-dist-gzip'
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ command_ok_ 'am=no-dist-gzip ac=dist-lzip [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='am=no-dist-gzip ac=dist-lzip [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'am=no-dist-gzip ac=dist-lzip [automake]'
++ set +x
+ok 34 - am=no-dist-gzip ac=dist-lzip [automake]
+PASS: t/dist-formats.tap 34 - am=no-dist-gzip ac=dist-lzip [automake]
++ command_ok_ 'am=no-dist-gzip ac=dist-lzip [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='am=no-dist-gzip ac=dist-lzip [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'am=no-dist-gzip ac=dist-lzip [autoconf]'
++ set +x
+ok 35 - am=no-dist-gzip ac=dist-lzip [autoconf]
+PASS: t/dist-formats.tap 35 - am=no-dist-gzip ac=dist-lzip [autoconf]
++ command_ok_ 'am=no-dist-gzip ac=dist-lzip [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='am=no-dist-gzip ac=dist-lzip [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'am=no-dist-gzip ac=dist-lzip [configure]'
++ set +x
+ok 36 - am=no-dist-gzip ac=dist-lzip [configure]
+PASS: t/dist-formats.tap 36 - am=no-dist-gzip ac=dist-lzip [configure]
++ command_ok_ 'am=no-dist-gzip ac=dist-lzip [ark-name]' make check-ark-name
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=no-dist-gzip ac=dist-lzip [ark-name]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-ark-name
+test nogzip-lzip-1.0.tar.lz = nogzip-lzip-1.0.tar.lz
++ result_ ok -D '' -r '' -- 'am=no-dist-gzip ac=dist-lzip [ark-name]'
++ set +x
+ok 37 - am=no-dist-gzip ac=dist-lzip [ark-name]
+PASS: t/dist-formats.tap 37 - am=no-dist-gzip ac=dist-lzip [ark-name]
++ command_ok_if_have_compressor 'am=no-dist-gzip ac=dist-lzip [distcheck]' make distcheck
++ have_compressor lzip
++ case " $missing_compressors " in
++ false
++ skip_ -r ''\''lzip'\'' not available' 'am=no-dist-gzip ac=dist-lzip [distcheck]'
++ result_ ok -D SKIP -r ''\''lzip'\'' not available' 'am=no-dist-gzip ac=dist-lzip [distcheck]'
++ set +x
+ok 38 - am=no-dist-gzip ac=dist-lzip [distcheck] # SKIP 'lzip' not available
+SKIP: t/dist-formats.tap 38 - am=no-dist-gzip ac=dist-lzip [distcheck] # SKIP 'lzip' not available
++ command_ok_if_have_compressor 'am=no-dist-gzip ac=dist-lzip [ark-exists]' make check-ark-exists
++ have_compressor lzip
++ case " $missing_compressors " in
++ false
++ skip_ -r ''\''lzip'\'' not available' 'am=no-dist-gzip ac=dist-lzip [ark-exists]'
++ result_ ok -D SKIP -r ''\''lzip'\'' not available' 'am=no-dist-gzip ac=dist-lzip [ark-exists]'
++ set +x
+ok 39 - am=no-dist-gzip ac=dist-lzip [ark-exists] # SKIP 'lzip' not available
+SKIP: t/dist-formats.tap 39 - am=no-dist-gzip ac=dist-lzip [ark-exists] # SKIP 'lzip' not available
++ command_ok_ 'am=no-dist-gzip ac=dist-lzip [no .tar.gz]' make check-no-tar-gz
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='am=no-dist-gzip ac=dist-lzip [no .tar.gz]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-no-tar-gz
+test ! -f nogzip-lzip-1.0.tar.gz
++ result_ ok -D '' -r '' -- 'am=no-dist-gzip ac=dist-lzip [no .tar.gz]'
++ set +x
+ok 40 - am=no-dist-gzip ac=dist-lzip [no .tar.gz]
+PASS: t/dist-formats.tap 40 - am=no-dist-gzip ac=dist-lzip [no .tar.gz]
++ unset desc
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ nogzip in ac and zip in ac
++ test 6,in,and,in = 6,in,and,in
++ case $2,$6 in
++ :
++ format=zip
++ where_dist_nogzip=ac
++ where_dist_format=ac
++ shift 6
++ am_opts=
++ ac_opts=
++ append_to_opt ac dist-zip
++ var=ac_opts
++ val=dist-zip
++ eval 'ac_opts=${ac_opts:+"$ac_opts,"}$val'
+++ ac_opts=dist-zip
++ unset var val
++ append_to_opt ac no-dist-gzip
++ var=ac_opts
++ val=no-dist-gzip
++ eval 'ac_opts=${ac_opts:+"$ac_opts,"}$val'
+++ ac_opts=dist-zip,no-dist-gzip
++ unset var val
++ setup_vars_for_compression_format zip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=zip
++ compressor=zip
++ desc=
++ test -n ''
++ test -n dist-zip,no-dist-gzip
++ desc=ac=dist-zip,no-dist-gzip
++ start_subtest nogzip-zip am_opts= ac_opts=dist-zip,no-dist-gzip
++ name=nogzip-zip
++ shift
++ test -n nogzip-zip
++ test 2 -gt 0
++ eval am_opts= ac_opts=dist-zip,no-dist-gzip
+++ am_opts=
+++ ac_opts=dist-zip,no-dist-gzip
+++ echo dist-zip,no-dist-gzip
+++ tr , ' '
++ ac_opts='dist-zip no-dist-gzip'
+++ echo
+++ tr , ' '
++ am_opts=
++ mkdir nogzip-zip
++ cd nogzip-zip
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = '
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ command_ok_ 'ac=dist-zip,no-dist-gzip [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='ac=dist-zip,no-dist-gzip [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'ac=dist-zip,no-dist-gzip [automake]'
++ set +x
+ok 41 - ac=dist-zip,no-dist-gzip [automake]
+PASS: t/dist-formats.tap 41 - ac=dist-zip,no-dist-gzip [automake]
++ command_ok_ 'ac=dist-zip,no-dist-gzip [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='ac=dist-zip,no-dist-gzip [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'ac=dist-zip,no-dist-gzip [autoconf]'
++ set +x
+ok 42 - ac=dist-zip,no-dist-gzip [autoconf]
+PASS: t/dist-formats.tap 42 - ac=dist-zip,no-dist-gzip [autoconf]
++ command_ok_ 'ac=dist-zip,no-dist-gzip [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='ac=dist-zip,no-dist-gzip [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'ac=dist-zip,no-dist-gzip [configure]'
++ set +x
+ok 43 - ac=dist-zip,no-dist-gzip [configure]
+PASS: t/dist-formats.tap 43 - ac=dist-zip,no-dist-gzip [configure]
++ command_ok_ 'ac=dist-zip,no-dist-gzip [ark-name]' make check-ark-name
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='ac=dist-zip,no-dist-gzip [ark-name]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-ark-name
+test nogzip-zip-1.0.zip = nogzip-zip-1.0.zip
++ result_ ok -D '' -r '' -- 'ac=dist-zip,no-dist-gzip [ark-name]'
++ set +x
+ok 44 - ac=dist-zip,no-dist-gzip [ark-name]
+PASS: t/dist-formats.tap 44 - ac=dist-zip,no-dist-gzip [ark-name]
++ command_ok_if_have_compressor 'ac=dist-zip,no-dist-gzip [distcheck]' make distcheck
++ have_compressor zip
++ case " $missing_compressors " in
++ false
++ skip_ -r ''\''zip'\'' not available' 'ac=dist-zip,no-dist-gzip [distcheck]'
++ result_ ok -D SKIP -r ''\''zip'\'' not available' 'ac=dist-zip,no-dist-gzip [distcheck]'
++ set +x
+ok 45 - ac=dist-zip,no-dist-gzip [distcheck] # SKIP 'zip' not available
+SKIP: t/dist-formats.tap 45 - ac=dist-zip,no-dist-gzip [distcheck] # SKIP 'zip' not available
++ command_ok_if_have_compressor 'ac=dist-zip,no-dist-gzip [ark-exists]' make check-ark-exists
++ have_compressor zip
++ case " $missing_compressors " in
++ false
++ skip_ -r ''\''zip'\'' not available' 'ac=dist-zip,no-dist-gzip [ark-exists]'
++ result_ ok -D SKIP -r ''\''zip'\'' not available' 'ac=dist-zip,no-dist-gzip [ark-exists]'
++ set +x
+ok 46 - ac=dist-zip,no-dist-gzip [ark-exists] # SKIP 'zip' not available
+SKIP: t/dist-formats.tap 46 - ac=dist-zip,no-dist-gzip [ark-exists] # SKIP 'zip' not available
++ command_ok_ 'ac=dist-zip,no-dist-gzip [no .tar.gz]' make check-no-tar-gz
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='ac=dist-zip,no-dist-gzip [no .tar.gz]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make check-no-tar-gz
+test ! -f nogzip-zip-1.0.tar.gz
++ result_ ok -D '' -r '' -- 'ac=dist-zip,no-dist-gzip [no .tar.gz]'
++ set +x
+ok 47 - ac=dist-zip,no-dist-gzip [no .tar.gz]
+PASS: t/dist-formats.tap 47 - ac=dist-zip,no-dist-gzip [no .tar.gz]
++ unset desc
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ start_subtest dist-gzip-persistence am_opts=no-dist-gzip,dist-xz
++ name=dist-gzip-persistence
++ shift
++ test -n dist-gzip-persistence
++ test 1 -gt 0
++ eval am_opts=no-dist-gzip,dist-xz
+++ am_opts=no-dist-gzip,dist-xz
+++ echo
+++ tr , ' '
++ ac_opts=
+++ echo no-dist-gzip,dist-xz
+++ tr , ' '
++ am_opts='no-dist-gzip dist-xz'
++ mkdir dist-gzip-persistence
++ cd dist-gzip-persistence
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = no-dist-gzip dist-xz'
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ command_ok_ 'dist-gzip persistence [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='dist-gzip persistence [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'dist-gzip persistence [automake]'
++ set +x
+ok 48 - dist-gzip persistence [automake]
+PASS: t/dist-formats.tap 48 - dist-gzip persistence [automake]
++ command_ok_ 'dist-gzip persistence [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='dist-gzip persistence [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'dist-gzip persistence [autoconf]'
++ set +x
+ok 49 - dist-gzip persistence [autoconf]
+PASS: t/dist-formats.tap 49 - dist-gzip persistence [autoconf]
++ command_ok_ 'dist-gzip persistence [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='dist-gzip persistence [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'dist-gzip persistence [configure]'
++ set +x
+ok 50 - dist-gzip persistence [configure]
+PASS: t/dist-formats.tap 50 - dist-gzip persistence [configure]
++ can_compress dist-gzip-persistence gzip
++ test 2 -eq 2
++ tarname=dist-gzip-persistence
++ format=gzip
++ setup_vars_for_compression_format gzip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.gz
++ compressor=gzip
++ command_ok_ ''\''dist-gzip'\'' target always created' make -n dist-gzip
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_=''\''dist-gzip'\'' target always created'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -n dist-gzip
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/dist-gzip-persistence'
+if test -d "dist-gzip-persistence-1.0"; then find "dist-gzip-persistence-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-gzip-persistence-1.0" || { sleep 5 && rm -rf "dist-gzip-persistence-1.0"; }; else :; fi
+test -d "dist-gzip-persistence-1.0" || mkdir "dist-gzip-persistence-1.0"
+srcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+topsrcdirstrip=`echo "." | sed 's/[].[^$\\*]/\\\\&/g'`; \
+list='./Makefile.am ./configure ./configure.ac  ./aclocal.m4 ./Makefile.in install-sh missing   '; \
+  dist_files=`for file in $list; do echo $file; done | \
+  sed -e "s|^$srcdirstrip/||;t" \
+      -e "s|^$topsrcdirstrip/|./|;t"`; \
+case $dist_files in \
+  */*) /tools/bin/mkdir -p `echo "$dist_files" | \
+		   sed '/\//!d;s|^|dist-gzip-persistence-1.0/|;s,/[^/]*$,,' | \
+		   sort -u` ;; \
+esac; \
+for file in $dist_files; do \
+  if test -f $file || test -d $file; then d=.; else d=.; fi; \
+  if test -d $d/$file; then \
+    dir=`echo "/$file" | sed -e 's,/[^/]*$,,'`; \
+    if test -d "dist-gzip-persistence-1.0/$file"; then \
+      find "dist-gzip-persistence-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    if test -d ./$file && test $d != .; then \
+      cp -fpR ./$file "dist-gzip-persistence-1.0$dir" || exit 1; \
+      find "dist-gzip-persistence-1.0/$file" -type d ! -perm -700 -exec chmod u+rwx {} \;; \
+    fi; \
+    cp -fpR $d/$file "dist-gzip-persistence-1.0$dir" || exit 1; \
+  else \
+    test -f "dist-gzip-persistence-1.0/$file" \
+    || cp -p $d/$file "dist-gzip-persistence-1.0/$file" \
+    || exit 1; \
+  fi; \
+done
+test -n "" \
+|| find "dist-gzip-persistence-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/dist-gzip-persistence/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-gzip-persistence-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/dist-gzip-persistence'
+tardir=dist-gzip-persistence-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >dist-gzip-persistence-1.0.tar.gz
+if test -d "dist-gzip-persistence-1.0"; then find "dist-gzip-persistence-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-gzip-persistence-1.0" || { sleep 5 && rm -rf "dist-gzip-persistence-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- ''\''dist-gzip'\'' target always created'
++ set +x
+ok 51 - 'dist-gzip' target always created
+PASS: t/dist-formats.tap 51 - 'dist-gzip' target always created
++ command_ok_if_have_compressor ''\''make dist-gzip'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ have_compressor gzip
++ case " $missing_compressors " in
++ :
++ command_ok_ ''\''make dist-gzip'\'' work by default' eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_=''\''make dist-gzip'\'' work by default'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ eval '
+      rm -rf *$tarname* \
+        && $MAKE dist-$format \
+        && test -f $tarname-1.0.$suffix \
+        && ls -l *$tarname* \
+        && test "$(echo *$tarname*)" = $tarname-1.0.$suffix'
+++ rm -rf '*dist-gzip-persistence*'
+++ make dist-gzip
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/dist-gzip-persistence'
+if test -d "dist-gzip-persistence-1.0"; then find "dist-gzip-persistence-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-gzip-persistence-1.0" || { sleep 5 && rm -rf "dist-gzip-persistence-1.0"; }; else :; fi
+test -d "dist-gzip-persistence-1.0" || mkdir "dist-gzip-persistence-1.0"
+test -n "" \
+|| find "dist-gzip-persistence-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/dist-gzip-persistence/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "dist-gzip-persistence-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/dist-gzip-persistence'
+tardir=dist-gzip-persistence-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >dist-gzip-persistence-1.0.tar.gz
+if test -d "dist-gzip-persistence-1.0"; then find "dist-gzip-persistence-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "dist-gzip-persistence-1.0" || { sleep 5 && rm -rf "dist-gzip-persistence-1.0"; }; else :; fi
+++ test -f dist-gzip-persistence-1.0.tar.gz
+++ ls -l dist-gzip-persistence-1.0.tar.gz
+-rw-r--r-- 1 root root 51293 Nov 27 06:40 dist-gzip-persistence-1.0.tar.gz
++++ echo dist-gzip-persistence-1.0.tar.gz
+++ test dist-gzip-persistence-1.0.tar.gz = dist-gzip-persistence-1.0.tar.gz
++ result_ ok -D '' -r '' -- ''\''make dist-gzip'\'' work by default'
++ set +x
+ok 52 - 'make dist-gzip' work by default
+PASS: t/dist-formats.tap 52 - 'make dist-gzip' work by default
++ unset suffix compressor format tarname
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ start_subtest parallel-compression ac_opts=dist-bzip2 am_opts=dist-xz
++ name=parallel-compression
++ shift
++ test -n parallel-compression
++ test 2 -gt 0
++ eval ac_opts=dist-bzip2 am_opts=dist-xz
+++ ac_opts=dist-bzip2
+++ am_opts=dist-xz
+++ echo dist-bzip2
+++ tr , ' '
++ ac_opts=dist-bzip2
+++ echo dist-xz
+++ tr , ' '
++ am_opts=dist-xz
++ mkdir parallel-compression
++ cd parallel-compression
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = dist-xz'
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ desc=gzip+bzip2+xz
++ tarname=parallel-compression-1.0
++ command_ok_ 'gzip+bzip2+xz [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='gzip+bzip2+xz [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [automake]'
++ set +x
+ok 53 - gzip+bzip2+xz [automake]
+PASS: t/dist-formats.tap 53 - gzip+bzip2+xz [automake]
++ have_compressor xz
++ case " $missing_compressors " in
++ :
++ have_compressor xz
++ case " $missing_compressors " in
++ :
++ have_compressor bzip2
++ case " $missing_compressors " in
++ :
++ skip_reason=
++ test 'make -j4' = false
++ test -n ''
++ command_ok_ 'gzip+bzip2+xz [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='gzip+bzip2+xz [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [autoconf]'
++ set +x
+ok 54 - gzip+bzip2+xz [autoconf]
+PASS: t/dist-formats.tap 54 - gzip+bzip2+xz [autoconf]
++ command_ok_ 'gzip+bzip2+xz [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='gzip+bzip2+xz [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [configure]'
++ set +x
+ok 55 - gzip+bzip2+xz [configure]
+PASS: t/dist-formats.tap 55 - gzip+bzip2+xz [configure]
++ command_ok_ 'gzip+bzip2+xz [make -j4 dist-all]' make -j4 dist
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='gzip+bzip2+xz [make -j4 dist-all]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -j4 dist
+make  dist-xz dist-bzip2 dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/parallel-compression'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/parallel-compression'
+if test -d "parallel-compression-1.0"; then find "parallel-compression-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-compression-1.0" || { sleep 5 && rm -rf "parallel-compression-1.0"; }; else :; fi
+test -d "parallel-compression-1.0" || mkdir "parallel-compression-1.0"
+test -n "" \
+|| find "parallel-compression-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/parallel-compression/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "parallel-compression-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/parallel-compression'
+tardir=parallel-compression-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >parallel-compression-1.0.tar.xz
+tardir=parallel-compression-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >parallel-compression-1.0.tar.bz2
+tardir=parallel-compression-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >parallel-compression-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/parallel-compression'
+if test -d "parallel-compression-1.0"; then find "parallel-compression-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-compression-1.0" || { sleep 5 && rm -rf "parallel-compression-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [make -j4 dist-all]'
++ set +x
+ok 56 - gzip+bzip2+xz [make -j4 dist-all]
+PASS: t/dist-formats.tap 56 - gzip+bzip2+xz [make -j4 dist-all]
++ ls -l
+total 380
+-rw-r--r-- 1 root root  17703 Nov 27 06:40 Makefile
+-rw-r--r-- 1 root root     27 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16828 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:40 autom4te.cache
+-rw-r--r-- 1 root root   5202 Nov 27 06:40 config.log
+-rwxr-xr-x 1 root root  25646 Nov 27 06:40 config.status
+-rwxr-xr-x 1 root root 104244 Nov 27 06:40 configure
+-rw-r--r-- 1 root root    108 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+-rw-r--r-- 1 root root  43182 Nov 27 06:40 parallel-compression-1.0.tar.bz2
+-rw-r--r-- 1 root root  51304 Nov 27 06:40 parallel-compression-1.0.tar.gz
+-rw-r--r-- 1 root root  40788 Nov 27 06:40 parallel-compression-1.0.tar.xz
++ command_ok_ 'gzip+bzip2+xz [check .tar.gz tarball]' check_tarball gzip
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='gzip+bzip2+xz [check .tar.gz tarball]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ check_tarball gzip
++ format=gzip
++ setup_vars_for_compression_format gzip
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.gz
++ compressor=gzip
++ tarball=parallel-compression-1.0.tar.gz
++ test -f parallel-compression-1.0.tar.gz
++ mkdir check-gzip
++ cp parallel-compression-1.0.tar.gz check-gzip
++ cd check-gzip
++ gzip -d parallel-compression-1.0.tar.gz
++ tar xvf parallel-compression-1.0.tar
+parallel-compression-1.0/
+parallel-compression-1.0/Makefile.in
+parallel-compression-1.0/Makefile.am
+parallel-compression-1.0/configure.ac
+parallel-compression-1.0/configure
+parallel-compression-1.0/install-sh
+parallel-compression-1.0/aclocal.m4
+parallel-compression-1.0/missing
++ diff ../Makefile.in parallel-compression-1.0/Makefile.in
++ cd ..
++ rm -rf check-gzip
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [check .tar.gz tarball]'
++ set +x
+ok 57 - gzip+bzip2+xz [check .tar.gz tarball]
+PASS: t/dist-formats.tap 57 - gzip+bzip2+xz [check .tar.gz tarball]
++ command_ok_ 'gzip+bzip2+xz [check .tar.bz2 tarball]' check_tarball bzip2
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='gzip+bzip2+xz [check .tar.bz2 tarball]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ check_tarball bzip2
++ format=bzip2
++ setup_vars_for_compression_format bzip2
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.bz2
++ compressor=bzip2
++ tarball=parallel-compression-1.0.tar.bz2
++ test -f parallel-compression-1.0.tar.bz2
++ mkdir check-bzip2
++ cp parallel-compression-1.0.tar.bz2 check-bzip2
++ cd check-bzip2
++ bzip2 -d parallel-compression-1.0.tar.bz2
++ tar xvf parallel-compression-1.0.tar
+parallel-compression-1.0/
+parallel-compression-1.0/Makefile.in
+parallel-compression-1.0/Makefile.am
+parallel-compression-1.0/configure.ac
+parallel-compression-1.0/configure
+parallel-compression-1.0/install-sh
+parallel-compression-1.0/aclocal.m4
+parallel-compression-1.0/missing
++ diff ../Makefile.in parallel-compression-1.0/Makefile.in
++ cd ..
++ rm -rf check-bzip2
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [check .tar.bz2 tarball]'
++ set +x
+ok 58 - gzip+bzip2+xz [check .tar.bz2 tarball]
+PASS: t/dist-formats.tap 58 - gzip+bzip2+xz [check .tar.bz2 tarball]
++ command_ok_ 'gzip+bzip2+xz [check .tar.xz tarball]' check_tarball xz
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='gzip+bzip2+xz [check .tar.xz tarball]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ check_tarball xz
++ format=xz
++ setup_vars_for_compression_format xz
++ suffix=NONE
++ compressor=NONE
++ case $1 in
++ suffix=tar.xz
++ compressor=xz
++ tarball=parallel-compression-1.0.tar.xz
++ test -f parallel-compression-1.0.tar.xz
++ mkdir check-xz
++ cp parallel-compression-1.0.tar.xz check-xz
++ cd check-xz
++ xz -d parallel-compression-1.0.tar.xz
++ tar xvf parallel-compression-1.0.tar
+parallel-compression-1.0/
+parallel-compression-1.0/Makefile.in
+parallel-compression-1.0/Makefile.am
+parallel-compression-1.0/configure.ac
+parallel-compression-1.0/configure
+parallel-compression-1.0/install-sh
+parallel-compression-1.0/aclocal.m4
+parallel-compression-1.0/missing
++ diff ../Makefile.in parallel-compression-1.0/Makefile.in
++ cd ..
++ rm -rf check-xz
++ result_ ok -D '' -r '' -- 'gzip+bzip2+xz [check .tar.xz tarball]'
++ set +x
+ok 59 - gzip+bzip2+xz [check .tar.xz tarball]
+PASS: t/dist-formats.tap 59 - gzip+bzip2+xz [check .tar.xz tarball]
++ unset tarname desc skip_reason
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ start_subtest all-together
++ name=all-together
++ shift
++ test -n all-together
++ test 0 -gt 0
+++ echo
+++ tr , ' '
++ ac_opts=
+++ echo
+++ tr , ' '
++ am_opts=
++ mkdir all-together
++ cd all-together
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ echo 'AUTOMAKE_OPTIONS = '
++ cp /sources/automake-1.16.1/t/dist-formats.dir/aclocal.m4 /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ desc='all compressors together'
++ tarname=all-together-1.0
++ echo 'AM_INIT_AUTOMAKE(['
++ echo 'AUTOMAKE_OPTIONS ='
++ flip=:
++ for fmt in $all_compression_formats
++ test gzip = gzip
++ continue
++ for fmt in $all_compression_formats
++ test lzip = gzip
++ :
++ echo '  dist-lzip'
++ flip=false
++ for fmt in $all_compression_formats
++ test xz = gzip
++ false
++ echo 'AUTOMAKE_OPTIONS += dist-xz'
++ flip=:
++ for fmt in $all_compression_formats
++ test bzip2 = gzip
++ :
++ echo '  dist-bzip2'
++ flip=false
++ for fmt in $all_compression_formats
++ test zip = gzip
++ false
++ echo 'AUTOMAKE_OPTIONS += dist-zip'
++ flip=:
++ unset flip fmt
++ echo '])'
++ sed 's/AM_INIT_AUTOMAKE.*/m4_include([am-init.m4])/' configure.ac
++ mv -f t configure.ac
++ cat Makefile.am
+AUTOMAKE_OPTIONS =
+AUTOMAKE_OPTIONS += dist-xz
+AUTOMAKE_OPTIONS += dist-zip
++ cat configure.ac
+AC_INIT([all-together], [1.0])
+m4_include([am-init.m4])
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
++ cat am-init.m4
+AM_INIT_AUTOMAKE([
+  dist-lzip
+  dist-bzip2
+])
++ command_ok_ 'all compressors together [aclocal]' aclocal-1.16 -Werror --force
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='all compressors together [aclocal]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror --force
++ result_ ok -D '' -r '' -- 'all compressors together [aclocal]'
++ set +x
+ok 60 - all compressors together [aclocal]
+PASS: t/dist-formats.tap 60 - all compressors together [aclocal]
++ command_ok_ 'all compressors together [automake]' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='all compressors together [automake]'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'all compressors together [automake]'
++ set +x
+ok 61 - all compressors together [automake]
+PASS: t/dist-formats.tap 61 - all compressors together [automake]
++ command_ok_ 'all compressors together [autoconf]' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='all compressors together [autoconf]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'all compressors together [autoconf]'
++ set +x
+ok 62 - all compressors together [autoconf]
+PASS: t/dist-formats.tap 62 - all compressors together [autoconf]
++ command_ok_ 'all compressors together [configure]' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='all compressors together [configure]'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ result_ ok -D '' -r '' -- 'all compressors together [configure]'
++ set +x
+ok 63 - all compressors together [configure]
+PASS: t/dist-formats.tap 63 - all compressors together [configure]
++ have_all_compressors
++ test -z 'lzip zip '
++ skip_ -r 'not all compressors available' 'all compressors together [make distcheck, real]'
++ result_ ok -D SKIP -r 'not all compressors available' 'all compressors together [make distcheck, real]'
++ set +x
+ok 64 - all compressors together [make distcheck, real] # SKIP not all compressors available
+SKIP: t/dist-formats.tap 64 - all compressors together [make distcheck, real] # SKIP not all compressors available
++ mkdir bin
++ cd bin
++ cat
++ cat
++ chmod a+x check-distdir grep-distdir-error
++ for prog in tar $all_compressors
++ case $prog in
++ cp check-distdir tar
++ for prog in tar $all_compressors
++ case $prog in
++ cp grep-distdir-error gzip
++ for prog in tar $all_compressors
++ case $prog in
++ cp grep-distdir-error lzip
++ for prog in tar $all_compressors
++ case $prog in
++ cp grep-distdir-error xz
++ for prog in tar $all_compressors
++ case $prog in
++ cp grep-distdir-error bzip2
++ for prog in tar $all_compressors
++ case $prog in
++ cp check-distdir zip
++ unset prog
++ ls -l
+total 32
+-rwxr-xr-x 1 root root  42 Nov 27 06:40 bzip2
+-rwxr-xr-x 1 root root 139 Nov 27 06:40 check-distdir
+-rwxr-xr-x 1 root root  42 Nov 27 06:40 grep-distdir-error
+-rwxr-xr-x 1 root root  42 Nov 27 06:40 gzip
+-rwxr-xr-x 1 root root  42 Nov 27 06:40 lzip
+-rwxr-xr-x 1 root root 139 Nov 27 06:40 tar
+-rwxr-xr-x 1 root root  42 Nov 27 06:40 xz
+-rwxr-xr-x 1 root root 139 Nov 27 06:40 zip
++ cd ..
++ oPATH=/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
++ PATH=/sources/automake-1.16.1/t/dist-formats.dir/all-together/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ command_ok_ 'all compressors together ['\''make dist-all'\'', stubbed]' make dist-all
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='all compressors together ['\''make dist-all'\'', stubbed]'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make dist-all
+make  dist-lzip dist-xz dist-bzip2 dist-gzip dist-zip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+if test -d "all-together-1.0"; then find "all-together-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "all-together-1.0" || { sleep 5 && rm -rf "all-together-1.0"; }; else :; fi
+test -d "all-together-1.0" || mkdir "all-together-1.0"
+test -n "" \
+|| find "all-together-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/all-together/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "all-together-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | lzip -c ${LZIP_OPT--9} >all-together-1.0.tar.lz
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >all-together-1.0.tar.xz
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >all-together-1.0.tar.bz2
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >all-together-1.0.tar.gz
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+rm -f all-together-1.0.zip
+zip -rq all-together-1.0.zip all-together-1.0
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+if test -d "all-together-1.0"; then find "all-together-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "all-together-1.0" || { sleep 5 && rm -rf "all-together-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- 'all compressors together ['\''make dist-all'\'', stubbed]'
++ set +x
+ok 65 - all compressors together ['make dist-all', stubbed]
+PASS: t/dist-formats.tap 65 - all compressors together ['make dist-all', stubbed]
++ subdesc='all compressors together ['\''make dist -j4'\'', stubbed]'
++ test 'make -j4' = false
++ command_ok_ 'all compressors together ['\''make dist -j4'\'', stubbed]' make -j4 dist
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='all compressors together ['\''make dist -j4'\'', stubbed]'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ make -j4 dist
+make  dist-lzip dist-xz dist-bzip2 dist-gzip dist-zip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+if test -d "all-together-1.0"; then find "all-together-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "all-together-1.0" || { sleep 5 && rm -rf "all-together-1.0"; }; else :; fi
+test -d "all-together-1.0" || mkdir "all-together-1.0"
+test -n "" \
+|| find "all-together-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/dist-formats.dir/all-together/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "all-together-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | lzip -c ${LZIP_OPT--9} >all-together-1.0.tar.lz
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | XZ_OPT=${XZ_OPT--e} xz -c >all-together-1.0.tar.xz
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | BZIP2=${BZIP2--9} bzip2 -c >all-together-1.0.tar.bz2
+tardir=all-together-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >all-together-1.0.tar.gz
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+rm -f all-together-1.0.zip
+zip -rq all-together-1.0.zip all-together-1.0
+total 188
+-rw-r--r-- 1 root root     76 Nov 27 06:40 Makefile.am
+-rw-r--r-- 1 root root  16918 Nov 27 06:40 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:40 aclocal.m4
+-rw-r--r-- 1 root root     47 Nov 27 06:40 am-init.m4
+-rwxr-xr-x 1 root root 104123 Nov 27 06:40 configure
+-rw-r--r-- 1 root root     94 Nov 27 06:40 configure.ac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:40 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:40 missing
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dist-formats.dir/all-together'
+if test -d "all-together-1.0"; then find "all-together-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "all-together-1.0" || { sleep 5 && rm -rf "all-together-1.0"; }; else :; fi
++ result_ ok -D '' -r '' -- 'all compressors together ['\''make dist -j4'\'', stubbed]'
++ set +x
+ok 66 - all compressors together ['make dist -j4', stubbed]
+PASS: t/dist-formats.tap 66 - all compressors together ['make dist -j4', stubbed]
++ unset subdesc
++ PATH=/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ end_subtest
++ unset name
++ unset ac_opts
++ unset am_opts
++ cd /sources/automake-1.16.1/t/dist-formats.dir
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 66 = later
++ test 0 -eq 0
++ test 59 -eq 66
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x

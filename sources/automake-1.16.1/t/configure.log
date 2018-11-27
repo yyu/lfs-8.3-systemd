@@ -1,0 +1,112 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/configure.dir
++ cat
++ cat
++ :
++ aclocal-1.16 -Werror
++ cat stderr
+aclocal-1.16: warnings are treated as errors
+aclocal-1.16: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+aclocal-1.16: warning: 'configure.ac' and 'configure.in' both present.
+aclocal-1.16: proceeding with 'configure.ac'
++ grep 'configure\.ac.*configure\.in.*both present' stderr
+aclocal-1.16: warning: 'configure.ac' and 'configure.in' both present.
++ aclocal-1.16 -Werror -Wno-error
++ cat stderr
+aclocal-1.16: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+aclocal-1.16: warning: 'configure.ac' and 'configure.in' both present.
+aclocal-1.16: proceeding with 'configure.ac'
++ grep 'configure\.ac.*configure\.in.*both present' stderr
+aclocal-1.16: warning: 'configure.ac' and 'configure.in' both present.
++ grep 'proceeding.*configure\.ac' stderr
+aclocal-1.16: proceeding with 'configure.ac'
++ AUTOMAKE_fails -Werror
++ AUTOMAKE_run -e 1 -Werror
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Werror
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake-1.16: warning: 'configure.ac' and 'configure.in' both present.
+automake-1.16: proceeding with 'configure.ac'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'configure\.ac.*configure\.in.*both present' stderr
+automake-1.16: warning: 'configure.ac' and 'configure.in' both present.
++ grep 'proceeding.*configure\.ac' stderr
+automake-1.16: proceeding with 'configure.ac'
++ AUTOMAKE_run -Wno-error
++ am__desc=
++ am__exp_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-error
++ cat stderr
+automake-1.16: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake-1.16: warning: 'configure.ac' and 'configure.in' both present.
+automake-1.16: proceeding with 'configure.ac'
++ cat stdout
++ test none = none
++ test 0 -eq 0
++ return
++ grep 'configure\.ac.*configure\.in.*both present' stderr
+automake-1.16: warning: 'configure.ac' and 'configure.in' both present.
++ grep 'proceeding.*configure\.ac' stderr
+automake-1.16: proceeding with 'configure.ac'
++ mv -f configure.ac configure.in
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+automake-1.16: warning: autoconf input should be named 'configure.ac', not 'configure.in'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'autoconf input.*'\''configure.ac'\'', not '\''configure.in'\''' stderr
+automake-1.16: warning: autoconf input should be named 'configure.ac', not 'configure.in'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/configure.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/configure.dir
++ set +x
+PASS t/configure.sh (exit status: 0)

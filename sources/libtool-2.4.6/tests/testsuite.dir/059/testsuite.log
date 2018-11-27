@@ -1,0 +1,45 @@
+#                             -*- compilation -*-
+59. duplicate_deps.at:25: testing preserve duplicate convenience deps ...
+libtool: compile:  gcc -g -O2 -c a1.c  -fPIC -DPIC -o .libs/a1.o
+libtool: compile:  gcc -g -O2 -c a1.c -o a1.o >/dev/null 2>&1
+libtool: compile:  gcc -g -O2 -c a2.c  -fPIC -DPIC -o .libs/a2.o
+libtool: compile:  gcc -g -O2 -c a2.c -o a2.o >/dev/null 2>&1
+libtool: compile:  gcc -g -O2 -c b1.c  -fPIC -DPIC -o .libs/b1.o
+libtool: compile:  gcc -g -O2 -c b1.c -o b1.o >/dev/null 2>&1
+libtool: link: ar cru .libs/liba.a .libs/a1.o .libs/a2.o 
+libtool: link: ranlib .libs/liba.a
+libtool: link: ( cd ".libs" && rm -f "liba.la" && ln -s "../liba.la" "liba.la" )
+libtool: link: (cd .libs/libb.lax/liba.a && ar x "/sources/libtool-2.4.6/tests/testsuite.dir/059/./.libs/liba.a")
+libtool: link: ar cru .libs/libb.a .libs/b1.o   .libs/libb.lax/liba.a/a1.o .libs/libb.lax/liba.a/a2.o 
+libtool: link: ranlib .libs/libb.a
+libtool: link: rm -fr .libs/libb.lax
+libtool: link: ( cd ".libs" && rm -f "libb.la" && ln -s "../libb.la" "libb.la" )
+./duplicate_deps.at:60: $LIBTOOL --mode=link --tag=CC \
+	  $CC $CFLAGS $LDFLAGS -o main$EXEEXT main.$OBJEXT liba.la libb.la
+stderr:
+stdout:
+libtool: link: gcc -g -O2 -o main main.o  ./.libs/liba.a ./.libs/libb.a
+./duplicate_deps.at:61: if "$lt_exe" ; then :; else lt_status=$?; 	   	   test "X$host" != "X$build" && test -x "$lt_exe" && exit 77; 	   exit $lt_status; fi
+libtool: link: rm -fr  .libs/libb.a .libs/libb.la
+libtool: link: ar cru .libs/libb.a .libs/b1.o 
+libtool: link: ranlib .libs/libb.a
+libtool: link: ( cd ".libs" && rm -f "libb.la" && ln -s "../libb.la" "libb.la" )
+./duplicate_deps.at:69: $LIBTOOL --mode=link --tag=CC \
+	  $CC $CFLAGS $LDFLAGS -o main$EXEEXT main.$OBJEXT liba.la libb.la liba.la \
+	  && exit 77
+stderr:
+/usr/bin/ld: ./.libs/liba.a(a1.o): in function `a1':
+/sources/libtool-2.4.6/tests/testsuite.dir/059/a1.c:2: undefined reference to `b1'
+collect2: error: ld returned 1 exit status
+stdout:
+libtool: link: gcc -g -O2 -o main main.o  ./.libs/libb.a ./.libs/liba.a
+./duplicate_deps.at:74: $LIBTOOL --mode=link --preserve-dup-deps --tag=CC \
+	  $CC $CFLAGS $LDFLAGS -o main$EXEEXT main.$OBJEXT liba.la libb.la liba.la
+stderr:
+/usr/bin/ld: ./.libs/liba.a(a1.o): in function `a1':
+/sources/libtool-2.4.6/tests/testsuite.dir/059/a1.c:2: undefined reference to `b1'
+collect2: error: ld returned 1 exit status
+stdout:
+libtool: link: gcc -g -O2 -o main main.o  ./.libs/libb.a ./.libs/liba.a
+./duplicate_deps.at:74: exit code was 1, expected 0
+59. duplicate_deps.at:25: 59. preserve duplicate convenience deps (duplicate_deps.at:25): expected failure (duplicate_deps.at:74)

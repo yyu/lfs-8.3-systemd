@@ -1,0 +1,347 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/deprecated-acinit.dir
++ :
++ aclocal-1.16 -Werror
++ mv aclocal.m4 aclocal-m4.sav
++ errmsg='AC_INIT should be called with package and version argument'
++ for ac_init in AC_INIT 'AC_INIT([Makefile.am])'
++ for am_init_automake in AM_INIT_AUTOMAKE 'AM_INIT_AUTOMAKE([1.11])'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
++ aclocal-1.16 -Werror
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ cp aclocal-m4.sav aclocal.m4
++ autoconf
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+automake-1.16: error: autoconf failed with exit status: 1
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ for am_init_automake in AM_INIT_AUTOMAKE 'AM_INIT_AUTOMAKE([1.11])'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT
+AM_INIT_AUTOMAKE([1.11])
+AC_CONFIG_FILES([Makefile])
++ aclocal-1.16 -Werror
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ cp aclocal-m4.sav aclocal.m4
++ autoconf
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+automake-1.16: error: autoconf failed with exit status: 1
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ for ac_init in AC_INIT 'AC_INIT([Makefile.am])'
++ for am_init_automake in AM_INIT_AUTOMAKE 'AM_INIT_AUTOMAKE([1.11])'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([Makefile.am])
+AM_INIT_AUTOMAKE
+AC_CONFIG_FILES([Makefile])
++ aclocal-1.16 -Werror
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ cp aclocal-m4.sav aclocal.m4
++ autoconf
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+automake-1.16: error: autoconf failed with exit status: 1
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ for am_init_automake in AM_INIT_AUTOMAKE 'AM_INIT_AUTOMAKE([1.11])'
++ rm -rf autom4te.cache aclocal.m4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat configure.ac
+AC_INIT([Makefile.am])
+AM_INIT_AUTOMAKE([1.11])
+AC_CONFIG_FILES([Makefile])
++ aclocal-1.16 -Werror
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+/sources/automake-1.16.1/m4/init.m4:29: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+aclocal-1.16: error: echo failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ cp aclocal-m4.sav aclocal.m4
++ autoconf
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall
++ am__got_rc=1
++ cat stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
+aclocal.m4:139: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:2: the top level
+autom4te: /usr/bin/m4 failed with exit status: 1
+automake-1.16: error: autoconf failed with exit status: 1
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:.* AC_INIT should be called with package and version argument' stderr
+configure.ac:2: error: AC_INIT should be called with package and version arguments
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/deprecated-acinit.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/deprecated-acinit.dir
++ set +x
+PASS t/deprecated-acinit.sh (exit status: 0)

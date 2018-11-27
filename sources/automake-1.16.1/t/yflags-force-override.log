@@ -1,0 +1,87 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yflags-force-override.dir
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a -Wno-gnu
+configure.ac: installing './ylwrap'
++ /bin/grep -E '(foo|YFLAGS)' Makefile.in
+bin_PROGRAMS = foo$(EXEEXT)
+am_foo_OBJECTS = foo.$(OBJEXT)
+foo_OBJECTS = $(am_foo_OBJECTS)
+foo_LDADD = $(LDADD)
+am__depfiles_remade = ./$(DEPDIR)/foo.Po
+YACCCOMPILE = $(YACC) $(AM_YFLAGS) $(YFLAGS)
+SOURCES = $(foo_SOURCES)
+DIST_SOURCES = $(foo_SOURCES)
+am__DIST_COMMON = $(srcdir)/Makefile.in compile depcomp foo.c foo.h \
+YFLAGS = -d -v
+foo_SOURCES = foo.y
+foo.h: foo.c
+	@if test ! -f $@; then rm -f foo.c; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) foo.c; else :; fi
+foo$(EXEEXT): $(foo_OBJECTS) $(foo_DEPENDENCIES) $(EXTRA_foo_DEPENDENCIES) 
+	@rm -f foo$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(foo_OBJECTS) $(foo_LDADD) $(LIBS)
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foo.Po@am__quote@ # am--include-marker
+	-rm -f foo.c
+	-rm -f foo.h
+		-rm -f ./$(DEPDIR)/foo.Po
+		-rm -f ./$(DEPDIR)/foo.Po
++ grep '^foo\.h *:' Makefile.in
+foo.h: foo.c
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+/bin/sh ./ylwrap foo.y y.tab.c foo.c y.tab.h `echo foo.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output foo.output -- yacc  -d -v
+updating foo.output
+updating foo.h
+cc -DPACKAGE_NAME=\"yflags-force-override\" -DPACKAGE_TARNAME=\"yflags-force-override\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yflags-force-override\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yflags-force-override\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo.o -MD -MP -MF .deps/foo.Tpo -c -o foo.o foo.c
+mv -f .deps/foo.Tpo .deps/foo.Po
+cc  -g -O2   -o foo foo.o  
++ test -f foo.c
++ test -f foo.h
++ test -f foo.output
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yflags-force-override.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yflags-force-override.dir
++ set +x
+PASS t/yflags-force-override.sh (exit status: 0)

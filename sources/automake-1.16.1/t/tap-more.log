@@ -1,0 +1,847 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-more.dir
++ fetch_tap_driver
++ AM_TAP_AWK=gawk
++ export AM_TAP_AWK
++ get_shell_script tap-driver.sh tap-driver
++ am_source=tap-driver.sh
++ am_target=tap-driver
++ test '!' -f tap-driver
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
++ unset am_target am_source
++ cat
++ cat
++ cat
++ cat
++ cat
++ chmod a+x 1.test 2.test 3.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ for try in 0 1
++ test 0 -eq 0
++ mkdir build
++ cd build
++ srcdir=..
++ am_make=make
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ ls -l
+total 68
+-rw-r--r-- 1 root root 30239 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root  4935 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root 25243 Nov 27 06:50 config.status
++ run_make -O check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/build'
+PASS: 1.test 1 - mu
+SKIP: 1.test 2 zardoz # SKIP
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+PASS: 3.test 1 - blah blah blah
+# 3.test: Some diagnostic
+============================================================================
+Testsuite summary for tap-more 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ count_test_results total=6 pass=4 fail=0 xpass=0 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=6 pass=4 fail=0 xpass=0 xfail=1 skip=1 error=0
+++ total=6
+++ pass=4
+++ fail=0
+++ xpass=0
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: 1.test 1 - mu
+SKIP: 1.test 2 zardoz # SKIP
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+PASS: 3.test 1 - blah blah blah
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 4 -eq 4
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *6$' stdout
+# TOTAL: 6
++ grep '^# PASS:  *4$' stdout
+# PASS:  4
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ grep '^PASS: 1\.test 1 - mu$' stdout
+PASS: 1.test 1 - mu
++ grep '^SKIP: 1\.test 2 zardoz # SKIP$' stdout
+SKIP: 1.test 2 zardoz # SKIP
+++ grep -c '1\.test' stdout
++ test 2 -eq 2
++ grep '^PASS: 2\.test 1$' stdout
+PASS: 2.test 1
++ grep '^XFAIL: 2\.test 2 # TODO not implemented$' stdout
+XFAIL: 2.test 2 # TODO not implemented
++ grep '^PASS: 2\.test 3$' stdout
+PASS: 2.test 3
+++ grep -c '2\.test' stdout
++ test 3 -eq 3
++ grep '^PASS: 3\.test 1 - blah blah blah$' stdout
+PASS: 3.test 1 - blah blah blah
++ grep '^# 3\.test: Some diagnostic$' stdout
+# 3.test: Some diagnostic
+++ grep -c '3\.test' stdout
++ test 2 -eq 2
++ :
++ :
++ run_make -e FAIL -O check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:476: test-suite.log] Error 1
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make: *** [Makefile:776: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/build'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/build'
+PASS: 1.test 1 - mu
+FAIL: 1.test 2 zardoz
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+PASS: 3.test 1 - blah blah blah
+# 3.test: Some diagnostic
+ERROR: 3.test - Bail out! Kernel Panic
+============================================================================
+Testsuite summary for tap-more 1.0
+============================================================================
+# TOTAL: 7
+# PASS:  4
+# SKIP:  0
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/build'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=7 pass=4 fail=1 xpass=0 xfail=1 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=7 pass=4 fail=1 xpass=0 xfail=1 skip=0 error=1
+++ total=7
+++ pass=4
+++ fail=1
+++ xpass=0
+++ xfail=1
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: 1.test 1 - mu
+FAIL: 1.test 2 zardoz
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+PASS: 3.test 1 - blah blah blah
+ERROR: 3.test - Bail out! Kernel Panic
+# TOTAL: 7
+# PASS:  4
+# SKIP:  0
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 4 -eq 4
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *7$' stdout
+# TOTAL: 7
++ grep '^# PASS:  *4$' stdout
+# PASS:  4
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^PASS: 1\.test 1 - mu$' stdout
+PASS: 1.test 1 - mu
++ grep '^FAIL: 1\.test 2 zardoz$' stdout
+FAIL: 1.test 2 zardoz
+++ grep -c '1\.test' stdout
++ test 2 -eq 2
++ grep '^PASS: 2\.test 1$' stdout
+PASS: 2.test 1
++ grep '^XFAIL: 2\.test 2 # TODO not implemented$' stdout
+XFAIL: 2.test 2 # TODO not implemented
++ grep '^PASS: 2\.test 3$' stdout
+PASS: 2.test 3
+++ grep -c '2\.test' stdout
++ test 3 -eq 3
++ grep '^PASS: 3\.test 1 - blah blah blah$' stdout
+PASS: 3.test 1 - blah blah blah
++ grep '^# 3\.test: Some diagnostic$' stdout
+# 3.test: Some diagnostic
++ grep '^ERROR: 3\.test - Bail out! Kernel Panic$' stdout
+ERROR: 3.test - Bail out! Kernel Panic
+++ grep -c '3\.test' stdout
++ test 3 -eq 3
++ cd ..
++ for try in 0 1
++ test 1 -eq 0
++ test 1 -eq 1
++ srcdir=.
++ case $MAKE in
++ echo all:
++ for am_make in "$MAKE -j3" "$MAKE -j 3" "$MAKE"
++ make -j3
+make: Nothing to be done for 'all'.
++ break
++ rm -f Makefile
++ MAKE='make -j3'
++ unset am_make
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ ls -l
+total 336
+-rwxr-xr-x 1 root root    123 Nov 27 06:50 1.test
+-rwxr-xr-x 1 root root     80 Nov 27 06:50 2.test
+-rwxr-xr-x 1 root root    141 Nov 27 06:50 3.test
+-rw-r--r-- 1 root root  30197 Nov 27 06:50 Makefile
+-rw-r--r-- 1 root root    101 Nov 27 06:50 Makefile.am
+-rw-r--r-- 1 root root  29732 Nov 27 06:50 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:50 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 autom4te.cache
+drwxr-xr-x 2 root root   4096 Nov 27 06:50 build
+-rwxr-xr-x 1 root root   7383 Nov 27 06:50 compile
+-rw-r--r-- 1 root root   4922 Nov 27 06:50 config.log
+-rwxr-xr-x 1 root root  25394 Nov 27 06:50 config.status
+-rwxr-xr-x 1 root root 104138 Nov 27 06:50 configure
+-rw-r--r-- 1 root root    135 Nov 27 06:50 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:50 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:50 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:50 missing
+-rwxr-xr-x 1 root root  19467 Nov 27 06:50 tap-driver
++ run_make -O check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -j3 check
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir'
+PASS: 1.test 1 - mu
+SKIP: 1.test 2 zardoz # SKIP
+PASS: 3.test 1 - blah blah blah
+# 3.test: Some diagnostic
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+============================================================================
+Testsuite summary for tap-more 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ count_test_results total=6 pass=4 fail=0 xpass=0 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=6 pass=4 fail=0 xpass=0 xfail=1 skip=1 error=0
+++ total=6
+++ pass=4
+++ fail=0
+++ xpass=0
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: 1.test 1 - mu
+SKIP: 1.test 2 zardoz # SKIP
+PASS: 3.test 1 - blah blah blah
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 4 -eq 4
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *6$' stdout
+# TOTAL: 6
++ grep '^# PASS:  *4$' stdout
+# PASS:  4
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ grep '^PASS: 1\.test 1 - mu$' stdout
+PASS: 1.test 1 - mu
++ grep '^SKIP: 1\.test 2 zardoz # SKIP$' stdout
+SKIP: 1.test 2 zardoz # SKIP
+++ grep -c '1\.test' stdout
++ test 2 -eq 2
++ grep '^PASS: 2\.test 1$' stdout
+PASS: 2.test 1
++ grep '^XFAIL: 2\.test 2 # TODO not implemented$' stdout
+XFAIL: 2.test 2 # TODO not implemented
++ grep '^PASS: 2\.test 3$' stdout
+PASS: 2.test 3
+++ grep -c '2\.test' stdout
++ test 3 -eq 3
++ grep '^PASS: 3\.test 1 - blah blah blah$' stdout
+PASS: 3.test 1 - blah blah blah
++ grep '^# 3\.test: Some diagnostic$' stdout
+# 3.test: Some diagnostic
+++ grep -c '3\.test' stdout
++ test 2 -eq 2
++ :
++ :
++ run_make -e FAIL -O check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make -j3 check
++ set +x
+make[2]: *** [Makefile:476: test-suite.log] Error 1
+make[1]: *** [Makefile:584: check-TESTS] Error 2
+make: *** [Makefile:776: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir'
+PASS: 1.test 1 - mu
+FAIL: 1.test 2 zardoz
+PASS: 3.test 1 - blah blah blah
+# 3.test: Some diagnostic
+ERROR: 3.test - Bail out! Kernel Panic
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+============================================================================
+Testsuite summary for tap-more 1.0
+============================================================================
+# TOTAL: 7
+# PASS:  4
+# SKIP:  0
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=7 pass=4 fail=1 xpass=0 xfail=1 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=7 pass=4 fail=1 xpass=0 xfail=1 skip=0 error=1
+++ total=7
+++ pass=4
+++ fail=1
+++ xpass=0
+++ xfail=1
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: 1.test 1 - mu
+FAIL: 1.test 2 zardoz
+PASS: 3.test 1 - blah blah blah
+ERROR: 3.test - Bail out! Kernel Panic
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+# TOTAL: 7
+# PASS:  4
+# SKIP:  0
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 0
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 4 -eq 4
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *7$' stdout
+# TOTAL: 7
++ grep '^# PASS:  *4$' stdout
+# PASS:  4
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *1$' stdout
+# FAIL:  1
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ grep '^PASS: 1\.test 1 - mu$' stdout
+PASS: 1.test 1 - mu
++ grep '^FAIL: 1\.test 2 zardoz$' stdout
+FAIL: 1.test 2 zardoz
+++ grep -c '1\.test' stdout
++ test 2 -eq 2
++ grep '^PASS: 2\.test 1$' stdout
+PASS: 2.test 1
++ grep '^XFAIL: 2\.test 2 # TODO not implemented$' stdout
+XFAIL: 2.test 2 # TODO not implemented
++ grep '^PASS: 2\.test 3$' stdout
+PASS: 2.test 3
+++ grep -c '2\.test' stdout
++ test 3 -eq 3
++ grep '^PASS: 3\.test 1 - blah blah blah$' stdout
+PASS: 3.test 1 - blah blah blah
++ grep '^# 3\.test: Some diagnostic$' stdout
+# 3.test: Some diagnostic
++ grep '^ERROR: 3\.test - Bail out! Kernel Panic$' stdout
+ERROR: 3.test - Bail out! Kernel Panic
+++ grep -c '3\.test' stdout
++ test 3 -eq 3
++ cd .
++ make -j3 distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir'
+if test -d "tap-more-1.0"; then find "tap-more-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "tap-more-1.0" || { sleep 5 && rm -rf "tap-more-1.0"; }; else :; fi
+test -d "tap-more-1.0" || mkdir "tap-more-1.0"
+test -n "" \
+|| find "tap-more-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/tap-more.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "tap-more-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir'
+tardir=tap-more-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >tap-more-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir'
+if test -d "tap-more-1.0"; then find "tap-more-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "tap-more-1.0" || { sleep 5 && rm -rf "tap-more-1.0"; }; else :; fi
+case 'tap-more-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc tap-more-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc tap-more-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc tap-more-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc tap-more-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c tap-more-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc tap-more-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip tap-more-1.0.zip ;;\
+esac
+chmod -R a-w tap-more-1.0
+chmod u+w tap-more-1.0
+mkdir tap-more-1.0/_build tap-more-1.0/_build/sub tap-more-1.0/_inst
+chmod a-w tap-more-1.0
+test -d tap-more-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd tap-more-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd tap-more-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf tap-more-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+PASS: 3.test 1 - blah blah blah
+# 3.test: Some diagnostic
+PASS: 1.test 1 - mu
+SKIP: 1.test 2 zardoz # SKIP
+PASS: 2.test 1
+XFAIL: 2.test 2 # TODO not implemented
+PASS: 2.test 3
+============================================================================
+Testsuite summary for tap-more 1.0
+============================================================================
+# TOTAL: 6
+# PASS:  4
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+if test -d "tap-more-1.0"; then find "tap-more-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "tap-more-1.0" || { sleep 5 && rm -rf "tap-more-1.0"; }; else :; fi
+test -d "tap-more-1.0" || mkdir "tap-more-1.0"
+test -n "" \
+|| find "tap-more-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "tap-more-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+tardir=tap-more-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >tap-more-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+if test -d "tap-more-1.0"; then find "tap-more-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "tap-more-1.0" || { sleep 5 && rm -rf "tap-more-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+test -z "1.log 2.log 3.log" || rm -f 1.log 2.log 3.log
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+test -z "1.trs 2.trs 3.trs" || rm -f 1.trs 2.trs 3.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-more.dir/tap-more-1.0/_build/sub'
+if test -d "tap-more-1.0"; then find "tap-more-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "tap-more-1.0" || { sleep 5 && rm -rf "tap-more-1.0"; }; else :; fi
+==============================================
+tap-more-1.0 archives ready for distribution: 
+tap-more-1.0.tar.gz
+==============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-more.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-more.dir
++ set +x
+PASS t/tap-more.sh (exit status: 0)

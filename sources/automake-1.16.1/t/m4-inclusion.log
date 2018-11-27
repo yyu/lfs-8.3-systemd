@@ -1,0 +1,40 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/m4-inclusion.dir
++ cat
++ mkdir sub
++ cat
++ cat
++ cat
++ :
++ echo 'sinclude([sub/g.m4])'
++ echo 'm4_sinclude([sub/doesntexist.m4])'
++ aclocal-1.16 -Werror
++ echo 'm4_sinclude([sub/p.m4])'
++ echo 'm4_include([sub/h.m4])'
++ automake-1.16 --foreign -Werror -Wall
++ grep doesntexist Makefile.in
++ grep MAGICALPIG Makefile.in
+MAGICALPIG = @MAGICALPIG@
++ grep MAGICALHOG Makefile.in
+MAGICALHOG = @MAGICALHOG@
++ grep GREPME Makefile.in
+GREPME = @GREPME@
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/m4-inclusion.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/m4-inclusion.dir
++ set +x
+PASS t/m4-inclusion.sh (exit status: 0)

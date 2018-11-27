@@ -1,0 +1,344 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/output9.dir
++ cat
++ mkdir a
++ mkdir b
++ cat
++ :
++ :
++ echo foo
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating a/mid.in
+config.status: creating b/out
+config.status: creating a/Makefile
+config.status: creating b/Makefile
++ :
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir'
+if test -d "output9-1.0"; then find "output9-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "output9-1.0" || { sleep 5 && rm -rf "output9-1.0"; }; else :; fi
+test -d "output9-1.0" || mkdir "output9-1.0"
+ (cd a && make  top_distdir=../output9-1.0 distdir=../output9-1.0/a \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/a'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/output9.dir/a'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/a'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/a'
+ (cd b && make  top_distdir=../output9-1.0 distdir=../output9-1.0/b \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/b'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/output9.dir/b'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/b'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/b'
+make  \
+  top_distdir="output9-1.0" distdir="output9-1.0" \
+  dist-hook
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir'
+test -f output9-1.0/a/input.in.in
+test ! -f output9-1.0/a/mid.in
+if test ! -f check; then :; else : > ok; fi
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir'
+test -n "" \
+|| find "output9-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/output9.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "output9-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir'
+tardir=output9-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >output9-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir'
+if test -d "output9-1.0"; then find "output9-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "output9-1.0" || { sleep 5 && rm -rf "output9-1.0"; }; else :; fi
+case 'output9-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc output9-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc output9-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc output9-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc output9-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c output9-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc output9-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip output9-1.0.zip ;;\
+esac
+chmod -R a-w output9-1.0
+chmod u+w output9-1.0
+mkdir output9-1.0/_build output9-1.0/_build/sub output9-1.0/_inst
+chmod a-w output9-1.0
+test -d output9-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd output9-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd output9-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf output9-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating a/mid.in
+config.status: creating b/out
+config.status: creating a/Makefile
+config.status: creating b/Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making all in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making all in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making dvi in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making dvi in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making check in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making check in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Nothing to be done for 'check-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making install in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making install in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making installcheck in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making installcheck in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making uninstall in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making uninstall in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making install in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making install in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making uninstall in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making uninstall in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+if test -d "output9-1.0"; then find "output9-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "output9-1.0" || { sleep 5 && rm -rf "output9-1.0"; }; else :; fi
+test -d "output9-1.0" || mkdir "output9-1.0"
+ (cd a && make  top_distdir=../output9-1.0 distdir=../output9-1.0/a \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+ (cd b && make  top_distdir=../output9-1.0 distdir=../output9-1.0/b \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make  \
+  top_distdir="output9-1.0" distdir="output9-1.0" \
+  dist-hook
+make[4]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+test -f output9-1.0/a/input.in.in
+test ! -f output9-1.0/a/mid.in
+if test ! -f check; then :; else : > ok; fi
+make[4]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+test -n "" \
+|| find "output9-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/output9.dir/output9-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "output9-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+tardir=output9-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >output9-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+if test -d "output9-1.0"; then find "output9-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "output9-1.0" || { sleep 5 && rm -rf "output9-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+Making distclean in a
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+test -z "mid.in" || rm -f mid.in
+test . = "../../../a" || test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/a'
+Making distclean in b
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+test -z "out" || rm -f out
+test . = "../../../b" || test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub/b'
+make[2]: Entering directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/output9.dir/output9-1.0/_build/sub'
+if test -d "output9-1.0"; then find "output9-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "output9-1.0" || { sleep 5 && rm -rf "output9-1.0"; }; else :; fi
+=============================================
+output9-1.0 archives ready for distribution: 
+output9-1.0.tar.gz
+=============================================
++ test -f ok
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/output9.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/output9.dir
++ set +x
+PASS t/output9.sh (exit status: 0)

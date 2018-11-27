@@ -1,0 +1,47 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/suffix-custom-pr14441.dir
++ cat
++ mkdir sub
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
++ /bin/grep -F .c Makefile.in sub/Makefile.in
+Makefile.in:am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+Makefile.in:.SUFFIXES: .cc .ext .o .obj
+Makefile.in:	-rm -f *.tab.c
+Makefile.in:.cc.o:
+Makefile.in:.cc.obj:
+Makefile.in:	-rm -rf $(top_srcdir)/autom4te.cache
+Makefile.in:.ext.cc:
+sub/Makefile.in:.SUFFIXES: .c .ext .o .obj
+sub/Makefile.in:	-rm -f *.tab.c
+sub/Makefile.in:.c.o:
+sub/Makefile.in:.c.obj:
+sub/Makefile.in:.ext.c:
++ grep '^\.cc\.o:' Makefile.in
+.cc.o:
++ LC_ALL=C
++ /bin/grep -E '\.c[^a-z]' Makefile.in
++ grep '^\.c\.o:' sub/Makefile.in
+.c.o:
++ /bin/grep -F .cc sub/Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/suffix-custom-pr14441.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/suffix-custom-pr14441.dir
++ set +x
+PASS t/suffix-custom-pr14441.sh (exit status: 0)

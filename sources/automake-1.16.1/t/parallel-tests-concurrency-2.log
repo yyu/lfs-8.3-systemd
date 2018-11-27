@@ -1,0 +1,608 @@
+parallel-tests-concurrency-2: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir
++ cat
++ cat
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo1.test'
++ echo 'programs += foo1.prog'
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo1.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo2.test'
++ echo 'programs += foo2.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo2.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo3.test'
++ echo 'programs += foo3.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo3.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo4.test'
++ echo 'programs += foo4.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo4.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo5.test'
++ echo 'programs += foo5.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo5.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo6.test'
++ echo 'programs += foo6.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo6.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo7.test'
++ echo 'programs += foo7.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo7.test
++ for i in 1 2 3 4 5 6 7 8
++ echo 'scripts += foo8.test'
++ echo 'programs += foo8.prog'
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ cat
++ chmod a+x foo8.test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+parallel-tests: installing './test-driver'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make -j4 check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo1.o -MD -MP -MF .deps/foo1.Tpo -c -o foo1.o foo1.c
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo2.o -MD -MP -MF .deps/foo2.Tpo -c -o foo2.o foo2.c
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo3.o -MD -MP -MF .deps/foo3.Tpo -c -o foo3.o foo3.c
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo4.o -MD -MP -MF .deps/foo4.Tpo -c -o foo4.o foo4.c
+mv -f .deps/foo2.Tpo .deps/foo2.Po
+mv -f .deps/foo4.Tpo .deps/foo4.Po
+mv -f .deps/foo3.Tpo .deps/foo3.Po
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo5.o -MD -MP -MF .deps/foo5.Tpo -c -o foo5.o foo5.c
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo6.o -MD -MP -MF .deps/foo6.Tpo -c -o foo6.o foo6.c
+mv -f .deps/foo1.Tpo .deps/foo1.Po
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo7.o -MD -MP -MF .deps/foo7.Tpo -c -o foo7.o foo7.c
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo8.o -MD -MP -MF .deps/foo8.Tpo -c -o foo8.o foo8.c
+mv -f .deps/foo5.Tpo .deps/foo5.Po
+mv -f .deps/foo6.Tpo .deps/foo6.Po
+mv -f .deps/foo7.Tpo .deps/foo7.Po
+mv -f .deps/foo8.Tpo .deps/foo8.Po
+PASS: foo1.test
+PASS: foo2.test
+PASS: foo4.test
+PASS: foo3.test
+PASS: foo5.test
+PASS: foo6.test
+PASS: foo8.test
+PASS: foo7.test
+cc  -g -O2   -o foo1.prog foo1.o  
+cc  -g -O2   -o foo2.prog foo2.o  
+cc  -g -O2   -o foo3.prog foo3.o  
+cc  -g -O2   -o foo4.prog foo4.o  
+cc  -g -O2   -o foo5.prog foo5.o  
+cc  -g -O2   -o foo6.prog foo6.o  
+cc  -g -O2   -o foo7.prog foo7.o  
+cc  -g -O2   -o foo8.prog foo8.o  
+PASS: foo1.prog
+PASS: foo2.prog
+PASS: foo3.prog
+PASS: foo4.prog
+PASS: foo5.prog
+PASS: foo6.prog
+PASS: foo7.prog
+PASS: foo8.prog
+============================================================================
+Testsuite summary for parallel-tests-concurrency-2 1.0
+============================================================================
+# TOTAL: 16
+# PASS:  16
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+if test -d "parallel-tests-concurrency-2-1.0"; then find "parallel-tests-concurrency-2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-concurrency-2-1.0" || { sleep 5 && rm -rf "parallel-tests-concurrency-2-1.0"; }; else :; fi
+test -d "parallel-tests-concurrency-2-1.0" || mkdir "parallel-tests-concurrency-2-1.0"
+test -n "" \
+|| find "parallel-tests-concurrency-2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "parallel-tests-concurrency-2-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+tardir=parallel-tests-concurrency-2-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >parallel-tests-concurrency-2-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir'
+if test -d "parallel-tests-concurrency-2-1.0"; then find "parallel-tests-concurrency-2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-concurrency-2-1.0" || { sleep 5 && rm -rf "parallel-tests-concurrency-2-1.0"; }; else :; fi
+case 'parallel-tests-concurrency-2-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc parallel-tests-concurrency-2-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc parallel-tests-concurrency-2-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc parallel-tests-concurrency-2-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc parallel-tests-concurrency-2-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c parallel-tests-concurrency-2-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc parallel-tests-concurrency-2-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip parallel-tests-concurrency-2-1.0.zip ;;\
+esac
+chmod -R a-w parallel-tests-concurrency-2-1.0
+chmod u+w parallel-tests-concurrency-2-1.0
+mkdir parallel-tests-concurrency-2-1.0/_build parallel-tests-concurrency-2-1.0/_build/sub parallel-tests-concurrency-2-1.0/_inst
+chmod a-w parallel-tests-concurrency-2-1.0
+test -d parallel-tests-concurrency-2-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd parallel-tests-concurrency-2-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd parallel-tests-concurrency-2-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf parallel-tests-concurrency-2-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make  check-TESTS
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo1.o -MD -MP -MF .deps/foo1.Tpo -c -o foo1.o ../../foo1.c
+mv -f .deps/foo1.Tpo .deps/foo1.Po
+cc  -g -O2   -o foo1.prog foo1.o  
+PASS: foo1.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo2.o -MD -MP -MF .deps/foo2.Tpo -c -o foo2.o ../../foo2.c
+mv -f .deps/foo2.Tpo .deps/foo2.Po
+cc  -g -O2   -o foo2.prog foo2.o  
+PASS: foo2.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo3.o -MD -MP -MF .deps/foo3.Tpo -c -o foo3.o ../../foo3.c
+mv -f .deps/foo3.Tpo .deps/foo3.Po
+cc  -g -O2   -o foo3.prog foo3.o  
+PASS: foo3.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo4.o -MD -MP -MF .deps/foo4.Tpo -c -o foo4.o ../../foo4.c
+mv -f .deps/foo4.Tpo .deps/foo4.Po
+cc  -g -O2   -o foo4.prog foo4.o  
+PASS: foo4.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo5.o -MD -MP -MF .deps/foo5.Tpo -c -o foo5.o ../../foo5.c
+mv -f .deps/foo5.Tpo .deps/foo5.Po
+cc  -g -O2   -o foo5.prog foo5.o  
+PASS: foo5.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo6.o -MD -MP -MF .deps/foo6.Tpo -c -o foo6.o ../../foo6.c
+mv -f .deps/foo6.Tpo .deps/foo6.Po
+cc  -g -O2   -o foo6.prog foo6.o  
+PASS: foo6.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo7.o -MD -MP -MF .deps/foo7.Tpo -c -o foo7.o ../../foo7.c
+mv -f .deps/foo7.Tpo .deps/foo7.Po
+cc  -g -O2   -o foo7.prog foo7.o  
+PASS: foo7.prog
+cc -DPACKAGE_NAME=\"parallel-tests-concurrency-2\" -DPACKAGE_TARNAME=\"parallel-tests-concurrency-2\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"parallel-tests-concurrency-2\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"parallel-tests-concurrency-2\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo8.o -MD -MP -MF .deps/foo8.Tpo -c -o foo8.o ../../foo8.c
+mv -f .deps/foo8.Tpo .deps/foo8.Po
+cc  -g -O2   -o foo8.prog foo8.o  
+PASS: foo8.prog
+PASS: foo1.test
+PASS: foo2.test
+PASS: foo3.test
+PASS: foo4.test
+PASS: foo5.test
+PASS: foo6.test
+PASS: foo7.test
+PASS: foo8.test
+============================================================================
+Testsuite summary for parallel-tests-concurrency-2 1.0
+============================================================================
+# TOTAL: 16
+# PASS:  16
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+if test -d "parallel-tests-concurrency-2-1.0"; then find "parallel-tests-concurrency-2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-concurrency-2-1.0" || { sleep 5 && rm -rf "parallel-tests-concurrency-2-1.0"; }; else :; fi
+test -d "parallel-tests-concurrency-2-1.0" || mkdir "parallel-tests-concurrency-2-1.0"
+test -n "" \
+|| find "parallel-tests-concurrency-2-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "parallel-tests-concurrency-2-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+tardir=parallel-tests-concurrency-2-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >parallel-tests-concurrency-2-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+if test -d "parallel-tests-concurrency-2-1.0"; then find "parallel-tests-concurrency-2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-concurrency-2-1.0" || { sleep 5 && rm -rf "parallel-tests-concurrency-2-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+test -z "foo1.prog foo2.prog foo3.prog foo4.prog foo5.prog foo6.prog foo7.prog foo8.prog" || rm -f foo1.prog foo2.prog foo3.prog foo4.prog foo5.prog foo6.prog foo7.prog foo8.prog
+rm -f *.o
+test -z "foo1.prog.log foo2.prog.log foo3.prog.log foo4.prog.log foo5.prog.log foo6.prog.log foo7.prog.log foo8.prog.log foo1.log foo2.log foo3.log foo4.log foo5.log foo6.log foo7.log foo8.log" || rm -f foo1.prog.log foo2.prog.log foo3.prog.log foo4.prog.log foo5.prog.log foo6.prog.log foo7.prog.log foo8.prog.log foo1.log foo2.log foo3.log foo4.log foo5.log foo6.log foo7.log foo8.log
+test -z "foo1.prog.trs foo2.prog.trs foo3.prog.trs foo4.prog.trs foo5.prog.trs foo6.prog.trs foo7.prog.trs foo8.prog.trs foo1.trs foo2.trs foo3.trs foo4.trs foo5.trs foo6.trs foo7.trs foo8.trs" || rm -f foo1.prog.trs foo2.prog.trs foo3.prog.trs foo4.prog.trs foo5.prog.trs foo6.prog.trs foo7.prog.trs foo8.prog.trs foo1.trs foo2.trs foo3.trs foo4.trs foo5.trs foo6.trs foo7.trs foo8.trs
+test -z "test-suite.log" || rm -f test-suite.log
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/foo1.Po
+rm -f ./.deps/foo2.Po
+rm -f ./.deps/foo3.Po
+rm -f ./.deps/foo4.Po
+rm -f ./.deps/foo5.Po
+rm -f ./.deps/foo6.Po
+rm -f ./.deps/foo7.Po
+rm -f ./.deps/foo8.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/parallel-tests-concurrency-2.dir/parallel-tests-concurrency-2-1.0/_build/sub'
+if test -d "parallel-tests-concurrency-2-1.0"; then find "parallel-tests-concurrency-2-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "parallel-tests-concurrency-2-1.0" || { sleep 5 && rm -rf "parallel-tests-concurrency-2-1.0"; }; else :; fi
+==================================================================
+parallel-tests-concurrency-2-1.0 archives ready for distribution: 
+parallel-tests-concurrency-2-1.0.tar.gz
+==================================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/parallel-tests-concurrency-2.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/parallel-tests-concurrency-2.dir
++ set +x
+PASS t/parallel-tests-concurrency-2.sh (exit status: 0)

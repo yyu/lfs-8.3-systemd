@@ -1,0 +1,86 @@
+dejagnu6: running runtest SOMEPROGRAM=someprogram --version
+WARNING: Couldn't find the global config file.
+DejaGnu version	1.6.1
+Expect version	5.45.4
+Tcl version	8.6
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/dejagnu6.dir
++ cat
++ chmod +x faildeja
++ cat
++ cat
++ mkdir faildeja.test
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make check
+make  check-DEJAGNU
+make[1]: Entering directory '/sources/automake-1.16.1/t/dejagnu6.dir'
+Making a new site.exp file ...
+srcdir='.'; export srcdir; \
+EXPECT=expect; export EXPECT; \
+if /bin/sh -c "runtest --version" > /dev/null 2>&1; then \
+  exit_status=0; l='faildeja'; for tool in $l; do \
+    if runtest --tool $tool --srcdir $srcdir FAILDEJA=./faildeja ; \
+    then :; else exit_status=1; fi; \
+  done; \
+else echo "WARNING: could not find 'runtest'" 1>&2; :;\
+fi; \
+exit $exit_status
+WARNING: Couldn't find the global config file.
+WARNING: Couldn't find tool init file
+Test run by root on Tue Nov 27 06:40:09 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== faildeja tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+WARNING: Couldn't find tool config file for unix, using default.
+Running ./faildeja.test/faildeja.exp ...
+FAIL: failing_deja_test
+
+		=== faildeja Summary ===
+
+# of unexpected failures	1
+make[1]: *** [Makefile:262: check-DEJAGNU] Error 1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/dejagnu6.dir'
+make: *** [Makefile:466: check-am] Error 2
++ test -f faildeja.log
++ test -f faildeja.sum
++ /bin/grep -F 'FAIL: failing_deja_test' faildeja.sum
+FAIL: failing_deja_test
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/dejagnu6.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/dejagnu6.dir
++ set +x
+PASS t/dejagnu6.sh (exit status: 0)

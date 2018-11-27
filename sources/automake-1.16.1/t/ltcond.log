@@ -1,0 +1,259 @@
+ltcond: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ltcond.dir
++ cat
++ cat
++ echo 'int one () { return 1; }'
++ echo 'int two () { return 2; }'
++ mkdir empty
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:8: installing './ar-lib'
+configure.ac:9: installing './config.guess'
+configure.ac:9: installing './config.sub'
+++ pwd
++ cwd=/sources/automake-1.16.1/t/ltcond.dir
++ ./configure --prefix=/sources/automake-1.16.1/t/ltcond.dir/empty --libdir=/sources/automake-1.16.1/t/ltcond.dir/lib
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 6291456
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... no
+checking for cc option to produce PIC... -fPIC -DPIC
+checking if cc PIC flag -fPIC -DPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
++ make
+/bin/sh ./libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"ltcond\" -DPACKAGE_TARNAME=\"ltcond\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltcond\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltcond\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT foo.lo -MD -MP -MF .deps/foo.Tpo -c -o foo.lo foo.c
+libtool: compile:  cc -DPACKAGE_NAME=\"ltcond\" -DPACKAGE_TARNAME=\"ltcond\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltcond 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltcond\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT foo.lo -MD -MP -MF .deps/foo.Tpo -c foo.c  -fPIC -DPIC -o .libs/foo.o
+libtool: compile:  cc -DPACKAGE_NAME=\"ltcond\" -DPACKAGE_TARNAME=\"ltcond\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltcond 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltcond\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT foo.lo -MD -MP -MF .deps/foo.Tpo -c foo.c -o foo.o >/dev/null 2>&1
+mv -f .deps/foo.Tpo .deps/foo.Plo
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2 -rpath '/sources/automake-1.16.1/t/ltcond.dir/lib'  -o lib1foo.la  foo.lo  
+libtool: link: cc -shared  -fPIC -DPIC  .libs/foo.o    -g -O2   -Wl,-soname -Wl,lib1foo.so.0 -o .libs/lib1foo.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "lib1foo.so.0" && ln -s "lib1foo.so.0.0.0" "lib1foo.so.0")
+libtool: link: (cd ".libs" && rm -f "lib1foo.so" && ln -s "lib1foo.so.0.0.0" "lib1foo.so")
+libtool: link: ar cru .libs/lib1foo.a  foo.o
+libtool: link: ranlib .libs/lib1foo.a
+libtool: link: ( cd ".libs" && rm -f "lib1foo.la" && ln -s "../lib1foo.la" "lib1foo.la" )
+/bin/sh ./libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"ltcond\" -DPACKAGE_TARNAME=\"ltcond\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltcond\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltcond\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT bar.lo -MD -MP -MF .deps/bar.Tpo -c -o bar.lo bar.c
+libtool: compile:  cc -DPACKAGE_NAME=\"ltcond\" -DPACKAGE_TARNAME=\"ltcond\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltcond 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltcond\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT bar.lo -MD -MP -MF .deps/bar.Tpo -c bar.c  -fPIC -DPIC -o .libs/bar.o
+libtool: compile:  cc -DPACKAGE_NAME=\"ltcond\" -DPACKAGE_TARNAME=\"ltcond\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltcond 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltcond\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT bar.lo -MD -MP -MF .deps/bar.Tpo -c bar.c -o bar.o >/dev/null 2>&1
+mv -f .deps/bar.Tpo .deps/bar.Plo
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2 -rpath '/sources/automake-1.16.1/t/ltcond.dir/lib'  -o lib1bar.la  bar.lo  
+libtool: link: cc -shared  -fPIC -DPIC  .libs/bar.o    -g -O2   -Wl,-soname -Wl,lib1bar.so.0 -o .libs/lib1bar.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "lib1bar.so.0" && ln -s "lib1bar.so.0.0.0" "lib1bar.so.0")
+libtool: link: (cd ".libs" && rm -f "lib1bar.so" && ln -s "lib1bar.so.0.0.0" "lib1bar.so")
+libtool: link: ar cru .libs/lib1bar.a  bar.o
+libtool: link: ranlib .libs/lib1bar.a
+libtool: link: ( cd ".libs" && rm -f "lib1bar.la" && ln -s "../lib1bar.la" "lib1bar.la" )
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o lib2foo.la -rpath /sources/automake-1.16.1/t/ltcond.dir/lib foo.lo  
+libtool: link: cc -shared  -fPIC -DPIC  .libs/foo.o    -g -O2   -Wl,-soname -Wl,lib2foo.so.0 -o .libs/lib2foo.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "lib2foo.so.0" && ln -s "lib2foo.so.0.0.0" "lib2foo.so.0")
+libtool: link: (cd ".libs" && rm -f "lib2foo.so" && ln -s "lib2foo.so.0.0.0" "lib2foo.so")
+libtool: link: ar cru .libs/lib2foo.a  foo.o
+libtool: link: ranlib .libs/lib2foo.a
+libtool: link: ( cd ".libs" && rm -f "lib2foo.la" && ln -s "../lib2foo.la" "lib2foo.la" )
++ test -f lib1foo.la
++ test -f lib1bar.la
++ test -f lib2foo.la
++ test '!' -e lib2bar.la
++ test '!' -e lib3foo.la
++ test '!' -e lib3bar.la
++ make check
+make  lib3foo.la
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltcond.dir'
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o lib3foo.la  foo.lo  
+libtool: link: ar cru .libs/lib3foo.a .libs/foo.o 
+libtool: link: ranlib .libs/lib3foo.a
+libtool: link: ( cd ".libs" && rm -f "lib3foo.la" && ln -s "../lib3foo.la" "lib3foo.la" )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltcond.dir'
++ test '!' -e lib2bar.la
++ test -f lib3foo.la
++ test '!' -e lib3bar.la
++ make install
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltcond.dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/ltcond.dir/lib'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   lib1foo.la lib1bar.la lib2foo.la '/sources/automake-1.16.1/t/ltcond.dir/lib'
+libtool: install: /usr/bin/install -c .libs/lib1foo.so.0.0.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.so.0.0.0
+libtool: install: (cd /sources/automake-1.16.1/t/ltcond.dir/lib && { ln -s -f lib1foo.so.0.0.0 lib1foo.so.0 || { rm -f lib1foo.so.0 && ln -s lib1foo.so.0.0.0 lib1foo.so.0; }; })
+libtool: install: (cd /sources/automake-1.16.1/t/ltcond.dir/lib && { ln -s -f lib1foo.so.0.0.0 lib1foo.so || { rm -f lib1foo.so && ln -s lib1foo.so.0.0.0 lib1foo.so; }; })
+libtool: install: /usr/bin/install -c .libs/lib1foo.lai /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.la
+libtool: install: /usr/bin/install -c .libs/lib1bar.so.0.0.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.so.0.0.0
+libtool: install: (cd /sources/automake-1.16.1/t/ltcond.dir/lib && { ln -s -f lib1bar.so.0.0.0 lib1bar.so.0 || { rm -f lib1bar.so.0 && ln -s lib1bar.so.0.0.0 lib1bar.so.0; }; })
+libtool: install: (cd /sources/automake-1.16.1/t/ltcond.dir/lib && { ln -s -f lib1bar.so.0.0.0 lib1bar.so || { rm -f lib1bar.so && ln -s lib1bar.so.0.0.0 lib1bar.so; }; })
+libtool: install: /usr/bin/install -c .libs/lib1bar.lai /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.la
+libtool: install: /usr/bin/install -c .libs/lib2foo.so.0.0.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.so.0.0.0
+libtool: install: (cd /sources/automake-1.16.1/t/ltcond.dir/lib && { ln -s -f lib2foo.so.0.0.0 lib2foo.so.0 || { rm -f lib2foo.so.0 && ln -s lib2foo.so.0.0.0 lib2foo.so.0; }; })
+libtool: install: (cd /sources/automake-1.16.1/t/ltcond.dir/lib && { ln -s -f lib2foo.so.0.0.0 lib2foo.so || { rm -f lib2foo.so && ln -s lib2foo.so.0.0.0 lib2foo.so; }; })
+libtool: install: /usr/bin/install -c .libs/lib2foo.lai /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.la
+libtool: install: /usr/bin/install -c .libs/lib1foo.a /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.a
+libtool: install: chmod 644 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.a
+libtool: install: ranlib /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.a
+libtool: install: /usr/bin/install -c .libs/lib1bar.a /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.a
+libtool: install: chmod 644 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.a
+libtool: install: ranlib /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.a
+libtool: install: /usr/bin/install -c .libs/lib2foo.a /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.a
+libtool: install: chmod 644 /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.a
+libtool: install: ranlib /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.a
+libtool: finish: PATH="/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin:/sbin" ldconfig -n /sources/automake-1.16.1/t/ltcond.dir/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /sources/automake-1.16.1/t/ltcond.dir/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[1]: Nothing to be done for 'install-data-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltcond.dir'
++ test -f lib/lib1foo.la
++ test -f lib/lib1bar.la
++ test -f lib/lib2foo.la
++ test '!' -e lib/lib3foo.la
++ find empty -type f -print
++ test -s empty.lst
++ make uninstall
+ /bin/sh ./libtool   --mode=uninstall rm -f '/sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.la'
+libtool: uninstall: rm -f /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.la /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.so.0.0.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.so.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.so /sources/automake-1.16.1/t/ltcond.dir/lib/lib1foo.a
+ /bin/sh ./libtool   --mode=uninstall rm -f '/sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.la'
+libtool: uninstall: rm -f /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.la /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.so.0.0.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.so.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.so /sources/automake-1.16.1/t/ltcond.dir/lib/lib1bar.a
+ /bin/sh ./libtool   --mode=uninstall rm -f '/sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.la'
+libtool: uninstall: rm -f /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.la /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.so.0.0.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.so.0 /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.so /sources/automake-1.16.1/t/ltcond.dir/lib/lib2foo.a
++ find lib -type f -print
++ test -s lib.lst
++ test -f lib1foo.la
++ test -f lib1bar.la
++ test -f lib2foo.la
++ test -f lib3foo.la
++ make clean
+test -z "lib3foo.la" || rm -f lib3foo.la
+rm -f ./so_locations
+test -z "lib1foo.la lib1bar.la lib2foo.la " || rm -f lib1foo.la lib1bar.la lib2foo.la 
+rm -f ./so_locations
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
++ test '!' -e lib1foo.la
++ test '!' -e lib1bar.la
++ test '!' -e lib2foo.la
++ test '!' -e lib3foo.la
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ltcond.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ltcond.dir
++ set +x
+PASS t/ltcond.sh (exit status: 0)

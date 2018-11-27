@@ -1,0 +1,84 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1
++ plan_ 2
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x2 = xunknown
++ test x2 = xlater
++ test x2 = xlazy
++ test x2 = xnow
++ test 2 -ge 0
++ planned_=2
++ echo 1..2
+1..2
++ command_ok_ 'unblockable signal 9' not is_blocked_signal 9
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='unblockable signal 9'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not is_blocked_signal 9
++ is_blocked_signal 9
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(9, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ test 77 -eq 77
++ return 1
++ result_ ok -D '' -r '' -- 'unblockable signal 9'
++ set +x
+ok 1 - unblockable signal 9
+PASS: t/self-check-is-blocked-signal.tap 1 - unblockable signal 9
++ trap '' 13
++ command_ok_ 'blocked signal 13' is_blocked_signal 13
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='blocked signal 13'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ is_blocked_signal 13
++ /usr/bin/perl -w -e '
+    use strict;
+    use warnings FATAL => "all";
+    use POSIX;
+    my %oldsigaction = ();
+    sigaction(13, 0, \%oldsigaction);
+    exit ($oldsigaction{"HANDLER"} eq "IGNORE" ? 0 : 77);
+  '
++ return 0
++ result_ ok -D '' -r '' -- 'blocked signal 13'
++ set +x
+ok 2 - blocked signal 13
+PASS: t/self-check-is-blocked-signal.tap 2 - blocked signal 13
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 2 = later
++ test 0 -eq 0
++ test 2 -eq 2
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_
++ test 0 -gt 0
++ return 0
++ set +x

@@ -1,0 +1,259 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/cond39.dir
++ mkdir sub
++ cat
++ cat
++ cat
++ cat
++ cat
++ cp prog.c sub
++ cp prog1.in sub/prog2.in
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
++ ./configure COND=true
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ run_make -E
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+cc -DPACKAGE_NAME=\"cond39\" -DPACKAGE_TARNAME=\"cond39\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond39\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond39\" -DVERSION=\"1.0\" -I.     -g -O2 -MT prog.o -MD -MP -MF .deps/prog.Tpo -c -o prog.o prog.c
+mv -f .deps/prog.Tpo .deps/prog.Po
+cc  -g -O2   -o prog2 prog.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+cc -DPACKAGE_NAME=\"cond39\" -DPACKAGE_TARNAME=\"cond39\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond39\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond39\" -DVERSION=\"1.0\" -I.     -g -O2 -MT prog.o -MD -MP -MF .deps/prog.Tpo -c -o prog.o prog.c
+mv -f .deps/prog.Tpo .deps/prog.Po
+cc  -g -O2   -o prog1 prog.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep 'overriding commands' stderr
++ make sure-exist
+test -f prog1 || test -f prog1
+test -f sub/prog2 || test -f sub/prog2
++ ./prog1
++ ./sub/prog2
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+test -z "prog2" || rm -f prog2
+test -z "" || rm -f 
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+test -z "prog1" || rm -f prog1
+test -z "" || rm -f 
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
++ make sure-not-exist
+test ! -f prog1 && test ! -f prog1
+test ! -f sub/prog2 && test ! -f sub/prog2
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+cc -DPACKAGE_NAME=\"cond39\" -DPACKAGE_TARNAME=\"cond39\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond39\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond39\" -DVERSION=\"1.0\" -I.     -g -O2 -MT prog.o -MD -MP -MF .deps/prog.Tpo -c -o prog.o prog.c
+mv -f .deps/prog.Tpo .deps/prog.Po
+cc  -g -O2   -o prog2 prog.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+cc -DPACKAGE_NAME=\"cond39\" -DPACKAGE_TARNAME=\"cond39\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"cond39\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"cond39\" -DVERSION=\"1.0\" -I.     -g -O2 -MT prog.o -MD -MP -MF .deps/prog.Tpo -c -o prog.o prog.c
+mv -f .deps/prog.Tpo .deps/prog.Po
+cc  -g -O2   -o prog1 prog.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
++ make sure-exist
+test -f prog1 || test -f prog1
+test -f sub/prog2 || test -f sub/prog2
++ ./prog1
++ ./sub/prog2
++ make distclean
+Making distclean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+test -z "prog2" || rm -f prog2
+test -z "" || rm -f 
+rm -f *.o
+rm -f *.tab.c
+test -z "prog2" || rm -f prog2
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/prog.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+test -z "prog1" || rm -f prog1
+test -z "" || rm -f 
+rm -f *.o
+rm -f *.tab.c
+test -z "prog1" || rm -f prog1
+test . = "." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/prog.Po
+rm -f Makefile
++ ./configure COND=false
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating prog1
+config.status: creating sub/prog2
+config.status: creating sub/Makefile
+config.status: executing depfiles commands
++ run_make -E
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+make[1]: Nothing to be done for 'all-am'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ grep 'overriding commands' stderr
++ ./prog1
+hi, this is ./prog1, and bindir is ${exec_prefix}/bin
++ ./sub/prog2
+hi, this is ./sub/prog2, and bindir is ${exec_prefix}/bin
++ make clean
+Making clean in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+test -z "" || rm -f 
+test -z "prog2" || rm -f prog2
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+test -z "" || rm -f 
+test -z "prog1" || rm -f prog1
+rm -f *.o
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
++ make sure-not-exist
+test ! -f prog1 && test ! -f prog1
+test ! -f sub/prog2 && test ! -f sub/prog2
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+cd .. && /bin/sh ./config.status sub/prog2
+config.status: creating sub/prog2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/cond39.dir'
+cd . && /bin/sh ./config.status prog1
+config.status: creating prog1
+make[1]: Leaving directory '/sources/automake-1.16.1/t/cond39.dir'
++ ./prog1
+hi, this is ./prog1, and bindir is ${exec_prefix}/bin
++ ./sub/prog2
+hi, this is ./sub/prog2, and bindir is ${exec_prefix}/bin
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/cond39.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/cond39.dir
++ set +x
+PASS t/cond39.sh (exit status: 0)

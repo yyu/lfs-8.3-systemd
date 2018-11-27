@@ -1,0 +1,60 @@
+./t/compile-w.sh: will source ./t/compile.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/compile-w.dir
+++ get_shell_script compile
+++ am_source=compile
+++ am_target=compile
+++ test '!' -f compile
+++ test xyes = xyes
+++ sed '1s|#!.*|#! /bin/sh|' /sources/automake-1.16.1/lib/compile
+++ chmod a+x compile
+++ sed 10q compile
+#! /bin/sh
+# Wrapper for compilers which do not understand '-c -o'.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1999-2018 Free Software Foundation, Inc.
+# Written by Tom Tromey <tromey@cygnus.com>.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+++ unset am_target am_source
+++ ./compile touch a.o -- -o 'a  c' a.c
+++ test -f 'a  c'
+++ test -f ./-o
+++ test -f a.o
+++ test -f a.c
+++ rm -f 'a  c' ./-o a.o a.c
+++ ./compile touch a.o -- -o 'a  c.o' a.c
+++ test -f 'a  c.o'
+++ test '!' -e ./-o
+++ test '!' -e a.o
+++ test -f a.c
+++ ./compile touch a.obj -- -o ac.obj a.c
+++ test '!' -e a.obj
+++ test ac.obj
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/compile-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/compile-w.dir
++ set +x
+PASS t/compile-w.sh (exit status: 0)

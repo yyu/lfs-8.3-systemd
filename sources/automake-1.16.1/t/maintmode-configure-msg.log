@@ -1,0 +1,427 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/maintmode-configure-msg.dir
++ set_maintmode DEFAULT
++ rm -rf 'autom4te*.cache'
++ echo 'AC_INIT([maintmode-configure-msg], [1.0])'
++ case $1 in
++ echo AM_MAINTAINER_MODE
++ aclocal-1.16 -Werror
++ autoconf --force
++ grep_configure_help --enable-maintainer-mode 'enable make rules'
++ ./configure --help
++ cat am--all-help
+`configure' configures maintmode-configure-msg 1.0 to adapt to many kinds of systems.
+
+Usage: ./configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root
+                          [DATAROOTDIR/doc/maintmode-configure-msg]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-maintainer-mode
+                          enable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
+
+Report bugs to the package provider.
++ extract_configure_help --enable-maintainer-mode am--all-help
++ am__opt_re=
++ am__var_re=
++ case $1 in
++ am__opt_re='^  --enable-maintainer-mode( .*|$)'
++ shift
++ test 'x^  --enable-maintainer-mode( .*|$)' '!=' x
++ LC_ALL=C
++ awk '
+      /^  --enable-maintainer-mode( .*|$)/        { print; do_print = 1; next; }
+      /^$/                     { do_print = 0; next }
+      /^  --/                  { do_print = 0; next }
+      (do_print == 1)          { print }
+    ' am--all-help
++ cat am--our-help
+  --enable-maintainer-mode
+                          enable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
++ /bin/grep -E 'enable make rules' am--our-help
+                          enable make rules and dependencies not useful (and
++ check_configure_message_with no
++ answer=no
++ shift
++ ./configure
++ cat stdout
+checking whether to enable maintainer-specific portions of Makefiles... no
++ grep '^checking whether to enable maintainer-specific.*\.\.\. no$' stdout
+checking whether to enable maintainer-specific portions of Makefiles... no
+++ grep -c 'checking.*maint' stdout
++ test 1 -eq 1
++ check_configure_message_with yes --enable-maintainer-mode
++ answer=yes
++ shift
++ ./configure --enable-maintainer-mode
++ cat stdout
+checking whether to enable maintainer-specific portions of Makefiles... yes
++ grep '^checking whether to enable maintainer-specific.*\.\.\. yes$' stdout
+checking whether to enable maintainer-specific portions of Makefiles... yes
+++ grep -c 'checking.*maint' stdout
++ test 1 -eq 1
++ set_maintmode disable
++ rm -rf autom4te.cache
++ echo 'AC_INIT([maintmode-configure-msg], [1.0])'
++ case $1 in
++ echo 'AM_MAINTAINER_MODE([disable])'
++ autoconf --force
++ grep_configure_help --enable-maintainer-mode 'enable make rules'
++ ./configure --help
++ cat am--all-help
+`configure' configures maintmode-configure-msg 1.0 to adapt to many kinds of systems.
+
+Usage: ./configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root
+                          [DATAROOTDIR/doc/maintmode-configure-msg]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --enable-maintainer-mode
+                          enable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
+
+Report bugs to the package provider.
++ extract_configure_help --enable-maintainer-mode am--all-help
++ am__opt_re=
++ am__var_re=
++ case $1 in
++ am__opt_re='^  --enable-maintainer-mode( .*|$)'
++ shift
++ test 'x^  --enable-maintainer-mode( .*|$)' '!=' x
++ LC_ALL=C
++ awk '
+      /^  --enable-maintainer-mode( .*|$)/        { print; do_print = 1; next; }
+      /^$/                     { do_print = 0; next }
+      /^  --/                  { do_print = 0; next }
+      (do_print == 1)          { print }
+    ' am--all-help
++ cat am--our-help
+  --enable-maintainer-mode
+                          enable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
++ /bin/grep -E 'enable make rules' am--our-help
+                          enable make rules and dependencies not useful (and
++ check_configure_message_with no
++ answer=no
++ shift
++ ./configure
++ cat stdout
+checking whether to enable maintainer-specific portions of Makefiles... no
++ grep '^checking whether to enable maintainer-specific.*\.\.\. no$' stdout
+checking whether to enable maintainer-specific portions of Makefiles... no
+++ grep -c 'checking.*maint' stdout
++ test 1 -eq 1
++ check_configure_message_with yes --enable-maintainer-mode
++ answer=yes
++ shift
++ ./configure --enable-maintainer-mode
++ cat stdout
+checking whether to enable maintainer-specific portions of Makefiles... yes
++ grep '^checking whether to enable maintainer-specific.*\.\.\. yes$' stdout
+checking whether to enable maintainer-specific portions of Makefiles... yes
+++ grep -c 'checking.*maint' stdout
++ test 1 -eq 1
++ set_maintmode enable
++ rm -rf autom4te.cache
++ echo 'AC_INIT([maintmode-configure-msg], [1.0])'
++ case $1 in
++ echo 'AM_MAINTAINER_MODE([enable])'
++ autoconf --force
++ ./configure --help
++ cat stdout
+`configure' configures maintmode-configure-msg 1.0 to adapt to many kinds of systems.
+
+Usage: ./configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root
+                          [DATAROOTDIR/doc/maintmode-configure-msg]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --disable-maintainer-mode
+                          disable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
+
+Report bugs to the package provider.
++ grep_configure_help --disable-maintainer-mode 'disable make rules'
++ ./configure --help
++ cat am--all-help
+`configure' configures maintmode-configure-msg 1.0 to adapt to many kinds of systems.
+
+Usage: ./configure [OPTION]... [VAR=VALUE]...
+
+To assign environment variables (e.g., CC, CFLAGS...), specify them as
+VAR=VALUE.  See below for descriptions of some of the useful variables.
+
+Defaults for the options are specified in brackets.
+
+Configuration:
+  -h, --help              display this help and exit
+      --help=short        display options specific to this package
+      --help=recursive    display the short help of all the included packages
+  -V, --version           display version information and exit
+  -q, --quiet, --silent   do not print `checking ...' messages
+      --cache-file=FILE   cache test results in FILE [disabled]
+  -C, --config-cache      alias for `--cache-file=config.cache'
+  -n, --no-create         do not create output files
+      --srcdir=DIR        find the sources in DIR [configure dir or `..']
+
+Installation directories:
+  --prefix=PREFIX         install architecture-independent files in PREFIX
+                          [/usr/local]
+  --exec-prefix=EPREFIX   install architecture-dependent files in EPREFIX
+                          [PREFIX]
+
+By default, `make install' will install all the files in
+`/usr/local/bin', `/usr/local/lib' etc.  You can specify
+an installation prefix other than `/usr/local' using `--prefix',
+for instance `--prefix=$HOME'.
+
+For better control, use the options below.
+
+Fine tuning of the installation directories:
+  --bindir=DIR            user executables [EPREFIX/bin]
+  --sbindir=DIR           system admin executables [EPREFIX/sbin]
+  --libexecdir=DIR        program executables [EPREFIX/libexec]
+  --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+  --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+  --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+  --libdir=DIR            object code libraries [EPREFIX/lib]
+  --includedir=DIR        C header files [PREFIX/include]
+  --oldincludedir=DIR     C header files for non-gcc [/usr/include]
+  --datarootdir=DIR       read-only arch.-independent data root [PREFIX/share]
+  --datadir=DIR           read-only architecture-independent data [DATAROOTDIR]
+  --infodir=DIR           info documentation [DATAROOTDIR/info]
+  --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+  --mandir=DIR            man documentation [DATAROOTDIR/man]
+  --docdir=DIR            documentation root
+                          [DATAROOTDIR/doc/maintmode-configure-msg]
+  --htmldir=DIR           html documentation [DOCDIR]
+  --dvidir=DIR            dvi documentation [DOCDIR]
+  --pdfdir=DIR            pdf documentation [DOCDIR]
+  --psdir=DIR             ps documentation [DOCDIR]
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --disable-maintainer-mode
+                          disable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
+
+Report bugs to the package provider.
++ extract_configure_help --disable-maintainer-mode am--all-help
++ am__opt_re=
++ am__var_re=
++ case $1 in
++ am__opt_re='^  --disable-maintainer-mode( .*|$)'
++ shift
++ test 'x^  --disable-maintainer-mode( .*|$)' '!=' x
++ LC_ALL=C
++ awk '
+      /^  --disable-maintainer-mode( .*|$)/        { print; do_print = 1; next; }
+      /^$/                     { do_print = 0; next }
+      /^  --/                  { do_print = 0; next }
+      (do_print == 1)          { print }
+    ' am--all-help
++ cat am--our-help
+  --disable-maintainer-mode
+                          disable make rules and dependencies not useful (and
+                          sometimes confusing) to the casual installer
++ /bin/grep -E 'disable make rules' am--our-help
+                          disable make rules and dependencies not useful (and
++ check_configure_message_with yes
++ answer=yes
++ shift
++ ./configure
++ cat stdout
+checking whether to enable maintainer-specific portions of Makefiles... yes
++ grep '^checking whether to enable maintainer-specific.*\.\.\. yes$' stdout
+checking whether to enable maintainer-specific portions of Makefiles... yes
+++ grep -c 'checking.*maint' stdout
++ test 1 -eq 1
++ check_configure_message_with no --disable-maintainer-mode
++ answer=no
++ shift
++ ./configure --disable-maintainer-mode
++ cat stdout
+checking whether to enable maintainer-specific portions of Makefiles... no
++ grep '^checking whether to enable maintainer-specific.*\.\.\. no$' stdout
+checking whether to enable maintainer-specific portions of Makefiles... no
+++ grep -c 'checking.*maint' stdout
++ test 1 -eq 1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/maintmode-configure-msg.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/maintmode-configure-msg.dir
++ set +x
+PASS t/maintmode-configure-msg.sh (exit status: 0)

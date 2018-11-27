@@ -1,0 +1,110 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/aclocal-serial.dir
++ cat
++ mkdir 1 2 3 4 5 6
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror -I 1 -I 2 -I 3 -I 4
++ autoconf
++ /bin/grep -F :macro11: configure
+:macro11:
++ /bin/grep -F :macro21: configure
+:macro21:
++ clean_stale
++ rm -rf aclocal.m4 configure autom4te.cache
++ aclocal-1.16 -Werror -I 1 -I 2 -I 3 -I 4 --install
++ autoconf
++ /bin/grep -F :macro12: configure
+:macro12:
++ /bin/grep -F :macro23: configure
+:macro23:
++ cp -f aclocal.m4 aclocal-m4.sav
++ clean_stale
++ rm -rf aclocal.m4 configure autom4te.cache
++ mv -f aclocal-m4.sav aclocal.m4
++ aclocal-1.16 -Werror -I 4 -I 1 -I 2 -I 3 --install --dry-run
++ autoconf
++ /bin/grep -F :macro12: configure
+:macro12:
++ /bin/grep -F :macro23: configure
+:macro23:
++ clean_stale
++ rm -rf aclocal.m4 configure autom4te.cache
++ aclocal-1.16 -Werror -I 4 -I 1 -I 2 -I 3 --install
++ autoconf
++ /bin/grep -F :macro14: configure
+:macro14:
++ /bin/grep -F :macro23: configure
+:macro23:
++ clean_stale
++ rm -rf aclocal.m4 configure autom4te.cache
++ aclocal-1.16 -Werror -I 4 -I 1 -I 2 --install
++ cat stderr
+aclocal-1.16: warnings are treated as errors
+configure.ac:3: warning: macro 'AM_MACRO2' not found in library
++ grep 'macro.*AM_MACRO2.*not found' stderr
+configure.ac:3: warning: macro 'AM_MACRO2' not found in library
++ clean_stale
++ rm -rf aclocal.m4 configure 'autom4te*.cache'
++ aclocal-1.16 -Werror -I 4 -I 1 --install
++ autoconf
++ /bin/grep -F :macro14: configure
+:macro14:
++ /bin/grep -F :macro21: configure
+:macro21:
++ mkdir acdir
++ ACLOCAL='aclocal-1.16 -Werror --system-acdir acdir'
++ cat
++ clean_stale
++ rm -rf aclocal.m4 configure autom4te.cache
++ aclocal-1.16 -Werror --system-acdir acdir -I 4 -I 1 --diff=diff
++ cat stderr
+aclocal-1.16: installing '4/m1.m4' from 'acdir/m1.m4'
++ cat stdout
+0a1,3
+> #serial 456
+> AC_DEFUN([AM_MACRO1], [:macro1d:])
+> AC_DEFUN([AM_MACRO2], [:macro2d:])
++ grep '#serial 456' stdout
+> #serial 456
++ test '!' -e 4/m1.m4
++ grep 'installing.*4/m1\.m4' stderr
+aclocal-1.16: installing '4/m1.m4' from 'acdir/m1.m4'
++ aclocal-1.16 -Werror --system-acdir acdir -I 5
++ cat stderr
+aclocal-1.16: warnings are treated as errors
+5/ill-formed.m4:1: warning: ill-formed serial number 'bla', expecting a version string with only digits and dots
+5/ill-formed.m4:2: warning: ill-formed serial number '.2', expecting a version string with only digits and dots
+5/ill-formed.m4:3: warning: ill-formed serial number '', expecting a version string with only digits and dots
+++ grep -c 'ill-formed serial' stderr
++ test 3 -eq 3
++ aclocal-1.16 -Werror --system-acdir acdir -I 6
++ cat stderr
+aclocal-1.16: warnings are treated as errors
+6/after-def.m4:2: warning: the serial number must appear before any macro definition
++ grep 'serial.*before any macro definition' stderr
+6/after-def.m4:2: warning: the serial number must appear before any macro definition
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/aclocal-serial.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/aclocal-serial.dir
++ set +x
+PASS t/aclocal-serial.sh (exit status: 0)

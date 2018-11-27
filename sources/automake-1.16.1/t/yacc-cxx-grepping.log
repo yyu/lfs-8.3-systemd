@@ -1,0 +1,240 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-cxx-grepping.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ /bin/grep -E '(\.[ch]|foo|bar|baz|qux)' Makefile.in
+bin_PROGRAMS = foo$(EXEEXT) bar$(EXEEXT) baz$(EXEEXT) qux$(EXEEXT)
+am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+am_bar_OBJECTS = bar.$(OBJEXT)
+bar_OBJECTS = $(am_bar_OBJECTS)
+bar_LDADD = $(LDADD)
+am_baz_OBJECTS = baz.$(OBJEXT)
+baz_OBJECTS = $(am_baz_OBJECTS)
+baz_LDADD = $(LDADD)
+am_foo_OBJECTS = foo.$(OBJEXT)
+foo_OBJECTS = $(am_foo_OBJECTS)
+foo_LDADD = $(LDADD)
+am_qux_OBJECTS = qux.$(OBJEXT)
+qux_OBJECTS = $(am_qux_OBJECTS)
+qux_LDADD = $(LDADD)
+am__depfiles_remade = ./$(DEPDIR)/bar.Po ./$(DEPDIR)/baz.Po \
+	./$(DEPDIR)/foo.Po ./$(DEPDIR)/qux.Po
+SOURCES = $(bar_SOURCES) $(baz_SOURCES) $(foo_SOURCES) $(qux_SOURCES)
+DIST_SOURCES = $(bar_SOURCES) $(baz_SOURCES) $(foo_SOURCES) \
+	$(qux_SOURCES)
+am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp baz.cc compile depcomp \
+	foo.c++ install-sh missing qux.cxx ylwrap
+foo_SOURCES = foo.y++
+bar_SOURCES = bar.ypp
+baz_SOURCES = baz.yy
+qux_SOURCES = qux.yxx
+.SUFFIXES: .c++ .cc .cpp .cxx .o .obj .y++ .ypp .yxx .yy
+bar$(EXEEXT): $(bar_OBJECTS) $(bar_DEPENDENCIES) $(EXTRA_bar_DEPENDENCIES) 
+	@rm -f bar$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(bar_OBJECTS) $(bar_LDADD) $(LIBS)
+baz$(EXEEXT): $(baz_OBJECTS) $(baz_DEPENDENCIES) $(EXTRA_baz_DEPENDENCIES) 
+	@rm -f baz$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(baz_OBJECTS) $(baz_LDADD) $(LIBS)
+foo$(EXEEXT): $(foo_OBJECTS) $(foo_DEPENDENCIES) $(EXTRA_foo_DEPENDENCIES) 
+	@rm -f foo$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(foo_OBJECTS) $(foo_LDADD) $(LIBS)
+qux$(EXEEXT): $(qux_OBJECTS) $(qux_DEPENDENCIES) $(EXTRA_qux_DEPENDENCIES) 
+	@rm -f qux$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(qux_OBJECTS) $(qux_LDADD) $(LIBS)
+	-rm -f *.tab.c
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bar.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/baz.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foo.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/qux.Po@am__quote@ # am--include-marker
+.c++.o:
+.c++.obj:
+.cc.o:
+.cc.obj:
+.cpp.o:
+.cpp.obj:
+.cxx.o:
+.cxx.obj:
+.y++.c++:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+.ypp.cpp:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+.yxx.cxx:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+.yy.cc:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+	-rm -f bar.cpp
+	-rm -f baz.cc
+	-rm -f foo.c++
+	-rm -f qux.cxx
+		-rm -f ./$(DEPDIR)/bar.Po
+	-rm -f ./$(DEPDIR)/baz.Po
+	-rm -f ./$(DEPDIR)/foo.Po
+	-rm -f ./$(DEPDIR)/qux.Po
+	-rm -rf $(top_srcdir)/autom4te.cache
+		-rm -f ./$(DEPDIR)/bar.Po
+	-rm -f ./$(DEPDIR)/baz.Po
+	-rm -f ./$(DEPDIR)/foo.Po
+	-rm -f ./$(DEPDIR)/qux.Po
++ /bin/grep -E '(foo|bar|baz|qux)\.h' Makefile.in
++ sed -e 's/^/ /' -e 's/$/ /' Makefile.in
++ /bin/grep -F ' foo.c++ ' mk
+ 	-rm -f foo.c++ 
++ /bin/grep -F ' bar.cpp ' mk
+ am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp baz.cc compile depcomp \ 
+ 	-rm -f bar.cpp 
++ /bin/grep -F ' baz.cc ' mk
+ am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp baz.cc compile depcomp \ 
+ 	-rm -f baz.cc 
++ /bin/grep -F ' qux.cxx ' mk
+ 	foo.c++ install-sh missing qux.cxx ylwrap 
+ 	-rm -f qux.cxx 
++ cat
++ automake-1.16 --foreign -Werror -Wall
++ /bin/grep -E '(\.[ch]|foo|bar|baz|qux)' Makefile.in
+bin_PROGRAMS = foo$(EXEEXT) bar$(EXEEXT) baz$(EXEEXT) qux$(EXEEXT)
+am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
+am_bar_OBJECTS = bar.$(OBJEXT)
+bar_OBJECTS = $(am_bar_OBJECTS)
+bar_LDADD = $(LDADD)
+am_baz_OBJECTS = baz.$(OBJEXT)
+baz_OBJECTS = $(am_baz_OBJECTS)
+baz_LDADD = $(LDADD)
+am_foo_OBJECTS = foo.$(OBJEXT)
+foo_OBJECTS = $(am_foo_OBJECTS)
+foo_LDADD = $(LDADD)
+am_qux_OBJECTS = qux-qux.$(OBJEXT)
+qux_OBJECTS = $(am_qux_OBJECTS)
+qux_LDADD = $(LDADD)
+am__depfiles_remade = ./$(DEPDIR)/bar.Po ./$(DEPDIR)/baz.Po \
+	./$(DEPDIR)/foo.Po ./$(DEPDIR)/qux-qux.Po
+SOURCES = $(bar_SOURCES) $(baz_SOURCES) $(foo_SOURCES) $(qux_SOURCES)
+DIST_SOURCES = $(bar_SOURCES) $(baz_SOURCES) $(foo_SOURCES) \
+	$(qux_SOURCES)
+am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp bar.hpp baz.cc baz.hh \
+	compile depcomp foo.c++ foo.h++ install-sh missing qux-qux.cxx \
+foo_SOURCES = foo.y++
+bar_SOURCES = bar.ypp
+baz_SOURCES = baz.yy
+qux_SOURCES = qux.yxx
+qux_YFLAGS = foo
+.SUFFIXES: .c++ .cc .cpp .cxx .o .obj .y++ .ypp .yxx .yy
+bar.hpp: bar.cpp
+	@if test ! -f $@; then rm -f bar.cpp; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) bar.cpp; else :; fi
+bar$(EXEEXT): $(bar_OBJECTS) $(bar_DEPENDENCIES) $(EXTRA_bar_DEPENDENCIES) 
+	@rm -f bar$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(bar_OBJECTS) $(bar_LDADD) $(LIBS)
+baz.hh: baz.cc
+	@if test ! -f $@; then rm -f baz.cc; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) baz.cc; else :; fi
+baz$(EXEEXT): $(baz_OBJECTS) $(baz_DEPENDENCIES) $(EXTRA_baz_DEPENDENCIES) 
+	@rm -f baz$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(baz_OBJECTS) $(baz_LDADD) $(LIBS)
+foo.h++: foo.c++
+	@if test ! -f $@; then rm -f foo.c++; else :; fi
+	@if test ! -f $@; then $(MAKE) $(AM_MAKEFLAGS) foo.c++; else :; fi
+foo$(EXEEXT): $(foo_OBJECTS) $(foo_DEPENDENCIES) $(EXTRA_foo_DEPENDENCIES) 
+	@rm -f foo$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(foo_OBJECTS) $(foo_LDADD) $(LIBS)
+qux$(EXEEXT): $(qux_OBJECTS) $(qux_DEPENDENCIES) $(EXTRA_qux_DEPENDENCIES) 
+	@rm -f qux$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(qux_OBJECTS) $(qux_LDADD) $(LIBS)
+	-rm -f *.tab.c
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bar.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/baz.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/foo.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/qux-qux.Po@am__quote@ # am--include-marker
+.c++.o:
+.c++.obj:
+.cc.o:
+.cc.obj:
+.cpp.o:
+.cpp.obj:
+.cxx.o:
+.cxx.obj:
+.y++.c++:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+qux-qux.cxx: qux.yxx
+	$(SHELL) $(YLWRAP) `test -f 'qux.yxx' || echo '$(srcdir)/'`qux.yxx y.tab.c qux-qux.cxx y.tab.h `echo qux-qux.cxx | $(am__yacc_c2h)` y.output qux-qux.output -- $(YACC) $(qux_YFLAGS) $(YFLAGS)
+.ypp.cpp:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+.yxx.cxx:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+.yy.cc:
+	$(AM_V_YACC)$(am__skipyacc) $(SHELL) $(YLWRAP) $< y.tab.c $@ y.tab.h `echo $@ | $(am__yacc_c2h)` y.output $*.output -- $(YACCCOMPILE)
+	-rm -f bar.cpp
+	-rm -f bar.hpp
+	-rm -f baz.cc
+	-rm -f baz.hh
+	-rm -f foo.c++
+	-rm -f foo.h++
+	-rm -f qux-qux.cxx
+		-rm -f ./$(DEPDIR)/bar.Po
+	-rm -f ./$(DEPDIR)/baz.Po
+	-rm -f ./$(DEPDIR)/foo.Po
+	-rm -f ./$(DEPDIR)/qux-qux.Po
+	-rm -rf $(top_srcdir)/autom4te.cache
+		-rm -f ./$(DEPDIR)/bar.Po
+	-rm -f ./$(DEPDIR)/baz.Po
+	-rm -f ./$(DEPDIR)/foo.Po
+	-rm -f ./$(DEPDIR)/qux-qux.Po
++ sed -e 's/^/ /' -e 's/$/ /' Makefile.in
++ /bin/grep -F ' foo.c++ ' mk
+ 	compile depcomp foo.c++ foo.h++ install-sh missing qux-qux.cxx \ 
+ foo.h++: foo.c++ 
+ 	-rm -f foo.c++ 
++ /bin/grep -F ' foo.h++ ' mk
+ 	compile depcomp foo.c++ foo.h++ install-sh missing qux-qux.cxx \ 
+ 	-rm -f foo.h++ 
++ /bin/grep -F ' bar.cpp ' mk
+ am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp bar.hpp baz.cc baz.hh \ 
+ bar.hpp: bar.cpp 
+ 	-rm -f bar.cpp 
++ /bin/grep -F ' bar.hpp ' mk
+ am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp bar.hpp baz.cc baz.hh \ 
+ 	-rm -f bar.hpp 
++ /bin/grep -F ' baz.cc ' mk
+ am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp bar.hpp baz.cc baz.hh \ 
+ baz.hh: baz.cc 
+ 	-rm -f baz.cc 
++ /bin/grep -F ' baz.hh ' mk
+ am__DIST_COMMON = $(srcdir)/Makefile.in bar.cpp bar.hpp baz.cc baz.hh \ 
+ 	-rm -f baz.hh 
++ /bin/grep -E '(^| )foo\.h\+\+(:| .*:)' Makefile.in
+foo.h++: foo.c++
++ /bin/grep -E '(^| )bar\.hpp(:| .*:)' Makefile.in
+bar.hpp: bar.cpp
++ /bin/grep -E '(^| )baz\.hh(:| .*:)' Makefile.in
+baz.hh: baz.cc
++ grep ' foo\.h[ :]' mk
++ grep ' bar\.h[ :]' mk
++ grep ' baz\.h[ :]' mk
++ /bin/grep -F ' qux-qux.cxx ' mk
+ 	compile depcomp foo.c++ foo.h++ install-sh missing qux-qux.cxx \ 
+ 	$(SHELL) $(YLWRAP) `test -f 'qux.yxx' || echo '$(srcdir)/'`qux.yxx y.tab.c qux-qux.cxx y.tab.h `echo qux-qux.cxx | $(am__yacc_c2h)` y.output qux-qux.output -- $(YACC) $(qux_YFLAGS) $(YFLAGS) 
+ 	-rm -f qux-qux.cxx 
++ /bin/grep -E '(^| )qux-qux\.cxx(:| .*:)' Makefile.in
+qux-qux.cxx: qux.yxx
++ grep 'qux\.h.*:' Makefile.in
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-cxx-grepping.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-cxx-grepping.dir
++ set +x
+PASS t/yacc-cxx-grepping.sh (exit status: 0)

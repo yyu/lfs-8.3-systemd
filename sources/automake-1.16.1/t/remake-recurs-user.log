@@ -1,0 +1,642 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/remake-recurs-user.dir
++ cat
++ echo 'AM_EXTRA_RECURSIVE_TARGETS([foo])'
++ cat
++ mkdir sub
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ make
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+Making foo in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+: > foo2
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+: > foo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
++ test -f foo
++ test -f sub/foo2
++ test '!' -f bar
++ test '!' -f sub/zardoz
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+test -d "remake-recurs-user-1.0" || mkdir "remake-recurs-user-1.0"
+ (cd sub && make  top_distdir=../remake-recurs-user-1.0 distdir=../remake-recurs-user-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+test -n "" \
+|| find "remake-recurs-user-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-recurs-user-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+tardir=remake-recurs-user-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-recurs-user-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+case 'remake-recurs-user-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-recurs-user-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-recurs-user-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-recurs-user-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-recurs-user-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-recurs-user-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-recurs-user-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-recurs-user-1.0.zip ;;\
+esac
+chmod -R a-w remake-recurs-user-1.0
+chmod u+w remake-recurs-user-1.0
+mkdir remake-recurs-user-1.0/_build remake-recurs-user-1.0/_build/sub remake-recurs-user-1.0/_inst
+chmod a-w remake-recurs-user-1.0
+test -d remake-recurs-user-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-recurs-user-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-recurs-user-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-recurs-user-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making all in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making dvi in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making check in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making installcheck in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making uninstall in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making uninstall in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+test -d "remake-recurs-user-1.0" || mkdir "remake-recurs-user-1.0"
+ (cd sub && make  top_distdir=../remake-recurs-user-1.0 distdir=../remake-recurs-user-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+test -n "" \
+|| find "remake-recurs-user-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-recurs-user-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+tardir=remake-recurs-user-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-recurs-user-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making distclean in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+test -z "foo2" || rm -f foo2
+test -z "" || rm -f 
+test . = "../../../sub" || test -z "" || rm -f 
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+test -z "foo" || rm -f foo
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+========================================================
+remake-recurs-user-1.0 archives ready for distribution: 
+remake-recurs-user-1.0.tar.gz
+========================================================
++ sleep 2
++ echo 'AM_EXTRA_RECURSIVE_TARGETS([bar])'
++ cat
++ echo 'include $(srcdir)/more.am'
++ cat
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ make
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/missing aclocal-1.16 
+ cd . && /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/missing automake-1.16 --foreign
+CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/missing autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure build_alias= host_alias= --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+Making all in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+Making foo in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+: > foo2
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+: > oof
+: > foo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+Making bar in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+: > zardoz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+: > bar
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
++ test -f foo
++ test -f oof
++ test -f sub/foo2
++ test -f bar
++ test -f sub/zardoz
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+test -d "remake-recurs-user-1.0" || mkdir "remake-recurs-user-1.0"
+ (cd sub && make  top_distdir=../remake-recurs-user-1.0 distdir=../remake-recurs-user-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/sub'
+test -n "" \
+|| find "remake-recurs-user-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-recurs-user-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+tardir=remake-recurs-user-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-recurs-user-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+case 'remake-recurs-user-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc remake-recurs-user-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc remake-recurs-user-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc remake-recurs-user-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc remake-recurs-user-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c remake-recurs-user-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc remake-recurs-user-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip remake-recurs-user-1.0.zip ;;\
+esac
+chmod -R a-w remake-recurs-user-1.0
+chmod u+w remake-recurs-user-1.0
+mkdir remake-recurs-user-1.0/_build remake-recurs-user-1.0/_build/sub remake-recurs-user-1.0/_inst
+chmod a-w remake-recurs-user-1.0
+test -d remake-recurs-user-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd remake-recurs-user-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd remake-recurs-user-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf remake-recurs-user-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making all in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > oof
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making bar in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > zardoz
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > bar
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making dvi in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making check in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making bar in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > zardoz
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > bar
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making bar in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > zardoz
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > bar
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making installcheck in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making uninstall in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making install in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making foo in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > foo2
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > foo
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making bar in sub
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+: > zardoz
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+: > bar
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making uninstall in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+test -d "remake-recurs-user-1.0" || mkdir "remake-recurs-user-1.0"
+ (cd sub && make  top_distdir=../remake-recurs-user-1.0 distdir=../remake-recurs-user-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+test -n "" \
+|| find "remake-recurs-user-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "remake-recurs-user-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+tardir=remake-recurs-user-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >remake-recurs-user-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+Making distclean in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+test -z "foo2" || rm -f foo2
+test -z "" || rm -f 
+test . = "../../../sub" || test -z "" || rm -f 
+test -z "zardoz" || rm -f zardoz
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+test -z "foo bar oof" || rm -f foo bar oof
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/remake-recurs-user.dir/remake-recurs-user-1.0/_build/sub'
+if test -d "remake-recurs-user-1.0"; then find "remake-recurs-user-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "remake-recurs-user-1.0" || { sleep 5 && rm -rf "remake-recurs-user-1.0"; }; else :; fi
+========================================================
+remake-recurs-user-1.0 archives ready for distribution: 
+remake-recurs-user-1.0.tar.gz
+========================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/remake-recurs-user.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/remake-recurs-user.dir
++ set +x
+PASS t/remake-recurs-user.sh (exit status: 0)

@@ -1,0 +1,1650 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-no-spurious-numbers.dir
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ :
++ cat
+++ wc -l
++ n=32
++ pass=96
++ fail=96
++ skip=93
++ xfail=93
++ xpass=93
++ error=0
++ total=471
++ echo 1..471
++ highno=1000
++ for result in 'ok' 'not ok'
++ for spacing in "" " " "$tab"
++ subst='ok &'
++ sed -e 's|.*|ok &|' prefixes
++ for directive in TODO SKIP
++ test 'ok TODO' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|ok & # TODO|' prefixes
++ for directive in TODO SKIP
++ test 'ok SKIP' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|ok & # SKIP|' prefixes
++ for spacing in "" " " "$tab"
++ subst='ok & '
++ sed -e 's|.*|ok & |' prefixes
++ for directive in TODO SKIP
++ test 'ok TODO' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|ok &  # TODO|' prefixes
++ for directive in TODO SKIP
++ test 'ok SKIP' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|ok &  # SKIP|' prefixes
++ for spacing in "" " " "$tab"
++ subst='ok &	'
++ sed -e 's|.*|ok &	|' prefixes
++ for directive in TODO SKIP
++ test 'ok TODO' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|ok &	 # TODO|' prefixes
++ for directive in TODO SKIP
++ test 'ok SKIP' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|ok &	 # SKIP|' prefixes
++ for result in 'ok' 'not ok'
++ for spacing in "" " " "$tab"
++ subst='not ok &'
++ sed -e 's|.*|not ok &|' prefixes
++ for directive in TODO SKIP
++ test 'not ok TODO' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|not ok & # TODO|' prefixes
++ for directive in TODO SKIP
++ test 'not ok SKIP' '!=' 'not ok SKIP'
++ continue
++ for spacing in "" " " "$tab"
++ subst='not ok & '
++ sed -e 's|.*|not ok & |' prefixes
++ for directive in TODO SKIP
++ test 'not ok TODO' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|not ok &  # TODO|' prefixes
++ for directive in TODO SKIP
++ test 'not ok SKIP' '!=' 'not ok SKIP'
++ continue
++ for spacing in "" " " "$tab"
++ subst='not ok &	'
++ sed -e 's|.*|not ok &	|' prefixes
++ for directive in TODO SKIP
++ test 'not ok TODO' '!=' 'not ok SKIP'
++ sed -e '/^#$/d' -e 's|.*|not ok &	 # TODO|' prefixes
++ for directive in TODO SKIP
++ test 'not ok SKIP' '!=' 'not ok SKIP'
++ continue
++ cat all.test
+1..471
+ok A
+ok a
+ok _
+ok +
+ok -
+ok =
+ok /
+ok *
+ok .
+ok :
+ok ,
+ok ;
+ok $
+ok @
+ok %
+ok &
+ok #
+ok ?
+ok !
+ok |
+ok \
+ok "
+ok `
+ok '
+ok (
+ok )
+ok [
+ok ]
+ok {
+ok }
+ok <
+ok >
+ok A # TODO
+ok a # TODO
+ok _ # TODO
+ok + # TODO
+ok - # TODO
+ok = # TODO
+ok / # TODO
+ok * # TODO
+ok . # TODO
+ok : # TODO
+ok , # TODO
+ok ; # TODO
+ok $ # TODO
+ok @ # TODO
+ok % # TODO
+ok & # TODO
+ok ? # TODO
+ok ! # TODO
+ok | # TODO
+ok \ # TODO
+ok " # TODO
+ok ` # TODO
+ok ' # TODO
+ok ( # TODO
+ok ) # TODO
+ok [ # TODO
+ok ] # TODO
+ok { # TODO
+ok } # TODO
+ok < # TODO
+ok > # TODO
+ok A # SKIP
+ok a # SKIP
+ok _ # SKIP
+ok + # SKIP
+ok - # SKIP
+ok = # SKIP
+ok / # SKIP
+ok * # SKIP
+ok . # SKIP
+ok : # SKIP
+ok , # SKIP
+ok ; # SKIP
+ok $ # SKIP
+ok @ # SKIP
+ok % # SKIP
+ok & # SKIP
+ok ? # SKIP
+ok ! # SKIP
+ok | # SKIP
+ok \ # SKIP
+ok " # SKIP
+ok ` # SKIP
+ok ' # SKIP
+ok ( # SKIP
+ok ) # SKIP
+ok [ # SKIP
+ok ] # SKIP
+ok { # SKIP
+ok } # SKIP
+ok < # SKIP
+ok > # SKIP
+ok A 
+ok a 
+ok _ 
+ok + 
+ok - 
+ok = 
+ok / 
+ok * 
+ok . 
+ok : 
+ok , 
+ok ; 
+ok $ 
+ok @ 
+ok % 
+ok & 
+ok # 
+ok ? 
+ok ! 
+ok | 
+ok \ 
+ok " 
+ok ` 
+ok ' 
+ok ( 
+ok ) 
+ok [ 
+ok ] 
+ok { 
+ok } 
+ok < 
+ok > 
+ok A  # TODO
+ok a  # TODO
+ok _  # TODO
+ok +  # TODO
+ok -  # TODO
+ok =  # TODO
+ok /  # TODO
+ok *  # TODO
+ok .  # TODO
+ok :  # TODO
+ok ,  # TODO
+ok ;  # TODO
+ok $  # TODO
+ok @  # TODO
+ok %  # TODO
+ok &  # TODO
+ok ?  # TODO
+ok !  # TODO
+ok |  # TODO
+ok \  # TODO
+ok "  # TODO
+ok `  # TODO
+ok '  # TODO
+ok (  # TODO
+ok )  # TODO
+ok [  # TODO
+ok ]  # TODO
+ok {  # TODO
+ok }  # TODO
+ok <  # TODO
+ok >  # TODO
+ok A  # SKIP
+ok a  # SKIP
+ok _  # SKIP
+ok +  # SKIP
+ok -  # SKIP
+ok =  # SKIP
+ok /  # SKIP
+ok *  # SKIP
+ok .  # SKIP
+ok :  # SKIP
+ok ,  # SKIP
+ok ;  # SKIP
+ok $  # SKIP
+ok @  # SKIP
+ok %  # SKIP
+ok &  # SKIP
+ok ?  # SKIP
+ok !  # SKIP
+ok |  # SKIP
+ok \  # SKIP
+ok "  # SKIP
+ok `  # SKIP
+ok '  # SKIP
+ok (  # SKIP
+ok )  # SKIP
+ok [  # SKIP
+ok ]  # SKIP
+ok {  # SKIP
+ok }  # SKIP
+ok <  # SKIP
+ok >  # SKIP
+ok A	
+ok a	
+ok _	
+ok +	
+ok -	
+ok =	
+ok /	
+ok *	
+ok .	
+ok :	
+ok ,	
+ok ;	
+ok $	
+ok @	
+ok %	
+ok &	
+ok #	
+ok ?	
+ok !	
+ok |	
+ok \	
+ok "	
+ok `	
+ok '	
+ok (	
+ok )	
+ok [	
+ok ]	
+ok {	
+ok }	
+ok <	
+ok >	
+ok A	 # TODO
+ok a	 # TODO
+ok _	 # TODO
+ok +	 # TODO
+ok -	 # TODO
+ok =	 # TODO
+ok /	 # TODO
+ok *	 # TODO
+ok .	 # TODO
+ok :	 # TODO
+ok ,	 # TODO
+ok ;	 # TODO
+ok $	 # TODO
+ok @	 # TODO
+ok %	 # TODO
+ok &	 # TODO
+ok ?	 # TODO
+ok !	 # TODO
+ok |	 # TODO
+ok \	 # TODO
+ok "	 # TODO
+ok `	 # TODO
+ok '	 # TODO
+ok (	 # TODO
+ok )	 # TODO
+ok [	 # TODO
+ok ]	 # TODO
+ok {	 # TODO
+ok }	 # TODO
+ok <	 # TODO
+ok >	 # TODO
+ok A	 # SKIP
+ok a	 # SKIP
+ok _	 # SKIP
+ok +	 # SKIP
+ok -	 # SKIP
+ok =	 # SKIP
+ok /	 # SKIP
+ok *	 # SKIP
+ok .	 # SKIP
+ok :	 # SKIP
+ok ,	 # SKIP
+ok ;	 # SKIP
+ok $	 # SKIP
+ok @	 # SKIP
+ok %	 # SKIP
+ok &	 # SKIP
+ok ?	 # SKIP
+ok !	 # SKIP
+ok |	 # SKIP
+ok \	 # SKIP
+ok "	 # SKIP
+ok `	 # SKIP
+ok '	 # SKIP
+ok (	 # SKIP
+ok )	 # SKIP
+ok [	 # SKIP
+ok ]	 # SKIP
+ok {	 # SKIP
+ok }	 # SKIP
+ok <	 # SKIP
+ok >	 # SKIP
+not ok A
+not ok a
+not ok _
+not ok +
+not ok -
+not ok =
+not ok /
+not ok *
+not ok .
+not ok :
+not ok ,
+not ok ;
+not ok $
+not ok @
+not ok %
+not ok &
+not ok #
+not ok ?
+not ok !
+not ok |
+not ok \
+not ok "
+not ok `
+not ok '
+not ok (
+not ok )
+not ok [
+not ok ]
+not ok {
+not ok }
+not ok <
+not ok >
+not ok A # TODO
+not ok a # TODO
+not ok _ # TODO
+not ok + # TODO
+not ok - # TODO
+not ok = # TODO
+not ok / # TODO
+not ok * # TODO
+not ok . # TODO
+not ok : # TODO
+not ok , # TODO
+not ok ; # TODO
+not ok $ # TODO
+not ok @ # TODO
+not ok % # TODO
+not ok & # TODO
+not ok ? # TODO
+not ok ! # TODO
+not ok | # TODO
+not ok \ # TODO
+not ok " # TODO
+not ok ` # TODO
+not ok ' # TODO
+not ok ( # TODO
+not ok ) # TODO
+not ok [ # TODO
+not ok ] # TODO
+not ok { # TODO
+not ok } # TODO
+not ok < # TODO
+not ok > # TODO
+not ok A 
+not ok a 
+not ok _ 
+not ok + 
+not ok - 
+not ok = 
+not ok / 
+not ok * 
+not ok . 
+not ok : 
+not ok , 
+not ok ; 
+not ok $ 
+not ok @ 
+not ok % 
+not ok & 
+not ok # 
+not ok ? 
+not ok ! 
+not ok | 
+not ok \ 
+not ok " 
+not ok ` 
+not ok ' 
+not ok ( 
+not ok ) 
+not ok [ 
+not ok ] 
+not ok { 
+not ok } 
+not ok < 
+not ok > 
+not ok A  # TODO
+not ok a  # TODO
+not ok _  # TODO
+not ok +  # TODO
+not ok -  # TODO
+not ok =  # TODO
+not ok /  # TODO
+not ok *  # TODO
+not ok .  # TODO
+not ok :  # TODO
+not ok ,  # TODO
+not ok ;  # TODO
+not ok $  # TODO
+not ok @  # TODO
+not ok %  # TODO
+not ok &  # TODO
+not ok ?  # TODO
+not ok !  # TODO
+not ok |  # TODO
+not ok \  # TODO
+not ok "  # TODO
+not ok `  # TODO
+not ok '  # TODO
+not ok (  # TODO
+not ok )  # TODO
+not ok [  # TODO
+not ok ]  # TODO
+not ok {  # TODO
+not ok }  # TODO
+not ok <  # TODO
+not ok >  # TODO
+not ok A	
+not ok a	
+not ok _	
+not ok +	
+not ok -	
+not ok =	
+not ok /	
+not ok *	
+not ok .	
+not ok :	
+not ok ,	
+not ok ;	
+not ok $	
+not ok @	
+not ok %	
+not ok &	
+not ok #	
+not ok ?	
+not ok !	
+not ok |	
+not ok \	
+not ok "	
+not ok `	
+not ok '	
+not ok (	
+not ok )	
+not ok [	
+not ok ]	
+not ok {	
+not ok }	
+not ok <	
+not ok >	
+not ok A	 # TODO
+not ok a	 # TODO
+not ok _	 # TODO
+not ok +	 # TODO
+not ok -	 # TODO
+not ok =	 # TODO
+not ok /	 # TODO
+not ok *	 # TODO
+not ok .	 # TODO
+not ok :	 # TODO
+not ok ,	 # TODO
+not ok ;	 # TODO
+not ok $	 # TODO
+not ok @	 # TODO
+not ok %	 # TODO
+not ok &	 # TODO
+not ok ?	 # TODO
+not ok !	 # TODO
+not ok |	 # TODO
+not ok \	 # TODO
+not ok "	 # TODO
+not ok `	 # TODO
+not ok '	 # TODO
+not ok (	 # TODO
+not ok )	 # TODO
+not ok [	 # TODO
+not ok ]	 # TODO
+not ok {	 # TODO
+not ok }	 # TODO
+not ok <	 # TODO
+not ok >	 # TODO
++ grep '#.*#' all.test
+++ wc -l
++ test 472 -lt 1000
++ run_make -O -e IGNORE check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-no-spurious-numbers.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-no-spurious-numbers.dir'
+PASS: all.test 1 A
+PASS: all.test 2 a
+PASS: all.test 3 _
+PASS: all.test 4 +
+PASS: all.test 5 -
+PASS: all.test 6 =
+PASS: all.test 7 /
+PASS: all.test 8 *
+PASS: all.test 9 .
+PASS: all.test 10 :
+PASS: all.test 11 ,
+PASS: all.test 12 ;
+PASS: all.test 13 $
+PASS: all.test 14 @
+PASS: all.test 15 %
+PASS: all.test 16 &
+PASS: all.test 17 #
+PASS: all.test 18 ?
+PASS: all.test 19 !
+PASS: all.test 20 |
+PASS: all.test 21 \
+PASS: all.test 22 "
+PASS: all.test 23 `
+PASS: all.test 24 '
+PASS: all.test 25 (
+PASS: all.test 26 )
+PASS: all.test 27 [
+PASS: all.test 28 ]
+PASS: all.test 29 {
+PASS: all.test 30 }
+PASS: all.test 31 <
+PASS: all.test 32 >
+XPASS: all.test 33 A # TODO
+XPASS: all.test 34 a # TODO
+XPASS: all.test 35 _ # TODO
+XPASS: all.test 36 + # TODO
+XPASS: all.test 37 - # TODO
+XPASS: all.test 38 = # TODO
+XPASS: all.test 39 / # TODO
+XPASS: all.test 40 * # TODO
+XPASS: all.test 41 . # TODO
+XPASS: all.test 42 : # TODO
+XPASS: all.test 43 , # TODO
+XPASS: all.test 44 ; # TODO
+XPASS: all.test 45 $ # TODO
+XPASS: all.test 46 @ # TODO
+XPASS: all.test 47 % # TODO
+XPASS: all.test 48 & # TODO
+XPASS: all.test 49 ? # TODO
+XPASS: all.test 50 ! # TODO
+XPASS: all.test 51 | # TODO
+XPASS: all.test 52 \ # TODO
+XPASS: all.test 53 " # TODO
+XPASS: all.test 54 ` # TODO
+XPASS: all.test 55 ' # TODO
+XPASS: all.test 56 ( # TODO
+XPASS: all.test 57 ) # TODO
+XPASS: all.test 58 [ # TODO
+XPASS: all.test 59 ] # TODO
+XPASS: all.test 60 { # TODO
+XPASS: all.test 61 } # TODO
+XPASS: all.test 62 < # TODO
+XPASS: all.test 63 > # TODO
+SKIP: all.test 64 A # SKIP
+SKIP: all.test 65 a # SKIP
+SKIP: all.test 66 _ # SKIP
+SKIP: all.test 67 + # SKIP
+SKIP: all.test 68 - # SKIP
+SKIP: all.test 69 = # SKIP
+SKIP: all.test 70 / # SKIP
+SKIP: all.test 71 * # SKIP
+SKIP: all.test 72 . # SKIP
+SKIP: all.test 73 : # SKIP
+SKIP: all.test 74 , # SKIP
+SKIP: all.test 75 ; # SKIP
+SKIP: all.test 76 $ # SKIP
+SKIP: all.test 77 @ # SKIP
+SKIP: all.test 78 % # SKIP
+SKIP: all.test 79 & # SKIP
+SKIP: all.test 80 ? # SKIP
+SKIP: all.test 81 ! # SKIP
+SKIP: all.test 82 | # SKIP
+SKIP: all.test 83 \ # SKIP
+SKIP: all.test 84 " # SKIP
+SKIP: all.test 85 ` # SKIP
+SKIP: all.test 86 ' # SKIP
+SKIP: all.test 87 ( # SKIP
+SKIP: all.test 88 ) # SKIP
+SKIP: all.test 89 [ # SKIP
+SKIP: all.test 90 ] # SKIP
+SKIP: all.test 91 { # SKIP
+SKIP: all.test 92 } # SKIP
+SKIP: all.test 93 < # SKIP
+SKIP: all.test 94 > # SKIP
+PASS: all.test 95 A
+PASS: all.test 96 a
+PASS: all.test 97 _
+PASS: all.test 98 +
+PASS: all.test 99 -
+PASS: all.test 100 =
+PASS: all.test 101 /
+PASS: all.test 102 *
+PASS: all.test 103 .
+PASS: all.test 104 :
+PASS: all.test 105 ,
+PASS: all.test 106 ;
+PASS: all.test 107 $
+PASS: all.test 108 @
+PASS: all.test 109 %
+PASS: all.test 110 &
+PASS: all.test 111 #
+PASS: all.test 112 ?
+PASS: all.test 113 !
+PASS: all.test 114 |
+PASS: all.test 115 \
+PASS: all.test 116 "
+PASS: all.test 117 `
+PASS: all.test 118 '
+PASS: all.test 119 (
+PASS: all.test 120 )
+PASS: all.test 121 [
+PASS: all.test 122 ]
+PASS: all.test 123 {
+PASS: all.test 124 }
+PASS: all.test 125 <
+PASS: all.test 126 >
+XPASS: all.test 127 A # TODO
+XPASS: all.test 128 a # TODO
+XPASS: all.test 129 _ # TODO
+XPASS: all.test 130 + # TODO
+XPASS: all.test 131 - # TODO
+XPASS: all.test 132 = # TODO
+XPASS: all.test 133 / # TODO
+XPASS: all.test 134 * # TODO
+XPASS: all.test 135 . # TODO
+XPASS: all.test 136 : # TODO
+XPASS: all.test 137 , # TODO
+XPASS: all.test 138 ; # TODO
+XPASS: all.test 139 $ # TODO
+XPASS: all.test 140 @ # TODO
+XPASS: all.test 141 % # TODO
+XPASS: all.test 142 & # TODO
+XPASS: all.test 143 ? # TODO
+XPASS: all.test 144 ! # TODO
+XPASS: all.test 145 | # TODO
+XPASS: all.test 146 \ # TODO
+XPASS: all.test 147 " # TODO
+XPASS: all.test 148 ` # TODO
+XPASS: all.test 149 ' # TODO
+XPASS: all.test 150 ( # TODO
+XPASS: all.test 151 ) # TODO
+XPASS: all.test 152 [ # TODO
+XPASS: all.test 153 ] # TODO
+XPASS: all.test 154 { # TODO
+XPASS: all.test 155 } # TODO
+XPASS: all.test 156 < # TODO
+XPASS: all.test 157 > # TODO
+SKIP: all.test 158 A # SKIP
+SKIP: all.test 159 a # SKIP
+SKIP: all.test 160 _ # SKIP
+SKIP: all.test 161 + # SKIP
+SKIP: all.test 162 - # SKIP
+SKIP: all.test 163 = # SKIP
+SKIP: all.test 164 / # SKIP
+SKIP: all.test 165 * # SKIP
+SKIP: all.test 166 . # SKIP
+SKIP: all.test 167 : # SKIP
+SKIP: all.test 168 , # SKIP
+SKIP: all.test 169 ; # SKIP
+SKIP: all.test 170 $ # SKIP
+SKIP: all.test 171 @ # SKIP
+SKIP: all.test 172 % # SKIP
+SKIP: all.test 173 & # SKIP
+SKIP: all.test 174 ? # SKIP
+SKIP: all.test 175 ! # SKIP
+SKIP: all.test 176 | # SKIP
+SKIP: all.test 177 \ # SKIP
+SKIP: all.test 178 " # SKIP
+SKIP: all.test 179 ` # SKIP
+SKIP: all.test 180 ' # SKIP
+SKIP: all.test 181 ( # SKIP
+SKIP: all.test 182 ) # SKIP
+SKIP: all.test 183 [ # SKIP
+SKIP: all.test 184 ] # SKIP
+SKIP: all.test 185 { # SKIP
+SKIP: all.test 186 } # SKIP
+SKIP: all.test 187 < # SKIP
+SKIP: all.test 188 > # SKIP
+PASS: all.test 189 A
+PASS: all.test 190 a
+PASS: all.test 191 _
+PASS: all.test 192 +
+PASS: all.test 193 -
+PASS: all.test 194 =
+PASS: all.test 195 /
+PASS: all.test 196 *
+PASS: all.test 197 .
+PASS: all.test 198 :
+PASS: all.test 199 ,
+PASS: all.test 200 ;
+PASS: all.test 201 $
+PASS: all.test 202 @
+PASS: all.test 203 %
+PASS: all.test 204 &
+PASS: all.test 205 #
+PASS: all.test 206 ?
+PASS: all.test 207 !
+PASS: all.test 208 |
+PASS: all.test 209 \
+PASS: all.test 210 "
+PASS: all.test 211 `
+PASS: all.test 212 '
+PASS: all.test 213 (
+PASS: all.test 214 )
+PASS: all.test 215 [
+PASS: all.test 216 ]
+PASS: all.test 217 {
+PASS: all.test 218 }
+PASS: all.test 219 <
+PASS: all.test 220 >
+XPASS: all.test 221 A # TODO
+XPASS: all.test 222 a # TODO
+XPASS: all.test 223 _ # TODO
+XPASS: all.test 224 + # TODO
+XPASS: all.test 225 - # TODO
+XPASS: all.test 226 = # TODO
+XPASS: all.test 227 / # TODO
+XPASS: all.test 228 * # TODO
+XPASS: all.test 229 . # TODO
+XPASS: all.test 230 : # TODO
+XPASS: all.test 231 , # TODO
+XPASS: all.test 232 ; # TODO
+XPASS: all.test 233 $ # TODO
+XPASS: all.test 234 @ # TODO
+XPASS: all.test 235 % # TODO
+XPASS: all.test 236 & # TODO
+XPASS: all.test 237 ? # TODO
+XPASS: all.test 238 ! # TODO
+XPASS: all.test 239 | # TODO
+XPASS: all.test 240 \ # TODO
+XPASS: all.test 241 " # TODO
+XPASS: all.test 242 ` # TODO
+XPASS: all.test 243 ' # TODO
+XPASS: all.test 244 ( # TODO
+XPASS: all.test 245 ) # TODO
+XPASS: all.test 246 [ # TODO
+XPASS: all.test 247 ] # TODO
+XPASS: all.test 248 { # TODO
+XPASS: all.test 249 } # TODO
+XPASS: all.test 250 < # TODO
+XPASS: all.test 251 > # TODO
+SKIP: all.test 252 A # SKIP
+SKIP: all.test 253 a # SKIP
+SKIP: all.test 254 _ # SKIP
+SKIP: all.test 255 + # SKIP
+SKIP: all.test 256 - # SKIP
+SKIP: all.test 257 = # SKIP
+SKIP: all.test 258 / # SKIP
+SKIP: all.test 259 * # SKIP
+SKIP: all.test 260 . # SKIP
+SKIP: all.test 261 : # SKIP
+SKIP: all.test 262 , # SKIP
+SKIP: all.test 263 ; # SKIP
+SKIP: all.test 264 $ # SKIP
+SKIP: all.test 265 @ # SKIP
+SKIP: all.test 266 % # SKIP
+SKIP: all.test 267 & # SKIP
+SKIP: all.test 268 ? # SKIP
+SKIP: all.test 269 ! # SKIP
+SKIP: all.test 270 | # SKIP
+SKIP: all.test 271 \ # SKIP
+SKIP: all.test 272 " # SKIP
+SKIP: all.test 273 ` # SKIP
+SKIP: all.test 274 ' # SKIP
+SKIP: all.test 275 ( # SKIP
+SKIP: all.test 276 ) # SKIP
+SKIP: all.test 277 [ # SKIP
+SKIP: all.test 278 ] # SKIP
+SKIP: all.test 279 { # SKIP
+SKIP: all.test 280 } # SKIP
+SKIP: all.test 281 < # SKIP
+SKIP: all.test 282 > # SKIP
+FAIL: all.test 283 A
+FAIL: all.test 284 a
+FAIL: all.test 285 _
+FAIL: all.test 286 +
+FAIL: all.test 287 -
+FAIL: all.test 288 =
+FAIL: all.test 289 /
+FAIL: all.test 290 *
+FAIL: all.test 291 .
+FAIL: all.test 292 :
+FAIL: all.test 293 ,
+FAIL: all.test 294 ;
+FAIL: all.test 295 $
+FAIL: all.test 296 @
+FAIL: all.test 297 %
+FAIL: all.test 298 &
+FAIL: all.test 299 #
+FAIL: all.test 300 ?
+FAIL: all.test 301 !
+FAIL: all.test 302 |
+FAIL: all.test 303 \
+FAIL: all.test 304 "
+FAIL: all.test 305 `
+FAIL: all.test 306 '
+FAIL: all.test 307 (
+FAIL: all.test 308 )
+FAIL: all.test 309 [
+FAIL: all.test 310 ]
+FAIL: all.test 311 {
+FAIL: all.test 312 }
+FAIL: all.test 313 <
+FAIL: all.test 314 >
+XFAIL: all.test 315 A # TODO
+XFAIL: all.test 316 a # TODO
+XFAIL: all.test 317 _ # TODO
+XFAIL: all.test 318 + # TODO
+XFAIL: all.test 319 - # TODO
+XFAIL: all.test 320 = # TODO
+XFAIL: all.test 321 / # TODO
+XFAIL: all.test 322 * # TODO
+XFAIL: all.test 323 . # TODO
+XFAIL: all.test 324 : # TODO
+XFAIL: all.test 325 , # TODO
+XFAIL: all.test 326 ; # TODO
+XFAIL: all.test 327 $ # TODO
+XFAIL: all.test 328 @ # TODO
+XFAIL: all.test 329 % # TODO
+XFAIL: all.test 330 & # TODO
+XFAIL: all.test 331 ? # TODO
+XFAIL: all.test 332 ! # TODO
+XFAIL: all.test 333 | # TODO
+XFAIL: all.test 334 \ # TODO
+XFAIL: all.test 335 " # TODO
+XFAIL: all.test 336 ` # TODO
+XFAIL: all.test 337 ' # TODO
+XFAIL: all.test 338 ( # TODO
+XFAIL: all.test 339 ) # TODO
+XFAIL: all.test 340 [ # TODO
+XFAIL: all.test 341 ] # TODO
+XFAIL: all.test 342 { # TODO
+XFAIL: all.test 343 } # TODO
+XFAIL: all.test 344 < # TODO
+XFAIL: all.test 345 > # TODO
+FAIL: all.test 346 A
+FAIL: all.test 347 a
+FAIL: all.test 348 _
+FAIL: all.test 349 +
+FAIL: all.test 350 -
+FAIL: all.test 351 =
+FAIL: all.test 352 /
+FAIL: all.test 353 *
+FAIL: all.test 354 .
+FAIL: all.test 355 :
+FAIL: all.test 356 ,
+FAIL: all.test 357 ;
+FAIL: all.test 358 $
+FAIL: all.test 359 @
+FAIL: all.test 360 %
+FAIL: all.test 361 &
+FAIL: all.test 362 #
+FAIL: all.test 363 ?
+FAIL: all.test 364 !
+FAIL: all.test 365 |
+FAIL: all.test 366 \
+FAIL: all.test 367 "
+FAIL: all.test 368 `
+FAIL: all.test 369 '
+FAIL: all.test 370 (
+FAIL: all.test 371 )
+FAIL: all.test 372 [
+FAIL: all.test 373 ]
+FAIL: all.test 374 {
+FAIL: all.test 375 }
+FAIL: all.test 376 <
+FAIL: all.test 377 >
+XFAIL: all.test 378 A # TODO
+XFAIL: all.test 379 a # TODO
+XFAIL: all.test 380 _ # TODO
+XFAIL: all.test 381 + # TODO
+XFAIL: all.test 382 - # TODO
+XFAIL: all.test 383 = # TODO
+XFAIL: all.test 384 / # TODO
+XFAIL: all.test 385 * # TODO
+XFAIL: all.test 386 . # TODO
+XFAIL: all.test 387 : # TODO
+XFAIL: all.test 388 , # TODO
+XFAIL: all.test 389 ; # TODO
+XFAIL: all.test 390 $ # TODO
+XFAIL: all.test 391 @ # TODO
+XFAIL: all.test 392 % # TODO
+XFAIL: all.test 393 & # TODO
+XFAIL: all.test 394 ? # TODO
+XFAIL: all.test 395 ! # TODO
+XFAIL: all.test 396 | # TODO
+XFAIL: all.test 397 \ # TODO
+XFAIL: all.test 398 " # TODO
+XFAIL: all.test 399 ` # TODO
+XFAIL: all.test 400 ' # TODO
+XFAIL: all.test 401 ( # TODO
+XFAIL: all.test 402 ) # TODO
+XFAIL: all.test 403 [ # TODO
+XFAIL: all.test 404 ] # TODO
+XFAIL: all.test 405 { # TODO
+XFAIL: all.test 406 } # TODO
+XFAIL: all.test 407 < # TODO
+XFAIL: all.test 408 > # TODO
+FAIL: all.test 409 A
+FAIL: all.test 410 a
+FAIL: all.test 411 _
+FAIL: all.test 412 +
+FAIL: all.test 413 -
+FAIL: all.test 414 =
+FAIL: all.test 415 /
+FAIL: all.test 416 *
+FAIL: all.test 417 .
+FAIL: all.test 418 :
+FAIL: all.test 419 ,
+FAIL: all.test 420 ;
+FAIL: all.test 421 $
+FAIL: all.test 422 @
+FAIL: all.test 423 %
+FAIL: all.test 424 &
+FAIL: all.test 425 #
+FAIL: all.test 426 ?
+FAIL: all.test 427 !
+FAIL: all.test 428 |
+FAIL: all.test 429 \
+FAIL: all.test 430 "
+FAIL: all.test 431 `
+FAIL: all.test 432 '
+FAIL: all.test 433 (
+FAIL: all.test 434 )
+FAIL: all.test 435 [
+FAIL: all.test 436 ]
+FAIL: all.test 437 {
+FAIL: all.test 438 }
+FAIL: all.test 439 <
+FAIL: all.test 440 >
+XFAIL: all.test 441 A # TODO
+XFAIL: all.test 442 a # TODO
+XFAIL: all.test 443 _ # TODO
+XFAIL: all.test 444 + # TODO
+XFAIL: all.test 445 - # TODO
+XFAIL: all.test 446 = # TODO
+XFAIL: all.test 447 / # TODO
+XFAIL: all.test 448 * # TODO
+XFAIL: all.test 449 . # TODO
+XFAIL: all.test 450 : # TODO
+XFAIL: all.test 451 , # TODO
+XFAIL: all.test 452 ; # TODO
+XFAIL: all.test 453 $ # TODO
+XFAIL: all.test 454 @ # TODO
+XFAIL: all.test 455 % # TODO
+XFAIL: all.test 456 & # TODO
+XFAIL: all.test 457 ? # TODO
+XFAIL: all.test 458 ! # TODO
+XFAIL: all.test 459 | # TODO
+XFAIL: all.test 460 \ # TODO
+XFAIL: all.test 461 " # TODO
+XFAIL: all.test 462 ` # TODO
+XFAIL: all.test 463 ' # TODO
+XFAIL: all.test 464 ( # TODO
+XFAIL: all.test 465 ) # TODO
+XFAIL: all.test 466 [ # TODO
+XFAIL: all.test 467 ] # TODO
+XFAIL: all.test 468 { # TODO
+XFAIL: all.test 469 } # TODO
+XFAIL: all.test 470 < # TODO
+XFAIL: all.test 471 > # TODO
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 471
+# PASS:  96
+# SKIP:  93
+# XFAIL: 93
+# FAIL:  96
+# XPASS: 93
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-no-spurious-numbers.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-no-spurious-numbers.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ count_test_results total=471 pass=96 fail=96 skip=93 xpass=93 xfail=93 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=471 pass=96 fail=96 skip=93 xpass=93 xfail=93 error=0
+++ total=471
+++ pass=96
+++ fail=96
+++ skip=93
+++ xpass=93
+++ xfail=93
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: all.test 1 A
+PASS: all.test 2 a
+PASS: all.test 3 _
+PASS: all.test 4 +
+PASS: all.test 5 -
+PASS: all.test 6 =
+PASS: all.test 7 /
+PASS: all.test 8 *
+PASS: all.test 9 .
+PASS: all.test 10 :
+PASS: all.test 11 ,
+PASS: all.test 12 ;
+PASS: all.test 13 $
+PASS: all.test 14 @
+PASS: all.test 15 %
+PASS: all.test 16 &
+PASS: all.test 17 #
+PASS: all.test 18 ?
+PASS: all.test 19 !
+PASS: all.test 20 |
+PASS: all.test 21 \
+PASS: all.test 22 "
+PASS: all.test 23 `
+PASS: all.test 24 '
+PASS: all.test 25 (
+PASS: all.test 26 )
+PASS: all.test 27 [
+PASS: all.test 28 ]
+PASS: all.test 29 {
+PASS: all.test 30 }
+PASS: all.test 31 <
+PASS: all.test 32 >
+XPASS: all.test 33 A # TODO
+XPASS: all.test 34 a # TODO
+XPASS: all.test 35 _ # TODO
+XPASS: all.test 36 + # TODO
+XPASS: all.test 37 - # TODO
+XPASS: all.test 38 = # TODO
+XPASS: all.test 39 / # TODO
+XPASS: all.test 40 * # TODO
+XPASS: all.test 41 . # TODO
+XPASS: all.test 42 : # TODO
+XPASS: all.test 43 , # TODO
+XPASS: all.test 44 ; # TODO
+XPASS: all.test 45 $ # TODO
+XPASS: all.test 46 @ # TODO
+XPASS: all.test 47 % # TODO
+XPASS: all.test 48 & # TODO
+XPASS: all.test 49 ? # TODO
+XPASS: all.test 50 ! # TODO
+XPASS: all.test 51 | # TODO
+XPASS: all.test 52 \ # TODO
+XPASS: all.test 53 " # TODO
+XPASS: all.test 54 ` # TODO
+XPASS: all.test 55 ' # TODO
+XPASS: all.test 56 ( # TODO
+XPASS: all.test 57 ) # TODO
+XPASS: all.test 58 [ # TODO
+XPASS: all.test 59 ] # TODO
+XPASS: all.test 60 { # TODO
+XPASS: all.test 61 } # TODO
+XPASS: all.test 62 < # TODO
+XPASS: all.test 63 > # TODO
+SKIP: all.test 64 A # SKIP
+SKIP: all.test 65 a # SKIP
+SKIP: all.test 66 _ # SKIP
+SKIP: all.test 67 + # SKIP
+SKIP: all.test 68 - # SKIP
+SKIP: all.test 69 = # SKIP
+SKIP: all.test 70 / # SKIP
+SKIP: all.test 71 * # SKIP
+SKIP: all.test 72 . # SKIP
+SKIP: all.test 73 : # SKIP
+SKIP: all.test 74 , # SKIP
+SKIP: all.test 75 ; # SKIP
+SKIP: all.test 76 $ # SKIP
+SKIP: all.test 77 @ # SKIP
+SKIP: all.test 78 % # SKIP
+SKIP: all.test 79 & # SKIP
+SKIP: all.test 80 ? # SKIP
+SKIP: all.test 81 ! # SKIP
+SKIP: all.test 82 | # SKIP
+SKIP: all.test 83 \ # SKIP
+SKIP: all.test 84 " # SKIP
+SKIP: all.test 85 ` # SKIP
+SKIP: all.test 86 ' # SKIP
+SKIP: all.test 87 ( # SKIP
+SKIP: all.test 88 ) # SKIP
+SKIP: all.test 89 [ # SKIP
+SKIP: all.test 90 ] # SKIP
+SKIP: all.test 91 { # SKIP
+SKIP: all.test 92 } # SKIP
+SKIP: all.test 93 < # SKIP
+SKIP: all.test 94 > # SKIP
+PASS: all.test 95 A
+PASS: all.test 96 a
+PASS: all.test 97 _
+PASS: all.test 98 +
+PASS: all.test 99 -
+PASS: all.test 100 =
+PASS: all.test 101 /
+PASS: all.test 102 *
+PASS: all.test 103 .
+PASS: all.test 104 :
+PASS: all.test 105 ,
+PASS: all.test 106 ;
+PASS: all.test 107 $
+PASS: all.test 108 @
+PASS: all.test 109 %
+PASS: all.test 110 &
+PASS: all.test 111 #
+PASS: all.test 112 ?
+PASS: all.test 113 !
+PASS: all.test 114 |
+PASS: all.test 115 \
+PASS: all.test 116 "
+PASS: all.test 117 `
+PASS: all.test 118 '
+PASS: all.test 119 (
+PASS: all.test 120 )
+PASS: all.test 121 [
+PASS: all.test 122 ]
+PASS: all.test 123 {
+PASS: all.test 124 }
+PASS: all.test 125 <
+PASS: all.test 126 >
+XPASS: all.test 127 A # TODO
+XPASS: all.test 128 a # TODO
+XPASS: all.test 129 _ # TODO
+XPASS: all.test 130 + # TODO
+XPASS: all.test 131 - # TODO
+XPASS: all.test 132 = # TODO
+XPASS: all.test 133 / # TODO
+XPASS: all.test 134 * # TODO
+XPASS: all.test 135 . # TODO
+XPASS: all.test 136 : # TODO
+XPASS: all.test 137 , # TODO
+XPASS: all.test 138 ; # TODO
+XPASS: all.test 139 $ # TODO
+XPASS: all.test 140 @ # TODO
+XPASS: all.test 141 % # TODO
+XPASS: all.test 142 & # TODO
+XPASS: all.test 143 ? # TODO
+XPASS: all.test 144 ! # TODO
+XPASS: all.test 145 | # TODO
+XPASS: all.test 146 \ # TODO
+XPASS: all.test 147 " # TODO
+XPASS: all.test 148 ` # TODO
+XPASS: all.test 149 ' # TODO
+XPASS: all.test 150 ( # TODO
+XPASS: all.test 151 ) # TODO
+XPASS: all.test 152 [ # TODO
+XPASS: all.test 153 ] # TODO
+XPASS: all.test 154 { # TODO
+XPASS: all.test 155 } # TODO
+XPASS: all.test 156 < # TODO
+XPASS: all.test 157 > # TODO
+SKIP: all.test 158 A # SKIP
+SKIP: all.test 159 a # SKIP
+SKIP: all.test 160 _ # SKIP
+SKIP: all.test 161 + # SKIP
+SKIP: all.test 162 - # SKIP
+SKIP: all.test 163 = # SKIP
+SKIP: all.test 164 / # SKIP
+SKIP: all.test 165 * # SKIP
+SKIP: all.test 166 . # SKIP
+SKIP: all.test 167 : # SKIP
+SKIP: all.test 168 , # SKIP
+SKIP: all.test 169 ; # SKIP
+SKIP: all.test 170 $ # SKIP
+SKIP: all.test 171 @ # SKIP
+SKIP: all.test 172 % # SKIP
+SKIP: all.test 173 & # SKIP
+SKIP: all.test 174 ? # SKIP
+SKIP: all.test 175 ! # SKIP
+SKIP: all.test 176 | # SKIP
+SKIP: all.test 177 \ # SKIP
+SKIP: all.test 178 " # SKIP
+SKIP: all.test 179 ` # SKIP
+SKIP: all.test 180 ' # SKIP
+SKIP: all.test 181 ( # SKIP
+SKIP: all.test 182 ) # SKIP
+SKIP: all.test 183 [ # SKIP
+SKIP: all.test 184 ] # SKIP
+SKIP: all.test 185 { # SKIP
+SKIP: all.test 186 } # SKIP
+SKIP: all.test 187 < # SKIP
+SKIP: all.test 188 > # SKIP
+PASS: all.test 189 A
+PASS: all.test 190 a
+PASS: all.test 191 _
+PASS: all.test 192 +
+PASS: all.test 193 -
+PASS: all.test 194 =
+PASS: all.test 195 /
+PASS: all.test 196 *
+PASS: all.test 197 .
+PASS: all.test 198 :
+PASS: all.test 199 ,
+PASS: all.test 200 ;
+PASS: all.test 201 $
+PASS: all.test 202 @
+PASS: all.test 203 %
+PASS: all.test 204 &
+PASS: all.test 205 #
+PASS: all.test 206 ?
+PASS: all.test 207 !
+PASS: all.test 208 |
+PASS: all.test 209 \
+PASS: all.test 210 "
+PASS: all.test 211 `
+PASS: all.test 212 '
+PASS: all.test 213 (
+PASS: all.test 214 )
+PASS: all.test 215 [
+PASS: all.test 216 ]
+PASS: all.test 217 {
+PASS: all.test 218 }
+PASS: all.test 219 <
+PASS: all.test 220 >
+XPASS: all.test 221 A # TODO
+XPASS: all.test 222 a # TODO
+XPASS: all.test 223 _ # TODO
+XPASS: all.test 224 + # TODO
+XPASS: all.test 225 - # TODO
+XPASS: all.test 226 = # TODO
+XPASS: all.test 227 / # TODO
+XPASS: all.test 228 * # TODO
+XPASS: all.test 229 . # TODO
+XPASS: all.test 230 : # TODO
+XPASS: all.test 231 , # TODO
+XPASS: all.test 232 ; # TODO
+XPASS: all.test 233 $ # TODO
+XPASS: all.test 234 @ # TODO
+XPASS: all.test 235 % # TODO
+XPASS: all.test 236 & # TODO
+XPASS: all.test 237 ? # TODO
+XPASS: all.test 238 ! # TODO
+XPASS: all.test 239 | # TODO
+XPASS: all.test 240 \ # TODO
+XPASS: all.test 241 " # TODO
+XPASS: all.test 242 ` # TODO
+XPASS: all.test 243 ' # TODO
+XPASS: all.test 244 ( # TODO
+XPASS: all.test 245 ) # TODO
+XPASS: all.test 246 [ # TODO
+XPASS: all.test 247 ] # TODO
+XPASS: all.test 248 { # TODO
+XPASS: all.test 249 } # TODO
+XPASS: all.test 250 < # TODO
+XPASS: all.test 251 > # TODO
+SKIP: all.test 252 A # SKIP
+SKIP: all.test 253 a # SKIP
+SKIP: all.test 254 _ # SKIP
+SKIP: all.test 255 + # SKIP
+SKIP: all.test 256 - # SKIP
+SKIP: all.test 257 = # SKIP
+SKIP: all.test 258 / # SKIP
+SKIP: all.test 259 * # SKIP
+SKIP: all.test 260 . # SKIP
+SKIP: all.test 261 : # SKIP
+SKIP: all.test 262 , # SKIP
+SKIP: all.test 263 ; # SKIP
+SKIP: all.test 264 $ # SKIP
+SKIP: all.test 265 @ # SKIP
+SKIP: all.test 266 % # SKIP
+SKIP: all.test 267 & # SKIP
+SKIP: all.test 268 ? # SKIP
+SKIP: all.test 269 ! # SKIP
+SKIP: all.test 270 | # SKIP
+SKIP: all.test 271 \ # SKIP
+SKIP: all.test 272 " # SKIP
+SKIP: all.test 273 ` # SKIP
+SKIP: all.test 274 ' # SKIP
+SKIP: all.test 275 ( # SKIP
+SKIP: all.test 276 ) # SKIP
+SKIP: all.test 277 [ # SKIP
+SKIP: all.test 278 ] # SKIP
+SKIP: all.test 279 { # SKIP
+SKIP: all.test 280 } # SKIP
+SKIP: all.test 281 < # SKIP
+SKIP: all.test 282 > # SKIP
+FAIL: all.test 283 A
+FAIL: all.test 284 a
+FAIL: all.test 285 _
+FAIL: all.test 286 +
+FAIL: all.test 287 -
+FAIL: all.test 288 =
+FAIL: all.test 289 /
+FAIL: all.test 290 *
+FAIL: all.test 291 .
+FAIL: all.test 292 :
+FAIL: all.test 293 ,
+FAIL: all.test 294 ;
+FAIL: all.test 295 $
+FAIL: all.test 296 @
+FAIL: all.test 297 %
+FAIL: all.test 298 &
+FAIL: all.test 299 #
+FAIL: all.test 300 ?
+FAIL: all.test 301 !
+FAIL: all.test 302 |
+FAIL: all.test 303 \
+FAIL: all.test 304 "
+FAIL: all.test 305 `
+FAIL: all.test 306 '
+FAIL: all.test 307 (
+FAIL: all.test 308 )
+FAIL: all.test 309 [
+FAIL: all.test 310 ]
+FAIL: all.test 311 {
+FAIL: all.test 312 }
+FAIL: all.test 313 <
+FAIL: all.test 314 >
+XFAIL: all.test 315 A # TODO
+XFAIL: all.test 316 a # TODO
+XFAIL: all.test 317 _ # TODO
+XFAIL: all.test 318 + # TODO
+XFAIL: all.test 319 - # TODO
+XFAIL: all.test 320 = # TODO
+XFAIL: all.test 321 / # TODO
+XFAIL: all.test 322 * # TODO
+XFAIL: all.test 323 . # TODO
+XFAIL: all.test 324 : # TODO
+XFAIL: all.test 325 , # TODO
+XFAIL: all.test 326 ; # TODO
+XFAIL: all.test 327 $ # TODO
+XFAIL: all.test 328 @ # TODO
+XFAIL: all.test 329 % # TODO
+XFAIL: all.test 330 & # TODO
+XFAIL: all.test 331 ? # TODO
+XFAIL: all.test 332 ! # TODO
+XFAIL: all.test 333 | # TODO
+XFAIL: all.test 334 \ # TODO
+XFAIL: all.test 335 " # TODO
+XFAIL: all.test 336 ` # TODO
+XFAIL: all.test 337 ' # TODO
+XFAIL: all.test 338 ( # TODO
+XFAIL: all.test 339 ) # TODO
+XFAIL: all.test 340 [ # TODO
+XFAIL: all.test 341 ] # TODO
+XFAIL: all.test 342 { # TODO
+XFAIL: all.test 343 } # TODO
+XFAIL: all.test 344 < # TODO
+XFAIL: all.test 345 > # TODO
+FAIL: all.test 346 A
+FAIL: all.test 347 a
+FAIL: all.test 348 _
+FAIL: all.test 349 +
+FAIL: all.test 350 -
+FAIL: all.test 351 =
+FAIL: all.test 352 /
+FAIL: all.test 353 *
+FAIL: all.test 354 .
+FAIL: all.test 355 :
+FAIL: all.test 356 ,
+FAIL: all.test 357 ;
+FAIL: all.test 358 $
+FAIL: all.test 359 @
+FAIL: all.test 360 %
+FAIL: all.test 361 &
+FAIL: all.test 362 #
+FAIL: all.test 363 ?
+FAIL: all.test 364 !
+FAIL: all.test 365 |
+FAIL: all.test 366 \
+FAIL: all.test 367 "
+FAIL: all.test 368 `
+FAIL: all.test 369 '
+FAIL: all.test 370 (
+FAIL: all.test 371 )
+FAIL: all.test 372 [
+FAIL: all.test 373 ]
+FAIL: all.test 374 {
+FAIL: all.test 375 }
+FAIL: all.test 376 <
+FAIL: all.test 377 >
+XFAIL: all.test 378 A # TODO
+XFAIL: all.test 379 a # TODO
+XFAIL: all.test 380 _ # TODO
+XFAIL: all.test 381 + # TODO
+XFAIL: all.test 382 - # TODO
+XFAIL: all.test 383 = # TODO
+XFAIL: all.test 384 / # TODO
+XFAIL: all.test 385 * # TODO
+XFAIL: all.test 386 . # TODO
+XFAIL: all.test 387 : # TODO
+XFAIL: all.test 388 , # TODO
+XFAIL: all.test 389 ; # TODO
+XFAIL: all.test 390 $ # TODO
+XFAIL: all.test 391 @ # TODO
+XFAIL: all.test 392 % # TODO
+XFAIL: all.test 393 & # TODO
+XFAIL: all.test 394 ? # TODO
+XFAIL: all.test 395 ! # TODO
+XFAIL: all.test 396 | # TODO
+XFAIL: all.test 397 \ # TODO
+XFAIL: all.test 398 " # TODO
+XFAIL: all.test 399 ` # TODO
+XFAIL: all.test 400 ' # TODO
+XFAIL: all.test 401 ( # TODO
+XFAIL: all.test 402 ) # TODO
+XFAIL: all.test 403 [ # TODO
+XFAIL: all.test 404 ] # TODO
+XFAIL: all.test 405 { # TODO
+XFAIL: all.test 406 } # TODO
+XFAIL: all.test 407 < # TODO
+XFAIL: all.test 408 > # TODO
+FAIL: all.test 409 A
+FAIL: all.test 410 a
+FAIL: all.test 411 _
+FAIL: all.test 412 +
+FAIL: all.test 413 -
+FAIL: all.test 414 =
+FAIL: all.test 415 /
+FAIL: all.test 416 *
+FAIL: all.test 417 .
+FAIL: all.test 418 :
+FAIL: all.test 419 ,
+FAIL: all.test 420 ;
+FAIL: all.test 421 $
+FAIL: all.test 422 @
+FAIL: all.test 423 %
+FAIL: all.test 424 &
+FAIL: all.test 425 #
+FAIL: all.test 426 ?
+FAIL: all.test 427 !
+FAIL: all.test 428 |
+FAIL: all.test 429 \
+FAIL: all.test 430 "
+FAIL: all.test 431 `
+FAIL: all.test 432 '
+FAIL: all.test 433 (
+FAIL: all.test 434 )
+FAIL: all.test 435 [
+FAIL: all.test 436 ]
+FAIL: all.test 437 {
+FAIL: all.test 438 }
+FAIL: all.test 439 <
+FAIL: all.test 440 >
+XFAIL: all.test 441 A # TODO
+XFAIL: all.test 442 a # TODO
+XFAIL: all.test 443 _ # TODO
+XFAIL: all.test 444 + # TODO
+XFAIL: all.test 445 - # TODO
+XFAIL: all.test 446 = # TODO
+XFAIL: all.test 447 / # TODO
+XFAIL: all.test 448 * # TODO
+XFAIL: all.test 449 . # TODO
+XFAIL: all.test 450 : # TODO
+XFAIL: all.test 451 , # TODO
+XFAIL: all.test 452 ; # TODO
+XFAIL: all.test 453 $ # TODO
+XFAIL: all.test 454 @ # TODO
+XFAIL: all.test 455 % # TODO
+XFAIL: all.test 456 & # TODO
+XFAIL: all.test 457 ? # TODO
+XFAIL: all.test 458 ! # TODO
+XFAIL: all.test 459 | # TODO
+XFAIL: all.test 460 \ # TODO
+XFAIL: all.test 461 " # TODO
+XFAIL: all.test 462 ` # TODO
+XFAIL: all.test 463 ' # TODO
+XFAIL: all.test 464 ( # TODO
+XFAIL: all.test 465 ) # TODO
+XFAIL: all.test 466 [ # TODO
+XFAIL: all.test 467 ] # TODO
+XFAIL: all.test 468 { # TODO
+XFAIL: all.test 469 } # TODO
+XFAIL: all.test 470 < # TODO
+XFAIL: all.test 471 > # TODO
+# TOTAL: 471
+# PASS:  96
+# SKIP:  93
+# XFAIL: 93
+# FAIL:  96
+# XPASS: 93
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 96 -eq 96
+++ grep -c '^XFAIL:' stdout
++ test 93 -eq 93
+++ grep -c '^SKIP:' stdout
++ test 93 -eq 93
+++ grep -c '^FAIL:' stdout
++ test 96 -eq 96
+++ grep -c '^XPASS:' stdout
++ test 93 -eq 93
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *471$' stdout
+# TOTAL: 471
++ grep '^# PASS:  *96$' stdout
+# PASS:  96
++ grep '^# XFAIL:  *93$' stdout
+# XFAIL: 93
++ grep '^# SKIP:  *93$' stdout
+# SKIP:  93
++ grep '^# FAIL:  *96$' stdout
+# FAIL:  96
++ grep '^# XPASS:  *93$' stdout
+# XPASS: 93
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-no-spurious-numbers.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-no-spurious-numbers.dir
++ set +x
+PASS t/tap-no-spurious-numbers.sh (exit status: 0)

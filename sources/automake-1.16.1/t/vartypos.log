@@ -1,0 +1,79 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/vartypos.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wno-extra-portability
++ AUTOMAKE_run -e 1 -Wno-extra-portability
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-extra-portability
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:3: warning: variable 'EXTRA_foo_SOURCES' is defined but no program or
+Makefile.am:3: library has 'foo' as canonical name (possible typo)
+Makefile.am:11: warning: variable 'EXTRA_libfoo_a_SOURCES' is defined but no program or
+Makefile.am:11: library has 'libfoo_a' as canonical name (possible typo)
+Makefile.am:1: warning: variable 'foo_SOURCES' is defined but no program or
+Makefile.am:1: library has 'foo' as canonical name (possible typo)
+Makefile.am:9: warning: variable 'libfoo_a_SOURCES' is defined but no program or
+Makefile.am:9: library has 'libfoo_a' as canonical name (possible typo)
+Makefile.am:2: warning: variable 'nodist_foo_SOURCES' is defined but no program or
+Makefile.am:2: library has 'foo' as canonical name (possible typo)
+Makefile.am:10: warning: variable 'nodist_libfoo_a_SOURCES' is defined but no program or
+Makefile.am:10: library has 'libfoo_a' as canonical name (possible typo)
+Makefile.am:12: warning: variable 'libfoo_a_LIBADD' is defined but no program or
+Makefile.am:12: library has 'libfoo_a' as canonical name (possible typo)
+Makefile.am:4: warning: variable 'foo_LDADD' is defined but no program or
+Makefile.am:4: library has 'foo' as canonical name (possible typo)
+Makefile.am:5: warning: variable 'foo_LDFLAGS' is defined but no program or
+Makefile.am:5: library has 'foo' as canonical name (possible typo)
+Makefile.am:7: warning: variable 'EXTRA_foo_DEPENDENCIES' is defined but no program or
+Makefile.am:7: library has 'foo' as canonical name (possible typo)
+Makefile.am:14: warning: variable 'EXTRA_libfoo_a_DEPENDENCIES' is defined but no program or
+Makefile.am:14: library has 'libfoo_a' as canonical name (possible typo)
+Makefile.am:6: warning: variable 'foo_DEPENDENCIES' is defined but no program or
+Makefile.am:6: library has 'foo' as canonical name (possible typo)
+Makefile.am:13: warning: variable 'libfoo_a_DEPENDENCIES' is defined but no program or
+Makefile.am:13: library has 'libfoo_a' as canonical name (possible typo)
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'as canonical' stderr
++ grep -v ' .foo. '
++ grep -v ' .libfoo_a. '
+++ grep -c 'variable.*is defined but' stderr
++ test 13 -eq 13
++ automake-1.16 --foreign -Werror -Wall -Wnone
++ cat
++ automake-1.16 --foreign -Werror -Wall -Wno-extra-portability
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/vartypos.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/vartypos.dir
++ set +x
+PASS t/vartypos.sh (exit status: 0)

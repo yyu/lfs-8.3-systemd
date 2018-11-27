@@ -1,0 +1,152 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/test-driver-custom.dir
++ cat
++ cat
++ mkdir sub bin
+++ pwd
++ PATH=/sources/automake-1.16.1/t/test-driver-custom.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ export PATH
++ cat
++ sed -e 's|@am_log_wflags@|--am-chk|' -e 's|@log_wflags@|--chk|'
++ sed -e 's|@am_log_wflags@|-am-test|' -e 's|@log_wflags@|-test|'
++ sed -e 's|@am_log_wflags@|am|' -e 's|@log_wflags@|_|'
++ chmod a+x chk-wrapper bin/noext-wrapper
++ rm -f wrapper.skel
++ cat
++ chmod a+x 1.chk
++ cp 1.chk 2.test
++ cp 1.chk 3
++ cp 1.chk 4.c.chk
++ cp 1.chk 5.suf
++ cp 1.chk sub/test
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make
+make: Nothing to be done for 'all'.
++ VERBOSE=yes
++ make check
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/test-driver-custom.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/test-driver-custom.dir'
+============================================================================
+Testsuite summary for test-driver-custom 1.0
+============================================================================
+# TOTAL: 0
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/test-driver-custom.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/test-driver-custom.dir'
++ ls -l . sub
+.:
+total 360
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 1.chk
+-rw-r--r-- 1 root root     33 Nov 27 06:44 1.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 1.trs
+-rw-r--r-- 1 root root     35 Nov 27 06:44 2.log
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 2.test
+-rw-r--r-- 1 root root      0 Nov 27 06:44 2.trs
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 3
+-rw-r--r-- 1 root root     21 Nov 27 06:44 3.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 3.trs
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 4.c.chk
+-rw-r--r-- 1 root root     35 Nov 27 06:44 4.c.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 4.c.trs
+-rwxr-xr-x 1 root root     18 Nov 27 06:44 5.suf
+-rw-r--r-- 1 root root     25 Nov 27 06:44 5.suf.log
+-rw-r--r-- 1 root root      0 Nov 27 06:44 5.suf.trs
+-rw-r--r-- 1 root root  31934 Nov 27 06:44 Makefile
+-rw-r--r-- 1 root root    434 Nov 27 06:44 Makefile.am
+-rw-r--r-- 1 root root  31233 Nov 27 06:44 Makefile.in
+-rw-r--r-- 1 root root  27316 Nov 27 06:44 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 autom4te.cache
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 bin
+-rwxr-xr-x 1 root root    871 Nov 27 06:44 chk-wrapper
+-rwxr-xr-x 1 root root   7383 Nov 27 06:44 compile
+-rw-r--r-- 1 root root   5144 Nov 27 06:44 config.log
+-rwxr-xr-x 1 root root  25521 Nov 27 06:44 config.status
+-rwxr-xr-x 1 root root 104220 Nov 27 06:44 configure
+-rw-r--r-- 1 root root     92 Nov 27 06:44 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:44 depcomp
+-rwxr-xr-x 1 root root  15368 Nov 27 06:44 install-sh
+-rwxr-xr-x 1 root root   6878 Nov 27 06:44 missing
+drwxr-xr-x 2 root root   4096 Nov 27 06:44 sub
+-rw-r--r-- 1 root root    541 Nov 27 06:44 test-suite.log
+-rw-r--r-- 1 root root    871 Nov 27 06:44 test-wrapper
+
+sub:
+total 8
+-rwxr-xr-x 1 root root 18 Nov 27 06:44 test
+-rw-r--r-- 1 root root 28 Nov 27 06:44 test.log
+-rw-r--r-- 1 root root  0 Nov 27 06:44 test.trs
++ test '!' -e BAD.log
++ test '!' -e BAD.trs
++ echo 'chk-wrapper 1.chk --am-chk --chk'
++ echo 'test-wrapper 2.test -am-test -test'
++ echo 'noext-wrapper 3 am _'
++ echo 'chk-wrapper 4.c.chk --am-chk --chk'
++ echo 'noext-wrapper 5.suf am _'
++ echo 'noext-wrapper sub/test am _'
++ st=0
++ for x in 1 2 3 4.c 5.suf sub/test
++ cat 1.log
+chk-wrapper 1.chk --am-chk --chk
++ diff 1.exp 1.log
++ for x in 1 2 3 4.c 5.suf sub/test
++ cat 2.log
+test-wrapper 2.test -am-test -test
++ diff 2.exp 2.log
++ for x in 1 2 3 4.c 5.suf sub/test
++ cat 3.log
+noext-wrapper 3 am _
++ diff 3.exp 3.log
++ for x in 1 2 3 4.c 5.suf sub/test
++ cat 4.c.log
+chk-wrapper 4.c.chk --am-chk --chk
++ diff 4.c.exp 4.c.log
++ for x in 1 2 3 4.c 5.suf sub/test
++ cat 5.suf.log
+noext-wrapper 5.suf am _
++ diff 5.suf.exp 5.suf.log
++ for x in 1 2 3 4.c 5.suf sub/test
++ cat sub/test.log
+noext-wrapper sub/test am _
++ diff sub/test.exp sub/test.log
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/test-driver-custom.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/test-driver-custom.dir
++ set +x
+PASS t/test-driver-custom.sh (exit status: 0)

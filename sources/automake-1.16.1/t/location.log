@@ -1,0 +1,190 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/location.dir
++ cat
++ cat
++ :
++ aclocal-1.16 -Werror
++ AUTOMAKE_fails -Wno-error
++ AUTOMAKE_run -e 1 -Wno-error
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-error
++ am__got_rc=1
++ cat stderr
+Makefile.am:12: warning: VAR multiply defined in condition TRUE ...
+Makefile.am:8: ... 'VAR' previously defined here
+automake-1.16: error: libfoo_a_OBJECTS should not be defined
+Makefile.am:3:   while processing library 'libfoo.a'
+automake-1.16: error: use 'libfoo_a_LDADD', not 'libfoo_a_LIBADD'
+Makefile.am:3:   while processing library 'libfoo.a'
+/sources/automake-1.16.1/lib/am/library.am: warning: deprecated feature: target 'libfoo.a' overrides 'libfoo.a$(EXEEXT)'
+/sources/automake-1.16.1/lib/am/library.am: change your target to read 'libfoo.a$(EXEEXT)'
+Makefile.am:3:   while processing library 'libfoo.a'
+/sources/automake-1.16.1/lib/am/program.am: target 'libfoo.a$(EXEEXT)' was defined here
+Makefile.am:1:   while processing program 'libfoo.a'
+/sources/automake-1.16.1/lib/am/program.am: warning: redefinition of 'libfoo.a$(EXEEXT)' ...
+Makefile.am:1:   while processing program 'libfoo.a'
+/sources/automake-1.16.1/lib/am/library.am: ... 'libfoo.a' previously defined here
+Makefile.am:3:   while processing library 'libfoo.a'
+/sources/automake-1.16.1/lib/am/tags.am: warning: redefinition of 'ctags' ...
+/sources/automake-1.16.1/lib/am/program.am: ... 'ctags$(EXEEXT)' previously defined here
+Makefile.am:6:   while processing program 'ctags'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ smash_useless_diffs stderr
++ sed -e 's,^/sources/automake-1.16.1/lib/am/\([a-z]*\.am\),\1,' -e 's,^automake-1.16:,automake:,' stderr
++ sed 's/^> //'
++ cat expected
+Makefile.am:12: warning: VAR multiply defined in condition TRUE ...
+Makefile.am:8: ... 'VAR' previously defined here
+automake: error: libfoo_a_OBJECTS should not be defined
+Makefile.am:3:   while processing library 'libfoo.a'
+automake: error: use 'libfoo_a_LDADD', not 'libfoo_a_LIBADD'
+Makefile.am:3:   while processing library 'libfoo.a'
+library.am: warning: deprecated feature: target 'libfoo.a' overrides 'libfoo.a$(EXEEXT)'
+library.am: change your target to read 'libfoo.a$(EXEEXT)'
+Makefile.am:3:   while processing library 'libfoo.a'
+program.am: target 'libfoo.a$(EXEEXT)' was defined here
+Makefile.am:1:   while processing program 'libfoo.a'
+program.am: warning: redefinition of 'libfoo.a$(EXEEXT)' ...
+Makefile.am:1:   while processing program 'libfoo.a'
+library.am: ... 'libfoo.a' previously defined here
+Makefile.am:3:   while processing library 'libfoo.a'
+tags.am: warning: redefinition of 'ctags' ...
+program.am: ... 'ctags$(EXEEXT)' previously defined here
+Makefile.am:6:   while processing program 'ctags'
++ cat observed
+Makefile.am:12: warning: VAR multiply defined in condition TRUE ...
+Makefile.am:8: ... 'VAR' previously defined here
+automake: error: libfoo_a_OBJECTS should not be defined
+Makefile.am:3:   while processing library 'libfoo.a'
+automake: error: use 'libfoo_a_LDADD', not 'libfoo_a_LIBADD'
+Makefile.am:3:   while processing library 'libfoo.a'
+library.am: warning: deprecated feature: target 'libfoo.a' overrides 'libfoo.a$(EXEEXT)'
+library.am: change your target to read 'libfoo.a$(EXEEXT)'
+Makefile.am:3:   while processing library 'libfoo.a'
+program.am: target 'libfoo.a$(EXEEXT)' was defined here
+Makefile.am:1:   while processing program 'libfoo.a'
+program.am: warning: redefinition of 'libfoo.a$(EXEEXT)' ...
+Makefile.am:1:   while processing program 'libfoo.a'
+library.am: ... 'libfoo.a' previously defined here
+Makefile.am:3:   while processing library 'libfoo.a'
+tags.am: warning: redefinition of 'ctags' ...
+program.am: ... 'ctags$(EXEEXT)' previously defined here
+Makefile.am:6:   while processing program 'ctags'
++ diff expected observed
++ AUTOMAKE_fails -Werror
++ AUTOMAKE_run -e 1 -Werror
++ am__desc=
++ am__exp_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Werror
++ am__got_rc=1
++ cat stderr
+automake-1.16: warnings are treated as errors
+Makefile.am:12: warning: VAR multiply defined in condition TRUE ...
+Makefile.am:8: ... 'VAR' previously defined here
+automake-1.16: error: libfoo_a_OBJECTS should not be defined
+Makefile.am:3:   while processing library 'libfoo.a'
+automake-1.16: error: use 'libfoo_a_LDADD', not 'libfoo_a_LIBADD'
+Makefile.am:3:   while processing library 'libfoo.a'
+/sources/automake-1.16.1/lib/am/library.am: warning: deprecated feature: target 'libfoo.a' overrides 'libfoo.a$(EXEEXT)'
+/sources/automake-1.16.1/lib/am/library.am: change your target to read 'libfoo.a$(EXEEXT)'
+Makefile.am:3:   while processing library 'libfoo.a'
+/sources/automake-1.16.1/lib/am/program.am: target 'libfoo.a$(EXEEXT)' was defined here
+Makefile.am:1:   while processing program 'libfoo.a'
+/sources/automake-1.16.1/lib/am/program.am: warning: redefinition of 'libfoo.a$(EXEEXT)' ...
+Makefile.am:1:   while processing program 'libfoo.a'
+/sources/automake-1.16.1/lib/am/library.am: ... 'libfoo.a' previously defined here
+Makefile.am:3:   while processing library 'libfoo.a'
+/sources/automake-1.16.1/lib/am/tags.am: warning: redefinition of 'ctags' ...
+/sources/automake-1.16.1/lib/am/program.am: ... 'ctags$(EXEEXT)' previously defined here
+Makefile.am:6:   while processing program 'ctags'
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ smash_useless_diffs stderr
++ sed -e 's,^/sources/automake-1.16.1/lib/am/\([a-z]*\.am\),\1,' -e 's,^automake-1.16:,automake:,' stderr
++ echo 'automake: warnings are treated as errors'
++ cat expected
++ mv -f t expected
++ cat expected
+automake: warnings are treated as errors
+Makefile.am:12: warning: VAR multiply defined in condition TRUE ...
+Makefile.am:8: ... 'VAR' previously defined here
+automake: error: libfoo_a_OBJECTS should not be defined
+Makefile.am:3:   while processing library 'libfoo.a'
+automake: error: use 'libfoo_a_LDADD', not 'libfoo_a_LIBADD'
+Makefile.am:3:   while processing library 'libfoo.a'
+library.am: warning: deprecated feature: target 'libfoo.a' overrides 'libfoo.a$(EXEEXT)'
+library.am: change your target to read 'libfoo.a$(EXEEXT)'
+Makefile.am:3:   while processing library 'libfoo.a'
+program.am: target 'libfoo.a$(EXEEXT)' was defined here
+Makefile.am:1:   while processing program 'libfoo.a'
+program.am: warning: redefinition of 'libfoo.a$(EXEEXT)' ...
+Makefile.am:1:   while processing program 'libfoo.a'
+library.am: ... 'libfoo.a' previously defined here
+Makefile.am:3:   while processing library 'libfoo.a'
+tags.am: warning: redefinition of 'ctags' ...
+program.am: ... 'ctags$(EXEEXT)' previously defined here
+Makefile.am:6:   while processing program 'ctags'
++ cat observed
+automake: warnings are treated as errors
+Makefile.am:12: warning: VAR multiply defined in condition TRUE ...
+Makefile.am:8: ... 'VAR' previously defined here
+automake: error: libfoo_a_OBJECTS should not be defined
+Makefile.am:3:   while processing library 'libfoo.a'
+automake: error: use 'libfoo_a_LDADD', not 'libfoo_a_LIBADD'
+Makefile.am:3:   while processing library 'libfoo.a'
+library.am: warning: deprecated feature: target 'libfoo.a' overrides 'libfoo.a$(EXEEXT)'
+library.am: change your target to read 'libfoo.a$(EXEEXT)'
+Makefile.am:3:   while processing library 'libfoo.a'
+program.am: target 'libfoo.a$(EXEEXT)' was defined here
+Makefile.am:1:   while processing program 'libfoo.a'
+program.am: warning: redefinition of 'libfoo.a$(EXEEXT)' ...
+Makefile.am:1:   while processing program 'libfoo.a'
+library.am: ... 'libfoo.a' previously defined here
+Makefile.am:3:   while processing library 'libfoo.a'
+tags.am: warning: redefinition of 'ctags' ...
+program.am: ... 'ctags$(EXEEXT)' previously defined here
+Makefile.am:6:   while processing program 'ctags'
++ diff expected observed
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/location.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/location.dir
++ set +x
+PASS t/location.sh (exit status: 0)

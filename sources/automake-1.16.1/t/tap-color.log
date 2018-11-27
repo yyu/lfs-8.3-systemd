@@ -1,0 +1,290 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-color.dir
++ red='\[0;31m'
++ grn='\[0;32m'
++ lgn='\[1;32m'
++ blu='\[1;34m'
++ mgn='\[0;35m'
++ std='\[m'
++ cat
++ . tap-setup.sh
+++ test -f ../../bin/automake
+++ test -f ../../runtest
+++ test -d ../../t
+++ test '!' -f Makefile.am
+++ mv Makefile.am Makefile.am~
+++ test -d ../tap-common-setup.dir
+++ cp -fpR ../tap-common-setup.dir/Makefile ../tap-common-setup.dir/Makefile.am ../tap-common-setup.dir/Makefile.in ../tap-common-setup.dir/aclocal.m4 ../tap-common-setup.dir/compile ../tap-common-setup.dir/config.log ../tap-common-setup.dir/config.status ../tap-common-setup.dir/configure ../tap-common-setup.dir/configure.ac ../tap-common-setup.dir/depcomp ../tap-common-setup.dir/install-sh ../tap-common-setup.dir/missing .
+++ fetch_tap_driver
+++ AM_TAP_AWK=gawk
+++ export AM_TAP_AWK
+++ get_shell_script tap-driver.sh tap-driver
+++ am_source=tap-driver.sh
+++ am_target=tap-driver
+++ test '!' -f tap-driver
+++ test x = xyes
+++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
+++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+++ unset am_target am_source
+++ test -f Makefile.am~
+++ mv -f Makefile.am~ Makefile.am
+++ echo 'TEST_LOG_DRIVER = $(srcdir)/tap-driver'
+++ automake-1.16 --foreign -Werror -Wall Makefile
+++ ./config.status Makefile
+config.status: creating Makefile
+++ :
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ cat
++ AM_COLOR_TESTS=always
++ export AM_COLOR_TESTS
++ run_make -O -e FAIL TERM=dumb check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make TERM=dumb check
++ set +x
+make[2]: *** [Makefile:479: test-suite.log] Error 1
+make[1]: *** [Makefile:587: check-TESTS] Error 2
+make: *** [Makefile:779: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-color.dir'
+[0;32mPASS[m: all.test 1 - foo
+# all.test: Hi! I shouldn't be colorized!
+[1;32mXFAIL[m: all.test 2 - bar # TODO td
+[1;34mSKIP[m: all.test 3 - baz # SKIP sk
+[0;31mFAIL[m: all.test 4 - quux
+[0;31mXPASS[m: all.test 5 - zardoz # TODO
+[1;34mSKIP[m: skip.test - whole script
+[0;32mPASS[m: bail.test 1
+[0;35mERROR[m: bail.test - Bail out!
+[0;32mPASS[m: badplan.test 1
+[0;35mERROR[m: badplan.test - multiple test plans
+[0;32mPASS[m: badplan.test 2
+[0;32mPASS[m: noplan.test 1
+[0;35mERROR[m: noplan.test - missing test plan
+[0;32mPASS[m: few.test 1
+[0;35mERROR[m: few.test - too few tests run (expected 2, got 1)
+[0;32mPASS[m: many.test 1
+[0;35mERROR[m: many.test 2 # UNPLANNED
+[0;35mERROR[m: many.test - too many tests run (expected 1, got 2)
+[0;35mERROR[m: order.test 5 # OUT-OF-ORDER (expecting 1)
+[0;32mPASS[m: afterlate.test 1
+[0;35mERROR[m: afterlate.test 2 # AFTER LATE PLAN
+[0;31m============================================================================[m
+[0;31mTestsuite summary for tap-common-setup 1.0[m
+[0;31m============================================================================[m
+[1m# TOTAL: 21[m
+[0;32m# PASS:  8[m
+[1;34m# SKIP:  2[m
+[1;32m# XFAIL: 1[m
+[0;31m# FAIL:  1[m
+[0;31m# XPASS: 1[m
+[0;35m# ERROR: 8[m
+[0;31m============================================================================[m
+[0;31mSee ./test-suite.log[m
+[0;31m============================================================================[m
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-color.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test_color
++ grep '^\[0;32mPASS\[m: all\.test 1 - foo$'
++ cat stdout
+[0;32mPASS[m: all.test 1 - foo
++ cat stdout
++ grep '^\[1;32mXFAIL\[m: all\.test 2 - bar # TODO td$'
+[1;32mXFAIL[m: all.test 2 - bar # TODO td
++ cat stdout
++ grep '^\[1;34mSKIP\[m: all\.test 3 - baz # SKIP sk$'
+[1;34mSKIP[m: all.test 3 - baz # SKIP sk
++ cat stdout
++ grep '^\[0;31mFAIL\[m: all\.test 4 - quux$'
+[0;31mFAIL[m: all.test 4 - quux
++ cat stdout
++ grep '^\[0;31mXPASS\[m: all\.test 5 - zardoz # TODO$'
+[0;31mXPASS[m: all.test 5 - zardoz # TODO
++ cat stdout
++ grep '^\[1;34mSKIP\[m: skip\.test - whole script$'
+[1;34mSKIP[m: skip.test - whole script
++ cat stdout
++ grep '^\[0;32mPASS\[m: bail\.test 1$'
+[0;32mPASS[m: bail.test 1
++ grep '^\[0;35mERROR\[m: bail\.test - Bail out!$'
++ cat stdout
+[0;35mERROR[m: bail.test - Bail out!
++ cat stdout
++ grep '^\[0;35mERROR\[m: badplan\.test - multiple test plans$'
+[0;35mERROR[m: badplan.test - multiple test plans
++ cat stdout
++ grep '^\[0;35mERROR\[m: noplan\.test - missing test plan$'
+[0;35mERROR[m: noplan.test - missing test plan
++ cat stdout
++ grep '^\[0;35mERROR\[m: few.test - too few tests run (expected 2, got 1)$'
+[0;35mERROR[m: few.test - too few tests run (expected 2, got 1)
++ cat stdout
++ grep '^\[0;35mERROR\[m: many.test - too many tests run (expected 1, got 2)$'
+[0;35mERROR[m: many.test - too many tests run (expected 1, got 2)
++ cat stdout
++ grep '^\[0;35mERROR\[m: many.test 2 # UNPLANNED$'
+[0;35mERROR[m: many.test 2 # UNPLANNED
++ cat stdout
++ grep '^\[0;35mERROR\[m: order.test 5 # OUT-OF-ORDER (expecting 1)$'
+[0;35mERROR[m: order.test 5 # OUT-OF-ORDER (expecting 1)
++ cat stdout
++ grep '^\[0;35mERROR\[m: afterlate\.test 2 # AFTER LATE PLAN$'
+[0;35mERROR[m: afterlate.test 2 # AFTER LATE PLAN
++ cat stdout
++ grep '^# all\.test: Hi! I shouldn'\''t be colorized!$'
+# all.test: Hi! I shouldn't be colorized!
++ :
++ unset AM_COLOR_TESTS
++ run_make -O -e FAIL TERM=ansi check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make TERM=ansi check
++ set +x
+make[2]: *** [Makefile:479: test-suite.log] Error 1
+make[1]: *** [Makefile:587: check-TESTS] Error 2
+make: *** [Makefile:779: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-color.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-color.dir'
+PASS: all.test 1 - foo
+# all.test: Hi! I shouldn't be colorized!
+XFAIL: all.test 2 - bar # TODO td
+SKIP: all.test 3 - baz # SKIP sk
+FAIL: all.test 4 - quux
+XPASS: all.test 5 - zardoz # TODO
+SKIP: skip.test - whole script
+PASS: bail.test 1
+ERROR: bail.test - Bail out!
+PASS: badplan.test 1
+ERROR: badplan.test - multiple test plans
+PASS: badplan.test 2
+PASS: noplan.test 1
+ERROR: noplan.test - missing test plan
+PASS: few.test 1
+ERROR: few.test - too few tests run (expected 2, got 1)
+PASS: many.test 1
+ERROR: many.test 2 # UNPLANNED
+ERROR: many.test - too many tests run (expected 1, got 2)
+ERROR: order.test 5 # OUT-OF-ORDER (expecting 1)
+PASS: afterlate.test 1
+ERROR: afterlate.test 2 # AFTER LATE PLAN
+============================================================================
+Testsuite summary for tap-common-setup 1.0
+============================================================================
+# TOTAL: 21
+# PASS:  8
+# SKIP:  2
+# XFAIL: 1
+# FAIL:  1
+# XPASS: 1
+# ERROR: 8
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-color.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-color.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test_no_color
++ /bin/grep -F '= Xalways; then' stdout
++ cat stdout
++ grep $'\E'
++ : For shells with broken 'set -e'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-color.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-color.dir
++ set +x
+PASS t/tap-color.sh (exit status: 0)

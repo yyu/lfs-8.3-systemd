@@ -1,0 +1,82 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir
++ cat
++ cat
++ mkdir sub
++ cat
++ :
++ :
++ :
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
++ make check
+Making check in sub
+make[1]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+echo ./Makefile.am ./Makefile.in    | grep 'configure' && exit 1; :
+echo ./Makefile.am ./Makefile.in | grep 'configure' && exit 1; :
+make[2]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir'
+if test -d "autodist-configure-no-subdir-1.0"; then find "autodist-configure-no-subdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "autodist-configure-no-subdir-1.0" || { sleep 5 && rm -rf "autodist-configure-no-subdir-1.0"; }; else :; fi
+test -d "autodist-configure-no-subdir-1.0" || mkdir "autodist-configure-no-subdir-1.0"
+ (cd sub && make  top_distdir=../autodist-configure-no-subdir-1.0 distdir=../autodist-configure-no-subdir-1.0/sub \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/sub'
+test -n "" \
+|| find "autodist-configure-no-subdir-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/autodist-configure-no-subdir.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "autodist-configure-no-subdir-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir'
+ls -l autodist-configure-no-subdir-1.0/sub
+total 16
+-rw-r--r-- 1 root root   257 Nov 27 06:38 Makefile.am
+-rw-r--r-- 1 root root 11044 Nov 27 06:38 Makefile.in
+test ! -f autodist-configure-no-subdir-1.0/sub/configure
+test ! -f autodist-configure-no-subdir-1.0/sub/configure.in
+test ! -f autodist-configure-no-subdir-1.0/sub/configure.ac
+make[2]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/autodist-configure-no-subdir.dir'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/autodist-configure-no-subdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/autodist-configure-no-subdir.dir
++ set +x
+PASS t/autodist-configure-no-subdir.sh (exit status: 0)

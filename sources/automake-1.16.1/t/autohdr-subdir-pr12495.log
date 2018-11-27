@@ -1,0 +1,204 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir
++ cat
++ mkdir sub
++ echo SUBDIRS = sub
++ :
++ aclocal-1.16 -Werror
++ autoconf
++ autoheader
++ test -f a.h.in
++ test '!' -f c.h.in
++ test '!' -f sub/c.h.in
++ AUTOMAKE_fails -Wno-error -Wnone
++ AUTOMAKE_run -e 1 -Wno-error -Wnone
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign -Werror -Wall -Wno-error -Wnone
++ am__got_rc=1
++ cat stderr
+configure.ac:4: error: required file 'b.h.in' not found
+configure.ac:4: error: required file 'sub/c.h.in' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^configure\.ac:4:.* required file '\''b.h.in'\'' not found' stderr
+configure.ac:4: error: required file 'b.h.in' not found
++ grep '^configure\.ac:4:.* required file '\''sub/c.h.in'\'' not found' stderr
+configure.ac:4: error: required file 'sub/c.h.in' not found
++ :
++ :
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub/Makefile
+config.status: creating a.h
+config.status: creating b.h
+config.status: creating sub/c.h
++ grep '^$(srcdir)/a\.h\.in:' Makefile.in
+$(srcdir)/a.h.in:  $(am__configure_deps) 
++ grep '[bc]\.h\.in.*:' Makefile.in sub/Makefile.in
++ test -f a.h
++ test -f b.h
++ test -f sub/c.h
++ rm -f a.h.in a.h
++ make
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir/missing autoheader)
+rm -f stamp-h1
+touch a.h.in
+cd . && /bin/sh ./config.status a.h
+config.status: creating a.h
+make  all-recursive
+make[1]: Entering directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir'
+Making all in sub
+make[2]: Entering directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir/sub'
+make  all-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir/sub'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir/sub'
+make[2]: Entering directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir'
++ test -f a.h.in
++ test -f a.h
++ LANG=C
++ LANGUAGE=C
++ LC_ALL=C
++ export LANG LANGUAGE LC_ALL
+++ pwd
++ ocwd=/sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir
++ for x in b c
++ test b = b
++ rm -f b.h.in
++ run_make -E -e FAIL b.h.in
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make b.h.in
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
+make: *** No rule to make target 'b.h.in'.  Stop.
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test '!' -f b.h.in
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ grep 'No rule to make target [`"'\'']b\.h\.in[`"'\'']' stderr
+make: *** No rule to make target 'b.h.in'.  Stop.
++ :
++ cd /sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir
++ for x in b c
++ test c = b
++ cd sub
++ rm -f c.h.in
++ run_make -E -e FAIL c.h.in
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stderr=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make c.h.in
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test no = yes
++ test yes = yes
++ cat stderr
+make: *** No rule to make target 'c.h.in'.  Stop.
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ test '!' -f c.h.in
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ grep 'No rule to make target [`"'\'']c\.h\.in[`"'\'']' stderr
+make: *** No rule to make target 'c.h.in'.  Stop.
++ :
++ cd /sources/automake-1.16.1/t/autohdr-subdir-pr12495.dir
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/autohdr-subdir-pr12495.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/autohdr-subdir-pr12495.dir
++ set +x
+PASS t/autohdr-subdir-pr12495.sh (exit status: 0)

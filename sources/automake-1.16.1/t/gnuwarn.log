@@ -1,0 +1,67 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/gnuwarn.dir
++ AUTOMAKE='automake-1.16 -Werror'
++ cat
++ :
++ :
++ :
++ :
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 -Werror --add-missing --foreign
++ AUTOMAKE_fails --add-missing --gnu
++ AUTOMAKE_run -e 1 --add-missing --gnu
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 -Werror --add-missing --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: installing './INSTALL'
+Makefile.am: installing './COPYING' using GNU General Public License v3 file
+Makefile.am:     Consider adding the COPYING file to the version control system
+Makefile.am:     for your code, to avoid questions about which license your project uses
+automake-1.16: warnings are treated as errors
+Makefile.am:1: warning: 'CFLAGS' is a user variable, you should not override it;
+Makefile.am:1: use 'AM_CFLAGS' instead
+Makefile.am:2: warning: 'LDFLAGS' is a user variable, you should not override it;
+Makefile.am:2: use 'AM_LDFLAGS' instead
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep '^Makefile\.am:1:.*CFLAGS' stderr
+Makefile.am:1: warning: 'CFLAGS' is a user variable, you should not override it;
+Makefile.am:1: use 'AM_CFLAGS' instead
++ grep '^Makefile\.am:2:.*LDFLAGS' stderr
+Makefile.am:2: warning: 'LDFLAGS' is a user variable, you should not override it;
+Makefile.am:2: use 'AM_LDFLAGS' instead
++ grep CXXFLAGS stderr
++ automake-1.16 -Werror --gnu -Wno-gnu
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/gnuwarn.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/gnuwarn.dir
++ set +x
+PASS t/gnuwarn.sh (exit status: 0)

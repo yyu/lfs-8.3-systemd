@@ -1,0 +1,8 @@
+#!/bin/sh
+set -ex
+# aclocal shouldn't use our autoconf wrapper when extracting
+# the races from configure.ac.
+AUTOCONF='autoconf'; export AUTOCONF
+aclocal-1.16 -Werror "$@"
+touch -r config.status aclocal.m4
+stat aclocal.m4

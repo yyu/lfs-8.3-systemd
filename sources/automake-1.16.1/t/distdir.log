@@ -1,0 +1,281 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/distdir.dir
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ mkdir foo woo some another another/sub another/sub/subsub yet yet/another
++ touch foo/bar joe woo/doo dada some/file another/sub/subsub/file2
++ touch yet/another/file3
++ mkdir build
++ cd build
++ ../configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/build'
+if test -d "distdir-1.0"; then find "distdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-1.0" || { sleep 5 && rm -rf "distdir-1.0"; }; else :; fi
+test -d "distdir-1.0" || mkdir "distdir-1.0"
+test -n "" \
+|| find "distdir-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/distdir.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "distdir-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/build'
++ test -d foo
++ rm -rf distdir-1.0
++ run_make -O -e IGNORE VERSION=10 'MKDIR_P=echo MKDIR_P' distdir
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 6 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 5 -gt 0
++ case $1 in
++ am__make_rc_exp=IGNORE
++ shift
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make VERSION=10 'MKDIR_P=echo MKDIR_P' distdir
++ set +x
+cp: cannot create regular file 'distdir-10/some/file': No such file or directory
+make[1]: *** [Makefile:391: distdir-am] Error 1
+make: *** [Makefile:386: distdir] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/build'
+if test -d "distdir-10"; then find "distdir-10" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-10" || { sleep 5 && rm -rf "distdir-10"; }; else :; fi
+test -d "distdir-10" || mkdir "distdir-10"
+MKDIR_P distdir-10/another distdir-10/another/sub/subsub distdir-10/foo distdir-10/some distdir-10/woo distdir-10/yet/another
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/build'
++ test no = yes
++ case $am__make_rc_exp in
++ : Ignore exit status
++ grep 'MKDIR_P.*\.' stdout
++ cd ..
+++ pwd
++ ./configure --prefix /sources/automake-1.16.1/t/distdir.dir
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/distdir.dir'
+if test -d "distdir-1.0"; then find "distdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-1.0" || { sleep 5 && rm -rf "distdir-1.0"; }; else :; fi
+test -d "distdir-1.0" || mkdir "distdir-1.0"
+test -n "" \
+|| find "distdir-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/distdir.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "distdir-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir'
+tardir=distdir-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >distdir-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir'
+if test -d "distdir-1.0"; then find "distdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-1.0" || { sleep 5 && rm -rf "distdir-1.0"; }; else :; fi
+case 'distdir-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc distdir-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc distdir-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc distdir-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc distdir-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c distdir-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc distdir-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip distdir-1.0.zip ;;\
+esac
+chmod -R a-w distdir-1.0
+chmod u+w distdir-1.0
+mkdir distdir-1.0/_build distdir-1.0/_build/sub distdir-1.0/_inst
+chmod a-w distdir-1.0
+test -d distdir-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd distdir-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd distdir-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf distdir-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+/tools/bin/mkdir -p another/sub/subsub
+touch another/sub/subsub/file2
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Nothing to be done for 'dvi'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+/tools/bin/mkdir -p another/sub/subsub
+touch another/sub/subsub/file2
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+test -f ../../foo/bar
+test -f ../../woo/doo
+test -f ../../joe
+test -f ../../dada
+test -f ../../some/file
+test -f ../../another/sub/subsub/file2 \
+|| test -f /another/sub/subsub/file2
+test -f ../../yet/another/file3
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+/tools/bin/mkdir -p another/sub/subsub
+touch another/sub/subsub/file2
+make[2]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_inst/include'
+ /usr/bin/install -c -m 644 ../../some/file another/sub/subsub/file2 ../../yet/another/file3 '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_inst/include'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_inst/include' && rm -f file file2 file3 )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+/tools/bin/mkdir -p another/sub/subsub
+touch another/sub/subsub/file2
+make[2]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /tools/bin/mkdir -p '/tmp/am-dc-34812//sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_inst/include'
+ /usr/bin/install -c -m 644 ../../some/file another/sub/subsub/file2 ../../yet/another/file3 '/tmp/am-dc-34812//sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_inst/include'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+ ( cd '/tmp/am-dc-34812//sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_inst/include' && rm -f file file2 file3 )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+if test -d "distdir-1.0"; then find "distdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-1.0" || { sleep 5 && rm -rf "distdir-1.0"; }; else :; fi
+test -d "distdir-1.0" || mkdir "distdir-1.0"
+test -n "" \
+|| find "distdir-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/distdir.dir/distdir-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "distdir-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+tardir=distdir-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >distdir-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+if test -d "distdir-1.0"; then find "distdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-1.0" || { sleep 5 && rm -rf "distdir-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+test -z "another/sub/subsub/file2" || rm -f another/sub/subsub/file2
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/distdir.dir/distdir-1.0/_build/sub'
+if test -d "distdir-1.0"; then find "distdir-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "distdir-1.0" || { sleep 5 && rm -rf "distdir-1.0"; }; else :; fi
+=============================================
+distdir-1.0 archives ready for distribution: 
+distdir-1.0.tar.gz
+=============================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/distdir.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/distdir.dir
++ set +x
+PASS t/distdir.sh (exit status: 0)

@@ -1,0 +1,196 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-dist-nobuild.dir
++ cat
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+/bin/sh ./ylwrap parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+cc -DPACKAGE_NAME=\"yacc-dist-nobuild\" -DPACKAGE_TARNAME=\"yacc-dist-nobuild\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-dist-nobuild\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-dist-nobuild\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-dist-nobuild\" -DPACKAGE_TARNAME=\"yacc-dist-nobuild\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-dist-nobuild\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-dist-nobuild\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o foobar parse.o main.o  
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse.y' || echo './'`parse.y y.tab.c zardoz-parse.c y.tab.h `echo zardoz-parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output zardoz-parse.output -- yacc -d 
+updating zardoz-parse.h
+cc -DPACKAGE_NAME=\"yacc-dist-nobuild\" -DPACKAGE_TARNAME=\"yacc-dist-nobuild\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-dist-nobuild\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-dist-nobuild\" -DVERSION=\"1.0\" -I.     -g -O2 -MT zardoz-parse.o -MD -MP -MF .deps/zardoz-parse.Tpo -c -o zardoz-parse.o zardoz-parse.c
+mv -f .deps/zardoz-parse.Tpo .deps/zardoz-parse.Po
+cc  -g -O2   -o zardoz zardoz-parse.o main.o  
++ make distdir
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-dist-nobuild.dir'
+if test -d "yacc-dist-nobuild-1.0"; then find "yacc-dist-nobuild-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "yacc-dist-nobuild-1.0" || { sleep 5 && rm -rf "yacc-dist-nobuild-1.0"; }; else :; fi
+test -d "yacc-dist-nobuild-1.0" || mkdir "yacc-dist-nobuild-1.0"
+test -n "" \
+|| find "yacc-dist-nobuild-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/yacc-dist-nobuild.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "yacc-dist-nobuild-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-dist-nobuild.dir'
++ chmod -R a-w yacc-dist-nobuild-1.0
++ mkdir bin
++ cat
++ cp bin/yacc bin/bison
++ chmod a+x bin/yacc bin/bison
+++ pwd
++ PATH=/sources/automake-1.16.1/t/yacc-dist-nobuild.dir/bin:/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ YACC=yacc
++ BISON=bison
++ export YACC BISON
++ mkdir build
++ cd build
++ ../yacc-dist-nobuild-1.0/configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"yacc-dist-nobuild\" -DPACKAGE_TARNAME=\"yacc-dist-nobuild\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-dist-nobuild\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-dist-nobuild\" -DVERSION=\"1.0\" -I. -I../yacc-dist-nobuild-1.0     -g -O2 -MT parse.o -MD -MP -MF .deps/parse.Tpo -c -o parse.o ../yacc-dist-nobuild-1.0/parse.c
+mv -f .deps/parse.Tpo .deps/parse.Po
+cc -DPACKAGE_NAME=\"yacc-dist-nobuild\" -DPACKAGE_TARNAME=\"yacc-dist-nobuild\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-dist-nobuild\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-dist-nobuild\" -DVERSION=\"1.0\" -I. -I../yacc-dist-nobuild-1.0     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o ../yacc-dist-nobuild-1.0/main.c
+mv -f .deps/main.Tpo .deps/main.Po
+cc  -g -O2   -o foobar parse.o main.o  
+cc -DPACKAGE_NAME=\"yacc-dist-nobuild\" -DPACKAGE_TARNAME=\"yacc-dist-nobuild\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-dist-nobuild\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-dist-nobuild\" -DVERSION=\"1.0\" -I. -I../yacc-dist-nobuild-1.0     -g -O2 -MT zardoz-parse.o -MD -MP -MF .deps/zardoz-parse.Tpo -c -o zardoz-parse.o ../yacc-dist-nobuild-1.0/zardoz-parse.c
+mv -f .deps/zardoz-parse.Tpo .deps/zardoz-parse.Po
+cc  -g -O2   -o zardoz zardoz-parse.o main.o  
++ cd ..
++ chmod u+w yacc-dist-nobuild-1.0
++ rm -f yacc-dist-nobuild-1.0/parse.c
++ chmod a-w yacc-dist-nobuild-1.0
++ mkdir build2
++ cd build2
++ ../yacc-dist-nobuild-1.0/configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ run_make -e FAIL -M
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ am__make_redirect_stdall=yes
++ shift
++ test 0 -gt 0
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make
++ set +x
++ am_make_rc=2
++ test 2 -eq 253
++ test yes = yes
++ cat output
+/bin/sh ../yacc-dist-nobuild-1.0/ylwrap ../yacc-dist-nobuild-1.0/parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+/sources/automake-1.16.1/t/yacc-dist-nobuild.dir/bin/yacc invoked, shouldn't happen!
+make: *** [Makefile:411: parse.c] Error 1
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ /bin/grep -F parse.c output
+/bin/sh ../yacc-dist-nobuild-1.0/ylwrap ../yacc-dist-nobuild-1.0/parse.y y.tab.c parse.c y.tab.h `echo parse.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse.output -- yacc  
+make: *** [Makefile:411: parse.c] Error 1
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-dist-nobuild.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-dist-nobuild.dir
++ set +x
+PASS t/yacc-dist-nobuild.sh (exit status: 0)

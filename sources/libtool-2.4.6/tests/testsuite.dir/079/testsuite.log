@@ -1,0 +1,74 @@
+#                             -*- compilation -*-
+79. archive-in-archive.at:26: testing static library contains static library ...
+libtool: compile:  gcc -g -O2 -c foo.c  -fPIC -DPIC -o .libs/foo.o
+libtool: compile:  gcc -g -O2 -c foo.c -o foo.o >/dev/null 2>&1
+libtool: compile:  gcc -g -O2 -c bar.c  -fPIC -DPIC -o .libs/bar.o
+libtool: compile:  gcc -g -O2 -c bar.c -o bar.o >/dev/null 2>&1
+libtool: link: ar cru .libs/libfoo.a  foo.o
+libtool: link: ranlib .libs/libfoo.a
+libtool: link: ( cd ".libs" && rm -f "libfoo.la" && ln -s "../libfoo.la" "libfoo.la" )
+libtool: install: cp .libs/libfoo.lai /sources/libtool-2.4.6/tests/testsuite.dir/079/libfoo.la
+libtool: install: cp .libs/libfoo.a /sources/libtool-2.4.6/tests/testsuite.dir/079/libfoo.a
+libtool: install: chmod 644 /sources/libtool-2.4.6/tests/testsuite.dir/079/libfoo.a
+libtool: install: ranlib /sources/libtool-2.4.6/tests/testsuite.dir/079/libfoo.a
+libtool: finish: PATH="/sources/libtool-2.4.6/tests:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin:/sbin" ldconfig -n /sources/libtool-2.4.6/tests/testsuite.dir/079
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /sources/libtool-2.4.6/tests/testsuite.dir/079
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+./archive-in-archive.at:52: $LIBTOOL --mode=link --tag=CC --tag=disable-shared $CC $CFLAGS $LDFLAGS \
+	 -o libbar.la bar.lo $libfoo -version-info 1:0:0 -rpath $thisdir
+stderr:
+stdout:
+
+*** Warning: Linking the shared library libbar.la against the
+*** static library libfoo.a is not portable!
+libtool: link: ar cru .libs/libbar.a libfoo.a  bar.o
+libtool: link: ranlib .libs/libbar.a
+libtool: link: ( cd ".libs" && rm -f "libbar.la" && ln -s "../libbar.la" "libbar.la" )
+./archive-in-archive.at:53: $LIBTOOL --mode=install cp libbar.la $thisdir
+stderr:
+stdout:
+libtool: install: cp .libs/libbar.lai /sources/libtool-2.4.6/tests/testsuite.dir/079/libbar.la
+libtool: install: cp .libs/libbar.a /sources/libtool-2.4.6/tests/testsuite.dir/079/libbar.a
+libtool: install: chmod 644 /sources/libtool-2.4.6/tests/testsuite.dir/079/libbar.a
+libtool: install: ranlib /sources/libtool-2.4.6/tests/testsuite.dir/079/libbar.a
+libtool: finish: PATH="/sources/libtool-2.4.6/tests:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin:/sbin" ldconfig -n /sources/libtool-2.4.6/tests/testsuite.dir/079
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /sources/libtool-2.4.6/tests/testsuite.dir/079
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+./archive-in-archive.at:56: $AR -t $libbar | $GREP $libfoo
+stderr:
+stdout:
+libfoo.a
+./archive-in-archive.at:56: exit code was 0, expected 1
+79. archive-in-archive.at:26: 79. static library contains static library (archive-in-archive.at:26): expected failure (archive-in-archive.at:56)

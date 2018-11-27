@@ -1,0 +1,93 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/copy.dir
++ echo dummy
++ ln -s foo bar
++ test -h bar
++ rm -f foo bar
++ :
++ rm -f install-sh
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall -c -a
+configure.ac:2: installing './install-sh'
++ ls -l
+total 112
+-rw-r--r-- 1 root root     0 Nov 27 06:39 Makefile.am
+-rw-r--r-- 1 root root 16440 Nov 27 06:39 Makefile.in
+-rw-r--r-- 1 root root 27316 Nov 27 06:39 aclocal.m4
+drwxr-xr-x 2 root root  4096 Nov 27 06:39 autom4te.cache
+-rwxr-xr-x 1 root root  7383 Nov 27 06:39 compile
+-rw-r--r-- 1 root root    68 Nov 27 06:39 configure.ac
+-rwxr-xr-x 1 root root 23568 Nov 27 06:39 depcomp
+-rwxr-xr-x 1 root root 15368 Nov 27 06:39 install-sh
+-rwxr-xr-x 1 root root  6878 Nov 27 06:39 missing
++ test -f install-sh
++ is_not_symlink install-sh
++ test '!' -h install-sh
++ mkdir sub
++ cd sub
++ cat
++ cat
++ aclocal-1.16 -Werror
++ mkdir auxdir
++ echo FAKE-DEPCOMP
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac:4: installing 'auxdir/compile'
+configure.ac:3: installing 'auxdir/install-sh'
+configure.ac:3: installing 'auxdir/missing'
++ ls -l auxdir
+total 4
+lrwxrwxrwx 1 root root 36 Nov 27 06:39 compile -> /sources/automake-1.16.1/lib/compile
+-rw-r--r-- 1 root root 13 Nov 27 06:39 depcomp
+lrwxrwxrwx 1 root root 39 Nov 27 06:39 install-sh -> /sources/automake-1.16.1/lib/install-sh
+lrwxrwxrwx 1 root root 36 Nov 27 06:39 missing -> /sources/automake-1.16.1/lib/missing
++ test -f auxdir/install-sh
++ is_symlink auxdir/install-sh
++ test -h auxdir/install-sh
++ test -f auxdir/depcomp
++ is_not_symlink auxdir/depcomp
++ test '!' -h auxdir/depcomp
+++ cat auxdir/depcomp
++ test FAKE-DEPCOMP = FAKE-DEPCOMP
++ rm -rf auxdir
++ mkdir auxdir
++ cd auxdir
++ ln -s /sources/automake-1.16.1/lib/missing /sources/automake-1.16.1/lib/install-sh .
++ cd ..
++ automake-1.16 --foreign -Werror -Wall -a -c
+configure.ac:4: installing 'auxdir/compile'
+Makefile.am: installing 'auxdir/depcomp'
++ ls -l auxdir
+total 32
+-rwxr-xr-x 1 root root  7383 Nov 27 06:39 compile
+-rwxr-xr-x 1 root root 23568 Nov 27 06:39 depcomp
+lrwxrwxrwx 1 root root    39 Nov 27 06:39 install-sh -> /sources/automake-1.16.1/lib/install-sh
+lrwxrwxrwx 1 root root    36 Nov 27 06:39 missing -> /sources/automake-1.16.1/lib/missing
++ test -f auxdir/install-sh
++ is_symlink auxdir/install-sh
++ test -h auxdir/install-sh
++ test -f auxdir/missing
++ is_symlink auxdir/missing
++ test -h auxdir/missing
++ test -f auxdir/depcomp
++ is_not_symlink auxdir/depcomp
++ test '!' -h auxdir/depcomp
++ diff /sources/automake-1.16.1/lib/depcomp auxdir/depcomp
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/copy.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/copy.dir
++ set +x
+PASS t/copy.sh (exit status: 0)

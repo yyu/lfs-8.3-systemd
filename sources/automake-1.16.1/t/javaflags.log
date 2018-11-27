@@ -1,0 +1,108 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/javaflags.dir
++ cat
++ chmod a+x fake-javac
++ cat
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ grep '\$(JAVACFLAGS).*\$(AM_JAVACFLAGS)' Makefile.in
++ :
++ autoconf
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ run_make JAVACFLAGS=__user_flags__
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make JAVACFLAGS=__user_flags__
++ set +x
+CLASSPATH=.:./.${CLASSPATH:+":$CLASSPATH"} /sources/automake-1.16.1/t/javaflags.dir/fake-javac -d . __am_flags__ __user_flags__  bar.java
+echo timestamp > classfoo.stamp
++ test 0 -eq 253
++ test no = yes
++ test no = yes
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ ls -l
+total 348
+-rw-r--r-- 1 root root  19017 Nov 27 06:42 Makefile
+-rw-r--r-- 1 root root     68 Nov 27 06:42 Makefile.am
+-rw-r--r-- 1 root root  18556 Nov 27 06:42 Makefile.in
+-rw-r--r-- 1 root root  41888 Nov 27 06:42 aclocal.m4
+drwxr-xr-x 2 root root   4096 Nov 27 06:42 autom4te.cache
+-rw-r--r-- 1 root root      0 Nov 27 06:42 bar.java
+-rw-r--r-- 1 root root     10 Nov 27 06:42 classfoo.stamp
+-rwxr-xr-x 1 root root   7383 Nov 27 06:42 compile
+-rw-r--r-- 1 root root   8572 Nov 27 06:42 config.log
+-rwxr-xr-x 1 root root  29101 Nov 27 06:42 config.status
+-rwxr-xr-x 1 root root 141194 Nov 27 06:42 configure
+-rw-r--r-- 1 root root    216 Nov 27 06:42 configure.ac
+-rwxr-xr-x 1 root root  23568 Nov 27 06:42 depcomp
+-rwxr-xr-x 1 root root     37 Nov 27 06:42 fake-javac
+-rwxr-xr-x 1 root root  15368 Nov 27 06:42 install-sh
+-rw-r--r-- 1 root root     42 Nov 27 06:42 javaflags.list
+-rwxr-xr-x 1 root root   6878 Nov 27 06:42 missing
++ cat javaflags.list
+-d . __am_flags__ __user_flags__ bar.java
++ grep '__am_flags__.*__user_flags__' javaflags.list
+-d . __am_flags__ __user_flags__ bar.java
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/javaflags.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/javaflags.dir
++ set +x
+PASS t/javaflags.sh (exit status: 0)

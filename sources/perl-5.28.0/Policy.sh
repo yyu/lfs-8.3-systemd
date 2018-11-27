@@ -36,7 +36,7 @@
 #Site-specific values:
 
 case "$perladmin" in
-'') perladmin='ubuntu@ip-172-31-5-17.(none)' ;;
+'') perladmin='root@ip-172-31-5-17.nonet' ;;
 esac
 
 # Installation prefixes.  Allow a Configure -D override.  You
@@ -45,7 +45,7 @@ esac
 # For an explanation of the installation directories, see the
 # INSTALL file section on "Installation Directories".
 case "$prefix" in
-'') prefix='/tools' ;;
+'') prefix='/usr' ;;
 esac
 
 # By default, the next three are the same as $prefix.  
@@ -54,28 +54,28 @@ esac
 # Use similar logic for $vendorprefix and $installprefix.
 
 case "$siteprefix" in
-'') if test "/tools" = "/tools"; then
+'') if test "/usr" = "/usr"; then
 	siteprefix="$prefix"
     else
-	siteprefix='/tools'
+	siteprefix='/usr'
     fi
     ;;
 esac
 case "$vendorprefix" in
-'') if test "" = "/tools"; then
+'') if test "/usr" = "/usr"; then
 	vendorprefix="$prefix"
     else
-	vendorprefix=''
+	vendorprefix='/usr'
     fi
     ;;
 esac
 
 # Where installperl puts things.
 case "$installprefix" in
-'') if test "/tools" = "/tools"; then
+'') if test "/usr" = "/usr"; then
 	installprefix="$prefix"
     else
-	installprefix='/tools'
+	installprefix='/usr'
     fi
     ;;
 esac
@@ -90,7 +90,7 @@ esac
 #     need to distinguish between the place where things
 #     get installed and where they finally will reside.  As of 5.005_6x,
 #     this too is handled automatically by Configure based on
-#     /tools, so it isn't included here either.
+#     /usr, so it isn't included here either.
 #
 # Note also that there are three broad hierarchies of installation 
 # directories, as discussed in the INSTALL file under 
@@ -113,38 +113,38 @@ esac
 # version-dependent names, particularly if you reuse this file for
 # different versions of perl.
 
-# bin='/tools/bin'
-# scriptdir='/tools/bin'
-# privlib='/tools/lib/perl5/5.28.0'
-# archlib='/tools/lib/perl5/5.28.0/x86_64-linux'
+# bin='/usr/bin'
+# scriptdir='/usr/bin'
+# privlib='/usr/lib/perl5/5.28.0'
+# archlib='/usr/lib/perl5/5.28.0/x86_64-linux-thread-multi'
 # Preserving custom man1dir
-man1dir='/tools/share/man/man1'
+man1dir='/usr/share/man/man1'
 # Preserving custom man3dir
-man3dir='/tools/share/man/man3'
+man3dir='/usr/share/man/man3'
 # man1ext='1'
 # man3ext='3'
 # Preserving custom html1dir
 html1dir=' '
 # Preserving custom html3dir
 html3dir=' '
-# sitebin='/tools/bin'
-# sitescript='/tools/bin'
-# sitelib='/tools/lib/perl5/site_perl/5.28.0'
-# sitearch='/tools/lib/perl5/site_perl/5.28.0/x86_64-linux'
+# sitebin='/usr/bin'
+# sitescript='/usr/bin'
+# sitelib='/usr/lib/perl5/site_perl/5.28.0'
+# sitearch='/usr/lib/perl5/site_perl/5.28.0/x86_64-linux-thread-multi'
 # Preserving custom siteman1dir
-siteman1dir='/tools/share/man/man1'
+siteman1dir='/usr/share/man/man1'
 # Preserving custom siteman3dir
-siteman3dir='/tools/share/man/man3'
+siteman3dir='/usr/share/man/man3'
 # sitehtml1dir=''
 # sitehtml3dir=''
-# vendorbin=''
-# vendorscript=''
-# vendorlib=''
-# vendorarch=''
+# vendorbin='/usr/bin'
+# vendorscript='/usr/bin'
+# vendorlib='/usr/lib/perl5/vendor_perl/5.28.0'
+# vendorarch='/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi'
 # Preserving custom vendorman1dir
-vendorman1dir=' '
+vendorman1dir='/usr/share/man/man1'
 # Preserving custom vendorman3dir
-vendorman3dir=' '
+vendorman3dir='/usr/share/man/man3'
 # Preserving custom vendorhtml1dir
 vendorhtml1dir=' '
 # Preserving custom vendorhtml3dir
@@ -154,7 +154,7 @@ vendorhtml3dir=' '
 #  pager to your local favorite value, uncomment the following line in
 #  the original Policy_sh.SH file and re-run   sh Policy_sh.SH.
 #
-#  pager='/bin/less -R'
+#  pager='/usr/bin/less -isR'
 #
 #  A full Glossary of all the config.sh variables is in the file
 #  Porting/Glossary.

@@ -1,0 +1,64 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/output-order.dir
++ cat
++ :
++ :
++ :
++ :
++ :
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ rm -f missing install-sh
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ cat stderr
+configure.ac:2: installing './install-sh'
+configure.ac:2: installing './missing'
++ for i in 1 2 3 4 5 6
++ rm -f missing install-sh INSTALL COPYING
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ grep -v /dev/null
++ diff - stderr
++ for i in 1 2 3 4 5 6
++ rm -f missing install-sh INSTALL COPYING
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ grep -v /dev/null
++ diff - stderr
++ for i in 1 2 3 4 5 6
++ rm -f missing install-sh INSTALL COPYING
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ grep -v /dev/null
++ diff - stderr
++ for i in 1 2 3 4 5 6
++ rm -f missing install-sh INSTALL COPYING
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ diff - stderr
++ grep -v /dev/null
++ for i in 1 2 3 4 5 6
++ rm -f missing install-sh INSTALL COPYING
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ grep -v /dev/null
++ diff - stderr
++ for i in 1 2 3 4 5 6
++ rm -f missing install-sh INSTALL COPYING
++ automake-1.16 --foreign -Werror -Wall --add-missing --copy
++ diff - stderr
++ grep -v /dev/null
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/output-order.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/output-order.dir
++ set +x
+PASS t/output-order.sh (exit status: 0)

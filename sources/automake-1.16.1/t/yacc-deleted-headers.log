@@ -1,0 +1,237 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/yacc-deleted-headers.dir
++ cat
++ cat
++ cat
++ cat
++ sed 's/"parse1\.h"/"p2-parse2.h"/' parse1.y
++ sed 's/"parse1\.h"/"p2-parse2.h"/' main1.c
++ sed 's/"parse1\.h"/"parse3.h"/' parse1.y
++ sed 's/"parse1\.h"/"parse3.h"/' main1.c
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for bison... yacc
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+/bin/sh ./ylwrap parse1.y y.tab.c parse1.c y.tab.h `echo parse1.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse1.output -- yacc -d 
+updating parse1.h
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse2.y' || echo './'`parse2.y y.tab.c p2-parse2.c y.tab.h `echo p2-parse2.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output p2-parse2.output -- yacc -d 
+updating p2-parse2.h
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main1.o -MD -MP -MF .deps/main1.Tpo -c -o main1.o main1.c
+mv -f .deps/main1.Tpo .deps/main1.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse1.o -MD -MP -MF .deps/parse1.Tpo -c -o parse1.o parse1.c
+mv -f .deps/parse1.Tpo .deps/parse1.Po
+cc  -g -O2   -o p1 main1.o parse1.o  
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main2.o -MD -MP -MF .deps/main2.Tpo -c -o main2.o main2.c
+mv -f .deps/main2.Tpo .deps/main2.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT p2-parse2.o -MD -MP -MF .deps/p2-parse2.Tpo -c -o p2-parse2.o p2-parse2.c
+mv -f .deps/p2-parse2.Tpo .deps/p2-parse2.Po
+cc  -g -O2   -o p2 main2.o p2-parse2.o  
+/bin/sh ./ylwrap parse3.y y.tab.c parse3.c y.tab.h `echo parse3.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse3.output -- yacc -d 
+updating parse3.h
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main3.o -MD -MP -MF .deps/main3.Tpo -c -o main3.o main3.c
+mv -f .deps/main3.Tpo .deps/main3.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse3.o -MD -MP -MF .deps/parse3.Tpo -c -o parse3.o parse3.c
+mv -f .deps/parse3.Tpo .deps/parse3.Po
+cc  -g -O2   -o p3 main3.o parse3.o  
+/bin/sh ./ylwrap parse4.y y.tab.c parse4.c y.tab.h `echo parse4.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse4.output -- yacc -d 
+updating parse4.h
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse4.o -MD -MP -MF .deps/parse4.Tpo -c -o parse4.o parse4.c
+mv -f .deps/parse4.Tpo .deps/parse4.Po
+cc  -g -O2   -o p4 parse4.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ headers='parse1.h p2-parse2.h parse3.h parse4.h'
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make parse1.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse1.y y.tab.c parse1.c y.tab.h `echo parse1.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse1.output -- yacc -d 
+updating parse1.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ test -f parse1.h
++ test '!' -e p2-parse2.h
++ test '!' -e parse3.h
++ test '!' -e parse4.h
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make p2-parse2.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse2.y' || echo './'`parse2.y y.tab.c p2-parse2.c y.tab.h `echo p2-parse2.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output p2-parse2.output -- yacc -d 
+updating p2-parse2.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ test '!' -e parse1.h
++ test -f p2-parse2.h
++ test '!' -e parse3.h
++ test '!' -e parse4.h
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make parse3.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse3.y y.tab.c parse3.c y.tab.h `echo parse3.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse3.output -- yacc -d 
+updating parse3.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ test '!' -e parse1.h
++ test '!' -e p2-parse2.h
++ test -f parse3.h
++ test '!' -e parse4.h
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make clean-p3
+rm -f p3
++ test '!' -e parse3.h
++ make build-p3
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse3.y y.tab.c parse3.c y.tab.h `echo parse3.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse3.output -- yacc -d 
+updating parse3.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main3.o -MD -MP -MF .deps/main3.Tpo -c -o main3.o main3.c
+mv -f .deps/main3.Tpo .deps/main3.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse3.o -MD -MP -MF .deps/parse3.Tpo -c -o parse3.o parse3.c
+mv -f .deps/parse3.Tpo .deps/parse3.Po
+cc  -g -O2   -o p3 main3.o parse3.o  
++ test -f parse3.h
++ make
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse1.y y.tab.c parse1.c y.tab.h `echo parse1.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse1.output -- yacc -d 
+updating parse1.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse2.y' || echo './'`parse2.y y.tab.c p2-parse2.c y.tab.h `echo p2-parse2.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output p2-parse2.output -- yacc -d 
+updating p2-parse2.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main1.o -MD -MP -MF .deps/main1.Tpo -c -o main1.o main1.c
+mv -f .deps/main1.Tpo .deps/main1.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse1.o -MD -MP -MF .deps/parse1.Tpo -c -o parse1.o parse1.c
+mv -f .deps/parse1.Tpo .deps/parse1.Po
+cc  -g -O2   -o p1 main1.o parse1.o  
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main2.o -MD -MP -MF .deps/main2.Tpo -c -o main2.o main2.c
+mv -f .deps/main2.Tpo .deps/main2.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT p2-parse2.o -MD -MP -MF .deps/p2-parse2.Tpo -c -o p2-parse2.o p2-parse2.c
+mv -f .deps/p2-parse2.Tpo .deps/p2-parse2.Po
+cc  -g -O2   -o p2 main2.o p2-parse2.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make parse4.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse4.y y.tab.c parse4.c y.tab.h `echo parse4.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse4.output -- yacc -d 
+updating parse4.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ test '!' -e parse1.h
++ test '!' -e p2-parse2.h
++ test '!' -e parse3.h
++ test -f parse4.h
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make parse1.h p2-parse2.h parse3.h parse4.h
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse1.y y.tab.c parse1.c y.tab.h `echo parse1.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse1.output -- yacc -d 
+updating parse1.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse2.y' || echo './'`parse2.y y.tab.c p2-parse2.c y.tab.h `echo p2-parse2.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output p2-parse2.output -- yacc -d 
+updating p2-parse2.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse3.y y.tab.c parse3.c y.tab.h `echo parse3.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse3.output -- yacc -d 
+updating parse3.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse4.y y.tab.c parse4.c y.tab.h `echo parse4.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse4.output -- yacc -d 
+updating parse4.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ test -f parse1.h
++ test -f p2-parse2.h
++ test -f parse3.h
++ test -f parse4.h
++ rm -f parse1.h p2-parse2.h parse3.h parse4.h
++ make all
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse1.y y.tab.c parse1.c y.tab.h `echo parse1.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse1.output -- yacc -d 
+updating parse1.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+\
+ \
+/bin/sh ./ylwrap `test -f 'parse2.y' || echo './'`parse2.y y.tab.c p2-parse2.c y.tab.h `echo p2-parse2.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output p2-parse2.output -- yacc -d 
+updating p2-parse2.h
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+make  all-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main1.o -MD -MP -MF .deps/main1.Tpo -c -o main1.o main1.c
+mv -f .deps/main1.Tpo .deps/main1.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse1.o -MD -MP -MF .deps/parse1.Tpo -c -o parse1.o parse1.c
+mv -f .deps/parse1.Tpo .deps/parse1.Po
+cc  -g -O2   -o p1 main1.o parse1.o  
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main2.o -MD -MP -MF .deps/main2.Tpo -c -o main2.o main2.c
+mv -f .deps/main2.Tpo .deps/main2.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT p2-parse2.o -MD -MP -MF .deps/p2-parse2.Tpo -c -o p2-parse2.o p2-parse2.c
+mv -f .deps/p2-parse2.Tpo .deps/p2-parse2.Po
+cc  -g -O2   -o p2 main2.o p2-parse2.o  
+make[2]: Entering directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+/bin/sh ./ylwrap parse3.y y.tab.c parse3.c y.tab.h `echo parse3.c | sed -e s/cc$/hh/ -e s/cpp$/hpp/ -e s/cxx$/hxx/ -e s/c++$/h++/ -e s/c$/h/` y.output parse3.output -- yacc -d 
+updating parse3.h
+make[2]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT main3.o -MD -MP -MF .deps/main3.Tpo -c -o main3.o main3.c
+mv -f .deps/main3.Tpo .deps/main3.Po
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse3.o -MD -MP -MF .deps/parse3.Tpo -c -o parse3.o parse3.c
+mv -f .deps/parse3.Tpo .deps/parse3.Po
+cc  -g -O2   -o p3 main3.o parse3.o  
+cc -DPACKAGE_NAME=\"yacc-deleted-headers\" -DPACKAGE_TARNAME=\"yacc-deleted-headers\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"yacc-deleted-headers\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"yacc-deleted-headers\" -DVERSION=\"1.0\" -I.     -g -O2 -MT parse4.o -MD -MP -MF .deps/parse4.Tpo -c -o parse4.o parse4.c
+mv -f .deps/parse4.Tpo .deps/parse4.Po
+cc  -g -O2   -o p4 parse4.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/yacc-deleted-headers.dir'
++ test -f parse1.h
++ test -f p2-parse2.h
++ test -f parse3.h
++ test '!' -e parse4.h
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/yacc-deleted-headers.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/yacc-deleted-headers.dir
++ set +x
+PASS t/yacc-deleted-headers.sh (exit status: 0)

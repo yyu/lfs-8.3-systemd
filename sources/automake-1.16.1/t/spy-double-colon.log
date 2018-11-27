@@ -1,0 +1,43 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/spy-double-colon.dir
++ cat
++ touch b c
++ sleep 2
++ :
++ make
+make: 'a' is up to date.
+++ cat a
++ test x = x
++ sleep 2
++ touch b
++ make
+echo rule1 >> a
+++ cat a
++ test rule1 = rule1
++ sleep 2
++ :
++ sleep 2
++ touch c
++ make
+echo rule2 >> a
+++ cat a
++ test rule2 = rule2
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/spy-double-colon.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/spy-double-colon.dir
++ set +x
+PASS t/spy-double-colon.sh (exit status: 0)

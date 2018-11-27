@@ -1,0 +1,135 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/strictness-precedence.dir
++ AUTOMAKE=automake-1.16
++ cat
++ touch INSTALL NEWS AUTHORS ChangeLog COPYING
++ aclocal-1.16 -Werror
++ ko --foreign --gnu
++ AUTOMAKE_fails --foreign --gnu
++ AUTOMAKE_run -e 1 --foreign --gnu
++ am__desc=
++ am__exp_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ am__got_rc=0
++ automake-1.16 --foreign --gnu
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ ok --gnu --foreign
++ automake-1.16 -Werror --gnu --foreign
++ set_strictness '' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = 
++ set_strictness 'gnu foreign' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-precedence], [1.0])
+AM_INIT_AUTOMAKE([gnu foreign])
+AC_CONFIG_FILES([Makefile])
++ rm -rf autom4te.cache
++ aclocal-1.16 -Werror
++ ok
++ automake-1.16 -Werror
++ set_strictness 'foreign gnu' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-precedence], [1.0])
+AM_INIT_AUTOMAKE([foreign gnu])
+AC_CONFIG_FILES([Makefile])
++ rm -rf autom4te.cache
++ aclocal-1.16 -Werror
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ set_strictness '' configure.ac
++ set +x
++ cat configure.ac
+AC_INIT([strictness-precedence], [1.0])
+AM_INIT_AUTOMAKE([])
+AC_CONFIG_FILES([Makefile])
++ rm -rf autom4te.cache
++ aclocal-1.16 -Werror
++ set_strictness 'gnu foreign' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = gnu foreign
++ ok
++ automake-1.16 -Werror
++ set_strictness 'foreign gnu' Makefile.am
++ set +x
++ cat Makefile.am
+AUTOMAKE_OPTIONS = foreign gnu
++ ko
++ AUTOMAKE_fails
++ AUTOMAKE_run -e 1
++ am__desc=
++ am__exp_rc=0
++ test 2 -gt 0
++ case $1 in
++ am__exp_rc=1
++ shift
++ shift
++ test 0 -gt 0
++ am__got_rc=0
++ automake-1.16
++ am__got_rc=1
++ cat stderr
+Makefile.am: error: required file './README' not found
++ cat stdout
++ test none = none
++ test 1 -eq 1
++ return
++ grep 'required file.*README' stderr
+Makefile.am: error: required file './README' not found
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/strictness-precedence.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/strictness-precedence.dir
++ set +x
+PASS t/strictness-precedence.sh (exit status: 0)

@@ -1,0 +1,432 @@
+Running from installcheck: no
+Test Protocol: tap
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ac-output-old.dir
++ plan_ 22
++ test 1 -eq 0
++ test 1 -ge 2
++ test xnone '!=' xnone
++ test x22 = xunknown
++ test x22 = xlater
++ test x22 = xlazy
++ test x22 = xnow
++ test 22 -ge 0
++ planned_=22
++ echo 1..22
+1..22
++ rm -f configure.ac depcomp
++ acoutbs_check 1
++ dir=acoutbs1
++ mkdir acoutbs1
++ cd acoutbs1
++ cat
++ touch Makefile.am zot.in
++ command_ok_ 'aclocal groks '\''\'\'' in AC_OUTPUT (acoutbs1)' aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='aclocal groks '\''\'\'' in AC_OUTPUT (acoutbs1)'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- 'aclocal groks '\''\'\'' in AC_OUTPUT (acoutbs1)'
++ set +x
+ok 1 - aclocal groks '\' in AC_OUTPUT (acoutbs1)
+PASS: t/ac-output-old.tap 1 - aclocal groks '\' in AC_OUTPUT (acoutbs1)
++ command_ok_ 'automake groks '\''\'\'' in AC_OUTPUT (acoutbs1)' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake groks '\''\'\'' in AC_OUTPUT (acoutbs1)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'automake groks '\''\'\'' in AC_OUTPUT (acoutbs1)'
++ set +x
+ok 2 - automake groks '\' in AC_OUTPUT (acoutbs1)
+PASS: t/ac-output-old.tap 2 - automake groks '\' in AC_OUTPUT (acoutbs1)
++ command_ok_ 'autoconf groks '\''\'\'' in AC_OUTPUT (acoutbs1)' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='autoconf groks '\''\'\'' in AC_OUTPUT (acoutbs1)'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'autoconf groks '\''\'\'' in AC_OUTPUT (acoutbs1)'
++ set +x
+ok 3 - autoconf groks '\' in AC_OUTPUT (acoutbs1)
+PASS: t/ac-output-old.tap 3 - autoconf groks '\' in AC_OUTPUT (acoutbs1)
++ command_ok_ 'can ./configure in acoutbs1' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='can ./configure in acoutbs1'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating zot
++ result_ ok -D '' -r '' -- 'can ./configure in acoutbs1'
++ set +x
+ok 4 - can ./configure in acoutbs1
+PASS: t/ac-output-old.tap 4 - can ./configure in acoutbs1
++ command_ok_ 'zot created in acoutbs1' test -f zot
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='zot created in acoutbs1'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test -f zot
++ result_ ok -D '' -r '' -- 'zot created in acoutbs1'
++ set +x
+ok 5 - zot created in acoutbs1
+PASS: t/ac-output-old.tap 5 - zot created in acoutbs1
++ ls -a
++ command_ok_ ''\''\'\'' not leaked in filenames in acoutbs1' not grep '\\' lst
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=''\''\'\'' not leaked in filenames in acoutbs1'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not grep '\\' lst
++ grep '\\' lst
++ result_ ok -D '' -r '' -- ''\''\'\'' not leaked in filenames in acoutbs1'
++ set +x
+ok 6 - '\' not leaked in filenames in acoutbs1
+PASS: t/ac-output-old.tap 6 - '\' not leaked in filenames in acoutbs1
++ cd ..
++ acoutbs_check 2
++ dir=acoutbs2
++ mkdir acoutbs2
++ cd acoutbs2
++ cat
++ touch Makefile.am zot.in
++ command_ok_ 'aclocal groks '\''\'\'' in AC_OUTPUT (acoutbs2)' aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='aclocal groks '\''\'\'' in AC_OUTPUT (acoutbs2)'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- 'aclocal groks '\''\'\'' in AC_OUTPUT (acoutbs2)'
++ set +x
+ok 7 - aclocal groks '\' in AC_OUTPUT (acoutbs2)
+PASS: t/ac-output-old.tap 7 - aclocal groks '\' in AC_OUTPUT (acoutbs2)
++ command_ok_ 'automake groks '\''\'\'' in AC_OUTPUT (acoutbs2)' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake groks '\''\'\'' in AC_OUTPUT (acoutbs2)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'automake groks '\''\'\'' in AC_OUTPUT (acoutbs2)'
++ set +x
+ok 8 - automake groks '\' in AC_OUTPUT (acoutbs2)
+PASS: t/ac-output-old.tap 8 - automake groks '\' in AC_OUTPUT (acoutbs2)
++ command_ok_ 'autoconf groks '\''\'\'' in AC_OUTPUT (acoutbs2)' autoconf
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='autoconf groks '\''\'\'' in AC_OUTPUT (acoutbs2)'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ autoconf
++ result_ ok -D '' -r '' -- 'autoconf groks '\''\'\'' in AC_OUTPUT (acoutbs2)'
++ set +x
+ok 9 - autoconf groks '\' in AC_OUTPUT (acoutbs2)
+PASS: t/ac-output-old.tap 9 - autoconf groks '\' in AC_OUTPUT (acoutbs2)
++ command_ok_ 'can ./configure in acoutbs2' ./configure
++ tap_directive_=
++ tap_reason_=
++ test 2 -gt 0
++ tap_description_='can ./configure in acoutbs2'
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating zot
++ result_ ok -D '' -r '' -- 'can ./configure in acoutbs2'
++ set +x
+ok 10 - can ./configure in acoutbs2
+PASS: t/ac-output-old.tap 10 - can ./configure in acoutbs2
++ command_ok_ 'zot created in acoutbs2' test -f zot
++ tap_directive_=
++ tap_reason_=
++ test 4 -gt 0
++ tap_description_='zot created in acoutbs2'
++ shift
++ test 3 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test -f zot
++ result_ ok -D '' -r '' -- 'zot created in acoutbs2'
++ set +x
+ok 11 - zot created in acoutbs2
+PASS: t/ac-output-old.tap 11 - zot created in acoutbs2
++ ls -a
++ command_ok_ ''\''\'\'' not leaked in filenames in acoutbs2' not grep '\\' lst
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_=''\''\'\'' not leaked in filenames in acoutbs2'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ not grep '\\' lst
++ grep '\\' lst
++ result_ ok -D '' -r '' -- ''\''\'\'' not leaked in filenames in acoutbs2'
++ set +x
+ok 12 - '\' not leaked in filenames in acoutbs2
+PASS: t/ac-output-old.tap 12 - '\' not leaked in filenames in acoutbs2
++ cd ..
++ mkdir acoutnoq
++ cd acoutnoq
++ cat
++ :
++ command_ok_ 'aclocal and quoted AC_OUTPUT second argument' aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='aclocal and quoted AC_OUTPUT second argument'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- 'aclocal and quoted AC_OUTPUT second argument'
++ set +x
+ok 13 - aclocal and quoted AC_OUTPUT second argument
+PASS: t/ac-output-old.tap 13 - aclocal and quoted AC_OUTPUT second argument
++ command_ok_ 'automake and quoted AC_OUTPUT second argument' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake and quoted AC_OUTPUT second argument'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'automake and quoted AC_OUTPUT second argument'
++ set +x
+ok 14 - automake and quoted AC_OUTPUT second argument
+PASS: t/ac-output-old.tap 14 - automake and quoted AC_OUTPUT second argument
++ cd ..
++ mkdir acoutpt
++ cd acoutpt
++ cat
++ :
++ command_ok_ 'aclocal and two AC_OUTPUT arguments on same line' aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='aclocal and two AC_OUTPUT arguments on same line'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- 'aclocal and two AC_OUTPUT arguments on same line'
++ set +x
+ok 15 - aclocal and two AC_OUTPUT arguments on same line
+PASS: t/ac-output-old.tap 15 - aclocal and two AC_OUTPUT arguments on same line
++ command_ok_ 'automake and two AC_OUTPUT arguments on same line' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake and two AC_OUTPUT arguments on same line'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'automake and two AC_OUTPUT arguments on same line'
++ set +x
+ok 16 - automake and two AC_OUTPUT arguments on same line
+PASS: t/ac-output-old.tap 16 - automake and two AC_OUTPUT arguments on same line
++ cd ..
++ mkdir acoutpt2
++ cd acoutpt2
++ cur=acoutput2
++ cat
++ mkdir subdir
++ :
++ :
++ :
++ :
++ command_ok_ 'aclocal and AC_OUTPUT (acoutput2)' aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='aclocal and AC_OUTPUT (acoutput2)'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- 'aclocal and AC_OUTPUT (acoutput2)'
++ set +x
+ok 17 - aclocal and AC_OUTPUT (acoutput2)
+PASS: t/ac-output-old.tap 17 - aclocal and AC_OUTPUT (acoutput2)
++ command_ok_ 'automake and AC_OUTPUT (acoutput2)' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake and AC_OUTPUT (acoutput2)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'automake and AC_OUTPUT (acoutput2)'
++ set +x
+ok 18 - automake and AC_OUTPUT (acoutput2)
+PASS: t/ac-output-old.tap 18 - automake and AC_OUTPUT (acoutput2)
+++ /bin/grep -F -c foo.in Makefile.in
++ command_ok_ 'foo.in mentioned two times in Makefile.in (acoutput2)' test 2 -eq 2
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='foo.in mentioned two times in Makefile.in (acoutput2)'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ test 2 -eq 2
++ result_ ok -D '' -r '' -- 'foo.in mentioned two times in Makefile.in (acoutput2)'
++ set +x
+ok 19 - foo.in mentioned two times in Makefile.in (acoutput2)
+PASS: t/ac-output-old.tap 19 - foo.in mentioned two times in Makefile.in (acoutput2)
++ command_ok_ ''\''automake -a -f'\'' and AC_OUTPUT (acoutput2)' automake-1.16 --foreign -Werror -Wall --add-missing --force-missing
++ tap_directive_=
++ tap_reason_=
++ test 7 -gt 0
++ tap_description_=''\''automake -a -f'\'' and AC_OUTPUT (acoutput2)'
++ shift
++ test 6 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall --add-missing --force-missing
++ result_ ok -D '' -r '' -- ''\''automake -a -f'\'' and AC_OUTPUT (acoutput2)'
++ set +x
+ok 20 - 'automake -a -f' and AC_OUTPUT (acoutput2)
+PASS: t/ac-output-old.tap 20 - 'automake -a -f' and AC_OUTPUT (acoutput2)
++ cd ..
++ mkdir acoutqnl
++ cd acoutqnl
++ cat
++ :
++ command_ok_ 'aclocal and two AC_OUTPUT arguments on two lines' aclocal-1.16 -Werror
++ tap_directive_=
++ tap_reason_=
++ test 3 -gt 0
++ tap_description_='aclocal and two AC_OUTPUT arguments on two lines'
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ aclocal-1.16 -Werror
++ result_ ok -D '' -r '' -- 'aclocal and two AC_OUTPUT arguments on two lines'
++ set +x
+ok 21 - aclocal and two AC_OUTPUT arguments on two lines
+PASS: t/ac-output-old.tap 21 - aclocal and two AC_OUTPUT arguments on two lines
++ command_ok_ 'automake and two AC_OUTPUT arguments on two lines' automake-1.16 --foreign -Werror -Wall
++ tap_directive_=
++ tap_reason_=
++ test 5 -gt 0
++ tap_description_='automake and two AC_OUTPUT arguments on two lines'
++ shift
++ test 4 -gt 0
++ case $1 in
++ break
++ tap_result_=ok
++ automake-1.16 --foreign -Werror -Wall
++ result_ ok -D '' -r '' -- 'automake and two AC_OUTPUT arguments on two lines'
++ set +x
+ok 22 - automake and two AC_OUTPUT arguments on two lines
+PASS: t/ac-output-old.tap 22 - automake and two AC_OUTPUT arguments on two lines
++ cd ..
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test tap = tap
++ test 22 = later
++ test 0 -eq 0
++ test 22 -eq 22
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ac-output-old.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ac-output-old.dir
++ set +x

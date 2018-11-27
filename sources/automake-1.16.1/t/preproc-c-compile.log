@@ -1,0 +1,426 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/preproc-c-compile.dir
++ cat
++ mkdir foo
++ mkdir foo/bar
++ mkdir foo/foobar
++ mkdir zot
++ cat
++ cat
++ cat
++ echo 'int main (void) { return 0; }'
++ sed s/mumble/mumble2/ local.mk
++ cp local.mk foo/bar
++ cp local.mk foo/foobar
++ cp local.mk zot
++ echo 'include %reldir%/bar/local.mk'
++ cp one.c foo
++ cp one.c foo/bar
++ cp one.c foo/foobar
++ cp one.c zot
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating zot/Makefile
+config.status: executing depfiles commands
++ make
+Making all in zot
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/zot'
+depbase=`echo one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I.     -g -O2 -MT one.o -MD -MP -MF $depbase.Tpo -c -o one.o one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o mumble one.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/zot'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir'
+depbase=`echo foo/one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo/one.o -MD -MP -MF $depbase.Tpo -c -o foo/one.o foo/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o foo/mumble2 foo/one.o  
+depbase=`echo foo/bar/one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo/bar/one.o -MD -MP -MF $depbase.Tpo -c -o foo/bar/one.o foo/bar/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o foo/bar/mumble foo/bar/one.o  
+depbase=`echo foo/foobar/one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I.     -g -O2 -MT foo/foobar/one.o -MD -MP -MF $depbase.Tpo -c -o foo/foobar/one.o foo/foobar/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o foo/foobar/mumble foo/foobar/one.o  
+depbase=`echo one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I.     -g -O2 -MT one.o -MD -MP -MF $depbase.Tpo -c -o one.o one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o mumble one.o  
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir'
++ make check-local
+is foo/mumble2 foo/bar/mumble foo/foobar/mumble mumble == \
+  foo/mumble2 \
+  foo/bar/mumble \
+  foo/foobar/mumble \
+  mumble
+test 'one.c' = one.c
+test 'foo/one.c' = foo/one.c
+test 'foo/bar/one.c' = foo/bar/one.c
+test 'foo/foobar/one.c' = foo/foobar/one.c
+test -f mumble
+test -f foo/mumble2
+test -f foo/bar/mumble
+test -f foo/foobar/mumble
+test -f zot/mumble
+: Test some of the object files too.
+test -f one.o
+test -f foo/foobar/one.o
+test -f zot/one.o
++ cross_compiling
++ test x '!=' x
++ ./mumble
++ ./foo/mumble2
++ ./foo/bar/mumble
++ ./foo/foobar/mumble
++ ./zot/mumble
++ cd zot
++ make test
+test 'mumble' = mumble
+test 'one.c' = one.c
+++ pwd
++ ac_cv_path_install=/sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh
++ export ac_cv_path_install
++ make distcheck
+make  dist-gzip am__post_remove_distdir='@:'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir'
+make  distdir-am
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir'
+if test -d "preproc-c-compile-1.0"; then find "preproc-c-compile-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "preproc-c-compile-1.0" || { sleep 5 && rm -rf "preproc-c-compile-1.0"; }; else :; fi
+test -d "preproc-c-compile-1.0" || mkdir "preproc-c-compile-1.0"
+ (cd zot && make  top_distdir=../preproc-c-compile-1.0 distdir=../preproc-c-compile-1.0/zot \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/zot'
+make  distdir-am
+make[4]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/zot'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/zot'
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/zot'
+test -n "" \
+|| find "preproc-c-compile-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "preproc-c-compile-1.0"
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir'
+tardir=preproc-c-compile-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >preproc-c-compile-1.0.tar.gz
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir'
+if test -d "preproc-c-compile-1.0"; then find "preproc-c-compile-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "preproc-c-compile-1.0" || { sleep 5 && rm -rf "preproc-c-compile-1.0"; }; else :; fi
+case 'preproc-c-compile-1.0.tar.gz' in \
+*.tar.gz*) \
+  eval GZIP= gzip --best -dc preproc-c-compile-1.0.tar.gz | ${TAR-tar} xf - ;;\
+*.tar.bz2*) \
+  bzip2 -dc preproc-c-compile-1.0.tar.bz2 | ${TAR-tar} xf - ;;\
+*.tar.lz*) \
+  lzip -dc preproc-c-compile-1.0.tar.lz | ${TAR-tar} xf - ;;\
+*.tar.xz*) \
+  xz -dc preproc-c-compile-1.0.tar.xz | ${TAR-tar} xf - ;;\
+*.tar.Z*) \
+  uncompress -c preproc-c-compile-1.0.tar.Z | ${TAR-tar} xf - ;;\
+*.shar.gz*) \
+  eval GZIP= gzip --best -dc preproc-c-compile-1.0.shar.gz | unshar ;;\
+*.zip*) \
+  unzip preproc-c-compile-1.0.zip ;;\
+esac
+chmod -R a-w preproc-c-compile-1.0
+chmod u+w preproc-c-compile-1.0
+mkdir preproc-c-compile-1.0/_build preproc-c-compile-1.0/_build/sub preproc-c-compile-1.0/_inst
+chmod a-w preproc-c-compile-1.0
+test -d preproc-c-compile-1.0/_build || exit 0; \
+dc_install_base=`CDPATH="${ZSH_VERSION+.}:" && cd preproc-c-compile-1.0/_inst && pwd | sed -e 's,^[^:\\/]:[\\/],/,'` \
+  && dc_destdir="${TMPDIR-/tmp}/am-dc-$$/" \
+  && am__cwd=`pwd` \
+  && CDPATH="${ZSH_VERSION+.}:" && cd preproc-c-compile-1.0/_build/sub \
+  && ../../configure \
+     \
+     \
+    --srcdir=../.. --prefix="$dc_install_base" \
+  && make  \
+  && make  dvi \
+  && make  check \
+  && make  install \
+  && make  installcheck \
+  && make  uninstall \
+  && make  distuninstallcheck_dir="$dc_install_base" \
+        distuninstallcheck \
+  && chmod -R a-w "$dc_install_base" \
+  && ({ \
+       (cd ../.. && umask 077 && mkdir "$dc_destdir") \
+       && make  DESTDIR="$dc_destdir" install \
+       && make  DESTDIR="$dc_destdir" uninstall \
+       && make  DESTDIR="$dc_destdir" \
+            distuninstallcheck_dir="$dc_destdir" distuninstallcheck; \
+      } || { rm -rf "$dc_destdir"; exit 1; }) \
+  && rm -rf "$dc_destdir" \
+  && make  dist \
+  && rm -rf preproc-c-compile-1.0.tar.gz \
+  && make  distcleancheck \
+  && cd "$am__cwd" \
+  || exit 1
+checking for a BSD-compatible install... (cached) /sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating zot/Makefile
+config.status: executing depfiles commands
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making all in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+depbase=`echo one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I. -I../../../zot     -g -O2 -MT one.o -MD -MP -MF $depbase.Tpo -c -o one.o ../../../zot/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o mumble one.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+depbase=`echo foo/one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo/one.o -MD -MP -MF $depbase.Tpo -c -o foo/one.o ../../foo/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o foo/mumble2 foo/one.o  
+depbase=`echo foo/bar/one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo/bar/one.o -MD -MP -MF $depbase.Tpo -c -o foo/bar/one.o ../../foo/bar/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o foo/bar/mumble foo/bar/one.o  
+depbase=`echo foo/foobar/one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT foo/foobar/one.o -MD -MP -MF $depbase.Tpo -c -o foo/foobar/one.o ../../foo/foobar/one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o foo/foobar/mumble foo/foobar/one.o  
+depbase=`echo one.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DPACKAGE_NAME=\"preproc-c-compile\" -DPACKAGE_TARNAME=\"preproc-c-compile\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"preproc-c-compile\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"preproc-c-compile\" -DVERSION=\"1.0\" -I. -I../..     -g -O2 -MT one.o -MD -MP -MF $depbase.Tpo -c -o one.o ../../one.c &&\
+mv -f $depbase.Tpo $depbase.Po
+gcc  -g -O2   -o mumble one.o  
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making dvi in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Nothing to be done for 'dvi'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[2]: Nothing to be done for 'dvi-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making check in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+test 'mumble' = mumble
+test 'one.c' = one.c
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make  check-local
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+is foo/mumble2 foo/bar/mumble foo/foobar/mumble mumble == \
+  foo/mumble2 \
+  foo/bar/mumble \
+  foo/foobar/mumble \
+  mumble
+test 'one.c' = one.c
+test 'foo/one.c' = foo/one.c
+test 'foo/bar/one.c' = foo/bar/one.c
+test 'foo/foobar/one.c' = foo/foobar/one.c
+test -f mumble
+test -f foo/mumble2
+test -f foo/bar/mumble
+test -f foo/foobar/mumble
+test -f zot/mumble
+: Test some of the object files too.
+test -f one.o
+test -f foo/foobar/one.o
+test -f zot/one.o
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making install in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+  /sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh mumble '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+  /sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh foo/mumble2 foo/bar/mumble foo/foobar/mumble mumble '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making installcheck in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making uninstall in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+ ( cd '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin' && rm -f mumble )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+ ( cd '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin' && rm -f mumble2 mumble mumble mumble )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making install in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+ /tools/bin/mkdir -p '/tmp/am-dc-15717//sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+  /sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh mumble '/tmp/am-dc-15717//sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+ /tools/bin/mkdir -p '/tmp/am-dc-15717//sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+  /sources/automake-1.16.1/t/preproc-c-compile.dir/install-sh foo/mumble2 foo/bar/mumble foo/foobar/mumble mumble '/tmp/am-dc-15717//sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making uninstall in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+ ( cd '/tmp/am-dc-15717//sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin' && rm -f mumble )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+ ( cd '/tmp/am-dc-15717//sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_inst/bin' && rm -f mumble2 mumble mumble mumble )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make  dist-gzip am__post_remove_distdir='@:'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make  distdir-am
+make[3]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+if test -d "preproc-c-compile-1.0"; then find "preproc-c-compile-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "preproc-c-compile-1.0" || { sleep 5 && rm -rf "preproc-c-compile-1.0"; }; else :; fi
+test -d "preproc-c-compile-1.0" || mkdir "preproc-c-compile-1.0"
+ (cd zot && make  top_distdir=../preproc-c-compile-1.0 distdir=../preproc-c-compile-1.0/zot \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make  distdir-am
+make[5]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[5]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[4]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+test -n "" \
+|| find "preproc-c-compile-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "preproc-c-compile-1.0"
+make[3]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+tardir=preproc-c-compile-1.0 && ${TAR-tar} chof - "$tardir" | eval GZIP= gzip --best -c >preproc-c-compile-1.0.tar.gz
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+if test -d "preproc-c-compile-1.0"; then find "preproc-c-compile-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "preproc-c-compile-1.0" || { sleep 5 && rm -rf "preproc-c-compile-1.0"; }; else :; fi
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+make[1]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+Making distclean in zot
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+test -z "mumble" || rm -f mumble
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../../../zot" || test -z "" || rm -f 
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f ./.deps/one.Po
+rm -f Makefile
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub/zot'
+make[2]: Entering directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+test -z "foo/mumble2 foo/bar/mumble foo/foobar/mumble mumble" || rm -f foo/mumble2 foo/bar/mumble foo/foobar/mumble mumble
+rm -f *.o
+rm -f foo/*.o
+rm -f foo/bar/*.o
+rm -f foo/foobar/*.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "../.." || test -z "" || rm -f 
+rm -f foo/.deps/.dirstamp
+rm -f foo/.dirstamp
+rm -f foo/bar/.deps/.dirstamp
+rm -f foo/bar/.dirstamp
+rm -f foo/foobar/.deps/.dirstamp
+rm -f foo/foobar/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+make[2]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/one.Po
+rm -f foo/.deps/one.Po
+rm -f foo/bar/.deps/one.Po
+rm -f foo/foobar/.deps/one.Po
+rm -f Makefile
+make[1]: Leaving directory '/sources/automake-1.16.1/t/preproc-c-compile.dir/preproc-c-compile-1.0/_build/sub'
+if test -d "preproc-c-compile-1.0"; then find "preproc-c-compile-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "preproc-c-compile-1.0" || { sleep 5 && rm -rf "preproc-c-compile-1.0"; }; else :; fi
+=======================================================
+preproc-c-compile-1.0 archives ready for distribution: 
+preproc-c-compile-1.0.tar.gz
+=======================================================
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/preproc-c-compile.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/preproc-c-compile.dir
++ set +x
+PASS t/preproc-c-compile.sh (exit status: 0)

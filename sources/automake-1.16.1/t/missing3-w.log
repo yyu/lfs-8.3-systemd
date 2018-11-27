@@ -1,0 +1,92 @@
+./t/missing3-w.sh: will source ./t/missing3.sh
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++++ pwd
+/sources/automake-1.16.1/t/missing3-w.dir
+++ get_shell_script missing
+++ am_source=missing
+++ am_target=missing
+++ test '!' -f missing
+++ test xyes = xyes
+++ sed '1s|#!.*|#! /bin/sh|' /sources/automake-1.16.1/lib/missing
+++ chmod a+x missing
+++ sed 10q missing
+#! /bin/sh
+# Common wrapper for a few potentially missing GNU programs.
+
+scriptversion=2018-03-07.03; # UTC
+
+# Copyright (C) 1996-2018 Free Software Foundation, Inc.
+# Originally written by Fran,cois Pinard <pinard@iro.umontreal.ca>, 1996.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+++ unset am_target am_source
+++ run_cmd ./missing b7cb8259 --version
+++ st=0
+++ ./missing b7cb8259 --version
+++ st=127
+++ cat stdout
+++ cat stderr
+./missing: line 81: b7cb8259: command not found
+++ return 127
+++ grep WARNING stderr
+++ run_cmd ./missing b7cb8259 --grep
+++ st=0
+++ ./missing b7cb8259 --grep
+++ st=127
+++ cat stdout
+++ cat stderr
+./missing: line 81: b7cb8259: command not found
+WARNING: 'b7cb8259' is missing on your system.
+         You might have modified some files without having the proper
+         tools for further handling them.  Check the 'README' file, it
+         often tells you about the needed prerequisites for installing
+         this package.  You may also peek at any GNU archive site, in
+         case some other package contains this missing 'b7cb8259' program.
+++ return 127
+++ test xyes '!=' xyes
+++ run_cmd ./missing ./missing --version
+++ st=0
+++ ./missing ./missing --version
+++ cat stdout
+missing 2018-03-07.03 (GNU Automake)
+++ cat stderr
+++ return 0
+++ grep 'missing .*(GNU [aA]utomake)' stdout
+missing 2018-03-07.03 (GNU Automake)
+++ test -s stderr
+++ run_cmd ./missing ./missing --grep
+++ st=0
+++ ./missing ./missing --grep
+++ st=1
+++ cat stdout
+++ cat stderr
+./missing: unknown '--grep' option
+Try './missing --help' for more information
+++ return 1
+++ grep WARNING stderr
+++ grep 'missing:.* unknown '\''--grep'\''' stderr
+./missing: unknown '--grep' option
+++ :
++ _am_exit 0
++ set +e
++ test 77 = 0
++ exit 0
++ exit 0
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/missing3-w.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/missing3-w.dir
++ set +x
+PASS t/missing3-w.sh (exit status: 0)

@@ -1,0 +1,58 @@
+extra-dist-wildcards: determine whether make is GNU make
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/extra-dist-wildcards.dir
++ echo AC_OUTPUT
++ cat
++ aclocal-1.16 -Werror
++ automake-1.16 --foreign -Werror -Wall
++ autoconf
++ echo aaa
++ echo bbb
++ echo ccc
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/extra-dist-wildcards.dir'
+if test -d "extra-dist-wildcards-1.0"; then find "extra-dist-wildcards-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "extra-dist-wildcards-1.0" || { sleep 5 && rm -rf "extra-dist-wildcards-1.0"; }; else :; fi
+test -d "extra-dist-wildcards-1.0" || mkdir "extra-dist-wildcards-1.0"
+test -n "" \
+|| find "extra-dist-wildcards-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/extra-dist-wildcards.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "extra-dist-wildcards-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/extra-dist-wildcards.dir'
+diff a.foo extra-dist-wildcards-1.0/a.foo
+diff b.foo extra-dist-wildcards-1.0/b.foo
+test ! -r extra-dist-wildcards-1.0/c.bar
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/extra-dist-wildcards.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/extra-dist-wildcards.dir
++ set +x
+PASS t/extra-dist-wildcards.sh (exit status: 0)

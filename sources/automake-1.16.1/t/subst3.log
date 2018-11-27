@@ -1,0 +1,370 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/subst3.dir
++ cat
++ cat
++ mkdir sub
++ :
++ :
++ :
++ :
++ :
++ :
++ cat
++ cp source.c source2.c
++ rm -f install-sh
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a --copy
+configure.ac:5: installing './ar-lib'
+configure.ac:2: installing './install-sh'
+++ pwd
++ ./configure --prefix /sources/automake-1.16.1/t/subst3.dir/inst --program-prefix=p doit=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"subst3\" -DPACKAGE_TARNAME=\"subst3\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subst3\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subst3\" -DVERSION=\"1.0\" -I.     -g -O2 -MT source.o -MD -MP -MF .deps/source.Tpo -c -o source.o source.c
+mv -f .deps/source.Tpo .deps/source.Po
+cc  -g -O2   -o sub/base source.o  
+cc  -g -O2   -o sub/nobase source.o  
+rm -f sub/libbase.a
+ar cru sub/libbase.a source.o 
+ranlib sub/libbase.a
+rm -f sub/libnobase.a
+ar cru sub/libnobase.a source.o 
+ranlib sub/libnobase.a
++ make test-install-data
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /usr/bin/install -c -m 644 sub/base.dat '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /usr/bin/install -c -m 644 sub/base.h '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub'
+ /usr/bin/install -c -m 644  sub/nobase.dat '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub'
+ /usr/bin/install -c -m 644  sub/nobase.h '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub'
+test   -f inst/foo/sub/nobase.h
+test ! -f inst/foo/nobase.h
+test   -f inst/foo/base.h
+test   -f inst/foo/sub/nobase.dat
+test ! -f inst/foo/nobase.dat
+test   -f inst/foo/base.dat
+test ! -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pbase.sh
+test ! -f inst/foo/sub/pnobase
+test ! -f inst/foo/pbase
+test ! -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libbase.a
++ make test-install-exec
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /usr/bin/install -c sub/base.sh '/sources/automake-1.16.1/t/subst3.dir/inst/foo/./pbase.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /usr/bin/install -c -m 644  sub/libbase.a '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && ranlib libbase.a )
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+  /usr/bin/install -c sub/base '/sources/automake-1.16.1/t/subst3.dir/inst/foo/./pbase'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub/'
+ /usr/bin/install -c sub/nobase.sh '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub//pnobase.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub'
+ /usr/bin/install -c -m 644  sub/libnobase.a '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub'
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && ranlib sub/libnobase.a )
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub/'
+  /usr/bin/install -c sub/nobase '/sources/automake-1.16.1/t/subst3.dir/inst/foo/sub//pnobase'
+test   -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pnobase.sh
+test   -f inst/foo/pbase.sh
+test   -f inst/foo/sub/pnobase
+test ! -f inst/foo/pnobase
+test   -f inst/foo/pbase
+test   -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libnobase.a
+test   -f inst/foo/libbase.a
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f base.dat )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f pbase.sh )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f base.h )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f libbase.a )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f pbase )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f sub/nobase.dat )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f sub/pnobase.sh )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f sub/nobase.h )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f sub/libnobase.a )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/inst/foo' && rm -f sub/pnobase )
++ make clean
+test -z "sub/libbase.a" || rm -f sub/libbase.a
+test -z "sub/base" || rm -f sub/base
+test -z "sub/libnobase.a" || rm -f sub/libnobase.a
+test -z "sub/nobase" || rm -f sub/nobase
+rm -f *.o
+++ find inst/foo -type f -print
+++ wc -l
++ test 0 -eq 0
+++ pwd
++ ./configure --prefix /sources/automake-1.16.1/t/subst3.dir/inst --program-prefix=p doit=no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+make: Nothing to be done for 'all'.
++ make test-install-nothing-data
+test ! -f inst/foo/sub/nobase.h
+test ! -f inst/foo/nobase.h
+test ! -f inst/foo/base.h
+test ! -f inst/foo/sub/nobase.dat
+test ! -f inst/foo/nobase.dat
+test ! -f inst/foo/base.dat
+test ! -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pbase.sh
+test ! -f inst/foo/sub/pnobase
+test ! -f inst/foo/pbase
+test ! -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libbase.a
++ make test-install-nothing-exec
+test ! -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pnobase.sh
+test ! -f inst/foo/pbase.sh
+test ! -f inst/foo/sub/pnobase
+test ! -f inst/foo/pnobase
+test ! -f inst/foo/pbase
+test ! -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libnobase.a
+test ! -f inst/foo/libbase.a
++ make uninstall
++ make distclean
+test -z "" || rm -f 
+test -z "" || rm -f 
+test -z "" || rm -f 
+test -z "" || rm -f 
+rm -f *.o
+rm -f *.tab.c
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f sub/.dirstamp
+rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH tags
+rm -f cscope.out cscope.in.out cscope.po.out cscope.files
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -f ./.deps/source.Po
+rm -f Makefile
++ mkdir build
++ cd build
+++ pwd
++ ../configure --prefix /sources/automake-1.16.1/t/subst3.dir/build/inst --program-prefix=p doit=yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+cc -DPACKAGE_NAME=\"subst3\" -DPACKAGE_TARNAME=\"subst3\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"subst3\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"subst3\" -DVERSION=\"1.0\" -I. -I..     -g -O2 -MT source.o -MD -MP -MF .deps/source.Tpo -c -o source.o ../source.c
+mv -f .deps/source.Tpo .deps/source.Po
+cc  -g -O2   -o sub/base source.o  
+cc  -g -O2   -o sub/nobase source.o  
+rm -f sub/libbase.a
+ar cru sub/libbase.a source.o 
+ranlib sub/libbase.a
+rm -f sub/libnobase.a
+ar cru sub/libnobase.a source.o 
+ranlib sub/libnobase.a
++ make test-install-data
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /usr/bin/install -c -m 644 ../sub/base.dat '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /usr/bin/install -c -m 644 ../sub/base.h '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub'
+ /usr/bin/install -c -m 644  ../sub/nobase.dat '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub'
+ /usr/bin/install -c -m 644  ../sub/nobase.h '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub'
+test   -f inst/foo/sub/nobase.h
+test ! -f inst/foo/nobase.h
+test   -f inst/foo/base.h
+test   -f inst/foo/sub/nobase.dat
+test ! -f inst/foo/nobase.dat
+test   -f inst/foo/base.dat
+test ! -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pbase.sh
+test ! -f inst/foo/sub/pnobase
+test ! -f inst/foo/pbase
+test ! -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libbase.a
++ make test-install-exec
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /usr/bin/install -c ../sub/base.sh '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/./pbase.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /usr/bin/install -c -m 644  sub/libbase.a '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && ranlib libbase.a )
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+  /usr/bin/install -c sub/base '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/./pbase'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub/'
+ /usr/bin/install -c ../sub/nobase.sh '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub//pnobase.sh'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub'
+ /usr/bin/install -c -m 644  sub/libnobase.a '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub'
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && ranlib sub/libnobase.a )
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub/'
+  /usr/bin/install -c sub/nobase '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo/sub//pnobase'
+test   -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pnobase.sh
+test   -f inst/foo/pbase.sh
+test   -f inst/foo/sub/pnobase
+test ! -f inst/foo/pnobase
+test   -f inst/foo/pbase
+test   -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libnobase.a
+test   -f inst/foo/libbase.a
++ make uninstall
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f base.dat )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f pbase.sh )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f base.h )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f libbase.a )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f pbase )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f sub/nobase.dat )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f sub/pnobase.sh )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f sub/nobase.h )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f sub/libnobase.a )
+ ( cd '/sources/automake-1.16.1/t/subst3.dir/build/inst/foo' && rm -f sub/pnobase )
+++ find inst/foo -type f -print
+++ wc -l
++ test 0 -eq 0
+++ pwd
++ ../configure --prefix /sources/automake-1.16.1/t/subst3.dir/build/inst --program-prefix=p doit=no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking for ranlib... ranlib
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make
+make: Nothing to be done for 'all'.
++ make test-install-nothing-data
+test ! -f inst/foo/sub/nobase.h
+test ! -f inst/foo/nobase.h
+test ! -f inst/foo/base.h
+test ! -f inst/foo/sub/nobase.dat
+test ! -f inst/foo/nobase.dat
+test ! -f inst/foo/base.dat
+test ! -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pbase.sh
+test ! -f inst/foo/sub/pnobase
+test ! -f inst/foo/pbase
+test ! -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libbase.a
++ make test-install-nothing-exec
+test ! -f inst/foo/sub/pnobase.sh
+test ! -f inst/foo/pnobase.sh
+test ! -f inst/foo/pbase.sh
+test ! -f inst/foo/sub/pnobase
+test ! -f inst/foo/pnobase
+test ! -f inst/foo/pbase
+test ! -f inst/foo/sub/libnobase.a
+test ! -f inst/foo/libnobase.a
+test ! -f inst/foo/libbase.a
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/subst3.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/subst3.dir
++ set +x
+PASS t/subst3.sh (exit status: 0)

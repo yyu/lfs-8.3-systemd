@@ -1,0 +1,71 @@
+#                             -*- compilation -*-
+148. deplibs-ident.at:33: testing build tree relpaths ...
+./deplibs-ident.at:39: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c c/libcee.c -o c/libcee.lo
+stderr:
+stdout:
+libtool: compile:  gcc -g -O2 -c c/libcee.c  -fPIC -DPIC -o c/.libs/libcee.o
+libtool: compile:  gcc -g -O2 -c c/libcee.c -o c/libcee.o >/dev/null 2>&1
+./deplibs-ident.at:41: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o c/libcee.la c/libcee.lo -rpath /nowhere
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  c/.libs/libcee.o    -g -O2   -Wl,-soname -Wl,libcee.so.0 -o c/.libs/libcee.so.0.0.0
+libtool: link: (cd "c/.libs" && rm -f "libcee.so.0" && ln -s "libcee.so.0.0.0" "libcee.so.0")
+libtool: link: (cd "c/.libs" && rm -f "libcee.so" && ln -s "libcee.so.0.0.0" "libcee.so")
+libtool: link: ar cru c/.libs/libcee.a  c/libcee.o
+libtool: link: ranlib c/.libs/libcee.a
+libtool: link: ( cd "c/.libs" && rm -f "libcee.la" && ln -s "../libcee.la" "libcee.la" )
+./deplibs-ident.at:53: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c liba$i.c
+stderr:
+stdout:
+libtool: compile:  gcc -g -O2 -c liba1.c  -fPIC -DPIC -o .libs/liba1.o
+libtool: compile:  gcc -g -O2 -c liba1.c -o liba1.o >/dev/null 2>&1
+./deplibs-ident.at:55: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o liba$i.la liba$i.lo $depend_on_c -rpath /nowhere
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/liba1.o   -Wl,-rpath -Wl,/sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs -Wl,-rpath -Wl,/nowhere ../c/.libs/libcee.so  -g -O2   -Wl,-soname -Wl,liba1.so.0 -o .libs/liba1.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "liba1.so.0" && ln -s "liba1.so.0.0.0" "liba1.so.0")
+libtool: link: (cd ".libs" && rm -f "liba1.so" && ln -s "liba1.so.0.0.0" "liba1.so")
+libtool: link: ar cru .libs/liba1.a  liba1.o
+libtool: link: ranlib .libs/liba1.a
+libtool: link: ( cd ".libs" && rm -f "liba1.la" && ln -s "../liba1.la" "liba1.la" )
+./deplibs-ident.at:53: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c liba$i.c
+stderr:
+stdout:
+libtool: compile:  gcc -g -O2 -c liba2.c  -fPIC -DPIC -o .libs/liba2.o
+libtool: compile:  gcc -g -O2 -c liba2.c -o liba2.o >/dev/null 2>&1
+./deplibs-ident.at:55: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o liba$i.la liba$i.lo $depend_on_c -rpath /nowhere
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/liba2.o   -Wl,-rpath -Wl,/sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs -Wl,-rpath -Wl,/nowhere /sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs/libcee.so  -g -O2   -Wl,-soname -Wl,liba2.so.0 -o .libs/liba2.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "liba2.so.0" && ln -s "liba2.so.0.0.0" "liba2.so.0")
+libtool: link: (cd ".libs" && rm -f "liba2.so" && ln -s "liba2.so.0.0.0" "liba2.so")
+libtool: link: ar cru .libs/liba2.a  liba2.o
+libtool: link: ranlib .libs/liba2.a
+libtool: link: ( cd ".libs" && rm -f "liba2.la" && ln -s "../liba2.la" "liba2.la" )
+./deplibs-ident.at:53: $LIBTOOL --mode=compile $CC $CPPFLAGS $CFLAGS -c liba$i.c
+stderr:
+stdout:
+libtool: compile:  gcc -g -O2 -c liba3.c  -fPIC -DPIC -o .libs/liba3.o
+libtool: compile:  gcc -g -O2 -c liba3.c -o liba3.o >/dev/null 2>&1
+./deplibs-ident.at:55: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o liba$i.la liba$i.lo $depend_on_c -rpath /nowhere
+stderr:
+stdout:
+libtool: link: gcc -shared  -fPIC -DPIC  .libs/liba3.o   -Wl,-rpath -Wl,/sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs -Wl,-rpath -Wl,/nowhere -L../c /sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs/libcee.so  -g -O2   -Wl,-soname -Wl,liba3.so.0 -o .libs/liba3.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "liba3.so.0" && ln -s "liba3.so.0.0.0" "liba3.so.0")
+libtool: link: (cd ".libs" && rm -f "liba3.so" && ln -s "liba3.so.0.0.0" "liba3.so")
+libtool: link: ar cru .libs/liba3.a  liba3.o
+libtool: link: ranlib .libs/liba3.a
+libtool: link: ( cd ".libs" && rm -f "liba3.la" && ln -s "../liba3.la" "liba3.la" )
+./deplibs-ident.at:66: $CC $CFLAGS -c b.c
+stderr:
+stdout:
+./deplibs-ident.at:68: $LIBTOOL --mode=link $CC $CFLAGS $LDFLAGS -o b$EXEEXT b.$OBJEXT ../liba1.la ../liba2.la ../liba3.la ../../c/libcee.la -rpath /nowhere
+stderr:
+stdout:
+libtool: link: gcc -g -O2 -o .libs/b b.o  ../.libs/liba1.so ../.libs/liba2.so ../.libs/liba3.so -L../c /sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs/libcee.so ../../c/.libs/libcee.so -Wl,-rpath -Wl,/nowhere
+./deplibs-ident.at:69: $EGREP 'cee.*cee' stdout
+stderr:
+stdout:
+libtool: link: gcc -g -O2 -o .libs/b b.o  ../.libs/liba1.so ../.libs/liba2.so ../.libs/liba3.so -L../c /sources/libtool-2.4.6/tests/testsuite.dir/148/c/.libs/libcee.so ../../c/.libs/libcee.so -Wl,-rpath -Wl,/nowhere
+./deplibs-ident.at:69: exit code was 0, expected 1
+148. deplibs-ident.at:33: 148. build tree relpaths (deplibs-ident.at:33): expected failure (deplibs-ident.at:69)

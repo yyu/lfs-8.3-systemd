@@ -1,0 +1,74 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/lex-lib-external.dir
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
+configure.ac: installing './ylwrap'
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ranlib... ranlib
+checking for flex... lex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
++ make have-lexlib
+test x'-lfl' != x
+echo 'int main (void) { return yywrap (); }' > x.c
+cc -c x.c
+x.c: In function 'main':
+x.c:1:26: warning: implicit declaration of function 'yywrap' [-Wimplicit-function-declaration]
+ int main (void) { return yywrap (); }
+                          ^~~~~~
+cc x.o -lfl
+/usr/bin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/libfl.so: undefined reference to `yylex'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:756: have-lexlib] Error 1
++ skip_ 'no system-wide lex library found'
++ warn_ 'lex-lib-external: skipped test: no system-wide lex library found'
++ echo 'lex-lib-external: skipped test: no system-wide lex library found'
++ _am_exit 77
++ set +e
++ test 77 = 77
++ am__test_skipped=yes
++ exit 77
++ exit 77
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+SKIP t/lex-lib-external.sh (exit status: 77)

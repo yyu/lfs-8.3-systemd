@@ -1,0 +1,8 @@
+#!/bin/sh
+set -ex
+# automake shouldn't use our autoconf wrapper when extracting
+# the races from configure.ac.
+AUTOCONF='autoconf'; export AUTOCONF
+automake-1.16 --foreign -Werror -Wall "$@"
+touch -r config.status Makefile.in
+stat Makefile.in

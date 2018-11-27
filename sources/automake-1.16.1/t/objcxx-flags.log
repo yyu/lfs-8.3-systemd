@@ -1,0 +1,121 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/objcxx-flags.dir
++ cat
++ cat
++ for i in 2 4
++ unindent
++ test x = x
+++ printf '%s\n' '
+  /^$/b                    # Nothing to do for empty lines.
+  x                        # Get x<indent> into pattern space.
+  /^$/{                    # No prior x<indent>, go prepare it.
+    g                      # Copy this 1st non-blank line into pattern space.
+    s/^\([	 ]*\).*/x\1/   # Prepare x<indent> in pattern space.
+  }                        # Now: x<indent> in pattern and <line> in hold.
+  G                        # Build x<indent>\n<line> in pattern space, and
+  h                        # duplicate it into hold space.
+  s/\n.*$//                # Restore x<indent> in pattern space, and
+  x                        # exchange with the above duplicate in hold space.
+  s/^x\(.*\)\n\1//         # Remove leading <indent> from <line>.
+  s/^x.*\n//               # Restore <line> when there is no leading <indent>.
+'
+++ sed -e 's/  *# .*//'
++ sed_unindent_prog='
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ for i in 2 4
++ unindent
++ test 'x
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//' = x
++ sed '
+  /^$/b
+  x
+  /^$/{
+    g
+    s/^\([	 ]*\).*/x\1/
+  }
+  G
+  h
+  s/\n.*$//
+  x
+  s/^x\(.*\)\n\1//
+  s/^x.*\n//'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall -a
++ /bin/grep -F OBJCXXFLAGS Makefile.in
+foo4_LINK = $(OBJCXXLD) $(foo4_OBJCXXFLAGS) $(OBJCXXFLAGS) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS)
+OBJCXXLINK = $(OBJCXXLD) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS) \
+OBJCXXFLAGS = @OBJCXXFLAGS@
+AM_OBJCXXFLAGS = -DVALUE=2 -DERROR=1
+foo4_OBJCXXFLAGS = -DVALUE=4 -DERROR=1
+@am__fastdepOBJCXX_TRUE@	$(AM_V_OBJCXX)$(OBJCXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo4_OBJCXXFLAGS) $(OBJCXXFLAGS) -MT foo4-foo4.o -MD -MP -MF $(DEPDIR)/foo4-foo4.Tpo -c -o foo4-foo4.o `test -f 'foo4.mm' || echo '$(srcdir)/'`foo4.mm
+@am__fastdepOBJCXX_FALSE@	$(AM_V_OBJCXX@am__nodep@)$(OBJCXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo4_OBJCXXFLAGS) $(OBJCXXFLAGS) -c -o foo4-foo4.o `test -f 'foo4.mm' || echo '$(srcdir)/'`foo4.mm
+@am__fastdepOBJCXX_TRUE@	$(AM_V_OBJCXX)$(OBJCXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo4_OBJCXXFLAGS) $(OBJCXXFLAGS) -MT foo4-foo4.obj -MD -MP -MF $(DEPDIR)/foo4-foo4.Tpo -c -o foo4-foo4.obj `if test -f 'foo4.mm'; then $(CYGPATH_W) 'foo4.mm'; else $(CYGPATH_W) '$(srcdir)/foo4.mm'; fi`
+@am__fastdepOBJCXX_FALSE@	$(AM_V_OBJCXX@am__nodep@)$(OBJCXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(foo4_OBJCXXFLAGS) $(OBJCXXFLAGS) -c -o foo4-foo4.obj `if test -f 'foo4.mm'; then $(CYGPATH_W) 'foo4.mm'; else $(CYGPATH_W) '$(srcdir)/foo4.mm'; fi`
++ grep '\$(OBJCXXFLAGS).*\$(AM_OBJCXXFLAGS)' Makefile.in
++ grep '\$(OBJCXXFLAGS).*\$(foo.*_OBJCXXFLAGS)' Makefile.in
++ grep '\$(foo.*_OBJCXXFLAGS).*\$(AM_OBJCXXFLAGS)' Makefile.in
++ ./configure OBJCXXFLAGS=-UERROR
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for g++... g++
+checking whether the Objective C++ compiler works... no
+configure: error: in `/sources/automake-1.16.1/t/objcxx-flags.dir':
+configure: error: Objective C++ compiler cannot create executables
+See `config.log' for more details
++ am_exit_trap 77
++ exit_status=77
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 77 -eq 0
++ keep_testdirs=yes
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 0
++ set +x
+SKIP t/objcxx-flags.sh (exit status: 77)

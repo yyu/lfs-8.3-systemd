@@ -216,7 +216,7 @@ sub dl_findfile {
     my (@args) = @_;
     my (@dirs,  $dir);   # which directories to search
     my (@found);         # full paths to real files we have found
-    #my $dl_ext= 'none'; # $Config::Config{'dlext'} suffix for perl extensions
+    #my $dl_ext= 'so'; # $Config::Config{'dlext'} suffix for perl extensions
     #my $dl_so = 'so'; # $Config::Config{'so'} suffix for shared libraries
 
     print STDERR "dl_findfile(@args)\n" if $dl_debug;

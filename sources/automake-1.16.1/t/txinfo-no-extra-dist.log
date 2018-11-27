@@ -1,0 +1,89 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/txinfo-no-extra-dist.dir
++ cat
++ cat
++ :
++ mkdir subdir
++ echo '@setfilename textutils.info'
++ echo '@setfilename main.info'
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ :
++ :
++ :
++ :
++ :
++ :
++ make test
+make  distdir-am
+make[1]: Entering directory '/sources/automake-1.16.1/t/txinfo-no-extra-dist.dir'
+if test -d "txinfo-no-extra-dist-1.0"; then find "txinfo-no-extra-dist-1.0" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "txinfo-no-extra-dist-1.0" || { sleep 5 && rm -rf "txinfo-no-extra-dist-1.0"; }; else :; fi
+test -d "txinfo-no-extra-dist-1.0" || mkdir "txinfo-no-extra-dist-1.0"
+make  \
+  top_distdir="txinfo-no-extra-dist-1.0" distdir="txinfo-no-extra-dist-1.0" \
+  dist-info
+make[2]: Entering directory '/sources/automake-1.16.1/t/txinfo-no-extra-dist.dir'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/txinfo-no-extra-dist.dir'
+test -n "" \
+|| find "txinfo-no-extra-dist-1.0" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/sh /sources/automake-1.16.1/t/txinfo-no-extra-dist.dir/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "txinfo-no-extra-dist-1.0"
+make[1]: Leaving directory '/sources/automake-1.16.1/t/txinfo-no-extra-dist.dir'
+DISTFILES = ./Makefile.am ./configure ./configure.ac ./aclocal.m4 ./Makefile.in compile depcomp install-sh missing texinfo.tex textutils.texi subdir/main.texi
+st=0; \
+ find txinfo-no-extra-dist-1.0 | grep '~' && st=1; \
+ find txinfo-no-extra-dist-1.0 | grep '\.bak' && st=1; \
+ exit $st
++ make maintainer-clean
+test -z "textutils.dvi textutils.pdf textutils.ps textutils.html \
+  subdir/main.dvi subdir/main.pdf subdir/main.ps \
+  subdir/main.html" \
+|| rm -rf textutils.dvi textutils.pdf textutils.ps textutils.html \
+  subdir/main.dvi subdir/main.pdf subdir/main.ps \
+  subdir/main.html
+rm -rf textutils.t2d textutils.t2p subdir/main.t2d subdir/main.t2p
+test -z "" || rm -f 
+test . = "." || test -z "" || rm -f 
+rm -f subdir/.dirstamp
+ rm -f ./textutils.info ./textutils.info-[0-9] ./textutils.info-[0-9][0-9] ./textutils.i[0-9] ./textutils.i[0-9][0-9]
+ rm -f ./subdir/main.info ./subdir/main.info-[0-9] ./subdir/main.info-[0-9][0-9] ./subdir/main.i[0-9] ./subdir/main.i[0-9][0-9]
+This command is intended for maintainers to use
+it deletes files that may require special tools to rebuild.
+rm -f config.status config.cache config.log configure.lineno config.status.lineno
+rm -rf ./autom4te.cache
+rm -f Makefile
++ test -f subdir/main.info~
++ test -f subdir/main.info.bak
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/txinfo-no-extra-dist.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/txinfo-no-extra-dist.dir
++ set +x
+PASS t/txinfo-no-extra-dist.sh (exit status: 0)

@@ -1,0 +1,514 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/tap-basic.dir
++ fetch_tap_driver
++ AM_TAP_AWK=gawk
++ export AM_TAP_AWK
++ get_shell_script tap-driver.sh tap-driver
++ am_source=tap-driver.sh
++ am_target=tap-driver
++ test '!' -f tap-driver
++ test x = xyes
++ cp -f /sources/automake-1.16.1/lib/tap-driver.sh tap-driver
++ sed 10q tap-driver
+#! /bin/sh
+# Copyright (C) 2011-2018 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
++ unset am_target am_source
++ cat
++ cat
++ cat
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall
++ ./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
++ run_make -O -e FAIL check
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 4 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 3 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 1 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ make --version -v
++ grep GNU
+GNU Make 4.2.1
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
++ am__using_gmake=yes
++ return 0
++ :
++ test x '!=' x
++ : exec make check
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-basic.dir'
+PASS: success.test 1
+PASS: success.test 2 two
+PASS: success.test 3 - three
+PASS: success.test 4 four four
+FAIL: success.test 5
+FAIL: success.test 6 six
+FAIL: success.test 7 - seven
+FAIL: success.test 8 eight eight
+XPASS: success.test 9 # TODO
+XPASS: success.test 10 ten # TODO
+XPASS: success.test 11 - eleven # TODO
+XPASS: success.test 12 twelve twelve # TODO
+XFAIL: success.test 13 # TODO
+XFAIL: success.test 14 fourteen # TODO
+XFAIL: success.test 15 - fifteen # TODO
+XFAIL: success.test 16 sixteen sixteen # TODO
+SKIP: success.test 17 # SKIP
+SKIP: success.test 18 eighteen # SKIP
+SKIP: success.test 19 - nineteen # SKIP
+SKIP: success.test 20 twenty twenty # SKIP
+============================================================================
+Testsuite summary for tap-basic 1.0
+============================================================================
+# TOTAL: 20
+# PASS:  4
+# SKIP:  4
+# XFAIL: 4
+# FAIL:  4
+# XPASS: 4
+# ERROR: 0
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-basic.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=20 pass=4 fail=4 xpass=4 xfail=4 skip=4 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=20 pass=4 fail=4 xpass=4 xfail=4 skip=4 error=0
+++ total=20
+++ pass=4
+++ fail=4
+++ xpass=4
+++ xfail=4
+++ skip=4
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+PASS: success.test 1
+PASS: success.test 2 two
+PASS: success.test 3 - three
+PASS: success.test 4 four four
+FAIL: success.test 5
+FAIL: success.test 6 six
+FAIL: success.test 7 - seven
+FAIL: success.test 8 eight eight
+XPASS: success.test 9 # TODO
+XPASS: success.test 10 ten # TODO
+XPASS: success.test 11 - eleven # TODO
+XPASS: success.test 12 twelve twelve # TODO
+XFAIL: success.test 13 # TODO
+XFAIL: success.test 14 fourteen # TODO
+XFAIL: success.test 15 - fifteen # TODO
+XFAIL: success.test 16 sixteen sixteen # TODO
+SKIP: success.test 17 # SKIP
+SKIP: success.test 18 eighteen # SKIP
+SKIP: success.test 19 - nineteen # SKIP
+SKIP: success.test 20 twenty twenty # SKIP
+# TOTAL: 20
+# PASS:  4
+# SKIP:  4
+# XFAIL: 4
+# FAIL:  4
+# XPASS: 4
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 4 -eq 4
+++ grep -c '^XFAIL:' stdout
++ test 4 -eq 4
+++ grep -c '^SKIP:' stdout
++ test 4 -eq 4
+++ grep -c '^FAIL:' stdout
++ test 4 -eq 4
+++ grep -c '^XPASS:' stdout
++ test 4 -eq 4
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *20$' stdout
+# TOTAL: 20
++ grep '^# PASS:  *4$' stdout
+# PASS:  4
++ grep '^# XFAIL:  *4$' stdout
+# XFAIL: 4
++ grep '^# SKIP:  *4$' stdout
+# SKIP:  4
++ grep '^# FAIL:  *4$' stdout
+# FAIL:  4
++ grep '^# XPASS:  *4$' stdout
+# XPASS: 4
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ test -f success.log
++ test -f test-suite.log
++ cat
++ /bin/grep -F ': success.test' stdout
++ cat exp
+PASS: success.test 1
+PASS: success.test 2 two
+PASS: success.test 3 - three
+PASS: success.test 4 four four
+FAIL: success.test 5
+FAIL: success.test 6 six
+FAIL: success.test 7 - seven
+FAIL: success.test 8 eight eight
+XPASS: success.test 9 # TODO
+XPASS: success.test 10 ten # TODO
+XPASS: success.test 11 - eleven # TODO
+XPASS: success.test 12 twelve twelve # TODO
+XFAIL: success.test 13 # TODO
+XFAIL: success.test 14 fourteen # TODO
+XFAIL: success.test 15 - fifteen # TODO
+XFAIL: success.test 16 sixteen sixteen # TODO
+SKIP: success.test 17 # SKIP
+SKIP: success.test 18 eighteen # SKIP
+SKIP: success.test 19 - nineteen # SKIP
+SKIP: success.test 20 twenty twenty # SKIP
++ cat got
+PASS: success.test 1
+PASS: success.test 2 two
+PASS: success.test 3 - three
+PASS: success.test 4 four four
+FAIL: success.test 5
+FAIL: success.test 6 six
+FAIL: success.test 7 - seven
+FAIL: success.test 8 eight eight
+XPASS: success.test 9 # TODO
+XPASS: success.test 10 ten # TODO
+XPASS: success.test 11 - eleven # TODO
+XPASS: success.test 12 twelve twelve # TODO
+XFAIL: success.test 13 # TODO
+XFAIL: success.test 14 fourteen # TODO
+XFAIL: success.test 15 - fifteen # TODO
+XFAIL: success.test 16 sixteen sixteen # TODO
+SKIP: success.test 17 # SKIP
+SKIP: success.test 18 eighteen # SKIP
+SKIP: success.test 19 - nineteen # SKIP
+SKIP: success.test 20 twenty twenty # SKIP
++ diff exp got
++ rm -f config.log success.log test-suite.log success.test
++ cat
++ run_make -O -e FAIL check TESTS=bail.test
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 5 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 4 -gt 0
++ case $1 in
++ am__make_rc_exp=FAIL
++ shift
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check TESTS=bail.test
++ set +x
+make[2]: *** [Makefile:475: test-suite.log] Error 1
+make[1]: *** [Makefile:583: check-TESTS] Error 2
+make: *** [Makefile:775: check-am] Error 2
++ am_make_rc=2
++ test 2 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-basic.dir'
+ERROR: bail.test - Bail out!
+============================================================================
+Testsuite summary for tap-basic 1.0
+============================================================================
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
+============================================================================
+See ./test-suite.log
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-basic.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 2 -gt 0
++ count_test_results total=1 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=1
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=1 pass=0 fail=0 xpass=0 xfail=0 skip=0 error=1
+++ total=1
+++ pass=0
+++ fail=0
+++ xpass=0
+++ xfail=0
+++ skip=0
+++ error=1
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+ERROR: bail.test - Bail out!
+# TOTAL: 1
+# PASS:  0
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 1
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 0 -eq 0
+++ grep -c '^XFAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^SKIP:' stdout
++ test 0 -eq 0
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 1 -eq 1
++ grep '^# TOTAL:  *1$' stdout
+# TOTAL: 1
++ grep '^# PASS:  *0$' stdout
+# PASS:  0
++ grep '^# XFAIL:  *0$' stdout
+# XFAIL: 0
++ grep '^# SKIP:  *0$' stdout
+# SKIP:  0
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *1$' stdout
+# ERROR: 1
++ test 0 -eq 0
++ test '!' -e success.log
++ test -f bail.log
++ test -f test-suite.log
++ grep '^ERROR: bail\.test - Bail out!' stdout
+ERROR: bail.test - Bail out!
++ grep '^PASS:' stdout
+++ /bin/grep -F -c ': bail.test' stdout
++ test 1 -eq 1
++ /bin/grep -F success.test stdout
++ rm -f bail.log test-suite.log bail.test
++ run_make -O check TEST_LOGS=ok.log
++ am__make_redirect_stdout=no
++ am__make_redirect_stderr=no
++ am__make_redirect_stdall=no
++ am__make_flags=
++ am__make_rc_exp=0
++ am_make_rc=0
++ test 3 -gt 0
++ case $1 in
++ am__make_redirect_stdout=yes
++ shift
++ test 2 -gt 0
++ case $1 in
++ break
++ using_gmake
++ case $am__using_gmake in
++ return 0
++ :
++ test x '!=' x
++ : exec make check TEST_LOGS=ok.log
++ set +x
++ test 0 -eq 253
++ test no = yes
++ test yes = yes
++ cat stdout
+make  check-TESTS
+make[1]: Entering directory '/sources/automake-1.16.1/t/tap-basic.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/tap-basic.dir'
+echo '1..3' > ok.test-t
+echo 'ok 1' >> ok.test-t
+echo 'not ok 2 # TODO' >>ok.test-t
+echo 'ok 3 # SKIP' >>ok.test-t
+cat ok.test-t ;: For debugging.
+1..3
+ok 1
+not ok 2 # TODO
+ok 3 # SKIP
+mv -f ok.test-t ok.test
+PASS: ok.test 1
+XFAIL: ok.test 2 # TODO
+SKIP: ok.test 3 # SKIP
+============================================================================
+Testsuite summary for tap-basic 1.0
+============================================================================
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[2]: Leaving directory '/sources/automake-1.16.1/t/tap-basic.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/tap-basic.dir'
++ test no = yes
++ case $am__make_rc_exp in
++ test 0 -ge 0
++ test 0 -le 255
++ test 0 -eq 0
++ count_test_results total=3 pass=1 fail=0 xpass=0 xfail=1 skip=1 error=0
++ total=ERR
++ pass=ERR
++ fail=ERR
++ xpass=ERR
++ xfail=ERR
++ skip=ERR
++ error=ERR
++ eval total=3 pass=1 fail=0 xpass=0 xfail=1 skip=1 error=0
+++ total=3
+++ pass=1
+++ fail=0
+++ xpass=0
+++ xfail=1
+++ skip=1
+++ error=0
++ /bin/grep -E -i '(total|x?pass|x?fail|skip|error)' stdout
+echo 'ok 3 # SKIP' >>ok.test-t
+ok 3 # SKIP
+PASS: ok.test 1
+XFAIL: ok.test 2 # TODO
+SKIP: ok.test 3 # SKIP
+# TOTAL: 3
+# PASS:  1
+# SKIP:  1
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
++ rc=0
++ set +e
+++ grep -c '^PASS:' stdout
++ test 1 -eq 1
+++ grep -c '^XFAIL:' stdout
++ test 1 -eq 1
+++ grep -c '^SKIP:' stdout
++ test 1 -eq 1
+++ grep -c '^FAIL:' stdout
++ test 0 -eq 0
+++ grep -c '^XPASS:' stdout
++ test 0 -eq 0
+++ grep -c '^ERROR:' stdout
++ test 0 -eq 0
++ grep '^# TOTAL:  *3$' stdout
+# TOTAL: 3
++ grep '^# PASS:  *1$' stdout
+# PASS:  1
++ grep '^# XFAIL:  *1$' stdout
+# XFAIL: 1
++ grep '^# SKIP:  *1$' stdout
+# SKIP:  1
++ grep '^# FAIL:  *0$' stdout
+# FAIL:  0
++ grep '^# XPASS:  *0$' stdout
+# XPASS: 0
++ grep '^# ERROR:  *0$' stdout
+# ERROR: 0
++ test 0 -eq 0
++ test -f ok.test
++ test -f ok.log
++ test '!' -e success.log
++ test '!' -e bail.log
++ test -f test-suite.log
++ /bin/grep -E '(bail|success)\.test' stdout
++ cat
++ /bin/grep -F ': ok.test' stdout
++ cat exp
+PASS: ok.test 1
+XFAIL: ok.test 2 # TODO
+SKIP: ok.test 3 # SKIP
++ cat got
+PASS: ok.test 1
+XFAIL: ok.test 2 # TODO
+SKIP: ok.test 3 # SKIP
++ diff exp got
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/tap-basic.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/tap-basic.dir
++ set +x
+PASS t/tap-basic.sh (exit status: 0)

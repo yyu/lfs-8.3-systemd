@@ -1,0 +1,127 @@
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/py-compile-usage.dir
++ cp /sources/automake-1.16.1/lib/py-compile .
++ ./py-compile --help
++ cat stdout
+Usage: py-compile [--help] [--version] [--basedir DIR] [--destdir DIR] FILES..."
+
+Byte compile some python scripts FILES.  Use --destdir to specify any
+leading directory path to the FILES that you don't want to include in the
+byte compiled file.  Specify --basedir for any additional path information you
+do want to be shown in the byte compiled file.
+
+Example:
+  py-compile --destdir /tmp/pkg-root --basedir /usr/share/test test.py test2.py
+
+Report bugs to <bug-automake@gnu.org>.
++ test -s stderr
++ grep '^Usage: py-compile .' stdout
+Usage: py-compile [--help] [--version] [--basedir DIR] [--destdir DIR] FILES..."
++ /bin/grep -F ' [--basedir DIR]' stdout
+Usage: py-compile [--help] [--version] [--basedir DIR] [--destdir DIR] FILES..."
++ /bin/grep -F ' [--destdir DIR]' stdout
+Usage: py-compile [--help] [--version] [--basedir DIR] [--destdir DIR] FILES..."
++ ./py-compile --version
++ cat stdout
+py-compile 2018-03-07.03
++ test -s stderr
++ year='20[0-9][0-9]'
++ month='(0[0-9]|1[012])'
++ day='([012][0-9]|3[01])'
++ hour='([01][0-9]|2[0123])'
++ LC_ALL=C
++ /bin/grep -E '^py-compile 20[0-9][0-9]-(0[0-9]|1[012])-([012][0-9]|3[01])\.([01][0-9]|2[0123])' stdout
+py-compile 2018-03-07.03
+++ wc -l
++ test 1 -eq 1
++ for opt in -b -d --foo
++ ./py-compile -b
++ cat stderr
+py-compile: unrecognized option '-b'
+Try 'py-compile --help' for more information.
++ grep '^py-compile: unrecognized option '\''-b'\''' stderr
+py-compile: unrecognized option '-b'
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for opt in -b -d --foo
++ ./py-compile -d
++ cat stderr
+py-compile: unrecognized option '-d'
+Try 'py-compile --help' for more information.
++ grep '^py-compile: unrecognized option '\''-d'\''' stderr
+py-compile: unrecognized option '-d'
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for opt in -b -d --foo
++ ./py-compile --foo
++ cat stderr
+py-compile: unrecognized option '--foo'
+Try 'py-compile --help' for more information.
++ grep '^py-compile: unrecognized option '\''--foo'\''' stderr
+py-compile: unrecognized option '--foo'
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for opt in --basedir --destdir
++ ./py-compile --basedir
++ cat stderr
+py-compile: option '--basedir' requires an argument
+Try 'py-compile --help' for more information.
++ grep '^py-compile: option '\''--basedir'\'' requires an argument' stderr
+py-compile: option '--basedir' requires an argument
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for opt in --basedir --destdir
++ ./py-compile --destdir
++ cat stderr
+py-compile: option '--destdir' requires an argument
+Try 'py-compile --help' for more information.
++ grep '^py-compile: option '\''--destdir'\'' requires an argument' stderr
+py-compile: option '--destdir' requires an argument
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for args in '' '--basedir dir' '--destdir dir'
++ ./py-compile
++ cat stderr
+py-compile: no files given
+Try 'py-compile --help' for more information.
++ grep '^py-compile: no files given' stderr
+py-compile: no files given
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for args in '' '--basedir dir' '--destdir dir'
++ ./py-compile --basedir dir
++ cat stderr
+py-compile: no files given
+Try 'py-compile --help' for more information.
++ grep '^py-compile: no files given' stderr
+py-compile: no files given
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ for args in '' '--basedir dir' '--destdir dir'
++ ./py-compile --destdir dir
++ cat stderr
+py-compile: no files given
+Try 'py-compile --help' for more information.
++ grep '^py-compile: no files given' stderr
+py-compile: no files given
++ grep '^Try '\''py-compile --help'\'' for more information' stderr
+Try 'py-compile --help' for more information.
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/py-compile-usage.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/py-compile-usage.dir
++ set +x
+PASS t/py-compile-usage.sh (exit status: 0)

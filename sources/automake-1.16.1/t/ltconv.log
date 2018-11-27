@@ -1,0 +1,463 @@
+ltconv: running libtoolize --version
+libtoolize (GNU libtool) 2.4.6
+Written by Gary V. Vaughan <gary@gnu.org>, 2003
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Running from installcheck: no
+Test Protocol: none
+PATH = /sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
+++ pwd
+/sources/automake-1.16.1/t/ltconv.dir
++ cat
++ mkdir sub1
++ mkdir sub2
++ mkdir sub2/sub21
++ mkdir sub2/sub22
++ mkdir empty
++ cat
++ cat
++ echo 'int sub1 () { return 1; }'
++ cat
++ echo 'int sub2 () { return 2; }'
++ cat
++ echo 'int sub21 () { return 21; }'
++ cat
++ echo 'int sub22 () { return 22; }'
++ cat
++ libtoolize
+libtoolize: putting auxiliary files in '.'.
+libtoolize: linking file './ltmain.sh'
+libtoolize: You should add the contents of the following files to 'aclocal.m4':
+libtoolize:   '/usr/share/aclocal/libtool.m4'
+libtoolize:   '/usr/share/aclocal/ltoptions.m4'
+libtoolize:   '/usr/share/aclocal/ltsugar.m4'
+libtoolize:   '/usr/share/aclocal/ltversion.m4'
+libtoolize:   '/usr/share/aclocal/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
++ aclocal-1.16 -Werror
++ autoconf
++ automake-1.16 --foreign -Werror -Wall --add-missing
+configure.ac:5: installing './ar-lib'
+configure.ac:6: installing './config.guess'
+configure.ac:6: installing './config.sub'
+++ pwd
++ cwd=/sources/automake-1.16.1/t/ltconv.dir
++ ./configure --prefix=/sources/automake-1.16.1/t/ltconv.dir/empty --libdir=/sources/automake-1.16.1/t/ltconv.dir/lib --bindir=/sources/automake-1.16.1/t/ltconv.dir/bin
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /tools/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether cc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of cc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 6291456
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from cc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... no
+checking for cc option to produce PIC... -fPIC -DPIC
+checking if cc PIC flag -fPIC -DPIC works... yes
+checking if cc static flag -static works... yes
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sub1/Makefile
+config.status: creating sub2/Makefile
+config.status: creating sub2/sub21/Makefile
+config.status: creating sub2/sub22/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
++ make
+Making all in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+/bin/sh ../libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltconv\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT sub1.lo -MD -MP -MF .deps/sub1.Tpo -c -o sub1.lo sub1.c
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub1.lo -MD -MP -MF .deps/sub1.Tpo -c sub1.c  -fPIC -DPIC -o .libs/sub1.o
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub1.lo -MD -MP -MF .deps/sub1.Tpo -c sub1.c -o sub1.o >/dev/null 2>&1
+mv -f .deps/sub1.Tpo .deps/sub1.Plo
+/bin/sh ../libtool  --tag=CC   --mode=link cc  -g -O2   -o libsub1.la  sub1.lo  
+libtool: link: ar cru .libs/libsub1.a .libs/sub1.o 
+libtool: link: ranlib .libs/libsub1.a
+libtool: link: ( cd ".libs" && rm -f "libsub1.la" && ln -s "../libsub1.la" "libsub1.la" )
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making all in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making all in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+/bin/sh ../../libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltconv\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT sub21.lo -MD -MP -MF .deps/sub21.Tpo -c -o sub21.lo sub21.c
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub21.lo -MD -MP -MF .deps/sub21.Tpo -c sub21.c  -fPIC -DPIC -o .libs/sub21.o
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub21.lo -MD -MP -MF .deps/sub21.Tpo -c sub21.c -o sub21.o >/dev/null 2>&1
+mv -f .deps/sub21.Tpo .deps/sub21.Plo
+/bin/sh ../../libtool  --tag=CC   --mode=link cc  -g -O2   -o libsub21.la  sub21.lo  
+libtool: link: ar cru .libs/libsub21.a .libs/sub21.o 
+libtool: link: ranlib .libs/libsub21.a
+libtool: link: ( cd ".libs" && rm -f "libsub21.la" && ln -s "../libsub21.la" "libsub21.la" )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making all in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+/bin/sh ../../libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltconv\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT sub22.lo -MD -MP -MF .deps/sub22.Tpo -c -o sub22.lo sub22.c
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub22.lo -MD -MP -MF .deps/sub22.Tpo -c sub22.c  -fPIC -DPIC -o .libs/sub22.o
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub22.lo -MD -MP -MF .deps/sub22.Tpo -c sub22.c -o sub22.o >/dev/null 2>&1
+mv -f .deps/sub22.Tpo .deps/sub22.Plo
+/bin/sh ../../libtool  --tag=CC   --mode=link cc  -g -O2   -o libsub22.la  sub22.lo  
+libtool: link: ar cru .libs/libsub22.a .libs/sub22.o 
+libtool: link: ranlib .libs/libsub22.a
+libtool: link: ( cd ".libs" && rm -f "libsub22.la" && ln -s "../libsub22.la" "libsub22.la" )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+/bin/sh ../libtool  --tag=CC   --mode=compile cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltconv\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT sub2.lo -MD -MP -MF .deps/sub2.Tpo -c -o sub2.lo sub2.c
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub2.lo -MD -MP -MF .deps/sub2.Tpo -c sub2.c  -fPIC -DPIC -o .libs/sub2.o
+libtool: compile:  cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"ltconv 1.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I. -g -O2 -MT sub2.lo -MD -MP -MF .deps/sub2.Tpo -c sub2.c -o sub2.o >/dev/null 2>&1
+mv -f .deps/sub2.Tpo .deps/sub2.Plo
+/bin/sh ../libtool  --tag=CC   --mode=link cc  -g -O2   -o libsub2.la  sub2.lo sub21/libsub21.la sub22/libsub22.la 
+libtool: link: (cd .libs/libsub2.lax/libsub21.a && ar x "/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21/.libs/libsub21.a")
+libtool: link: (cd .libs/libsub2.lax/libsub22.a && ar x "/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22/.libs/libsub22.a")
+libtool: link: ar cru .libs/libsub2.a .libs/sub2.o   .libs/libsub2.lax/libsub21.a/sub21.o  .libs/libsub2.lax/libsub22.a/sub22.o 
+libtool: link: ranlib .libs/libsub2.a
+libtool: link: rm -fr .libs/libsub2.lax
+libtool: link: ( cd ".libs" && rm -f "libsub2.la" && ln -s "../libsub2.la" "libsub2.la" )
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+cc -DPACKAGE_NAME=\"ltconv\" -DPACKAGE_TARNAME=\"ltconv\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"ltconv\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ltconv\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -I.     -g -O2 -MT test.o -MD -MP -MF .deps/test.Tpo -c -o test.o test.c
+test.c: In function 'main':
+test.c:4:12: warning: implicit declaration of function 'sub1' [-Wimplicit-function-declaration]
+   if (1 != sub1 ())
+            ^~~~
+test.c:6:12: warning: implicit declaration of function 'sub2' [-Wimplicit-function-declaration]
+   if (2 != sub2 ())
+            ^~~~
+test.c:8:13: warning: implicit declaration of function 'sub21' [-Wimplicit-function-declaration]
+   if (21 != sub21 ())
+             ^~~~~
+test.c:10:13: warning: implicit declaration of function 'sub22' [-Wimplicit-function-declaration]
+   if (22 != sub22 ())
+             ^~~~~
+mv -f .deps/test.Tpo .deps/test.Po
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o libtop.la -rpath /sources/automake-1.16.1/t/ltconv.dir/lib  sub1/libsub1.la sub2/libsub2.la 
+libtool: link: cc -shared  -fPIC -DPIC  -Wl,--whole-archive sub1/.libs/libsub1.a sub2/.libs/libsub2.a -Wl,--no-whole-archive   -g -O2   -Wl,-soname -Wl,libtop.so.0 -o .libs/libtop.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libtop.so.0" && ln -s "libtop.so.0.0.0" "libtop.so.0")
+libtool: link: (cd ".libs" && rm -f "libtop.so" && ln -s "libtop.so.0.0.0" "libtop.so")
+libtool: link: (cd .libs/libtop.lax/libsub1.a && ar x "/sources/automake-1.16.1/t/ltconv.dir/sub1/.libs/libsub1.a")
+libtool: link: (cd .libs/libtop.lax/libsub2.a && ar x "/sources/automake-1.16.1/t/ltconv.dir/sub2/.libs/libsub2.a")
+libtool: link: ar cru .libs/libtop.a   .libs/libtop.lax/libsub1.a/sub1.o  .libs/libtop.lax/libsub2.a/sub2.o .libs/libtop.lax/libsub2.a/sub21.o .libs/libtop.lax/libsub2.a/sub22.o 
+libtool: link: ranlib .libs/libtop.a
+libtool: link: rm -fr .libs/libtop.lax
+libtool: link: ( cd ".libs" && rm -f "libtop.la" && ln -s "../libtop.la" "libtop.la" )
+/bin/sh ./libtool  --tag=CC   --mode=link cc  -g -O2   -o ltconvtest test.o libtop.la 
+libtool: link: cc -g -O2 -o .libs/ltconvtest test.o  ./.libs/libtop.so -Wl,-rpath -Wl,/sources/automake-1.16.1/t/ltconv.dir/lib
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ test -f libtop.la
++ test -f sub1/libsub1.la
++ test -f sub2/libsub2.la
++ test -f sub2/sub21/libsub21.la
++ test -f sub2/sub22/libsub22.la
++ make check
+Making check in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making check in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making check in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making check in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Nothing to be done for 'check'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[2]: Nothing to be done for 'check-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+make  check-local
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+./ltconvtest
+: > check-ok
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ test -f check-ok
++ rm -f check-ok
++ make install
+Making install in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[2]: Nothing to be done for 'install-exec-am'.
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making install in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making install in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[3]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making install in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[3]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[3]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/ltconv.dir/lib'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libtop.la '/sources/automake-1.16.1/t/ltconv.dir/lib'
+libtool: install: /usr/bin/install -c .libs/libtop.so.0.0.0 /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.so.0.0.0
+libtool: install: (cd /sources/automake-1.16.1/t/ltconv.dir/lib && { ln -s -f libtop.so.0.0.0 libtop.so.0 || { rm -f libtop.so.0 && ln -s libtop.so.0.0.0 libtop.so.0; }; })
+libtool: install: (cd /sources/automake-1.16.1/t/ltconv.dir/lib && { ln -s -f libtop.so.0.0.0 libtop.so || { rm -f libtop.so && ln -s libtop.so.0.0.0 libtop.so; }; })
+libtool: install: /usr/bin/install -c .libs/libtop.lai /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.la
+libtool: install: /usr/bin/install -c .libs/libtop.a /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.a
+libtool: install: chmod 644 /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.a
+libtool: install: ranlib /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.a
+libtool: finish: PATH="/sources/automake-1.16.1/bin:/sources/automake-1.16.1/t/ax:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin:/sbin" ldconfig -n /sources/automake-1.16.1/t/ltconv.dir/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /sources/automake-1.16.1/t/ltconv.dir/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /tools/bin/mkdir -p '/sources/automake-1.16.1/t/ltconv.dir/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c ltconvtest '/sources/automake-1.16.1/t/ltconv.dir/bin'
+libtool: install: /usr/bin/install -c .libs/ltconvtest /sources/automake-1.16.1/t/ltconv.dir/bin/ltconvtest
+make[2]: Nothing to be done for 'install-data-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ test -f lib/libtop.la
++ make installcheck
+Making installcheck in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making installcheck in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making installcheck in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making installcheck in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+/sources/automake-1.16.1/t/ltconv.dir/bin/ltconvtest
+: > installcheck-ok
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ test -f installcheck-ok
++ rm -f installcheck-ok
++ find empty -type f -print
++ test -s empty.lst
++ make clean
+Making clean in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+rm -rf .libs _libs
+test -z "libsub1.la" || rm -f libsub1.la
+rm -f ./so_locations
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making clean in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making clean in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+rm -rf .libs _libs
+test -z "libsub21.la" || rm -f libsub21.la
+rm -f ./so_locations
+rm -f *.o
+rm -f *.lo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making clean in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+rm -rf .libs _libs
+test -z "libsub22.la" || rm -f libsub22.la
+rm -f ./so_locations
+rm -f *.o
+rm -f *.lo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+rm -rf .libs _libs
+test -z "libsub2.la" || rm -f libsub2.la
+rm -f ./so_locations
+rm -f *.o
+rm -f *.lo
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+ rm -f ltconvtest
+test -z "libtop.la" || rm -f libtop.la
+rm -f ./so_locations
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ test '!' -e libtop.la
++ test '!' -e sub1/libsub1.la
++ test '!' -e sub2/libsub2.la
++ test '!' -e sub2/sub21/libsub21.la
++ test '!' -e sub2/sub22/libsub22.la
++ test '!' -e ltconvtest
++ make installcheck
+Making installcheck in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[1]: Nothing to be done for 'installcheck'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making installcheck in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making installcheck in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making installcheck in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Nothing to be done for 'installcheck'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[2]: Nothing to be done for 'installcheck-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+/sources/automake-1.16.1/t/ltconv.dir/bin/ltconvtest
+: > installcheck-ok
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ test -f installcheck-ok
++ rm -f installcheck-ok
++ make uninstall
+Making uninstall in sub1
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+make[1]: Nothing to be done for 'uninstall'.
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub1'
+Making uninstall in sub2
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+Making uninstall in sub21
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub21'
+Making uninstall in sub22
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Nothing to be done for 'uninstall'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2/sub22'
+make[2]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[2]: Nothing to be done for 'uninstall-am'.
+make[2]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir/sub2'
+make[1]: Entering directory '/sources/automake-1.16.1/t/ltconv.dir'
+ ( cd '/sources/automake-1.16.1/t/ltconv.dir/bin' && rm -f ltconvtest )
+ /bin/sh ./libtool   --mode=uninstall rm -f '/sources/automake-1.16.1/t/ltconv.dir/lib/libtop.la'
+libtool: uninstall: rm -f /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.la /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.so.0.0.0 /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.so.0 /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.so /sources/automake-1.16.1/t/ltconv.dir/lib/libtop.a
+make[1]: Leaving directory '/sources/automake-1.16.1/t/ltconv.dir'
++ for d in lib bin
++ find lib -type f -print
++ test -s lib.lst
++ : For shells with busted 'set -e.'
++ for d in lib bin
++ find bin -type f -print
++ test -s bin.lst
++ : For shells with busted 'set -e.'
++ :
++ am_exit_trap 0
++ exit_status=0
++ set +e
++ cd /sources/automake-1.16.1
++ test none = tap
++ case $am_explicit_skips in
++ test 0 -eq 0
++ am_keeping_testdirs
++ case $keep_testdirs in
++ return 1
++ rm_rf_ t/ltconv.dir
++ test 1 -gt 0
++ /usr/bin/perl /sources/automake-1.16.1/t/ax/deltree.pl t/ltconv.dir
++ set +x
+PASS t/ltconv.sh (exit status: 0)
