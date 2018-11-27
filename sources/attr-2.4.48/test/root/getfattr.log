@@ -1,0 +1,33 @@
+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/%{ <-- HERE (\w+)}/ at ./test/run line 109.
+[3] $ require_root -- ok
+[5] $ mkdir d -- ok
+[6] $ cd d -- ok
+[8] $ touch f -- ok
+[9] $ setfattr -n user.test -v test f -- ok
+[10] $ ln -s f l -- ok
+[11] $ setfattr -h -n trusted.test -v test l -- ok
+[14] $ getfattr -m- -d f -- ok
+[20] $ getfattr -m- -d l -- ok
+[26] $ getfattr -m- -hd l -- ok
+[32] $ getfattr -m- -Rd . | sort-getfattr-output -- ok
+[40] $ getfattr -m- -Rhd . | sort-getfattr-output -- ok
+[49] $ ln -s . here -- ok
+[50] $ getfattr -m- -Rd here | sort-getfattr-output -- ok
+[58] $ getfattr -m- -Rhd here -- ok
+[60] $ getfattr -m- -RLhd here | sort-getfattr-output -- ok
+[68] $ getfattr -m- -RPhd here -- ok
+[71] $ mkdir sub -- ok
+[72] $ mv f l sub -- ok
+[73] $ getfattr -m- -Rd . | sort-getfattr-output -- ok
+[81] $ getfattr -m- -Rhd . | sort-getfattr-output -- ok
+[90] $ mkdir sub2 -- ok
+[91] $ ln -s ../sub sub2/to-sub -- ok
+[92] $ getfattr -m- -Rhd sub2 -- ok
+[94] $ getfattr -m- -RLhd sub2 | sort-getfattr-output -- ok
+[102] $ getfattr -m- -RPhd sub2 -- ok
+[105] $ ln -s .. sub/up -- ok
+[106] $ getfattr -m- -RLhd . | sort-getfattr-output -- ok
+[119] $ cd .. -- ok
+[120] $ rm -rf d -- ok
+30 commands (30 passed, 0 failed)
+PASS test/root/getfattr.test (exit status: 0)

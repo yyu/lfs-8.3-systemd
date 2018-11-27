@@ -22,10 +22,10 @@ SHELL = /bin/sh
 
 srcdir = .
 top_srcdir = ../..
-top_builddir = /mnt/lfs/sources/bash-4.4.18
+top_builddir = /sources/bash-4.4.18
 
 
-prefix = /tools
+prefix = /usr
 exec_prefix = ${prefix}
 transform = s,x,x,
 
@@ -68,7 +68,7 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
 -DDEPENDS_ON_LIBICONV=1 -DHAVE_CONFIG_H ${LOCAL_DEFS}
 CPPFLAGS = 
 CFLAGS = -g -O2 -Wno-parentheses -Wno-format-security
-LDFLAGS =  -L./lib/termcap
+LDFLAGS = 
 LIBS = -ldl 
 
 COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)

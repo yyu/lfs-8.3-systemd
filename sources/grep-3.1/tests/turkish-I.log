@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-turkish-I.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-turkish-I.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-turkish-I.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++++ d=/sources/grep-3.1/tests/gt-turkish-I.wjzK
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7'
++++ test -d /sources/grep-3.1/tests/gt-turkish-I.wjzK
+++++ ls -dgo /sources/grep-3.1/tests/gt-turkish-I.wjzK
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-turkish-I.wjzK'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++++ echo /sources/grep-3.1/tests/gt-turkish-I.wjzK
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
+++ test_dir_=/sources/grep-3.1/tests/gt-turkish-I.wjzK
+++ cd /sources/grep-3.1/tests/gt-turkish-I.wjzK
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -66,10 +66,10 @@
 + test 1 '!=' 0
 + path_dir_=.
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ abs_path_dir_=/sources/grep-3.1/tests/.
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
 + case $EXEEXT in
 + return 0
 + shift
@@ -77,25 +77,52 @@
 + export PATH
 + case $(get-mb-cur-max en_US.UTF-8) in
 ++ get-mb-cur-max en_US.UTF-8
-+ skip_ 'en_US.UTF-8 locale not found'
-+ warn_ 'turkish-I: skipped test: en_US.UTF-8 locale not found'
-+ case $IFS in
-+ printf '%s\n' 'turkish-I: skipped test: en_US.UTF-8 locale not found'
-turkish-I: skipped test: en_US.UTF-8 locale not found
-+ test 9 = 2
-+ printf '%s\n' 'turkish-I: skipped test: en_US.UTF-8 locale not found'
-+ sed 1q
-+ Exit 77
++ require_compiled_in_MB_support
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ printf $'\303\251'
++ LC_ALL=en_US.UTF-8
++ grep '[[:lower:]]'
+é
++ fail=0
++ i='\304\260'
++ printf '\304\260\304\260\304\260\304\260\304\260\304\260\304\260\n'
++ LC_ALL=en_US.UTF-8
++ grep -i .... in
++ compare out in
++ compare_dev_null_ out in
++ test 2 = 2
++ test xout = x/dev/null
++ test xin = x/dev/null
++ return 2
++ case $? in
++ compare_ out in
++ diff -u out in
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
-+ exit 77
-SKIP turkish-I (exit status: 77)
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-turkish-I.wjzK
++ rm -rf /sources/grep-3.1/tests/gt-turkish-I.wjzK
++ exit 0
+PASS turkish-I (exit status: 0)

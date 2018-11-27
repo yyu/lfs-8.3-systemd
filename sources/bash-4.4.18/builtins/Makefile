@@ -33,7 +33,7 @@ CP = cp
 
 EXEEXT = 
 
-prefix = /tools
+prefix = /usr
 
 srcdir = .
 
@@ -52,7 +52,7 @@ DESTDIR =
 
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
 LIBBUILD = ${BUILD_DIR}/lib
 
@@ -66,7 +66,7 @@ DEFS = -DHAVE_CONFIG_H
 LOCAL_DEFS = -DSHELL
 
 LIBS = -ldl 
-LDFLAGS =  -L./lib/termcap $(LOCAL_LDFLAGS) $(CFLAGS)
+LDFLAGS =  $(LOCAL_LDFLAGS) $(CFLAGS)
 LDFLAGS_FOR_BUILD = $(LDFLAGS) $(LOCAL_LDFLAGS) $(CFLAGS_FOR_BUILD)
 LOCAL_LDFLAGS = -rdynamic
 LIBS_FOR_BUILD = $(LIBS)
@@ -74,7 +74,7 @@ LIBS_FOR_BUILD = $(LIBS)
 
 BASHINCDIR = ${topdir}/include
 
-RL_INCLUDEDIR = 
+RL_INCLUDEDIR = /usr/include
 
 INTL_LIBSRC = ${topdir}/lib/intl
 INTL_BUILDDIR = ${LIBBUILD}/intl

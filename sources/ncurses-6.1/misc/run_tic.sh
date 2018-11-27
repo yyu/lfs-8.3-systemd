@@ -43,15 +43,15 @@ echo "** Building terminfo database, please wait..."
 
 : ${suffix:=}
 : ${DESTDIR:=}
-: ${prefix:=/tools}
+: ${prefix:=/usr}
 : ${exec_prefix:=${prefix}}
 : ${bindir:=${exec_prefix}/bin}
 : ${top_srcdir:=..}
 : ${srcdir:=.}
 : ${datarootdir:=${prefix}/share}
 : ${datadir:=${datarootdir}}
-: ${TIC_PATH:=/usr/bin/tic}
-: ${ticdir:=/tools/share/terminfo}
+: ${TIC_PATH:=/tools/bin/tic}
+: ${ticdir:=/usr/share/terminfo}
 : ${source:=${top_srcdir}/misc/terminfo.src}
 : ${LN_S:="ln -s -f"}
 : ${cross_compiling:=no}

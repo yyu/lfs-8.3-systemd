@@ -29,7 +29,7 @@
 topdir = ..
 srcdir = .
 
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
 RM	= rm -f
 SHELL	= /bin/sh
@@ -55,7 +55,7 @@ LIBS = -ldl
 LIBS_FOR_BUILD = ${LIBS}		# XXX
 
 LOCAL_LDFLAGS = -rdynamic
-LDFLAGS =  -L./lib/termcap $(LOCAL_LDFLAGS) $(CFLAGS)
+LDFLAGS =  $(LOCAL_LDFLAGS) $(CFLAGS)
 LDFLAGS_FOR_BUILD = $(LDFLAGS) $(LOCAL_LDFLAGS) $(CFLAGS_FOR_BUILD)
 
 INCLUDES = -I${BUILD_DIR} -I${topdir}

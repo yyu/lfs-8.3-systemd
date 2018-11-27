@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-null-byte.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-null-byte.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-null-byte.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
++++ d=/sources/grep-3.1/tests/gt-null-byte.s5B1
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe'
++++ test -d /sources/grep-3.1/tests/gt-null-byte.s5B1
+++++ ls -dgo /sources/grep-3.1/tests/gt-null-byte.s5B1
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-null-byte.s5B1'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
++++ echo /sources/grep-3.1/tests/gt-null-byte.s5B1
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
+++ test_dir_=/sources/grep-3.1/tests/gt-null-byte.s5B1
+++ cd /sources/grep-3.1/tests/gt-null-byte.s5B1
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -65,10 +65,10 @@
 + test 1 '!=' 0
 + path_dir_=.
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ abs_path_dir_=/sources/grep-3.1/tests/.
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
 + case $EXEEXT in
 + return 0
 + shift
@@ -77,8 +77,10 @@
 + locales=C
 + for locale in en_US.iso885915 en_US.UTF-8
 + get-mb-cur-max en_US.UTF-8
++ locales='C en_US.iso885915'
 + for locale in en_US.iso885915 en_US.UTF-8
 + get-mb-cur-max en_US.UTF-8
++ locales='C en_US.iso885915 en_US.UTF-8'
 + fail=0
 + for left in '' a '#' '\0'
 + for right in '' b '#' '\0'
@@ -98,6 +100,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0'
 + printf '\\(\\)\\1\0\n'
@@ -107,7 +127,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -120,9 +158,27 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
-+ cmp -s - in
 + LC_ALL=C
 + grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0$'
 + printf '\\(\\)\\1\0$\n'
@@ -132,7 +188,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -149,6 +223,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0'
 + printf '^\\(\\)\\1\0\n'
@@ -159,6 +251,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -174,6 +284,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0$'
 + printf '^\\(\\)\\1\0$\n'
@@ -183,7 +311,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -203,6 +349,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0b'
 + printf '\\(\\)\\1\0b\n'
@@ -212,7 +376,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -228,6 +410,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0b$'
 + printf '\\(\\)\\1\0b$\n'
@@ -238,6 +438,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -254,6 +472,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0b'
 + printf '^\\(\\)\\1\0b\n'
@@ -266,6 +502,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\0b$'
@@ -276,7 +530,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -289,6 +561,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -308,6 +598,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0#'
 + printf '\\(\\)\\1\0#\n'
@@ -318,6 +626,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -333,6 +659,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0#$'
 + printf '\\(\\)\\1\0#$\n'
@@ -342,7 +686,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -359,6 +721,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0#'
 + printf '^\\(\\)\\1\0#\n'
@@ -369,6 +749,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -384,6 +782,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0#$'
 + printf '^\\(\\)\\1\0#$\n'
@@ -394,6 +810,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -413,6 +847,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0\0'
 + printf '\\(\\)\\1\0\0\n'
@@ -423,6 +875,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -436,6 +906,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ cmp -s - in
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -448,6 +936,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -464,6 +970,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ cmp -s - in
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0'
 + printf '^\\(\\)\\1\0\0\n'
@@ -474,6 +998,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -489,6 +1031,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0$'
 + printf '^\\(\\)\\1\0\0$\n'
@@ -499,6 +1059,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for left in '' a '#' '\0'
@@ -519,6 +1097,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0'
 + printf '\\(\\)\\1a\0\n'
@@ -529,6 +1125,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -544,6 +1158,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0$'
 + printf '\\(\\)\\1a\0$\n'
@@ -556,6 +1188,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -570,6 +1220,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0'
 + printf '^\\(\\)\\1a\0\n'
@@ -582,6 +1250,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^a\0$'
@@ -595,6 +1281,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0$'
 + printf '^\\(\\)\\1a\0$\n'
@@ -605,6 +1309,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -621,7 +1343,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -634,6 +1374,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -649,6 +1407,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0b$'
 + printf '\\(\\)\\1a\0b$\n'
@@ -658,9 +1434,27 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
 + grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -672,9 +1466,27 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
 + grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0b'
 + printf '^\\(\\)\\1a\0b\n'
@@ -687,6 +1499,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^a\0b$'
@@ -700,6 +1530,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0b$'
 + printf '^\\(\\)\\1a\0b$\n'
@@ -709,9 +1557,27 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
 + grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for right in '' b '#' '\0'
 + data='a\0#'
 + printf 'a\0#\n'
@@ -729,6 +1595,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0#'
 + printf '\\(\\)\\1a\0#\n'
@@ -739,6 +1623,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -754,6 +1656,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0#$'
 + printf '\\(\\)\\1a\0#$\n'
@@ -764,6 +1684,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -780,6 +1718,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0#'
 + printf '^\\(\\)\\1a\0#\n'
@@ -790,6 +1746,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ cmp -s - in
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -805,6 +1779,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0#$'
 + printf '^\\(\\)\\1a\0#$\n'
@@ -815,6 +1807,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -834,6 +1844,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0\0'
 + printf '\\(\\)\\1a\0\0\n'
@@ -846,6 +1874,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='a\0\0$'
@@ -859,6 +1905,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1a\0\0$'
 + printf '\\(\\)\\1a\0\0$\n'
@@ -871,6 +1935,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -885,6 +1967,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0\0'
 + printf '^\\(\\)\\1a\0\0\n'
@@ -897,6 +1997,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^a\0\0$'
@@ -910,6 +2028,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1a\0\0$'
 + printf '^\\(\\)\\1a\0\0$\n'
@@ -919,7 +2055,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for left in '' a '#' '\0'
@@ -940,6 +2094,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0'
 + printf '\\(\\)\\1#\0\n'
@@ -950,6 +2122,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -965,6 +2155,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0$'
 + printf '\\(\\)\\1#\0$\n'
@@ -977,6 +2185,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ cmp -s - in
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -991,6 +2217,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0'
 + printf '^\\(\\)\\1#\0\n'
@@ -1001,6 +2245,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1016,6 +2278,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0$'
 + printf '^\\(\\)\\1#\0$\n'
@@ -1026,6 +2306,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -1045,6 +2343,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0b'
 + printf '\\(\\)\\1#\0b\n'
@@ -1055,6 +2371,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1070,6 +2404,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0b$'
 + printf '\\(\\)\\1#\0b$\n'
@@ -1082,6 +2434,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -1096,6 +2466,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0b'
 + printf '^\\(\\)\\1#\0b\n'
@@ -1108,6 +2496,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^#\0b$'
@@ -1118,9 +2524,27 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
 + grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
 + cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0b$'
 + printf '^\\(\\)\\1#\0b$\n'
@@ -1131,6 +2555,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -1150,6 +2592,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0#'
 + printf '\\(\\)\\1#\0#\n'
@@ -1160,6 +2620,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1175,6 +2653,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0#$'
 + printf '\\(\\)\\1#\0#$\n'
@@ -1185,6 +2681,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -1201,6 +2715,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0#'
 + printf '^\\(\\)\\1#\0#\n'
@@ -1211,6 +2743,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1226,6 +2776,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0#$'
 + printf '^\\(\\)\\1#\0#$\n'
@@ -1238,6 +2806,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for right in '' b '#' '\0'
 + data='#\0\0'
 + printf '#\0\0\n'
@@ -1255,6 +2841,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1#\0\0'
 + printf '\\(\\)\\1#\0\0\n'
@@ -1267,6 +2871,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='#\0\0$'
@@ -1278,6 +2900,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -1292,6 +2932,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -1306,6 +2964,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0\0'
 + printf '^\\(\\)\\1#\0\0\n'
@@ -1316,6 +2992,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1331,6 +3025,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1#\0\0$'
 + printf '^\\(\\)\\1#\0\0$\n'
@@ -1341,6 +3053,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for left in '' a '#' '\0'
@@ -1361,6 +3091,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0\0'
 + printf '\\(\\)\\1\0\0\n'
@@ -1371,6 +3119,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1386,6 +3152,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0\0$'
 + printf '\\(\\)\\1\0\0$\n'
@@ -1396,6 +3180,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -1412,6 +3214,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0'
 + printf '^\\(\\)\\1\0\0\n'
@@ -1422,6 +3242,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1437,6 +3275,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0$'
 + printf '^\\(\\)\\1\0\0$\n'
@@ -1446,7 +3302,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -1464,6 +3338,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ cmp -s - in
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -1478,6 +3370,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ cmp -s - in
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='\0\0b$'
@@ -1489,6 +3399,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -1503,6 +3431,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for hat in '' '^'
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
@@ -1517,6 +3463,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0b'
 + printf '^\\(\\)\\1\0\0b\n'
@@ -1527,6 +3491,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for dollar in '' '$'
@@ -1542,6 +3524,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0b$'
 + printf '^\\(\\)\\1\0\0b$\n'
@@ -1552,6 +3552,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -1571,6 +3589,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0\0#'
 + printf '\\(\\)\\1\0\0#\n'
@@ -1583,6 +3619,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='\0\0#$'
@@ -1593,7 +3647,25 @@
 + status=1
 + test 1 -eq 0
 + test 1 -eq 1
++ cmp -s - in
 + LC_ALL=C
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -1606,6 +3678,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -1622,6 +3712,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0#'
 + printf '^\\(\\)\\1\0\0#\n'
@@ -1634,6 +3742,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\0\0#$'
@@ -1647,6 +3773,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0#$'
 + printf '^\\(\\)\\1\0\0#$\n'
@@ -1657,6 +3801,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for right in '' b '#' '\0'
@@ -1676,6 +3838,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0\0\0'
 + printf '\\(\\)\\1\0\0\0\n'
@@ -1688,6 +3868,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='\0\0\0$'
@@ -1701,6 +3899,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for force_regex in '' '\\(\\)\\1'
 + pat='\\(\\)\\1\0\0\0$'
 + printf '\\(\\)\\1\0\0\0$\n'
@@ -1711,6 +3927,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for hat in '' '^'
@@ -1727,6 +3961,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
++ cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\\(\\)\\1\0\0\0'
 + printf '^\\(\\)\\1\0\0\0\n'
@@ -1739,6 +3991,24 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + for dollar in '' '$'
 + for force_regex in '' '\\(\\)\\1'
 + pat='^\0\0\0$'
@@ -1750,6 +4020,24 @@
 + test 1 -eq 0
 + test 1 -eq 1
 + LC_ALL=C
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.UTF-8
 + grep -a -f pat in
 + cmp -s - in
 + for force_regex in '' '\\(\\)\\1'
@@ -1764,11 +4052,29 @@
 + LC_ALL=C
 + grep -a -f pat in
 + cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.iso885915
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ LC_ALL=en_US.iso885915
++ grep -a -f pat in
++ cmp -s - in
++ for locale in $locales
++ LC_ALL=en_US.UTF-8
++ grep -f pat in
++ status=1
++ test 1 -eq 0
++ test 1 -eq 1
++ cmp -s - in
++ LC_ALL=en_US.UTF-8
++ grep -a -f pat in
 + echo xxx
 + yes yyy
++ sed 100000q
 + line=yyy
 + gawk 'BEGIN{for (;;) print ENVIRON["line"]}'
-+ sed 100000q
 + printf 'z\n\0'
 + echo xxx
 + grep xxx in
@@ -1813,8 +4119,8 @@
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-null-byte.cqHe
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-null-byte.s5B1
++ rm -rf /sources/grep-3.1/tests/gt-null-byte.s5B1
 + exit 0
 PASS null-byte (exit status: 0)

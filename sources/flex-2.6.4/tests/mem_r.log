@@ -1,0 +1,541 @@
+set -euvx
++ set -euvx
+
+# testwrapper.sh: run a flex test, typically called by a Makefile
+
+# Each test will exercise some feature or aspect of flex. Run the test with any
+# input it may need.
+
+INPUT_DIRECTORY=""
++ INPUT_DIRECTORY=
+INPUT_NAME=""
++ INPUT_NAME=
+INPUT_COUNT=0
++ INPUT_COUNT=0
+USE_REDIRECT=0
++ USE_REDIRECT=0
+DO_COMPARISON=0
++ DO_COMPARISON=0
+
+while getopts :d:i:rt1 OPTION ; do
+    case $OPTION in
+        d) INPUT_DIRECTORY=$OPTARG ;;
+        i)
+            if [ "$INPUT_NAME" = "" ] ; then
+                INPUT_NAME="$OPTARG"
+            else
+                INPUT_NAME="$INPUT_NAME $OPTARG"
+            fi
+            INPUT_COUNT=$(($INPUT_COUNT+1))
+            ;;
+        r) USE_REDIRECT=1 ;;
+        t) USE_TABLES=1 ;;
+        1) DO_COMPARISON=1 ;;
+    esac
+done
++ getopts :d:i:rt1 OPTION
++ case $OPTION in
++ INPUT_DIRECTORY=.
++ getopts :d:i:rt1 OPTION
++ case $OPTION in
++ USE_REDIRECT=1
++ getopts :d:i:rt1 OPTION
+
+shift $(($OPTIND-1))
++ shift 3
+TESTNAME=$1
++ TESTNAME=./mem_r
+
+INPUT_NAME=${INPUT_NAME:-$INPUT_DIRECTORY/`basename "${TESTNAME%.exe}"`.txt}
+++ basename ./mem_r
++ INPUT_NAME=./mem_r.txt
+
+if [ $DO_COMPARISON = 1 ] ; then
+    TEST_OUTPUT=`$TESTNAME < $INPUT_NAME`
+    REF_OUTPUT=`$TESTNAME 1 < $INPUT_NAME`
+    test "$TEST_OUTPUT" -eq "$REF_OUTPUT"
+    exit $?
+fi
++ '[' 0 = 1 ']'
+
+if [ $INPUT_COUNT -gt 1 ] ; then
+    $TESTNAME ${USE_TABLES:+${INPUT_DIRECTORY}/${TESTNAME%.exe}.tables} ${INPUT_NAME}
+    exit $?
+fi
++ '[' 0 -gt 1 ']'
+
+if [ -f ${INPUT_NAME} ] ; then
+    if [ $USE_REDIRECT = 1 ] ; then
+        $TESTNAME ${USE_TABLES:+${INPUT_DIRECTORY}/${TESTNAME%.exe}.tables} < $INPUT_NAME
+    else
+        $TESTNAME ${USE_TABLES:+${INPUT_DIRECTORY}/${TESTNAME%.exe}.tables} $INPUT_NAME
+    fi
+else
+    $TESTNAME
+fi
++ '[' -f ./mem_r.txt ']'
++ '[' 1 = 1 ']'
++ ./mem_r
+yyflex_alloc(     144) total=     144 return= 0x178b280
+	ptrs[1] = { {0x178b280,144},}
+yyflex_alloc(       8) total=     152 return= 0x178c330
+	ptrs[2] = { {0x178b280,144}, {0x178c330,8},}
+yyflex_alloc(      64) total=     216 return= 0x178c380
+	ptrs[3] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64},}
+yyflex_alloc(      10) total=     226 return= 0x178b260
+	ptrs[4] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10},}
+yy_push_state(parens)
+yyflex_alloc(     100) total=     326 return= 0x178d430
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d430,100},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d430,     200) total=     426 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,200},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d500,     300) total=     526 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,300},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d500,     400) total=     626 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,400},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d500,     500) total=     726 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,500},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d500,     600) total=     826 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,600},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d500,     700) total=     926 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,700},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178d500,     800) total=    1026 return= 178d500
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,10}, {0x178d500,800},}
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yy_push_state(parens)
+yyflex_realloc( 0x178b260,      18) total=    1034 return= 178b260
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178b260,18}, {0x178d500,800},}
+yyflex_realloc( 0x178b260,      34) total=    1050 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,34}, {0x178d500,800},}
+yyflex_realloc( 0x178d830,      66) total=    1082 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,66}, {0x178d500,800},}
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+yy_pop_state()
+About read token where len=1
+About read token where len=2
+About read token where len=4
+About read token where len=8
+About read token where len=16
+About read token where len=32
+About read token where len=64
+yyflex_realloc( 0x178d830,     130) total=    1146 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,130}, {0x178d500,800},}
+About read token where len=128
+yyflex_realloc( 0x178d830,     258) total=    1274 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,258}, {0x178d500,800},}
+About read token where len=256
+yyflex_realloc( 0x178d830,     514) total=    1530 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,514}, {0x178d500,800},}
+About read token where len=512
+yyflex_realloc( 0x178d830,    1026) total=    2042 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,1026}, {0x178d500,800},}
+About read token where len=1024
+yyflex_realloc( 0x178d830,    2050) total=    3066 return= 178d830
+	ptrs[5] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0x178d830,2050}, {0x178d500,800},}
+yyflex_free( 0x178d830) total=    1016
+	ptrs[4] = { {0x178b280,144}, {0x178c330,8}, {0x178c380,64}, {0,0}, {0x178d500,800},}
+yyflex_free( 0x178c380) total=     952
+	ptrs[3] = { {0x178b280,144}, {0x178c330,8}, {0,0}, {0,0}, {0x178d500,800},}
+yyflex_free( 0x178c330) total=     944
+	ptrs[2] = { {0x178b280,144}, {0,0}, {0,0}, {0,0}, {0x178d500,800},}
+yyflex_free( 0x178d500) total=     144
+	ptrs[1] = { {0x178b280,144}, {0,0}, {0,0}, {0,0}, {0,0},}
+yyflex_free( 0x178b280) total=       0
+	ptrs[0] = { {0,0}, {0,0}, {0,0}, {0,0}, {0,0},}
+TEST RETURNING OK.
+PASS mem_r (exit status: 0)

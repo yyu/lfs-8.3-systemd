@@ -33,14 +33,14 @@ topdir = ..
 srcdir = .
 
 
-prefix = /tools
+prefix = /usr
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share
 
 infodir = ${datarootdir}/info
 
-docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
+docdir = /usr/share/doc/bash-4.4.18
 
 # set this to a directory name to have the HTML files installed
 htmldir = ${docdir}
@@ -58,7 +58,7 @@ man3dir = $(mandir)/$(manpfx)3
 
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
 SUPPORT_SRCDIR = $(topdir)/support
 

@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-empty.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-empty.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-empty.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++++ d=/sources/grep-3.1/tests/gt-empty.oQND
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E'
++++ test -d /sources/grep-3.1/tests/gt-empty.oQND
+++++ ls -dgo /sources/grep-3.1/tests/gt-empty.oQND
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-empty.oQND'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++++ echo /sources/grep-3.1/tests/gt-empty.oQND
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
+++ test_dir_=/sources/grep-3.1/tests/gt-empty.oQND
+++ cd /sources/grep-3.1/tests/gt-empty.oQND
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -163,9 +163,9 @@ abcd
 + timeout 10s grep -F -w -e ''
 
 + test 0 -ne 0
-+ echo abcd
 + LC_ALL=C
 + timeout 10s grep -F -w -f /dev/null
++ echo abcd
 + test 1 -ne 1
 + echo abcd
 + LC_ALL=C
@@ -186,9 +186,9 @@ abcd
 + timeout 10s grep -F -x -f /dev/null -e ''
 + test 1 -ne 1
 + for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
-+ echo ''
 + LC_ALL=C
 + timeout 10s grep -F -w -x -e ''
++ echo ''
 
 + test 0 -ne 0
 + echo abcd
@@ -210,9 +210,9 @@ abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -E -f /dev/null
 + test 1 -ne 1
-+ echo abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -E -f /dev/null -e abcd
++ echo abcd
 abcd
 + test 0 -ne 0
 + echo ''
@@ -256,9 +256,9 @@ abcd
 + timeout 10s grep -E -w -e ''
 
 + test 0 -ne 0
-+ echo abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -E -w -f /dev/null
++ echo abcd
 + test 1 -ne 1
 + echo abcd
 + LC_ALL=en_US.UTF-8
@@ -279,9 +279,9 @@ abcd
 + timeout 10s grep -E -x -f /dev/null -e ''
 + test 1 -ne 1
 + for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
-+ echo ''
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -E -w -x -e ''
++ echo ''
 
 + test 0 -ne 0
 + echo abcd
@@ -316,9 +316,9 @@ abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -F -x -f /dev/null
 + test 1 -ne 1
-+ echo abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -F -x -f /dev/null -e ''
++ echo abcd
 + test 1 -ne 1
 + for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
 + echo ''
@@ -330,9 +330,9 @@ abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -F -w -x -f /dev/null
 + test 1 -ne 1
-+ echo abcd
 + LC_ALL=en_US.UTF-8
 + timeout 10s grep -F -w -x -f /dev/null -e ''
++ echo abcd
 + test 1 -ne 1
 + Exit 0
 + set +e
@@ -343,8 +343,8 @@ abcd
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-empty.oQND
++ rm -rf /sources/grep-3.1/tests/gt-empty.oQND
 + exit 0
 PASS empty (exit status: 0)

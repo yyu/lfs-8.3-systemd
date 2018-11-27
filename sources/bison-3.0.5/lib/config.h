@@ -1968,7 +1968,7 @@
 #define LSTAT_FOLLOWS_SLASHED_SYMLINK 1
 
 /* Define to the GNU M4 executable name. */
-#define M4 "/tools/bin/m4"
+#define M4 "/usr/bin/m4"
 
 /* Define to "-g" if GNU M4 supports -g, otherwise to "". */
 #define M4_GNU_OPTION "--gnu"

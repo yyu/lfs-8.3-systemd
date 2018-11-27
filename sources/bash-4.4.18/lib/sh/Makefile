@@ -28,7 +28,7 @@ PACKAGE_VERSION = 4.4-release
 srcdir = .
 
 topdir = ../..
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
 LIBBUILD = ${BUILD_DIR}/lib
 
@@ -58,7 +58,7 @@ SHELL = /bin/sh
 CFLAGS = -g -O2 -Wno-parentheses -Wno-format-security
 LOCAL_CFLAGS =  ${DEBUG}
 CPPFLAGS = 
-LDFLAGS =  -L./lib/termcap -rdynamic
+LDFLAGS =  -rdynamic
 
 PROFILE_FLAGS = 
 

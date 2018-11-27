@@ -39,11 +39,11 @@ SHELL		= /bin/sh
 
 DESTDIR		= 
 srcdir		= .
-prefix		= /tools
+prefix		= /usr
 exec_prefix	= ${prefix}
 datarootdir	= ${prefix}/share
 datadir		= ${datarootdir}
-mandir		= ${datarootdir}/man
+mandir		= /usr/share/man
 includesubdir	= 
 
 INCLUDEDIR	= $(DESTDIR)$(includedir)$(includesubdir)
@@ -78,8 +78,8 @@ mostlyclean :
 clean:	mostlyclean
 	rm -f terminfo.5
 
-../edit_man.sed : make_sed.sh /mnt/lfs/sources/ncurses-6.1/man/man_db.renames
-	$(SHELL) $(srcdir)/make_sed.sh /mnt/lfs/sources/ncurses-6.1/man/man_db.renames >../edit_man.sed
+../edit_man.sed : make_sed.sh no
+	$(SHELL) $(srcdir)/make_sed.sh no >../edit_man.sed
 
 distclean realclean: clean
 	rm -f Makefile *-config.1 ../edit_man.* ../man_alias.*

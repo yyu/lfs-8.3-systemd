@@ -29,7 +29,7 @@ PACKAGE_VERSION = 4.4-release
 PACKAGE_TARNAME = bash
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = /tools
+prefix = /usr
 
 exec_prefix = ${prefix}
 
@@ -45,7 +45,7 @@ localedir = ${datarootdir}/locale
 loadablesdir = ${libdir}/bash
 headersdir = $(includedir)/$(PACKAGE_NAME)
 
-docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
+docdir = /usr/share/doc/bash-4.4.18
 
 mandir = ${datarootdir}/man
 manpfx = man
@@ -61,8 +61,8 @@ htmldir = ${docdir}
 DESTDIR =
 
 topdir = .
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
-top_builddir = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
+top_builddir = /sources/bash-4.4.18
 srcdir = .
 
 
@@ -151,7 +151,7 @@ CCFLAGS = $(BASE_CCFLAGS) $(CPPFLAGS) $(CFLAGS)
 
 CCFLAGS_FOR_BUILD = $(BASE_CCFLAGS) $(CPPFLAGS_FOR_BUILD) $(CFLAGS_FOR_BUILD)
 
-LDFLAGS =  -L./lib/termcap $(STATIC_LD) $(LOCAL_LDFLAGS) $(PROFILE_FLAGS) $(CFLAGS)
+LDFLAGS =  $(STATIC_LD) $(LOCAL_LDFLAGS) $(PROFILE_FLAGS) $(CFLAGS)
 LDFLAGS_FOR_BUILD = $(LDFLAGS) $(LOCAL_LDFLAGS) $(CFLAGS_FOR_BUILD)
 
 INCLUDES = -I.  -I$(srcdir) -I$(BASHINCDIR) -I$(LIBSRC) $(INTL_INC)
@@ -233,15 +233,15 @@ SHLIB_DEP = ${SHLIB_LIBRARY}
 # we assume for now that readline source is being shipped with bash
 RL_LIBSRC = $(LIBSRC)/readline
 RL_LIBDOC = $(RL_LIBSRC)/doc
-RL_LIBDIR = $(dot)/$(LIBSUBDIR)/readline
+RL_LIBDIR = /usr/lib
 RL_ABSSRC = ${topdir}/$(RL_LIBDIR)
 
-RL_INCLUDEDIR = 
+RL_INCLUDEDIR = /usr/include
 
 READLINE_LIB = -lreadline
 READLINE_LIBRARY = $(RL_LIBDIR)/libreadline.a
 READLINE_LDFLAGS = -L${RL_LIBDIR}
-READLINE_DEP = $(READLINE_LIBRARY)
+READLINE_DEP = 
 
 # The source, object and documentation of the GNU Readline library.
 READLINE_SOURCE	= $(RL_LIBSRC)/rldefs.h $(RL_LIBSRC)/rlconf.h \
@@ -287,13 +287,13 @@ READLINE_OBJ	= $(RL_LIBDIR)/readline.o $(RL_LIBDIR)/funmap.o \
 		  $(RL_LIBDIR)/colors.o $(RL_LIBDIR)/parse-colors.o
 
 HIST_LIBSRC = $(LIBSRC)/readline
-HIST_LIBDIR = $(dot)/$(LIBSUBDIR)/readline
+HIST_LIBDIR = /usr/lib
 HIST_ABSSRC = ${topdir}/$(HIST_LIBDIR)
 
 HISTORY_LIB = -lhistory
 HISTORY_LIBRARY = $(HIST_LIBDIR)/libhistory.a
 HISTORY_LDFLAGS = -L$(HIST_LIBDIR)
-HISTORY_DEP = $(HISTORY_LIBRARY)
+HISTORY_DEP = 
 
 # The source, object and documentation of the history library.
 HISTORY_SOURCE	= $(HIST_LIBSRC)/history.c $(HIST_LIBSRC)/histexpand.c \
@@ -309,10 +309,10 @@ TERM_LIBSRC = $(LIBSRC)/termcap
 TERM_LIBDIR = $(dot)/$(LIBSUBDIR)/termcap
 TERM_ABSSRC = ${topdir}/$(TERM_LIBDIR)
 
-TERMCAP_LIB = ./lib/termcap/libtermcap.a
+TERMCAP_LIB = -lcurses
 TERMCAP_LIBRARY = $(TERM_LIBDIR)/libtermcap.a
 TERMCAP_LDFLAGS = -L$(TERM_LIBDIR)
-TERMCAP_DEP = ./lib/termcap/libtermcap.a
+TERMCAP_DEP = 
 
 TERMCAP_SOURCE	= $(TERM_LIBSRC)/termcap.c $(TERM_LIBSRC)/tparam.c
 TERMCAP_OBJ	= $(TERM_LIBDIR)/termcap.o $(TERM_LIBDIR)/tparam.o

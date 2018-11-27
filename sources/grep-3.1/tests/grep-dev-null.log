@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-grep-dev-null.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-grep-dev-null.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-grep-dev-null.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++++ d=/sources/grep-3.1/tests/gt-grep-dev-null.fUku
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2'
++++ test -d /sources/grep-3.1/tests/gt-grep-dev-null.fUku
+++++ ls -dgo /sources/grep-3.1/tests/gt-grep-dev-null.fUku
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-grep-dev-null.fUku'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++++ echo /sources/grep-3.1/tests/gt-grep-dev-null.fUku
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
+++ test_dir_=/sources/grep-3.1/tests/gt-grep-dev-null.fUku
+++ cd /sources/grep-3.1/tests/gt-grep-dev-null.fUku
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -66,10 +66,10 @@
 + test 1 '!=' 0
 + path_dir_=.
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ abs_path_dir_=/sources/grep-3.1/tests/.
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
 + case $EXEEXT in
 + return 0
 + shift
@@ -77,25 +77,32 @@
 + export PATH
 + case $(get-mb-cur-max en_US.UTF-8) in
 ++ get-mb-cur-max en_US.UTF-8
-+ skip_ 'en_US.UTF-8 locale not found'
-+ warn_ 'grep-dev-null: skipped test: en_US.UTF-8 locale not found'
-+ case $IFS in
-+ printf '%s\n' 'grep-dev-null: skipped test: en_US.UTF-8 locale not found'
-grep-dev-null: skipped test: en_US.UTF-8 locale not found
-+ test 9 = 2
-+ printf '%s\n' 'grep-dev-null: skipped test: en_US.UTF-8 locale not found'
-+ sed 1q
-+ Exit 77
++ LC_ALL=en_US.UTF-8
+./grep-dev-null: line 7: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
++ export LC_ALL
++ echo x
++ returns_ 1 grep -f /dev/null
++ echo x
++ returns_ 1 grep -if /dev/null
++ echo x
++ returns_ 1 grep -Ff /dev/null
++ echo x
++ returns_ 1 grep -Fif /dev/null
++ returns_ 1 grep -f /dev/null
++ returns_ 1 grep -if /dev/null
++ returns_ 1 grep -Ff /dev/null
++ returns_ 1 grep -Fif /dev/null
++ Exit
 + set +e
-+ exit 77
-+ exit 77
++ exit
++ exit
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
-+ exit 77
-SKIP grep-dev-null (exit status: 77)
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-grep-dev-null.fUku
++ rm -rf /sources/grep-3.1/tests/gt-grep-dev-null.fUku
++ exit 0
+PASS grep-dev-null (exit status: 0)

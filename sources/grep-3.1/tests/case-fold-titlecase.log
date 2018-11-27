@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-case-fold-titlecase.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-case-fold-titlecase.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-case-fold-titlecase.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++++ d=/sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o'
++++ test -d /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
+++++ ls -dgo /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++++ echo /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
+++ test_dir_=/sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
+++ cd /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -66,10 +66,10 @@
 + test 1 '!=' 0
 + path_dir_=.
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ abs_path_dir_=/sources/grep-3.1/tests/.
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
 + case $EXEEXT in
 + return 0
 + shift
@@ -77,25 +77,945 @@
 + export PATH
 + case $(get-mb-cur-max en_US.UTF-8) in
 ++ get-mb-cur-max en_US.UTF-8
-+ skip_ 'en_US.UTF-8 locale not found'
-+ warn_ 'case-fold-titlecase: skipped test: en_US.UTF-8 locale not found'
-+ case $IFS in
-+ printf '%s\n' 'case-fold-titlecase: skipped test: en_US.UTF-8 locale not found'
-case-fold-titlecase: skipped test: en_US.UTF-8 locale not found
-+ test 9 = 2
-+ printf '%s\n' 'case-fold-titlecase: skipped test: en_US.UTF-8 locale not found'
-+ sed 1q
-+ Exit 77
++ require_compiled_in_MB_support
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ printf $'\303\251'
++ LC_ALL=en_US.UTF-8
++ grep '[[:lower:]]'
+é
++ LC_ALL=en_US.UTF-8
+./case-fold-titlecase: line 23: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
++ export LC_ALL
++ fail=0
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\302\265'
++ b='\316\234'
++ c='\316\274'
++ printf '\302\265\n\316\234\n\316\274\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\302\265\n'
++ pat=$'\302\265'
++ grep -i '\(\)\1µ' in
++ grep -i $'\302\265' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\302\265' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\234\n'
++ pat=$'\316\234'
++ grep -i '\(\)\1Μ' in
++ grep -i $'\316\234' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\234' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\274\n'
++ pat=$'\316\274'
++ grep -i '\(\)\1μ' in
++ grep -i $'\316\274' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\274' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\111'
++ b='\151'
++ c='\304\260'
++ printf '\111\n\151\n\304\260\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\111\n'
++ pat=I
++ grep -i '\(\)\1I' in
++ grep -i I in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF I in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\151\n'
++ pat=i
++ grep -i '\(\)\1i' in
++ grep -i i in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF i in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\304\260\n'
++ pat=$'\304\260'
++ grep -i '\(\)\1İ' in
++ grep -i $'\304\260' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\304\260' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\111'
++ b='\151'
++ c='\304\261'
++ printf '\111\n\151\n\304\261\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\111\n'
++ pat=I
++ grep -i '\(\)\1I' in
++ grep -i I in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF I in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\151\n'
++ pat=i
++ grep -i '\(\)\1i' in
++ grep -i i in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF i in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\304\261\n'
++ pat=$'\304\261'
++ grep -i '\(\)\1ı' in
++ grep -i $'\304\261' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\304\261' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\123'
++ b='\163'
++ c='\305\277'
++ printf '\123\n\163\n\305\277\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\123\n'
++ pat=S
++ grep -i '\(\)\1S' in
++ grep -i S in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF S in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\163\n'
++ pat=s
++ grep -i '\(\)\1s' in
++ grep -i s in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF s in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\305\277\n'
++ pat=$'\305\277'
++ grep -i '\(\)\1ſ' in
++ grep -i $'\305\277' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\305\277' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\307\204'
++ b='\307\205'
++ c='\307\206'
++ printf '\307\204\n\307\205\n\307\206\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\204\n'
++ pat=$'\307\204'
++ grep -i '\(\)\1Ǆ' in
++ grep -i $'\307\204' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\204' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\205\n'
++ pat=$'\307\205'
++ grep -i '\(\)\1ǅ' in
++ grep -i $'\307\205' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\205' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\206\n'
++ pat=$'\307\206'
++ grep -i '\(\)\1ǆ' in
++ grep -i $'\307\206' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\206' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\307\207'
++ b='\307\210'
++ c='\307\211'
++ printf '\307\207\n\307\210\n\307\211\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\207\n'
++ pat=$'\307\207'
++ grep -i '\(\)\1Ǉ' in
++ grep -i $'\307\207' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\207' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\210\n'
++ pat=$'\307\210'
++ grep -i '\(\)\1ǈ' in
++ grep -i $'\307\210' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\210' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\211\n'
++ pat=$'\307\211'
++ grep -i '\(\)\1ǉ' in
++ grep -i $'\307\211' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\211' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\307\212'
++ b='\307\213'
++ c='\307\214'
++ printf '\307\212\n\307\213\n\307\214\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\212\n'
++ pat=$'\307\212'
++ grep -i '\(\)\1Ǌ' in
++ grep -i $'\307\212' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\212' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\213\n'
++ pat=$'\307\213'
++ grep -i '\(\)\1ǋ' in
++ grep -i $'\307\213' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\213' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\214\n'
++ pat=$'\307\214'
++ grep -i '\(\)\1ǌ' in
++ grep -i $'\307\214' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\214' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\307\261'
++ b='\307\262'
++ c='\307\263'
++ printf '\307\261\n\307\262\n\307\263\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\261\n'
++ pat=$'\307\261'
++ grep -i '\(\)\1Ǳ' in
++ grep -i $'\307\261' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\261' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\262\n'
++ pat=$'\307\262'
++ grep -i '\(\)\1ǲ' in
++ grep -i $'\307\262' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\262' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\307\263\n'
++ pat=$'\307\263'
++ grep -i '\(\)\1ǳ' in
++ grep -i $'\307\263' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\307\263' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\315\205'
++ b='\316\231'
++ c='\316\271'
++ printf '\315\205\n\316\231\n\316\271\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\315\205\n'
++ pat=$'\315\205'
++ grep -i '\(\)\1ͅ' in
++ grep -i $'\315\205' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\315\205' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\231\n'
++ pat=$'\316\231'
++ grep -i '\(\)\1Ι' in
++ grep -i $'\316\231' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\231' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\271\n'
++ pat=$'\316\271'
++ grep -i '\(\)\1ι' in
++ grep -i $'\316\271' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\271' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\243'
++ b='\317\202'
++ c='\317\203'
++ printf '\316\243\n\317\202\n\317\203\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\243\n'
++ pat=$'\316\243'
++ grep -i '\(\)\1Σ' in
++ grep -i $'\316\243' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\243' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\202\n'
++ pat=$'\317\202'
++ grep -i '\(\)\1ς' in
++ grep -i $'\317\202' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\202' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\203\n'
++ pat=$'\317\203'
++ grep -i '\(\)\1σ' in
++ grep -i $'\317\203' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\203' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\222'
++ b='\316\262'
++ c='\317\220'
++ printf '\316\222\n\316\262\n\317\220\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\222\n'
++ pat=$'\316\222'
++ grep -i '\(\)\1Β' in
++ grep -i $'\316\222' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\222' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\262\n'
++ pat=$'\316\262'
++ grep -i '\(\)\1β' in
++ grep -i $'\316\262' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\262' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\220\n'
++ pat=$'\317\220'
++ grep -i '\(\)\1ϐ' in
++ grep -i $'\317\220' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\220' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\230'
++ b='\316\270'
++ c='\317\221'
++ printf '\316\230\n\316\270\n\317\221\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\230\n'
++ pat=$'\316\230'
++ grep -i '\(\)\1Θ' in
++ grep -i $'\316\230' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\230' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\270\n'
++ pat=$'\316\270'
++ grep -i '\(\)\1θ' in
++ grep -i $'\316\270' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\270' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\221\n'
++ pat=$'\317\221'
++ grep -i '\(\)\1ϑ' in
++ grep -i $'\317\221' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\221' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\246'
++ b='\317\206'
++ c='\317\225'
++ printf '\316\246\n\317\206\n\317\225\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\246\n'
++ pat=$'\316\246'
++ grep -i '\(\)\1Φ' in
++ grep -i $'\316\246' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\246' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\206\n'
++ pat=$'\317\206'
++ grep -i '\(\)\1φ' in
++ grep -i $'\317\206' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\206' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\225\n'
++ pat=$'\317\225'
++ grep -i '\(\)\1ϕ' in
++ grep -i $'\317\225' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\225' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\240'
++ b='\317\200'
++ c='\317\226'
++ printf '\316\240\n\317\200\n\317\226\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\240\n'
++ pat=$'\316\240'
++ grep -i '\(\)\1Π' in
++ grep -i $'\316\240' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\240' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\200\n'
++ pat=$'\317\200'
++ grep -i '\(\)\1π' in
++ grep -i $'\317\200' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\200' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\226\n'
++ pat=$'\317\226'
++ grep -i '\(\)\1ϖ' in
++ grep -i $'\317\226' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\226' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\232'
++ b='\316\272'
++ c='\317\260'
++ printf '\316\232\n\316\272\n\317\260\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\232\n'
++ pat=$'\316\232'
++ grep -i '\(\)\1Κ' in
++ grep -i $'\316\232' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\232' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\272\n'
++ pat=$'\316\272'
++ grep -i '\(\)\1κ' in
++ grep -i $'\316\272' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\272' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\260\n'
++ pat=$'\317\260'
++ grep -i '\(\)\1ϰ' in
++ grep -i $'\317\260' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\260' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\241'
++ b='\317\201'
++ c='\317\261'
++ printf '\316\241\n\317\201\n\317\261\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\241\n'
++ pat=$'\316\241'
++ grep -i '\(\)\1Ρ' in
++ grep -i $'\316\241' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\241' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\201\n'
++ pat=$'\317\201'
++ grep -i '\(\)\1ρ' in
++ grep -i $'\317\201' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\201' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\261\n'
++ pat=$'\317\261'
++ grep -i '\(\)\1ϱ' in
++ grep -i $'\317\261' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\261' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\230'
++ b='\316\270'
++ c='\317\264'
++ printf '\316\230\n\316\270\n\317\264\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\230\n'
++ pat=$'\316\230'
++ grep -i '\(\)\1Θ' in
++ grep -i $'\316\230' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\230' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\270\n'
++ pat=$'\316\270'
++ grep -i '\(\)\1θ' in
++ grep -i $'\316\270' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\270' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\264\n'
++ pat=$'\317\264'
++ grep -i '\(\)\1ϴ' in
++ grep -i $'\317\264' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\264' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\225'
++ b='\316\265'
++ c='\317\265'
++ printf '\316\225\n\316\265\n\317\265\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\225\n'
++ pat=$'\316\225'
++ grep -i '\(\)\1Ε' in
++ grep -i $'\316\225' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\225' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\265\n'
++ pat=$'\316\265'
++ grep -i '\(\)\1ε' in
++ grep -i $'\316\265' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\265' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\265\n'
++ pat=$'\317\265'
++ grep -i '\(\)\1ϵ' in
++ grep -i $'\317\265' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\265' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\341\271\240'
++ b='\341\271\241'
++ c='\341\272\233'
++ printf '\341\271\240\n\341\271\241\n\341\272\233\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\341\271\240\n'
++ pat=$'\341\271\240'
++ grep -i '\(\)\1Ṡ' in
++ grep -i $'\341\271\240' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\341\271\240' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\341\271\241\n'
++ pat=$'\341\271\241'
++ grep -i '\(\)\1ṡ' in
++ grep -i $'\341\271\241' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\341\271\241' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\341\272\233\n'
++ pat=$'\341\272\233'
++ grep -i '\(\)\1ẛ' in
++ grep -i $'\341\272\233' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\341\272\233' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\303\237'
++ b='\303\237'
++ c='\341\272\236'
++ printf '\303\237\n\303\237\n\341\272\236\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\303\237\n'
++ pat=$'\303\237'
++ grep -i '\(\)\1ß' in
++ grep -i $'\303\237' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\303\237' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\303\237\n'
++ pat=$'\303\237'
++ grep -i '\(\)\1ß' in
++ grep -i $'\303\237' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\303\237' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\341\272\236\n'
++ pat=$'\341\272\236'
++ grep -i '\(\)\1ẞ' in
++ grep -i $'\341\272\236' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\341\272\236' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\231'
++ b='\316\271'
++ c='\341\276\276'
++ printf '\316\231\n\316\271\n\341\276\276\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\231\n'
++ pat=$'\316\231'
++ grep -i '\(\)\1Ι' in
++ grep -i $'\316\231' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\231' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\271\n'
++ pat=$'\316\271'
++ grep -i '\(\)\1ι' in
++ grep -i $'\316\271' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\271' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\341\276\276\n'
++ pat=$'\341\276\276'
++ grep -i '\(\)\1ι' in
++ grep -i $'\341\276\276' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\341\276\276' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\251'
++ b='\317\211'
++ c='\342\204\246'
++ printf '\316\251\n\317\211\n\342\204\246\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\251\n'
++ pat=$'\316\251'
++ grep -i '\(\)\1Ω' in
++ grep -i $'\316\251' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\251' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\211\n'
++ pat=$'\317\211'
++ grep -i '\(\)\1ω' in
++ grep -i $'\317\211' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\211' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\342\204\246\n'
++ pat=$'\342\204\246'
++ grep -i '\(\)\1Ω' in
++ grep -i $'\342\204\246' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\342\204\246' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\113'
++ b='\153'
++ c='\342\204\252'
++ printf '\113\n\153\n\342\204\252\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\113\n'
++ pat=K
++ grep -i '\(\)\1K' in
++ grep -i K in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF K in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\153\n'
++ pat=k
++ grep -i '\(\)\1k' in
++ grep -i k in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF k in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\342\204\252\n'
++ pat=$'\342\204\252'
++ grep -i '\(\)\1K' in
++ grep -i $'\342\204\252' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\342\204\252' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\303\205'
++ b='\303\245'
++ c='\342\204\253'
++ printf '\303\205\n\303\245\n\342\204\253\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\303\205\n'
++ pat=$'\303\205'
++ grep -i '\(\)\1Å' in
++ grep -i $'\303\205' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\303\205' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\303\245\n'
++ pat=$'\303\245'
++ grep -i '\(\)\1å' in
++ grep -i $'\303\245' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\303\245' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\342\204\253\n'
++ pat=$'\342\204\253'
++ grep -i '\(\)\1Å' in
++ grep -i $'\342\204\253' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\342\204\253' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for testcase in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
++ case $testcase in
++ a='\316\243'
++ b='\317\203'
++ c='\317\262'
++ printf '\316\243\n\317\203\n\317\262\n'
++ for pattern in "$a" "$b" "$c"
+++ printf '\316\243\n'
++ pat=$'\316\243'
++ grep -i '\(\)\1Σ' in
++ grep -i $'\316\243' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\316\243' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\203\n'
++ pat=$'\317\203'
++ grep -i '\(\)\1σ' in
++ grep -i $'\317\203' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\203' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
++ for pattern in "$a" "$b" "$c"
+++ printf '\317\262\n'
++ pat=$'\317\262'
++ grep -i '\(\)\1ϲ' in
++ grep -i $'\317\262' in
++ compare_ out-regex out-dfa
++ diff -u out-regex out-dfa
++ grep -iF $'\317\262' in
++ compare_ out-regex out-fixed
++ diff -u out-regex out-fixed
+++ get-mb-cur-max el_GR.iso88597
++ test '' -eq 1
+./case-fold-titlecase: line 171: test: : integer expression expected
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
-+ exit 77
-SKIP case-fold-titlecase (exit status: 77)
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
++ rm -rf /sources/grep-3.1/tests/gt-case-fold-titlecase.X1h8
++ exit 0
+PASS case-fold-titlecase (exit status: 0)

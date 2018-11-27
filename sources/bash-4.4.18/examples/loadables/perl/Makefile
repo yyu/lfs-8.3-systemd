@@ -19,7 +19,7 @@
 #
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = /tools
+prefix = /usr
 exec_prefix = ${prefix}
 
 bindir = ${exec_prefix}/bin
@@ -30,7 +30,7 @@ includedir = ${prefix}/include
 datarootdir = ${prefix}/share
 
 topdir = ../../..
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 srcdir = .
 
 

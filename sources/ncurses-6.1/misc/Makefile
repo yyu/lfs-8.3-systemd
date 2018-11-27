@@ -52,7 +52,7 @@ CF_MFLAGS 	=
 DESTDIR		= 
 top_srcdir	= ..
 srcdir		= .
-prefix		= /tools
+prefix		= /usr
 exec_prefix	= ${prefix}
 bindir		= ${exec_prefix}/bin
 libdir		= ${exec_prefix}/lib
@@ -63,7 +63,7 @@ includesubdir	=
 INCLUDEDIR	= $(DESTDIR)$(includedir)$(includesubdir)
 
 tabsetdir	= $(datadir)/tabset
-ticdir		= /tools/share/terminfo
+ticdir		= /usr/share/terminfo
 ticfile		= $(ticdir).db
 source		= ${top_srcdir}/misc/terminfo.src
 
@@ -72,7 +72,7 @@ INSTALL_PROGRAM	= ${INSTALL}
 INSTALL_SCRIPT	= ${INSTALL}
 INSTALL_DATA	= ${INSTALL} -m 644
 
-PKG_CONFIG_LIBDIR = no
+PKG_CONFIG_LIBDIR = /usr/lib/pkgconfig
 
 ################################################################################
 all \
@@ -112,25 +112,25 @@ install.libs :: $(DESTDIR)$(bindir) ncurses-config
 # some packagers prefer to be able to construct pc-files on servers where
 # pkg-config is not installed.  Work around that by creating the library
 # directory during this rule:
-#install.libs :: pc-files
-#	@$(SHELL) -c 'case "x$(DESTDIR)$(PKG_CONFIG_LIBDIR)" in \
-#		(x/*) \
-#			mkdir -p $(DESTDIR)$(PKG_CONFIG_LIBDIR); \
-#			for name in *.pc; do \
-#				echo installing $$name; \
-#				$(INSTALL_DATA) $$name $(DESTDIR)$(PKG_CONFIG_LIBDIR)/$$name; \
-#			done \
-#			;; \
-#		(*) \
-#			echo "...skip actual install: no destination was given" ; \
-#			;; \
-#		esac'
+install.libs :: pc-files
+	@$(SHELL) -c 'case "x$(DESTDIR)$(PKG_CONFIG_LIBDIR)" in \
+		(x/*) \
+			mkdir -p $(DESTDIR)$(PKG_CONFIG_LIBDIR); \
+			for name in *.pc; do \
+				echo installing $$name; \
+				$(INSTALL_DATA) $$name $(DESTDIR)$(PKG_CONFIG_LIBDIR)/$$name; \
+			done \
+			;; \
+		(*) \
+			echo "...skip actual install: no destination was given" ; \
+			;; \
+		esac'
 
-#all \
-#sources :: pc-files
-#pc-files :
-#	$(SHELL) ./gen-pkgconfig
-#	touch $@
+all \
+sources :: pc-files
+pc-files :
+	$(SHELL) ./gen-pkgconfig
+	touch $@
 
 terminfo.tmp : run_tic.sed $(source)
 	echo '** adjusting tabset paths'
@@ -157,7 +157,7 @@ uninstall.data :
 
 uninstall.libs :
 	-rm -f $(DESTDIR)$(bindir)/$(NCURSES_CONFIG)
-#	@$(SHELL) -c 'case x$(DESTDIR)$(PKG_CONFIG_LIBDIR) in \
+	@$(SHELL) -c 'case x$(DESTDIR)$(PKG_CONFIG_LIBDIR) in \
 	(x/*) \
 		for name in *.pc; do \
 			echo uninstalling $$name; \
@@ -173,13 +173,13 @@ tags :
 mostlyclean :
 	-rm -f terminfo.tmp
 	-rm -f run_tic.sed
-#	-rm -f *.pc pc-files
+	-rm -f *.pc pc-files
 	-rm -f core tags TAGS *~ *.bak *.ln *.atac trace
 
 clean :: mostlyclean
 
 distclean : clean
-#	-rm -f gen-pkgconfig
+	-rm -f gen-pkgconfig
 	-rm -f Makefile run_tic.sh ncurses-config
 
 realclean : distclean

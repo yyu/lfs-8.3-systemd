@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-foad1.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-foad1.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-foad1.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
++++ d=/sources/grep-3.1/tests/gt-foad1.yEbI
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov'
++++ test -d /sources/grep-3.1/tests/gt-foad1.yEbI
+++++ ls -dgo /sources/grep-3.1/tests/gt-foad1.yEbI
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-foad1.yEbI'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
++++ echo /sources/grep-3.1/tests/gt-foad1.yEbI
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
+++ test_dir_=/sources/grep-3.1/tests/gt-foad1.yEbI
+++ cd /sources/grep-3.1/tests/gt-foad1.yEbI
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -70,9 +70,9 @@
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep word -o -i
 ++ tr '\n' /
 ++ LC_ALL=C
+++ grep word -o -i
 ++ env -- tr '\n' /
 + OUTPUT=Word/word/WORD/
 + test Word/word/WORD/ '!=' Word/word/WORD/
@@ -114,9 +114,9 @@ Testing:  grep Word -o -i
 + shift 2
 ++ printf %s WordA/wordB/WORDC/
 ++ tr / '\n'
+++ grep WORD -o -i
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep WORD -o -i
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -139,8 +139,8 @@ Testing:  grep WORD -o -i
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep w. -o -n
 ++ tr '\n' /
+++ grep w. -o -n
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT=1:wA/1:wB/2:wC/
@@ -158,8 +158,8 @@ Testing:  grep w. -o -n
 + INPUT='wA wB/wC/'
 + EXPECT=1:wA/1:wB/2:wC/
 + shift 2
-++ printf %s 'wA wB/wC/'
 ++ tr / '\n'
+++ printf %s 'wA wB/wC/'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
 ++ grep w. -o -n -i
@@ -187,9 +187,9 @@ Testing:  grep w. -o -n -3
 + shift 2
 ++ printf %s 'XwA YwB/ZwC/'
 ++ tr / '\n'
-++ grep w. -o -b
 ++ LC_ALL=C
 ++ env -- tr / '\n'
+++ grep w. -o -b
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -210,9 +210,9 @@ Testing:  grep w. -o -b
 + shift 2
 ++ printf %s 'XwA YwB/ZwC/'
 ++ tr / '\n'
+++ grep w. -o -b -i
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep w. -o -b -i
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -239,8 +239,8 @@ Testing:  grep w. -o -b -3
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep w -F -o -b
 ++ tr '\n' /
+++ grep w -F -o -b
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT=1:w/5:w/9:w/
@@ -337,9 +337,9 @@ Testing:  grep w. -o -H -3
 + shift 2
 ++ printf %s 'wA wB/'
 ++ tr / '\n'
-++ grep w.
 ++ LC_ALL=C
 ++ env -- tr / '\n'
+++ grep w.
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -358,12 +358,12 @@ Testing:  grep w.
 + INPUT='wA wB/'
 + EXPECT='wA wB/'
 + shift 2
-++ printf %s 'wA wB/'
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep w. -h
+++ printf %s 'wA wB/'
 ++ tr '\n' /
+++ grep w. -h
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT='wA wB/'
@@ -383,8 +383,8 @@ Testing:  grep w. -h
 + shift 2
 ++ printf %s 'wA wB/'
 ++ tr / '\n'
-++ LC_ALL=C
 ++ grep w. -H -h
+++ LC_ALL=C
 ++ env -- tr / '\n'
 ++ tr '\n' /
 ++ LC_ALL=C
@@ -477,10 +477,10 @@ Testing:  grep ^word_* -o
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep '\<word' -o
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
+++ grep '\<word' -o
 + OUTPUT=word/
 + test word/ '!=' word/
 + test yes = yes
@@ -525,10 +525,10 @@ Testing:  grep word --color=always -i
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep Word --color=always -i
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
+++ grep Word --color=always -i
 + OUTPUT='[01;31m[KWord[m[KA/[01;31m[Kword[m[Kb/[01;31m[KWORD[m[KC/'
 + test '[01;31m[KWord[m[KA/[01;31m[Kword[m[Kb/[01;31m[KWORD[m[KC/' '!=' '[01;31m[KWord[m[KA/[01;31m[Kword[m[Kb/[01;31m[KWORD[m[KC/'
 + test yes = yes
@@ -546,9 +546,9 @@ Testing:  grep Word --color=always -i
 + shift 2
 ++ printf %s WordA/wordb/WORDC/
 ++ tr / '\n'
+++ grep WORD --color=always -i
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep WORD --color=always -i
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -591,10 +591,10 @@ Testing:  grep ^word_* --color=always
 + EXPECT='[01;31m[Kword[m[Kword/'
 + shift 2
 ++ printf %s wordword/
+++ grep '\<word' --color=always
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep '\<word' --color=always
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -661,9 +661,9 @@ Testing:  grep ^4$ -m1 -A99
 + shift 2
 ++ printf %s 4/444/
 ++ tr / '\n'
+++ grep '^4$' -m1 -A99
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep '^4$' -m1 -A99
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -894,9 +894,9 @@ Testing:  grep -o y*
 ++ LC_ALL=C
 ++ env -- tr / '\n'
 ++ tr '\n' /
+++ grep --color=always 'y*'
 ++ LC_ALL=C
 ++ env -- tr '\n' /
-++ grep --color=always 'y*'
 + OUTPUT='x[01;31m[Ky[m[Kz/'
 + test 'x[01;31m[Ky[m[Kz/' '!=' 'x[01;31m[Ky[m[Kz/'
 + test yes = yes
@@ -967,10 +967,10 @@ Testing:  grep -F --color=always -e bb -e cc -e ccc
 + EXPECT='a [01;31m[Kbb[m[K [01;31m[Kccc[m[K dddd/'
 + shift 2
 ++ printf %s 'a bb ccc dddd/'
-++ grep -E --color=always -e bb -e ccc -e cc
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
+++ grep -E --color=always -e bb -e ccc -e cc
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -989,12 +989,12 @@ Testing:  grep -E --color=always -e bb -e ccc -e cc
 + INPUT='a bb ccc dddd/'
 + EXPECT='a [01;31m[Kbb[m[K [01;31m[Kccc[m[K dddd/'
 + shift 2
+++ printf %s 'a bb ccc dddd/'
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ printf %s 'a bb ccc dddd/'
-++ tr '\n' /
 ++ grep -F --color=always -e bb -e ccc -e cc
+++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT='a [01;31m[Kbb[m[K [01;31m[Kccc[m[K dddd/'
@@ -1016,8 +1016,8 @@ Testing:  grep -F --color=always -e bb -e ccc -e cc
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ grep -E -w --color=always -e bb -e ccc
 ++ tr '\n' /
+++ grep -E -w --color=always -e bb -e ccc
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT='a [01;31m[Kbb[m[K [01;31m[Kccc[m[K dddd/'
@@ -1082,11 +1082,11 @@ Testing:  grep -E -w --color=always -e ccc -e bb
 + EXPECT='a [01;31m[Kbb[m[K [01;31m[Kccc[m[K dddd/'
 + shift 2
 ++ printf %s 'a bb ccc dddd/'
-++ grep -F -w --color=always -e ccc -e bb
 ++ tr / '\n'
-++ tr '\n' /
 ++ LC_ALL=C
+++ grep -F -w --color=always -e ccc -e bb
 ++ env -- tr / '\n'
+++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT='a [01;31m[Kbb[m[K [01;31m[Kccc[m[K dddd/'
@@ -1242,14 +1242,14 @@ Testing:  grep -F -w --color=always bc
 + INPUT='bc abcd bc/'
 + EXPECT='[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/'
 + shift 2
+++ printf %s 'bc abcd bc/'
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ printf %s 'bc abcd bc/'
+++ grep -E -w --color=always bc
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
-++ grep -E -w --color=always bc
 + OUTPUT='[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/'
 + test '[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/' '!=' '[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/'
 + test yes = yes
@@ -1266,13 +1266,13 @@ Testing:  grep -E -w --color=always bc
 + EXPECT='[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/'
 + shift 2
 ++ printf %s 'bc abcd bc/'
-++ grep -F -w --color=always bc
 ++ tr / '\n'
+++ grep -F -w --color=always bc
+++ LC_ALL=C
+++ env -- tr / '\n'
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
-++ LC_ALL=C
-++ env -- tr / '\n'
 + OUTPUT='[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/'
 + test '[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/' '!=' '[01;31m[Kbc[m[K abcd [01;31m[Kbc[m[K/'
 + test yes = yes
@@ -1292,8 +1292,8 @@ Testing:  grep -F -w --color=always bc
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ tr '\n' /
 ++ grep -e '\.tar' -e '\.tbz'
+++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT=.tar/
@@ -1337,8 +1337,8 @@ Testing:  grep -o -e \.tar -e tar
 ++ printf %s '$*.[^\/'
 ++ tr / '\n'
 ++ LC_ALL=C
-++ env -- tr / '\n'
 ++ grep -o -e '\$\*\.\[\^\\' -e abc
+++ env -- tr / '\n'
 ++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
@@ -1361,8 +1361,8 @@ Testing:  grep -o -e \$\*\.\[\^\\ -e abc
 ++ tr / '\n'
 ++ LC_ALL=C
 ++ env -- tr / '\n'
-++ tr '\n' /
 ++ grep -o -E -e '\$\*\.\[\^\\' -e '\(\+\?\{\|'
+++ tr '\n' /
 ++ LC_ALL=C
 ++ env -- tr '\n' /
 + OUTPUT='$*.[^\/(+?{|/'
@@ -1385,8 +1385,8 @@ Testing:  grep -o -E -e \$\*\.\[\^\\ -e \(\+\?\{\|
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-foad1.tSov
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-foad1.yEbI
++ rm -rf /sources/grep-3.1/tests/gt-foad1.yEbI
 + exit 0
 PASS foad1 (exit status: 0)

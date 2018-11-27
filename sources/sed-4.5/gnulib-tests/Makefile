@@ -1478,7 +1478,7 @@ am__relativize = \
   done; \
   reldir="$$dir2"
 pkglibexecdir = ${libexecdir}/${PACKAGE}
-ACLOCAL = ${SHELL} /mnt/lfs/sources/sed-4.5/build-aux/missing aclocal-1.16
+ACLOCAL = ${SHELL} /sources/sed-4.5/build-aux/missing aclocal-1.16
 ALLOCA = 
 ALLOCA_H = lib/alloca.h
 AMTAR = $${TAR-tar}
@@ -1486,9 +1486,9 @@ AM_DEFAULT_VERBOSITY = 0
 APPLE_UNIVERSAL_BUILD = 0
 AR = ar
 ARFLAGS = cr
-AUTOCONF = ${SHELL} /mnt/lfs/sources/sed-4.5/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /mnt/lfs/sources/sed-4.5/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /mnt/lfs/sources/sed-4.5/build-aux/missing automake-1.16
+AUTOCONF = ${SHELL} /sources/sed-4.5/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /sources/sed-4.5/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /sources/sed-4.5/build-aux/missing automake-1.16
 AWK = gawk
 BITSIZEOF_PTRDIFF_T = 
 BITSIZEOF_SIG_ATOMIC_T = 
@@ -2073,7 +2073,7 @@ HOST_CPU_C_ABI = x86_64
 INCLUDE_NEXT = include_next
 INCLUDE_NEXT_AS_FIRST_DIRECTIVE = include_next
 INET_PTON_LIB = 
-INSTALL = /tools/bin/install -c
+INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -2095,25 +2095,25 @@ LIBSED_LTLIBDEPS =
 LIBSOCKET = 
 LIBTESTS_LIBDEPS = 
 LIBTHREAD = 
-LIB_ACL = 
+LIB_ACL = -lacl
 LIB_HAS_ACL = 
 LIB_NANOSLEEP = 
 LIB_SELECT = 
 LIB_SELINUX = 
 LIMITS_H = lib/limits.h
 LOCALCHARSET_TESTS_ENVIRONMENT = CHARSETALIASDIR="$(abs_top_builddir)/lib"
-LOCALE_FR = none
-LOCALE_FR_UTF8 = none
-LOCALE_JA = none
-LOCALE_TR_UTF8 = none
-LOCALE_ZH_CN = none
+LOCALE_FR = fr_FR
+LOCALE_FR_UTF8 = fr_FR.UTF-8
+LOCALE_JA = ja_JP
+LOCALE_TR_UTF8 = tr_TR.UTF-8
+LOCALE_ZH_CN = zh_CN.GB18030
 LTLIBICONV = -liconv
 LTLIBINTL = 
 LTLIBMULTITHREAD = 
 LTLIBOBJS = 
 LTLIBPTH = 
 LTLIBTHREAD = 
-MAKEINFO = ${SHELL} /mnt/lfs/sources/sed-4.5/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /sources/sed-4.5/build-aux/missing makeinfo
 MKDIR_P = /tools/bin/mkdir -p
 MSGFMT = /tools/bin/msgfmt
 MSGFMT_015 = /tools/bin/msgfmt
@@ -2188,7 +2188,7 @@ PACKAGE_TARNAME = sed
 PACKAGE_URL = https://www.gnu.org/software/sed/
 PACKAGE_VERSION = 4.5
 PATH_SEPARATOR = :
-PERL = /tools/bin/perl
+PERL = /usr/bin/perl
 POSUB = po
 PRAGMA_COLUMNS = 
 PRAGMA_SYSTEM_HEADER = #pragma GCC system_header
@@ -2351,7 +2351,7 @@ REPLACE_WCTOB = 0
 REPLACE_WCTOMB = 0
 REPLACE_WCWIDTH = 0
 REPLACE_WRITE = 0
-SED = /bin/sed
+SED = /tools/bin/sed
 SELINUX_CONTEXT_H = lib/selinux/context.h
 SET_MAKE = 
 SHELL = /bin/sh
@@ -2373,7 +2373,7 @@ UNDEFINE_STRTOK_R = 0
 UNISTD_H_DEFINES_STRUCT_TIMESPEC = 0
 UNISTD_H_HAVE_WINSOCK2_H = 0
 UNISTD_H_HAVE_WINSOCK2_H_AND_USE_SOCKETS = 0
-USE_ACL = 0
+USE_ACL = 1
 USE_NLS = yes
 VERSION = 4.5
 WARN_CFLAGS = 
@@ -2387,18 +2387,18 @@ WINT_T_SUFFIX =
 XGETTEXT = /tools/bin/xgettext
 XGETTEXT_015 = /tools/bin/xgettext
 XGETTEXT_EXTRA_OPTIONS =  --flag=error:3:c-format --flag=error_at_line:5:c-format
-abs_aux_dir = /mnt/lfs/sources/sed-4.5/build-aux
-abs_builddir = /mnt/lfs/sources/sed-4.5/gnulib-tests
-abs_srcdir = /mnt/lfs/sources/sed-4.5/gnulib-tests
-abs_top_builddir = /mnt/lfs/sources/sed-4.5
-abs_top_srcdir = /mnt/lfs/sources/sed-4.5
+abs_aux_dir = /sources/sed-4.5/build-aux
+abs_builddir = /sources/sed-4.5/gnulib-tests
+abs_srcdir = /sources/sed-4.5/gnulib-tests
+abs_top_builddir = /sources/sed-4.5
+abs_top_srcdir = /sources/sed-4.5
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
 am__quote = 
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
-bindir = ${exec_prefix}/bin
+bindir = /bin
 build = x86_64-pc-linux-gnu
 build_alias = 
 build_cpu = x86_64
@@ -2423,7 +2423,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /mnt/lfs/sources/sed-4.5/build-aux/install-sh
+install_sh = ${SHELL} /sources/sed-4.5/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 lispdir = ${datarootdir}/emacs/site-lisp
@@ -2433,7 +2433,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /tools
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -2448,18 +2448,18 @@ top_srcdir = ..
 AUTOMAKE_OPTIONS = 1.9.6 foreign
 SUBDIRS = .
 TESTS_ENVIRONMENT = EXEEXT='' srcdir='$(srcdir)' \
-	USE_ACL=$(USE_ACL) LOCALE_FR='none' \
-	LOCALE_FR_UTF8='none' LOCALE_FR='none' \
-	LOCALE_TR_UTF8='none' USE_ACL=$(USE_ACL) \
-	LOCALE_FR='none' LOCALE_FR_UTF8='none' \
-	LOCALE_JA='none' LOCALE_ZH_CN='none' \
-	LOCALE_FR_UTF8='none' LOCALE_FR='none' \
-	LOCALE_FR_UTF8='none' LOCALE_FR='none' \
-	LOCALE_FR_UTF8='none' LOCALE_JA='none' \
-	LOCALE_ZH_CN='none' abs_aux_dir='$(abs_aux_dir)' \
+	USE_ACL=$(USE_ACL) LOCALE_FR='fr_FR' \
+	LOCALE_FR_UTF8='fr_FR.UTF-8' LOCALE_FR='fr_FR' \
+	LOCALE_TR_UTF8='tr_TR.UTF-8' USE_ACL=$(USE_ACL) \
+	LOCALE_FR='fr_FR' LOCALE_FR_UTF8='fr_FR.UTF-8' \
+	LOCALE_JA='ja_JP' LOCALE_ZH_CN='zh_CN.GB18030' \
+	LOCALE_FR_UTF8='fr_FR.UTF-8' LOCALE_FR='fr_FR' \
+	LOCALE_FR_UTF8='fr_FR.UTF-8' LOCALE_FR='fr_FR' \
+	LOCALE_FR_UTF8='fr_FR.UTF-8' LOCALE_JA='ja_JP' \
+	LOCALE_ZH_CN='zh_CN.GB18030' abs_aux_dir='$(abs_aux_dir)' \
 	abs_aux_dir='$(abs_aux_dir)' MAKE='$(MAKE)' \
-	LOCALE_FR='none' LOCALE_FR_UTF8='none' \
-	LOCALE_JA='none' LOCALE_ZH_CN='none'
+	LOCALE_FR='fr_FR' LOCALE_FR_UTF8='fr_FR.UTF-8' \
+	LOCALE_JA='ja_JP' LOCALE_ZH_CN='zh_CN.GB18030'
 noinst_HEADERS = 
 noinst_LIBRARIES = 
 check_LIBRARIES = libtests.a

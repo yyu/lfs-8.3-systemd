@@ -45,7 +45,7 @@ THIS		= Makefile
 
 DESTDIR		= 
 srcdir		= .
-prefix		= /tools
+prefix		= /usr
 exec_prefix	= ${prefix}
 includedir	= ${prefix}/include
 includesubdir	= 

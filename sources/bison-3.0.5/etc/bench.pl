@@ -166,7 +166,7 @@ Verbosity level.
 =cut
 
 my $bench;
-my $bison = $ENV{'BISON'} || '/mnt/lfs/sources/bison-3.0.5/tests/bison';
+my $bison = $ENV{'BISON'} || '/sources/bison-3.0.5/tests/bison';
 my $cc = $ENV{'CC'} || 'gcc';
 my $cxx = $ENV{'CXX'} || 'g++';
 my $cflags = '-O2';

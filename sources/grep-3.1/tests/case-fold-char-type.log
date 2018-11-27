@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-case-fold-char-type.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-case-fold-char-type.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-case-fold-char-type.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
++++ d=/sources/grep-3.1/tests/gt-case-fold-char-type.n0an
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL'
++++ test -d /sources/grep-3.1/tests/gt-case-fold-char-type.n0an
+++++ ls -dgo /sources/grep-3.1/tests/gt-case-fold-char-type.n0an
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-case-fold-char-type.n0an'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
++++ echo /sources/grep-3.1/tests/gt-case-fold-char-type.n0an
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
+++ test_dir_=/sources/grep-3.1/tests/gt-case-fold-char-type.n0an
+++ cd /sources/grep-3.1/tests/gt-case-fold-char-type.n0an
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,9 +79,9 @@
 + diff -u exp1 out1-en_US.UTF-8
 + for LOC in en_US.UTF-8 zh_CN $LOCALE_FR_UTF8
 + out=out1-zh_CN
-+ printf '1\nY\n.\n'
 + LC_ALL=zh_CN
 + grep -i '[[:lower:]]'
++ printf '1\nY\n.\n'
 + compare exp1 out1-zh_CN
 + compare_dev_null_ exp1 out1-zh_CN
 + test 2 = 2
@@ -91,12 +91,26 @@
 + case $? in
 + compare_ exp1 out1-zh_CN
 + diff -u exp1 out1-zh_CN
++ for LOC in en_US.UTF-8 zh_CN $LOCALE_FR_UTF8
++ out=out1-fr_FR.UTF-8
++ printf '1\nY\n.\n'
++ LC_ALL=fr_FR.UTF-8
++ grep -i '[[:lower:]]'
++ compare exp1 out1-fr_FR.UTF-8
++ compare_dev_null_ exp1 out1-fr_FR.UTF-8
++ test 2 = 2
++ test xexp1 = x/dev/null
++ test xout1-fr_FR.UTF-8 = x/dev/null
++ return 2
++ case $? in
++ compare_ exp1 out1-fr_FR.UTF-8
++ diff -u exp1 out1-fr_FR.UTF-8
 + printf 'y\n'
 + for LOC in en_US.UTF-8 zh_CN $LOCALE_FR_UTF8
 + out=out2-en_US.UTF-8
++ printf '1\ny\n.\n'
 + LC_ALL=en_US.UTF-8
 + grep -i '[[:upper:]]'
-+ printf '1\ny\n.\n'
 + compare exp2 out2-en_US.UTF-8
 + compare_dev_null_ exp2 out2-en_US.UTF-8
 + test 2 = 2
@@ -120,6 +134,20 @@
 + case $? in
 + compare_ exp2 out2-zh_CN
 + diff -u exp2 out2-zh_CN
++ for LOC in en_US.UTF-8 zh_CN $LOCALE_FR_UTF8
++ out=out2-fr_FR.UTF-8
++ printf '1\ny\n.\n'
++ LC_ALL=fr_FR.UTF-8
++ grep -i '[[:upper:]]'
++ compare exp2 out2-fr_FR.UTF-8
++ compare_dev_null_ exp2 out2-fr_FR.UTF-8
++ test 2 = 2
++ test xexp2 = x/dev/null
++ test xout2-fr_FR.UTF-8 = x/dev/null
++ return 2
++ case $? in
++ compare_ exp2 out2-fr_FR.UTF-8
++ diff -u exp2 out2-fr_FR.UTF-8
 + Exit 0
 + set +e
 + exit 0
@@ -129,8 +157,8 @@
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-char-type.d2xL
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-case-fold-char-type.n0an
++ rm -rf /sources/grep-3.1/tests/gt-case-fold-char-type.n0an
 + exit 0
 PASS case-fold-char-type (exit status: 0)

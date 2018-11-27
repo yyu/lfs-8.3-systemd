@@ -58,8 +58,8 @@
 #endif
 #define HAVE_LONG_FILE_NAMES 1
 #define MIXEDCASE_FILENAMES 1
-#define TERMINFO_DIRS "/tools/share/terminfo"
-#define TERMINFO "/tools/share/terminfo"
+#define TERMINFO_DIRS "/usr/share/terminfo"
+#define TERMINFO "/usr/share/terminfo"
 #define HAVE_BIG_CORE 1
 #define PURE_TERMINFO 1
 #define USE_HOME_TERMINFO 1
@@ -188,6 +188,7 @@
 #define HAVE_UNISTD_H 1
 #define HAVE_MKSTEMP 1
 #define HAVE_SIZECHANGE 1
+#define HAVE_POSIX_OPENPT 1
 #define HAVE_WORKING_POLL 1
 #define HAVE_VA_COPY 1
 #define HAVE___VA_COPY 1

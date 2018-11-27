@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-unibyte-bracket-expr.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-unibyte-bracket-expr.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-unibyte-bracket-expr.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++++ d=/sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ'
++++ test -d /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
+++++ ls -dgo /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++++ echo /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
+++ test_dir_=/sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
+++ cd /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -66,10 +66,10 @@
 + test 1 '!=' 0
 + path_dir_=.
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ abs_path_dir_=/sources/grep-3.1/tests/.
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
 + case $EXEEXT in
 + return 0
 + shift
@@ -77,25 +77,2581 @@
 + export PATH
 + case $(get-mb-cur-max ru_RU.KOI8-R) in
 ++ get-mb-cur-max ru_RU.KOI8-R
-+ skip_ 'ru_RU.KOI8-R locale not found'
-+ warn_ 'unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found'
-+ case $IFS in
-+ printf '%s\n' 'unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found'
-unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found
-+ test 9 = 2
-+ printf '%s\n' 'unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found'
-+ sed 1q
-+ Exit 77
++ LC_ALL=ru_RU.KOI8-R
+./unibyte-bracket-expr: line 25: warning: setlocale: LC_ALL: cannot change locale (ru_RU.KOI8-R): No such file or directory
++ export LC_ALL
++ fail=0
++ i=128
++ :
++ in=in-128
+++ printf %03o 128
++ octal=200
+++ printf '\200'
++ b=$'\200'
++ echo $'\200'
++ grep '[€]' in-128
++ compare out in-128
++ compare_dev_null_ out in-128
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-128 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-128
++ diff -u out in-128
++ test 128 = 255
+++ expr 128 + 1
++ i=129
++ :
++ in=in-129
+++ printf %03o 129
++ octal=201
+++ printf '\201'
++ b=$'\201'
++ echo $'\201'
++ grep '[]' in-129
++ compare out in-129
++ compare_dev_null_ out in-129
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-129 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-129
++ diff -u out in-129
++ test 129 = 255
+++ expr 129 + 1
++ i=130
++ :
++ in=in-130
+++ printf %03o 130
++ octal=202
+++ printf '\202'
++ b=$'\202'
++ echo $'\202'
++ grep '[‚]' in-130
++ compare out in-130
++ compare_dev_null_ out in-130
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-130 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-130
++ diff -u out in-130
++ test 130 = 255
+++ expr 130 + 1
++ i=131
++ :
++ in=in-131
+++ printf %03o 131
++ octal=203
+++ printf '\203'
++ b=$'\203'
++ echo $'\203'
++ grep '[ƒ]' in-131
++ compare out in-131
++ compare_dev_null_ out in-131
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-131 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-131
++ diff -u out in-131
++ test 131 = 255
+++ expr 131 + 1
++ i=132
++ :
++ in=in-132
+++ printf %03o 132
++ octal=204
+++ printf '\204'
++ b=$'\204'
++ echo $'\204'
++ grep '[„]' in-132
++ compare out in-132
++ compare_dev_null_ out in-132
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-132 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-132
++ diff -u out in-132
++ test 132 = 255
+++ expr 132 + 1
++ i=133
++ :
++ in=in-133
+++ printf %03o 133
++ octal=205
+++ printf '\205'
++ b=$'\205'
++ echo $'\205'
++ grep '[…]' in-133
++ compare out in-133
++ compare_dev_null_ out in-133
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-133 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-133
++ diff -u out in-133
++ test 133 = 255
+++ expr 133 + 1
++ i=134
++ :
++ in=in-134
+++ printf %03o 134
++ octal=206
+++ printf '\206'
++ b=$'\206'
++ echo $'\206'
++ grep '[†]' in-134
++ compare out in-134
++ compare_dev_null_ out in-134
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-134 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-134
++ diff -u out in-134
++ test 134 = 255
+++ expr 134 + 1
++ i=135
++ :
++ in=in-135
+++ printf %03o 135
++ octal=207
+++ printf '\207'
++ b=$'\207'
++ echo $'\207'
++ grep '[‡]' in-135
++ compare out in-135
++ compare_dev_null_ out in-135
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-135 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-135
++ diff -u out in-135
++ test 135 = 255
+++ expr 135 + 1
++ i=136
++ :
++ in=in-136
+++ printf %03o 136
++ octal=210
+++ printf '\210'
++ b=$'\210'
++ echo $'\210'
++ grep '[ˆ]' in-136
++ compare out in-136
++ compare_dev_null_ out in-136
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-136 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-136
++ diff -u out in-136
++ test 136 = 255
+++ expr 136 + 1
++ i=137
++ :
++ in=in-137
+++ printf %03o 137
++ octal=211
+++ printf '\211'
++ b=$'\211'
++ echo $'\211'
++ grep '[‰]' in-137
++ compare out in-137
++ compare_dev_null_ out in-137
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-137 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-137
++ diff -u out in-137
++ test 137 = 255
+++ expr 137 + 1
++ i=138
++ :
++ in=in-138
+++ printf %03o 138
++ octal=212
+++ printf '\212'
++ b=$'\212'
++ echo $'\212'
++ grep '[Š]' in-138
++ compare out in-138
++ compare_dev_null_ out in-138
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-138 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-138
++ diff -u out in-138
++ test 138 = 255
+++ expr 138 + 1
++ i=139
++ :
++ in=in-139
+++ printf %03o 139
++ octal=213
+++ printf '\213'
++ b=$'\213'
++ echo $'\213'
++ grep '[‹]' in-139
++ compare out in-139
++ compare_dev_null_ out in-139
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-139 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-139
++ diff -u out in-139
++ test 139 = 255
+++ expr 139 + 1
++ i=140
++ :
++ in=in-140
+++ printf %03o 140
++ octal=214
+++ printf '\214'
++ b=$'\214'
++ echo $'\214'
++ grep '[Œ]' in-140
++ compare out in-140
++ compare_dev_null_ out in-140
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-140 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-140
++ diff -u out in-140
++ test 140 = 255
+++ expr 140 + 1
++ i=141
++ :
++ in=in-141
+++ printf %03o 141
++ octal=215
+++ printf '\215'
++ b=$'\215'
++ echo $'\215'
++ grep '[]' in-141
++ compare out in-141
++ compare_dev_null_ out in-141
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-141 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-141
++ diff -u out in-141
++ test 141 = 255
+++ expr 141 + 1
++ i=142
++ :
++ in=in-142
+++ printf %03o 142
++ octal=216
+++ printf '\216'
++ b=$'\216'
++ echo $'\216'
++ grep '[]' in-142
++ compare out in-142
++ compare_dev_null_ out in-142
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-142 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-142
++ diff -u out in-142
++ test 142 = 255
+++ expr 142 + 1
++ i=143
++ :
++ in=in-143
+++ printf %03o 143
++ octal=217
+++ printf '\217'
++ b=$'\217'
++ echo $'\217'
++ grep '[]' in-143
++ compare out in-143
++ compare_dev_null_ out in-143
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-143 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-143
++ diff -u out in-143
++ test 143 = 255
+++ expr 143 + 1
++ i=144
++ :
++ in=in-144
+++ printf %03o 144
++ octal=220
+++ printf '\220'
++ b=$'\220'
++ echo $'\220'
++ grep '[]' in-144
++ compare out in-144
++ compare_dev_null_ out in-144
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-144 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-144
++ diff -u out in-144
++ test 144 = 255
+++ expr 144 + 1
++ i=145
++ :
++ in=in-145
+++ printf %03o 145
++ octal=221
+++ printf '\221'
++ b=$'\221'
++ echo $'\221'
++ grep '[‘]' in-145
++ compare out in-145
++ compare_dev_null_ out in-145
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-145 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-145
++ diff -u out in-145
++ test 145 = 255
+++ expr 145 + 1
++ i=146
++ :
++ in=in-146
+++ printf %03o 146
++ octal=222
+++ printf '\222'
++ b=$'\222'
++ echo $'\222'
++ grep '[’]' in-146
++ compare out in-146
++ compare_dev_null_ out in-146
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-146 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-146
++ diff -u out in-146
++ test 146 = 255
+++ expr 146 + 1
++ i=147
++ :
++ in=in-147
+++ printf %03o 147
++ octal=223
+++ printf '\223'
++ b=$'\223'
++ echo $'\223'
++ grep '[“]' in-147
++ compare out in-147
++ compare_dev_null_ out in-147
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-147 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-147
++ diff -u out in-147
++ test 147 = 255
+++ expr 147 + 1
++ i=148
++ :
++ in=in-148
+++ printf %03o 148
++ octal=224
+++ printf '\224'
++ b=$'\224'
++ echo $'\224'
++ grep '[”]' in-148
++ compare out in-148
++ compare_dev_null_ out in-148
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-148 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-148
++ diff -u out in-148
++ test 148 = 255
+++ expr 148 + 1
++ i=149
++ :
++ in=in-149
+++ printf %03o 149
++ octal=225
+++ printf '\225'
++ b=$'\225'
++ echo $'\225'
++ grep '[•]' in-149
++ compare out in-149
++ compare_dev_null_ out in-149
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-149 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-149
++ diff -u out in-149
++ test 149 = 255
+++ expr 149 + 1
++ i=150
++ :
++ in=in-150
+++ printf %03o 150
++ octal=226
+++ printf '\226'
++ b=$'\226'
++ echo $'\226'
++ grep '[–]' in-150
++ compare out in-150
++ compare_dev_null_ out in-150
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-150 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-150
++ diff -u out in-150
++ test 150 = 255
+++ expr 150 + 1
++ i=151
++ :
++ in=in-151
+++ printf %03o 151
++ octal=227
+++ printf '\227'
++ b=$'\227'
++ echo $'\227'
++ grep '[—]' in-151
++ compare out in-151
++ compare_dev_null_ out in-151
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-151 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-151
++ diff -u out in-151
++ test 151 = 255
+++ expr 151 + 1
++ i=152
++ :
++ in=in-152
+++ printf %03o 152
++ octal=230
+++ printf '\230'
++ b=$'\230'
++ echo $'\230'
++ grep '[˜]' in-152
++ compare out in-152
++ compare_dev_null_ out in-152
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-152 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-152
++ diff -u out in-152
++ test 152 = 255
+++ expr 152 + 1
++ i=153
++ :
++ in=in-153
+++ printf %03o 153
++ octal=231
+++ printf '\231'
++ b=$'\231'
++ echo $'\231'
++ grep '[™]' in-153
++ compare out in-153
++ compare_dev_null_ out in-153
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-153 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-153
++ diff -u out in-153
++ test 153 = 255
+++ expr 153 + 1
++ i=154
++ :
++ in=in-154
+++ printf %03o 154
++ octal=232
+++ printf '\232'
++ b=$'\232'
++ echo $'\232'
++ grep '[š]' in-154
++ compare out in-154
++ compare_dev_null_ out in-154
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-154 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-154
++ diff -u out in-154
++ test 154 = 255
+++ expr 154 + 1
++ i=155
++ :
++ in=in-155
+++ printf %03o 155
++ octal=233
+++ printf '\233'
++ b=$'\233'
++ echo $'\233'
++ grep '[›]' in-155
++ compare out in-155
++ compare_dev_null_ out in-155
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-155 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-155
++ diff -u out in-155
++ test 155 = 255
+++ expr 155 + 1
++ i=156
++ :
++ in=in-156
+++ printf %03o 156
++ octal=234
+++ printf '\234'
++ b=$'\234'
++ echo $'\234'
++ grep '[œ]' in-156
++ compare out in-156
++ compare_dev_null_ out in-156
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-156 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-156
++ diff -u out in-156
++ test 156 = 255
+++ expr 156 + 1
++ i=157
++ :
++ in=in-157
+++ printf %03o 157
++ octal=235
+++ printf '\235'
++ b=$'\235'
++ echo $'\235'
++ grep '[]' in-157
++ compare out in-157
++ compare_dev_null_ out in-157
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-157 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-157
++ diff -u out in-157
++ test 157 = 255
+++ expr 157 + 1
++ i=158
++ :
++ in=in-158
+++ printf %03o 158
++ octal=236
+++ printf '\236'
++ b=$'\236'
++ echo $'\236'
++ grep '[]' in-158
++ compare out in-158
++ compare_dev_null_ out in-158
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-158 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-158
++ diff -u out in-158
++ test 158 = 255
+++ expr 158 + 1
++ i=159
++ :
++ in=in-159
+++ printf %03o 159
++ octal=237
+++ printf '\237'
++ b=$'\237'
++ echo $'\237'
++ grep '[Ÿ]' in-159
++ compare out in-159
++ compare_dev_null_ out in-159
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-159 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-159
++ diff -u out in-159
++ test 159 = 255
+++ expr 159 + 1
++ i=160
++ :
++ in=in-160
+++ printf %03o 160
++ octal=240
+++ printf '\240'
++ b=$'\240'
++ echo $'\240'
++ grep '[ ]' in-160
++ compare out in-160
++ compare_dev_null_ out in-160
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-160 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-160
++ diff -u out in-160
++ test 160 = 255
+++ expr 160 + 1
++ i=161
++ :
++ in=in-161
+++ printf %03o 161
++ octal=241
+++ printf '\241'
++ b=$'\241'
++ echo $'\241'
++ grep '[¡]' in-161
++ compare out in-161
++ compare_dev_null_ out in-161
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-161 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-161
++ diff -u out in-161
++ test 161 = 255
+++ expr 161 + 1
++ i=162
++ :
++ in=in-162
+++ printf %03o 162
++ octal=242
+++ printf '\242'
++ b=$'\242'
++ echo $'\242'
++ grep '[¢]' in-162
++ compare out in-162
++ compare_dev_null_ out in-162
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-162 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-162
++ diff -u out in-162
++ test 162 = 255
+++ expr 162 + 1
++ i=163
++ :
++ in=in-163
+++ printf %03o 163
++ octal=243
+++ printf '\243'
++ b=$'\243'
++ echo $'\243'
++ grep '[£]' in-163
++ compare out in-163
++ compare_dev_null_ out in-163
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-163 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-163
++ diff -u out in-163
++ test 163 = 255
+++ expr 163 + 1
++ i=164
++ :
++ in=in-164
+++ printf %03o 164
++ octal=244
+++ printf '\244'
++ b=$'\244'
++ echo $'\244'
++ grep '[¤]' in-164
++ compare out in-164
++ compare_dev_null_ out in-164
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-164 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-164
++ diff -u out in-164
++ test 164 = 255
+++ expr 164 + 1
++ i=165
++ :
++ in=in-165
+++ printf %03o 165
++ octal=245
+++ printf '\245'
++ b=$'\245'
++ echo $'\245'
++ grep '[¥]' in-165
++ compare out in-165
++ compare_dev_null_ out in-165
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-165 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-165
++ diff -u out in-165
++ test 165 = 255
+++ expr 165 + 1
++ i=166
++ :
++ in=in-166
+++ printf %03o 166
++ octal=246
+++ printf '\246'
++ b=$'\246'
++ echo $'\246'
++ grep '[¦]' in-166
++ compare out in-166
++ compare_dev_null_ out in-166
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-166 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-166
++ diff -u out in-166
++ test 166 = 255
+++ expr 166 + 1
++ i=167
++ :
++ in=in-167
+++ printf %03o 167
++ octal=247
+++ printf '\247'
++ b=$'\247'
++ echo $'\247'
++ grep '[§]' in-167
++ compare out in-167
++ compare_dev_null_ out in-167
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-167 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-167
++ diff -u out in-167
++ test 167 = 255
+++ expr 167 + 1
++ i=168
++ :
++ in=in-168
+++ printf %03o 168
++ octal=250
+++ printf '\250'
++ b=$'\250'
++ echo $'\250'
++ grep '[¨]' in-168
++ compare out in-168
++ compare_dev_null_ out in-168
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-168 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-168
++ diff -u out in-168
++ test 168 = 255
+++ expr 168 + 1
++ i=169
++ :
++ in=in-169
+++ printf %03o 169
++ octal=251
+++ printf '\251'
++ b=$'\251'
++ echo $'\251'
++ grep '[©]' in-169
++ compare out in-169
++ compare_dev_null_ out in-169
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-169 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-169
++ diff -u out in-169
++ test 169 = 255
+++ expr 169 + 1
++ i=170
++ :
++ in=in-170
+++ printf %03o 170
++ octal=252
+++ printf '\252'
++ b=$'\252'
++ echo $'\252'
++ grep '[ª]' in-170
++ compare out in-170
++ compare_dev_null_ out in-170
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-170 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-170
++ diff -u out in-170
++ test 170 = 255
+++ expr 170 + 1
++ i=171
++ :
++ in=in-171
+++ printf %03o 171
++ octal=253
+++ printf '\253'
++ b=$'\253'
++ echo $'\253'
++ grep '[«]' in-171
++ compare out in-171
++ compare_dev_null_ out in-171
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-171 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-171
++ diff -u out in-171
++ test 171 = 255
+++ expr 171 + 1
++ i=172
++ :
++ in=in-172
+++ printf %03o 172
++ octal=254
+++ printf '\254'
++ b=$'\254'
++ echo $'\254'
++ grep '[¬]' in-172
++ compare out in-172
++ compare_dev_null_ out in-172
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-172 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-172
++ diff -u out in-172
++ test 172 = 255
+++ expr 172 + 1
++ i=173
++ :
++ in=in-173
+++ printf %03o 173
++ octal=255
+++ printf '\255'
++ b=$'\255'
++ echo $'\255'
++ grep '[­]' in-173
++ compare out in-173
++ compare_dev_null_ out in-173
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-173 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-173
++ diff -u out in-173
++ test 173 = 255
+++ expr 173 + 1
++ i=174
++ :
++ in=in-174
+++ printf %03o 174
++ octal=256
+++ printf '\256'
++ b=$'\256'
++ echo $'\256'
++ grep '[®]' in-174
++ compare out in-174
++ compare_dev_null_ out in-174
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-174 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-174
++ diff -u out in-174
++ test 174 = 255
+++ expr 174 + 1
++ i=175
++ :
++ in=in-175
+++ printf %03o 175
++ octal=257
+++ printf '\257'
++ b=$'\257'
++ echo $'\257'
++ grep '[¯]' in-175
++ compare out in-175
++ compare_dev_null_ out in-175
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-175 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-175
++ diff -u out in-175
++ test 175 = 255
+++ expr 175 + 1
++ i=176
++ :
++ in=in-176
+++ printf %03o 176
++ octal=260
+++ printf '\260'
++ b=$'\260'
++ echo $'\260'
++ grep '[°]' in-176
++ compare out in-176
++ compare_dev_null_ out in-176
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-176 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-176
++ diff -u out in-176
++ test 176 = 255
+++ expr 176 + 1
++ i=177
++ :
++ in=in-177
+++ printf %03o 177
++ octal=261
+++ printf '\261'
++ b=$'\261'
++ echo $'\261'
++ grep '[±]' in-177
++ compare out in-177
++ compare_dev_null_ out in-177
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-177 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-177
++ diff -u out in-177
++ test 177 = 255
+++ expr 177 + 1
++ i=178
++ :
++ in=in-178
+++ printf %03o 178
++ octal=262
+++ printf '\262'
++ b=$'\262'
++ echo $'\262'
++ grep '[²]' in-178
++ compare out in-178
++ compare_dev_null_ out in-178
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-178 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-178
++ diff -u out in-178
++ test 178 = 255
+++ expr 178 + 1
++ i=179
++ :
++ in=in-179
+++ printf %03o 179
++ octal=263
+++ printf '\263'
++ b=$'\263'
++ echo $'\263'
++ grep '[³]' in-179
++ compare out in-179
++ compare_dev_null_ out in-179
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-179 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-179
++ diff -u out in-179
++ test 179 = 255
+++ expr 179 + 1
++ i=180
++ :
++ in=in-180
+++ printf %03o 180
++ octal=264
+++ printf '\264'
++ b=$'\264'
++ echo $'\264'
++ grep '[´]' in-180
++ compare out in-180
++ compare_dev_null_ out in-180
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-180 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-180
++ diff -u out in-180
++ test 180 = 255
+++ expr 180 + 1
++ i=181
++ :
++ in=in-181
+++ printf %03o 181
++ octal=265
+++ printf '\265'
++ b=$'\265'
++ echo $'\265'
++ grep '[µ]' in-181
++ compare out in-181
++ compare_dev_null_ out in-181
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-181 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-181
++ diff -u out in-181
++ test 181 = 255
+++ expr 181 + 1
++ i=182
++ :
++ in=in-182
+++ printf %03o 182
++ octal=266
+++ printf '\266'
++ b=$'\266'
++ echo $'\266'
++ grep '[¶]' in-182
++ compare out in-182
++ compare_dev_null_ out in-182
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-182 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-182
++ diff -u out in-182
++ test 182 = 255
+++ expr 182 + 1
++ i=183
++ :
++ in=in-183
+++ printf %03o 183
++ octal=267
+++ printf '\267'
++ b=$'\267'
++ echo $'\267'
++ grep '[·]' in-183
++ compare out in-183
++ compare_dev_null_ out in-183
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-183 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-183
++ diff -u out in-183
++ test 183 = 255
+++ expr 183 + 1
++ i=184
++ :
++ in=in-184
+++ printf %03o 184
++ octal=270
+++ printf '\270'
++ b=$'\270'
++ echo $'\270'
++ grep '[¸]' in-184
++ compare out in-184
++ compare_dev_null_ out in-184
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-184 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-184
++ diff -u out in-184
++ test 184 = 255
+++ expr 184 + 1
++ i=185
++ :
++ in=in-185
+++ printf %03o 185
++ octal=271
+++ printf '\271'
++ b=$'\271'
++ echo $'\271'
++ grep '[¹]' in-185
++ compare out in-185
++ compare_dev_null_ out in-185
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-185 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-185
++ diff -u out in-185
++ test 185 = 255
+++ expr 185 + 1
++ i=186
++ :
++ in=in-186
+++ printf %03o 186
++ octal=272
+++ printf '\272'
++ b=$'\272'
++ echo $'\272'
++ grep '[º]' in-186
++ compare out in-186
++ compare_dev_null_ out in-186
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-186 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-186
++ diff -u out in-186
++ test 186 = 255
+++ expr 186 + 1
++ i=187
++ :
++ in=in-187
+++ printf %03o 187
++ octal=273
+++ printf '\273'
++ b=$'\273'
++ echo $'\273'
++ grep '[»]' in-187
++ compare out in-187
++ compare_dev_null_ out in-187
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-187 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-187
++ diff -u out in-187
++ test 187 = 255
+++ expr 187 + 1
++ i=188
++ :
++ in=in-188
+++ printf %03o 188
++ octal=274
+++ printf '\274'
++ b=$'\274'
++ echo $'\274'
++ grep '[¼]' in-188
++ compare out in-188
++ compare_dev_null_ out in-188
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-188 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-188
++ diff -u out in-188
++ test 188 = 255
+++ expr 188 + 1
++ i=189
++ :
++ in=in-189
+++ printf %03o 189
++ octal=275
+++ printf '\275'
++ b=$'\275'
++ echo $'\275'
++ grep '[½]' in-189
++ compare out in-189
++ compare_dev_null_ out in-189
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-189 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-189
++ diff -u out in-189
++ test 189 = 255
+++ expr 189 + 1
++ i=190
++ :
++ in=in-190
+++ printf %03o 190
++ octal=276
+++ printf '\276'
++ b=$'\276'
++ echo $'\276'
++ grep '[¾]' in-190
++ compare out in-190
++ compare_dev_null_ out in-190
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-190 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-190
++ diff -u out in-190
++ test 190 = 255
+++ expr 190 + 1
++ i=191
++ :
++ in=in-191
+++ printf %03o 191
++ octal=277
+++ printf '\277'
++ b=$'\277'
++ echo $'\277'
++ grep '[¿]' in-191
++ compare out in-191
++ compare_dev_null_ out in-191
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-191 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-191
++ diff -u out in-191
++ test 191 = 255
+++ expr 191 + 1
++ i=192
++ :
++ in=in-192
+++ printf %03o 192
++ octal=300
+++ printf '\300'
++ b=$'\300'
++ echo $'\300'
++ grep '[À]' in-192
++ compare out in-192
++ compare_dev_null_ out in-192
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-192 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-192
++ diff -u out in-192
++ test 192 = 255
+++ expr 192 + 1
++ i=193
++ :
++ in=in-193
+++ printf %03o 193
++ octal=301
+++ printf '\301'
++ b=$'\301'
++ echo $'\301'
++ grep '[Á]' in-193
++ compare out in-193
++ compare_dev_null_ out in-193
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-193 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-193
++ diff -u out in-193
++ test 193 = 255
+++ expr 193 + 1
++ i=194
++ :
++ in=in-194
+++ printf %03o 194
++ octal=302
+++ printf '\302'
++ b=$'\302'
++ echo $'\302'
++ grep '[Â]' in-194
++ compare out in-194
++ compare_dev_null_ out in-194
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-194 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-194
++ diff -u out in-194
++ test 194 = 255
+++ expr 194 + 1
++ i=195
++ :
++ in=in-195
+++ printf %03o 195
++ octal=303
+++ printf '\303'
++ b=$'\303'
++ echo $'\303'
++ grep '[Ã]' in-195
++ compare out in-195
++ compare_dev_null_ out in-195
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-195 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-195
++ diff -u out in-195
++ test 195 = 255
+++ expr 195 + 1
++ i=196
++ :
++ in=in-196
+++ printf %03o 196
++ octal=304
+++ printf '\304'
++ b=$'\304'
++ echo $'\304'
++ grep '[Ä]' in-196
++ compare out in-196
++ compare_dev_null_ out in-196
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-196 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-196
++ diff -u out in-196
++ test 196 = 255
+++ expr 196 + 1
++ i=197
++ :
++ in=in-197
+++ printf %03o 197
++ octal=305
+++ printf '\305'
++ b=$'\305'
++ echo $'\305'
++ grep '[Å]' in-197
++ compare out in-197
++ compare_dev_null_ out in-197
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-197 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-197
++ diff -u out in-197
++ test 197 = 255
+++ expr 197 + 1
++ i=198
++ :
++ in=in-198
+++ printf %03o 198
++ octal=306
+++ printf '\306'
++ b=$'\306'
++ echo $'\306'
++ grep '[Æ]' in-198
++ compare out in-198
++ compare_dev_null_ out in-198
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-198 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-198
++ diff -u out in-198
++ test 198 = 255
+++ expr 198 + 1
++ i=199
++ :
++ in=in-199
+++ printf %03o 199
++ octal=307
+++ printf '\307'
++ b=$'\307'
++ echo $'\307'
++ grep '[Ç]' in-199
++ compare out in-199
++ compare_dev_null_ out in-199
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-199 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-199
++ diff -u out in-199
++ test 199 = 255
+++ expr 199 + 1
++ i=200
++ :
++ in=in-200
+++ printf %03o 200
++ octal=310
+++ printf '\310'
++ b=$'\310'
++ echo $'\310'
++ grep '[È]' in-200
++ compare out in-200
++ compare_dev_null_ out in-200
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-200 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-200
++ diff -u out in-200
++ test 200 = 255
+++ expr 200 + 1
++ i=201
++ :
++ in=in-201
+++ printf %03o 201
++ octal=311
+++ printf '\311'
++ b=$'\311'
++ echo $'\311'
++ grep '[É]' in-201
++ compare out in-201
++ compare_dev_null_ out in-201
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-201 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-201
++ diff -u out in-201
++ test 201 = 255
+++ expr 201 + 1
++ i=202
++ :
++ in=in-202
+++ printf %03o 202
++ octal=312
+++ printf '\312'
++ b=$'\312'
++ echo $'\312'
++ grep '[Ê]' in-202
++ compare out in-202
++ compare_dev_null_ out in-202
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-202 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-202
++ diff -u out in-202
++ test 202 = 255
+++ expr 202 + 1
++ i=203
++ :
++ in=in-203
+++ printf %03o 203
++ octal=313
+++ printf '\313'
++ b=$'\313'
++ echo $'\313'
++ grep '[Ë]' in-203
++ compare out in-203
++ compare_dev_null_ out in-203
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-203 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-203
++ diff -u out in-203
++ test 203 = 255
+++ expr 203 + 1
++ i=204
++ :
++ in=in-204
+++ printf %03o 204
++ octal=314
+++ printf '\314'
++ b=$'\314'
++ echo $'\314'
++ grep '[Ì]' in-204
++ compare out in-204
++ compare_dev_null_ out in-204
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-204 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-204
++ diff -u out in-204
++ test 204 = 255
+++ expr 204 + 1
++ i=205
++ :
++ in=in-205
+++ printf %03o 205
++ octal=315
+++ printf '\315'
++ b=$'\315'
++ echo $'\315'
++ grep '[Í]' in-205
++ compare out in-205
++ compare_dev_null_ out in-205
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-205 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-205
++ diff -u out in-205
++ test 205 = 255
+++ expr 205 + 1
++ i=206
++ :
++ in=in-206
+++ printf %03o 206
++ octal=316
+++ printf '\316'
++ b=$'\316'
++ echo $'\316'
++ grep '[Î]' in-206
++ compare out in-206
++ compare_dev_null_ out in-206
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-206 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-206
++ diff -u out in-206
++ test 206 = 255
+++ expr 206 + 1
++ i=207
++ :
++ in=in-207
+++ printf %03o 207
++ octal=317
+++ printf '\317'
++ b=$'\317'
++ echo $'\317'
++ grep '[Ï]' in-207
++ compare out in-207
++ compare_dev_null_ out in-207
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-207 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-207
++ diff -u out in-207
++ test 207 = 255
+++ expr 207 + 1
++ i=208
++ :
++ in=in-208
+++ printf %03o 208
++ octal=320
+++ printf '\320'
++ b=$'\320'
++ echo $'\320'
++ grep '[Ğ]' in-208
++ compare out in-208
++ compare_dev_null_ out in-208
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-208 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-208
++ diff -u out in-208
++ test 208 = 255
+++ expr 208 + 1
++ i=209
++ :
++ in=in-209
+++ printf %03o 209
++ octal=321
+++ printf '\321'
++ b=$'\321'
++ echo $'\321'
++ grep '[Ñ]' in-209
++ compare out in-209
++ compare_dev_null_ out in-209
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-209 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-209
++ diff -u out in-209
++ test 209 = 255
+++ expr 209 + 1
++ i=210
++ :
++ in=in-210
+++ printf %03o 210
++ octal=322
+++ printf '\322'
++ b=$'\322'
++ echo $'\322'
++ grep '[Ò]' in-210
++ compare out in-210
++ compare_dev_null_ out in-210
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-210 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-210
++ diff -u out in-210
++ test 210 = 255
+++ expr 210 + 1
++ i=211
++ :
++ in=in-211
+++ printf %03o 211
++ octal=323
+++ printf '\323'
++ b=$'\323'
++ echo $'\323'
++ grep '[Ó]' in-211
++ compare out in-211
++ compare_dev_null_ out in-211
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-211 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-211
++ diff -u out in-211
++ test 211 = 255
+++ expr 211 + 1
++ i=212
++ :
++ in=in-212
+++ printf %03o 212
++ octal=324
+++ printf '\324'
++ b=$'\324'
++ echo $'\324'
++ grep '[Ô]' in-212
++ compare out in-212
++ compare_dev_null_ out in-212
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-212 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-212
++ diff -u out in-212
++ test 212 = 255
+++ expr 212 + 1
++ i=213
++ :
++ in=in-213
+++ printf %03o 213
++ octal=325
+++ printf '\325'
++ b=$'\325'
++ echo $'\325'
++ grep '[Õ]' in-213
++ compare out in-213
++ compare_dev_null_ out in-213
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-213 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-213
++ diff -u out in-213
++ test 213 = 255
+++ expr 213 + 1
++ i=214
++ :
++ in=in-214
+++ printf %03o 214
++ octal=326
+++ printf '\326'
++ b=$'\326'
++ echo $'\326'
++ grep '[Ö]' in-214
++ compare out in-214
++ compare_dev_null_ out in-214
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-214 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-214
++ diff -u out in-214
++ test 214 = 255
+++ expr 214 + 1
++ i=215
++ :
++ in=in-215
+++ printf %03o 215
++ octal=327
+++ printf '\327'
++ b=$'\327'
++ echo $'\327'
++ grep '[×]' in-215
++ compare out in-215
++ compare_dev_null_ out in-215
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-215 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-215
++ diff -u out in-215
++ test 215 = 255
+++ expr 215 + 1
++ i=216
++ :
++ in=in-216
+++ printf %03o 216
++ octal=330
+++ printf '\330'
++ b=$'\330'
++ echo $'\330'
++ grep '[Ø]' in-216
++ compare out in-216
++ compare_dev_null_ out in-216
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-216 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-216
++ diff -u out in-216
++ test 216 = 255
+++ expr 216 + 1
++ i=217
++ :
++ in=in-217
+++ printf %03o 217
++ octal=331
+++ printf '\331'
++ b=$'\331'
++ echo $'\331'
++ grep '[Ù]' in-217
++ compare out in-217
++ compare_dev_null_ out in-217
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-217 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-217
++ diff -u out in-217
++ test 217 = 255
+++ expr 217 + 1
++ i=218
++ :
++ in=in-218
+++ printf %03o 218
++ octal=332
+++ printf '\332'
++ b=$'\332'
++ echo $'\332'
++ grep '[Ú]' in-218
++ compare out in-218
++ compare_dev_null_ out in-218
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-218 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-218
++ diff -u out in-218
++ test 218 = 255
+++ expr 218 + 1
++ i=219
++ :
++ in=in-219
+++ printf %03o 219
++ octal=333
+++ printf '\333'
++ b=$'\333'
++ echo $'\333'
++ grep '[Û]' in-219
++ compare out in-219
++ compare_dev_null_ out in-219
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-219 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-219
++ diff -u out in-219
++ test 219 = 255
+++ expr 219 + 1
++ i=220
++ :
++ in=in-220
+++ printf %03o 220
++ octal=334
+++ printf '\334'
++ b=$'\334'
++ echo $'\334'
++ grep '[Ü]' in-220
++ compare out in-220
++ compare_dev_null_ out in-220
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-220 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-220
++ diff -u out in-220
++ test 220 = 255
+++ expr 220 + 1
++ i=221
++ :
++ in=in-221
+++ printf %03o 221
++ octal=335
+++ printf '\335'
++ b=$'\335'
++ echo $'\335'
++ grep '[İ]' in-221
++ compare out in-221
++ compare_dev_null_ out in-221
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-221 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-221
++ diff -u out in-221
++ test 221 = 255
+++ expr 221 + 1
++ i=222
++ :
++ in=in-222
+++ printf %03o 222
++ octal=336
+++ printf '\336'
++ b=$'\336'
++ echo $'\336'
++ grep '[Ş]' in-222
++ compare out in-222
++ compare_dev_null_ out in-222
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-222 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-222
++ diff -u out in-222
++ test 222 = 255
+++ expr 222 + 1
++ i=223
++ :
++ in=in-223
+++ printf %03o 223
++ octal=337
+++ printf '\337'
++ b=$'\337'
++ echo $'\337'
++ grep '[ß]' in-223
++ compare out in-223
++ compare_dev_null_ out in-223
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-223 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-223
++ diff -u out in-223
++ test 223 = 255
+++ expr 223 + 1
++ i=224
++ :
++ in=in-224
+++ printf %03o 224
++ octal=340
+++ printf '\340'
++ b=$'\340'
++ echo $'\340'
++ grep '[à]' in-224
++ compare out in-224
++ compare_dev_null_ out in-224
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-224 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-224
++ diff -u out in-224
++ test 224 = 255
+++ expr 224 + 1
++ i=225
++ :
++ in=in-225
+++ printf %03o 225
++ octal=341
+++ printf '\341'
++ b=$'\341'
++ echo $'\341'
++ grep '[á]' in-225
++ compare out in-225
++ compare_dev_null_ out in-225
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-225 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-225
++ diff -u out in-225
++ test 225 = 255
+++ expr 225 + 1
++ i=226
++ :
++ in=in-226
+++ printf %03o 226
++ octal=342
+++ printf '\342'
++ b=$'\342'
++ echo $'\342'
++ grep '[â]' in-226
++ compare out in-226
++ compare_dev_null_ out in-226
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-226 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-226
++ diff -u out in-226
++ test 226 = 255
+++ expr 226 + 1
++ i=227
++ :
++ in=in-227
+++ printf %03o 227
++ octal=343
+++ printf '\343'
++ b=$'\343'
++ echo $'\343'
++ grep '[ã]' in-227
++ compare out in-227
++ compare_dev_null_ out in-227
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-227 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-227
++ diff -u out in-227
++ test 227 = 255
+++ expr 227 + 1
++ i=228
++ :
++ in=in-228
+++ printf %03o 228
++ octal=344
+++ printf '\344'
++ b=$'\344'
++ echo $'\344'
++ grep '[ä]' in-228
++ compare out in-228
++ compare_dev_null_ out in-228
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-228 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-228
++ diff -u out in-228
++ test 228 = 255
+++ expr 228 + 1
++ i=229
++ :
++ in=in-229
+++ printf %03o 229
++ octal=345
+++ printf '\345'
++ b=$'\345'
++ echo $'\345'
++ grep '[å]' in-229
++ compare out in-229
++ compare_dev_null_ out in-229
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-229 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-229
++ diff -u out in-229
++ test 229 = 255
+++ expr 229 + 1
++ i=230
++ :
++ in=in-230
+++ printf %03o 230
++ octal=346
+++ printf '\346'
++ b=$'\346'
++ echo $'\346'
++ grep '[æ]' in-230
++ compare out in-230
++ compare_dev_null_ out in-230
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-230 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-230
++ diff -u out in-230
++ test 230 = 255
+++ expr 230 + 1
++ i=231
++ :
++ in=in-231
+++ printf %03o 231
++ octal=347
+++ printf '\347'
++ b=$'\347'
++ echo $'\347'
++ grep '[ç]' in-231
++ compare out in-231
++ compare_dev_null_ out in-231
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-231 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-231
++ diff -u out in-231
++ test 231 = 255
+++ expr 231 + 1
++ i=232
++ :
++ in=in-232
+++ printf %03o 232
++ octal=350
+++ printf '\350'
++ b=$'\350'
++ echo $'\350'
++ grep '[è]' in-232
++ compare out in-232
++ compare_dev_null_ out in-232
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-232 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-232
++ diff -u out in-232
++ test 232 = 255
+++ expr 232 + 1
++ i=233
++ :
++ in=in-233
+++ printf %03o 233
++ octal=351
+++ printf '\351'
++ b=$'\351'
++ echo $'\351'
++ grep '[é]' in-233
++ compare out in-233
++ compare_dev_null_ out in-233
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-233 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-233
++ diff -u out in-233
++ test 233 = 255
+++ expr 233 + 1
++ i=234
++ :
++ in=in-234
+++ printf %03o 234
++ octal=352
+++ printf '\352'
++ b=$'\352'
++ echo $'\352'
++ grep '[ê]' in-234
++ compare out in-234
++ compare_dev_null_ out in-234
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-234 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-234
++ diff -u out in-234
++ test 234 = 255
+++ expr 234 + 1
++ i=235
++ :
++ in=in-235
+++ printf %03o 235
++ octal=353
+++ printf '\353'
++ b=$'\353'
++ echo $'\353'
++ grep '[ë]' in-235
++ compare out in-235
++ compare_dev_null_ out in-235
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-235 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-235
++ diff -u out in-235
++ test 235 = 255
+++ expr 235 + 1
++ i=236
++ :
++ in=in-236
+++ printf %03o 236
++ octal=354
+++ printf '\354'
++ b=$'\354'
++ echo $'\354'
++ grep '[ì]' in-236
++ compare out in-236
++ compare_dev_null_ out in-236
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-236 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-236
++ diff -u out in-236
++ test 236 = 255
+++ expr 236 + 1
++ i=237
++ :
++ in=in-237
+++ printf %03o 237
++ octal=355
+++ printf '\355'
++ b=$'\355'
++ echo $'\355'
++ grep '[í]' in-237
++ compare out in-237
++ compare_dev_null_ out in-237
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-237 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-237
++ diff -u out in-237
++ test 237 = 255
+++ expr 237 + 1
++ i=238
++ :
++ in=in-238
+++ printf %03o 238
++ octal=356
+++ printf '\356'
++ b=$'\356'
++ echo $'\356'
++ grep '[î]' in-238
++ compare out in-238
++ compare_dev_null_ out in-238
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-238 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-238
++ diff -u out in-238
++ test 238 = 255
+++ expr 238 + 1
++ i=239
++ :
++ in=in-239
+++ printf %03o 239
++ octal=357
+++ printf '\357'
++ b=$'\357'
++ echo $'\357'
++ grep '[ï]' in-239
++ compare out in-239
++ compare_dev_null_ out in-239
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-239 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-239
++ diff -u out in-239
++ test 239 = 255
+++ expr 239 + 1
++ i=240
++ :
++ in=in-240
+++ printf %03o 240
++ octal=360
+++ printf '\360'
++ b=$'\360'
++ echo $'\360'
++ grep '[ğ]' in-240
++ compare out in-240
++ compare_dev_null_ out in-240
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-240 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-240
++ diff -u out in-240
++ test 240 = 255
+++ expr 240 + 1
++ i=241
++ :
++ in=in-241
+++ printf %03o 241
++ octal=361
+++ printf '\361'
++ b=$'\361'
++ echo $'\361'
++ grep '[ñ]' in-241
++ compare out in-241
++ compare_dev_null_ out in-241
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-241 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-241
++ diff -u out in-241
++ test 241 = 255
+++ expr 241 + 1
++ i=242
++ :
++ in=in-242
+++ printf %03o 242
++ octal=362
+++ printf '\362'
++ b=$'\362'
++ echo $'\362'
++ grep '[ò]' in-242
++ compare out in-242
++ compare_dev_null_ out in-242
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-242 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-242
++ diff -u out in-242
++ test 242 = 255
+++ expr 242 + 1
++ i=243
++ :
++ in=in-243
+++ printf %03o 243
++ octal=363
+++ printf '\363'
++ b=$'\363'
++ echo $'\363'
++ grep '[ó]' in-243
++ compare out in-243
++ compare_dev_null_ out in-243
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-243 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-243
++ diff -u out in-243
++ test 243 = 255
+++ expr 243 + 1
++ i=244
++ :
++ in=in-244
+++ printf %03o 244
++ octal=364
+++ printf '\364'
++ b=$'\364'
++ echo $'\364'
++ grep '[ô]' in-244
++ compare out in-244
++ compare_dev_null_ out in-244
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-244 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-244
++ diff -u out in-244
++ test 244 = 255
+++ expr 244 + 1
++ i=245
++ :
++ in=in-245
+++ printf %03o 245
++ octal=365
+++ printf '\365'
++ b=$'\365'
++ echo $'\365'
++ grep '[õ]' in-245
++ compare out in-245
++ compare_dev_null_ out in-245
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-245 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-245
++ diff -u out in-245
++ test 245 = 255
+++ expr 245 + 1
++ i=246
++ :
++ in=in-246
+++ printf %03o 246
++ octal=366
+++ printf '\366'
++ b=$'\366'
++ echo $'\366'
++ grep '[ö]' in-246
++ compare out in-246
++ compare_dev_null_ out in-246
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-246 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-246
++ diff -u out in-246
++ test 246 = 255
+++ expr 246 + 1
++ i=247
++ :
++ in=in-247
+++ printf %03o 247
++ octal=367
+++ printf '\367'
++ b=$'\367'
++ echo $'\367'
++ grep '[÷]' in-247
++ compare out in-247
++ compare_dev_null_ out in-247
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-247 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-247
++ diff -u out in-247
++ test 247 = 255
+++ expr 247 + 1
++ i=248
++ :
++ in=in-248
+++ printf %03o 248
++ octal=370
+++ printf '\370'
++ b=$'\370'
++ echo $'\370'
++ grep '[ø]' in-248
++ compare out in-248
++ compare_dev_null_ out in-248
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-248 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-248
++ diff -u out in-248
++ test 248 = 255
+++ expr 248 + 1
++ i=249
++ :
++ in=in-249
+++ printf %03o 249
++ octal=371
+++ printf '\371'
++ b=$'\371'
++ echo $'\371'
++ grep '[ù]' in-249
++ compare out in-249
++ compare_dev_null_ out in-249
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-249 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-249
++ diff -u out in-249
++ test 249 = 255
+++ expr 249 + 1
++ i=250
++ :
++ in=in-250
+++ printf %03o 250
++ octal=372
+++ printf '\372'
++ b=$'\372'
++ echo $'\372'
++ grep '[ú]' in-250
++ compare out in-250
++ compare_dev_null_ out in-250
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-250 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-250
++ diff -u out in-250
++ test 250 = 255
+++ expr 250 + 1
++ i=251
++ :
++ in=in-251
+++ printf %03o 251
++ octal=373
+++ printf '\373'
++ b=$'\373'
++ echo $'\373'
++ grep '[û]' in-251
++ compare out in-251
++ compare_dev_null_ out in-251
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-251 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-251
++ diff -u out in-251
++ test 251 = 255
+++ expr 251 + 1
++ i=252
++ :
++ in=in-252
+++ printf %03o 252
++ octal=374
+++ printf '\374'
++ b=$'\374'
++ echo $'\374'
++ grep '[ü]' in-252
++ compare out in-252
++ compare_dev_null_ out in-252
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-252 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-252
++ diff -u out in-252
++ test 252 = 255
+++ expr 252 + 1
++ i=253
++ :
++ in=in-253
+++ printf %03o 253
++ octal=375
+++ printf '\375'
++ b=$'\375'
++ echo $'\375'
++ grep '[ı]' in-253
++ compare out in-253
++ compare_dev_null_ out in-253
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-253 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-253
++ diff -u out in-253
++ test 253 = 255
+++ expr 253 + 1
++ i=254
++ :
++ in=in-254
+++ printf %03o 254
++ octal=376
+++ printf '\376'
++ b=$'\376'
++ echo $'\376'
++ grep '[ş]' in-254
++ compare out in-254
++ compare_dev_null_ out in-254
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-254 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-254
++ diff -u out in-254
++ test 254 = 255
+++ expr 254 + 1
++ i=255
++ :
++ in=in-255
+++ printf %03o 255
++ octal=377
+++ printf '\377'
++ b=$'\377'
++ echo $'\377'
++ grep '[ÿ]' in-255
++ compare out in-255
++ compare_dev_null_ out in-255
++ test 2 = 2
++ test xout = x/dev/null
++ test xin-255 = x/dev/null
++ return 2
++ case $? in
++ compare_ out in-255
++ diff -u out in-255
++ test 255 = 255
++ break
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
-+ exit 77
-SKIP unibyte-bracket-expr (exit status: 77)
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
++ rm -rf /sources/grep-3.1/tests/gt-unibyte-bracket-expr.Qq4m
++ exit 0
+PASS unibyte-bracket-expr (exit status: 0)

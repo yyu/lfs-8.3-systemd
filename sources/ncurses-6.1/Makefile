@@ -47,24 +47,24 @@ NCURSES_PATCH	= 20180127
 top_srcdir	= .
 srcdir		= .
 
-prefix		= /tools
+prefix		= /usr
 exec_prefix	= ${prefix}
 datarootdir	= ${prefix}/share
 
 bindir		= ${exec_prefix}/bin
-ticdir		= /tools/share/terminfo
+ticdir		= /usr/share/terminfo
 includedir	= ${prefix}/include
 includesubdir	= 
 libdir		= ${exec_prefix}/lib
-mandir		= ${datarootdir}/man
-pkgdir		= no
+mandir		= /usr/share/man
+pkgdir		= /usr/lib/pkgconfig
 
 include_dir	= ${includedir}${includesubdir}
 
 INSTALL		= /usr/bin/install -c
 INSTALL_DATA	= ${INSTALL} -m 644
 
-DIRS_TO_MAKE	= lib obj_s objects
+DIRS_TO_MAKE	= lib obj_s
 
 all ::	$(DIRS_TO_MAKE)
 
@@ -83,7 +83,7 @@ preinstall :
 	@ echo '    include directory: '$(include_dir)
 	@ echo '        man directory: '$(mandir)
 	@ echo '   terminfo directory: '$(ticdir)
-#	@ echo ' pkg-config directory: '$(pkgdir)
+	@ echo ' pkg-config directory: '$(pkgdir)
 	@ echo ''
 	@ test "$(include_dir)" = "$(prefix)/include" || \
 		echo '** Include-directory is not in a standard location'

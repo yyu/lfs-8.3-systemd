@@ -1,0 +1,119 @@
+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.30), passed through in regex; marked by <-- HERE in m/%{ <-- HERE (\w+)}/ at ./test/run line 109.
+[9] $ mkdir d -- ok
+[10] $ cd d -- ok
+[12] $ touch f -- ok
+[13] $ setfattr -n user -v value f -- ok
+[16] $ setfattr -n user. -v value f -- ok
+[19] $ setfattr -n user.name f -- ok
+[20] $ getfattr -d f -- ok
+[25] $ setfattr -x user.name f -- ok
+[26] $ sh -c 'getfattr -n user.name f && echo zero exit code' -- ok
+[29] $ setfattr -n user.n -v value f -- ok
+[30] $ rm f -- ok
+[35] $ touch f -- ok
+[36] $ setfattr -n user.vvvvvvvvvvvv -v vvvvvvvvvvvv f -- ok
+[37] $ setfattr -n user.wwwwwwww -v wwwwwwww f -- ok
+[38] $ setfattr -n user.xxxx -v xxxx f -- ok
+[39] $ getfattr -d f -- ok
+[46] $ setfattr -n user.wwwwwwww -v wwww f -- ok
+[47] $ getfattr -d f -- ok
+[54] $ setfattr -n user.xxxx -v xxxxxxxx f -- ok
+[55] $ getfattr -d f -- ok
+[62] $ rm f -- ok
+[66] $ touch f -- ok
+[67] $ setfattr -n user.name -v 0xbabe f -- ok
+[68] $ setfattr -n user.name2 -v 0s3q2+7w== f -- ok
+[69] $ setfattr -n user.name3 -v 0xdeface f -- ok
+[70] $ getfattr -d -e hex f -- ok
+[77] $ getfattr -d -e base64 f -- ok
+[84] $ rm f -- ok
+[88] $ touch f -- ok
+[89] $ setfattr -n user.novalue f -- ok
+[90] $ setfattr -n user.somename -v somevalue f -- ok
+[91] $ setfattr -n user.somename -v somevalue f -- ok
+[92] $ setfattr -n user.longername -v longervalue f -- ok
+[93] $ setfattr -n user.short -v value f -- ok
+[94] $ setfattr -n user.novalue-yet f -- ok
+[96] $ getfattr -d f -- ok
+[105] $ setfattr -n user.novalue-yet -v avalue-now f -- ok
+[106] $ getfattr -d f -- ok
+[115] $ setfattr -x user.noname f -- ok
+[118] $ setfattr -x user.somename f -- ok
+[119] $ setfattr -x user.short f -- ok
+[120] $ getfattr -d f -- ok
+[127] $ setfattr -x user.longername f -- ok
+[128] $ setfattr -x user.novalue f -- ok
+[129] $ setfattr -x user.novalue-yet f -- ok
+[130] $ getfattr -d f -- ok
+[132] $ rm f -- ok
+[136] $ touch f g h -- ok
+[137] $ setfattr -n user.novalue f g h -- ok
+[138] $ getfattr f g h | sort-getfattr-output -- ok
+[149] $ setfattr -n user.name -v value f -- ok
+[150] $ getfattr f g h | sort-getfattr-output -- ok
+[162] $ getfattr -d f g h | sort-getfattr-output -- ok
+[174] $ setfattr -n user.name -v value g -- ok
+[175] $ getfattr f g h | sort-getfattr-output -- ok
+[188] $ setfattr -x user.novalue h -- ok
+[189] $ getfattr f g h | sort-getfattr-output -- ok
+[199] $ rm f g h -- ok
+[203] $ touch f -- ok
+[204] $ ln -s f l -- ok
+[205] $ setfattr -n user.filename -v f l -- ok
+[206] $ setfattr -n user.filename -v l l -- ok
+[207] $ setfattr -h -n user.filename -v l l -- ok
+[210] $ getfattr -d f l | sort-getfattr-output -- ok
+[218] $ rm f -- ok
+[222] $ mkdir src -- ok
+[223] $ touch src/target -- ok
+[224] $ setfattr -n user.color -v blue src/target -- ok
+[225] $ ln -s src symlink -- ok
+[226] $ getfattr -n user.color -h symlink 2>/dev/null -- ok
+[230] $ touch "f " -- ok
+[231] $ setfattr -n user.name -v value "f " -- ok
+[232] $ getfattr -d "f " -- ok
+[237] $ rm "f " -- ok
+[241] $ touch f -- ok
+[242] $ setfattr -n user.name -v '' f -- ok
+[243] $ getfattr -d f -- ok
+[247] $ rm f -- ok
+[251] $ touch f -- ok
+[252] $ setfattr -n "user.sp ace" -v value f -- ok
+[253] $ setfattr -n "user.special " -v value f -- ok
+[254] $ getfattr f -- ok
+[260] $ getfattr -d f -- ok
+[266] $ setfattr -x "user.sp ace" f -- ok
+[267] $ setfattr -n "user.sp ace" -v value f -- ok
+[268] $ setfattr -x "user.sp ace" f -- ok
+[269] $ setfattr -x "user.special " f -- ok
+[270] $ rm f -- ok
+[272] $ cd .. -- ok
+[273] $ rm -rf d -- ok
+[277] $ mkdir -p 1/2/3 -- ok
+[278] $ setfattr -n "user.9" 1 -- ok
+[279] $ setfattr -n "user.a" 1 -- ok
+[280] $ setfattr -n "user.9" 1/2 -- ok
+[281] $ setfattr -n "user.a" 1/2 -- ok
+[282] $ setfattr -n "user.9" 1/2/3 -- ok
+[283] $ setfattr -n "user.a" 1/2/3 -- ok
+[285] $ getfattr -h -L -R -m '.' -e hex 1 | grep -v selinux | sort-getfattr-output -- ok
+[299] $ getfattr -h -P -R -m '.' -e hex 1/2 | grep -v selinux | sort-getfattr-output -- ok
+[309] $ rm -R 1 -- ok
+[313] $ mkdir -p 1/sub -- ok
+[314] $ mkdir 1/link -- ok
+[315] $ touch 1/link/link-file -- ok
+[316] $ touch 1/sub/sub-file -- ok
+[317] $ ln -s `pwd`/1/link 1/sub/link -- ok
+[318] $ setfattr -n "user.a" 1 -- ok
+[319] $ setfattr -n "user.a" 1/link/link-file -- ok
+[320] $ setfattr -n "user.a" 1/link -- ok
+[321] $ setfattr -n "user.a" 1/sub/sub-file -- ok
+[322] $ setfattr -n "user.a" 1/sub -- ok
+[323] $ getfattr -P -R 1 | sort-getfattr-output -- ok
+[343] $ getfattr -R -P 1/sub | sort-getfattr-output -- ok
+[354] $ getfattr -L -R 1 | sort-getfattr-output -- ok
+[377] $ getfattr -R 1/sub/link | sort-getfattr-output -- ok
+[385] $ getfattr -L -R 1/sub/link | sort-getfattr-output -- ok
+[393] $ rm -R 1 -- ok
+116 commands (116 passed, 0 failed)
+PASS test/attr.test (exit status: 0)

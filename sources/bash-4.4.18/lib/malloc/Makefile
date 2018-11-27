@@ -18,7 +18,7 @@
 srcdir = .
 
 topdir = ../..
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL}
@@ -39,7 +39,7 @@ PROFILE_FLAGS =
 CFLAGS = -g -O2 -Wno-parentheses -Wno-format-security
 LOCAL_CFLAGS = 
 CPPFLAGS = 
-LDFLAGS =  -L./lib/termcap
+LDFLAGS = 
 
 DEFS = -DHAVE_CONFIG_H
 LOCAL_DEFS = -DSHELL

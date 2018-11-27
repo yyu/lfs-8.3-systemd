@@ -30,7 +30,7 @@ PACKAGE_VERSION = 4.4-release
 srcdir = .
 
 topdir = ../..
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
 datarootdir = ${prefix}/share
 
@@ -57,7 +57,7 @@ DEBUG =
 CFLAGS = -g -O2 -Wno-parentheses -Wno-format-security
 LOCAL_CFLAGS =  ${DEBUG}
 CPPFLAGS = 
-LDFLAGS =  -L./lib/termcap
+LDFLAGS = 
 
 DEFS = -DHAVE_CONFIG_H
 LOCAL_DEFS = -DSHELL

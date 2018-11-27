@@ -19,9 +19,9 @@ top_srcdir = ..
 
 
 topdir = ..
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 
-prefix = /tools
+prefix = /usr
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share
@@ -35,11 +35,11 @@ INSTALL_DATA = ${INSTALL} -m 644
 MKINSTALLDIRS = $(top_builddir)/./support/mkinstalldirs
 mkinstalldirs = $(SHELL) $(MKINSTALLDIRS)
 
-GMSGFMT = :
-MSGFMT = :
-XGETTEXT = :
+GMSGFMT = /tools/bin/msgfmt
+MSGFMT = /tools/bin/msgfmt
+XGETTEXT = /tools/bin/xgettext
 MSGMERGE = msgmerge
-MSGMERGE_UPDATE = : --update
+MSGMERGE_UPDATE = /tools/bin/msgmerge --update
 MSGINIT = msginit
 MSGCONV = msgconv
 MSGFILTER = msgfilter

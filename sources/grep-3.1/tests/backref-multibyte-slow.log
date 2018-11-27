@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-backref-multibyte-slow.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-backref-multibyte-slow.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-backref-multibyte-slow.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++++ d=/sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM'
++++ test -d /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
+++++ ls -dgo /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++++ echo /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
+++ test_dir_=/sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
+++ cd /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
@@ -66,10 +66,10 @@
 + test 1 '!=' 0
 + path_dir_=.
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ abs_path_dir_=/sources/grep-3.1/tests/.
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ PATH=/sources/grep-3.1/tests/.:/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/.
 + case $EXEEXT in
 + return 0
 + shift
@@ -77,25 +77,41 @@
 + export PATH
 + case $(get-mb-cur-max en_US.UTF-8) in
 ++ get-mb-cur-max en_US.UTF-8
-+ skip_ 'en_US.UTF-8 locale not found'
-+ warn_ 'backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found'
-+ case $IFS in
-+ printf '%s\n' 'backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found'
-backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found
-+ test 9 = 2
-+ printf '%s\n' 'backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found'
-+ sed 1q
-+ Exit 77
++ require_timeout_
++ returns_ 1 timeout 10s false
++ fail=0
++ gawk 'BEGIN {for (i=0; i<13000; i++) print "aba"}' /dev/null
+++ LC_ALL=C
+++ perl -le 'use Time::HiRes qw(time); my $s = time();
+              system q,grep -E '\''^([a-z]).\1$'\'' in > junk,;
+              my $elapsed = time() - $s; print int (1 + 10 * $elapsed)'
++ max_seconds=1
++ test 1 = 1
++ max_seconds=5
++ for LOC in en_US.UTF-8
++ out=out-en_US.UTF-8
++ LC_ALL=en_US.UTF-8
++ timeout 5s grep -aE '^([a-z]).\1$' in
++ compare out-en_US.UTF-8 in
++ compare_dev_null_ out-en_US.UTF-8 in
++ test 2 = 2
++ test xout-en_US.UTF-8 = x/dev/null
++ test xin = x/dev/null
++ return 2
++ case $? in
++ compare_ out-en_US.UTF-8 in
++ diff -u out-en_US.UTF-8 in
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
-+ exit 77
-SKIP backref-multibyte-slow (exit status: 77)
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
++ rm -rf /sources/grep-3.1/tests/gt-backref-multibyte-slow.zqny
++ exit 0
+PASS backref-multibyte-slow (exit status: 0)

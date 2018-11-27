@@ -21,7 +21,7 @@ PACKAGE = bash
 VERSION = 4.4-release
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = /tools
+prefix = /usr
 
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
@@ -35,7 +35,7 @@ loadablesdir = ${libdir}/bash
 headersdir = $(includedir)/$(PACKAGE_NAME)
 
 topdir = ../..
-BUILD_DIR = /mnt/lfs/sources/bash-4.4.18
+BUILD_DIR = /sources/bash-4.4.18
 srcdir = .
 
 
@@ -87,7 +87,7 @@ CCFLAGS = $(DEFS) $(LOCAL_DEFS) $(LOCAL_CFLAGS) $(CFLAGS)
 SHOBJ_CC = gcc
 SHOBJ_CFLAGS = -fPIC
 SHOBJ_LD = ${CC}
-SHOBJ_LDFLAGS = -shared -Wl,-soname,$@  -L./lib/termcap
+SHOBJ_LDFLAGS = -shared -Wl,-soname,$@ 
 SHOBJ_XLDFLAGS = 
 SHOBJ_LIBS = 
 SHOBJ_STATUS = supported

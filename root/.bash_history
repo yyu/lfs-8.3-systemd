@@ -1,5 +1,3 @@
-    '
-    make mrproper
     ________________________________________NOTE________________________________________ '
     A good starting place for setting up the kernel configuration is to run make defconfig.
     This will set the base configuration to a good state that takes your current system architecture into account.
@@ -486,6 +484,8 @@ _lfs_basic_system_install_all_5() {
 # on lfs (as root)
 # ----------------
 #
+# . 000-functions.sh
+#
 # _lfs_basic_system_install_all_1
 # _lfs_basic_system_install_all_2
 # _lfs_basic_system_install_all_3
@@ -495,6 +495,6 @@ _lfs_basic_system_install_all_5() {
 EEEEEOF
 
 . 000-functions.sh
-_lfs_create_directories
-_lfs_create_essential_files_and_symlinks 
-_lfs_remove_I_have_no_name_prompt 
+_lfs_basic_system_install_all_1 
+_lfs_basic_system_install_all_2 
+_lfs_basic_system_install_all_3 

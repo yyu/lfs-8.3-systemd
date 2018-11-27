@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
+++ initial_cwd_=/sources/grep-3.1/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-spencer1.XXXX
++++ mktempd_ /sources/grep-3.1/tests gt-spencer1.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ destdir_=/sources/grep-3.1/tests
 +++ template_=gt-spencer1.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ destdir_slash_=/sources/grep-3.1/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
++++ d=/sources/grep-3.1/tests/gt-spencer1.wa7A
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
-++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
-+++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV'
++++ test -d /sources/grep-3.1/tests/gt-spencer1.wa7A
+++++ ls -dgo /sources/grep-3.1/tests/gt-spencer1.wa7A
++++ perms='drwx------ 2 4096 Nov 27 05:56 /sources/grep-3.1/tests/gt-spencer1.wa7A'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
++++ echo /sources/grep-3.1/tests/gt-spencer1.wa7A
 +++ return
-++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
-++ cd /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
+++ test_dir_=/sources/grep-3.1/tests/gt-spencer1.wa7A
+++ cd /sources/grep-3.1/tests/gt-spencer1.wa7A
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,17 +52,17 @@
 + test 1 '!=' 0
 + path_dir_=../src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ abs_path_dir_=/sources/grep-3.1/tests/../src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ PATH=/sources/grep-3.1/tests/../src:/sources/grep-3.1/src:./src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/grep-3.1/tests/../src
 + case $EXEEXT in
 + return 0
 + shift
 + test 0 '!=' 0
 + export PATH
 + fail=0
-+ gawk -f /mnt/lfs/sources/grep-3.1/tests/spencer1.awk /mnt/lfs/sources/grep-3.1/tests/spencer1.tests
++ gawk -f /sources/grep-3.1/tests/spencer1.awk /sources/grep-3.1/tests/spencer1.tests
 + . ./spencer1.script
 ++ failures=0
 +++ echo abc
@@ -150,8 +150,8 @@
 +++ echo 1
 ++ status=1
 ++ test 1 -ne 1
-+++ grep -E -e 'ab?c'
 +++ echo abc
++++ grep -E -e 'ab?c'
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -190,8 +190,8 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ grep -E -e a.c
 +++ echo abc
++++ grep -E -e a.c
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -240,8 +240,8 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ echo a-
 +++ grep -E -e 'a[b-]'
++++ echo a-
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -255,8 +255,8 @@
 +++ echo 2
 ++ status=2
 ++ test 2 -ne 2
-+++ grep -E -e 'a['
 +++ echo -
++++ grep -E -e 'a['
 +++ echo 2
 ++ status=2
 ++ test 2 -ne 2
@@ -265,8 +265,8 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ echo 'a]b'
 +++ grep -E -e 'a[]]b'
++++ echo 'a]b'
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -285,18 +285,18 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ echo a-c
 +++ grep -E -e 'a[^-b]c'
++++ echo a-c
 +++ echo 1
 ++ status=1
 ++ test 1 -ne 1
-+++ grep -E -e 'a[^]b]c'
 +++ echo 'a]c'
++++ grep -E -e 'a[^]b]c'
 +++ echo 1
 ++ status=1
 ++ test 1 -ne 1
-+++ echo adc
 +++ grep -E -e 'a[^]b]c'
++++ echo adc
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -445,13 +445,13 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ grep -E -e '(ab|)*'
 +++ echo -
++++ grep -E -e '(ab|)*'
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ grep -E -e ')('
 +++ echo -
++++ grep -E -e ')('
 +++ echo 2
 ++ status=2
 ++ test 2 -ne 2
@@ -475,8 +475,8 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ grep -E -e '([abc])*bcd'
 +++ echo abcd
++++ grep -E -e '([abc])*bcd'
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -530,8 +530,8 @@
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
-+++ grep -E -e '(a|b)c*d'
 +++ echo abcd
++++ grep -E -e '(a|b)c*d'
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -735,8 +735,8 @@
 +++ echo 1
 ++ status=1
 ++ test 1 -ne 1
-+++ grep -E -e '^a|\Ba'
 +++ echo abc
++++ grep -E -e '^a|\Ba'
 +++ echo 0
 ++ status=0
 ++ test 0 -ne 0
@@ -786,8 +786,8 @@
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/grep-3.1/tests
-+ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
-+ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-spencer1.HXoV
++ cd /sources/grep-3.1/tests
++ chmod -R u+rwx /sources/grep-3.1/tests/gt-spencer1.wa7A
++ rm -rf /sources/grep-3.1/tests/gt-spencer1.wa7A
 + exit 0
 PASS spencer1 (exit status: 0)

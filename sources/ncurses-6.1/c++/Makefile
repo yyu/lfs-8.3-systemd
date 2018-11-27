@@ -46,7 +46,7 @@ MODEL		= ../obj_s
 DESTDIR		= 
 top_srcdir	= ..
 srcdir		= .
-prefix		= /tools
+prefix		= /usr
 exec_prefix	= ${prefix}
 bindir		= ${exec_prefix}/bin
 libdir		= ${exec_prefix}/lib
@@ -62,7 +62,6 @@ LIBTOOL_OPTS	=
 LIBTOOL_CLEAN	= 
 LIBTOOL_COMPILE	= 
 LIBTOOL_LINK	= ${CC}
-LIBTOOL_INSTALL	= 
 LIBTOOL_UNINSTALL = 
 LIBTOOL_VERSION = -version-number
 LT_UNDEF	= 
@@ -81,8 +80,8 @@ CXX_AR		= $(AR)
 CXX_ARFLAGS	= $(ARFLAGS)
 RANLIB		= ranlib
 
-CXX		= /tools/bin/g++
-CPP		= /tools/bin/g++ -E
+CXX		= /usr/bin/g++
+CPP		= /usr/bin/g++ -E
 CXXFLAGS	= -O2 
 CXXLIBS		= 
 
@@ -108,7 +107,7 @@ NCURSES_MINOR	= 1
 REL_VERSION     = 6.1
 ABI_VERSION	= 6
 
-LOCAL_LIBDIR	= /mnt/lfs/sources/ncurses-6.1/lib
+LOCAL_LIBDIR	= /sources/ncurses-6.1/lib
 
 LINK		=  $(LIBTOOL_LINK) 
 SHLIB_DIRS	= -L../lib
