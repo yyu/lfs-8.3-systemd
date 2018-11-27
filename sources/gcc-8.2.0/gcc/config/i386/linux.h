@@ -20,12 +20,7 @@ along with GCC; see the file COPYING3.  If not see
 <http://www.gnu.org/licenses/>.  */
 
 #define GNU_USER_LINK_EMULATION "elf_i386"
-#define GLIBC_DYNAMIC_LINKER "/tools/lib/ld-linux.so.2"
+#define GLIBC_DYNAMIC_LINKER "/lib/ld-linux.so.2"
 
 #undef MUSL_DYNAMIC_LINKER
-#define MUSL_DYNAMIC_LINKER "/tools/lib/ld-musl-i386.so.1"
-
-#undef STANDARD_STARTFILE_PREFIX_1
-#undef STANDARD_STARTFILE_PREFIX_2
-#define STANDARD_STARTFILE_PREFIX_1 "/tools/lib/"
-#define STANDARD_STARTFILE_PREFIX_2 ""
+#define MUSL_DYNAMIC_LINKER "/lib/ld-musl-i386.so.1"

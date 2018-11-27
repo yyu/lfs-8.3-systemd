@@ -1,0 +1,675 @@
+[1;3;32m________________________________________________________________________________
+
+    linux_api_headers (<0.1 SBU; 924 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    man-pages (<0.1 SBU; 28 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    glibc (24 SBU; 2.8 GB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    _lfs_basic_system_configure_glibc
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    zlib (<0.1 SBU; 4.4 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    file (0.1 SBU; 18 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    readline (0.1 SBU; 18 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # Reinstalling Readline will cause the old libraries to be moved to <libraryname>.old.
+    # While this is normally not a problem, in some cases it can trigger a linking bug in ldconfig.
+    # This can be avoided by issuing the following two seds:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # Now move the dynamic libraries to a more appropriate location and fix up some permissions and symbolic links:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # install the documentation:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    m4 (0.4 SBU; 33 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    First, make some fixes required by glibc-2.28:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make check
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    bc (0.1 SBU; 4.1 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # First, change an internal script to use sed instead of ed:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # Create temporary symbolic links so the package can find the readline library and confirm that its required libncurses library is available.
+    # Even though the libraries are in /tools/lib at this point, the system will use /usr/lib at the end of this chapter.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # Fix an issue in configure due to missing files in the early stages of LFS:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # To test bc, run the commands below.
+    # There is quite a bit of output, so you may want to redirect it to a file.
+    # There are a very small percentage of tests (10 of 12,144) that will indicate a round off error at the last digit.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # now examin [0;36mtest_checklib.output
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    binutils (6.6 SBU; 4.9 GB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Verify that the PTYs are working properly inside the chroot environment by performing a simple test:
+    
+................................................................................[0m
+[0;3;36m
+    # This command should output the following.
+[0;1;36m
+    spawn ls
+[0;3;35m
+    # If, instead, the output includes the message below, then the environment is not set up for proper PTY operation.
+    # This issue needs to be resolved before running the test suites for Binutils and GCC:
+[0;1;35m
+    The system has no more ptys.
+
+    Ask your system administrator to create more.
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    # The Binutils documentation recommends building Binutils in a dedicated build directory:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make check
+    # [1;33mThe test suite for Binutils in this section is considered critical. Do not skip it under any circumstances.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    gmp (1.3 SBU; 61 MB)
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    If you are building for 32-bit x86, but you have a CPU which is capable of running 64-bit code
+    and you have specified CFLAGS in the environment, the configure script will attempt to configure for 64-bits and fail.
+    Avoid this by invoking the configure command below with
+[0;1;33m
+    ABI=32 ./configure ...
+    
+[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    The default settings of GMP produce libraries optimized for the host processor.
+    If libraries suitable for processors less capable than the host CPU are desired,
+    generic libraries can be created by running the following:
+[0;1;33m
+    cp -v configfsf.guess config.guess
+
+    cp -v configfsf.sub   config.sub
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[7;31mImportant[0m[31m__________________________________________________[0m
+[0;31m
+    The test suite for GMP in this section is considered critical.
+    Do not skip it under any circumstances.
+    
+[0;1;31m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    # make check
+    
+................................................................................[0m
+[7;31mImportant[0m[31m__________________________________________________[0m
+[0;31m
+    The code in gmp is highly optimized for the processor where it is built.
+    Occasionally, the code that detects the processor misidentifies the system capabilities
+    and there will be errors in the tests or other applications using the gmp libraries with the message "Illegal instruction".
+    In this case, gmp should be reconfigured with the option --build=x86_64-unknown-linux-gnu and rebuilt.
+    
+[0;1;31m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Ensure that all 190 tests in the test suite passed. Check the results by issuing the following command:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    mpfr (1.1 SBU; 36 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make check
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    mpc (0.3 SBU; 22 MB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # configure
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make check
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    shadow (0.2 SBU; 46 MB)
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    If you would like to enforce the use of strong passwords, refer to
+    http://www.linuxfromscratch.org/blfs/view/8.3/postlfs/cracklib.html
+    for installing CrackLib prior to building Shadow.
+    Then add --with-libcrack to the configure command below.
+    
+[0;1;33m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Disable the installation of the groups program and its man pages, as Coreutils provides a better version.
+    Also Prevent the installation of manual pages that were already installed by the man pages package:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Instead of using the default crypt method, use the more secure SHA-512 method of password encryption,
+    which also allows passwords longer than 8 characters.
+    It is also necessary to change the obsolete /var/spool/mail location for user mailboxes
+    that Shadow uses by default to the /var/mail location used currently:
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    If you chose to build Shadow with Cracklib support, run the following:
+[0;1;33m
+    sed -i 's@DICTPATH.*@DICTPATH	/lib/cracklib/pw_dict@' etc/login.defs
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Make a minor change to make the first group number generated by useradd 1000:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Prepare Shadow for compilation:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    # make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Move a misplaced program to its proper location:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    _lfs_basic_system_configure_shadow
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    This package contains utilities to add, modify, and delete users and groups;
+    set and change their passwords; and perform other administrative tasks.
+    For a full explanation of what password shadowing means, see the doc/HOWTO file within the unpacked source tree.
+    If using Shadow support, keep in mind that programs which need to verify passwords
+    (display managers, FTP programs, pop3 daemons, etc.) must be Shadow-compliant.
+    That is, they need to be able to work with shadowed passwords.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    enable shadowed passwords
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    enable shadowed group passwords
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Shadow's stock configuration for the useradd utility has a few caveats that need some explanation.
+
+    - First, the default action for the useradd utility is to create the user and a group of the same name as the user.
+
+      By default the user ID (UID) and group ID (GID) numbers will begin with 1000.
+
+      This means if you dont pass parameters to useradd, each user will be a member of a unique group on the system.
+
+    If this behavior is undesirable, youll need to pass the -g parameter to useradd.
+
+    The default parameters are stored in the /etc/default/useradd file.
+
+    You may need to modify two parameters in this file to suit your particular needs.
+
+    
+
+    
+................................................................................[0m
+[7;32m
+    /etc/default/useradd[0m[32m__________________________________________________[0m
+[0;32mParameter Explanations
+[0;1;32m
+    
+
+    GROUP=1000
+
+    ----------
+
+    This parameter sets the beginning of the group numbers used in the /etc/group file.
+
+    You can modify it to anything you desire.
+
+    Note that useradd will never reuse a UID or GID.
+
+    If the number identified in this parameter is used, it will use the next available number after this.
+
+    Note also that if you dont have a group 1000 on your system the first time you use useradd without the -g parameter,
+
+    youll get a message displayed on the terminal that says: useradd: unknown GID 1000.
+
+    You may disregard this message and group number 1000 will be used.
+
+    
+
+    CREATE_MAIL_SPOOL=yes
+
+    ---------------------
+
+    This parameter causes useradd to create a mailbox file for the newly created user.
+
+    useradd will make the group ownership of this file to the mail group with 0660 permissions.
+
+    If you would prefer that these mailbox files are not created by useradd, issue the following command:
+
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    # 6.20.3. Setting the root password
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    gcc (92 SBU; 4 GB)
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    If building on x86_64, change the default directory name for 64-bit libraries to “lib”:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Remove the symlink created earlier as the final gcc includes will be installed here:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    The GCC documentation recommends building GCC in a dedicated build directory:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Prepare GCC for compilation:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    compile
+    
+................................................................................[0m
+[7;31mImportant[0m[31m__________________________________________________[0m
+[0;31m
+    In this section, the test suite for GCC is considered critical. Do not skip it under any circumstance.
+    
+[0;1;31m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    One set of tests in the GCC test suite is known to exhaust the stack, so increase the stack size prior to running the tests:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Remove one test known to cause a problem:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Test the results as a non-privileged user, but do not stop at errors:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    To receive a summary of the test suite results, run:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    For only the summaries, pipe the output through grep -A7 Summ.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Results can be compared with those located at http://www.linuxfromscratch.org/lfs/build-logs/8.3/ and https://gcc.gnu.org/ml/gcc-testresults/.
+    A few unexpected failures cannot always be avoided.
+    The GCC developers are usually aware of these issues, but have not resolved them yet.
+    Unless the test results are vastly different from those at the above URL, it is safe to continue.
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    On some combinations of kernel configuration and AMD processors there may be more than 1100 failures
+    in the gcc.target/i386/mpx tests (which are designed to test the MPX option on recent Intel processors).
+    These can safely be ignored on AMD processors.
+    These tests will also fail on Intel processors if MPX support is not enabled in the kernel even though it is present on the CPU.
+    
+[0;1;33m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    make install
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Create a symlink required by the FHS for "historical" reasons.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Many packages use the name cc to call the C compiler. To satisfy those packages, create a symlink:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Add a compatibility symlink to enable building programs with Link Time Optimization (LTO):
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Now that our final toolchain is in place, it is important to again ensure that compiling and linking will work as expected.
+    We do this by performing the same sanity checks as we did earlier in the chapter:
+    
+................................................................................[0m
+[0;3;36m
+    There should be no errors, and the output of the last command will be (allowing for platform-specific differences in dynamic linker name):
+[0;1;36m
+    [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+    
+[0;3;35m
+[0;1;35m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Now make sure that we're setup to use the correct start files:
+    
+................................................................................[0m
+[0;3;36m
+    The output of the last command should be:
+[0;1;36m
+    /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crt1.o succeeded
+    /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crti.o succeeded
+    /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/../../../../lib/crtn.o succeeded
+[0;3;35m
+    Depending on your machine architecture, the above may differ slightly,
+    the difference usually being the name of the directory after /usr/lib/gcc.
+[0;1;35m
+    The important thing to look for here is that gcc has found all three crt*.o files under the /usr/lib directory.
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Verify that the compiler is searching for the correct header files:
+    
+................................................................................[0m
+[0;3;36m
+    This command should return the following output:
+[0;1;36m
+    #include <...> search starts here:
+     /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/include
+     /usr/local/include
+     /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.0/include-fixed
+     /usr/include
+[0;3;35m
+    Again, note that the directory named after your target triplet may be different than the above, depending on your architecture.
+    
+[0;1;35m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Next, verify that the new linker is being used with the correct search paths:
+    
+................................................................................[0m
+[0;3;36m
+    References to paths that have components with -linux-gnu should be ignored, but otherwise the output of the last command should be:
+[0;1;36m
+    SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
+    SEARCH_DIR("/usr/local/lib64")
+    SEARCH_DIR("/lib64")
+    SEARCH_DIR("/usr/lib64")
+    SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib")
+    SEARCH_DIR("/usr/local/lib")
+    SEARCH_DIR("/lib")
+    SEARCH_DIR("/usr/lib");
+[0;3;35m
+    A 32-bit system may see a few different directories. For example, here is the output from an i686 machine:
+[0;1;35m
+    SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
+    SEARCH_DIR("/usr/local/lib32")
+    SEARCH_DIR("/lib32")
+    SEARCH_DIR("/usr/lib32")
+    SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")
+    SEARCH_DIR("/usr/local/lib")
+    SEARCH_DIR("/lib")
+    SEARCH_DIR("/usr/lib");
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Next make sure that we're using the correct libc:
+    
+................................................................................[0m
+[0;3;36m
+    The output of the last command should be:
+[0;1;36m
+    attempt to open /lib/libc.so.6 succeeded
+    
+[0;3;35m
+[0;1;35m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Lastly, make sure GCC is using the correct dynamic linker:
+    
+................................................................................[0m
+[0;3;36m
+    The output of the last command should be (allowing for platform-specific differences in dynamic linker name): 
+[0;1;36m
+    found ld-linux-x86-64.so.2 at /lib/ld-linux-x86-64.so.2 
+[0;3;35m
+    If the output does not appear as shown above or is not received at all, then something is seriously wrong.
+    Investigate and retrace the steps to find out where the problem is and correct it.
+    The most likely reason is that something went wrong with the specs file adjustment.
+    Any issues will need to be resolved before continuing with the process.
+    
+[0;1;35m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Once everything is working correctly, clean up the test files:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Finally, move a misplaced file:
+    
+................................................................................[0m

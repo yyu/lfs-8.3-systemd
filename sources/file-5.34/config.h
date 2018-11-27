@@ -82,7 +82,7 @@
 /* #undef HAVE_LIBSECCOMP */
 
 /* Define to 1 if you have the `z' library (-lz). */
-/* #undef HAVE_LIBZ */
+#define HAVE_LIBZ 1
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
@@ -254,7 +254,7 @@
 /* #undef HAVE_XLOCALE_H */
 
 /* Define to 1 if you have the <zlib.h> header file. */
-/* #undef HAVE_ZLIB_H */
+#define HAVE_ZLIB_H 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
@@ -333,7 +333,7 @@
 #endif
 
 /* Enable zlib compression support */
-/* #undef ZLIBSUPPORT */
+#define ZLIBSUPPORT 1
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE

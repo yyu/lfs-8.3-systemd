@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual documents how to install and use the Multiple Precision
+Floating-Point Reliable Library, version 4.0.1.
+
+Copyright 1991, 1993-2018 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.2 or any later
+version published by the Free Software Foundation; with no Invariant Sections,
+with no Front-Cover Texts, and with no Back-Cover Texts.  A copy of the
+license is included in GNU Free Documentation License. -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Input and Output Functions (GNU MPFR 4.0.1)</title>
+
+<meta name="description" content="How to install and use GNU MPFR, a library for reliable multiple precision
+floating-point arithmetic, version 4.0.1.">
+<meta name="keywords" content="Input and Output Functions (GNU MPFR 4.0.1)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="MPFR-Interface.html#MPFR-Interface" rel="up" title="MPFR Interface">
+<link href="Formatted-Output-Functions.html#Formatted-Output-Functions" rel="next" title="Formatted Output Functions">
+<link href="Special-Functions.html#Special-Functions" rel="prev" title="Special Functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="Input-and-Output-Functions"></a>
+<div class="header">
+<p>
+Next: <a href="Formatted-Output-Functions.html#Formatted-Output-Functions" accesskey="n" rel="next">Formatted Output Functions</a>, Previous: <a href="Special-Functions.html#Special-Functions" accesskey="p" rel="prev">Special Functions</a>, Up: <a href="MPFR-Interface.html#MPFR-Interface" accesskey="u" rel="up">MPFR Interface</a> &nbsp; [<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="index-Float-input-and-output-functions"></a>
+<a name="index-Input-functions"></a>
+<a name="index-Output-functions"></a>
+<a name="index-I_002fO-functions"></a>
+<a name="Input-and-Output-Functions-1"></a>
+<h3 class="section">5.8 Input and Output Functions</h3>
+
+<p>This section describes functions that perform input from an input/output
+stream, and functions that output to an input/output stream.
+Passing a null pointer for a <code>stream</code> to any of these functions will make
+them read from <code>stdin</code> and write to <code>stdout</code>, respectively.
+</p>
+<p>When using a function that takes a <code>FILE *</code> argument, you must
+include the <code>&lt;stdio.h&gt;</code> standard header before <samp>mpfr.h</samp>,
+to allow <samp>mpfr.h</samp> to define prototypes for these functions.
+</p>
+<dl>
+<dt><a name="index-mpfr_005fout_005fstr"></a>Function: <em>size_t</em> <strong>mpfr_out_str</strong> <em>(FILE *<var>stream</var>, int <var>base</var>, size_t <var>n</var>, mpfr_t <var>op</var>, mpfr_rnd_t <var>rnd</var>)</em></dt>
+<dd><p>Output <var>op</var> on stream <var>stream</var>, as a string of digits in
+base <var>base</var>, rounded in the direction <var>rnd</var>.
+The base may vary from 2 to 62.  Print <var>n</var> significant digits exactly,
+or if <var>n</var> is 0, enough digits so that <var>op</var> can be read back
+exactly (see <code>mpfr_get_str</code>).
+</p>
+<p>In addition to the significant digits, a decimal point (defined by the
+current locale) at the right of the
+first digit and a trailing exponent in base 10, in the form &lsquo;<samp>eNNN</samp>&rsquo;,
+are printed. If <var>base</var> is greater than 10, &lsquo;<samp>@</samp>&rsquo; will be used
+instead of &lsquo;<samp>e</samp>&rsquo; as exponent delimiter.
+</p>
+<p>Return the number of characters written, or if an error occurred, return 0.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-mpfr_005finp_005fstr"></a>Function: <em>size_t</em> <strong>mpfr_inp_str</strong> <em>(mpfr_t <var>rop</var>, FILE *<var>stream</var>, int <var>base</var>, mpfr_rnd_t <var>rnd</var>)</em></dt>
+<dd><p>Input a string in base <var>base</var> from stream <var>stream</var>,
+rounded in the direction <var>rnd</var>, and put the
+read float in <var>rop</var>.
+</p>
+<p>This function reads a word (defined as a sequence of characters between
+whitespace) and parses it using <code>mpfr_set_str</code>.
+See the documentation of <code>mpfr_strtofr</code> for a detailed description
+of the valid string formats.
+</p>
+<p>Return the number of bytes read, or if an error occurred, return 0.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-mpfr_005ffpif_005fexport"></a>Function: <em>int</em> <strong>mpfr_fpif_export</strong> <em>(FILE *<var>stream</var>, mpfr_t <var>op</var>)</em></dt>
+<dd><p>Export the number <var>op</var> to the stream <var>stream</var> in a floating-point
+interchange format.
+In particular one can export on a 32-bit computer and import on a 64-bit
+computer, or export on a little-endian computer and import on a big-endian
+computer.
+The precision of <var>op</var> and the sign bit of a NaN are stored too.
+Return 0 iff the export was successful.
+</p>
+<p>Note: this function is experimental and its interface might change in future
+versions.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-mpfr_005ffpif_005fimport"></a>Function: <em>int</em> <strong>mpfr_fpif_import</strong> <em>(mpfr_t <var>op</var>, FILE *<var>stream</var>)</em></dt>
+<dd><p>Import the number <var>op</var> from the stream <var>stream</var> in a floating-point
+interchange format (see <code>mpfr_fpif_export</code>).
+Note that the precision of <var>op</var> is set to the one read from the stream,
+and the sign bit is always retrieved (even for NaN).
+If the stored precision is zero or greater than <code>MPFR_PREC_MAX</code>, the
+function fails (it returns non-zero) and <var>op</var> is unchanged. If the
+function fails for another reason, <var>op</var> is set to NaN and it is
+unspecified whether the precision of <var>op</var> has changed to the one
+read from the file.
+Return 0 iff the import was successful.
+</p>
+<p>Note: this function is experimental and its interface might change in future
+versions.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-mpfr_005fdump"></a>Function: <em>void</em> <strong>mpfr_dump</strong> <em>(mpfr_t <var>op</var>)</em></dt>
+<dd><p>Output <var>op</var> on <code>stdout</code> in some unspecified format, then a newline
+character. This function is mainly for debugging purpose. Thus invalid data
+may be supported. Everything that is not specified may change without
+breaking the ABI and may depend on the environment.
+</p>
+<p>The current output format is the following: a minus sign if the sign bit
+is set (even for NaN); &lsquo;<samp>@NaN@</samp>&rsquo;, &lsquo;<samp>@Inf@</samp>&rsquo; or &lsquo;<samp>0</samp>&rsquo; if the
+argument is NaN, an infinity or zero, respectively; otherwise the remaining
+of the output is as follows: &lsquo;<samp>0.</samp>&rsquo; then the <var>p</var> bits of the binary
+significand, where <var>p</var> is the precision of the number; if the trailing
+bits are not all zeros (which must not occur with valid data), they are
+output enclosed by square brackets; the character &lsquo;<samp>E</samp>&rsquo; followed by
+the exponent written in base 10; in case of invalid data or out-of-range
+exponent, this function outputs three exclamation marks (&lsquo;<samp>!!!</samp>&rsquo;),
+followed by flags, followed by three exclamation marks (&lsquo;<samp>!!!</samp>&rsquo;) again.
+These flags are: &lsquo;<samp>N</samp>&rsquo; if the most significant bit of the significand
+is 0 (i.e., the number is not normalized); &lsquo;<samp>T</samp>&rsquo; if there are non-zero
+trailing bits; &lsquo;<samp>U</samp>&rsquo; if this is a UBF number (internal use only);
+&lsquo;<samp>&lt;</samp>&rsquo; if the exponent is less than the current minimum exponent;
+&lsquo;<samp>&gt;</samp>&rsquo; if the exponent is greater than the current maximum exponent.
+</p></dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Formatted-Output-Functions.html#Formatted-Output-Functions" accesskey="n" rel="next">Formatted Output Functions</a>, Previous: <a href="Special-Functions.html#Special-Functions" accesskey="p" rel="prev">Special Functions</a>, Up: <a href="MPFR-Interface.html#MPFR-Interface" accesskey="u" rel="up">MPFR Interface</a> &nbsp; [<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
