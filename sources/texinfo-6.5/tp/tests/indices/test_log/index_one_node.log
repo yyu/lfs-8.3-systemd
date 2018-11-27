@@ -1,0 +1,17 @@
+testdir: indices/
+driving_file: ./indices//tests-parser.txt
+found special first line, commands now: : :_info
+made result dir: ./indices//res_parser/
+made result dir: ./indices//res_parser_info/
+
+doing test index_one_node, src_file ./indices//index_one_node.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl index_one_node -> indices//out_parser/index_one_node
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./indices/ -I indices// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output indices//out_parser/index_one_node/  ./indices//index_one_node.texi > indices//out_parser/index_one_node/index_one_node.1 2>indices//out_parser/index_one_node/index_one_node.2
+
+doing test index_one_node, src_file ./indices//index_one_node.texi
+format_option: --info
+texi2any.pl index_one_node -> indices//out_parser_info/index_one_node
+ /tools/bin/perl -w ./..//texi2any.pl --info --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./indices/ -I indices// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output indices//out_parser_info/index_one_node/  ./indices//index_one_node.texi > indices//out_parser_info/index_one_node/index_one_node.1 2>indices//out_parser_info/index_one_node/index_one_node.2
+
+all done, exiting with status 1

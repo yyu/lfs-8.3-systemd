@@ -1,0 +1,53 @@
+===========================================
+   GNU patch 2.7.6: tests/test-suite.log
+===========================================
+
+# TOTAL: 44
+# PASS:  42
+# SKIP:  0
+# XFAIL: 2
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+XFAIL: context-format
+=====================
+
+[24] patch < ab.diff -- FAILED
+--- expected
++++ got
+@@ -1 +1 @@
+-patching file a
++/mnt/lfs/sources/patch-2.7.6/src/patch: **** replacement text or line numbers mangled in hunk at line 4
+[38] patch < ab.diff -- FAILED
+--- expected
++++ got
+@@ -1 +1 @@
+-patching file a
++/mnt/lfs/sources/patch-2.7.6/src/patch: **** replacement text or line numbers mangled in hunk at line 4
+2 tests (0 passed, 2 failed)
+XFAIL context-format (exit status: 1)
+
+XFAIL: dash-o-append
+====================
+
+[35] patch -o a.new a < a.diff -- FAILED
+--- expected
++++ got
+@@ -1,2 +1,4 @@
+ patching file a.new (read from a)
+ patching file a.new (read from a)
++Hunk #1 FAILED at 1.
++1 out of 1 hunk FAILED -- saving rejects to file a.new.rej
+[40] cat a.new -- FAILED
+--- expected
++++ got
+@@ -1,2 +1,2 @@
+ two
+-three
++one
+2 tests (0 passed, 2 failed)
+XFAIL dash-o-append (exit status: 1)
+

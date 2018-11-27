@@ -1,0 +1,10 @@
+testdir: htmlxref-only_split/
+driving_file: ./htmlxref-only_split//tests-parser.txt
+made result dir: ./htmlxref-only_split//res_parser/
+
+doing test htmlxref, src_file ./htmlxref-only_split//../sectioning/test_refs.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl htmlxref -> htmlxref-only_split//out_parser/htmlxref
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./htmlxref-only_split/ -I htmlxref-only_split// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output htmlxref-only_split//out_parser/htmlxref/ -c HTMLXREF=htmlxref-only_split/htmlxref.cnf ./htmlxref-only_split//../sectioning/test_refs.texi > htmlxref-only_split//out_parser/htmlxref/test_refs.1 2>htmlxref-only_split//out_parser/htmlxref/test_refs.2
+
+all done, exiting with status 1

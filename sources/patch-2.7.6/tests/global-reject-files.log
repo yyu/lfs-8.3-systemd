@@ -1,0 +1,8 @@
+[33] patch -p0 < ab.diff -- ok
+[40] patch -p0 -f < ab.diff || echo "Status: $?" -- ok
+[50] cat a.rej -- ok
+[58] cat b.rej -- ok
+[66] patch -p0 -f -r ab.rej < ab.diff || echo "Status: $?" -- ok
+[76] cat ab.rej -- ok
+6 tests (6 passed, 0 failed)
+PASS global-reject-files (exit status: 0)

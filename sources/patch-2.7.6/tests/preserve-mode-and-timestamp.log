@@ -1,0 +1,11 @@
+[45] patch -p1 --backup --set-utc < f.diff -- ok
+[55] test ! \( f -ot f.compare -o f -nt f.compare \) || echo "timstamp differs" -- ok
+[60] ls -l f.orig | sed "s,\(..........\).*,\1," -- ok
+[73] patch -p1 --backup --set-utc < f.diff || echo "Status: $?" -- ok
+[81] ls -l f.rej | sed "s,\(..........\).*,\1," -- ok
+[94] patch -p1 --backup --set-utc < f.diff || echo "Status: $?" -- ok
+[102] ls -l f.rej | sed "s,\(..........\).*,\1," -- ok
+[117] patch -p1 --backup --set-utc < f.diff -- ok
+[121] test ! \( f -ot f.compare -o f -nt f.compare \) || echo "timstamp differs" -- ok
+9 tests (9 passed, 0 failed)
+PASS preserve-mode-and-timestamp (exit status: 0)

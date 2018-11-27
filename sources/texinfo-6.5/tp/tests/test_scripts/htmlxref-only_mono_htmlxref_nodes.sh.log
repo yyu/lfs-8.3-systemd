@@ -1,0 +1,19 @@
+D: htmlxref-only_mono//diffs/htmlxref_nodes.diff
+testdir: htmlxref-only_mono/
+driving_file: ./htmlxref-only_mono//tests-parser.txt
+made result dir: ./htmlxref-only_mono//res_parser/
+
+doing test htmlxref_nodes, src_file ./htmlxref-only_mono//../sectioning/test_refs.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl htmlxref_nodes -> htmlxref-only_mono//out_parser/htmlxref_nodes
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./htmlxref-only_mono/ -I htmlxref-only_mono// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output htmlxref-only_mono//out_parser/htmlxref_nodes/ --split node --set-customization-variable 'USE_NODES 1' --node-files -c HTMLXREF=htmlxref-only_mono/htmlxref.cnf ./htmlxref-only_mono//../sectioning/test_refs.texi > htmlxref-only_mono//out_parser/htmlxref_nodes/test_refs.1 2>htmlxref-only_mono//out_parser/htmlxref_nodes/test_refs.2
+
+all done, exiting with status 1
+
+diff -a -u -r htmlxref-only_mono//diffs/staging_res/htmlxref_nodes/test_refs.2 htmlxref-only_mono//out_parser/htmlxref_nodes/test_refs.2
+--- htmlxref-only_mono//diffs/staging_res/htmlxref_nodes/test_refs.2	2017-08-27 10:45:46.000000000 +0000
++++ htmlxref-only_mono//out_parser/htmlxref_nodes/test_refs.2	2018-11-26 23:59:18.032926265 +0000
+@@ -0,0 +1,2 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+FAIL test_scripts/htmlxref-only_mono_htmlxref_nodes.sh (exit status: 1)

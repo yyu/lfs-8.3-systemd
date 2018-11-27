@@ -1,0 +1,192 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-stats.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-stats.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ dd
++ require_built_ dd
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env dd --version
+dd (coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, and Stuart Kemp.
++ require_trap_signame_
++ trap '' CHLD
++ kill -l
++ grep INFO
++ SIGINFO=USR1
++ trap '' USR1
++ mkfifo_or_skip_ fifo
++ test 1 = 1
++ mkfifo fifo
++ for open in '' '1'
++ pid=40265
++ test ''
++ dd iflag=fullblock if=/dev/zero of=fifo count=50 bs=5000000
++ pid2=40266
++ kill -s USR1 40265
++ sleep .01
++ timeout 20 sh -c 'wc -c < fifo > nwritten'
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ sleep .01
++ kill -s USR1 40265
++ wait
++ grep '250000000 bytes (250 MB, 238 MiB) copied' err
+250000000 bytes (250 MB, 238 MiB) copied, 0.117858 s, 2.1 GB/s
++ for open in '' '1'
++ pid=40281
++ test 1
++ sleep .1
++ dd iflag=fullblock if=/dev/zero of=fifo count=50 bs=5000000
++ pid2=40283
++ kill -s USR1 40281
++ sleep .01
++ timeout 20 sh -c 'wc -c < fifo > nwritten'
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ sleep .01
++ kill -s USR1 40281
++ wait
++ grep '250000000 bytes (250 MB, 238 MiB) copied' err
+250000000 bytes (250 MB, 238 MiB) copied, 0.130996 s, 1.9 GB/s
++ retry_delay_ progress_output 1 4
++ local test_func=progress_output
++ local init_delay=1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ gawk -v n=1 -v s=1 'BEGIN { print s * n }'
++ local delay=1
++ progress_output 1
++ sleep 1
++ dd bs=1 status=progress of=/dev/null
++ echo 1
++ grep 'byte copied' err
+1 byte copied, 1 s, 0.0 kB/s
++ time_fail=0
++ break
++ test 0 = 0
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ kill 40281
++ kill 40283
++ wait
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-stats.sh.L6bX
++ exit 0
+PASS tests/dd/stats.sh (exit status: 0)

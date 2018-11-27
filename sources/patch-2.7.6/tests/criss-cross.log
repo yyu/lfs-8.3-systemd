@@ -1,0 +1,9 @@
+[32] patch -p1 < criss-cross-rename.diff || echo "Status: $?" -- ok
+[37] cat f -- ok
+[41] cat g -- ok
+[48] seq 1 1000 > a -- ok
+[74] patch -p1 < modified-twice.diff || echo "Status: $?" -- ok
+[79] cat a -- ok
+[83] cat b -- ok
+7 tests (7 passed, 0 failed)
+PASS criss-cross (exit status: 0)

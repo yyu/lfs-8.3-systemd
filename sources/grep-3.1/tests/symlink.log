@@ -1,0 +1,227 @@
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-symlink.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-symlink.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ mkdir dir
++ echo a
++ echo b
++ ln -s a dir/c
++ ln -s . dir/d
++ ln -s dangling dir/e
++ touch out
++ for recursion in '' -r -R
++ for files in '' '*'
++ case $recursion,$files in
++ expected_status=0
++ cd dir
++ grep '^'
++ test 0 -eq 0
++ case $recursion,$files in
++ exp='a\n'
++ printf 'a\n'
++ LC_ALL=C
++ sort grepout
++ grep -v Binary out-t
++ case $? in
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for files in '' '*'
++ case $recursion,$files in
++ expected_status=2
++ cd dir
++ grep '^' a b c d e
+grep: d: Is a directory
+grep: e: No such file or directory
++ test 2 -eq 2
++ case $recursion,$files in
++ exp='a:a\nb:b\nc:a\n'
++ printf 'a:a\nb:b\nc:a\n'
++ LC_ALL=C
++ sort grepout
++ grep -v Binary out-t
++ case $? in
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for recursion in '' -r -R
++ for files in '' '*'
++ case $recursion,$files in
++ expected_status=0
++ cd dir
++ grep -r '^'
++ test 0 -eq 0
++ case $recursion,$files in
++ exp='a:a\nb:b\n'
++ printf 'a:a\nb:b\n'
++ LC_ALL=C
++ sort grepout
++ grep -v Binary out-t
++ case $? in
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for files in '' '*'
++ case $recursion,$files in
++ expected_status=2
++ cd dir
++ grep -r '^' a b c d e
+grep: e: No such file or directory
++ test 2 -eq 2
++ case $recursion,$files in
++ exp='a:a\nb:b\nc:a\nd/a:a\nd/b:b\n'
++ printf 'a:a\nb:b\nc:a\nd/a:a\nd/b:b\n'
++ LC_ALL=C
++ sort grepout
++ grep -v Binary out-t
++ case $? in
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for recursion in '' -r -R
++ for files in '' '*'
++ case $recursion,$files in
++ expected_status=2
++ cd dir
++ grep -R '^'
+grep: warning: d: recursive directory loop
+grep: e: No such file or directory
++ test 2 -eq 2
++ case $recursion,$files in
++ exp='a:a\nb:b\nc:a\n'
++ printf 'a:a\nb:b\nc:a\n'
++ LC_ALL=C
++ sort grepout
++ grep -v Binary out-t
++ case $? in
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for files in '' '*'
++ case $recursion,$files in
++ expected_status=2
++ cd dir
++ grep -R '^' a b c d e
+grep: warning: d/d: recursive directory loop
+grep: d/e: No such file or directory
+grep: e: No such file or directory
++ test 2 -eq 2
++ case $recursion,$files in
++ exp='a:a\nb:b\nc:a\nd/a:a\nd/b:b\nd/c:a\n'
++ printf 'a:a\nb:b\nc:a\nd/a:a\nd/b:b\nd/c:a\n'
++ LC_ALL=C
++ sort grepout
++ grep -v Binary out-t
++ case $? in
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ Exit
++ set +e
++ exit
++ exit
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-symlink.E83N
++ exit 0
+PASS symlink (exit status: 0)

@@ -1,0 +1,26 @@
+[24] patch -b -p1 < ab.diff -- ok
+[28] cat f.orig -- ok
+[33] patch -b -B prefix. -p1 < ab.diff -- ok
+[37] cat prefix.f -- ok
+[42] patch -b -z .suffix -p1 < ab.diff -- ok
+[46] cat f.suffix -- ok
+[51] patch -b -B prefix. -z .suffix -p1 < ab.diff -- ok
+[55] cat prefix.f.suffix -- ok
+[62] patch -b -p1 < ab.diff -- ok
+[66] cat f.bak -- ok
+[72] patch -b -p1 < ab.diff -- ok
+[76] cat f.~2~ -- ok
+[82] patch -b -p1 < ab.diff -- ok
+[86] cat f.~3~ -- ok
+[105] patch -b -p1 < ab.diff -- ok
+[109] cat d/f.orig -- ok
+[114] patch -b -B orig/ -p1 < ab.diff -- ok
+[118] cat orig/d/f -- ok
+[123] patch -b -B orig/ -z .orig -p1 < ab.diff -- ok
+[127] cat orig/d/f.orig -- ok
+[132] patch -b -Y .orig/ -p1 < ab.diff -- ok
+[136] cat d/.orig/f -- ok
+[141] patch -b -Y .orig/ -z .orig -p1 < ab.diff -- ok
+[145] cat d/.orig/f.orig -- ok
+24 tests (24 passed, 0 failed)
+PASS backup-prefix-suffix (exit status: 0)

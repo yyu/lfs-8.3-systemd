@@ -1,0 +1,110 @@
+./tests/misc/stat-nanoseconds.sh: line 19: print_ver_: command not found
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-stat-nanoseconds.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-stat-nanoseconds.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
++++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ TZ=UTC0
++ export TZ
++ touch -d '1970-01-01 18:43:33.023456789' k
++ ls --full-time
++ grep 18:43:33.023456789
+-rw-r--r-- 1 lfs lfs 0 1970-01-01 18:43:33.023456789 +0000 k
+++ stat -c %X k
++ test 67413 = 67413
+++ stat -c %.X k
++ test 67413.023456789 = 67413.023456789
+++ stat -c %.1X k
++ test 67413.0 = 67413.0
+++ stat -c %.3X k
++ test 67413.023 = 67413.023
+++ stat -c %.6X k
++ test 67413.023456 = 67413.023456
+++ stat -c %.9X k
++ test 67413.023456789 = 67413.023456789
+++ stat -c %13.6X k
++ test ' 67413.023456' = ' 67413.023456'
+++ stat -c %013.6X k
++ test 067413.023456 = 067413.023456
+++ stat -c %-13.6X k
++ test '67413.023456 ' = '67413.023456 '
+++ stat -c %18.10X k
++ test '  67413.0234567890' = '  67413.0234567890'
+++ stat -c %I18.10X k
++ test '  67413.0234567890' = '  67413.0234567890'
+++ stat -c %018.10X k
++ test 0067413.0234567890 = 0067413.0234567890
+++ stat -c %-18.10X k
++ test '67413.0234567890  ' = '67413.0234567890  '
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-stat-nanoseconds.sh.Ay6o
++ exit 0
+PASS tests/misc/stat-nanoseconds.sh (exit status: 0)

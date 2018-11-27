@@ -1,0 +1,12 @@
+[27] emit_patch ../z | patch -f -p1 --dry-run || echo status: $? -- ok
+[31] emit_patch /absolute/path | patch -f -p0 --dry-run || echo status: $? -- ok
+[52] emit_patch $filename | (cd / && patch -f -p0 --dry-run) || echo status: $? -- ok
+[56] emit_patch a/../z | patch -f -p0 --dry-run || echo status: $? -- ok
+[70] emit_patch a/../z | patch -f -p1 --dry-run || echo status: $? -- ok
+[84] emit_patch ../z | patch -f -p0 --dry-run || echo status: $? -- ok
+[106] patch -f -p0 --dry-run < d.diff || echo status: $? -- ok
+[120] patch -f -p0 --dry-run < d.diff || echo status: $? -- ok
+[125] patch -f -p1 --dry-run < d.diff || echo status: $? -- ok
+[139] patch -f -p0 < d.diff || echo status: $? -- ok
+10 tests (10 passed, 0 failed)
+PASS bad-filenames (exit status: 0)

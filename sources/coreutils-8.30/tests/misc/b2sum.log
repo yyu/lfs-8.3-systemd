@@ -1,0 +1,177 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-b2sum.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-b2sum.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
++++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ b2sum
++ require_built_ b2sum
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env b2sum --version
+b2sum (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Padraig Brady and Samuel Neves.
++ rm check.b2sum
+rm: cannot remove 'check.b2sum': No such file or directory
++ for i in 'a' ' b' '*c' '44' ' '
++ echo a
++ for l in 0 128
++ b2sum -l 0 --tag a
++ for l in 0 128
++ b2sum -l 128 --tag a
++ for i in 'a' ' b' '*c' '44' ' '
++ echo ' b'
++ for l in 0 128
++ b2sum -l 0 --tag ' b'
++ for l in 0 128
++ b2sum -l 128 --tag ' b'
++ for i in 'a' ' b' '*c' '44' ' '
++ echo '*c'
++ for l in 0 128
++ b2sum -l 0 --tag '*c'
++ for l in 0 128
++ b2sum -l 128 --tag '*c'
++ for i in 'a' ' b' '*c' '44' ' '
++ echo 44
++ for l in 0 128
++ b2sum -l 0 --tag 44
++ for l in 0 128
++ b2sum -l 128 --tag 44
++ for i in 'a' ' b' '*c' '44' ' '
++ echo ' '
++ for l in 0 128
++ b2sum -l 0 --tag ' '
++ for l in 0 128
++ b2sum -l 128 --tag ' '
++ b2sum --strict -c check.b2sum
+a: OK
+a: OK
+ b: OK
+ b: OK
+*c: OK
+*c: OK
+44: OK
+44: OK
+ : OK
+ : OK
++ sed 's/ //; s/ =/=/'
++ b2sum --strict -c openssl.b2sum
+a: OK
+a: OK
+ b: OK
+ b: OK
+*c: OK
+*c: OK
+44: OK
+44: OK
+ : OK
+ : OK
++ for l in 0 128
++ b2sum -l 0 /dev/null
++ tee -a check.vals
++ b2sum -l 0 --strict -c check.b2sum
+/dev/null: OK
++ b2sum --strict -c check.b2sum
+/dev/null: OK
++ for l in 0 128
++ b2sum -l 128 /dev/null
++ tee -a check.vals
++ b2sum -l 128 --strict -c check.b2sum
+/dev/null: OK
++ b2sum --strict -c check.b2sum
+/dev/null: OK
++ b2sum -l 128 check.vals
++ printf '%s\n' '796485dd32fe9b754ea5fd6c721271d9  check.vals'
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ printf '%s\n' BLAKE2 BLAKE2b BLAKE2- 'BLAKE2(' 'BLAKE2 ('
++ returns_ 1 b2sum -c crash.check
+b2sum: crash.check: no properly formatted BLAKE2 checksum lines found
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-b2sum.sh.W85m
++ exit 0
+PASS tests/misc/b2sum.sh (exit status: 0)

@@ -1,0 +1,5345 @@
+========================================
+   GNU grep 3.1: tests/test-suite.log
+========================================
+
+# TOTAL: 109
+# PASS:  59
+# SKIP:  48
+# XFAIL: 1
+# FAIL:  0
+# XPASS: 1
+# ERROR: 0
+
+.. contents:: :depth: 2
+
+XPASS: backref-alt
+==================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-backref-alt.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-backref-alt.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ echo aa
++ fail=0
++ grep -E 'b|(.)b|\1|b' in
+grep: Invalid back reference
++ status=2
++ test 2 -eq 2
++ grep -E '0|()0|\1|0' in
+grep: Invalid back reference
++ status=2
++ test 2 -eq 2
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-backref-alt.XTSc
++ exit 0
+XPASS backref-alt (exit status: 0)
+
+SKIP: backref-multibyte-slow
+============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-backref-multibyte-slow.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-backref-multibyte-slow.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found'
+backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'backref-multibyte-slow: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-backref-multibyte-slow.0fjM
++ exit 77
+SKIP backref-multibyte-slow (exit status: 77)
+
+SKIP: backslash-s-and-repetition-operators
+==========================================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-backslash-s-and-repetition-operators.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-backslash-s-and-repetition-operators.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'backslash-s-and-repetition-operators: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'backslash-s-and-repetition-operators: skipped test: en_US.UTF-8 locale not found'
+backslash-s-and-repetition-operators: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'backslash-s-and-repetition-operators: skipped test: en_US.UTF-8 locale not found'
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-and-repetition-operators.BhzI
++ exit 77
+SKIP backslash-s-and-repetition-operators (exit status: 77)
+
+SKIP: backslash-s-vs-invalid-multitype
+======================================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-backslash-s-vs-invalid-multitype.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-backslash-s-vs-invalid-multitype.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'backslash-s-vs-invalid-multitype: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'backslash-s-vs-invalid-multitype: skipped test: en_US.UTF-8 locale not found'
+backslash-s-vs-invalid-multitype: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'backslash-s-vs-invalid-multitype: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-backslash-s-vs-invalid-multitype.L5r3
++ exit 77
+SKIP backslash-s-vs-invalid-multitype (exit status: 77)
+
+SKIP: big-hole
+==============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-big-hole.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-big-hole.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ expensive_
++ test '' '!=' yes
++ skip_ 'expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ warn_ 'big-hole: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ case $IFS in
++ printf '%s\n' 'big-hole: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
+big-hole: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+
++ test 9 = 2
++ printf '%s\n' 'big-hole: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-big-hole.7xY7
++ exit 77
+SKIP big-hole (exit status: 77)
+
+SKIP: big-match
+===============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-big-match.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-big-match.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ expensive_
++ test '' '!=' yes
++ skip_ 'expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ warn_ 'big-match: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ case $IFS in
++ printf '%s\n' 'big-match: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
+big-match: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+
++ test 9 = 2
++ printf '%s\n' 'big-match: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-big-match.YDB8
++ exit 77
+SKIP big-match (exit status: 77)
+
+SKIP: case-fold-titlecase
+=========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-case-fold-titlecase.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-case-fold-titlecase.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'case-fold-titlecase: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'case-fold-titlecase: skipped test: en_US.UTF-8 locale not found'
+case-fold-titlecase: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'case-fold-titlecase: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-case-fold-titlecase.NS9o
++ exit 77
+SKIP case-fold-titlecase (exit status: 77)
+
+SKIP: char-class-multibyte
+==========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-char-class-multibyte.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-char-class-multibyte.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'char-class-multibyte: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'char-class-multibyte: skipped test: en_US.UTF-8 locale not found'
+char-class-multibyte: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'char-class-multibyte: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte.lduE
++ exit 77
+SKIP char-class-multibyte (exit status: 77)
+
+SKIP: char-class-multibyte2
+===========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-char-class-multibyte2.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-char-class-multibyte2.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'char-class-multibyte2: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'char-class-multibyte2: skipped test: en_US.UTF-8 locale not found'
+char-class-multibyte2: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'char-class-multibyte2: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-char-class-multibyte2.1A9j
++ exit 77
+SKIP char-class-multibyte2 (exit status: 77)
+
+SKIP: dfa-coverage
+==================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-dfa-coverage.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-dfa-coverage.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'dfa-coverage: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'dfa-coverage: skipped test: en_US.UTF-8 locale not found'
+dfa-coverage: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'dfa-coverage: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-dfa-coverage.czqv
++ exit 77
+SKIP dfa-coverage (exit status: 77)
+
+SKIP: empty-line-mb
+===================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-empty-line-mb.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-empty-line-mb.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'empty-line-mb: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'empty-line-mb: skipped test: en_US.UTF-8 locale not found'
+empty-line-mb: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'empty-line-mb: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-empty-line-mb.wUKh
++ exit 77
+SKIP empty-line-mb (exit status: 77)
+
+SKIP: encoding-error
+====================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-encoding-error.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-encoding-error.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'encoding-error: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'encoding-error: skipped test: en_US.UTF-8 locale not found'
+encoding-error: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'encoding-error: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-encoding-error.8c0d
++ exit 77
+SKIP encoding-error (exit status: 77)
+
+SKIP: equiv-classes
+===================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-equiv-classes.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-equiv-classes.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'equiv-classes: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'equiv-classes: skipped test: en_US.UTF-8 locale not found'
+equiv-classes: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'equiv-classes: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-equiv-classes.CcUI
++ exit 77
+SKIP equiv-classes (exit status: 77)
+
+SKIP: euc-mb
+============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-euc-mb.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-euc-mb.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_compiled_in_MB_support
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'euc-mb: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'euc-mb: skipped test: en_US.UTF-8 locale not found'
+euc-mb: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'euc-mb: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-euc-mb.8hCP
++ exit 77
+SKIP euc-mb (exit status: 77)
+
+SKIP: false-match-mb-non-utf8
+=============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-false-match-mb-non-utf8.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-false-match-mb-non-utf8.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ fail=0
++ loc=zh_CN.gb18030
+++ get-mb-cur-max zh_CN.gb18030
++ test '' = 4
++ skip_ 'no support for the zh_CN.gb18030 locale'
++ warn_ 'false-match-mb-non-utf8: skipped test: no support for the zh_CN.gb18030 locale'
++ case $IFS in
++ printf '%s\n' 'false-match-mb-non-utf8: skipped test: no support for the zh_CN.gb18030 locale'
+false-match-mb-non-utf8: skipped test: no support for the zh_CN.gb18030 locale
++ test 9 = 2
++ printf '%s\n' 'false-match-mb-non-utf8: skipped test: no support for the zh_CN.gb18030 locale'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-false-match-mb-non-utf8.Sn12
++ exit 77
+SKIP false-match-mb-non-utf8 (exit status: 77)
+
+SKIP: fgrep-infloop
+===================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-fgrep-infloop.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-fgrep-infloop.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'fgrep-infloop: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'fgrep-infloop: skipped test: en_US.UTF-8 locale not found'
+fgrep-infloop: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'fgrep-infloop: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-fgrep-infloop.MQqY
++ exit 77
+SKIP fgrep-infloop (exit status: 77)
+
+SKIP: fmbtest
+=============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-fmbtest.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-fmbtest.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ cz=cs_CZ.UTF-8
++ LC_ALL=cs_CZ.UTF-8
++ locale -k LC_CTYPE
++ grep -q 'charmap.*UTF-8'
++ skip_ this system lacks the cs_CZ.UTF-8 locale
++ warn_ 'fmbtest: skipped test: this' system lacks the cs_CZ.UTF-8 locale
++ case $IFS in
++ printf '%s\n' 'fmbtest: skipped test: this system lacks the cs_CZ.UTF-8 locale'
+fmbtest: skipped test: this system lacks the cs_CZ.UTF-8 locale
++ test 9 = 2
++ printf '%s\n' 'fmbtest: skipped test: this system lacks the cs_CZ.UTF-8 locale'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-fmbtest.yOQO
++ exit 77
+SKIP fmbtest (exit status: 77)
+
+SKIP: grep-dev-null
+===================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-grep-dev-null.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-grep-dev-null.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'grep-dev-null: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'grep-dev-null: skipped test: en_US.UTF-8 locale not found'
+grep-dev-null: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'grep-dev-null: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-grep-dev-null.nzP2
++ exit 77
+SKIP grep-dev-null (exit status: 77)
+
+SKIP: invalid-multibyte-infloop
+===============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-invalid-multibyte-infloop.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-invalid-multibyte-infloop.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'invalid-multibyte-infloop: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'invalid-multibyte-infloop: skipped test: en_US.UTF-8 locale not found'
+invalid-multibyte-infloop: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'invalid-multibyte-infloop: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-invalid-multibyte-infloop.DNY7
++ exit 77
+SKIP invalid-multibyte-infloop (exit status: 77)
+
+SKIP: long-line-vs-2GiB-read
+============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-long-line-vs-2GiB-read.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-long-line-vs-2GiB-read.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ expensive_
++ test '' '!=' yes
++ skip_ 'expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ warn_ 'long-line-vs-2GiB-read: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ case $IFS in
++ printf '%s\n' 'long-line-vs-2GiB-read: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
+long-line-vs-2GiB-read: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+
++ test 9 = 2
++ printf '%s\n' 'long-line-vs-2GiB-read: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-long-line-vs-2GiB-read.k4k2
++ exit 77
+SKIP long-line-vs-2GiB-read (exit status: 77)
+
+SKIP: long-pattern-perf
+=======================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-long-pattern-perf.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-long-pattern-perf.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ fail=0
++ expensive_
++ test '' '!=' yes
++ skip_ 'expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ warn_ 'long-pattern-perf: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ case $IFS in
++ printf '%s\n' 'long-pattern-perf: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
+long-pattern-perf: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+
++ test 9 = 2
++ printf '%s\n' 'long-pattern-perf: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-long-pattern-perf.oiwf
++ exit 77
+SKIP long-pattern-perf (exit status: 77)
+
+SKIP: mb-non-UTF8-overrun
+=========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-mb-non-UTF8-overrun.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-mb-non-UTF8-overrun.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_JP_EUC_locale_
++ local locale=ja_JP.eucJP
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max $locale) in
+++ get-mb-cur-max ja_JP.eucJP
++ skip_ ' locale not found'
++ warn_ 'mb-non-UTF8-overrun: skipped test:  locale not found'
++ case $IFS in
++ printf '%s\n' 'mb-non-UTF8-overrun: skipped test:  locale not found'
+mb-non-UTF8-overrun: skipped test:  locale not found
++ test 9 = 2
++ printf '%s\n' 'mb-non-UTF8-overrun: skipped test:  locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-overrun.fang
++ exit 77
+SKIP mb-non-UTF8-overrun (exit status: 77)
+
+SKIP: mb-non-UTF8-performance
+=============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-mb-non-UTF8-performance.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-mb-non-UTF8-performance.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ fail=0
++ expensive_
++ test '' '!=' yes
++ skip_ 'expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ warn_ 'mb-non-UTF8-performance: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ case $IFS in
++ printf '%s\n' 'mb-non-UTF8-performance: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
+mb-non-UTF8-performance: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+
++ test 9 = 2
++ printf '%s\n' 'mb-non-UTF8-performance: skipped test: expensive: disabled by default
+This test is relatively expensive, so it is disabled by default.
+To run it anyway, rerun make check with the RUN_EXPENSIVE_TESTS
+environment variable set to yes.  E.g.,
+
+  env RUN_EXPENSIVE_TESTS=yes make check
+
+or use the shortcut target of the toplevel Makefile,
+
+  make check-expensive
+'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-mb-non-UTF8-performance.AWZb
++ exit 77
+SKIP mb-non-UTF8-performance (exit status: 77)
+
+SKIP: multibyte-white-space
+===========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-multibyte-white-space.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-multibyte-white-space.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'multibyte-white-space: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'multibyte-white-space: skipped test: en_US.UTF-8 locale not found'
+multibyte-white-space: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'multibyte-white-space: skipped test: en_US.UTF-8 locale not found'
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-multibyte-white-space.kWzP
++ exit 77
+SKIP multibyte-white-space (exit status: 77)
+
+SKIP: pcre
+==========
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre: skipped test: no PCRE support'
+pcre: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre.kkXu
++ exit 77
+SKIP pcre (exit status: 77)
+
+SKIP: pcre-abort
+================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-abort.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-abort.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-abort: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-abort: skipped test: no PCRE support'
+pcre-abort: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-abort: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-abort.B7SR
++ exit 77
+SKIP pcre-abort (exit status: 77)
+
+SKIP: pcre-context
+==================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-context.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-context.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-context: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-context: skipped test: no PCRE support'
+pcre-context: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-context: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-context.MJGF
++ exit 77
+SKIP pcre-context (exit status: 77)
+
+SKIP: pcre-count
+================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-count.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-count.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-count: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-count: skipped test: no PCRE support'
+pcre-count: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-count: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-count.JTzc
++ exit 77
+SKIP pcre-count (exit status: 77)
+
+SKIP: pcre-infloop
+==================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-infloop.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-infloop.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_timeout_
++ returns_ 1 timeout 10s false
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'pcre-infloop: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'pcre-infloop: skipped test: en_US.UTF-8 locale not found'
+pcre-infloop: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'pcre-infloop: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-infloop.ZkiV
++ exit 77
+SKIP pcre-infloop (exit status: 77)
+
+SKIP: pcre-invalid-utf8-infloop
+===============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-invalid-utf8-infloop.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-invalid-utf8-infloop.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_timeout_
++ returns_ 1 timeout 10s false
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'pcre-invalid-utf8-infloop: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'pcre-invalid-utf8-infloop: skipped test: en_US.UTF-8 locale not found'
+pcre-invalid-utf8-infloop: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'pcre-invalid-utf8-infloop: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-infloop.yWcB
++ exit 77
+SKIP pcre-invalid-utf8-infloop (exit status: 77)
+
+SKIP: pcre-invalid-utf8-input
+=============================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-invalid-utf8-input.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-invalid-utf8-input.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_timeout_
++ returns_ 1 timeout 10s false
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'pcre-invalid-utf8-input: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'pcre-invalid-utf8-input: skipped test: en_US.UTF-8 locale not found'
+pcre-invalid-utf8-input: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'pcre-invalid-utf8-input: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-invalid-utf8-input.QQZq
++ exit 77
+SKIP pcre-invalid-utf8-input (exit status: 77)
+
+SKIP: pcre-jitstack
+===================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-jitstack.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-jitstack.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ grep -P .
++ echo .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-jitstack: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-jitstack: skipped test: no PCRE support'
+pcre-jitstack: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-jitstack: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-jitstack.4eCF
++ exit 77
+SKIP pcre-jitstack (exit status: 77)
+
+SKIP: pcre-o
+============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-o.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-o.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-o: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-o: skipped test: no PCRE support'
+pcre-o: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-o: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-o.9EI6
++ exit 77
+SKIP pcre-o (exit status: 77)
+
+SKIP: pcre-utf8
+===============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-utf8.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-utf8.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'pcre-utf8: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'pcre-utf8: skipped test: en_US.UTF-8 locale not found'
+pcre-utf8: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'pcre-utf8: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-utf8.5mrp
++ exit 77
+SKIP pcre-utf8 (exit status: 77)
+
+SKIP: pcre-w
+============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-w.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-w.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-w: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-w: skipped test: no PCRE support'
+pcre-w: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-w: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-w.V7eV
++ exit 77
+SKIP pcre-w (exit status: 77)
+
+SKIP: pcre-wx-backref
+=====================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-wx-backref.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-wx-backref.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ grep -P .
++ echo .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-wx-backref: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-wx-backref: skipped test: no PCRE support'
+pcre-wx-backref: skipped test: no PCRE support
++ test 9 = 2
++ printf '%s\n' 'pcre-wx-backref: skipped test: no PCRE support'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-wx-backref.I86X
++ exit 77
+SKIP pcre-wx-backref (exit status: 77)
+
+SKIP: pcre-z
+============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-pcre-z.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-pcre-z.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_pcre_
++ echo .
++ grep -P .
++ test 2 -eq 1
++ skip_ no PCRE support
++ warn_ 'pcre-z: skipped test: no' PCRE support
++ case $IFS in
++ printf '%s\n' 'pcre-z: skipped test: no PCRE support'
+pcre-z: skipped test: no PCRE support
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'pcre-z: skipped test: no PCRE support'
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-pcre-z.aQRN
++ exit 77
+SKIP pcre-z (exit status: 77)
+
+SKIP: prefix-of-multibyte
+=========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-prefix-of-multibyte.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-prefix-of-multibyte.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'prefix-of-multibyte: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'prefix-of-multibyte: skipped test: en_US.UTF-8 locale not found'
+prefix-of-multibyte: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'prefix-of-multibyte: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-prefix-of-multibyte.GP5U
++ exit 77
+SKIP prefix-of-multibyte (exit status: 77)
+
+SKIP: sjis-mb
+=============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-sjis-mb.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-sjis-mb.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_compiled_in_MB_support
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'sjis-mb: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'sjis-mb: skipped test: en_US.UTF-8 locale not found'
+sjis-mb: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'sjis-mb: skipped test: en_US.UTF-8 locale not found'
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-sjis-mb.KbRF
++ exit 77
+SKIP sjis-mb (exit status: 77)
+
+SKIP: surrogate-pair
+====================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-surrogate-pair.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-surrogate-pair.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'surrogate-pair: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'surrogate-pair: skipped test: en_US.UTF-8 locale not found'
+surrogate-pair: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'surrogate-pair: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-surrogate-pair.ROm0
++ exit 77
+SKIP surrogate-pair (exit status: 77)
+
+XFAIL: triple-backref
+=====================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-triple-backref.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-triple-backref.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ echo a
++ fail=0
++ grep -E '(.?)(.?)(.?)\3\2\1' in
+grep: regexec.c:1359: pop_fail_stack: Assertion `num >= 0' failed.
+./triple-backref: line 15: 10677 Aborted                 (core dumped) grep -E '(.?)(.?)(.?)\3\2\1' in > out
++ fail=1
++ compare out in
++ compare_dev_null_ out in
++ test 2 = 2
++ test xout = x/dev/null
++ test xin = x/dev/null
++ return 2
++ case $? in
++ compare_ out in
++ diff -u out in
+--- out	2018-11-26 23:48:41.942614621 +0000
++++ in	2018-11-26 23:48:41.938614555 +0000
+@@ -0,0 +1 @@
++a
++ fail=1
++ Exit 1
++ set +e
++ exit 1
++ exit 1
++ remove_tmp_
++ __st=1
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-triple-backref.o09Y
++ exit 1
+XFAIL triple-backref (exit status: 1)
+
+SKIP: turkish-I
+===============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-turkish-I.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-turkish-I.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'turkish-I: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'turkish-I: skipped test: en_US.UTF-8 locale not found'
+turkish-I: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'turkish-I: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I.NwG7
++ exit 77
+SKIP turkish-I (exit status: 77)
+
+SKIP: turkish-I-without-dot
+===========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-turkish-I-without-dot.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-turkish-I-without-dot.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_tr_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max tr_TR.UTF-8) in
+++ get-mb-cur-max tr_TR.UTF-8
++ skip_ 'tr_TR.UTF-8 locale not found'
++ warn_ 'turkish-I-without-dot: skipped test: tr_TR.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'turkish-I-without-dot: skipped test: tr_TR.UTF-8 locale not found'
+turkish-I-without-dot: skipped test: tr_TR.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'turkish-I-without-dot: skipped test: tr_TR.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-turkish-I-without-dot.AaqJ
++ exit 77
+SKIP turkish-I-without-dot (exit status: 77)
+
+SKIP: turkish-eyes
+==================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-turkish-eyes.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-turkish-eyes.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_compiled_in_MB_support
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'turkish-eyes: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'turkish-eyes: skipped test: en_US.UTF-8 locale not found'
+turkish-eyes: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'turkish-eyes: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-turkish-eyes.TLfR
++ exit 77
+SKIP turkish-eyes (exit status: 77)
+
+SKIP: two-chars
+===============
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-two-chars.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-two-chars.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'two-chars: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'two-chars: skipped test: en_US.UTF-8 locale not found'
+two-chars: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'two-chars: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-two-chars.LxYq
++ exit 77
+SKIP two-chars (exit status: 77)
+
+SKIP: unibyte-bracket-expr
+==========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-unibyte-bracket-expr.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-unibyte-bracket-expr.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_ru_RU_koi8_r
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max ru_RU.KOI8-R) in
+++ get-mb-cur-max ru_RU.KOI8-R
++ skip_ 'ru_RU.KOI8-R locale not found'
++ warn_ 'unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found'
++ case $IFS in
++ printf '%s\n' 'unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found'
+unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found
++ test 9 = 2
++ printf '%s\n' 'unibyte-bracket-expr: skipped test: ru_RU.KOI8-R locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-unibyte-bracket-expr.0anQ
++ exit 77
+SKIP unibyte-bracket-expr (exit status: 77)
+
+SKIP: utf8-bracket
+==================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-utf8-bracket.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-utf8-bracket.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'utf8-bracket: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'utf8-bracket: skipped test: en_US.UTF-8 locale not found'
+utf8-bracket: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'utf8-bracket: skipped test: en_US.UTF-8 locale not found'
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-utf8-bracket.7BLN
++ exit 77
+SKIP utf8-bracket (exit status: 77)
+
+SKIP: word-delim-multibyte
+==========================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-word-delim-multibyte.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-word-delim-multibyte.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'word-delim-multibyte: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'word-delim-multibyte: skipped test: en_US.UTF-8 locale not found'
+word-delim-multibyte: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'word-delim-multibyte: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-word-delim-multibyte.htg9
++ exit 77
+SKIP word-delim-multibyte (exit status: 77)
+
+SKIP: word-multibyte
+====================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-word-multibyte.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-word-multibyte.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'word-multibyte: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'word-multibyte: skipped test: en_US.UTF-8 locale not found'
+word-multibyte: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'word-multibyte: skipped test: en_US.UTF-8 locale not found'
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-word-multibyte.kKGS
++ exit 77
+SKIP word-multibyte (exit status: 77)
+
+SKIP: z-anchor-newline
+======================
+
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-z-anchor-newline.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-z-anchor-newline.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_en_utf8_locale_
++ path_prepend_ .
++ test 1 '!=' 0
++ path_dir_=.
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/.
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/.:/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/.
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ case $(get-mb-cur-max en_US.UTF-8) in
+++ get-mb-cur-max en_US.UTF-8
++ skip_ 'en_US.UTF-8 locale not found'
++ warn_ 'z-anchor-newline: skipped test: en_US.UTF-8 locale not found'
++ case $IFS in
++ printf '%s\n' 'z-anchor-newline: skipped test: en_US.UTF-8 locale not found'
+z-anchor-newline: skipped test: en_US.UTF-8 locale not found
++ test 9 = 2
++ printf '%s\n' 'z-anchor-newline: skipped test: en_US.UTF-8 locale not found'
++ sed 1q
++ Exit 77
++ set +e
++ exit 77
++ exit 77
++ remove_tmp_
++ __st=77
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-z-anchor-newline.vN8R
++ exit 77
+SKIP z-anchor-newline (exit status: 77)
+

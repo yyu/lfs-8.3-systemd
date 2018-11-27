@@ -1,0 +1,30 @@
+D: sectioning//diffs/node_footnote_separated.diff
+D: sectioning//diffs/node_footnote_separated_html.diff
+testdir: sectioning/
+driving_file: ./sectioning//tests-parser.txt
+found special first line, commands now: : :_html
+made result dir: ./sectioning//res_parser/
+made result dir: ./sectioning//res_parser_html/
+
+doing test node_footnote_separated, src_file ./sectioning//node_footnote.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl node_footnote_separated -> sectioning//out_parser/node_footnote_separated
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser/node_footnote_separated/ --footnote-style=separate ./sectioning//node_footnote.texi > sectioning//out_parser/node_footnote_separated/node_footnote.1 2>sectioning//out_parser/node_footnote_separated/node_footnote.2
+
+doing test node_footnote_separated, src_file ./sectioning//node_footnote.texi
+format_option: --html
+texi2any.pl node_footnote_separated -> sectioning//out_parser_html/node_footnote_separated
+ /tools/bin/perl -w ./..//texi2any.pl --html --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser_html/node_footnote_separated/ --footnote-style=separate ./sectioning//node_footnote.texi > sectioning//out_parser_html/node_footnote_separated/node_footnote.1 2>sectioning//out_parser_html/node_footnote_separated/node_footnote.2
+
+all done, exiting with status 1
+
+diff -a -u -r sectioning//diffs/staging_res/node_footnote_separated/node_footnote.2 sectioning//out_parser/node_footnote_separated/node_footnote.2
+--- sectioning//diffs/staging_res/node_footnote_separated/node_footnote.2	2017-08-27 10:45:46.000000000 +0000
++++ sectioning//out_parser/node_footnote_separated/node_footnote.2	2018-11-26 23:59:19.700952697 +0000
+@@ -1,3 +1,5 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+ node_footnote.texi:24: warning: node `@`a' is next for `chapter' in menu but not in sectioning
+ node_footnote.texi:24: warning: node `@^a' is prev for `chapter' in menu but not in sectioning
+ node_footnote.texi:24: warning: node `Top' is up for `chapter' in menu but not in sectioning
+FAIL test_scripts/sectioning_node_footnote_separated.sh (exit status: 1)

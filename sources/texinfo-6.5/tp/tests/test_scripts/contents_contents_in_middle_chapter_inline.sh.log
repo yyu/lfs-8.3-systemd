@@ -1,0 +1,19 @@
+D: contents//diffs/contents_in_middle_chapter_inline.diff
+testdir: contents/
+driving_file: ./contents//tests-parser.txt
+made result dir: ./contents//res_parser/
+
+doing test contents_in_middle_chapter_inline, src_file ./contents//contents_in_middle_chapter.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl contents_in_middle_chapter_inline -> contents//out_parser/contents_in_middle_chapter_inline
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./contents/ -I contents// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output contents//out_parser/contents_in_middle_chapter_inline/ --set-customization-variable 'INLINE_CONTENTS 1' ./contents//contents_in_middle_chapter.texi > contents//out_parser/contents_in_middle_chapter_inline/contents_in_middle_chapter.1 2>contents//out_parser/contents_in_middle_chapter_inline/contents_in_middle_chapter.2
+
+all done, exiting with status 1
+
+diff -a -u -r contents//diffs/staging_res/contents_in_middle_chapter_inline/contents_in_middle_chapter.2 contents//out_parser/contents_in_middle_chapter_inline/contents_in_middle_chapter.2
+--- contents//diffs/staging_res/contents_in_middle_chapter_inline/contents_in_middle_chapter.2	2017-08-27 10:45:48.000000000 +0000
++++ contents//out_parser/contents_in_middle_chapter_inline/contents_in_middle_chapter.2	2018-11-27 00:00:07.033703648 +0000
+@@ -0,0 +1,2 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+FAIL test_scripts/contents_contents_in_middle_chapter_inline.sh (exit status: 1)

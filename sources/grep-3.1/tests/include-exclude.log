@@ -1,0 +1,273 @@
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-include-exclude.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-include-exclude.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ mkdir -p x/dir
++ echo aaa
++ echo bbb
++ echo ddd
++ printf '%s\n' x/b:bbb x/dir/d:ddd
++ printf '%s\n' x/dir/d:ddd
++ printf '%s\n' x/a:aaa x/b:bbb
++ printf '%s\n' x/a:aaa x/b:bbb
++ printf '%s\n' x/a:aaa
++ printf '%s\n' a:aaa
++ printf '%s\n' aaa
++ printf '%s\n' ./x/a ./x/b ./x/dir/d
++ sort
++ grep -r '--exclude=a*' . x
++ sort out
++ mv k out
++ compare exp-not-a out
++ compare_dev_null_ exp-not-a out
++ test 2 = 2
++ test xexp-not-a = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-not-a out
++ diff -u exp-not-a out
++ grep -r --exclude=Rumpelstiltskin '--include=a*' '--exclude=a*' . x
++ sort out
++ mv k out
++ compare exp-not-a out
++ compare_dev_null_ exp-not-a out
++ test 2 = 2
++ test xexp-not-a = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-not-a out
++ diff -u exp-not-a out
++ grep -r '--exclude=[ab]' . x
++ sort out
++ mv k out
++ compare exp-not-ab out
++ compare_dev_null_ exp-not-ab out
++ test 2 = 2
++ test xexp-not-ab = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-not-ab out
++ diff -u exp-not-ab out
++ grep -r '--exclude=*d' . x
++ sort out
++ mv k out
++ compare exp-not-d out
++ compare_dev_null_ exp-not-d out
++ test 2 = 2
++ test xexp-not-d = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-not-d out
++ diff -u exp-not-d out
++ grep -r --exclude-dir=dir . x
++ sort out
++ mv k out
++ compare exp-not-dir out
++ compare_dev_null_ exp-not-dir out
++ test 2 = 2
++ test xexp-not-dir = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-not-dir out
++ diff -u exp-not-dir out
++ grep -r --exclude-dir=dir/ . x
++ sort out
++ mv k out
++ compare exp-not-dir out
++ compare_dev_null_ exp-not-dir out
++ test 2 = 2
++ test xexp-not-dir = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-not-dir out
++ diff -u exp-not-dir out
++ grep -r --include=a . x
++ compare exp-a out
++ compare_dev_null_ exp-a out
++ test 2 = 2
++ test xexp-a = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-a out
++ diff -u exp-a out
++ grep -r '--include=a*' . x
++ compare exp-a out
++ compare_dev_null_ exp-a out
++ test 2 = 2
++ test xexp-a = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-a out
++ diff -u exp-a out
++ grep --directories=skip --include=x/a --exclude-dir=dir '^aaa$' x/a x/b x/dir
++ compare exp-a out
++ compare_dev_null_ exp-a out
++ test 2 = 2
++ test xexp-a = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-a out
++ diff -u exp-a out
++ cd x
++ grep -r --exclude-dir=. '^aaa$'
++ compare exp-aa out
++ compare_dev_null_ exp-aa out
++ test 2 = 2
++ test xexp-aa = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-aa out
++ diff -u exp-aa out
++ grep --exclude=- '^aaa$' -
++ compare exp-aaa out
++ compare_dev_null_ exp-aaa out
++ test 2 = 2
++ test xexp-aaa = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-aaa out
++ diff -u exp-aaa out
++ for exclude in 'x' 'x*'
++ grep -rl --exclude-dir=x . x
++ test 1 -eq 1
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for exclude in 'x' 'x*'
++ grep -rl '--exclude-dir=x*' . x
++ test 1 -eq 1
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for exclude in 'x' 'x*' './x' './x*'
++ grep -rl --exclude-dir=x . ./x
++ sort
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for exclude in 'x' 'x*' './x' './x*'
++ grep -rl '--exclude-dir=x*' . ./x
++ sort
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for exclude in 'x' 'x*' './x' './x*'
++ grep -rl --exclude-dir=./x . ./x
++ sort
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for exclude in 'x' 'x*' './x' './x*'
++ grep -rl '--exclude-dir=./x*' . ./x
++ sort
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ Exit
++ set +e
++ exit
++ exit
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-include-exclude.yAtL
++ exit 0
+PASS include-exclude (exit status: 0)

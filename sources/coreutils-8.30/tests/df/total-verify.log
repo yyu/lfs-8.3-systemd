@@ -1,0 +1,147 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-total-verify.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-total-verify.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ df
++ require_built_ df
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env df --version
+df (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Paul Eggert.
++ require_perl_
++ : perl
++ perl -e 'use warnings'
++ timeout 10 df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+udev            72060948        0  72060948   0% /dev
+tmpfs           14414596     1016  14413580   1% /run
+/dev/nvme0n1p1 520382884 60241240 460125260  12% /
+tmpfs           72072972        0  72072972   0% /dev/shm
+tmpfs               5120        0      5120   0% /run/lock
+tmpfs           72072972        0  72072972   0% /sys/fs/cgroup
+/dev/loop0         90112    90112         0 100% /snap/core/5328
+/dev/loop1         13056    13056         0 100% /snap/amazon-ssm-agent/495
+tmpfs           14414592        0  14414592   0% /run/user/1000
+/dev/loop5     263174212 10183984 239552072   5% /mnt/lfs
+/dev/loop3         90368    90368         0 100% /snap/core/5897
+/dev/loop4         18432    18432         0 100% /snap/amazon-ssm-agent/930
++ cat
++ df --total -P --block-size=512
++ cat space
+Filesystem     512-blocks      Used  Available Capacity Mounted on
+udev            144121896         0  144121896       0% /dev
+tmpfs            28829192      2032   28827160       1% /run
+/dev/nvme0n1p1 1040765768 120482480  920250520      12% /
+tmpfs           144145944         0  144145944       0% /dev/shm
+tmpfs               10240         0      10240       0% /run/lock
+tmpfs           144145944         0  144145944       0% /sys/fs/cgroup
+/dev/loop0         180224    180224          0     100% /snap/core/5328
+/dev/loop1          26112     26112          0     100% /snap/amazon-ssm-agent/495
+tmpfs            28829184         0   28829184       0% /run/user/1000
+/dev/loop5      526348424  20367976  479104136       5% /mnt/lfs
+/dev/loop3         180736    180736          0     100% /snap/core/5897
+/dev/loop4          36864     36864          0     100% /snap/amazon-ssm-agent/930
+total          2057620528 141276424 1889435024       7% -
++ df --total -i -P
++ cat inode
+Filesystem        Inodes  IUsed     IFree IUse% Mounted on
+udev            18015237    345  18014892    1% /dev
+tmpfs           18018243    544  18017699    1% /run
+/dev/nvme0n1p1  65536000 123394  65412606    1% /
+tmpfs           18018243      1  18018242    1% /dev/shm
+tmpfs           18018243      3  18018240    1% /run/lock
+tmpfs           18018243     18  18018225    1% /sys/fs/cgroup
+/dev/loop0         12860  12860         0  100% /snap/core/5328
+/dev/loop1            13     13         0  100% /snap/amazon-ssm-agent/495
+tmpfs           18018243     10  18018233    1% /run/user/1000
+/dev/loop5      16777216 256192  16521024    2% /mnt/lfs
+/dev/loop3         12808  12808         0  100% /snap/core/5897
+/dev/loop4            15     15         0  100% /snap/amazon-ssm-agent/930
+total          190445364 406203 190039161    1% -
++ perl check-df space
++ perl check-df inode
++ test 0 = 1
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-total-verify.sh.Z6wr
++ exit 0
+PASS tests/df/total-verify.sh (exit status: 0)

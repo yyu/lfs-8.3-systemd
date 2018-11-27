@@ -1,0 +1,10 @@
+testdir: contents/
+driving_file: ./contents//tests-parser.txt
+made result dir: ./contents//res_parser/
+
+doing test contents_in_middle_section_inline, src_file ./contents//contents_in_middle_section.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl contents_in_middle_section_inline -> contents//out_parser/contents_in_middle_section_inline
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./contents/ -I contents// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output contents//out_parser/contents_in_middle_section_inline/ --set-customization-variable 'INLINE_CONTENTS 1' ./contents//contents_in_middle_section.texi > contents//out_parser/contents_in_middle_section_inline/contents_in_middle_section.1 2>contents//out_parser/contents_in_middle_section_inline/contents_in_middle_section.2
+
+all done, exiting with status 1

@@ -1,0 +1,17 @@
+[35] patch -o a.new a < a.diff -- FAILED
+--- expected
++++ got
+@@ -1,2 +1,4 @@
+ patching file a.new (read from a)
+ patching file a.new (read from a)
++Hunk #1 FAILED at 1.
++1 out of 1 hunk FAILED -- saving rejects to file a.new.rej
+[40] cat a.new -- FAILED
+--- expected
++++ got
+@@ -1,2 +1,2 @@
+ two
+-three
++one
+2 tests (0 passed, 2 failed)
+XFAIL dash-o-append (exit status: 1)

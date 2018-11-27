@@ -1,0 +1,335 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-kill.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-kill.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
++++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ kill
++ require_built_ kill
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env kill --version
+kill (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Eggert.
++ returns_ 1 env kill
+kill: no process ID specified
+Try 'kill --help' for more information.
++ returns_ 1 env kill -TERM
+kill: no process ID specified
+Try 'kill --help' for more information.
++ returns_ 1 env kill -l -l
+kill: multiple -l or -t options specified
+Try 'kill --help' for more information.
++ returns_ 1 env kill -l -t
+kill: multiple -l or -t options specified
+Try 'kill --help' for more information.
++ returns_ 1 env kill -l -s 1
+kill: cannot combine signal with -l or -t
+Try 'kill --help' for more information.
++ returns_ 1 env kill -t -s 1
+kill: cannot combine signal with -l or -t
+Try 'kill --help' for more information.
++ returns_ 1 env kill -0 no_pid
+kill: 'no_pid': invalid process id
++ env kill -0 53917
++ env kill -s0 53917
++ env kill -n0 53917
++ env kill -CONT 53917
++ env kill -Cont 53917
++ returns_ 1 env kill -cont 53917
+kill: invalid option -- 'c'
+Try 'kill --help' for more information.
++ env kill -0 -1
++ env kill -l
+HUP
+INT
+QUIT
+ILL
+TRAP
+ABRT
+BUS
+FPE
+KILL
+USR1
+SEGV
+USR2
+PIPE
+ALRM
+TERM
+STKFLT
+CHLD
+CONT
+STOP
+TSTP
+TTIN
+TTOU
+URG
+XCPU
+XFSZ
+VTALRM
+PROF
+WINCH
+POLL
+PWR
+SYS
+RTMIN
+RTMIN+1
+RTMIN+2
+RTMIN+3
+RTMIN+4
+RTMIN+5
+RTMIN+6
+RTMIN+7
+RTMIN+8
+RTMIN+9
+RTMIN+10
+RTMIN+11
+RTMIN+12
+RTMIN+13
+RTMIN+14
+RTMIN+15
+RTMAX-14
+RTMAX-13
+RTMAX-12
+RTMAX-11
+RTMAX-10
+RTMAX-9
+RTMAX-8
+RTMAX-7
+RTMAX-6
+RTMAX-5
+RTMAX-4
+RTMAX-3
+RTMAX-2
+RTMAX-1
+RTMAX
++ env kill -t
+ 1 HUP      Hangup
+ 2 INT      Interrupt
+ 3 QUIT     Quit
+ 4 ILL      Illegal instruction
+ 5 TRAP     Trace/breakpoint trap
+ 6 ABRT     Aborted
+ 7 BUS      Bus error
+ 8 FPE      Floating point exception
+ 9 KILL     Killed
+10 USR1     User defined signal 1
+11 SEGV     Segmentation fault
+12 USR2     User defined signal 2
+13 PIPE     Broken pipe
+14 ALRM     Alarm clock
+15 TERM     Terminated
+16 STKFLT   Stack fault
+17 CHLD     Child exited
+18 CONT     Continued
+19 STOP     Stopped (signal)
+20 TSTP     Stopped
+21 TTIN     Stopped (tty input)
+22 TTOU     Stopped (tty output)
+23 URG      Urgent I/O condition
+24 XCPU     CPU time limit exceeded
+25 XFSZ     File size limit exceeded
+26 VTALRM   Virtual timer expired
+27 PROF     Profiling timer expired
+28 WINCH    Window changed
+29 POLL     I/O possible
+30 PWR      Power failure
+31 SYS      Bad system call
+34 RTMIN    Real-time signal 0
+35 RTMIN+1  Real-time signal 1
+36 RTMIN+2  Real-time signal 2
+37 RTMIN+3  Real-time signal 3
+38 RTMIN+4  Real-time signal 4
+39 RTMIN+5  Real-time signal 5
+40 RTMIN+6  Real-time signal 6
+41 RTMIN+7  Real-time signal 7
+42 RTMIN+8  Real-time signal 8
+43 RTMIN+9  Real-time signal 9
+44 RTMIN+10 Real-time signal 10
+45 RTMIN+11 Real-time signal 11
+46 RTMIN+12 Real-time signal 12
+47 RTMIN+13 Real-time signal 13
+48 RTMIN+14 Real-time signal 14
+49 RTMIN+15 Real-time signal 15
+50 RTMAX-14 Real-time signal 16
+51 RTMAX-13 Real-time signal 17
+52 RTMAX-12 Real-time signal 18
+53 RTMAX-11 Real-time signal 19
+54 RTMAX-10 Real-time signal 20
+55 RTMAX-9  Real-time signal 21
+56 RTMAX-8  Real-time signal 22
+57 RTMAX-7  Real-time signal 23
+58 RTMAX-6  Real-time signal 24
+59 RTMAX-5  Real-time signal 25
+60 RTMAX-4  Real-time signal 26
+61 RTMAX-3  Real-time signal 27
+62 RTMAX-2  Real-time signal 28
+63 RTMAX-1  Real-time signal 29
+64 RTMAX    Real-time signal 30
++ env kill -L
+ 1 HUP      Hangup
+ 2 INT      Interrupt
+ 3 QUIT     Quit
+ 4 ILL      Illegal instruction
+ 5 TRAP     Trace/breakpoint trap
+ 6 ABRT     Aborted
+ 7 BUS      Bus error
+ 8 FPE      Floating point exception
+ 9 KILL     Killed
+10 USR1     User defined signal 1
+11 SEGV     Segmentation fault
+12 USR2     User defined signal 2
+13 PIPE     Broken pipe
+14 ALRM     Alarm clock
+15 TERM     Terminated
+16 STKFLT   Stack fault
+17 CHLD     Child exited
+18 CONT     Continued
+19 STOP     Stopped (signal)
+20 TSTP     Stopped
+21 TTIN     Stopped (tty input)
+22 TTOU     Stopped (tty output)
+23 URG      Urgent I/O condition
+24 XCPU     CPU time limit exceeded
+25 XFSZ     File size limit exceeded
+26 VTALRM   Virtual timer expired
+27 PROF     Profiling timer expired
+28 WINCH    Window changed
+29 POLL     I/O possible
+30 PWR      Power failure
+31 SYS      Bad system call
+34 RTMIN    Real-time signal 0
+35 RTMIN+1  Real-time signal 1
+36 RTMIN+2  Real-time signal 2
+37 RTMIN+3  Real-time signal 3
+38 RTMIN+4  Real-time signal 4
+39 RTMIN+5  Real-time signal 5
+40 RTMIN+6  Real-time signal 6
+41 RTMIN+7  Real-time signal 7
+42 RTMIN+8  Real-time signal 8
+43 RTMIN+9  Real-time signal 9
+44 RTMIN+10 Real-time signal 10
+45 RTMIN+11 Real-time signal 11
+46 RTMIN+12 Real-time signal 12
+47 RTMIN+13 Real-time signal 13
+48 RTMIN+14 Real-time signal 14
+49 RTMIN+15 Real-time signal 15
+50 RTMAX-14 Real-time signal 16
+51 RTMAX-13 Real-time signal 17
+52 RTMAX-12 Real-time signal 18
+53 RTMAX-11 Real-time signal 19
+54 RTMAX-10 Real-time signal 20
+55 RTMAX-9  Real-time signal 21
+56 RTMAX-8  Real-time signal 22
+57 RTMAX-7  Real-time signal 23
+58 RTMAX-6  Real-time signal 24
+59 RTMAX-5  Real-time signal 25
+60 RTMAX-4  Real-time signal 26
+61 RTMAX-3  Real-time signal 27
+62 RTMAX-2  Real-time signal 28
+63 RTMAX-1  Real-time signal 29
+64 RTMAX    Real-time signal 30
++ env kill -t TERM HUP
+15 TERM     Terminated
+ 1 HUP      Hangup
+++ tail -n1
+++ env kill -l HUP TERM
++ SIGTERM=15
+++ env kill -l 15
++ test TERM = TERM
+++ expr 15 + 128
++ STD_TERM_STATUS=143
+++ expr 15 + 256
++ KSH_TERM_STATUS=271
+++ env kill -l 143 271
+++ uniq
++ test TERM = TERM
++ returns_ 1 env kill -l -1
+kill: '-1': invalid signal
++ returns_ 1 env kill -l -1 0
+kill: '-1': invalid signal
+EXIT
++ returns_ 1 env kill -l INVALID TERM
+kill: 'INVALID': invalid signal
+15
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-kill.sh.jXoR
++ exit 0
+PASS tests/misc/kill.sh (exit status: 0)

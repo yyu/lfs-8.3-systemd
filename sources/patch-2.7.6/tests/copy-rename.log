@@ -1,0 +1,26 @@
+[32] patch -p1 < copy.diff || echo "Status: $?" -- ok
+[36] cat f -- ok
+[40] cat g -- ok
+[56] patch -p1 < rename.diff || echo "Status: $?" -- ok
+[60] test ! -e f -- ok
+[62] cat h -- ok
+[68] patch -p1 < rename.diff || echo "Status: $?" -- ok
+[72] test ! -e f -- ok
+[74] cat h -- ok
+[80] patch -p1 -R < rename.diff || echo "Status: $?" -- ok
+[84] test ! -e h -- ok
+[86] cat f -- ok
+[102] patch -p1 < copy.diff || echo "Status: $?" -- ok
+[106] cat f -- ok
+[110] cat g -- ok
+[120] patch -p1 < rename.diff || echo "Status: $?" -- ok
+[124] test ! -e f -- ok
+[126] cat h -- ok
+[136] patch -p1 --backup < copy.diff || echo "Status: $?" -- ok
+[140] test ! -e f.orig -- ok
+[142] cat g.orig -- ok
+[146] patch -p1 --backup < rename.diff || echo "Status: $?" -- ok
+[150] cat f.orig -- ok
+[154] cat h.orig -- ok
+24 tests (24 passed, 0 failed)
+PASS copy-rename (exit status: 0)

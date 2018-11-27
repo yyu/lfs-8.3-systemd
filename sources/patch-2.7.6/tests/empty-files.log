@@ -1,0 +1,10 @@
+[25] patch < create-empty.diff || echo "Status: $?" -- ok
+[29] test -e f && test ! -s f -- ok
+[45] patch < empty-out.diff || echo "Status: $?" -- ok
+[49] test -e f && test ! -s f -- ok
+[65] patch -E < empty-out.diff || echo "Status: $?" -- ok
+[69] test ! -e f -- ok
+[82] patch < delete-empty.diff || echo "Status: $?" -- ok
+[86] test ! -e f -- ok
+8 tests (8 passed, 0 failed)
+PASS empty-files (exit status: 0)

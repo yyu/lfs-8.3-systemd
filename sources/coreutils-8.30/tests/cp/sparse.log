@@ -1,0 +1,1277 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-sparse.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-sparse.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ cp
++ require_built_ cp
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env cp --version
+cp (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
++ require_sparse_support_
++ test 0 = 0
++ t=sparse.37551
++ dd bs=1 seek=128K of=sparse.37551
+++ du -sk sparse.37551
++ set x 0 sparse.37551
++ kb_size=0
++ rm -f sparse.37551
++ test 0 -ge 128
+++ expr 128 '*' 1024 + 1
++ size=131073
++ dd bs=1 seek=131073 of=sparse
++ cp --sparse=always sparse copy
+++ stat --printf %b copy
+++ stat --printf %b sparse
++ test 0 -le 0
++ returns_ 1 cp --sparse=always --reflink sparse copy
+cp: --reflink can be used only with --sparse=auto
+Try 'cp --help' for more information.
++ returns_ 1 cp --sparse=never --reflink sparse copy
+cp: --reflink can be used only with --sparse=auto
+Try 'cp --help' for more information.
++ maxn=128
+++ stat -c %o copy
++ hole_size=4096
++ dd if=/dev/zero bs=4096 count=128 of=zeros
+128+0 records in
+128+0 records out
+524288 bytes (524 kB, 512 KiB) copied, 0.000456724 s, 1.1 GB/s
++ tr '\0' U
++ for pattern in 1 0
++ test 1 = 1
+++ printf '%s\n%s' nonzero zeros
++ pattern='nonzero
+zeros'
++ test 'nonzero
+zeros' = 0
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 1
++ parts=128
++ rm -f sparse.in
+++ yes 'nonzero
+zeros'
+++ head -n128
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+256K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 2
++ parts=64
++ rm -f sparse.in
+++ yes 'nonzero
+zeros'
+++ head -n64
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 4
++ parts=32
++ rm -f sparse.in
+++ yes 'nonzero
+zeros'
+++ head -n32
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 11
++ parts=11
++ rm -f sparse.in
+++ yes 'nonzero
+zeros'
+++ head -n11
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+484K -rw-r--r-- 1 lfs lfs 484K Nov 26 23:40 sparse.in
+268K -rw-r--r-- 1 lfs lfs 484K Nov 26 23:40 sparse.out
+268K -rw-r--r-- 1 lfs lfs 484K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 32
++ parts=4
++ rm -f sparse.in
+++ yes 'nonzero
+zeros'
+++ head -n4
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+256K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+256K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 128
++ parts=1
++ rm -f sparse.in
+++ yes 'nonzero
+zeros'
+++ head -n1
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=128 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for pattern in 1 0
++ test 0 = 1
++ test 0 = 0
+++ printf '%s\n%s' zeros nonzero
++ pattern='zeros
+nonzero'
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 1
++ parts=128
++ rm -f sparse.in
+++ yes 'zeros
+nonzero'
+++ head -n128
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=1 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 2
++ parts=64
++ rm -f sparse.in
+++ yes 'zeros
+nonzero'
+++ head -n64
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=2 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 4
++ parts=32
++ rm -f sparse.in
+++ yes 'zeros
+nonzero'
+++ head -n32
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=4 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+260K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 11
++ parts=11
++ rm -f sparse.in
+++ yes 'zeros
+nonzero'
+++ head -n11
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=11 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+484K -rw-r--r-- 1 lfs lfs 484K Nov 26 23:40 sparse.in
+224K -rw-r--r-- 1 lfs lfs 484K Nov 26 23:40 sparse.out
+224K -rw-r--r-- 1 lfs lfs 484K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 32
++ parts=4
++ rm -f sparse.in
+++ yes 'zeros
+nonzero'
+++ head -n4
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=nonzero of=sparse.in conv=notrunc oflag=append bs=4096 count=32 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+256K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+256K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ for n in 1 2 4 11 32 $maxn
+++ expr 128 / 128
++ parts=1
++ rm -f sparse.in
+++ yes 'zeros
+nonzero'
+++ head -n1
++ for i in $(yes "$pattern" | head -n$parts)
++ dd iflag=fullblock if=zeros of=sparse.in conv=notrunc oflag=append bs=4096 count=128 status=none
++ cp --sparse=always sparse.in sparse.out
++ cp --sparse=always sparse.out sparse.out2
++ cmp sparse.in sparse.out
++ cmp sparse.in sparse.out2
++ ls -lsh sparse.in sparse.out sparse.out2
+512K -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.in
+   0 -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out
+   0 -rw-r--r-- 1 lfs lfs 512K Nov 26 23:40 sparse.out2
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.mpgg
++ exit 0
+PASS tests/cp/sparse.sh (exit status: 0)

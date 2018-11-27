@@ -1,0 +1,13 @@
+[32] patch -f -F0 --no-backup-if-mismatch --dry-run f < f.diff || echo "Status: $?" -- ok
+[39] patch -f -F0 --no-backup-if-mismatch f < f.diff || echo "Status: $?" -- ok
+[48] cat f.rej -- ok
+[71] patch -f -F0 --no-backup-if-mismatch f < f.diff || echo "Status: $?" -- ok
+[78] cat f.rej -- ok
+[95] patch -f -F0 --no-backup-if-mismatch --reject-format=unified f < f.diff || echo "Status: $?" -- ok
+[102] cat f.rej -- ok
+[118] patch -f -F0 --no-backup-if-mismatch --reject-format=context f < f.diff || echo "Status: $?" -- ok
+[125] cat f.rej -- ok
+[153] patch -f < ab.diff || echo "Status: $?" -- ok
+[160] cat a.rej -- ok
+11 tests (11 passed, 0 failed)
+PASS reject-format (exit status: 0)

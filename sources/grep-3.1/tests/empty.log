@@ -1,0 +1,350 @@
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-empty.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-empty.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ require_timeout_
++ returns_ 1 timeout 10s false
++ failures=0
++ for locale in C en_US.UTF-8
++ for options in '-E' '-F'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -E -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -f /dev/null -e abcd
+abcd
++ test 0 -ne 0
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -E -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -e ''
+abcd
++ test 0 -ne 0
++ for options in '-E' '-F'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -F -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -f /dev/null -e abcd
+abcd
++ test 0 -ne 0
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -F -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -e ''
+abcd
++ test 0 -ne 0
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -E -w -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -w -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -w -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -E -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -x -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -E -w -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -w -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -E -w -x -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -F -w -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -w -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -w -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -F -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -x -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=C
++ timeout 10s grep -F -w -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -w -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=C
++ timeout 10s grep -F -w -x -f /dev/null -e ''
++ test 1 -ne 1
++ for locale in C en_US.UTF-8
++ for options in '-E' '-F'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -f /dev/null -e abcd
+abcd
++ test 0 -ne 0
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -e ''
+abcd
++ test 0 -ne 0
++ for options in '-E' '-F'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -f /dev/null -e abcd
+abcd
++ test 0 -ne 0
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -e ''
+abcd
++ test 0 -ne 0
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -w -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -w -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -w -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -x -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -w -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -w -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -E -w -x -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -w -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -w -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -w -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -x -f /dev/null -e ''
++ test 1 -ne 1
++ for options in '-E -w' '-E -x' '-E -w -x' '-F -w' '-F -x' '-F -w -x'
++ echo ''
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -w -x -e ''
+
++ test 0 -ne 0
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -w -x -f /dev/null
++ test 1 -ne 1
++ echo abcd
++ LC_ALL=en_US.UTF-8
++ timeout 10s grep -F -w -x -f /dev/null -e ''
++ test 1 -ne 1
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-empty.8F9E
++ exit 0
+PASS empty (exit status: 0)

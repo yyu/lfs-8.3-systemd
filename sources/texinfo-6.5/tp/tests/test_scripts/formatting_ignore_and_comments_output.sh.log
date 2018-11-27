@@ -1,0 +1,20 @@
+D: formatting//diffs/ignore_and_comments_output.diff
+testdir: formatting/
+driving_file: ./formatting//tests-parser.txt
+made result dir: ./formatting//res_parser/
+
+doing test ignore_and_comments_output, src_file ./formatting//ignore_and_comments.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl ignore_and_comments_output -> formatting//out_parser/ignore_and_comments_output
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./formatting/ -I formatting// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output formatting//out_parser/ignore_and_comments_output/ --init ignore_and_comments_output.init ./formatting//ignore_and_comments.texi > formatting//out_parser/ignore_and_comments_output/ignore_and_comments.1 2>formatting//out_parser/ignore_and_comments_output/ignore_and_comments.2
+
+all done, exiting with status 1
+
+diff -a -u -r formatting//diffs/staging_res/ignore_and_comments_output/ignore_and_comments.2 formatting//out_parser/ignore_and_comments_output/ignore_and_comments.2
+--- formatting//diffs/staging_res/ignore_and_comments_output/ignore_and_comments.2	2017-08-27 10:45:45.000000000 +0000
++++ formatting//out_parser/ignore_and_comments_output/ignore_and_comments.2	2018-11-26 23:59:09.856796736 +0000
+@@ -1 +1,3 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+ ignore_and_comments.texi: warning: must specify a title with a title command or @top
+FAIL test_scripts/formatting_ignore_and_comments_output.sh (exit status: 1)

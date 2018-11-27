@@ -1,0 +1,182 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-sparse.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-sparse.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ dd
++ require_built_ dd
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env dd --version
+dd (coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, and Stuart Kemp.
++ is_local_dir_ .
++ test 1 = 1
++ df --local .
++ require_sparse_support_
++ test 0 = 0
++ t=sparse.39994
++ dd bs=1 seek=128K of=sparse.39994
+++ du -sk sparse.39994
++ set x 0 sparse.39994
++ kb_size=0
++ rm -f sparse.39994
++ test 0 -ge 128
++ truncate -s1M sparse
++ dd bs=32K if=sparse of=sparse.dd conv=sparse
+32+0 records in
+32+0 records out
+1048576 bytes (1.0 MB, 1.0 MiB) copied, 0.000573978 s, 1.8 GB/s
+++ stat -c %s sparse
+++ stat -c %s sparse.dd
++ test 1048576 = 1048576
++ printf 'a\000\000b'
++ printf ab
++ dd if=file.in bs=1 conv=sparse oflag=append
+4+0 records in
+4+0 records out
+4 bytes copied, 4.38e-05 s, 91.3 kB/s
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ printf ____
++ printf a__b
++ dd if=file.in bs=1 conv=sparse,notrunc of=out
+4+0 records in
+4+0 records out
+4 bytes copied, 3.315e-05 s, 121 kB/s
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ dd if=file.in bs=1 conv=sparse
++ cat
+4+0 records in
+4+0 records out
+4 bytes copied, 3.4351e-05 s, 116 kB/s
++ cmp file.in file.out
++ rm -f file.in
++ dd if=/dev/urandom of=file.in bs=1M count=3 iflag=fullblock
+3+0 records in
+3+0 records out
+3145728 bytes (3.1 MB, 3.0 MiB) copied, 0.0211196 s, 149 MB/s
++ dd if=/dev/zero of=file.in bs=1M count=1 seek=1 conv=notrunc
+1+0 records in
+1+0 records out
+1048576 bytes (1.0 MB, 1.0 MiB) copied, 0.00118834 s, 882 MB/s
+++ kb_alloc file.in
+++ du -k file.in
+++ cut -f1
++ test 3072 -gt 3000
++ dd if=file.in of=file.out bs=2M conv=sparse
+1+1 records in
+1+1 records out
+3145728 bytes (3.1 MB, 3.0 MiB) copied, 0.0039201 s, 802 MB/s
++ sync file.out
+++ kb_alloc file.out
+++ du -k file.out
+++ cut -f1
++ test 2500 -lt 3072
++ rm -f file.out
++ truncate --size=3M file.out
++ dd if=file.in of=file.out bs=1M conv=sparse,notrunc
+3+0 records in
+3+0 records out
+3145728 bytes (3.1 MB, 3.0 MiB) copied, 0.00284508 s, 1.1 GB/s
+++ kb_alloc file.out
+++ du -k file.out
+++ cut -f1
++ test 2048 -lt 2500
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-sparse.sh.asq5
++ exit 0
+PASS tests/dd/sparse.sh (exit status: 0)

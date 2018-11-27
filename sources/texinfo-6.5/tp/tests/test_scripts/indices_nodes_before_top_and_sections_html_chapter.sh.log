@@ -1,0 +1,27 @@
+D: indices//diffs/nodes_before_top_and_sections_html_chapter.diff
+D: indices//diffs/nodes_before_top_and_sections_html_chapter_info.diff
+testdir: indices/
+driving_file: ./indices//tests-parser.txt
+found special first line, commands now: : :_info
+made result dir: ./indices//res_parser/
+made result dir: ./indices//res_parser_info/
+
+doing test nodes_before_top_and_sections_html_chapter, src_file ./indices//nodes_before_top_and_sections.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl nodes_before_top_and_sections_html_chapter -> indices//out_parser/nodes_before_top_and_sections_html_chapter
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./indices/ -I indices// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output indices//out_parser/nodes_before_top_and_sections_html_chapter/ --html --split chapter ./indices//nodes_before_top_and_sections.texi > indices//out_parser/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.1 2>indices//out_parser/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.2
+
+doing test nodes_before_top_and_sections_html_chapter, src_file ./indices//nodes_before_top_and_sections.texi
+format_option: --info
+texi2any.pl nodes_before_top_and_sections_html_chapter -> indices//out_parser_info/nodes_before_top_and_sections_html_chapter
+ /tools/bin/perl -w ./..//texi2any.pl --info --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./indices/ -I indices// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output indices//out_parser_info/nodes_before_top_and_sections_html_chapter/ --html --split chapter ./indices//nodes_before_top_and_sections.texi > indices//out_parser_info/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.1 2>indices//out_parser_info/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.2
+
+all done, exiting with status 1
+
+diff -a -u -r indices//diffs/staging_res/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.2 indices//out_parser/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.2
+--- indices//diffs/staging_res/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.2	2017-08-27 10:45:47.000000000 +0000
++++ indices//out_parser/nodes_before_top_and_sections_html_chapter/nodes_before_top_and_sections.2	2018-11-26 23:59:40.701285665 +0000
+@@ -0,0 +1,2 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+FAIL test_scripts/indices_nodes_before_top_and_sections_html_chapter.sh (exit status: 1)

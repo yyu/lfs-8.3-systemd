@@ -1,0 +1,7 @@
+[31] patch -b -B backup/ a < a.diff || echo "Status: $?" -- ok
+[38] test a -ef a.first -- ok
+[40] cat backup/a -- ok
+[53] patch -o b a < a.diff -- ok
+[57] cat b -- ok
+5 tests (5 passed, 0 failed)
+PASS unmodified-files (exit status: 0)

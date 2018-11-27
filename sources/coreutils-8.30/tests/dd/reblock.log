@@ -1,0 +1,163 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-reblock.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-reblock.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ dd
++ require_built_ dd
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env dd --version
+dd (coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, and Stuart Kemp.
++ cat
++ cat
++ mkfifo_or_skip_ dd.fifo
++ test 1 = 1
++ mkfifo dd.fifo
++ retry_delay_ dd_reblock_1 .1 6
++ local test_func=dd_reblock_1
++ local init_delay=.1
++ local max_n_tries=6
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 6
+++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ dd_reblock_1 0.1
++ local delay=0.1
++ dd ibs=3 obs=3 if=dd.fifo
++ printf ab
++ sleep 0.1
++ printf cd
++ wait
++ sed 's/,.*//' err
++ mv k err
++ compare exp-reblock err
++ compare_dev_null_ exp-reblock err
++ test 2 = 2
++ test xexp-reblock = x/dev/null
++ test xerr = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-reblock err
++ diff -u exp-reblock err
++ time_fail=0
++ break
++ test 0 = 0
++ retry_delay_ dd_reblock_2 .1 6
++ local test_func=dd_reblock_2
++ local init_delay=.1
++ local max_n_tries=6
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 6
+++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ dd_reblock_2 0.1
++ local delay=0.1
++ dd bs=3 ibs=1 obs=1 if=dd.fifo
++ printf ab
++ sleep 0.1
++ printf cd
++ wait
++ sed 's/,.*//' err
++ mv k err
++ compare exp-no-reblock err
++ compare_dev_null_ exp-no-reblock err
++ test 2 = 2
++ test xexp-no-reblock = x/dev/null
++ test xerr = x/dev/null
++ return 2
++ case $? in
++ compare_ exp-no-reblock err
++ diff -u exp-no-reblock err
++ time_fail=0
++ break
++ test 0 = 0
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-reblock.sh.My6H
++ exit 0
+PASS tests/dd/reblock.sh (exit status: 0)

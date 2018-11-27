@@ -1,0 +1,6 @@
+[36] patch -p1 < f.diff -- ok
+[41] ls -l f g | sed "s,\(..........\).*,\1," -- ok
+[46] patch -p1 -R < f.diff -- ok
+[51] ! test -e f -o -e g || echo fail -- ok
+4 tests (4 passed, 0 failed)
+PASS file-create-modes (exit status: 0)

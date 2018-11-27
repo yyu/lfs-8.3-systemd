@@ -1,0 +1,19 @@
+D: formatting//diffs/split_nocopying.diff
+testdir: formatting/
+driving_file: ./formatting//tests-parser.txt
+made result dir: ./formatting//res_parser/
+
+doing test split_nocopying, src_file ./formatting//split_nocopying.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl split_nocopying -> formatting//out_parser/split_nocopying
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./formatting/ -I formatting// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output formatting//out_parser/split_nocopying/ --info ./formatting//split_nocopying.texi > formatting//out_parser/split_nocopying/split_nocopying.1 2>formatting//out_parser/split_nocopying/split_nocopying.2
+
+all done, exiting with status 1
+
+diff -a -u -r formatting//diffs/staging_res/split_nocopying/split_nocopying.2 formatting//out_parser/split_nocopying/split_nocopying.2
+--- formatting//diffs/staging_res/split_nocopying/split_nocopying.2	2017-08-27 10:45:45.000000000 +0000
++++ formatting//out_parser/split_nocopying/split_nocopying.2	2018-11-26 23:59:12.288835260 +0000
+@@ -0,0 +1,2 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+FAIL test_scripts/formatting_split_nocopying.sh (exit status: 1)

@@ -1,0 +1,54 @@
++ . ./defs
+++ SHELL=/bin/sh
+++ export SHELL
+++ CDPATH=
+++ unset CDPATH
+++ test '!' -f ./defs
+++ test -z .
+++ LC_ALL=C
+++ export LC_ALL
+++ valgrind=
+++ top_builddir=../..
+++ install_info=../../install-info/ginstall-info
+++ export install_info
+++ top_srcdir=../..
+++ testdir=../../install-info/tests
+++ export testdir
+++ test -z ''
+++ TMPDIR=/tmp
+++ export TMPDIR
+++ : egrep
+++ test -n ''
+++ path_sep=:
+++ findprog mktemp
+++ local 'saveIFS= 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /tools/bin/mktemp
+++ test -x /tools/bin/mktemp
+++ return 0
+++ :
+++ mktemp ii41-XXXXXXXX
++ tempfile=ii41-MUpf3gHU
++ outputdirfile=ii41-MUpf3gHU.gz
++ cp ../../install-info/tests/ii-0041-input-dir-file.gz ii41-MUpf3gHU.gz
++ chmod u+rw ii41-MUpf3gHU.gz
++ ../../install-info/ginstall-info ../../install-info/tests/ii-0041-input-info-file ii41-MUpf3gHU.gz
++ findprog zdiff
++ local 'saveIFS= 	
+'
++ IFS=:
++ for dir in $PATH
++ IFS=' 	
+'
++ test -f /tools/bin/zdiff
++ test -x /tools/bin/zdiff
++ return 0
++ zdiff ../../install-info/tests/ii-0041-expected-dir-file.gz ii41-MUpf3gHU.gz
++ retval=0
++ rm -f ii41-MUpf3gHU ii41-MUpf3gHU.gz
++ exit 0
+PASS ii-0041-test (exit status: 0)

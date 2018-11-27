@@ -1,0 +1,10 @@
+testdir: layout/
+driving_file: ./layout//tests-parser.txt
+made result dir: ./layout//res_parser/
+
+doing test no_monolithic, src_file ./layout//no_monolithic.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl no_monolithic -> layout//out_parser/no_monolithic
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./layout/ -I layout// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output layout//out_parser/no_monolithic/ --set-customization-variable 'MONOLITHIC 0' ./layout//no_monolithic.texi > layout//out_parser/no_monolithic/no_monolithic.1 2>layout//out_parser/no_monolithic/no_monolithic.2
+
+all done, exiting with status 1

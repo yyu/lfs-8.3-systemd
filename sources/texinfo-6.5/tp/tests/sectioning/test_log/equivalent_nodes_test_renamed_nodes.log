@@ -1,0 +1,17 @@
+testdir: sectioning/
+driving_file: ./sectioning//tests-parser.txt
+found special first line, commands now: : :_html
+made result dir: ./sectioning//res_parser/
+made result dir: ./sectioning//res_parser_html/
+
+doing test equivalent_nodes_test_renamed_nodes, src_file ./sectioning//equivalent_nodes.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl equivalent_nodes_test_renamed_nodes -> sectioning//out_parser/equivalent_nodes_test_renamed_nodes
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser/equivalent_nodes_test_renamed_nodes/ --init test_renamed_nodes.init ./sectioning//equivalent_nodes.texi > sectioning//out_parser/equivalent_nodes_test_renamed_nodes/equivalent_nodes.1 2>sectioning//out_parser/equivalent_nodes_test_renamed_nodes/equivalent_nodes.2
+
+doing test equivalent_nodes_test_renamed_nodes, src_file ./sectioning//equivalent_nodes.texi
+format_option: --html
+texi2any.pl equivalent_nodes_test_renamed_nodes -> sectioning//out_parser_html/equivalent_nodes_test_renamed_nodes
+ /tools/bin/perl -w ./..//texi2any.pl --html --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser_html/equivalent_nodes_test_renamed_nodes/ --init test_renamed_nodes.init ./sectioning//equivalent_nodes.texi > sectioning//out_parser_html/equivalent_nodes_test_renamed_nodes/equivalent_nodes.1 2>sectioning//out_parser_html/equivalent_nodes_test_renamed_nodes/equivalent_nodes.2
+
+all done, exiting with status 1

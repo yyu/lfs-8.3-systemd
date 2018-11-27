@@ -1,0 +1,176 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-equals.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-equals.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
++++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ chmod
++ require_built_ chmod
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env chmod --version
+chmod (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie and Jim Meyering.
++ touch f
++ expected_u=-rwx------
++ expected_g=----rwx---
++ expected_o=-------rwx
++ for src in u g o
++ for dest in u g o
++ test u = u
++ continue
++ for dest in u g o
++ test g = u
++ chmod a=,u=rwx,g=u,u= f
+++ ls -l f
+++ cut -b-10
++ actual_perms=----rwx---
+++ eval 'echo $expected_g'
++++ echo ----rwx---
++ expected_perms=----rwx---
++ test ----rwx--- = ----rwx---
++ for dest in u g o
++ test o = u
++ chmod a=,u=rwx,o=u,u= f
+++ ls -l f
+++ cut -b-10
++ actual_perms=-------rwx
+++ eval 'echo $expected_o'
++++ echo -------rwx
++ expected_perms=-------rwx
++ test -------rwx = -------rwx
++ for src in u g o
++ for dest in u g o
++ test u = g
++ chmod a=,g=rwx,u=g,g= f
+++ ls -l f
+++ cut -b-10
++ actual_perms=-rwx------
+++ eval 'echo $expected_u'
++++ echo -rwx------
++ expected_perms=-rwx------
++ test -rwx------ = -rwx------
++ for dest in u g o
++ test g = g
++ continue
++ for dest in u g o
++ test o = g
++ chmod a=,g=rwx,o=g,g= f
+++ ls -l f
+++ cut -b-10
++ actual_perms=-------rwx
+++ eval 'echo $expected_o'
++++ echo -------rwx
++ expected_perms=-------rwx
++ test -------rwx = -------rwx
++ for src in u g o
++ for dest in u g o
++ test u = o
++ chmod a=,o=rwx,u=o,o= f
+++ ls -l f
+++ cut -b-10
++ actual_perms=-rwx------
+++ eval 'echo $expected_u'
++++ echo -rwx------
++ expected_perms=-rwx------
++ test -rwx------ = -rwx------
++ for dest in u g o
++ test g = o
++ chmod a=,o=rwx,g=o,o= f
+++ ls -l f
+++ cut -b-10
++ actual_perms=----rwx---
+++ eval 'echo $expected_g'
++++ echo ----rwx---
++ expected_perms=----rwx---
++ test ----rwx--- = ----rwx---
++ for dest in u g o
++ test o = o
++ continue
++ umask 027
++ chmod a=,u=rwx,=u f
+++ ls -l f
+++ cut -b-10
++ actual_perms=-rwxr-x---
++ test -rwxr-x--- = -rwxr-x---
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-equals.sh.I1EB
++ exit 0
+PASS tests/chmod/equals.sh (exit status: 0)

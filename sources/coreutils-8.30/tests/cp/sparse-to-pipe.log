@@ -1,0 +1,112 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-sparse-to-pipe.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-sparse-to-pipe.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ cp
++ require_built_ cp
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env cp --version
+cp (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
++ require_sparse_support_
++ test 0 = 0
++ t=sparse.38218
++ dd bs=1 seek=128K of=sparse.38218
+++ du -sk sparse.38218
++ set x 0 sparse.38218
++ kb_size=0
++ rm -f sparse.38218
++ test 0 -ge 128
++ mkfifo_or_skip_ pipe
++ test 1 = 1
++ mkfifo pipe
++ pid=38257
++ truncate -s1M sparse
++ timeout 10 cat pipe
++ cp sparse pipe
++ wait 38257
++ cmp sparse copy
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ kill 38257
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++ exit 0
+PASS tests/cp/sparse-to-pipe.sh (exit status: 0)

@@ -1,0 +1,19 @@
+D: contents//diffs/contents_at_begin.diff
+testdir: contents/
+driving_file: ./contents//tests-parser.txt
+made result dir: ./contents//res_parser/
+
+doing test contents_at_begin, src_file ./contents//contents_at_begin.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl contents_at_begin -> contents//out_parser/contents_at_begin
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./contents/ -I contents// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output contents//out_parser/contents_at_begin/  ./contents//contents_at_begin.texi > contents//out_parser/contents_at_begin/contents_at_begin.1 2>contents//out_parser/contents_at_begin/contents_at_begin.2
+
+all done, exiting with status 1
+
+diff -a -u -r contents//diffs/staging_res/contents_at_begin/contents_at_begin.2 contents//out_parser/contents_at_begin/contents_at_begin.2
+--- contents//diffs/staging_res/contents_at_begin/contents_at_begin.2	2017-08-27 10:45:47.000000000 +0000
++++ contents//out_parser/contents_at_begin/contents_at_begin.2	2018-11-27 00:00:01.749619731 +0000
+@@ -0,0 +1,2 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+FAIL test_scripts/contents_contents_at_begin.sh (exit status: 1)

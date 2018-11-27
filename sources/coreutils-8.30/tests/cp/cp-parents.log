@@ -1,0 +1,154 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-cp-parents.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-cp-parents.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
++++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ cp
++ require_built_ cp
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env cp --version
+cp (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
++ working_umask_or_skip_
++ umask 022
++ touch file1 file2
++ chmod 644 file2
+++ ls -l file1 file2
+++ sed 's/ .*//'
+++ uniq
++ perms=-rw-r--r--
++ rm -f file1 file2
++ case $perms in
++ skip_if_setgid_
++ setgid_tmpdir=setgid-33524
++ umask 77
++ mkdir setgid-33524
+++ stat --printf %A setgid-33524
++ perms=drwx------
++ rmdir setgid-33524
++ case $perms in
++ mkdir foo bar
++ mkdir -p a/b/c d e g
++ ln -s d/a sym
++ touch f
++ cp -R --parents foo/ bar
++ cp --verbose -a --parents a/b/c d
++ test -d d/a/b/c
++ returns_ 1 cp --parents f/g d
++ test -d d/f
++ chmod go=w d/a
++ cp -a --parents d/a/b/c e
++ cp -a --parents sym/b/c g
+++ ls -ld e/d
+++ cut -b-10
++ p=drwxr-xr-x
++ case $p in
+++ ls -ld e/d/a
+++ cut -b-10
++ p=drwx-w--w-
++ case $p in
+++ ls -ld g/sym
+++ cut -b-10
++ p=drwx-w--w-
++ case $p in
+++ ls -ld e/d/a/b/c
+++ cut -b-10
++ p=drwxr-xr-x
++ case $p in
+++ ls -ld g/sym/b/c
+++ cut -b-10
++ p=drwxr-xr-x
++ case $p in
++ mkdir -p np/b
++ chmod 0700 np
++ touch np/b/file
++ chmod 775 np/b/file
++ mkdir np_dest
++ cp --parents --no-preserve=mode np/b/file np_dest/
+++ cut -b-10
+++ ls -ld np_dest/np
++ p=drwxr-xr-x
++ case $p in
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-cp-parents.sh.vCJY
++ exit 0
+PASS tests/cp/cp-parents.sh (exit status: 0)

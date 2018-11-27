@@ -1,0 +1,10 @@
+testdir: contents/
+driving_file: ./contents//tests-parser.txt
+made result dir: ./contents//res_parser/
+
+doing test double_contents, src_file ./contents//double_contents.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl double_contents -> contents//out_parser/double_contents
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./contents/ -I contents// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output contents//out_parser/double_contents/  ./contents//double_contents.texi > contents//out_parser/double_contents/double_contents.1 2>contents//out_parser/double_contents/double_contents.2
+
+all done, exiting with status 1

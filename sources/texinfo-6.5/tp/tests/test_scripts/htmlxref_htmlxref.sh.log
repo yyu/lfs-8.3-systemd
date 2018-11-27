@@ -1,0 +1,21 @@
+D: htmlxref//diffs/htmlxref.diff
+testdir: htmlxref/
+driving_file: ./htmlxref//tests-parser.txt
+made result dir: ./htmlxref//res_parser/
+
+doing test htmlxref, src_file ./htmlxref//../sectioning/test_refs.texi
+format_option: --set-customization-variable=TEXI2HTML
+texi2any.pl htmlxref -> htmlxref//out_parser/htmlxref
+ /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./htmlxref/ -I htmlxref// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output htmlxref//out_parser/htmlxref/ --set-customization-variable CHECK_HTMLXREF -c HTMLXREF=htmlxref.cnf-ref --set-customization-variable 'HTMLXREF=htmlxref/htmlxref.cnf' ./htmlxref//../sectioning/test_refs.texi > htmlxref//out_parser/htmlxref/test_refs.1 2>htmlxref//out_parser/htmlxref/test_refs.2
+
+all done, exiting with status 1
+
+diff -a -u -r htmlxref//diffs/staging_res/htmlxref/test_refs.2 htmlxref//out_parser/htmlxref/test_refs.2
+--- htmlxref//diffs/staging_res/htmlxref/test_refs.2	2017-08-27 10:45:46.000000000 +0000
++++ htmlxref//out_parser/htmlxref/test_refs.2	2018-11-26 23:59:17.368915744 +0000
+@@ -1,2 +1,4 @@
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
++Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
+ ./htmlxref/htmlxref.cnf:15: warning: unrecognized type: foo
+ ./htmlxref/htmlxref.cnf:16: warning: missing type
+FAIL test_scripts/htmlxref_htmlxref.sh (exit status: 1)

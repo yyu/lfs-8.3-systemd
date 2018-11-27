@@ -1,0 +1,532 @@
+++ initial_cwd_=/mnt/lfs/sources/grep-3.1/tests
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/grep-3.1/tests gt-skip-read.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/grep-3.1/tests
++++ template_=gt-skip-read.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/grep-3.1/tests/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
+++++ ls -dgo /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
++++ perms='drwx------ 2 4096 Nov 26 23:48 /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
++++ return
+++ test_dir_=/mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
+++ cd /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ../src
++ test 1 '!=' 0
++ path_dir_=../src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/grep-3.1/tests/../src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/grep-3.1/tests/../src:/mnt/lfs/sources/grep-3.1/src:./src:/tools/bin:/bin:/usr/bin
++ create_exe_shims_ /mnt/lfs/sources/grep-3.1/tests/../src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ fail=0
++ echo /dev/null
++ for opts in '-m0 y' '-f /dev/null' '-v ""'
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -m0 y no-such-file
+++ returns_ 1 grep -m0 y no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -m0 y /dev/null
+++ returns_ 1 grep -l -m0 y /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -m0 y no-such-file
+++ returns_ 1 grep -m0 y no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -m0 y /dev/null
+++ returns_ 1 grep -l -m0 y /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -m0 y /dev/null
+++ returns_ 1 grep -L -m0 y /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -m0 y -E no-such-file
+++ returns_ 1 grep -m0 y -E no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -m0 y -E /dev/null
+++ returns_ 1 grep -l -m0 y -E /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -m0 y -E no-such-file
+++ returns_ 1 grep -m0 y -E no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -m0 y -E /dev/null
+++ returns_ 1 grep -l -m0 y -E /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -m0 y -E /dev/null
+++ returns_ 1 grep -L -m0 y -E /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -m0 y -F no-such-file
+++ returns_ 1 grep -m0 y -F no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -m0 y -F /dev/null
+++ returns_ 1 grep -l -m0 y -F /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -m0 y -F no-such-file
+++ returns_ 1 grep -m0 y -F no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -m0 y -F /dev/null
+++ returns_ 1 grep -l -m0 y -F /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -m0 y -F /dev/null
+++ returns_ 1 grep -L -m0 y -F /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for opts in '-m0 y' '-f /dev/null' '-v ""'
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -f /dev/null no-such-file
+++ returns_ 1 grep -f /dev/null no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -f /dev/null /dev/null
+++ returns_ 1 grep -l -f /dev/null /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -f /dev/null no-such-file
+++ returns_ 1 grep -f /dev/null no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -f /dev/null /dev/null
+++ returns_ 1 grep -l -f /dev/null /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -f /dev/null /dev/null
+++ returns_ 1 grep -L -f /dev/null /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -f /dev/null -E no-such-file
+++ returns_ 1 grep -f /dev/null -E no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -f /dev/null -E /dev/null
+++ returns_ 1 grep -l -f /dev/null -E /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -f /dev/null -E no-such-file
+++ returns_ 1 grep -f /dev/null -E no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -f /dev/null -E /dev/null
+++ returns_ 1 grep -l -f /dev/null -E /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -f /dev/null -E /dev/null
+++ returns_ 1 grep -L -f /dev/null -E /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -f /dev/null -F no-such-file
+++ returns_ 1 grep -f /dev/null -F no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -f /dev/null -F /dev/null
+++ returns_ 1 grep -l -f /dev/null -F /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -f /dev/null -F no-such-file
+++ returns_ 1 grep -f /dev/null -F no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -f /dev/null -F /dev/null
+++ returns_ 1 grep -l -f /dev/null -F /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -f /dev/null -F /dev/null
+++ returns_ 1 grep -L -f /dev/null -F /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for opts in '-m0 y' '-f /dev/null' '-v ""'
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -v '""' no-such-file
+++ returns_ 1 grep -v '' no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -v '""' /dev/null
+++ returns_ 1 grep -l -v '' /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -v '""' no-such-file
+++ returns_ 1 grep -v '' no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -v '""' /dev/null
+++ returns_ 1 grep -l -v '' /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -v '""' /dev/null
+++ returns_ 1 grep -L -v '' /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -v '""' -E no-such-file
+++ returns_ 1 grep -v '' -E no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -v '""' -E /dev/null
+++ returns_ 1 grep -l -v '' -E /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -v '""' -E no-such-file
+++ returns_ 1 grep -v '' -E no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -v '""' -E /dev/null
+++ returns_ 1 grep -l -v '' -E /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -v '""' -E /dev/null
+++ returns_ 1 grep -L -v '' -E /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ for matcher in '' -E -F
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -v '""' -F no-such-file
+++ returns_ 1 grep -v '' -F no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -v '""' -F /dev/null
+++ returns_ 1 grep -l -v '' -F /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ for file in /dev/null no-such-file
++ eval returns_ 1 grep -v '""' -F no-such-file
+++ returns_ 1 grep -v '' -F no-such-file
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -l -v '""' -F /dev/null
+++ returns_ 1 grep -l -v '' -F /dev/null
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ eval returns_ 1 grep -L -v '""' -F /dev/null
+++ returns_ 1 grep -L -v '' -F /dev/null
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/grep-3.1/tests
++ chmod -R u+rwx /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
++ rm -rf /mnt/lfs/sources/grep-3.1/tests/gt-skip-read.2irv
++ exit 0
+PASS skip-read (exit status: 0)

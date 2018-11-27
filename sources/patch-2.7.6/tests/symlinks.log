@@ -1,0 +1,45 @@
+[26] ln -s f l -- ok
+[28] patch < create.diff || echo "Status: $?" -- ok
+[34] cat f -- ok
+[42] ln -s f l -- ok
+[52] patch < modify.diff || echo "Status: $?" -- ok
+[58] patch --follow-symlinks < modify.diff || echo "Status: $?" -- ok
+[62] cat f -- ok
+[66] cat l -- ok
+[74] ln -s f l -- ok
+[83] patch < delete.diff || echo "Status: $?" -- ok
+[102] patch -p1 < create-symlink.diff || echo "Status: $?" -- ok
+[106] echo a > target1 && cat symlink -- ok
+[109] echo b > target1 && cat symlink -- ok
+[126] patch -p1 < modify-symlink.diff || echo "Status: $?" -- ok
+[130] echo a > target2 && cat symlink -- ok
+[133] echo b > target2 && cat symlink -- ok
+[149] patch -p1 < delete-symlink.diff || echo "Status: $?" -- ok
+[153] test ! -L symlink -- ok
+[169] patch -p0 < f.diff || echo "Status: $?" -- ok
+[185] mkdir abc -- ok
+[186] mkdir abc/def -- ok
+[188] patch -p0 < retraverse.diff || echo "Status: $?" -- ok
+[208] patch -p0 < ld.diff -- ok
+[223] patch -p0 < eld.diff -- ok
+[230] patch -p0 -R < eld.diff -- ok
+[255] patch -p0 < follow-bad-symlink.diff || echo "Status: $?" -- ok
+[275] patch -p1 < symlink-target.diff || echo "Status: $?" -- ok
+[313] patch -f -p1 < follow-symlink.diff || echo "Status: $?" -- ok
+[321] cat bar -- ok
+[338] patch -p1 < bad-symlink-target1.diff || echo "Status: $?" -- ok
+[353] patch -p1 < bad-symlink-target2.diff || echo "Status: $?" -- ok
+[376] patch -p0 < good-absolute.diff -- ok
+[387] patch -p1 --backup < create-symlink.diff || echo "Status: $?" -- ok
+[391] test -f symlink.orig && test ! -s symlink.orig -- ok
+[395] patch -p1 --backup < modify-symlink.diff || echo "Status: $?" -- ok
+[399] echo a > symlink.orig && cat target1 -- ok
+[402] echo b > symlink.orig && cat target1 -- ok
+[409] patch -p1 --backup < delete-symlink.diff || echo "Status: $?" -- ok
+[413] echo a > symlink.orig && cat target2 -- ok
+[416] echo b > symlink.orig && cat target2 -- ok
+[424] mkdir d -- ok
+[432] ln -sf d l -- ok
+[434] patch -p1 -i l/ab.diff -- ok
+43 tests (43 passed, 0 failed)
+PASS symlinks (exit status: 0)

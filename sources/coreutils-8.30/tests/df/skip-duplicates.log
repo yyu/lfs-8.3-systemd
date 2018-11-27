@@ -1,0 +1,170 @@
+++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-skip-duplicates.sh.XXXX
++++ case $# in
++++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ template_=gt-skip-duplicates.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
++++ case $d in
++++ :
++++ test -d /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
+++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
++++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1'
++++ case $perms in
++++ :
++++ echo /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
++++ return
+++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
+++ cd /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ case $abs_path_dir_ in
++ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
++ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ df
++ require_built_ df
++ skip_=no
++ for i in "$@"
++ case " $built_programs " in
++ test no = yes
++ test yes = yes
++ local i
++ for i in $*
++ env df --version
+df (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Paul Eggert.
++ require_gcc_shared_
++ gcc_shared_ - d.so -xc
++ local in=-
++ local out=d.so
++ shift 2
++ gcc -Wall -shared --std=gnu99 -fPIC -O2 -xc - -o d.so -ldl
++ rm -f d.so
++ df --local --output=target
++ grep '^/$' LOCAL_FS
+/
+++ grep /. LOCAL_FS
+++ head -n1
++ export CU_NONROOT_FS=/dev
++ CU_NONROOT_FS=/dev
+++ grep /. LOCAL_FS
+++ tail -n+2
+++ head -n1
++ export CU_REMOTE_FS=/run
++ CU_REMOTE_FS=/run
++ unique_entries=1
++ test -z /dev
+++ expr 1 + 1
++ unique_entries=2
++ test -z /run
+++ expr 2 + 2
++ unique_entries=4
++ grep '^#define HAVE_MNTENT_H 1' /mnt/lfs/sources/coreutils-8.30/lib/config.h
++ grep '^#define HAVE_GETMNTENT 1' /mnt/lfs/sources/coreutils-8.30/lib/config.h
++ cat
++ gcc_shared_ k.c k.so
++ local in=k.c
++ local out=k.so
++ shift 2
++ gcc -Wall -shared --std=gnu99 -fPIC -O2 k.c -o k.so -ldl
++ LD_PRELOAD=:./k.so
++ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/fsname        520382884 60240244 460126256  12% /
+virtfs2         72060948        0  72060948   0% /dev
+rem:ote1        14414596     1016  14413580   1% /run
+rem:ote2        14414596     1016  14413580   1% /run
++ test -f x
++ LD_PRELOAD=:./k.so
++ df -T
+++ wc -l
+++ expr 1 + 4
++ test 5 -eq 5
++ LD_PRELOAD=:./k.so
++ df --total
++ test /run
++ elide_remote=1
+++ wc -l
+++ expr 2 + 4 - 1
++ test 5 -eq 5
++ LD_PRELOAD=:./k.so
++ CU_TEST_DUPE_INVALID=1
++ df -T
+++ wc -l
+++ expr 1 + 4
++ test 5 -eq 5
++ test 4 = 2
+++ grep -c 'virtfs2.*t2'
++ test 1 -eq 1
++ LD_PRELOAD=:./k.so
++ df -a
++ total_fs=6
++ test /run
+++ expr 6 + 3
++ total_fs=9
+++ wc -l
++ test 9 -eq 9
+++ grep -c 'virtfs *-'
++ test 1 -eq 1
++ df . .
+++ wc -l
++ test 3 -eq 3
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ test '' = yes
++ cd /mnt/lfs/sources/coreutils-8.30
++ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
++ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-skip-duplicates.sh.8qk1
++ exit 0
+PASS tests/df/skip-duplicates.sh (exit status: 0)

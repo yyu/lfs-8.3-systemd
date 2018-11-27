@@ -1,0 +1,30 @@
+[26] patch -f -p1 < f.diff || echo "Status: $?" -- ok
+[49] patch -f < f.diff || echo "Status: $?" -- ok
+[70] patch -p0 < f.diff || echo "Status: $?" -- ok
+[83] patch -p0 -f < f.diff || echo "Status: $?" -- ok
+[98] patch -f f < f.diff || echo "Status: $?" -- ok
+[107] ! test -s f.orig -- ok
+[120] patch -f < f.diff || echo "Status: $?" -- ok
+[140] patch -p0 -t < f.diff || echo "Status: $?" -- ok
+[146] cat f -- ok
+[162] patch -p0 -t < f.diff || echo "Status: $?" -- ok
+[168] cat f -- ok
+[183] patch -p0 < p.diff || echo status: $? -- ok
+[189] cat target -- ok
+[203] patch -p0 < p.diff || echo status: $? -- ok
+[209] cat target -- ok
+[225] patch -p1 -b < p.diff || echo status: $? -- ok
+[231] test -e target -- ok
+[234] test -e target.orig -- ok
+[248] patch -p0 < p.diff || echo status: $? -- ok
+[252] cat target -- ok
+[256] patch -p0 -E < p.diff || echo status: $? -- ok
+[260] test ! -e target -- ok
+[276] patch -p1 -b -f < p.diff || echo status: $? -- ok
+[280] test ! -e target -- ok
+[282] cat target.orig -- ok
+[288] patch -p1 -b --posix -f < p.diff || echo status: $? -- ok
+[292] cat target -- ok
+[295] cat target.orig -- ok
+28 tests (28 passed, 0 failed)
+PASS create-delete (exit status: 0)

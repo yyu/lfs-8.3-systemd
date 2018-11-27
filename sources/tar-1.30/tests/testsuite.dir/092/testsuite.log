@@ -1,0 +1,27 @@
+#                             -*- compilation -*-
+92. difflink.at:17: testing link mismatch ...
+./difflink.at:19:
+mkdir ustar
+(cd ustar
+TEST_TAR_FORMAT=ustar
+export TEST_TAR_FORMAT
+TAR_OPTIONS="-H ustar"
+export TAR_OPTIONS
+rm -rf *
+
+mkdir a
+genfile -f a/x
+ln -s x a/y
+ln a/y a/z
+tar cf a.tar a
+rm a/z
+ln -s x a/z
+tar df a.tar
+)
+--- -	2018-11-26 23:54:22.180921697 +0000
++++ /mnt/lfs/sources/tar-1.30/tests/testsuite.dir/at-groups/92/stdout	2018-11-26 23:54:22.176185668 +0000
+@@ -1,2 +1,2 @@
+-a/z: Not linked to a/y
++a/y: Not linked to a/z
+ 
+92. difflink.at:17: 92. link mismatch (difflink.at:17): FAILED (difflink.at:19)
