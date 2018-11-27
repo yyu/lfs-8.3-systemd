@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-tail-n0f.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-tail-n0f.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-tail-n0f.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
++++ d=/sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ'
++++ test -d /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
+++++ ls -dgo /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
++++ perms='drwx------ 2 4096 Nov 26 23:47 /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
++++ echo /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
+++ test_dir_=/sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
+++ cd /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -80,11 +80,11 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
 and Jim Meyering.
 + require_proc_pid_status_
-+ local pid=44017
++ local pid=53117
 + sleep .5
 + sleep 2
-+ grep '^State:[	 ]*[S]' /proc/44017/status
-+ kill 44017
++ grep '^State:[	 ]*[S]' /proc/53117/status
++ kill 53117
 + touch empty
 + echo anything
 + touch unreadable
@@ -94,7 +94,7 @@ and Jim Meyering.
 + for mode in '' '---disable-inotify'
 + for file in empty nonempty
 + for c_or_n in c n
-+ pid=44025
++ pid=53125
 + retry_delay_ tail_sleeping .1 4
 + local test_func=tail_sleeping
 + local init_delay=.1
@@ -110,19 +110,20 @@ and Jim Meyering.
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44025
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44025/status
+++ get_process_status_ 53125
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53125/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44025
-+ wait 44025
++ kill 53125
++ wait 53125
 + for c_or_n in c n
-+ pid=44030
++ pid=53130
 + retry_delay_ tail_sleeping .1 4
++ tail --sleep=4 -n 0 -f empty
 + local test_func=tail_sleeping
 + local init_delay=.1
 + local max_n_tries=4
@@ -131,25 +132,24 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 4
-+ tail --sleep=4 -n 0 -f empty
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44030
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44030/status
+++ get_process_status_ 53130
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53130/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44030
-+ wait 44030
++ kill 53130
++ wait 53130
 + for file in empty nonempty
 + for c_or_n in c n
-+ pid=44035
++ pid=53135
 + retry_delay_ tail_sleeping .1 4
 + local test_func=tail_sleeping
 + local init_delay=.1
@@ -165,20 +165,21 @@ and Jim Meyering.
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44035
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44035/status
+++ get_process_status_ 53135
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53135/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44035
-+ wait 44035
++ kill 53135
++ wait 53135
 + for c_or_n in c n
-+ pid=44040
++ pid=53140
 + retry_delay_ tail_sleeping .1 4
 + local test_func=tail_sleeping
++ tail --sleep=4 -n 0 -f nonempty
 + local init_delay=.1
 + local max_n_tries=4
 + shift 3
@@ -186,60 +187,32 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 4
-+ tail --sleep=4 -n 0 -f nonempty
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44040
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44040/status
+++ get_process_status_ 53140
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53140/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44040
-+ wait 44040
++ kill 53140
++ wait 53140
 + for mode in '' '---disable-inotify'
 + for file in empty nonempty
 + for c_or_n in c n
-+ pid=44045
++ pid=53145
 + retry_delay_ tail_sleeping .1 4
 + local test_func=tail_sleeping
 + local init_delay=.1
 + local max_n_tries=4
-+ shift 3
-+ local attempt=1
-+ local num_sleeps=1
-+ local time_fail
-+ test 1 -le 4
 + tail --sleep=4 -c 0 -f ---disable-inotify empty
-++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
-+ local delay=0.1
-+ tail_sleeping 0.1
-+ local delay=0.1
-+ sleep 0.1
-++ get_process_status_ 44045
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44045/status
-+ state=S
-+ case $state in
-+ time_fail=0
-+ break
-+ test 0 = 0
-+ cleanup_
-+ kill 44045
-+ wait 44045
-+ for c_or_n in c n
-+ pid=44050
-+ retry_delay_ tail_sleeping .1 4
-+ local test_func=tail_sleeping
-+ local init_delay=.1
-+ local max_n_tries=4
 + shift 3
 + local attempt=1
-+ tail --sleep=4 -n 0 -f ---disable-inotify empty
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 4
@@ -248,19 +221,46 @@ and Jim Meyering.
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44050
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44050/status
+++ get_process_status_ 53145
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53145/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44050
-+ wait 44050
++ kill 53145
++ wait 53145
++ for c_or_n in c n
++ pid=53150
++ retry_delay_ tail_sleeping .1 4
++ local test_func=tail_sleeping
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
++ tail --sleep=4 -n 0 -f ---disable-inotify empty
+++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 53150
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53150/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ cleanup_
++ kill 53150
++ wait 53150
 + for file in empty nonempty
 + for c_or_n in c n
-+ pid=44055
++ pid=53155
 + retry_delay_ tail_sleeping .1 4
 + local test_func=tail_sleeping
 + local init_delay=.1
@@ -276,18 +276,18 @@ and Jim Meyering.
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44055
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44055/status
+++ get_process_status_ 53155
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53155/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44055
-+ wait 44055
++ kill 53155
++ wait 53155
 + for c_or_n in c n
-+ pid=44060
++ pid=53160
 + retry_delay_ tail_sleeping .1 4
 + local test_func=tail_sleeping
 + local init_delay=.1
@@ -303,16 +303,16 @@ and Jim Meyering.
 + tail_sleeping 0.1
 + local delay=0.1
 + sleep 0.1
-++ get_process_status_ 44060
-++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/44060/status
+++ get_process_status_ 53160
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/53160/status
 + state=S
 + case $state in
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 44060
-+ wait 44060
++ kill 53160
++ wait 53160
 + Exit 0
 + set +e
 + exit 0
@@ -320,10 +320,10 @@ and Jim Meyering.
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 44060
++ kill 53160
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-tail-n0f.sh.6VEQ
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
++ rm -rf /sources/coreutils-8.30/gt-tail-n0f.sh.pHaR
 + exit 0
 PASS tests/tail-2/tail-n0f.sh (exit status: 0)

@@ -27,6 +27,15 @@ my $prog = 'expand';
 # Turn off localization of executable's output.
 @ENV{qw(LANGUAGE LANG LC_ALL)} = ('C') x 3;
 
+#comment out next line to disable multibyte tests
+my $mb_locale = $ENV{LOCALE_FR_UTF8};
+! defined $mb_locale || $mb_locale eq 'none'
+ and $mb_locale = 'C';
+
+my $prog = 'expand';
+my $try = "Try \`$prog --help' for more information.\n";
+my $inval = "$prog: invalid byte, character or field list\n$try";
+
 my @Tests =
   (
    ['t1', '--tabs=3',     {IN=>"a\tb"}, {OUT=>"a  b"}],
@@ -168,6 +177,8 @@ my @Tests =
 
 
    # Test errors
+   # FIXME: The following tests contain ‘quoting’ specific to LC_MESSAGES
+   # So we force LC_MESSAGES=C to make them pass.
    ['e1', '--tabs="a"', {IN=>''}, {OUT=>''}, {EXIT=>1},
     {ERR => "$prog: tab size contains invalid character(s): 'a'\n"}],
    ['e2', "-t $UINTMAX_OFLOW", {IN=>''}, {OUT=>''}, {EXIT=>1},
@@ -183,6 +194,37 @@ my @Tests =
    ['e7', '--tabs=3/', {IN=>''}, {OUT=>''}, {EXIT=>1},
     {ERR => "$prog: '/' specifier not at start of number: '/'\n"}],
   );
+
+if ($mb_locale ne 'C')
+  {
+    # Duplicate each test vector, appending "-mb" to the test name and
+    # inserting {ENV => "LC_ALL=$mb_locale"} in the copy, so that we
+    # provide coverage for the distro-added multi-byte code paths.
+    my @new;
+    foreach my $t (@Tests)
+      {
+        my @new_t = @$t;
+        my $test_name = shift @new_t;
+
+        # Depending on whether expand is multi-byte-patched,
+        # it emits different diagnostics:
+        #   non-MB: invalid byte or field list
+        #   MB:     invalid byte, character or field list
+        # Adjust the expected error output accordingly.
+        if (grep {ref $_ eq 'HASH' && exists $_->{ERR} && $_->{ERR} eq $inval}
+            (@new_t))
+          {
+            my $sub = {ERR_SUBST => 's/, character//'};
+            push @new_t, $sub;
+            push @$t, $sub;
+          }
+        push @new, ["$test_name-mb", @new_t, {ENV => "LANG=$mb_locale LC_MESSAGES=C"}];
+      }
+    push @Tests, @new;
+  }
+
+
+@Tests = triple_test \@Tests;
 
 my $save_temps = $ENV{DEBUG};
 my $verbose = $ENV{VERBOSE};

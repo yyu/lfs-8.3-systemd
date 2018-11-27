@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii20-XXXXXXXX
-+ outputdirfile=ii20-Zr1ayW7v
-+ cp ../../install-info/tests/ii-0020-input-dir-file ii20-Zr1ayW7v
++ outputdirfile=ii20-vcj6GIrr
++ cp ../../install-info/tests/ii-0020-input-dir-file ii20-vcj6GIrr
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info '--description=Wildebeest native to Africa.' ../../install-info/tests/ii-0020-input-info-file ii20-Zr1ayW7v
++ ../../install-info/ginstall-info '--description=Wildebeest native to Africa.' ../../install-info/tests/ii-0020-input-info-file ii20-vcj6GIrr
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0020-expected-dir-file ii20-Zr1ayW7v
++ diff ../../install-info/tests/ii-0020-expected-dir-file ii20-vcj6GIrr
 + retval=0
-+ rm -f ii20-Zr1ayW7v
++ rm -f ii20-vcj6GIrr
 + exit 0
 PASS ii-0020-test (exit status: 0)

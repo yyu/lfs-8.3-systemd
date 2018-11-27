@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-unreadable.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-unreadable.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-unreadable.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
++++ d=/sources/coreutils-8.30/gt-unreadable.sh.Px82
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe'
++++ test -d /sources/coreutils-8.30/gt-unreadable.sh.Px82
+++++ ls -dgo /sources/coreutils-8.30/gt-unreadable.sh.Px82
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-unreadable.sh.Px82'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
++++ echo /sources/coreutils-8.30/gt-unreadable.sh.Px82
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
+++ test_dir_=/sources/coreutils-8.30/gt-unreadable.sh.Px82
+++ cd /sources/coreutils-8.30/gt-unreadable.sh.Px82
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -81,20 +81,20 @@ Written by Torbjorn Granlund, David MacKenzie, and Paul Eggert.
 + skip_if_root_
 + uid_is_privileged_
 ++ id -u
-+ my_uid=1001
++ my_uid=99
 + case $my_uid in
 + return 1
 + touch unreadable
 + chmod a-r unreadable
 + df unreadable
 Filesystem     1K-blocks     Used Available Use% Mounted on
-/dev/loop5     263174212 10183768 239552288   5% /mnt/lfs
+/dev/loop5     263174212 25019256 224716800  11% /
 + mkfifo_or_skip_ fifo
 + test 1 = 1
 + mkfifo fifo
 + timeout 10 df fifo
 Filesystem     1K-blocks     Used Available Use% Mounted on
-/dev/loop5     263174212 10183768 239552288   5% /mnt/lfs
+/dev/loop5     263174212 25019256 224716800  11% /
 + test 0 = 1
 + Exit 0
 + set +e
@@ -105,8 +105,8 @@ Filesystem     1K-blocks     Used Available Use% Mounted on
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-unreadable.sh.qHLe
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-unreadable.sh.Px82
++ rm -rf /sources/coreutils-8.30/gt-unreadable.sh.Px82
 + exit 0
 PASS tests/df/unreadable.sh (exit status: 0)

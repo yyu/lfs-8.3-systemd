@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-no-allocate.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-no-allocate.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-no-allocate.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
++++ d=/sources/coreutils-8.30/gt-no-allocate.sh.OrvP
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv'
++++ test -d /sources/coreutils-8.30/gt-no-allocate.sh.OrvP
+++++ ls -dgo /sources/coreutils-8.30/gt-no-allocate.sh.OrvP
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-no-allocate.sh.OrvP'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
++++ echo /sources/coreutils-8.30/gt-no-allocate.sh.OrvP
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
+++ test_dir_=/sources/coreutils-8.30/gt-no-allocate.sh.OrvP
+++ cd /sources/coreutils-8.30/gt-no-allocate.sh.OrvP
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -120,17 +120,17 @@ Written by Paul Rubin, David MacKenzie, and Stuart Kemp.
 + dd bs=30M count=0
 0+0 records in
 0+0 records out
-0 bytes copied, 2.8221e-05 s, 0.0 kB/s
+0 bytes copied, 1.3682e-05 s, 0.0 kB/s
 + ulimit -v 3004
 + dd ibs=30M count=0
 0+0 records in
 0+0 records out
-0 bytes copied, 1.7534e-05 s, 0.0 kB/s
+0 bytes copied, 1.2562e-05 s, 0.0 kB/s
 + ulimit -v 3004
 + dd obs=30M count=0
 0+0 records in
 0+0 records out
-0 bytes copied, 2.2834e-05 s, 0.0 kB/s
+0 bytes copied, 1.4584e-05 s, 0.0 kB/s
 + mkfifo tape
 + for file in 'in' 'out'
 + for buf in 'both' 'in' 'out'
@@ -151,7 +151,7 @@ Written by Paul Rubin, David MacKenzie, and Stuart Kemp.
 dd: memory exhausted by input buffer of size 31457280 bytes (30 MiB)
 1+0 records in
 1+0 records out
-512 bytes copied, 4.8344e-05 s, 10.6 MB/s
+512 bytes copied, 3.5688e-05 s, 14.3 MB/s
 + local ret=1
 + test 1 = 124
 + wait
@@ -172,10 +172,10 @@ dd: memory exhausted by input buffer of size 31457280 bytes (30 MiB)
 + timeout 10 dd count=1 if=/dev/zero of=tape
 + ulimit -v 3004
 + timeout 10 dd ibs=30M skip=1 count=0 if=tape
-dd: 1+0 records in
+dd: memory exhausted by input buffer of size 31457280 bytes (30 MiB)
+1+0 records in
 1+0 records out
-memory exhausted by input buffer of size 31457280 bytes (30 MiB)
-512 bytes copied, 4.0453e-05 s, 12.7 MB/s
+512 bytes copied, 2.8929e-05 s, 17.7 MB/s
 + local ret=1
 + test 1 = 124
 + wait
@@ -198,10 +198,10 @@ memory exhausted by input buffer of size 31457280 bytes (30 MiB)
 + timeout 10 dd obs=30M skip=1 count=0 if=tape
 1+0 records in
 1+0 records out
-512 bytes copied, 8.5008e-05 s, 6.0 MB/s
 0+0 records in
 0+0 records out
-0 bytes copied, 0.000229117 s, 0.0 kB/s
+512 bytes copied, 3.7647e-05 s, 13.6 MB/s
+0 bytes copied, 9.8079e-05 s, 0.0 kB/s
 + local ret=0
 + test 0 = 124
 + wait
@@ -244,12 +244,12 @@ dd: memory exhausted by input buffer of size 31457280 bytes (30 MiB)
 + timeout 10 dd count=1 if=/dev/zero of=tape
 + ulimit -v 3004
 + timeout 10 dd ibs=30M seek=1 count=0 of=tape
-0+0 records in
-0+0 records out
 1+0 records in
 1+0 records out
-0 bytes copied, 0.00010182 s, 0.0 kB/s
-512 bytes copied, 5.2043e-05 s, 9.8 MB/s
+512 bytes copied, 5.2437e-05 s, 9.8 MB/s
+0+0 records in
+0+0 records out
+0 bytes copied, 0.000185149 s, 0.0 kB/s
 + local ret=0
 + test 0 = 124
 + wait
@@ -285,8 +285,8 @@ dd: memory exhausted by output buffer of size 31457280 bytes (30 MiB)
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-no-allocate.sh.0DZv
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-no-allocate.sh.OrvP
++ rm -rf /sources/coreutils-8.30/gt-no-allocate.sh.OrvP
 + exit 0
 PASS tests/dd/no-allocate.sh (exit status: 0)

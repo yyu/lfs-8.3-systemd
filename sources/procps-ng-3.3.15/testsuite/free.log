@@ -1,0 +1,89 @@
+Test run by root on Tue Nov 27 07:40:18 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== free tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./free.test/free.exp ...
+spawn /sources/procps-ng-3.3.15/free
+              total        used        free      shared  buff/cache   available
+Mem:      144145948     1307768     7674596        1048   135163584   141701080
+Swap:             0           0           0
+PASS: free with no arguments
+spawn /sources/procps-ng-3.3.15/free -b
+              total        used        free      shared  buff/cache   available
+Mem:    147605450752  1338798080  7859142656     1073152 138407510016 145102262272
+Swap:             0           0           0
+PASS: free with -b argument
+spawn /sources/procps-ng-3.3.15/free -k
+              total        used        free      shared  buff/cache   available
+Mem:      144145948     1306536     7675828        1048   135163584   141702312
+Swap:             0           0           0
+PASS: free with -k argument
+spawn /sources/procps-ng-3.3.15/free -m
+              total        used        free      shared  buff/cache   available
+Mem:         140767        1276        7495           1      131995      138380
+Swap:             0           0           0
+PASS: free with -m argument
+spawn /sources/procps-ng-3.3.15/free -g
+              total        used        free      shared  buff/cache   available
+Mem:            137           1           7           0         128         135
+Swap:             0           0           0
+PASS: free with -g argument
+spawn /sources/procps-ng-3.3.15/free --kilo
+              total        used        free      shared  buff/cache   available
+Mem:      147605450     1336954     7860985        1073   138407510   145104105
+Swap:             0           0           0
+PASS: free with --kilo argument
+spawn /sources/procps-ng-3.3.15/free --mega
+              total        used        free      shared  buff/cache   available
+Mem:         147605        1337        7860           1      138407      145104
+Swap:             0           0           0
+PASS: free with --mega argument
+spawn /sources/procps-ng-3.3.15/free --giga
+              total        used        free      shared  buff/cache   available
+Mem:            147           1           7           0         138         145
+Swap:             0           0           0
+PASS: free with --giga argument
+spawn /sources/procps-ng-3.3.15/free -l
+              total        used        free      shared  buff/cache   available
+Mem:      144145948     1306412     7675952        1048   135163584   141702436
+Low:      144145948   136469996     7675952
+High:             0           0           0
+Swap:             0           0           0
+PASS: free with lo and hi memory statistics
+spawn /sources/procps-ng-3.3.15/free -t
+              total        used        free      shared  buff/cache   available
+Mem:      144145948     1305628     7676736        1048   135163584   141703220
+Swap:             0           0           0
+Total:    144145948     1305628     7676736
+PASS: free with total
+spawn /sources/procps-ng-3.3.15/free -c -2
+lt-free: failed to parse count argument: '-2': Numerical result out of range
+PASS: free with negative repeat count
+spawn /sources/procps-ng-3.3.15/free -c 0
+lt-free: failed to parse count argument: '0': Numerical result out of range
+PASS: free with zero repeat count
+spawn /sources/procps-ng-3.3.15/free -c 2
+              total        used        free      shared  buff/cache   available
+Mem:      144145948     1306220     7676144        1048   135163584   141702628
+Swap:             0           0           0
+
+              total        used        free      shared  buff/cache   available
+Mem:      144145948     1306032     7676324        1048   135163592   141702816
+Swap:             0           0           0
+PASS: free with positive repeat count
+testcase ./free.test/free.exp completed in 1 seconds
+
+		=== free Summary ===
+
+# of expected passes		13
+/sources/procps-ng-3.3.15/free version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:19 2018

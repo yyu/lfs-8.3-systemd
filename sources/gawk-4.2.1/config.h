@@ -71,7 +71,7 @@
 #define HAVE_GRANTPT 1
 
 /* Do we have history_list? */
-/* #undef HAVE_HISTORY_LIST */
+#define HAVE_HISTORY_LIST 1
 
 /* Define if you have the iconv() function and it works. */
 /* #undef HAVE_ICONV */
@@ -104,7 +104,7 @@
 #define HAVE_LIBINTL_H 1
 
 /* Define to 1 if you have a fully functional readline library. */
-/* #undef HAVE_LIBREADLINE */
+#define HAVE_LIBREADLINE 1
 
 /* Define if you have the libsigsegv library. */
 /* #undef HAVE_LIBSIGSEGV */
@@ -155,7 +155,7 @@
 #define HAVE_MKTIME 1
 
 /* Define to 1 if you have fully functional mpfr and gmp libraries. */
-/* #undef HAVE_MPFR */
+#define HAVE_MPFR 1
 
 /* Define to 1 if you have the <netdb.h> header file. */
 #define HAVE_NETDB_H 1

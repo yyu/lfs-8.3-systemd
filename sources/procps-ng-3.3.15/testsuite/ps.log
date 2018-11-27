@@ -1,0 +1,112 @@
+Test run by root on Tue Nov 27 07:40:19 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== ps tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./ps.test/ps_output.exp ...
+spawn /sources/procps-ng-3.3.15/ps/pscommand -o %cpu,pcpu,%mem,pmem
+%CPU %CPU %MEM %MEM
+ 0.0  0.0  0.0  0.0
+PASS: ps with output flag %cpu,pcpu,%mem,pmem
+spawn /sources/procps-ng-3.3.15/ps/pscommand -o blocked,sig_block,sigmask,caught,sigcatch,sig_catch
+         BLOCKED          BLOCKED          BLOCKED           CAUGHT           CAUGHT          CATCHED
+0000000000000000 0000000000000000 0000000000000000 00000001800b7a07 00000001800b7a07 00000001800b7a07
+0000000000010000 0000000000010000 0000000000010000 000000004b817efb 000000004b817efb 000000004b817efb
+fffffffe7ffb9eff fffffffe7ffb9eff fffffffe7ffb9eff 0000000180004000 0000000180004000 0000000180004000
+0000000000000000 0000000000000000 0000000000000000 00000001f3d1fef9 00000001f3d1fef9 00000001f3d1fef9
+FAIL: ps with output flag blocked,sig_block,sigmask,caught,sigcatch,sig_catch
+spawn /sources/procps-ng-3.3.15/ps/pscommand -o bsdstart,start,lstart
+ START  STARTED                  STARTED
+Nov 23   Nov 23 Fri Nov 23 14:09:31 2018
+PASS: ps with output flag bsdstart,start,lstart
+spawn /sources/procps-ng-3.3.15/ps/pscommand -o bsdtime,cputime,etime,etimes
+  TIME     TIME     ELAPSED ELAPSED
+  0:01 00:00:01  3-07:11:30  285090
+  0:12 00:00:12  3-07:07:22  284842
+  0:08 00:00:08  3-07:07:22  284842
+  0:00 00:00:00  3-09:27:29  293249
+  0:01 00:00:01  3-09:27:29  293249
+  0:00 00:00:00       00:00       0
+FAIL: ps with output flag bsdtime,cputime,etime,etimes
+spawn /sources/procps-ng-3.3.15/ps/pscommand -o user,ruser,group,rgroup,uid,ruid,gid,rgid
+USER     RUSER    GROUP    RGROUP     UID  RUID   GID  RGID
+root     root     root     root         0     0     0     0
+root     root     root     root         0     0     0     0
+root     root     root     root         0     0     0     0
+PASS: ps with output flag user,ruser,group,rgroup,uid,ruid,gid,rgid
+spawn /sources/procps-ng-3.3.15/ps/pscommand -o cputimes,times
+    TIME     TIME
+       0        0
+PASS: ps with output flag cputimes,times
+testcase ./ps.test/ps_output.exp completed in 0 seconds
+Running ./ps.test/ps_personality.exp ...
+spawn /sources/procps-ng-3.3.15/ps/pscommand
+  PID TTY      STAT   TIME COMMAND
+ 1868 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+ 1884 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+PASS: ps with bsd personality
+spawn /sources/procps-ng-3.3.15/ps/pscommand
+  PID TTY          TIME CMD
+44790 pts/5    00:00:00 sudo
+44791 pts/5    00:00:00 bash
+PASS: ps with linux personality
+spawn /sources/procps-ng-3.3.15/ps/pscommand
+  PID TTY      STAT   TIME COMMAND
+ 1868 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+ 1884 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+PASS: ps with old personality
+testcase ./ps.test/ps_personality.exp completed in 0 seconds
+Running ./ps.test/ps_sched_batch.exp ...
+spawn /sources/procps-ng-3.3.15/testsuite/test-schedbatch 18
+spawn /sources/procps-ng-3.3.15/ps/pscommand --no-header -o comm,cls,nice -a
+bash             TS   0
+agetty           TS   0
+agetty           TS   0
+bash             TS   0
+bash             TS   0
+bash             TS   0
+bash             TS   0
+tee              TS   0
+bash             TS   0
+sudo             TS   0
+bash             TS   0
+bash             TS   0
+bash             TS   0
+sudo             TS   0
+bash             TS   0
+tmux: client     TS   0
+su               TS   0
+bash             TS   0
+bash             TS   0
+tail             TS   0
+sudo             TS   0
+bash             TS   0
+bash             TS   0
+sudo             TS   0
+bash             TS   0
+bash             TS   0
+make             TS   0
+make             TS   0
+sh               TS   0
+sh               TS   0
+make             TS   0
+make             TS   0
+sh               TS   0
+expect           TS   0
+bash             TS   0
+test-schedbatch   B  18
+PASS: ps SCHED_BATCH scheduler
+testcase ./ps.test/ps_sched_batch.exp completed in 0 seconds
+
+		=== ps Summary ===
+
+# of expected passes		8
+# of unexpected failures	2
+runtest completed at Tue Nov 27 07:40:19 2018

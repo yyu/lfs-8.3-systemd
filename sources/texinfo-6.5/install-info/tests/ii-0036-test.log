@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii36-XXXXXXXX
-+ outputdirfile=ii36-7BwcMHOJ
-+ cp ../../install-info/tests/ii-0036-input-dir-file ii36-7BwcMHOJ
++ outputdirfile=ii36-bngVW2xq
++ cp ../../install-info/tests/ii-0036-input-dir-file ii36-bngVW2xq
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info '--regex=[Aa]nimal[s]' ../../install-info/tests/ii-0036-input-info-file ii36-7BwcMHOJ
++ ../../install-info/ginstall-info '--regex=[Aa]nimal[s]' ../../install-info/tests/ii-0036-input-info-file ii36-bngVW2xq
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0036-expected-dir-file ii36-7BwcMHOJ
++ diff ../../install-info/tests/ii-0036-expected-dir-file ii36-bngVW2xq
 + retval=0
-+ rm -f ii36-7BwcMHOJ
++ rm -f ii36-bngVW2xq
 + exit 0
 PASS ii-0036-test (exit status: 0)

@@ -1274,15 +1274,15 @@ EXTRA_DIST += test-localename.c macros.h
 
 ## begin gnulib module lock-tests
 
-TESTS += test-rwlock1 test-lock test-once1 test-once2
-check_PROGRAMS += test-rwlock1 test-lock test-once1 test-once2
+#TESTS += test-rwlock1 test-lock test-once1 test-once2
+#check_PROGRAMS += test-rwlock1 test-lock test-once1 test-once2
 test_rwlock1_LDADD = $(LDADD) @LIBMULTITHREAD@ @YIELD_LIB@
-test_lock_LDADD = $(LDADD) @LIBMULTITHREAD@ @YIELD_LIB@
+#test_lock_LDADD = $(LDADD) @LIBMULTITHREAD@ @YIELD_LIB@
 test_once1_SOURCES = test-once.c
 test_once1_LDADD = $(LDADD) @LIBTHREAD@
 test_once2_SOURCES = test-once.c
 test_once2_LDADD = $(LDADD) @LIBMULTITHREAD@
-EXTRA_DIST += test-rwlock1.c test-lock.c test-once.c
+#EXTRA_DIST += test-rwlock1.c test-lock.c test-once.c
 
 ## end   gnulib module lock-tests
 

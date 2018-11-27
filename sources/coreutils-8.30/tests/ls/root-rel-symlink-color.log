@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-root-rel-symlink-color.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-root-rel-symlink-color.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-root-rel-symlink-color.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
++++ d=/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io'
++++ test -d /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
+++++ ls -dgo /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
++++ echo /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
+++ test_dir_=/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
+++ cd /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -84,6 +84,12 @@ Written by Richard M. Stallman and David MacKenzie.
 + env test --version
 + symlink_to_rel=
 + for i in /*
++ env test -h /000-functions.sh
++ continue
++ for i in /*
++ env test -h /README.md
++ continue
++ for i in /*
 + env test -h /bin
 + continue
 + for i in /*
@@ -99,39 +105,76 @@ Written by Richard M. Stallman and David MacKenzie.
 + env test -h /home
 + continue
 + for i in /*
-+ env test -h /initrd.img
-+ env test -e /initrd.img
-+ case $(readlink "$i") in
-++ readlink /initrd.img
-+ symlink_to_rel=/initrd.img
-+ break
-+ test -z /initrd.img
-+ e='\33'
-+ color_code='01;36'
-+ c_pre='\33[0m\33[01;36m'
-+ c_post='\33[0m'
-+ printf '\33[0m\33[01;36m/initrd.img\33[0m\n'
-+ env TERM=xterm 'LS_COLORS=ln=01;36:or=1;31;42' ls -d --color=always /initrd.img
-+ compare exp out
-+ compare_dev_null_ exp out
-+ test 2 = 2
-+ test xexp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ exp out
-+ diff -u exp out
-+ Exit 0
++ env test -h /lib
++ continue
++ for i in /*
++ env test -h /lib64
++ continue
++ for i in /*
++ env test -h /lost+found
++ continue
++ for i in /*
++ env test -h /media
++ continue
++ for i in /*
++ env test -h /mnt
++ continue
++ for i in /*
++ env test -h /opt
++ continue
++ for i in /*
++ env test -h /proc
++ continue
++ for i in /*
++ env test -h /root
++ continue
++ for i in /*
++ env test -h /run
++ continue
++ for i in /*
++ env test -h /sbin
++ continue
++ for i in /*
++ env test -h /sources
++ continue
++ for i in /*
++ env test -h /srv
++ continue
++ for i in /*
++ env test -h /sys
++ continue
++ for i in /*
++ env test -h /tmp
++ continue
++ for i in /*
++ env test -h /tools
++ continue
++ for i in /*
++ env test -h /usr
++ continue
++ for i in /*
++ env test -h /var
++ continue
++ test -z ''
++ skip_ no relative symlink in /
++ warn_ 'root-rel-symlink-color.sh: skipped test: no' relative symlink in /
++ case $IFS in
++ printf '%s\n' 'root-rel-symlink-color.sh: skipped test: no relative symlink in /'
+root-rel-symlink-color.sh: skipped test: no relative symlink in /
++ test 9 = 2
++ printf '%s\n' 'root-rel-symlink-color.sh: skipped test: no relative symlink in /'
++ sed 1q
++ Exit 77
 + set +e
-+ exit 0
-+ exit 0
++ exit 77
++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-root-rel-symlink-color.sh.O3io
-+ exit 0
-PASS tests/ls/root-rel-symlink-color.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
++ rm -rf /sources/coreutils-8.30/gt-root-rel-symlink-color.sh.UgfL
++ exit 77
+SKIP tests/ls/root-rel-symlink-color.sh (exit status: 77)

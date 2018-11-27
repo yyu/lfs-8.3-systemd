@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-sort-debug-keys.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-sort-debug-keys.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-sort-debug-keys.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
++++ d=/sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx'
++++ test -d /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
+++++ ls -dgo /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
++++ echo /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
+++ test_dir_=/sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
+++ cd /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -128,8 +128,8 @@ sort: key 1 is numeric and spans multiple fields
 + printf '2\n\n1\n'
 + number
 + sort -s -k2g --debug
-+ sed 's/^ *//'
 + cat -n
++ sed 's/^ *//'
 sort: using simple byte comparison
 sort: key 1 is numeric and spans multiple fields
 + for type in n h g
@@ -137,13 +137,13 @@ sort: key 1 is numeric and spans multiple fields
 + sort -s -k2g --debug
 sort: using simple byte comparison
 sort: key 1 is numeric and spans multiple fields
-+ printf '1\n\n44\n33\n2\n'
 + sort -s -k1.3g --debug
++ printf '1\n\n44\n33\n2\n'
 sort: using simple byte comparison
 sort: leading blanks are significant in key 1; consider also specifying 'b'
 sort: key 1 is numeric and spans multiple fields
-+ printf '1\n\n44\n33\n2\n'
 + sort -s -k1g --debug
++ printf '1\n\n44\n33\n2\n'
 sort: using simple byte comparison
 sort: key 1 is numeric and spans multiple fields
 + printf '2\n\n1\n'
@@ -159,11 +159,11 @@ sort: using simple byte comparison
 + printf 'FEB\n\nJAN\n'
 + sort -s -k2,2M --debug
 sort: using simple byte comparison
++ printf 'FEB\nJAZZ\n\nJAN\n'
 + sort -s -k1M --debug
-+ printf 'FEB\nJAZZ\n\nJAN\n'
 sort: using simple byte comparison
-+ printf 'FEB\nJAZZ\n\nJAN\n'
 + number
++ printf 'FEB\nJAZZ\n\nJAN\n'
 + sort -s -k2,2M --debug
 + cat -n
 + sed 's/^ *//'
@@ -240,9 +240,33 @@ sort: using simple byte comparison
 + diff -u exp out
 + cat
 + unset LC_ALL
-+ f=none
-+ : none
-+ test none '!=' none
++ f=fr_FR.UTF-8
++ : fr_FR.UTF-8
++ test fr_FR.UTF-8 '!=' none
++ sed 's/^^ .*/^ no match for key/'
++ echo '   1²---++3   1,234  Mi'
++ LC_ALL=C
++ sort --debug -k2g -k1b,1
+sort: using simple byte comparison
+sort: key 1 is numeric and spans multiple fields
++ echo '   1²---++3   1,234  Mi'
++ LC_ALL=fr_FR.UTF-8
++ sort --debug -k2g -k1b,1
+sort: using ‘fr_FR.UTF-8’ sorting rules
+sort: key 1 is numeric and spans multiple fields
++ echo '+1234 1234Gi 1,234M'
++ LC_ALL=fr_FR.UTF-8
++ sort --debug -k1,1n -k1,1g -k1,1h -k2,2n -k2,2g -k2,2h -k3,3n -k3,3g -k3,3h
+sort: using ‘fr_FR.UTF-8’ sorting rules
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
 + Exit 0
 + set +e
 + exit 0
@@ -252,8 +276,8 @@ sort: using simple byte comparison
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-sort-debug-keys.sh.uTMx
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
++ rm -rf /sources/coreutils-8.30/gt-sort-debug-keys.sh.VKw1
 + exit 0
 PASS tests/misc/sort-debug-keys.sh (exit status: 0)

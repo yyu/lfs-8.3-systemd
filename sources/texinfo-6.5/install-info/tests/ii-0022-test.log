@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii22-XXXXXXXX
-+ outputdirfile=ii22-8J0GYLFl
-+ cp ../../install-info/tests/ii-0022-input-dir-file ii22-8J0GYLFl
++ outputdirfile=ii22-RohL5Lcs
++ cp ../../install-info/tests/ii-0022-input-dir-file ii22-RohL5Lcs
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info '--name=* Gnu: (gnu).' ../../install-info/tests/ii-0022-input-info-file ii22-8J0GYLFl
++ ../../install-info/ginstall-info '--name=* Gnu: (gnu).' ../../install-info/tests/ii-0022-input-info-file ii22-RohL5Lcs
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0022-expected-dir-file ii22-8J0GYLFl
++ diff ../../install-info/tests/ii-0022-expected-dir-file ii22-RohL5Lcs
 + retval=0
-+ rm -f ii22-8J0GYLFl
++ rm -f ii22-RohL5Lcs
 + exit 0
 PASS ii-0022-test (exit status: 0)

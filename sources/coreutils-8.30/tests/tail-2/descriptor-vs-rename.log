@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-descriptor-vs-rename.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-descriptor-vs-rename.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-descriptor-vs-rename.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
++++ d=/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU'
++++ test -d /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
+++++ ls -dgo /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
++++ perms='drwx------ 2 4096 Nov 26 23:46 /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
++++ echo /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
+++ test_dir_=/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
+++ cd /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -83,7 +83,7 @@ and Jim Meyering.
 + for mode in '' '---disable-inotify'
 + rm -f a out
 + touch a
-+ pid=33285
++ pid=42109
 + echo x
 + tail -s.1 --max-unchanged-stats=1 -f a
 + tail_re='^x$'
@@ -127,16 +127,16 @@ y
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33285
-+ wait 33285
++ kill 42109
++ wait 42109
 + for mode in '' '---disable-inotify'
 + rm -f a out
 + touch a
-+ pid=33295
++ pid=42118
 + echo x
++ tail ---disable-inotify -s.1 --max-unchanged-stats=1 -f a
 + tail_re='^x$'
 + retry_delay_ check_tail_output .1 7
-+ tail ---disable-inotify -s.1 --max-unchanged-stats=1 -f a
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=7
@@ -189,8 +189,8 @@ y
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33295
-+ wait 33295
++ kill 42118
++ wait 42118
 + Exit 0
 + set +e
 + exit 0
@@ -198,10 +198,10 @@ y
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 33295
++ kill 42118
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-descriptor-vs-rename.sh.dHFU
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
++ rm -rf /sources/coreutils-8.30/gt-descriptor-vs-rename.sh.5Enk
 + exit 0
 PASS tests/tail-2/descriptor-vs-rename.sh (exit status: 0)

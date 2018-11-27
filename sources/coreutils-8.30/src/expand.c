@@ -37,6 +37,9 @@
 #include <stdio.h>
 #include <getopt.h>
 #include <sys/types.h>
+
+#include <mbfile.h>
+
 #include "system.h"
 #include "die.h"
 #include "xstrndup.h"
@@ -98,18 +101,40 @@ expand (void)
 {
   /* Input stream.  */
   FILE *fp = next_file (NULL);
+  mb_file_t mbf;
+  mbf_char_t c;
+  /* True if the starting locale is utf8.  */
+  bool using_utf_locale;
+
+  /* True if the first file contains BOM header.  */
+  bool found_bom;
+  using_utf_locale=check_utf_locale();
 
   if (!fp)
     return;
+  mbf_init (mbf, fp);
+  found_bom=check_bom(fp,&mbf);
+
+  if (using_utf_locale == false && found_bom == true)
+  {
+    /*try using some predefined locale */
+
+    if (set_utf_locale () != 0)
+    {
+      error (EXIT_FAILURE, errno, _("cannot set UTF-8 locale"));
+    }
+  }
+
+
+  if (found_bom == true)
+  {
+    print_bom();
+  }
 
   while (true)
     {
-      /* Input character, or EOF.  */
-      int c;
-
       /* If true, perform translations.  */
       bool convert = true;
-
 
       /* The following variables have valid values only when CONVERT
          is true:  */
@@ -120,17 +145,48 @@ expand (void)
       /* Index in TAB_LIST of next tab stop to examine.  */
       size_t tab_index = 0;
 
-
       /* Convert a line of text.  */
 
       do
         {
-          while ((c = getc (fp)) < 0 && (fp = next_file (fp)))
-            continue;
+          while (true) {
+            mbf_getc (c, mbf);
+            if ((mb_iseof (c)) && (fp = next_file (fp)))
+              {
+                mbf_init (mbf, fp);
+                if (fp!=NULL)
+                {
+                  if (check_bom(fp,&mbf)==true)
+                  {
+                    /*Not the first file - check BOM header*/
+                    if (using_utf_locale==false && found_bom==false)
+                    {
+                      /*BOM header in subsequent file but not in the first one. */
+                      error (EXIT_FAILURE, errno, _("combination of files with and without BOM header"));
+                    }
+                  }
+                  else
+                  {
+                    if(using_utf_locale==false && found_bom==true)
+                    {
+                      /*First file conatined BOM header - locale was switched to UTF
+                      /*all subsequent files should contain BOM. */
+                      error (EXIT_FAILURE, errno, _("combination of files with and without BOM header"));
+                    }
+                  }
+                }
+                continue;
+              }
+            else
+              {
+                break;
+              }
+            }
+
 
           if (convert)
             {
-              if (c == '\t')
+              if (mb_iseq (c, '\t'))
                 {
                   /* Column the next input tab stop is on.  */
                   uintmax_t next_tab_column;
@@ -149,32 +205,34 @@ expand (void)
                     if (putchar (' ') < 0)
                       die (EXIT_FAILURE, errno, _("write error"));
 
-                  c = ' ';
+                  mb_setascii (&c, ' ');
                 }
-              else if (c == '\b')
+              else if (mb_iseq (c, '\b'))
                 {
                   /* Go back one column, and force recalculation of the
                      next tab stop.  */
                   column -= !!column;
                   tab_index -= !!tab_index;
                 }
-              else
+              /* A leading control character could make us trip over.  */
+              else if (!mb_iscntrl (c))
                 {
-                  column++;
+                  column += mb_width (c);
                   if (!column)
                     die (EXIT_FAILURE, 0, _("input line is too long"));
                 }
 
-              convert &= convert_entire_line || !! isblank (c);
+              convert &= convert_entire_line || mb_isblank (c);
             }
 
-          if (c < 0)
+          if (mb_iseof (c))
             return;
 
-          if (putchar (c) < 0)
+          mb_putc (c, stdout);
+          if (ferror (stdout))
             die (EXIT_FAILURE, errno, _("write error"));
         }
-      while (c != '\n');
+      while (!mb_iseq (c, '\n'));
     }
 }
 

@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/gzip-1.9/tests
+++ initial_cwd_=/sources/gzip-1.9/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/gzip-1.9/tests gt-help-version.XXXX
++++ mktempd_ /sources/gzip-1.9/tests gt-help-version.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/gzip-1.9/tests
++++ destdir_=/sources/gzip-1.9/tests
 +++ template_=gt-help-version.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/gzip-1.9/tests/
++++ destdir_slash_=/sources/gzip-1.9/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
++++ d=/sources/gzip-1.9/tests/gt-help-version.6LP4
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
-++++ ls -dgo /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
-+++ perms='drwx------ 2 4096 Nov 26 23:49 /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08'
++++ test -d /sources/gzip-1.9/tests/gt-help-version.6LP4
+++++ ls -dgo /sources/gzip-1.9/tests/gt-help-version.6LP4
++++ perms='drwx------ 2 4096 Nov 27 00:05 /sources/gzip-1.9/tests/gt-help-version.6LP4'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
++++ echo /sources/gzip-1.9/tests/gt-help-version.6LP4
 +++ return
-++ test_dir_=/mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
-++ cd /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
+++ test_dir_=/sources/gzip-1.9/tests/gt-help-version.6LP4
+++ cd /sources/gzip-1.9/tests/gt-help-version.6LP4
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=..
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/gzip-1.9/tests/..
++ abs_path_dir_=/sources/gzip-1.9/tests/..
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/gzip-1.9/tests/..:/mnt/lfs/sources/gzip-1.9:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/gzip-1.9/tests/..
++ PATH=/sources/gzip-1.9/tests/..:/sources/gzip-1.9:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/gzip-1.9/tests/..
 + case $EXEEXT in
 + return 0
 + shift
@@ -1101,23 +1101,23 @@
 + bigZ_in=bigZ-in.Z
 + zin=zin.gz
 + zin2=zin2.gz
-+ tmp=tmp-17131
-+ tmp_in=in-17131
-+ tmp_in2=in2-17131
-+ tmp_dir=dir-17131
-+ tmp_out=out-17131
-+ mkdir tmp-17131
-+ cd tmp-17131
++ tmp=tmp-52451
++ tmp_in=in-52451
++ tmp_in2=in2-52451
++ tmp_dir=dir-52451
++ tmp_out=out-52451
++ mkdir tmp-52451
++ cd tmp-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test gzip = '['
 + prog=gzip
 + args=
@@ -1125,17 +1125,17 @@
 + eval 'env $i  < $tmp_in > $tmp_out'
 ++ env gzip
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test gunzip = '['
 + prog=gunzip
 + args=
@@ -1148,38 +1148,38 @@
 + eval 'env $i  zin.gz < $tmp_in > $tmp_out'
 ++ env gunzip zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
-+ echo z
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + gzip
++ echo z
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test gzexe = '['
 + prog=gzexe
 + args=
 + type gzexe_setup
 + gzexe_setup
-+ args=' in-17131'
-+ eval 'env $i  in-17131 < $tmp_in > $tmp_out'
-++ env gzexe in-17131
-in-17131:	-15.4%
++ args=' in-52451'
++ eval 'env $i  in-52451 < $tmp_in > $tmp_out'
+++ env gzexe in-52451
+in-52451:	-15.4%
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zcat = '['
 + prog=zcat
 + args=
@@ -1191,17 +1191,17 @@ in-17131:	-15.4%
 + eval 'env $i  zin.gz < $tmp_in > $tmp_out'
 ++ env zcat zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zcmp = '['
 + prog=zcmp
 + args=
@@ -1212,17 +1212,17 @@ in-17131:	-15.4%
 + eval 'env $i  zin.gz zin2.gz < $tmp_in > $tmp_out'
 ++ env zcmp zin.gz zin2.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zdiff = '['
 + prog=zdiff
 + args=
@@ -1232,17 +1232,17 @@ in-17131:	-15.4%
 + eval 'env $i  zin.gz zin2.gz < $tmp_in > $tmp_out'
 ++ env zdiff zin.gz zin2.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zegrep = '['
 + prog=zegrep
 + args=
@@ -1253,17 +1253,17 @@ in-17131:	-15.4%
 + eval 'env $i  z zin.gz < $tmp_in > $tmp_out'
 ++ env zegrep z zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zfgrep = '['
 + prog=zfgrep
 + args=
@@ -1274,17 +1274,17 @@ in-17131:	-15.4%
 + eval 'env $i  z zin.gz < $tmp_in > $tmp_out'
 ++ env zfgrep z zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zforce = '['
 + prog=zforce
 + args=
@@ -1297,17 +1297,17 @@ in-17131:	-15.4%
 + eval 'env $i  zin.gz < $tmp_in > $tmp_out'
 ++ env zforce zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zgrep = '['
 + prog=zgrep
 + args=
@@ -1317,17 +1317,17 @@ in-17131:	-15.4%
 + eval 'env $i  z zin.gz < $tmp_in > $tmp_out'
 ++ env zgrep z zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
-+ echo z
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + gzip
++ echo z
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zless = '['
 + prog=zless
 + args=
@@ -1340,17 +1340,17 @@ in-17131:	-15.4%
 + eval 'env $i  zin.gz < $tmp_in > $tmp_out'
 ++ env zless zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test zmore = '['
 + prog=zmore
 + args=
@@ -1363,17 +1363,17 @@ in-17131:	-15.4%
 + eval 'env $i  zin.gz < $tmp_in > $tmp_out'
 ++ env zmore zin.gz
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + for i in $built_programs
 + case $i in
-+ rm -rf in-17131 in2-17131 dir-17131 out-17131 bigZ-in.Z zin.gz zin2.gz
++ rm -rf in-52451 in2-52451 dir-52451 out-52451 bigZ-in.Z zin.gz zin2.gz
 + echo z
 + gzip
 + cp zin.gz zin2.gz
 + cp zin.gz bigZ-in.Z
 + echo 2147483647 0
-+ cp in-17131 in2-17131
-+ mkdir dir-17131
++ cp in-52451 in2-52451
++ mkdir dir-52451
 + test znew = '['
 + prog=znew
 + args=
@@ -1383,7 +1383,7 @@ in-17131:	-15.4%
 + eval 'env $i  bigZ-in.Z < $tmp_in > $tmp_out'
 ++ env znew bigZ-in.Z
 + :
-+ rm -rf in-17131 in2-17131 out-17131 dir-17131
++ rm -rf in-52451 in2-52451 out-52451 dir-52451
 + Exit
 + set +e
 + exit
@@ -1393,8 +1393,8 @@ in-17131:	-15.4%
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/gzip-1.9/tests
-+ chmod -R u+rwx /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
-+ rm -rf /mnt/lfs/sources/gzip-1.9/tests/gt-help-version.FJ08
++ cd /sources/gzip-1.9/tests
++ chmod -R u+rwx /sources/gzip-1.9/tests/gt-help-version.6LP4
++ rm -rf /sources/gzip-1.9/tests/gt-help-version.6LP4
 + exit 0
 PASS help-version (exit status: 0)

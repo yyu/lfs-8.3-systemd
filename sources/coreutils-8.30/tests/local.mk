@@ -362,6 +362,8 @@ all_tests =					\
   tests/misc/sort-discrim.sh			\
   tests/misc/sort-files0-from.pl		\
   tests/misc/sort-float.sh			\
+  tests/misc/sort-mb-tests.sh			\
+  tests/i18n/sort.sh				\
   tests/misc/sort-h-thousands-sep.sh		\
   tests/misc/sort-merge.pl			\
   tests/misc/sort-merge-fdlimit.sh		\
@@ -557,6 +559,7 @@ all_tests =					\
   tests/du/threshold.sh				\
   tests/du/trailing-slash.sh			\
   tests/du/two-args.sh				\
+  tests/expand/mb.sh				\
   tests/id/gnu-zero-uids.sh			\
   tests/id/no-context.sh			\
   tests/id/context.sh				\
@@ -701,6 +704,7 @@ all_tests =					\
   tests/touch/read-only.sh			\
   tests/touch/relative.sh			\
   tests/touch/trailing-slash.sh			\
+  tests/unexpand/mb.sh				\
   $(all_root_tests)
 
 # See tests/factor/create-test.sh.

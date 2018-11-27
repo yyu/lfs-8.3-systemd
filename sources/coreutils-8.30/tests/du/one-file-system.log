@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-one-file-system.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-one-file-system.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-one-file-system.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
++++ d=/sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF'
++++ test -d /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
+++++ ls -dgo /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
++++ echo /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
+++ test_dir_=/sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
+++ cd /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,87 +79,82 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by Torbjorn Granlund, David MacKenzie, Paul Eggert,
 and Jim Meyering.
-+ . /mnt/lfs/sources/coreutils-8.30/tests/other-fs-tmpdir
++ . /sources/coreutils-8.30/tests/other-fs-tmpdir
 ++ test '' = set
-++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /home/lfs'
+++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null'
 ++ other_partition_tmpdir=
 +++ stat -c %d .
 ++ dot_mount_point=1797
 ++ for d in $CANDIDATE_TMP_DIRS
 ++ test -d /tmp
 +++ stat -L -c %d /tmp
-++ d_mount_point=66305
-++ test x66305 = x1797
-++ mkdir /tmp/tmp42110
-++ other_partition_tmpdir=/tmp/tmp42110
-++ break
-++ test -z /tmp/tmp42110
-++ test yes = yes
-++ set -x
-+ mkdir -p b/c y/z d /tmp/tmp42110/x
-+ ln -s /tmp/tmp42110/x d
-+ du -ax b y
-+ sed 's/^[0-9][0-9]*	//' t
-+ cat
-+ compare exp out
-+ compare_dev_null_ exp out
-+ test 2 = 2
-+ test xexp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ exp out
-+ diff -u exp out
-+ du -xL d
-+ sed 's/^[0-9][0-9]*	//' u
-+ echo d
-+ compare exp1 out1
-+ compare_dev_null_ exp1 out1
-+ test 2 = 2
-+ test xexp1 = x/dev/null
-+ test xout1 = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ exp1 out1
-+ diff -u exp1 out1
-+ touch f
-+ for opt in -x -xs
-+ du -x f
-+ sed 's/^[0-9][0-9]*	//' u
-+ echo f
-+ compare exp2 out2
-+ compare_dev_null_ exp2 out2
-+ test 2 = 2
-+ test xexp2 = x/dev/null
-+ test xout2 = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ exp2 out2
-+ diff -u exp2 out2
-+ for opt in -x -xs
-+ du -xs f
-+ sed 's/^[0-9][0-9]*	//' u
-+ echo f
-+ compare exp2 out2
-+ compare_dev_null_ exp2 out2
-+ test 2 = 2
-+ test xexp2 = x/dev/null
-+ test xout2 = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ exp2 out2
-+ diff -u exp2 out2
-+ Exit 0
-+ set +e
-+ exit 0
-+ exit 0
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /dev/shm
++++ stat -L -c %d /dev/shm
+++ d_mount_point=6
+++ test x6 = x1797
+++ mkdir /dev/shm/tmp57907
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /var/tmp
++++ stat -L -c %d /var/tmp
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /usr/tmp
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /dev/null
+++ continue
+++ test -z ''
+++ skip_ 'requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ warn_ 'one-file-system.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ case $IFS in
+++ printf '%s\n' 'one-file-system.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+one-file-system.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn't find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.
+++ test 9 = 2
+++ printf '%s\n' 'one-file-system.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ sed 1q
+++ Exit 77
+++ set +e
+++ exit 77
+++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
-+ rm -rf /tmp/tmp42110
++ rm -rf ''
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-one-file-system.sh.zMPF
-+ exit 0
-PASS tests/du/one-file-system.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
++ rm -rf /sources/coreutils-8.30/gt-one-file-system.sh.ZZyM
++ exit 77
+SKIP tests/du/one-file-system.sh (exit status: 77)

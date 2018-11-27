@@ -1,0 +1,45 @@
+Test run by root on Tue Nov 27 07:40:19 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== lib tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./lib.test/fileutils.exp ...
+spawn /sources/procps-ng-3.3.15/lib/test_fileutils
+Hello, World!
+PASS: without argument
+spawn ./lib.test/fileutils_badfd.sh /sources/procps-ng-3.3.15/lib/test_fileutils
+/sources/procps-ng-3.3.15/lib/test_fileutils: write error: Bad file descriptor
+PASS: test bad file descriptor
+spawn ./lib.test/fileutils_full.sh /sources/procps-ng-3.3.15/lib/test_fileutils
+/sources/procps-ng-3.3.15/lib/test_fileutils: write error: No space left on device
+PASS: test no space left on device
+testcase ./lib.test/fileutils.exp completed in 0 seconds
+Running ./lib.test/strutils.exp ...
+spawn /sources/procps-ng-3.3.15/lib/test_strutils
+/sources/procps-ng-3.3.15/lib/test_strutils: no arguments
+PASS: without argument
+spawn /sources/procps-ng-3.3.15/lib/test_strutils 1
+1
+PASS: test long
+spawn /sources/procps-ng-3.3.15/lib/test_strutils fail
+/sources/procps-ng-3.3.15/lib/test_strutils: strtol_or_err: 'fail'
+PASS: test long fail
+spawn /sources/procps-ng-3.3.15/lib/test_strutils dummy 1.1
+1.100000
+PASS: test double
+spawn /sources/procps-ng-3.3.15/lib/test_strutils dummy fail
+/sources/procps-ng-3.3.15/lib/test_strutils: strtod_or_err: 'fail'
+PASS: test double fail
+testcase ./lib.test/strutils.exp completed in 0 seconds
+
+		=== lib Summary ===
+
+# of expected passes		8
+runtest completed at Tue Nov 27 07:40:19 2018

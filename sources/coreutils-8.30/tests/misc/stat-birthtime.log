@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-stat-birthtime.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-stat-birthtime.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-stat-birthtime.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
++++ d=/sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2'
++++ test -d /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
+++++ ls -dgo /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
++++ echo /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
+++ test_dir_=/sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
+++ cd /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -82,11 +82,11 @@ Written by Michael Meskes.
 ++ stat --format %W a
 + btime=0
 ++ stat --format %X a
-+ atime=1543275571
++ atime=1543304947
 ++ stat --format %Y a
-+ mtime=1543275571
++ mtime=1543304947
 ++ stat --format %Z a
-+ ctime=1543275571
++ ctime=1543304947
 + retry_delay_ check_timestamps_updated .07 5
 + local test_func=check_timestamps_updated
 + local init_delay=.07
@@ -105,7 +105,7 @@ Written by Michael Meskes.
 ++ stat --format %W a
 + test x0 = x0
 ++ stat --format %X a
-+ test x1543275571 '!=' x1543275571
++ test x1543304947 '!=' x1543304947
 + time_fail=1
 ++ expr 1 + 1
 + attempt=2
@@ -121,7 +121,7 @@ Written by Michael Meskes.
 ++ stat --format %W a
 + test x0 = x0
 ++ stat --format %X a
-+ test x1543275571 '!=' x1543275571
++ test x1543304947 '!=' x1543304947
 + time_fail=1
 ++ expr 2 + 1
 + attempt=3
@@ -137,11 +137,27 @@ Written by Michael Meskes.
 ++ stat --format %W a
 + test x0 = x0
 ++ stat --format %X a
-+ test x1543275571 '!=' x1543275572
++ test x1543304947 '!=' x1543304947
++ time_fail=1
+++ expr 3 + 1
++ attempt=4
+++ expr 4 '*' 2
++ num_sleeps=8
++ test 4 -le 5
+++ gawk -v n=8 -v s=.07 'BEGIN { print s * n }'
++ local delay=0.56
++ check_timestamps_updated 0.56
++ local delay=0.56
++ sleep 0.56
++ touch a
+++ stat --format %W a
++ test x0 = x0
+++ stat --format %X a
++ test x1543304947 '!=' x1543304948
 ++ stat --format %Y a
-+ test x1543275571 '!=' x1543275572
++ test x1543304947 '!=' x1543304948
 ++ stat --format %Z a
-+ test x1543275571 '!=' x1543275572
++ test x1543304947 '!=' x1543304948
 + time_fail=0
 + break
 + test 0 = 0
@@ -154,8 +170,8 @@ Written by Michael Meskes.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-stat-birthtime.sh.ZLL2
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
++ rm -rf /sources/coreutils-8.30/gt-stat-birthtime.sh.0wtY
 + exit 0
 PASS tests/misc/stat-birthtime.sh (exit status: 0)

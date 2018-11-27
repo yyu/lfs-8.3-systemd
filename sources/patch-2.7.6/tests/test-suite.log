@@ -3,8 +3,8 @@
 ===========================================
 
 # TOTAL: 44
-# PASS:  42
-# SKIP:  0
+# PASS:  41
+# SKIP:  1
 # XFAIL: 2
 # FAIL:  0
 # XPASS: 0
@@ -20,13 +20,13 @@ XFAIL: context-format
 +++ got
 @@ -1 +1 @@
 -patching file a
-+/mnt/lfs/sources/patch-2.7.6/src/patch: **** replacement text or line numbers mangled in hunk at line 4
++/sources/patch-2.7.6/src/patch: **** replacement text or line numbers mangled in hunk at line 4
 [38] patch < ab.diff -- FAILED
 --- expected
 +++ got
 @@ -1 +1 @@
 -patching file a
-+/mnt/lfs/sources/patch-2.7.6/src/patch: **** replacement text or line numbers mangled in hunk at line 4
++/sources/patch-2.7.6/src/patch: **** replacement text or line numbers mangled in hunk at line 4
 2 tests (0 passed, 2 failed)
 XFAIL context-format (exit status: 1)
 
@@ -50,4 +50,10 @@ XFAIL: dash-o-append
 +one
 2 tests (0 passed, 2 failed)
 XFAIL dash-o-append (exit status: 1)
+
+SKIP: read-only-files
+=====================
+
+Files with read-only permissions are writable (probably running as superuser)
+SKIP read-only-files (exit status: 77)
 

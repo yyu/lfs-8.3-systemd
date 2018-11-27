@@ -1,0 +1,158 @@
+++ srcdir=.
+++ GINFO='./ginfo --init-file ./t/Infokey-config'
+++ GINFO_NAME=ginfo
+++ infodir=./t/infodir
+++ export infodir
+++ INFOPATH=./t/infodir
+++ export INFOPATH
+++ t=./t
+++ export t
++++ basename ./t/c-u-m-x-scroll-forward.sh.out
+++ GINFO_OUTPUT=t/c-u-m-x-scroll-forward.sh.out
++++ basename ./t/c-u-m-x-scroll-forward.sh.pipein
+++ PIPEIN=t/c-u-m-x-scroll-forward.sh.pipein
++++ basename ./t/c-u-m-x-scroll-forward.sh.pipeout
+++ PTY_TYPE=t/c-u-m-x-scroll-forward.sh.pipeout
+++ rm -f t/c-u-m-x-scroll-forward.sh.out
+++ INFO_PRINT_COMMAND='>t/c-u-m-x-scroll-forward.sh.out'
+++ export INFO_PRINT_COMMAND
+++ PTY_PID=0
+++ LC_ALL=C
+++ export LC_ALL
+++ TERM=dumb
+++ export TERM
+++ STTY=true
+++ reset_required=no
+++ trap cleanup 2
++ . ./t/Init-inter.inc
+++ test -x pseudotty
+++ path_sep=:
+++ TERM=vt100
+++ export TERM
+++ findprog stty
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/stty
+++ test -x /bin/stty
+++ return 0
+++ STTY=stty
+++ reset_required=yes
+++ test yes=yes
+++ stty
+++ grep '[-]echo'
+++ rm -f t/c-u-m-x-scroll-forward.sh.pipein t/c-u-m-x-scroll-forward.sh.pipeout
+++ findprog mkfifo
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/mkfifo
+++ test -f /bin/mkfifo.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mkfifo
+++ test -x /usr/bin/mkfifo
+++ return 0
+++ mkfifo t/c-u-m-x-scroll-forward.sh.pipein
+++ mkfifo t/c-u-m-x-scroll-forward.sh.pipeout
+++ test '!' -r t/c-u-m-x-scroll-forward.sh.pipein
+++ test '!' -r t/c-u-m-x-scroll-forward.sh.pipeout
+++ PTY_PID=678
+++ read PTS_DEVICE
+++ exec ./pseudotty t/c-u-m-x-scroll-forward.sh.pipeout
+./pseudotty: getting pty master fd
+./pseudotty: unlocking slave device
+./pseudotty: getting file name of slave device...
+./pseudotty: /dev/pts/0
+./pseudotty: opening slave device
+./pseudotty: attempting to set window size
+./pseudotty: ...succeeded
+./pseudotty: opening control channel
+++ exec
+./pseudotty: entering main loop
+++ LIBC_FATAL_STDERR_=1
+++ export LIBC_FATAL_STDERR
++ LINES=7
++ export LINES
++ COLUMNS=80
++ export COLUMNS
++ run_ginfo '-f intera -n '\''Scroll four lines'\'''
++ GINFO_PID=679
++ printf '\025\033xscroll-forward\r'
++ printf '\rDq'
++ timeout_test
++ wait 679
+./pseudotty: trying to read
+./pseudotty: read byte 0x15
+./pseudotty: trying to read
+./pseudotty: read byte 0x1B
+./pseudotty: trying to read
+./pseudotty: read byte 0x78
+./pseudotty: trying to read
+./pseudotty: read byte 0x73
+./pseudotty: trying to read
+./pseudotty: read byte 0x63
+./pseudotty: trying to read
+./pseudotty: read byte 0x72
+./pseudotty: trying to read
+./pseudotty: read byte 0x6F
+./pseudotty: trying to read
+./pseudotty: read byte 0x6C
+./pseudotty: trying to read
+./pseudotty: read byte 0x6C
+./pseudotty: trying to read
+./pseudotty: read byte 0x2D
+./pseudotty: trying to read
+./pseudotty: read byte 0x66
+./pseudotty: trying to read
+./pseudotty: read byte 0x6F
+./pseudotty: trying to read
+./pseudotty: read byte 0x72
+./pseudotty: trying to read
+./pseudotty: read byte 0x77
+./pseudotty: trying to read
+./pseudotty: read byte 0x61
+./pseudotty: trying to read
+./pseudotty: read byte 0x72
+./pseudotty: trying to read+ sh -c '
+    exec 7>&- ; # Close fd from parent shell
+
+    (sleep 3 ; kill $$) &
+
+./pseudotty: read byte 0x64
+    exec ./ginfo --init-file ./t/Infokey-config  -f intera -n '\''Scroll four lines'\'' 0<>/dev/pts/0 1<&0 ;'
+./pseudotty: trying to read
+./pseudotty: read byte 0x0D
+./pseudotty: trying to read
+./pseudotty: read byte 0x0D
+./pseudotty: trying to read
+./pseudotty: read byte 0x44
+./pseudotty: trying to read
+./pseudotty: read byte 0x71
+info: "./t/Infokey-config", line 2: unknown action `xxx-not-recognized'
+info: "./t/Infokey-config", line 3: cannot bind key sequence to menu-digit
++ status=0
++ RETVAL=0
++ test 0 '!=' 0
++ GINFO_PID=0
++ diff t/c-u-m-x-scroll-forward.sh.out ./t/node-target
++ RETVAL=0
++ cleanup
++ test 678 -ne 0
++ kill 678
++ rm -f t/c-u-m-x-scroll-forward.sh.out
+./t/Init-test.inc: line 70:   678 Terminated              ( exec ./pseudotty "$PTY_TYPE" > $PIPEIN )
++ rm -f t/c-u-m-x-scroll-forward.sh.pipein t/c-u-m-x-scroll-forward.sh.pipeout
++ test yes = yes
++ stty
++ grep '[-]echo'
++ exit 0
+sh: line 3: kill: (679) - No such process
+tus: 0)

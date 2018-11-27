@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii25-XXXXXXXX
-+ outputdirfile=ii25-vF0LtqaN
-+ cp ../../install-info/tests/ii-0025-input-dir-file ii25-vF0LtqaN
++ outputdirfile=ii25-G8QXWvJU
++ cp ../../install-info/tests/ii-0025-input-dir-file ii25-G8QXWvJU
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info --section=Animals ../../install-info/tests/ii-0025-input-info-file ii25-vF0LtqaN
++ ../../install-info/ginstall-info --section=Animals ../../install-info/tests/ii-0025-input-info-file ii25-G8QXWvJU
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0025-expected-dir-file ii25-vF0LtqaN
++ diff ../../install-info/tests/ii-0025-expected-dir-file ii25-G8QXWvJU
 + retval=0
-+ rm -f ii25-vF0LtqaN
++ rm -f ii25-G8QXWvJU
 + exit 0
 PASS ii-0025-test (exit status: 0)

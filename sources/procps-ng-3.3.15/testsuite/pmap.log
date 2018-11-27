@@ -1,0 +1,397 @@
+Test run by root on Tue Nov 27 07:40:17 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== pmap tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./pmap.test/pmap.exp ...
+spawn /sources/procps-ng-3.3.15/pmap
+
+Usage:
+ lt-pmap [options] PID [PID ...]
+
+Options:
+ -x, --extended              show details
+ -X                          show even more details
+            WARNING: format changes according to /proc/PID/smaps
+ -XX                         show everything the kernel provides
+ -c, --read-rc               read the default rc
+ -C, --read-rc-from=<file>   read the rc from file
+ -n, --create-rc             create new default rc
+ -N, --create-rc-to=<file>   create new rc to file
+            NOTE: pid arguments are not allowed with -n, -N
+ -d, --device                show the device format
+ -q, --quiet                 do not display header and footer
+ -p, --show-path             show path in the mapping
+ -A, --range=<low>[,<high>]  limit results to the given range
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see pmap(1).
+PASS: pmap with no arguments
+spawn /sources/procps-ng-3.3.15/pmap 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+0000000000400000      4K r---- expect
+0000000000401000      4K r-x-- expect
+0000000000402000      4K r---- expect
+0000000000403000      4K r---- expect
+0000000000404000      4K rw--- expect
+0000000002204000   2004K rw---   [ anon ]
+00007fc7aaf22000      4K -----   [ anon ]
+00007fc7aaf23000  32768K rw---   [ anon ]
+00007fc7acf23000     12K r---- libnss_files-2.28.so
+00007fc7acf26000     28K r-x-- libnss_files-2.28.so
+00007fc7acf2d000     12K r---- libnss_files-2.28.so
+00007fc7acf30000      4K r---- libnss_files-2.28.so
+00007fc7acf31000      4K rw--- libnss_files-2.28.so
+00007fc7acf32000     36K rw---   [ anon ]
+00007fc7acf3b000     24K r---- libpthread-2.28.so
+00007fc7acf41000     60K r-x-- libpthread-2.28.so
+00007fc7acf50000     24K r---- libpthread-2.28.so
+00007fc7acf56000      4K r---- libpthread-2.28.so
+00007fc7acf57000      4K rw--- libpthread-2.28.so
+00007fc7acf58000     24K rw---   [ anon ]
+00007fc7acf5e000      4K r---- libutil-2.28.so
+00007fc7acf5f000      4K r-x-- libutil-2.28.so
+00007fc7acf60000      4K r---- libutil-2.28.so
+00007fc7acf61000      4K r---- libutil-2.28.so
+00007fc7acf62000      4K rw--- libutil-2.28.so
+00007fc7acf63000    136K r---- libc-2.28.so
+00007fc7acf85000   1284K r-x-- libc-2.28.so
+00007fc7ad0c6000    308K r---- libc-2.28.so
+00007fc7ad113000      4K ----- libc-2.28.so
+00007fc7ad114000     16K r---- libc-2.28.so
+00007fc7ad118000      8K rw--- libc-2.28.so
+00007fc7ad11a000     16K rw---   [ anon ]
+00007fc7ad11e000     48K r---- libm-2.28.so
+00007fc7ad12a000    624K r-x-- libm-2.28.so
+00007fc7ad1c6000    856K r---- libm-2.28.so
+00007fc7ad29c000      4K r---- libm-2.28.so
+00007fc7ad29d000      4K rw--- libm-2.28.so
+00007fc7ad29e000      4K r---- libdl-2.28.so
+00007fc7ad29f000      4K r-x-- libdl-2.28.so
+00007fc7ad2a0000      4K r---- libdl-2.28.so
+00007fc7ad2a1000      4K r---- libdl-2.28.so
+00007fc7ad2a2000      4K rw--- libdl-2.28.so
+00007fc7ad2a3000    176K r---- libtcl8.6.so
+00007fc7ad2cf000   1272K r-x-- libtcl8.6.so
+00007fc7ad40d000    304K r---- libtcl8.6.so
+00007fc7ad459000      4K ----- libtcl8.6.so
+00007fc7ad45a000     56K r---- libtcl8.6.so
+00007fc7ad468000      8K rw--- libtcl8.6.so
+00007fc7ad46a000      4K rw---   [ anon ]
+00007fc7ad46b000     36K r---- libexpect5.45.4.so
+00007fc7ad474000    112K r-x-- libexpect5.45.4.so
+00007fc7ad490000     32K r---- libexpect5.45.4.so
+00007fc7ad498000      4K r---- libexpect5.45.4.so
+00007fc7ad499000      8K rw--- libexpect5.45.4.so
+00007fc7ad49b000     24K rw---   [ anon ]
+00007fc7ad4a1000      4K r---- ld-2.28.so
+00007fc7ad4a2000    120K r-x-- ld-2.28.so
+00007fc7ad4c0000     32K r---- ld-2.28.so
+00007fc7ad4c8000      4K r---- ld-2.28.so
+00007fc7ad4c9000      4K rw--- ld-2.28.so
+00007fc7ad4ca000      4K rw---   [ anon ]
+00007ffc3bfc3000    132K rw---   [ stack ]
+00007ffc3bfec000     12K r----   [ anon ]
+00007ffc3bfef000      8K r-x--   [ anon ]
+ffffffffff600000      4K r-x--   [ anon ]
+ total            40744K
+PASS: pmap standard output
+spawn /sources/procps-ng-3.3.15/pmap -q 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+0000000000400000      4K r---- expect
+0000000000401000      4K r-x-- expect
+0000000000402000      4K r---- expect
+0000000000403000      4K r---- expect
+0000000000404000      4K rw--- expect
+0000000002204000   2148K rw---   [ anon ]
+00007fc7aaf22000      4K -----   [ anon ]
+00007fc7aaf23000  32768K rw---   [ anon ]
+00007fc7acf23000     12K r---- libnss_files-2.28.so
+00007fc7acf26000     28K r-x-- libnss_files-2.28.so
+00007fc7acf2d000     12K r---- libnss_files-2.28.so
+00007fc7acf30000      4K r---- libnss_files-2.28.so
+00007fc7acf31000      4K rw--- libnss_files-2.28.so
+00007fc7acf32000     36K rw---   [ anon ]
+00007fc7acf3b000     24K r---- libpthread-2.28.so
+00007fc7acf41000     60K r-x-- libpthread-2.28.so
+00007fc7acf50000     24K r---- libpthread-2.28.so
+00007fc7acf56000      4K r---- libpthread-2.28.so
+00007fc7acf57000      4K rw--- libpthread-2.28.so
+00007fc7acf58000     24K rw---   [ anon ]
+00007fc7acf5e000      4K r---- libutil-2.28.so
+00007fc7acf5f000      4K r-x-- libutil-2.28.so
+00007fc7acf60000      4K r---- libutil-2.28.so
+00007fc7acf61000      4K r---- libutil-2.28.so
+00007fc7acf62000      4K rw--- libutil-2.28.so
+00007fc7acf63000    136K r---- libc-2.28.so
+00007fc7acf85000   1284K r-x-- libc-2.28.so
+00007fc7ad0c6000    308K r---- libc-2.28.so
+00007fc7ad113000      4K ----- libc-2.28.so
+00007fc7ad114000     16K r---- libc-2.28.so
+00007fc7ad118000      8K rw--- libc-2.28.so
+00007fc7ad11a000     16K rw---   [ anon ]
+00007fc7ad11e000     48K r---- libm-2.28.so
+00007fc7ad12a000    624K r-x-- libm-2.28.so
+00007fc7ad1c6000    856K r---- libm-2.28.so
+00007fc7ad29c000      4K r---- libm-2.28.so
+00007fc7ad29d000      4K rw--- libm-2.28.so
+00007fc7ad29e000      4K r---- libdl-2.28.so
+00007fc7ad29f000      4K r-x-- libdl-2.28.so
+PASS: pmap standard output with quiet
+spawn /sources/procps-ng-3.3.15/pmap -d 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+Address           Kbytes Mode  Offset           Device    Mapping
+0000000000400000       4 r---- 0000000000000000 007:00005 expect
+0000000000401000       4 r-x-- 0000000000001000 007:00005 expect
+0000000000402000       4 r---- 0000000000002000 007:00005 expect
+0000000000403000       4 r---- 0000000000002000 007:00005 expect
+0000000000404000       4 rw--- 0000000000003000 007:00005 expect
+0000000002204000    2244 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7aaf22000       4 ----- 0000000000000000 000:00000   [ anon ]
+00007fc7aaf23000   32768 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf23000      12 r---- 0000000000000000 007:00005 libnss_files-2.28.so
+00007fc7acf26000      28 r-x-- 0000000000003000 007:00005 libnss_files-2.28.so
+00007fc7acf2d000      12 r---- 000000000000a000 007:00005 libnss_files-2.28.so
+00007fc7acf30000       4 r---- 000000000000c000 007:00005 libnss_files-2.28.so
+00007fc7acf31000       4 rw--- 000000000000d000 007:00005 libnss_files-2.28.so
+00007fc7acf32000      36 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf3b000      24 r---- 0000000000000000 007:00005 libpthread-2.28.so
+00007fc7acf41000      60 r-x-- 0000000000006000 007:00005 libpthread-2.28.so
+00007fc7acf50000      24 r---- 0000000000015000 007:00005 libpthread-2.28.so
+00007fc7acf56000       4 r---- 000000000001a000 007:00005 libpthread-2.28.so
+00007fc7acf57000       4 rw--- 000000000001b000 007:00005 libpthread-2.28.so
+00007fc7acf58000      24 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf5e000       4 r---- 0000000000000000 007:00005 libutil-2.28.so
+00007fc7acf5f000       4 r-x-- 0000000000001000 007:00005 libutil-2.28.so
+00007fc7acf60000       4 r---- 0000000000002000 007:00005 libutil-2.28.so
+00007fc7acf61000       4 r---- 0000000000002000 007:00005 libutil-2.28.so
+00007fc7acf62000       4 rw--- 0000000000003000 007:00005 libutil-2.28.so
+00007fc7acf63000     136 r---- 0000000000000000 007:00005 libc-2.28.so
+00007fc7acf85000    1284 r-x-- 0000000000022000 007:00005 libc-2.28.so
+00007fc7ad0c6000     308 r---- 0000000000163000 007:00005 libc-2.28.so
+00007fc7ad113000       4 ----- 00000000001b0000 007:00005 libc-2.28.so
+00007fc7ad114000      16 r---- 00000000001b0000 007:00005 libc-2.28.so
+00007fc7ad118000       8 rw--- 00000000001b4000 007:00005 libc-2.28.so
+00007fc7ad11a000      16 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7ad11e000      48 r---- 0000000000000000 007:00005 libm-2.28.so
+00007fc7ad12a000     624 r-x-- 000000000000c000 007:00005 libm-2.28.so
+00007fc7ad1c6000     856 r---- 00000000000a8000 007:00005 libm-2.28.so
+00007fc7ad29c000       4 r---- 000000000017d000 007:00005 libm-2.28.so
+00007fc7ad29d000       4 rw--- 000000000017e000 007:00005 libm-2.28.so
+00007fc7ad29e000       4 r---- 0000000000000000 007:00005 libdl-2.28.so
+00007fc7ad29f000       4 r-x-- 0000000000001000 007:00005 libdl-2.28.so
+00007fc7ad2a0000       4 r---- 0000000000002000 007:00005 libdl-2.28.so
+00007fc7ad2a1000       4 r---- 0000000000002000 007:00005 libdl-2.28.so
+00007fc7ad2a2000       4 rw--- 0000000000003000 007:00005 libdl-2.28.so
+00007fc7ad2a3000     176 r---- 0000000000000000 007:00005 libtcl8.6.so
+00007fc7ad2cf000    1272 r-x-- 000000000002c000 007:00005 libtcl8.6.so
+00007fc7ad40d000     304 r---- 000000000016a000 007:00005 libtcl8.6.so
+00007fc7ad459000       4 ----- 00000000001b6000 007:00005 libtcl8.6.so
+00007fc7ad45a000      56 r---- 00000000001b6000 007:00005 libtcl8.6.so
+00007fc7ad468000       8 rw--- 00000000001c4000 007:00005 libtcl8.6.so
+00007fc7ad46a000       4 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7ad46b000      36 r---- 0000000000000000 007:00005 libexpect5.45.4.so
+00007fc7ad474000     112 r-x-- 0000000000009000 007:00005 libexpect5.45.4.so
+00007fc7ad490000      32 r---- 0000000000025000 007:00005 libexpect5.45.4.so
+00007fc7ad498000       4 r---- 000000000002c000 007:00005 libexpect5.45.4.so
+00007fc7ad499000       8 rw--- 000000000002d000 007:00005 libexpect5.45.4.so
+00007fc7ad49b000      24 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7ad4a1000       4 r---- 0000000000000000 007:00005 ld-2.28.so
+00007fc7ad4a2000     120 r-x-- 0000000000001000 007:00005 ld-2.28.so
+00007fc7ad4c0000      32 r---- 000000000001f000 007:00005 ld-2.28.so
+00007fc7ad4c8000       4 r---- 0000000000026000 007:00005 ld-2.28.so
+00007fc7ad4c9000       4 rw--- 0000000000027000 007:00005 ld-2.28.so
+00007fc7ad4ca000       4 rw--- 0000000000000000 000:00000   [ anon ]
+00007ffc3bfc3000     132 rw--- 0000000000000000 000:00000   [ stack ]
+00007ffc3bfec000      12 r---- 0000000000000000 000:00000   [ anon ]
+00007ffc3bfef000       8 r-x-- 0000000000000000 000:00000   [ anon ]
+ffffffffff600000       4 r-x-- 0000000000000000 000:00000   [ anon ]
+mapped: 40984K    writeable/private: 35304K    shared: 0K
+PASS: pmap device output
+spawn /sources/procps-ng-3.3.15/pmap -dq 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+0000000000400000       4 r---- 0000000000000000 007:00005 expect
+0000000000401000       4 r-x-- 0000000000001000 007:00005 expect
+0000000000402000       4 r---- 0000000000002000 007:00005 expect
+0000000000403000       4 r---- 0000000000002000 007:00005 expect
+0000000000404000       4 rw--- 0000000000003000 007:00005 expect
+0000000002204000    2512 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7aaf22000       4 ----- 0000000000000000 000:00000   [ anon ]
+00007fc7aaf23000   32768 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf23000      12 r---- 0000000000000000 007:00005 libnss_files-2.28.so
+00007fc7acf26000      28 r-x-- 0000000000003000 007:00005 libnss_files-2.28.so
+00007fc7acf2d000      12 r---- 000000000000a000 007:00005 libnss_files-2.28.so
+00007fc7acf30000       4 r---- 000000000000c000 007:00005 libnss_files-2.28.so
+00007fc7acf31000       4 rw--- 000000000000d000 007:00005 libnss_files-2.28.so
+00007fc7acf32000      36 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf3b000      24 r---- 0000000000000000 007:00005 libpthread-2.28.so
+00007fc7acf41000      60 r-x-- 0000000000006000 007:00005 libpthread-2.28.so
+00007fc7acf50000      24 r---- 0000000000015000 007:00005 libpthread-2.28.so
+00007fc7acf56000       4 r---- 000000000001a000 007:00005 libpthread-2.28.so
+00007fc7acf57000       4 rw--- 000000000001b000 007:00005 libpthread-2.28.so
+00007fc7acf58000      24 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf5e000       4 r---- 0000000000000000 007:00005 libutil-2.28.so
+00007fc7acf5f000       4 r-x-- 0000000000001000 007:00005 libutil-2.28.so
+PASS: pmap device output quiet (dq)
+spawn /sources/procps-ng-3.3.15/pmap -qd 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+0000000000400000       4 r---- 0000000000000000 007:00005 expect
+0000000000401000       4 r-x-- 0000000000001000 007:00005 expect
+0000000000402000       4 r---- 0000000000002000 007:00005 expect
+0000000000403000       4 r---- 0000000000002000 007:00005 expect
+0000000000404000       4 rw--- 0000000000003000 007:00005 expect
+0000000002204000    2512 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7aaf22000       4 ----- 0000000000000000 000:00000   [ anon ]
+00007fc7aaf23000   32768 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf23000      12 r---- 0000000000000000 007:00005 libnss_files-2.28.so
+00007fc7acf26000      28 r-x-- 0000000000003000 007:00005 libnss_files-2.28.so
+00007fc7acf2d000      12 r---- 000000000000a000 007:00005 libnss_files-2.28.so
+00007fc7acf30000       4 r---- 000000000000c000 007:00005 libnss_files-2.28.so
+00007fc7acf31000       4 rw--- 000000000000d000 007:00005 libnss_files-2.28.so
+00007fc7acf32000      36 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf3b000      24 r---- 0000000000000000 007:00005 libpthread-2.28.so
+00007fc7acf41000      60 r-x-- 0000000000006000 007:00005 libpthread-2.28.so
+00007fc7acf50000      24 r---- 0000000000015000 007:00005 libpthread-2.28.so
+00007fc7acf56000       4 r---- 000000000001a000 007:00005 libpthread-2.28.so
+00007fc7acf57000       4 rw--- 000000000001b000 007:00005 libpthread-2.28.so
+00007fc7acf58000      24 rw--- 0000000000000000 000:00000   [ anon ]
+00007fc7acf5e000       4 r---- 0000000000000000 007:00005 libutil-2.28.so
+00007fc7acf5f000       4 r-x-- 0000000000001000 007:00005 libutil-2.28.so
+PASS: pmap device output quiet (qd)
+spawn /sources/procps-ng-3.3.15/pmap -x 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+Address           Kbytes     RSS   Dirty Mode  Mapping
+0000000000400000       4       4       0 r---- expect
+0000000000401000       4       4       0 r-x-- expect
+0000000000402000       4       0       0 r---- expect
+0000000000403000       4       4       4 r---- expect
+0000000000404000       4       4       4 rw--- expect
+0000000002204000    2632    2360    2360 rw---   [ anon ]
+00007fc7aaf22000       4       0       0 -----   [ anon ]
+00007fc7aaf23000   32768       8       8 rw---   [ anon ]
+00007fc7acf23000      12      12       0 r---- libnss_files-2.28.so
+00007fc7acf26000      28      28       0 r-x-- libnss_files-2.28.so
+00007fc7acf2d000      12      12       0 r---- libnss_files-2.28.so
+00007fc7acf30000       4       4       4 r---- libnss_files-2.28.so
+00007fc7acf31000       4       4       4 rw--- libnss_files-2.28.so
+00007fc7acf32000      36       8       8 rw---   [ anon ]
+00007fc7acf3b000      24      24       0 r---- libpthread-2.28.so
+00007fc7acf41000      60      60       0 r-x-- libpthread-2.28.so
+00007fc7acf50000      24       0       0 r---- libpthread-2.28.so
+00007fc7acf56000       4       4       4 r---- libpthread-2.28.so
+00007fc7acf57000       4       4       4 rw--- libpthread-2.28.so
+00007fc7acf58000      24      12      12 rw---   [ anon ]
+00007fc7acf5e000       4       4       0 r---- libutil-2.28.so
+00007fc7acf5f000       4       4       0 r-x-- libutil-2.28.so
+00007fc7acf60000       4       0       0 r---- libutil-2.28.so
+00007fc7acf61000       4       4       4 r---- libutil-2.28.so
+00007fc7acf62000       4       4       4 rw--- libutil-2.28.so
+00007fc7acf63000     136     136       0 r---- libc-2.28.so
+00007fc7acf85000    1284    1196       0 r-x-- libc-2.28.so
+00007fc7ad0c6000     308     168       0 r---- libc-2.28.so
+00007fc7ad113000       4       0       0 ----- libc-2.28.so
+00007fc7ad114000      16      16      16 r---- libc-2.28.so
+00007fc7ad118000       8       8       8 rw--- libc-2.28.so
+00007fc7ad11a000      16      16      16 rw---   [ anon ]
+00007fc7ad11e000      48      48       0 r---- libm-2.28.so
+00007fc7ad12a000     624     280       0 r-x-- libm-2.28.so
+00007fc7ad1c6000     856       0       0 r---- libm-2.28.so
+00007fc7ad29c000       4       4       4 r---- libm-2.28.so
+00007fc7ad29d000       4       4       4 rw--- libm-2.28.so
+00007fc7ad29e000       4       4       0 r---- libdl-2.28.so
+00007fc7ad29f000       4       4       0 r-x-- libdl-2.28.so
+00007fc7ad2a0000       4       0       0 r---- libdl-2.28.so
+00007fc7ad2a1000       4       4       4 r---- libdl-2.28.so
+00007fc7ad2a2000       4       4       4 rw--- libdl-2.28.so
+00007fc7ad2a3000     176     176       0 r---- libtcl8.6.so
+00007fc7ad2cf000    1272    1268       0 r-x-- libtcl8.6.so
+00007fc7ad40d000     304     140       0 r---- libtcl8.6.so
+00007fc7ad459000       4       0       0 ----- libtcl8.6.so
+00007fc7ad45a000      56      56      56 r---- libtcl8.6.so
+00007fc7ad468000       8       8       8 rw--- libtcl8.6.so
+00007fc7ad46a000       4       4       4 rw---   [ anon ]
+00007fc7ad46b000      36      36       0 r---- libexpect5.45.4.so
+00007fc7ad474000     112     112       0 r-x-- libexpect5.45.4.so
+00007fc7ad490000      32      32       0 r---- libexpect5.45.4.so
+00007fc7ad498000       4       4       4 r---- libexpect5.45.4.so
+00007fc7ad499000       8       8       8 rw--- libexpect5.45.4.so
+00007fc7ad49b000      24      24      24 rw---   [ anon ]
+00007fc7ad4a1000       4       4       0 r---- ld-2.28.so
+00007fc7ad4a2000     120     120       0 r-x-- ld-2.28.so
+00007fc7ad4c0000      32      32       0 r---- ld-2.28.so
+00007fc7ad4c8000       4       4       4 r---- ld-2.28.so
+00007fc7ad4c9000       4       4       4 rw--- ld-2.28.so
+00007fc7ad4ca000       4       4       4 rw---   [ anon ]
+00007ffc3bfc3000     132      28      28 rw---   [ stack ]
+00007ffc3bfec000      12       0       0 r----   [ anon ]
+00007ffc3bfef000       8       4       0 r-x--   [ anon ]
+ffffffffff600000       4       0       0 r-x--   [ anon ]
+---------------- ------- ------- ------- 
+total kB           41372    6532    2620
+PASS: pmap extended output
+spawn /sources/procps-ng-3.3.15/pmap -X 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+         Address Perm   Offset Device  Inode  Size  Rss  Pss Referenced Anonymous LazyFree ShmemPmdMapped Shared_Hugetlb Private_Hugetlb Swap SwapPss Locked ProtectionKey Mapping
+        00400000 r--p 00000000  07:05 135342     4    4    4          4         0        0              0              0               0    0       0      4             0 expect
+        00401000 r-xp 00001000  07:05 135342     4    4    4          4         0        0              0              0               0    0       0      4             0 expect
+        00402000 r--p 00002000  07:05 135342     4    0    0          0         0        0              0              0               0    0       0      0             0 expect
+        00403000 r--p 00002000  07:05 135342     4    4    4          4         4        0              0              0               0    0       0      4             0 expect
+        00404000 rw-p 00003000  07:05 135342     4    4    4          4         4        0              0              0               0    0       0      4             0 expect
+        02204000 rw-p 00000000  00:00      0  2632 2448 2448       2448      2448        0              0              0               0    0       0   2448             0 [heap]
+    7fc7aaf22000 ---p 00000000  00:00      0     4    0    0          0         0        0              0              0               0    0       0      0             0 
+    7fc7aaf23000 rw-p 00000000  00:00      0 32768    8    8          8         8        0              0              0               0    0       0      8             0 
+    7fc7acf23000 r--p 00000000  07:05 525162    12   12   12         12         0        0              0              0               0    0       0     12             0 libnss_files-2.28.so
+    7fc7acf26000 r-xp 00003000  07:05 525162    28   28   28         28         0        0              0              0               0    0       0     28             0 libnss_files-2.28.so
+    7fc7acf2d000 r--p 0000a000  07:05 525162    12   12   12         12         0        0              0              0               0    0       0     12             0 libnss_files-2.28.so
+    7fc7acf30000 r--p 0000c000  07:05 525162     4    4    4          4         4        0              0              0               0    0       0      4             0 libnss_files-2.28.so
+    7fc7acf31000 rw-p 0000d000  07:05 525162     4    4    4          4         4        0              0              0               0    0       0      4             0 libnss_files-2.28.so
+PASS: pmap extra extended output
+spawn /sources/procps-ng-3.3.15/pmap -XX 67160
+67160:   expect -- /tools/share/dejagnu/runtest.exp --tool pmap --srcdir .
+         Address Perm   Offset Device  Inode  Size KernelPageSize MMUPageSize  Rss  Pss Shared_Clean Shared_Dirty Private_Clean Private_Dirty Referenced Anonymous LazyFree AnonHugePages ShmemPmdMapped Shared_Hugetlb Private_Hugetlb Swap SwapPss Locked ProtectionKey                 VmFlags Mapping
+        00400000 r--p 00000000  07:05 135342     4              4           4    4    4            0            0             4             0          4         0        0             0              0              0               0    0       0      4             0       rd mr mw me dw sd expect
+        00401000 r-xp 00001000  07:05 135342     4              4           4    4    4            0            0             4             0          4         0        0             0              0              0               0    0       0      4             0    rd ex mr mw me dw sd expect
+        00402000 r--p 00002000  07:05 135342     4              4           4    0    0            0            0             0             0          0         0        0             0              0              0               0    0       0      0             0       rd mr mw me dw sd expect
+        00403000 r--p 00002000  07:05 135342     4              4           4    4    4            0            0             0             4          4         4        0             0              0              0               0    0       0      4             0    rd mr mw me dw ac sd expect
+        00404000 rw-p 00003000  07:05 135342     4              4           4    4    4            0            0             0             4          4         4        0             0              0              0               0    0       0      4             0 rd wr mr mw me dw ac sd expect
+        02204000 rw-p 00000000  00:00      0  2632              4           4 2488 2488            0            0             0          2488       2488      2488        0             0              0              0               0    0       0   2488             0    rd wr mr mw me ac sd [heap]
+    7fc7aaf22000 ---p 00000000  00:00      0     4              4           4    0    0            0            0             0             0          0         0        0             0              0              0               0    0       0      0             0             mr mw me sd 
+    7fc7aaf23000 rw-p 00000000  00:00      0 32768              4           4    8    8            0            0             0             8          8         8        0             0              0              0               0    0       0      8             0    rd wr mr mw me ac sd 
+    7fc7acf23000 r--p 00000000  07:05 525162    12              4           4   12   12            0            0            12             0         12         0        0             0              0              0               0    0       0     12             0          rd mr mw me sd libnss_files-2.28.so
+    7fc7acf26000 r-xp 00003000  07:05 525162    28              4           4   28   28            0            0            28             0         28         0        0             0              0              0               0    0       0     28             0       rd ex mr mw me sd libnss_files-2.28.so
+    7fc7acf2d000 r--p 0000a000  07:05 525162    12              4           4   12   12            0            0            12             0         12         0        0             0              0              0               0    0       0     12             0          rd mr mw me sd libnss_files-2.28.so
+    7fc7acf30000 r--p 0000c000  07:05 525162     4              4           4    4    4            0            0             0             4          4         4        0             0              0              0               0    0       0      4             0       rd mr mw me ac sd libnss_files-2.28.so
+    7fc7acf31000 rw-p 0000d000  07:05 525162     4              4           4    4    4            0            0             0             4          4         4        0             0              0              0               0    0       0      4             0    rd wr mr mw me ac sd libnss_files-2.28.so
+    7fc7acf32000 rw-p 00000000  00:00      0    36              4           4    8    8            0            0             0             8          8         8        0             0              0              0               0    0       0      8             0    rd wr mr mw me ac sd 
+    7fc7acf3b000 r--p 00000000  07:05 524850    24              4           4   24   24            0            0            24             0         24         0        0             0              0              0               0    0       0     24             0          rd mr mw me sd libpthread-2.28.so
+    7fc7acf41000 r-xp 00006000  07:05 524850    60              4           4   60   60            0            0            60             0         60         0        0             0              0              0               0    0       0     60             0       rd ex mr mw me sd libpthread-2.28.so
+    7fc7acf50000 r--p 00015000  07:05 524850    24              4           4    0    0            0            0             0             0          0         0        0             0              0              0               0    0       0      0             0          rd mr mw me sd libpthread-2.28.so
+    7fc7acf56000 r--p 0001a000  07:05 524850     4              4           4    4    4            0            0             0             4          4         4        0             0              0              0               0    0       0      4             0       rd mr mw me ac sd libpthread-2.28.so
+    7fc7acf57000 rw-p 0001b000  07:05 524850     4              4           4    4    4            0            0             0             4          4         4        0             0              0              0               0    0       0      4             0    rd wr mr mw me ac sd libpthread-2.28.so
+    7fc7acf58000 rw-p 00000000  00:00      0    24              4           4   12   12            0            0             0            12         12        12        0             0              0              0               0    0       0     12             0    rd wr mr mw me ac sd 
+    7fc7acf5e000 r--p 00000000  07:05 525176     4              4           4    4    4            0            0             4             0          4         0        0             0              0              0               0    0       0      4             0          rd mr mw me sd libutil-2.28.so
+    7fc7acf5f000 r-xp 00001000  07:05 525176     4              4           4    4    4            0            0             4             0          4         0        0             0              0              0               0    0       0      4             0       rd ex mr mw me sd libutil-2.28.so
+    7fc7acf60000 r--p 00002000  07:05 525176     4              4           4    0    0            PASS: pmap double extra extended output
+spawn /sources/procps-ng-3.3.15/pmap -X 1
+1:   /lib/systemd/systemd --system --deserialize 34
+PASS: pmap X with unreachable process
+spawn /sources/procps-ng-3.3.15/pmap -XX 1
+1:   /lib/systemd/systemd --system --deserialize 34
+PASS: pmap XX with unreachable process
+testcase ./pmap.test/pmap.exp completed in 0 seconds
+
+		=== pmap Summary ===
+
+# of expected passes		11
+/sources/procps-ng-3.3.15/pmap version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:17 2018

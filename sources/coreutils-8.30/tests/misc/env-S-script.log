@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-env-S-script.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-env-S-script.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-env-S-script.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
++++ d=/sources/coreutils-8.30/gt-env-S-script.sh.OKjS
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE'
++++ test -d /sources/coreutils-8.30/gt-env-S-script.sh.OKjS
+++++ ls -dgo /sources/coreutils-8.30/gt-env-S-script.sh.OKjS
++++ perms='drwx------ 2 4096 Nov 26 23:48 /sources/coreutils-8.30/gt-env-S-script.sh.OKjS'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
++++ echo /sources/coreutils-8.30/gt-env-S-script.sh.OKjS
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
+++ test_dir_=/sources/coreutils-8.30/gt-env-S-script.sh.OKjS
+++ cd /sources/coreutils-8.30/gt-env-S-script.sh.OKjS
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -98,15 +98,15 @@ Written by David MacKenzie.
 + require_perl_
 + : perl
 + perl -e 'use warnings'
-+ dir=/mnt/lfs/sources/coreutils-8.30/src
++ dir=/sources/coreutils-8.30/src
 + cat
 + cat
 + chmod a+x shebang
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env sh\necho hello\n'
++ printf '#!/sources/coreutils-8.30/src/env sh\necho hello\n'
 + chmod a+x env_test
 + ./shebang ./env_test
 hello
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env -S /mnt/lfs/sources/coreutils-8.30/src/printf x%%sx\\n A B\n'
++ printf '#!/sources/coreutils-8.30/src/env -S /sources/coreutils-8.30/src/printf x%%sx\\n A B\n'
 + chmod a+x env1
 + cat
 + ./shebang ./env1 C D 'E F'
@@ -119,7 +119,7 @@ hello
 + case $? in
 + compare_ exp1 out1
 + diff -u exp1 out1
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env -S /mnt/lfs/sources/coreutils-8.30/src/printf x%%sx\\n "A B"\n'
++ printf '#!/sources/coreutils-8.30/src/env -S /sources/coreutils-8.30/src/printf x%%sx\\n "A B"\n'
 + chmod a+x env2
 + cat
 + ./shebang ./env2
@@ -132,7 +132,7 @@ hello
 + case $? in
 + compare_ exp2 out2
 + diff -u exp2 out2
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env -S/mnt/lfs/sources/coreutils-8.30/src/printf\\_x%%sx\\n\\_Y\n'
++ printf '#!/sources/coreutils-8.30/src/env -S/sources/coreutils-8.30/src/printf\\_x%%sx\\n\\_Y\n'
 + chmod a+x env3
 + cat
 + ./shebang ./env3 W
@@ -145,7 +145,7 @@ hello
 + case $? in
 + compare_ exp3 out3
 + diff -u exp3 out3
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env -S/mnt/lfs/sources/coreutils-8.30/src/printf x%%sx\\n A#B #C D\n'
++ printf '#!/sources/coreutils-8.30/src/env -S/sources/coreutils-8.30/src/printf x%%sx\\n A#B #C D\n'
 + chmod a+x env4
 + cat
 + ./shebang ./env4 Z
@@ -158,7 +158,7 @@ hello
 + case $? in
 + compare_ exp4 out4
 + diff -u exp4 out4
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env -S perl -w -T\n'
++ printf '#!/sources/coreutils-8.30/src/env -S perl -w -T\n'
 + printf 'print "hello\\n";\n'
 + chmod a+x env5
 + cat
@@ -172,7 +172,7 @@ hello
 + case $? in
 + compare_ exp5 out5
 + diff -u exp5 out5
-+ printf '#!/mnt/lfs/sources/coreutils-8.30/src/env -S '
++ printf '#!/sources/coreutils-8.30/src/env -S '
 + printf 'perl -mFile::Basename=basename -e '
 + printf '"print basename(\\$ARGV[0]);"\n'
 + chmod a+x env6
@@ -196,8 +196,8 @@ hello
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-env-S-script.sh.fnQE
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-env-S-script.sh.OKjS
++ rm -rf /sources/coreutils-8.30/gt-env-S-script.sh.OKjS
 + exit 0
 PASS tests/misc/env-S-script.sh (exit status: 0)

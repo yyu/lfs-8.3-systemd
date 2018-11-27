@@ -1,5 +1,3 @@
-D: sectioning//diffs/more_nodes_than_sections.diff
-D: sectioning//diffs/more_nodes_than_sections_html.diff
 testdir: sectioning/
 driving_file: ./sectioning//tests-parser.txt
 found special first line, commands now: : :_html
@@ -9,19 +7,12 @@ made result dir: ./sectioning//res_parser_html/
 doing test more_nodes_than_sections, src_file ./sectioning//more_nodes_than_sections.texi
 format_option: --set-customization-variable=TEXI2HTML
 texi2any.pl more_nodes_than_sections -> sectioning//out_parser/more_nodes_than_sections
- /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser/more_nodes_than_sections/  ./sectioning//more_nodes_than_sections.texi > sectioning//out_parser/more_nodes_than_sections/more_nodes_than_sections.1 2>sectioning//out_parser/more_nodes_than_sections/more_nodes_than_sections.2
+ /usr/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser/more_nodes_than_sections/  ./sectioning//more_nodes_than_sections.texi > sectioning//out_parser/more_nodes_than_sections/more_nodes_than_sections.1 2>sectioning//out_parser/more_nodes_than_sections/more_nodes_than_sections.2
 
 doing test more_nodes_than_sections, src_file ./sectioning//more_nodes_than_sections.texi
 format_option: --html
 texi2any.pl more_nodes_than_sections -> sectioning//out_parser_html/more_nodes_than_sections
- /tools/bin/perl -w ./..//texi2any.pl --html --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser_html/more_nodes_than_sections/  ./sectioning//more_nodes_than_sections.texi > sectioning//out_parser_html/more_nodes_than_sections/more_nodes_than_sections.1 2>sectioning//out_parser_html/more_nodes_than_sections/more_nodes_than_sections.2
+ /usr/bin/perl -w ./..//texi2any.pl --html --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./sectioning/ -I sectioning// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output sectioning//out_parser_html/more_nodes_than_sections/  ./sectioning//more_nodes_than_sections.texi > sectioning//out_parser_html/more_nodes_than_sections/more_nodes_than_sections.1 2>sectioning//out_parser_html/more_nodes_than_sections/more_nodes_than_sections.2
 
-all done, exiting with status 1
-
-diff -a -u -r sectioning//diffs/staging_res/more_nodes_than_sections/more_nodes_than_sections.2 sectioning//out_parser/more_nodes_than_sections/more_nodes_than_sections.2
---- sectioning//diffs/staging_res/more_nodes_than_sections/more_nodes_than_sections.2	2017-08-27 10:45:46.000000000 +0000
-+++ sectioning//out_parser/more_nodes_than_sections/more_nodes_than_sections.2	2018-11-26 23:59:28.001084257 +0000
-@@ -0,0 +1,2 @@
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
-FAIL test_scripts/sectioning_more_nodes_than_sections.sh (exit status: 1)
+all done, exiting with status 0
+PASS test_scripts/sectioning_more_nodes_than_sections.sh (exit status: 0)

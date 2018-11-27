@@ -1,0 +1,126 @@
+Test run by root on Tue Nov 27 07:40:20 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== vmstat tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./vmstat.test/vmstat.exp ...
+spawn /sources/procps-ng-3.3.15/vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 7681696 1665304 133499168    0    0     0    23    1    2  0  0 100  0  0
+PASS: vmstat with no arguments
+spawn /sources/procps-ng-3.3.15/vmstat -a
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free  inact active   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 7680392 88697536 40456792    0    0     0    23    1    2  0  0 100  0  0
+PASS: vmstat with -a flag
+spawn /sources/procps-ng-3.3.15/vmstat -f
+     13916989 forks
+PASS: vmstat fork option
+spawn /sources/procps-ng-3.3.15/vmstat -m
+Cache                       Num  Total   Size  Pages
+ufs_inode_cache               0      0    808     40
+xfs_dqtrx                     0      0    528     62
+xfs_rui_item                  0      0    672     48
+xfs_ili                       0      0    168     48
+xfs_inode                     0      0    960     34
+xfs_buf_item                  0      0    248     33
+xfs_da_state                  0      0    480     34
+xfs_log_ticket                0      0    184     44
+bio-3                        51     51    320     51
+ext4_groupinfo_4k          8288   8288    144     56
+btrfs_delayed_ref_head        0      0    152     53
+btrfs_delayed_node            0      0    296     55
+btrfs_ordered_extent          0      0    416     39
+btrfs_extent_map              0      0    144     56
+btrfs_extent_buffer           0      0    280     58
+btrfs_path                    0      0    112     36
+btrfs_trans_handle            0      0    120     34
+btrfs_inode                   0      0   1136     28
+RAWv6                      2632   2632   1152     28
+UDPv6                      2600   2678   1216     26
+tw_sock_TCPv6              1666   1666    240     34
+request_sock_TCPv6         2597   2597    304     53
+TCPv6                      1080   1080   2176     15
+kcopyd_job                    0      0   3312      9
+dm_uevent                     0      0   2632     12
+cfq_io_cq                     0      0    120     34
+cfq_queue                     0      0    240     34
+bsg_cmd                       0      0    216     37
+mqueue_inode_cache          680    680    960     34
+fuse_request               1800   1800    400     40
+fuse_inode                 6942   6942    832     39
+ecryptfs_inode_cache          0      0   1024     32
+ecryptfs_auth_tok_list_item      0      0    832     39
+fat_inode_cache               0      0    744     44
+fat_cache                     0      0     40    102
+squashfs_inode_cache       3783   3956    704     46
+jbd2_journal_head         27295  28152    120     34
+jbd2_revoke_table_s         768    768     16    256
+ext4_inode_cache         1498639 1501590   1088     30
+ext4_allocation_context    2304   2304    128     32
+ext4_io_end               10560  10560     64     64
+ext4_extent_status       2038188 2074680     40    102
+mbcache                   38763  39055     56     73
+fscrypt_info              49664  50816     32    128
+fscrypt_ctx                6120   6120     48     85
+userfaultfd_ctx_cache         0      0    192     42
+dio                        1632   1632    640     51
+pid_namespace                78     78    208     39
+posix_timers_cache         3185   3185    232     35
+ip4-frags                     0      0    176     46
+xfrm_dst_cache                0      0    448     36
+RAW                        5100   5100    960     34
+tw_sock_TCP                3434   3706    240     34
+request_sock_TCP           3816   3816    304     53
+TCP                        1408   1536   2048     16
+hugetlbfs_inode_cache       104    104    624     52
+dquot                      2336   2336    256     32
+eventpoll_pwq             18200  18200     72     56
+eventpoll_epi             11200  11200    128     32
+dax_cache                    42     42    768     42
+request_queue                30     30   2128     15
+blkdev_ioc                 2808   2847    104     39
+dmaengine-unmap-256          15     15   2112     15
+dmaengine-unmap-128          30     30   1088     30
+sock_inode_cache          28717  29164    704     46
+file_lock_cache            2880   2880    200     40
+net_namespace               175    175   6080      5
+shmem_inode_cache         18343  19780    712     46
+taskstats                  3528   3528    328     49
+proc_inode_cache          38552  38688    680     48
+sigqueue                   3825   3825    160     51
+bdev_cache                  429    429    832     39
+kernfs_node_cache         88164  88560    136     60
+mnt_cache                  4200   4200    384     42
+filp                      89944  90944PASS: vmstat slabinfo (-m option)
+spawn /sources/procps-ng-3.3.15/vmstat -d
+disk- ------------reads------------ ------------writes----------- -----IO------
+       total merged sectors      ms  total merged sectors      ms    cur    sec
+loop0   9738      0   21592    1304      0      0       0       0      0      0
+loop1   3297      0    7286     360      0      0       0       0      0      0
+loop2    286      0   13472      68 1574035      0 594768578  748452      0     59
+loop3  10026      0   22114     948      0      0       0       0      0      0
+loop4   3470      0    7602     316      0      0       0       0      0      0
+loop5   3981      0   52624     512 2973845      0 180657786 1221400      0    101
+loop6      0      0       0       0      0      0       0       0      0      0
+loop7      0      0       0       0      0      0       0       0      0      0
+nvme0n1  45149      0 1196618   30960 4401121 2394467 664747576 16320532      0   1263
+PASS: vmstat disk information (-d option)
+UNSUPPORTED: vmstat partition (cannot find partition)
+testcase ./vmstat.test/vmstat.exp completed in 0 seconds
+
+		=== vmstat Summary ===
+
+# of expected passes		5
+# of unsupported tests		1
+/sources/procps-ng-3.3.15/vmstat version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:20 2018

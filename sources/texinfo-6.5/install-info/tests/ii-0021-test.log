@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii21-XXXXXXXX
-+ outputdirfile=ii21-2LjeqSjE
-+ cp ../../install-info/tests/ii-0021-input-dir-file ii21-2LjeqSjE
++ outputdirfile=ii21-tJlyTNXE
++ cp ../../install-info/tests/ii-0021-input-dir-file ii21-tJlyTNXE
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info --section=Animals '--description=Wildebeest native to Africa.' ../../install-info/tests/ii-0021-input-info-file ii21-2LjeqSjE
++ ../../install-info/ginstall-info --section=Animals '--description=Wildebeest native to Africa.' ../../install-info/tests/ii-0021-input-info-file ii21-tJlyTNXE
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0021-expected-dir-file ii21-2LjeqSjE
++ diff ../../install-info/tests/ii-0021-expected-dir-file ii21-tJlyTNXE
 + retval=0
-+ rm -f ii21-2LjeqSjE
++ rm -f ii21-tJlyTNXE
 + exit 0
 PASS ii-0021-test (exit status: 0)

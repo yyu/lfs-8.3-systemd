@@ -1,5 +1,3 @@
-D: nested_formats//diffs/nested_itemize.diff
-D: nested_formats//diffs/nested_itemize_info.diff
 testdir: nested_formats/
 driving_file: ./nested_formats//tests-parser.txt
 found special first line, commands now: : :_info
@@ -9,22 +7,12 @@ made result dir: ./nested_formats//res_parser_info/
 doing test nested_itemize, src_file ./nested_formats//nested_formats.texi
 format_option: --set-customization-variable=TEXI2HTML
 texi2any.pl nested_itemize -> nested_formats//out_parser/nested_itemize
- /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./nested_formats/ -I nested_formats// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output nested_formats//out_parser/nested_itemize/ -D format_itemize ./nested_formats//nested_formats.texi > nested_formats//out_parser/nested_itemize/nested_formats.1 2>nested_formats//out_parser/nested_itemize/nested_formats.2
+ /usr/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./nested_formats/ -I nested_formats// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output nested_formats//out_parser/nested_itemize/ -D format_itemize ./nested_formats//nested_formats.texi > nested_formats//out_parser/nested_itemize/nested_formats.1 2>nested_formats//out_parser/nested_itemize/nested_formats.2
 
 doing test nested_itemize, src_file ./nested_formats//nested_formats.texi
 format_option: --info
 texi2any.pl nested_itemize -> nested_formats//out_parser_info/nested_itemize
- /tools/bin/perl -w ./..//texi2any.pl --info --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./nested_formats/ -I nested_formats// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output nested_formats//out_parser_info/nested_itemize/ -D format_itemize ./nested_formats//nested_formats.texi > nested_formats//out_parser_info/nested_itemize/nested_formats.1 2>nested_formats//out_parser_info/nested_itemize/nested_formats.2
+ /usr/bin/perl -w ./..//texi2any.pl --info --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./nested_formats/ -I nested_formats// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output nested_formats//out_parser_info/nested_itemize/ -D format_itemize ./nested_formats//nested_formats.texi > nested_formats//out_parser_info/nested_itemize/nested_formats.1 2>nested_formats//out_parser_info/nested_itemize/nested_formats.2
 
-all done, exiting with status 1
-
-diff -a -u -r nested_formats//diffs/staging_res/nested_itemize/nested_formats.2 nested_formats//out_parser/nested_itemize/nested_formats.2
---- nested_formats//diffs/staging_res/nested_itemize/nested_formats.2	2017-08-27 10:45:47.000000000 +0000
-+++ nested_formats//out_parser/nested_itemize/nested_formats.2	2018-11-26 23:59:52.225468528 +0000
-@@ -1,3 +1,5 @@
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
- nested_formats.texi:233: warning: @itemize has text but no @item (possibly involving @mymacro)
- nested_formats.texi:233: warning: @itemize has text but no @item (possibly involving @mymacro)
- nested_formats.texi:233: warning: @itemize has text but no @item (possibly involving @mymacro)
-FAIL test_scripts/nested_formats_nested_itemize.sh (exit status: 1)
+all done, exiting with status 0
+PASS test_scripts/nested_formats_nested_itemize.sh (exit status: 0)

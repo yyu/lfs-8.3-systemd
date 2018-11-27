@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-inotify-rotate.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-inotify-rotate.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-inotify-rotate.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
++++ d=/sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs'
++++ test -d /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
+++++ ls -dgo /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
++++ perms='drwx------ 2 4096 Nov 26 23:46 /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
++++ echo /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
+++ test_dir_=/sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
+++ cd /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,22 +79,22 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
 and Jim Meyering.
-+ grep '^#define HAVE_INOTIFY 1' /mnt/lfs/sources/coreutils-8.30/lib/config.h
++ grep '^#define HAVE_INOTIFY 1' /sources/coreutils-8.30/lib/config.h
 + fastpoll='-s.1 --max-unchanged-stats=1'
 ++ seq 50
 + for i in $(seq 50)
 + echo 1
 1
 + rm -f k x out
-+ pid=33361
++ pid=42186
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + shift 3
 + local attempt=1
 + local num_sleeps=1
@@ -149,19 +149,19 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33361
-+ wait 33361
++ kill 42186
++ wait 42186
 + for i in $(seq 50)
 + echo 2
 2
 + rm -f k x out
-+ pid=33371
++ pid=42197
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local init_delay=.1
 + local max_n_tries=8
 + shift 3
@@ -218,15 +218,14 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33371
-+ wait 33371
++ kill 42197
++ wait 42197
 + for i in $(seq 50)
 + echo 3
 3
 + rm -f k x out
-+ pid=33381
++ pid=42207
 + echo tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
@@ -238,6 +237,7 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -287,13 +287,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33381
-+ wait 33381
++ kill 42207
++ wait 42207
 + for i in $(seq 50)
 + echo 4
 4
 + rm -f k x out
-+ pid=33391
++ pid=42217
 + echo tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + grep_timeout tailed
@@ -356,13 +356,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33391
-+ wait 33391
++ kill 42217
++ wait 42217
 + for i in $(seq 50)
 + echo 5
 5
 + rm -f k x out
-+ pid=33401
++ pid=42227
 + echo tailed
 + grep_timeout tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
@@ -425,15 +425,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33401
-+ wait 33401
++ kill 42227
++ wait 42227
 + for i in $(seq 50)
 + echo 6
 6
 + rm -f k x out
-+ pid=33411
++ pid=42237
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -444,7 +445,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -494,16 +494,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33411
-+ wait 33411
++ kill 42237
++ wait 42237
 + for i in $(seq 50)
 + echo 7
 7
 + rm -f k x out
-+ pid=33421
++ pid=42247
 + echo tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -563,17 +563,17 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33421
-+ wait 33421
++ kill 42247
++ wait 42247
 + for i in $(seq 50)
 + echo 8
 8
 + rm -f k x out
-+ pid=33431
++ pid=42257
 + echo tailed
 + grep_timeout tailed
-+ tail_re=tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
++ tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
 + local init_delay=.1
@@ -632,15 +632,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33431
-+ wait 33431
++ kill 42257
++ wait 42257
 + for i in $(seq 50)
 + echo 9
 9
 + rm -f k x out
-+ pid=33441
++ pid=42267
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -651,7 +652,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -701,13 +701,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33441
-+ wait 33441
++ kill 42267
++ wait 42267
 + for i in $(seq 50)
 + echo 10
 10
 + rm -f k x out
-+ pid=33451
++ pid=42277
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
@@ -715,12 +715,12 @@ and Jim Meyering.
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + shift 3
 + local attempt=1
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -770,13 +770,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33451
-+ wait 33451
++ kill 42277
++ wait 42277
 + for i in $(seq 50)
 + echo 11
 11
 + rm -f k x out
-+ pid=33461
++ pid=42287
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
@@ -839,14 +839,15 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33461
-+ wait 33461
++ kill 42287
++ wait 42287
 + for i in $(seq 50)
 + echo 12
 12
 + rm -f k x out
-+ pid=33471
++ pid=42297
 + echo tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
@@ -858,7 +859,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -908,16 +908,15 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33471
-+ wait 33471
++ kill 42297
++ wait 42297
 + for i in $(seq 50)
 + echo 13
 13
 + rm -f k x out
-+ pid=33481
++ pid=42307
 + echo tailed
 + grep_timeout tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -928,6 +927,7 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -977,13 +977,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33481
-+ wait 33481
++ kill 42307
++ wait 42307
 + for i in $(seq 50)
 + echo 14
 14
 + rm -f k x out
-+ pid=33491
++ pid=42317
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
@@ -1046,13 +1046,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33491
-+ wait 33491
++ kill 42317
++ wait 42317
 + for i in $(seq 50)
 + echo 15
 15
 + rm -f k x out
-+ pid=33501
++ pid=42327
 + echo tailed
 + grep_timeout tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
@@ -1115,13 +1115,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33501
-+ wait 33501
++ kill 42327
++ wait 42327
 + for i in $(seq 50)
 + echo 16
 16
 + rm -f k x out
-+ pid=33511
++ pid=42337
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
@@ -1184,15 +1184,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33511
-+ wait 33511
++ kill 42337
++ wait 42337
 + for i in $(seq 50)
 + echo 17
 17
 + rm -f k x out
-+ pid=33521
++ pid=42347
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -1203,7 +1204,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -1253,13 +1253,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33521
-+ wait 33521
++ kill 42347
++ wait 42347
 + for i in $(seq 50)
 + echo 18
 18
 + rm -f k x out
-+ pid=33531
++ pid=42357
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
@@ -1268,11 +1268,11 @@ and Jim Meyering.
 + local init_delay=.1
 + local max_n_tries=8
 + shift 3
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local attempt=1
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -1322,13 +1322,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33531
-+ wait 33531
++ kill 42357
++ wait 42357
 + for i in $(seq 50)
 + echo 19
 19
 + rm -f k x out
-+ pid=33541
++ pid=42367
 + echo tailed
 + grep_timeout tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
@@ -1391,19 +1391,19 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33541
-+ wait 33541
++ kill 42367
++ wait 42367
 + for i in $(seq 50)
 + echo 20
 20
 + rm -f k x out
-+ pid=33551
++ pid=42377
 + echo tailed
 + grep_timeout tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local init_delay=.1
 + local max_n_tries=8
 + shift 3
@@ -1460,17 +1460,18 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33551
-+ wait 33551
++ kill 42377
++ wait 42377
 + for i in $(seq 50)
 + echo 21
 21
 + rm -f k x out
-+ pid=33561
++ pid=42387
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
@@ -1479,7 +1480,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -1529,18 +1529,18 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33561
-+ wait 33561
++ kill 42387
++ wait 42387
 + for i in $(seq 50)
 + echo 22
 22
 + rm -f k x out
-+ pid=33571
++ pid=42397
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
@@ -1598,13 +1598,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33571
-+ wait 33571
++ kill 42397
++ wait 42397
 + for i in $(seq 50)
 + echo 23
 23
 + rm -f k x out
-+ pid=33581
++ pid=42407
 + echo tailed
 + grep_timeout tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
@@ -1667,13 +1667,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33581
-+ wait 33581
++ kill 42407
++ wait 42407
 + for i in $(seq 50)
 + echo 24
 24
 + rm -f k x out
-+ pid=33591
++ pid=42417
 + echo tailed
 + grep_timeout tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
@@ -1736,16 +1736,15 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33591
-+ wait 33591
++ kill 42417
++ wait 42417
 + for i in $(seq 50)
 + echo 25
 25
 + rm -f k x out
-+ pid=33601
++ pid=42427
 + echo tailed
 + grep_timeout tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -1756,6 +1755,7 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -1805,15 +1805,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33601
-+ wait 33601
++ kill 42427
++ wait 42427
 + for i in $(seq 50)
 + echo 26
 26
 + rm -f k x out
-+ pid=33611
++ pid=42437
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -1824,7 +1825,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -1874,17 +1874,17 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33611
-+ wait 33611
++ kill 42437
++ wait 42437
 + for i in $(seq 50)
 + echo 27
 27
 + rm -f k x out
-+ pid=33621
++ pid=42447
 + echo tailed
 + grep_timeout tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
 + local init_delay=.1
@@ -1943,13 +1943,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33621
-+ wait 33621
++ kill 42447
++ wait 42447
 + for i in $(seq 50)
 + echo 28
 28
 + rm -f k x out
-+ pid=33631
++ pid=42457
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
@@ -2012,22 +2012,22 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33631
-+ wait 33631
++ kill 42457
++ wait 42457
 + for i in $(seq 50)
 + echo 29
 29
 + rm -f k x out
-+ pid=33641
++ pid=42467
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
 + shift 3
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local attempt=1
 + local num_sleeps=1
 + local time_fail
@@ -2081,18 +2081,18 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33641
-+ wait 33641
++ kill 42467
++ wait 42467
 + for i in $(seq 50)
 + echo 30
 30
 + rm -f k x out
-+ pid=33651
++ pid=42477
 + echo tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
@@ -2150,15 +2150,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33651
-+ wait 33651
++ kill 42477
++ wait 42477
 + for i in $(seq 50)
 + echo 31
 31
 + rm -f k x out
-+ pid=33661
++ pid=42487
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2169,7 +2170,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2219,15 +2219,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33661
-+ wait 33661
++ kill 42487
++ wait 42487
 + for i in $(seq 50)
 + echo 32
 32
 + rm -f k x out
-+ pid=33671
++ pid=42497
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2238,7 +2239,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2288,15 +2288,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33671
-+ wait 33671
++ kill 42497
++ wait 42497
 + for i in $(seq 50)
 + echo 33
 33
 + rm -f k x out
-+ pid=33681
++ pid=42507
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2307,7 +2308,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2357,17 +2357,18 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33681
-+ wait 33681
++ kill 42507
++ wait 42507
 + for i in $(seq 50)
 + echo 34
 34
 + rm -f k x out
-+ pid=33691
++ pid=42517
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
@@ -2376,7 +2377,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2426,15 +2426,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33691
-+ wait 33691
++ kill 42517
++ wait 42517
 + for i in $(seq 50)
 + echo 35
 35
 + rm -f k x out
-+ pid=33701
++ pid=42527
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2445,7 +2446,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2495,18 +2495,18 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33701
-+ wait 33701
++ kill 42527
++ wait 42527
 + for i in $(seq 50)
 + echo 36
 36
 + rm -f k x out
-+ pid=33711
++ pid=42537
 + echo tailed
 + grep_timeout tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
@@ -2564,15 +2564,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33711
-+ wait 33711
++ kill 42537
++ wait 42537
 + for i in $(seq 50)
 + echo 37
 37
 + rm -f k x out
-+ pid=33721
++ pid=42547
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2583,7 +2584,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2633,15 +2633,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33721
-+ wait 33721
++ kill 42547
++ wait 42547
 + for i in $(seq 50)
 + echo 38
 38
 + rm -f k x out
-+ pid=33731
++ pid=42557
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2652,7 +2653,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2702,13 +2702,13 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33731
-+ wait 33731
++ kill 42557
++ wait 42557
 + for i in $(seq 50)
 + echo 39
 39
 + rm -f k x out
-+ pid=33741
++ pid=42567
 + echo tailed
 + grep_timeout tailed
 + timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
@@ -2771,15 +2771,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33741
-+ wait 33741
++ kill 42567
++ wait 42567
 + for i in $(seq 50)
 + echo 40
 40
 + rm -f k x out
-+ pid=33751
++ pid=42577
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2790,7 +2791,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2840,15 +2840,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33751
-+ wait 33751
++ kill 42577
++ wait 42577
 + for i in $(seq 50)
 + echo 41
 41
 + rm -f k x out
-+ pid=33761
++ pid=42587
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2859,7 +2860,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -2909,16 +2909,17 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33761
-+ wait 33761
++ kill 42587
++ wait 42587
 + for i in $(seq 50)
 + echo 42
 42
 + rm -f k x out
-+ pid=33771
++ pid=42597
 + echo tailed
 + grep_timeout tailed
 + tail_re=tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
 + local init_delay=.1
@@ -2927,7 +2928,6 @@ and Jim Meyering.
 + local attempt=1
 + local num_sleeps=1
 + local time_fail
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + test 1 -le 8
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
@@ -2978,15 +2978,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33771
-+ wait 33771
++ kill 42597
++ wait 42597
 + for i in $(seq 50)
 + echo 43
 43
 + rm -f k x out
-+ pid=33781
++ pid=42607
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -2997,7 +2998,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3047,14 +3047,15 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33781
-+ wait 33781
++ kill 42607
++ wait 42607
 + for i in $(seq 50)
 + echo 44
 44
 + rm -f k x out
-+ pid=33791
++ pid=42617
 + echo tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + grep_timeout tailed
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
@@ -3066,7 +3067,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3116,15 +3116,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33791
-+ wait 33791
++ kill 42617
++ wait 42617
 + for i in $(seq 50)
 + echo 45
 45
 + rm -f k x out
-+ pid=33801
++ pid=42627
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -3135,7 +3136,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3185,18 +3185,18 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33801
-+ wait 33801
++ kill 42627
++ wait 42627
 + for i in $(seq 50)
 + echo 46
 46
 + rm -f k x out
-+ pid=33811
++ pid=42637
 + echo tailed
 + grep_timeout tailed
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + local test_func=check_tail_output
 + local init_delay=.1
 + local max_n_tries=8
@@ -3254,15 +3254,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33811
-+ wait 33811
++ kill 42637
++ wait 42637
 + for i in $(seq 50)
 + echo 47
 47
 + rm -f k x out
-+ pid=33821
++ pid=42647
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -3273,7 +3274,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3323,15 +3323,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33821
-+ wait 33821
++ kill 42647
++ wait 42647
 + for i in $(seq 50)
 + echo 48
 48
 + rm -f k x out
-+ pid=33831
++ pid=42657
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -3342,7 +3343,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3392,15 +3392,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33831
-+ wait 33831
++ kill 42657
++ wait 42657
 + for i in $(seq 50)
 + echo 49
 49
 + rm -f k x out
-+ pid=33841
++ pid=42667
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -3411,7 +3412,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3461,15 +3461,16 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33841
-+ wait 33841
++ kill 42667
++ wait 42667
 + for i in $(seq 50)
 + echo 50
 50
 + rm -f k x out
-+ pid=33851
++ pid=42677
 + echo tailed
 + grep_timeout tailed
++ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 + tail_re=tailed
 + retry_delay_ check_tail_output .1 8
 + local test_func=check_tail_output
@@ -3480,7 +3481,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 8
-+ timeout 60 tail -s.1 --max-unchanged-stats=1 -F k
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -3530,8 +3530,8 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33851
-+ wait 33851
++ kill 42677
++ wait 42677
 + Exit 0
 + set +e
 + exit 0
@@ -3539,10 +3539,10 @@ and Jim Meyering.
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 33851
++ kill 42677
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate.sh.5qxs
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
++ rm -rf /sources/coreutils-8.30/gt-inotify-rotate.sh.4yN2
 + exit 0
 PASS tests/tail-2/inotify-rotate.sh (exit status: 0)

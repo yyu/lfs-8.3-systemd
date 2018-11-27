@@ -653,7 +653,7 @@
 /* #undef HAVE_ACL_CREATE_ENTRY_NP */
 
 /* Define to 1 if you have the `acl_delete_def_file' function. */
-/* #undef HAVE_ACL_DELETE_DEF_FILE */
+#define HAVE_ACL_DELETE_DEF_FILE 1
 
 /* Define to 1 if you have the `acl_delete_fd_np' function. */
 /* #undef HAVE_ACL_DELETE_FD_NP */
@@ -662,40 +662,40 @@
 /* #undef HAVE_ACL_DELETE_FILE_NP */
 
 /* Define to 1 if you have the `acl_entries' function. */
-/* #undef HAVE_ACL_ENTRIES */
+#define HAVE_ACL_ENTRIES 1
 
 /* Define to 1 if you have the `acl_extended_file' function. */
-/* #undef HAVE_ACL_EXTENDED_FILE */
+#define HAVE_ACL_EXTENDED_FILE 1
 
 /* Define to 1 if the constant ACL_FIRST_ENTRY exists. */
-/* #undef HAVE_ACL_FIRST_ENTRY */
+#define HAVE_ACL_FIRST_ENTRY 1
 
 /* Define to 1 if you have the `acl_free' function. */
-/* #undef HAVE_ACL_FREE */
+#define HAVE_ACL_FREE 1
 
 /* Define to 1 if you have the `acl_free_text' function. */
 /* #undef HAVE_ACL_FREE_TEXT */
 
 /* Define to 1 if you have the `acl_from_mode' function. */
-/* #undef HAVE_ACL_FROM_MODE */
+#define HAVE_ACL_FROM_MODE 1
 
 /* Define to 1 if you have the `acl_from_text' function. */
-/* #undef HAVE_ACL_FROM_TEXT */
+#define HAVE_ACL_FROM_TEXT 1
 
 /* Define to 1 if you have the `acl_get_fd' function. */
-/* #undef HAVE_ACL_GET_FD */
+#define HAVE_ACL_GET_FD 1
 
 /* Define to 1 if you have the `acl_get_file' function. */
-/* #undef HAVE_ACL_GET_FILE */
+#define HAVE_ACL_GET_FILE 1
 
 /* Define to 1 if you have the <acl/libacl.h> header file. */
-/* #undef HAVE_ACL_LIBACL_H */
+#define HAVE_ACL_LIBACL_H 1
 
 /* Define to 1 if you have the `acl_set_fd' function. */
-/* #undef HAVE_ACL_SET_FD */
+#define HAVE_ACL_SET_FD 1
 
 /* Define to 1 if you have the `acl_set_file' function. */
-/* #undef HAVE_ACL_SET_FILE */
+#define HAVE_ACL_SET_FILE 1
 
 /* Define to 1 if you have the `acl_to_short_text' function. */
 /* #undef HAVE_ACL_TO_SHORT_TEXT */
@@ -1284,7 +1284,7 @@
 #define HAVE_PIPE 1
 
 /* Define when we have working POSIX acls */
-/* #undef HAVE_POSIX_ACLS */
+#define HAVE_POSIX_ACLS /**/
 
 /* Define to 1 if you have the <priv.h> header file. */
 /* #undef HAVE_PRIV_H */
@@ -2100,7 +2100,7 @@
 #define HAVE_SYSEXITS_H 1
 
 /* Define to 1 if you have the <sys/acl.h> header file. */
-/* #undef HAVE_SYS_ACL_H */
+#define HAVE_SYS_ACL_H 1
 
 /* Define to 1 if you have the <sys/bitypes.h> header file. */
 /* #undef HAVE_SYS_BITYPES_H */
@@ -2365,7 +2365,7 @@
 /* #undef MKFIFO_TRAILING_SLASH_BUG */
 
 /* Define to 1 if mknod cannot create a fifo without super-user privileges */
-/* #undef MKNOD_FIFO_BUG */
+#define MKNOD_FIFO_BUG 1
 
 /* Define to mt_model (v.g., for DG/UX), else to mt_type. */
 #define MTIO_CHECK_FIELD mt_type
@@ -2429,7 +2429,7 @@
 /* #undef READLINK_TRAILING_SLASH_BUG */
 
 /* Define to the full path of your rsh, if any. */
-#define REMOTE_SHELL "/usr/bin/rsh"
+/* #undef REMOTE_SHELL */
 
 /* Define if rename does not work when the destination file exists, as on
    Cygwin 1.5 or Windows. */
@@ -2524,7 +2524,7 @@
 /* #undef UNLINK_PARENT_BUG */
 
 /* Define to nonzero if you want access control list support. */
-#define USE_ACL 0
+#define USE_ACL 1
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE

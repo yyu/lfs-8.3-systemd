@@ -34,6 +34,18 @@ extern size_t max_column_width;
 /* The desired exit status.  */
 extern int exit_status;
 
+extern int
+set_utf_locale (void);
+
+extern bool
+check_utf_locale(void);
+
+extern bool
+check_bom(FILE* fp, mb_file_t *mbf);
+
+extern void
+print_bom(void);
+
 /* Add tab stop TABVAL to the end of 'tab_list'.  */
 extern void
 add_tab_stop (uintmax_t tabval);

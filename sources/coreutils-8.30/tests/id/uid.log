@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-uid.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-uid.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-uid.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
++++ d=/sources/coreutils-8.30/gt-uid.sh.0GW5
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3'
++++ test -d /sources/coreutils-8.30/gt-uid.sh.0GW5
+++++ ls -dgo /sources/coreutils-8.30/gt-uid.sh.0GW5
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-uid.sh.0GW5'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
++++ echo /sources/coreutils-8.30/gt-uid.sh.0GW5
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
+++ test_dir_=/sources/coreutils-8.30/gt-uid.sh.0GW5
+++ cd /sources/coreutils-8.30/gt-uid.sh.0GW5
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,14 +79,14 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by Arnold Robbins and David MacKenzie.
 ++ id -u
-+ uid=1001
++ uid=99
 ++ id -nu
-+ user=lfs
++ user=nobody
 + returns_ 1 id ''
 id: '': no such user
 + for mode in '' '-G' '-g'
-+ id lfs
-+ id 1001
++ id nobody
++ id 99
 + compare user_out uid_out
 + compare_dev_null_ user_out uid_out
 + test 2 = 2
@@ -96,29 +96,7 @@ id: '': no such user
 + case $? in
 + compare_ user_out uid_out
 + diff -u user_out uid_out
-+ id +1001
-+ compare user_out uid_out
-+ compare_dev_null_ user_out uid_out
-+ test 2 = 2
-+ test xuser_out = x/dev/null
-+ test xuid_out = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ user_out uid_out
-+ diff -u user_out uid_out
-+ for mode in '' '-G' '-g'
-+ id -G lfs
-+ id -G 1001
-+ compare user_out uid_out
-+ compare_dev_null_ user_out uid_out
-+ test 2 = 2
-+ test xuser_out = x/dev/null
-+ test xuid_out = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ user_out uid_out
-+ diff -u user_out uid_out
-+ id -G +1001
++ id +99
 + compare user_out uid_out
 + compare_dev_null_ user_out uid_out
 + test 2 = 2
@@ -129,8 +107,8 @@ id: '': no such user
 + compare_ user_out uid_out
 + diff -u user_out uid_out
 + for mode in '' '-G' '-g'
-+ id -g lfs
-+ id -g 1001
++ id -G nobody
++ id -G 99
 + compare user_out uid_out
 + compare_dev_null_ user_out uid_out
 + test 2 = 2
@@ -140,7 +118,29 @@ id: '': no such user
 + case $? in
 + compare_ user_out uid_out
 + diff -u user_out uid_out
-+ id -g +1001
++ id -G +99
++ compare user_out uid_out
++ compare_dev_null_ user_out uid_out
++ test 2 = 2
++ test xuser_out = x/dev/null
++ test xuid_out = x/dev/null
++ return 2
++ case $? in
++ compare_ user_out uid_out
++ diff -u user_out uid_out
++ for mode in '' '-G' '-g'
++ id -g nobody
++ id -g 99
++ compare user_out uid_out
++ compare_dev_null_ user_out uid_out
++ test 2 = 2
++ test xuser_out = x/dev/null
++ test xuid_out = x/dev/null
++ return 2
++ case $? in
++ compare_ user_out uid_out
++ diff -u user_out uid_out
++ id -g +99
 + compare user_out uid_out
 + compare_dev_null_ user_out uid_out
 + test 2 = 2
@@ -159,8 +159,8 @@ id: '': no such user
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-uid.sh.Squ3
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-uid.sh.0GW5
++ rm -rf /sources/coreutils-8.30/gt-uid.sh.0GW5
 + exit 0
 PASS tests/id/uid.sh (exit status: 0)

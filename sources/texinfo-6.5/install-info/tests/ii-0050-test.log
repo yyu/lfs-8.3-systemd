@@ -27,16 +27,21 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii50-XXXXXXXX
-+ tempfile=ii50-oOLsI6CO
-+ outputdirfile=ii50-oOLsI6CO.gz
-+ cp ../../install-info/tests/ii-0050-input-dir-file.gz ii50-oOLsI6CO.gz
-+ chmod u+rw ii50-oOLsI6CO.gz
-+ ../../install-info/ginstall-info --remove ../../install-info/tests/ii-0050-input-info-file ii50-oOLsI6CO.gz
++ tempfile=ii50-dZ5uUn0k
++ outputdirfile=ii50-dZ5uUn0k.gz
++ cp ../../install-info/tests/ii-0050-input-dir-file.gz ii50-dZ5uUn0k.gz
++ chmod u+rw ii50-dZ5uUn0k.gz
++ ../../install-info/ginstall-info --remove ../../install-info/tests/ii-0050-input-info-file ii50-dZ5uUn0k.gz
 + findprog zdiff
 + local 'saveIFS= 	
 '
@@ -44,11 +49,16 @@
 + for dir in $PATH
 + IFS=' 	
 '
-+ test -f /tools/bin/zdiff
-+ test -x /tools/bin/zdiff
++ test -f /bin/zdiff
++ test -f /bin/zdiff.exe
++ for dir in $PATH
++ IFS=' 	
+'
++ test -f /usr/bin/zdiff
++ test -x /usr/bin/zdiff
 + return 0
-+ zdiff ../../install-info/tests/ii-0050-expected-dir-file.gz ii50-oOLsI6CO.gz
++ zdiff ../../install-info/tests/ii-0050-expected-dir-file.gz ii50-dZ5uUn0k.gz
 + retval=0
-+ rm -f ii50-oOLsI6CO ii50-oOLsI6CO.gz
++ rm -f ii50-dZ5uUn0k ii50-dZ5uUn0k.gz
 + exit 0
 PASS ii-0050-test (exit status: 0)

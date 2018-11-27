@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-F-vs-rename.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-F-vs-rename.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-F-vs-rename.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
++++ d=/sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl'
++++ test -d /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
+++++ ls -dgo /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
++++ perms='drwx------ 2 4096 Nov 26 23:46 /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
++++ echo /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
+++ test_dir_=/sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
+++ cd /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -83,7 +83,7 @@ and Jim Meyering.
 + for mode in '' '---disable-inotify'
 + rm -f a b out
 + touch a b
-+ pid=33071
++ pid=41891
 + echo x
 + tail -F -s.1 --max-unchanged-stats=1 a b
 + tail_re='^x$'
@@ -178,20 +178,19 @@ tail: 'a' has appeared;  following new file
 + local delay=0.1
 + tail_f_vs_rename_3 0.1
 + local delay=0.1
-+ tr '\n' @
 + grep '@@==> a <==@z@$'
++ tr '\n' @
 + time_fail=0
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33071
-+ wait 33071
++ kill 41891
++ wait 41891
 + for mode in '' '---disable-inotify'
 + rm -f a b out
 + touch a b
-+ pid=33087
++ pid=41907
 + echo x
-+ tail ---disable-inotify -F -s.1 --max-unchanged-stats=1 a b
 + tail_re='^x$'
 + retry_delay_ check_tail_output .1 7
 + local test_func=check_tail_output
@@ -202,6 +201,7 @@ tail: 'a' has appeared;  following new file
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 7
++ tail ---disable-inotify -F -s.1 --max-unchanged-stats=1 a b
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -344,8 +344,8 @@ tail: 'a' has appeared;  following new file
 + break
 + test 0 = 0
 + cleanup_
-+ kill 33087
-+ wait 33087
++ kill 41907
++ wait 41907
 + Exit 0
 + set +e
 + exit 0
@@ -353,10 +353,10 @@ tail: 'a' has appeared;  following new file
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 33087
++ kill 41907
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-F-vs-rename.sh.w4Vl
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
++ rm -rf /sources/coreutils-8.30/gt-F-vs-rename.sh.P7IN
 + exit 0
 PASS tests/tail-2/F-vs-rename.sh (exit status: 0)

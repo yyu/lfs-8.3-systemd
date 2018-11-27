@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-usage_vs_getopt.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-usage_vs_getopt.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-usage_vs_getopt.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
++++ d=/sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4'
++++ test -d /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
+++++ ls -dgo /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
++++ echo /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
+++ test_dir_=/sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
+++ cd /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -7248,6 +7248,8 @@ fold: invalid option -- '/'
 + cat opts
 -b
   --bytes
+-c
+  --characters
 -s
   --spaces
 -w
@@ -7270,6 +7272,34 @@ fold: invalid option -- '/'
 + read opt
 + test x--bytes = x--help
 + fold --bytes --help --help
++ rc=0
++ '[' 0 = 0 ']'
++ compare help out
++ compare_dev_null_ help out
++ test 2 = 2
++ test xhelp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ help out
++ diff -u help out
++ read opt
++ test x-c = x--help
++ fold -c --help --help
++ rc=0
++ '[' 0 = 0 ']'
++ compare help out
++ compare_dev_null_ help out
++ test 2 = 2
++ test xhelp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ help out
++ diff -u help out
++ read opt
++ test x--characters = x--help
++ fold --characters --help --help
 + rc=0
 + '[' 0 = 0 ']'
 + compare help out
@@ -8026,32 +8056,6 @@ hostid: invalid option -- '/'
 + read opt
 + for prg in $built_programs
 + case "$prg" in
-+ checkprg hostname
-+ prg=hostname
-+ rcexp=1
-+ case "$prg" in
-+ o=thisoptiondoesnotexist
-+ returns_ 1 hostname --thisoptiondoesnotexist
-+ grep -F thisoptiondoesnotexist err
-hostname: unrecognized option '--thisoptiondoesnotexist'
-+ sed -n 1s/--thisoptiondoesnotexist/OPT/p
-+ returns_ 1 hostname -/
-+ grep ' '\''*/'\''*' err
-hostname: invalid option -- '/'
-+ sed -n '1s/'\''\/'\''/'\''OPT'\''/p'
-+ hostname --help
-+ nl='
-  '
-+ sed -n -e /--version/q -e 's/^ \{2,6\}-/-/; s/  .*//; s/[=[].*//; s/, /\
-  /g; s/^-/-/p' help
-+ cat opts
---help
-+ read opt
-+ test x--help = x--help
-+ continue
-+ read opt
-+ for prg in $built_programs
-+ case "$prg" in
 + checkprg id
 + prg=id
 + rcexp=1
@@ -8395,11 +8399,17 @@ join: invalid option -- '/'
 + read opt
 + test 'x-t CHAR' = x--help
 + join '-t CHAR' --help --help
-+ rc=1
-+ '[' 1 = 0 ']'
-+ case "$prg/$opt" in
-+ sed -e 's/-t CHAR/OPT/' -e 's/'\''.'\''/'\''OPT'\''/'
-+ grep -Ff pat err
++ rc=0
++ '[' 0 = 0 ']'
++ compare help out
++ compare_dev_null_ help out
++ test 2 = 2
++ test xhelp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ help out
++ diff -u help out
 + read opt
 + test 'x-v FILENUM' = x--help
 + join '-v FILENUM' --help --help
@@ -8483,214 +8493,6 @@ join: invalid option -- '/'
 + read opt
 + test x--zero-terminated = x--help
 + join --zero-terminated --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--help = x--help
-+ continue
-+ read opt
-+ for prg in $built_programs
-+ case "$prg" in
-+ prg='env kill'
-+ checkprg env kill
-+ prg=env
-+ rcexp=1
-+ case "$prg" in
-+ rcexp=125
-+ o=thisoptiondoesnotexist
-+ returns_ 125 env --thisoptiondoesnotexist
-+ grep -F thisoptiondoesnotexist err
-env: unrecognized option '--thisoptiondoesnotexist'
-+ sed -n 1s/--thisoptiondoesnotexist/OPT/p
-+ returns_ 125 env -/
-+ grep ' '\''*/'\''*' err
-env: invalid option -- '/'
-+ sed -n '1s/'\''\/'\''/'\''OPT'\''/p'
-+ env --help
-+ nl='
-  '
-+ sed -n -e /--version/q -e 's/^ \{2,6\}-/-/; s/  .*//; s/[=[].*//; s/, /\
-  /g; s/^-/-/p' help
-+ cat opts
--i
-  --ignore-environment
--0
-  --null
--u
-  --unset
--C
-  --chdir
--S
-  --split-string
--v
-  --debug
---help
-+ read opt
-+ test x-i = x--help
-+ env -i --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--ignore-environment = x--help
-+ env --ignore-environment --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x-0 = x--help
-+ env -0 --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--null = x--help
-+ env --null --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x-u = x--help
-+ env -u --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--unset = x--help
-+ env --unset --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x-C = x--help
-+ env -C --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--chdir = x--help
-+ env --chdir --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x-S = x--help
-+ env -S --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--split-string = x--help
-+ env --split-string --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x-v = x--help
-+ env -v --help --help
-+ rc=0
-+ '[' 0 = 0 ']'
-+ compare help out
-+ compare_dev_null_ help out
-+ test 2 = 2
-+ test xhelp = x/dev/null
-+ test xout = x/dev/null
-+ return 2
-+ case $? in
-+ compare_ help out
-+ diff -u help out
-+ read opt
-+ test x--debug = x--help
-+ env --debug --help --help
 + rc=0
 + '[' 0 = 0 ']'
 + compare help out
@@ -20498,32 +20300,6 @@ unlink: invalid option -- '/'
 + read opt
 + for prg in $built_programs
 + case "$prg" in
-+ checkprg uptime
-+ prg=uptime
-+ rcexp=1
-+ case "$prg" in
-+ o=thisoptiondoesnotexist
-+ returns_ 1 uptime --thisoptiondoesnotexist
-+ grep -F thisoptiondoesnotexist err
-uptime: unrecognized option '--thisoptiondoesnotexist'
-+ sed -n 1s/--thisoptiondoesnotexist/OPT/p
-+ returns_ 1 uptime -/
-+ grep ' '\''*/'\''*' err
-uptime: invalid option -- '/'
-+ sed -n '1s/'\''\/'\''/'\''OPT'\''/p'
-+ uptime --help
-+ nl='
-  '
-+ sed -n -e /--version/q -e 's/^ \{2,6\}-/-/; s/  .*//; s/[=[].*//; s/, /\
-  /g; s/^-/-/p' help
-+ cat opts
---help
-+ read opt
-+ test x--help = x--help
-+ continue
-+ read opt
-+ for prg in $built_programs
-+ case "$prg" in
 + checkprg users
 + prg=users
 + rcexp=1
@@ -22452,8 +22228,8 @@ yes: invalid option -- '/'
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-usage_vs_getopt.sh.PVD4
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
++ rm -rf /sources/coreutils-8.30/gt-usage_vs_getopt.sh.pcSQ
 + exit 0
 PASS tests/misc/usage_vs_getopt.sh (exit status: 0)

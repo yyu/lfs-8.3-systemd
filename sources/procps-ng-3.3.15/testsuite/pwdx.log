@@ -1,0 +1,40 @@
+Test run by root on Tue Nov 27 07:40:19 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== pwdx tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./pwdx.test/pwdx.exp ...
+spawn readlink /tmp/tmp.bEHGhtADXZ
+/sources/procps-ng-3.3.15//lib/test_process
+spawn /sources/procps-ng-3.3.15/pwdx
+
+Usage:
+ pwdx [options] pid...
+
+Options:
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see pwdx(1).
+PASS: pwdx no args
+spawn /sources/procps-ng-3.3.15/pwdx 0
+pwdx: invalid process id: 0
+PASS: pwdx pid 0 should be invalid
+spawn /sources/procps-ng-3.3.15/pwdx 68326
+68326: /sources/procps-ng-3.3.15/testsuite
+PASS: pwdx find test process cwd
+testcase ./pwdx.test/pwdx.exp completed in 0 seconds
+
+		=== pwdx Summary ===
+
+# of expected passes		3
+/sources/procps-ng-3.3.15/pwdx version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:19 2018

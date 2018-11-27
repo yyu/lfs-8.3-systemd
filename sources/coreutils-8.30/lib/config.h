@@ -931,7 +931,7 @@
 /* #undef HAVE_ACL_CREATE_ENTRY_NP */
 
 /* Define to 1 if you have the `acl_delete_def_file' function. */
-/* #undef HAVE_ACL_DELETE_DEF_FILE */
+#define HAVE_ACL_DELETE_DEF_FILE 1
 
 /* Define to 1 if you have the `acl_delete_fd_np' function. */
 /* #undef HAVE_ACL_DELETE_FD_NP */
@@ -940,40 +940,40 @@
 /* #undef HAVE_ACL_DELETE_FILE_NP */
 
 /* Define to 1 if you have the `acl_entries' function. */
-/* #undef HAVE_ACL_ENTRIES */
+#define HAVE_ACL_ENTRIES 1
 
 /* Define to 1 if you have the `acl_extended_file' function. */
-/* #undef HAVE_ACL_EXTENDED_FILE */
+#define HAVE_ACL_EXTENDED_FILE 1
 
 /* Define to 1 if the constant ACL_FIRST_ENTRY exists. */
-/* #undef HAVE_ACL_FIRST_ENTRY */
+#define HAVE_ACL_FIRST_ENTRY 1
 
 /* Define to 1 if you have the `acl_free' function. */
-/* #undef HAVE_ACL_FREE */
+#define HAVE_ACL_FREE 1
 
 /* Define to 1 if you have the `acl_free_text' function. */
 /* #undef HAVE_ACL_FREE_TEXT */
 
 /* Define to 1 if you have the `acl_from_mode' function. */
-/* #undef HAVE_ACL_FROM_MODE */
+#define HAVE_ACL_FROM_MODE 1
 
 /* Define to 1 if you have the `acl_from_text' function. */
-/* #undef HAVE_ACL_FROM_TEXT */
+#define HAVE_ACL_FROM_TEXT 1
 
 /* Define to 1 if you have the `acl_get_fd' function. */
-/* #undef HAVE_ACL_GET_FD */
+#define HAVE_ACL_GET_FD 1
 
 /* Define to 1 if you have the `acl_get_file' function. */
-/* #undef HAVE_ACL_GET_FILE */
+#define HAVE_ACL_GET_FILE 1
 
 /* Define to 1 if you have the <acl/libacl.h> header file. */
-/* #undef HAVE_ACL_LIBACL_H */
+#define HAVE_ACL_LIBACL_H 1
 
 /* Define to 1 if you have the `acl_set_fd' function. */
-/* #undef HAVE_ACL_SET_FD */
+#define HAVE_ACL_SET_FD 1
 
 /* Define to 1 if you have the `acl_set_file' function. */
-/* #undef HAVE_ACL_SET_FILE */
+#define HAVE_ACL_SET_FILE 1
 
 /* Define to 1 if you have the `acl_to_short_text' function. */
 /* #undef HAVE_ACL_TO_SHORT_TEXT */
@@ -999,13 +999,13 @@
 #define HAVE_ARPA_INET_H 1
 
 /* Define to 1 if you have the `attr_copy_file' function. */
-/* #undef HAVE_ATTR_COPY_FILE */
+#define HAVE_ATTR_COPY_FILE 1
 
 /* Define to 1 if you have the <attr/error_context.h> header file. */
-/* #undef HAVE_ATTR_ERROR_CONTEXT_H */
+#define HAVE_ATTR_ERROR_CONTEXT_H 1
 
 /* Define to 1 if you have the <attr/libattr.h> header file. */
-/* #undef HAVE_ATTR_LIBATTR_H */
+#define HAVE_ATTR_LIBATTR_H 1
 
 /* Define to 1 if you have the <bp-sym.h> header file. */
 /* #undef HAVE_BP_SYM_H */
@@ -1033,7 +1033,7 @@
 #define HAVE_CANONICALIZE_FILE_NAME 1
 
 /* libcap usability */
-/* #undef HAVE_CAP */
+#define HAVE_CAP 1
 
 /* Define to 1 if you have the `catgets' function. */
 #define HAVE_CATGETS 1
@@ -1303,7 +1303,7 @@
 
 /* Define to 1 if you have the declaration of `mpz_inits', and to 0 if you
    don't. */
-/* #undef HAVE_DECL_MPZ_INITS */
+#define HAVE_DECL_MPZ_INITS 1
 
 /* Define to 1 if you have the declaration of `program_invocation_name', and
    to 0 if you don't. */
@@ -1664,10 +1664,10 @@
 #define HAVE_GETUSERSHELL 1
 
 /* Define if you have GNU libgmp (or replacement) */
-/* #undef HAVE_GMP */
+#define HAVE_GMP 1
 
 /* Define to 1 if you have the <gmp.h> header file. */
-/* #undef HAVE_GMP_H */
+#define HAVE_GMP_H 1
 
 /* Define to 1 if you have the <grp.h> header file. */
 #define HAVE_GRP_H 1
@@ -2439,7 +2439,7 @@
 /* #undef HAVE_SYSMP */
 
 /* Define to 1 if you have the <sys/acl.h> header file. */
-/* #undef HAVE_SYS_ACL_H */
+#define HAVE_SYS_ACL_H 1
 
 /* Define to 1 if you have the <sys/bitypes.h> header file. */
 /* #undef HAVE_SYS_BITYPES_H */
@@ -2849,7 +2849,7 @@
 /* #undef MKFIFO_TRAILING_SLASH_BUG */
 
 /* Define to 1 if mknod cannot create a fifo without super-user privileges */
-/* #undef MKNOD_FIFO_BUG */
+#define MKNOD_FIFO_BUG 1
 
 /* Define if there is no specific function for reading the list of mounted
    file systems. fread will be used to read /etc/mnttab. (SVR2) */
@@ -3196,7 +3196,7 @@
 /* #undef UNLINK_PARENT_BUG */
 
 /* Define to nonzero if you want access control list support. */
-#define USE_ACL 0
+#define USE_ACL 1
 
 /* Define to 1 if you want to use the Linux kernel cryptographic API. */
 #define USE_LINUX_CRYPTO_API 0
@@ -3304,7 +3304,7 @@
 /* #undef USE_WINDOWS_THREADS */
 
 /* Define if you want extended attribute support. */
-#define USE_XATTR 0
+#define USE_XATTR 1
 
 /* Version number of package */
 #define VERSION "8.30"
@@ -3416,7 +3416,7 @@
 /* Please see the Gnulib manual for how to use these macros.
 
    Suppress extern inline with HP-UX cc, as it appears to be broken; see
-   <https://lists.gnu.org/r/bug-texinfo/2013-02/msg00030.html>.
+   <http://lists.gnu.org/archive/html/bug-texinfo/2013-02/msg00030.html>.
 
    Suppress extern inline with Sun C in standards-conformance mode, as it
    mishandles inline functions that call each other.  E.g., for 'inline void f
@@ -3424,28 +3424,13 @@
    'reference to static identifier "f" in extern inline function'.
    This bug was observed with Sun C 5.12 SunOS_i386 2011/11/16.
 
-   Suppress extern inline (with or without __attribute__ ((__gnu_inline__)))
-   on configurations that mistakenly use 'static inline' to implement
-   functions or macros in standard C headers like <ctype.h>.  For example,
-   if isdigit is mistakenly implemented via a static inline function,
-   a program containing an extern inline function that calls isdigit
-   may not work since the C standard prohibits extern inline functions
-   from calling static functions.  This bug is known to occur on:
-
-     OS X 10.8 and earlier; see:
-     https://lists.gnu.org/r/bug-gnulib/2012-12/msg00023.html
-
-     DragonFly; see
-     http://muscles.dragonflybsd.org/bulk/bleeding-edge-potential/latest-per-pkg/ah-tty-0.3.12.log
-
-     FreeBSD; see:
-     https://lists.gnu.org/r/bug-gnulib/2014-07/msg00104.html
-
+   Suppress the use of extern inline on problematic Apple configurations.
+   OS X 10.8 and earlier mishandle it; see, e.g.,
+   <http://lists.gnu.org/archive/html/bug-gnulib/2012-12/msg00023.html>.
    OS X 10.9 has a macro __header_inline indicating the bug is fixed for C and
-   for clang but remains for g++; see <https://trac.macports.org/ticket/41033>.
-   Assume DragonFly and FreeBSD will be similar.  */
-#if (((defined __APPLE__ && defined __MACH__) \
-      || defined __DragonFly__ || defined __FreeBSD__) \
+   for clang but remains for g++; see <http://trac.macports.org/ticket/41033>.
+   Perhaps Apple will fix this some day.  */
+#if (defined __APPLE__ \
      && (defined __header_inline \
          ? (defined __cplusplus && defined __GNUC_STDC_INLINE__ \
             && ! defined __clang__) \
@@ -3453,20 +3438,19 @@
              && (defined __GNUC__ || defined __cplusplus)) \
             || (defined _FORTIFY_SOURCE && 0 < _FORTIFY_SOURCE \
                 && defined __GNUC__ && ! defined __cplusplus))))
-# define _GL_EXTERN_INLINE_STDHEADER_BUG
+# define _GL_EXTERN_INLINE_APPLE_BUG
 #endif
 #if ((__GNUC__ \
       ? defined __GNUC_STDC_INLINE__ && __GNUC_STDC_INLINE__ \
       : (199901L <= __STDC_VERSION__ \
          && !defined __HP_cc \
-         && !defined __PGI \
          && !(defined __SUNPRO_C && __STDC__))) \
-     && !defined _GL_EXTERN_INLINE_STDHEADER_BUG)
+     && !defined _GL_EXTERN_INLINE_APPLE_BUG)
 # define _GL_INLINE inline
 # define _GL_EXTERN_INLINE extern inline
 # define _GL_EXTERN_INLINE_IN_USE
 #elif (2 < __GNUC__ + (7 <= __GNUC_MINOR__) && !defined __STRICT_ANSI__ \
-       && !defined _GL_EXTERN_INLINE_STDHEADER_BUG)
+       && !defined _GL_EXTERN_INLINE_APPLE_BUG)
 # if defined __GNUC_GNU_INLINE__ && __GNUC_GNU_INLINE__
    /* __gnu_inline__ suppresses a GCC 4.2 diagnostic.  */
 #  define _GL_INLINE extern inline __attribute__ ((__gnu_inline__))
@@ -3480,19 +3464,17 @@
 # define _GL_EXTERN_INLINE static _GL_UNUSED
 #endif
 
-/* In GCC 4.6 (inclusive) to 5.1 (exclusive),
-   suppress bogus "no previous prototype for 'FOO'"
-   and "no previous declaration for 'FOO'" diagnostics,
-   when FOO is an inline function in the header; see
-   <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=54113> and
-   <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63877>.  */
-#if __GNUC__ == 4 && 6 <= __GNUC_MINOR__
+#if 4 < __GNUC__ + (6 <= __GNUC_MINOR__)
 # if defined __GNUC_STDC_INLINE__ && __GNUC_STDC_INLINE__
 #  define _GL_INLINE_HEADER_CONST_PRAGMA
 # else
 #  define _GL_INLINE_HEADER_CONST_PRAGMA \
      _Pragma ("GCC diagnostic ignored \"-Wsuggest-attribute=const\"")
 # endif
+  /* Suppress GCC's bogus "no previous prototype for 'FOO'"
+     and "no previous declaration for 'FOO'"  diagnostics,
+     when FOO is an inline function in the header; see
+     <http://gcc.gnu.org/bugzilla/show_bug.cgi?id=54113>.  */
 # define _GL_INLINE_HEADER_BEGIN \
     _Pragma ("GCC diagnostic push") \
     _Pragma ("GCC diagnostic ignored \"-Wmissing-prototypes\"") \

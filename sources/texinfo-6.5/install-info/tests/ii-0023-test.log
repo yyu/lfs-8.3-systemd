@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii23-XXXXXXXX
-+ outputdirfile=ii23-ZNIdBU6N
-+ cp ../../install-info/tests/ii-0023-input-dir-file ii23-ZNIdBU6N
++ outputdirfile=ii23-2OKY1tY5
++ cp ../../install-info/tests/ii-0023-input-dir-file ii23-2OKY1tY5
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info --name=Gnu ../../install-info/tests/ii-0023-input-info-file ii23-ZNIdBU6N
++ ../../install-info/ginstall-info --name=Gnu ../../install-info/tests/ii-0023-input-info-file ii23-2OKY1tY5
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0023-expected-dir-file ii23-ZNIdBU6N
++ diff ../../install-info/tests/ii-0023-expected-dir-file ii23-2OKY1tY5
 + retval=0
-+ rm -f ii23-ZNIdBU6N
++ rm -f ii23-2OKY1tY5
 + exit 0
 PASS ii-0023-test (exit status: 0)

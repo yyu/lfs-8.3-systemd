@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii03-XXXXXXXX
-+ outputdirfile=ii03-eZNUqUDf
-+ cp ../../install-info/tests/ii-0003-input-dir-file ii03-eZNUqUDf
++ outputdirfile=ii03-RbE1VTMD
++ cp ../../install-info/tests/ii-0003-input-dir-file ii03-RbE1VTMD
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info ../../install-info/tests/ii-0003-input-info-file ii03-eZNUqUDf
++ ../../install-info/ginstall-info ../../install-info/tests/ii-0003-input-info-file ii03-RbE1VTMD
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0003-expected-dir-file ii03-eZNUqUDf
++ diff ../../install-info/tests/ii-0003-expected-dir-file ii03-RbE1VTMD
 + retval=0
-+ rm -f ii03-eZNUqUDf
++ rm -f ii03-RbE1VTMD
 + exit 0
 PASS ii-0003-test (exit status: 0)

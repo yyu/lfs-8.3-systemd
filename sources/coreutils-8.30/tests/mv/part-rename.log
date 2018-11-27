@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-part-rename.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-part-rename.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-part-rename.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
++++ d=/sources/coreutils-8.30/gt-part-rename.sh.smU8
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM'
++++ test -d /sources/coreutils-8.30/gt-part-rename.sh.smU8
+++++ ls -dgo /sources/coreutils-8.30/gt-part-rename.sh.smU8
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-part-rename.sh.smU8'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
++++ echo /sources/coreutils-8.30/gt-part-rename.sh.smU8
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
+++ test_dir_=/sources/coreutils-8.30/gt-part-rename.sh.smU8
+++ cd /sources/coreutils-8.30/gt-part-rename.sh.smU8
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -78,53 +78,82 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
 Written by Mike Parker, David MacKenzie, and Jim Meyering.
-+ . /mnt/lfs/sources/coreutils-8.30/tests/other-fs-tmpdir
++ . /sources/coreutils-8.30/tests/other-fs-tmpdir
 ++ test '' = set
-++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /home/lfs'
+++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null'
 ++ other_partition_tmpdir=
 +++ stat -c %d .
 ++ dot_mount_point=1797
 ++ for d in $CANDIDATE_TMP_DIRS
 ++ test -d /tmp
 +++ stat -L -c %d /tmp
-++ d_mount_point=66305
-++ test x66305 = x1797
-++ mkdir /tmp/tmp52029
-++ other_partition_tmpdir=/tmp/tmp52029
-++ break
-++ test -z /tmp/tmp52029
-++ test yes = yes
-++ set -x
-+ mkdir foo
-+ mv foo/ /tmp/tmp52029/bar
-+ touch bar
-+ returns_ 1 mv bar /tmp/tmp52029/
-mv: cannot overwrite directory '/tmp/tmp52029/bar' with non-directory
-+ mkdir bar2
-+ touch /tmp/tmp52029/bar2
-+ returns_ 1 mv bar2 /tmp/tmp52029/
-mv: cannot overwrite non-directory '/tmp/tmp52029/bar2' with directory 'bar2'
-+ mkdir bar3
-+ touch bar3/file
-+ mkdir /tmp/tmp52029/bar3
-+ mv bar3 /tmp/tmp52029/
-+ test -e /tmp/tmp52029/bar3/file
-+ mkdir bar3
-+ touch bar3/file2
-+ returns_ 1 mv bar3 /tmp/tmp52029/
-mv: inter-device move failed: 'bar3' to '/tmp/tmp52029/bar3'; unable to remove target: Directory not empty
-+ test -e /tmp/tmp52029/bar3/file2
-+ Exit 0
-+ set +e
-+ exit 0
-+ exit 0
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /dev/shm
++++ stat -L -c %d /dev/shm
+++ d_mount_point=6
+++ test x6 = x1797
+++ mkdir /dev/shm/tmp67588
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /var/tmp
++++ stat -L -c %d /var/tmp
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /usr/tmp
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /dev/null
+++ continue
+++ test -z ''
+++ skip_ 'requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ warn_ 'part-rename.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ case $IFS in
+++ printf '%s\n' 'part-rename.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+part-rename.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn't find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.
+++ test 9 = 2
+++ printf '%s\n' 'part-rename.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ sed 1q
+++ Exit 77
+++ set +e
+++ exit 77
+++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
-+ rm -rf /tmp/tmp52029
++ rm -rf ''
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-part-rename.sh.pbFM
-+ exit 0
-PASS tests/mv/part-rename.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-part-rename.sh.smU8
++ rm -rf /sources/coreutils-8.30/gt-part-rename.sh.smU8
++ exit 77
+SKIP tests/mv/part-rename.sh (exit status: 77)

@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-block-size.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-block-size.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-block-size.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
++++ d=/sources/coreutils-8.30/gt-block-size.sh.DOGW
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy'
++++ test -d /sources/coreutils-8.30/gt-block-size.sh.DOGW
+++++ ls -dgo /sources/coreutils-8.30/gt-block-size.sh.DOGW
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-block-size.sh.DOGW'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
++++ echo /sources/coreutils-8.30/gt-block-size.sh.DOGW
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
+++ test_dir_=/sources/coreutils-8.30/gt-block-size.sh.DOGW
+++ cd /sources/coreutils-8.30/gt-block-size.sh.DOGW
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -83,66 +83,66 @@ Written by Richard M. Stallman and David MacKenzie.
 + mkdir sub
 + cd sub
 + for size in 1024 4096 262144
++ echo foo
 + dd conv=sync bs=1024
-+ echo foo
 0+1 records in
 1+0 records out
-1024 bytes (1.0 kB, 1.0 KiB) copied, 4.5479e-05 s, 22.5 MB/s
+1024 bytes (1.0 kB, 1.0 KiB) copied, 3.4184e-05 s, 30.0 MB/s
 + for size in 1024 4096 262144
-+ echo foo
 + dd conv=sync bs=4096
-0+1 records in
-1+0 records out
-4096 bytes (4.1 kB, 4.0 KiB) copied, 3.336e-05 s, 123 MB/s
-+ for size in 1024 4096 262144
-+ dd conv=sync bs=262144
 + echo foo
 0+1 records in
 1+0 records out
-262144 bytes (262 kB, 256 KiB) copied, 0.000296341 s, 885 MB/s
+4096 bytes (4.1 kB, 4.0 KiB) copied, 0.000105204 s, 38.9 MB/s
++ for size in 1024 4096 262144
++ echo foo
++ dd conv=sync bs=262144
+0+1 records in
+1+0 records out
+262144 bytes (262 kB, 256 KiB) copied, 0.000316936 s, 827 MB/s
 + touch -d '2001-01-01 00:00' file1024 file262144 file4096
 + size_etc='s/[^ ]* *[^ ]* *//'
++ sed 's/[^ ]* *[^ ]* *//'
 + ls -og file1024 file262144 file4096
-+ sed 's/[^ ]* *[^ ]* *//'
-+ sed 's/[^ ]* *[^ ]* *//'
 + POSIXLY_CORRECT=1
 + ls -og file1024 file262144 file4096
++ sed 's/[^ ]* *[^ ]* *//'
 + POSIXLY_CORRECT=1
 + ls -k -og file1024 file262144 file4096
 + sed 's/[^ ]* *[^ ]* *//'
 + for var in BLOCKSIZE BLOCK_SIZE LS_BLOCK_SIZE
 + for blocksize in 1 512 1K 1KiB
 + eval BLOCKSIZE=1
-+ sed 's/[^ ]* *[^ ]* *//'
 ++ BLOCKSIZE=1
 + export BLOCKSIZE
 + echo 'x x # BLOCKSIZE=1'
++ sed 's/[^ ]* *[^ ]* *//'
 + ls -og file1024 file262144 file4096
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1 file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
 + eval BLOCKSIZE=512
 ++ BLOCKSIZE=512
++ sed 's/[^ ]* *[^ ]* *//'
 + export BLOCKSIZE
 + echo 'x x # BLOCKSIZE=512'
 + ls -og file1024 file262144 file4096
-+ sed 's/[^ ]* *[^ ]* *//'
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=512 file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
++ sed 's/[^ ]* *[^ ]* *//'
 + eval BLOCKSIZE=1K
 ++ BLOCKSIZE=1K
 + export BLOCKSIZE
 + echo 'x x # BLOCKSIZE=1K'
-+ sed 's/[^ ]* *[^ ]* *//'
 + ls -og file1024 file262144 file4096
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1K file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
 + eval BLOCKSIZE=1KiB
++ sed 's/[^ ]* *[^ ]* *//'
 ++ BLOCKSIZE=1KiB
 + export BLOCKSIZE
-+ sed 's/[^ ]* *[^ ]* *//'
 + echo 'x x # BLOCKSIZE=1KiB'
 + ls -og file1024 file262144 file4096
 + ls -og -k file1024 file262144 file4096
@@ -150,11 +150,11 @@ Written by Richard M. Stallman and David MacKenzie.
 + for var in BLOCKSIZE BLOCK_SIZE LS_BLOCK_SIZE
 + for blocksize in 1 512 1K 1KiB
 + eval BLOCK_SIZE=1
++ sed 's/[^ ]* *[^ ]* *//'
 ++ BLOCK_SIZE=1
 + export BLOCK_SIZE
 + echo 'x x # BLOCK_SIZE=1'
 + ls -og file1024 file262144 file4096
-+ sed 's/[^ ]* *[^ ]* *//'
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1 file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
@@ -162,8 +162,8 @@ Written by Richard M. Stallman and David MacKenzie.
 ++ BLOCK_SIZE=512
 + export BLOCK_SIZE
 + echo 'x x # BLOCK_SIZE=512'
-+ ls -og file1024 file262144 file4096
 + sed 's/[^ ]* *[^ ]* *//'
++ ls -og file1024 file262144 file4096
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=512 file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
@@ -171,17 +171,17 @@ Written by Richard M. Stallman and David MacKenzie.
 ++ BLOCK_SIZE=1K
 + export BLOCK_SIZE
 + echo 'x x # BLOCK_SIZE=1K'
-+ ls -og file1024 file262144 file4096
 + sed 's/[^ ]* *[^ ]* *//'
++ ls -og file1024 file262144 file4096
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1K file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
 + eval BLOCK_SIZE=1KiB
++ sed 's/[^ ]* *[^ ]* *//'
 ++ BLOCK_SIZE=1KiB
 + export BLOCK_SIZE
 + echo 'x x # BLOCK_SIZE=1KiB'
 + ls -og file1024 file262144 file4096
-+ sed 's/[^ ]* *[^ ]* *//'
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1KiB file1024 file262144 file4096
 + for var in BLOCKSIZE BLOCK_SIZE LS_BLOCK_SIZE
@@ -195,8 +195,8 @@ Written by Richard M. Stallman and David MacKenzie.
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1 file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
-+ sed 's/[^ ]* *[^ ]* *//'
 + eval LS_BLOCK_SIZE=512
++ sed 's/[^ ]* *[^ ]* *//'
 ++ LS_BLOCK_SIZE=512
 + export LS_BLOCK_SIZE
 + echo 'x x # LS_BLOCK_SIZE=512'
@@ -206,16 +206,16 @@ Written by Richard M. Stallman and David MacKenzie.
 + for blocksize in 1 512 1K 1KiB
 + eval LS_BLOCK_SIZE=1K
 ++ LS_BLOCK_SIZE=1K
++ sed 's/[^ ]* *[^ ]* *//'
 + export LS_BLOCK_SIZE
 + echo 'x x # LS_BLOCK_SIZE=1K'
 + ls -og file1024 file262144 file4096
-+ sed 's/[^ ]* *[^ ]* *//'
 + ls -og -k file1024 file262144 file4096
 + ls -og -k --block-size=1K file1024 file262144 file4096
 + for blocksize in 1 512 1K 1KiB
 + eval LS_BLOCK_SIZE=1KiB
-+ sed 's/[^ ]* *[^ ]* *//'
 ++ LS_BLOCK_SIZE=1KiB
++ sed 's/[^ ]* *[^ ]* *//'
 + export LS_BLOCK_SIZE
 + echo 'x x # LS_BLOCK_SIZE=1KiB'
 + ls -og file1024 file262144 file4096
@@ -241,8 +241,8 @@ Written by Richard M. Stallman and David MacKenzie.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-block-size.sh.Lcyy
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-block-size.sh.DOGW
++ rm -rf /sources/coreutils-8.30/gt-block-size.sh.DOGW
 + exit 0
 PASS tests/ls/block-size.sh (exit status: 0)

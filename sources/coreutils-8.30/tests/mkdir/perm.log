@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-perm.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-perm.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-perm.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
++++ d=/sources/coreutils-8.30/gt-perm.sh.ptyv
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW'
++++ test -d /sources/coreutils-8.30/gt-perm.sh.ptyv
+++++ ls -dgo /sources/coreutils-8.30/gt-perm.sh.ptyv
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-perm.sh.ptyv'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
++++ echo /sources/coreutils-8.30/gt-perm.sh.ptyv
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
+++ test_dir_=/sources/coreutils-8.30/gt-perm.sh.ptyv
+++ cd /sources/coreutils-8.30/gt-perm.sh.ptyv
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,24 +79,24 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by David MacKenzie.
 + skip_if_setgid_
-+ setgid_tmpdir=setgid-49622
++ setgid_tmpdir=setgid-65121
 + umask 77
-+ mkdir setgid-49622
-++ stat --printf %A setgid-49622
++ mkdir setgid-65121
+++ stat --printf %A setgid-65121
 + perms=drwx------
-+ rmdir setgid-49622
++ rmdir setgid-65121
 + case $perms in
 + require_no_default_acl_ .
 + getfacl --version
-+ grep '^default:'
 + getfacl .
++ grep '^default:'
 + working_umask_or_skip_
 + umask 022
 + touch file1 file2
 + chmod 644 file2
 ++ ls -l file1 file2
-++ sed 's/ .*//'
 ++ uniq
+++ sed 's/ .*//'
 + perms=-rw-r--r--
 + rm -f file1 file2
 + case $perms in
@@ -619,8 +619,8 @@ Written by David MacKenzie.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-perm.sh.SNoW
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-perm.sh.ptyv
++ rm -rf /sources/coreutils-8.30/gt-perm.sh.ptyv
 + exit 0
 PASS tests/mkdir/perm.sh (exit status: 0)

@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-ext3-perf.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-ext3-perf.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-ext3-perf.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
++++ d=/sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk'
++++ test -d /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
+++++ ls -dgo /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
++++ perms='drwx------ 2 4096 Nov 26 23:46 /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
++++ echo /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
+++ test_dir_=/sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
+++ cd /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -127,6 +127,7 @@ or use the shortcut target of the toplevel Makefile,
   make check-very-expensive
 
 + test 9 = 2
++ sed 1q
 + printf '%s\n' 'ext3-perf.sh: skipped test: very expensive: disabled by default
 This test is very expensive, so it is disabled by default.
 To run it anyway, rerun make check with the RUN_VERY_EXPENSIVE_TESTS
@@ -138,7 +139,6 @@ or use the shortcut target of the toplevel Makefile,
 
   make check-very-expensive
 '
-+ sed 1q
 + Exit 77
 + set +e
 + exit 77
@@ -148,8 +148,8 @@ or use the shortcut target of the toplevel Makefile,
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-ext3-perf.sh.eOJk
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
++ rm -rf /sources/coreutils-8.30/gt-ext3-perf.sh.KAgA
 + exit 77
 SKIP tests/rm/ext3-perf.sh (exit status: 77)

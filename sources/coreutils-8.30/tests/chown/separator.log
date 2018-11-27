@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-separator.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-separator.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-separator.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
++++ d=/sources/coreutils-8.30/gt-separator.sh.SgMX
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt'
++++ test -d /sources/coreutils-8.30/gt-separator.sh.SgMX
+++++ ls -dgo /sources/coreutils-8.30/gt-separator.sh.SgMX
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-separator.sh.SgMX'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
++++ echo /sources/coreutils-8.30/gt-separator.sh.SgMX
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
+++ test_dir_=/sources/coreutils-8.30/gt-separator.sh.SgMX
+++ cd /sources/coreutils-8.30/gt-separator.sh.SgMX
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,20 +79,20 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by David MacKenzie and Jim Meyering.
 ++ id -u
-+ id_u=1001
-+ test -n 1001
++ id_u=99
++ test -n 99
 ++ id -un
-+ id_un=lfs
-+ test -n lfs
++ id_un=nobody
++ test -n nobody
 ++ id -g
-+ id_g=1001
-+ test -n 1001
++ id_g=99
++ test -n 99
 ++ id -gn
-+ id_gn=lfs
-+ test -n lfs
++ id_gn=nogroup
++ test -n nogroup
 ++ getent group
-++ grep '^lfs:'
 ++ wc -l
+++ grep '^nogroup:'
 + test 1 = 1
 + case $host_triplet in
 + chown '' .
@@ -102,75 +102,75 @@ Written by David MacKenzie and Jim Meyering.
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown 1001:1001 .
++ chown 99:99 .
 + for sep in $seps
 + case $u$sep$g in
-+ chown 1001.1001 .
++ chown 99.99 .
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown 1001:lfs .
++ chown 99:nogroup .
 + for sep in $seps
 + case $u$sep$g in
-+ chown 1001.lfs .
++ chown 99.nogroup .
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ returns_ 1 chown 1001: .
++ returns_ 1 chown 99: .
 + for sep in $seps
 + case $u$sep$g in
-+ returns_ 1 chown 1001. .
++ returns_ 1 chown 99. .
 + for u in $id_u "$id_un" ''
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown lfs:1001 .
++ chown nobody:99 .
 + for sep in $seps
 + case $u$sep$g in
-+ chown lfs.1001 .
++ chown nobody.99 .
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown lfs:lfs .
++ chown nobody:nogroup .
 + for sep in $seps
 + case $u$sep$g in
-+ chown lfs.lfs .
++ chown nobody.nogroup .
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown lfs: .
++ chown nobody: .
 + for sep in $seps
 + case $u$sep$g in
-+ chown lfs. .
++ chown nobody. .
 + for u in $id_u "$id_un" ''
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown :1001 .
++ chown :99 .
 + for sep in $seps
 + case $u$sep$g in
-+ chown .1001 .
++ chown .99 .
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
 + for sep in $seps
 + case $u$sep$g in
-+ chown :lfs .
++ chown :nogroup .
 + for sep in $seps
 + case $u$sep$g in
-+ chown .lfs .
++ chown .nogroup .
 + for g in $id_g "$id_gn" ''
 + case $u$g in
 + seps=': .'
@@ -189,8 +189,8 @@ Written by David MacKenzie and Jim Meyering.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-separator.sh.xNLt
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-separator.sh.SgMX
++ rm -rf /sources/coreutils-8.30/gt-separator.sh.SgMX
 + exit 0
 PASS tests/chown/separator.sh (exit status: 0)

@@ -27,16 +27,21 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii41-XXXXXXXX
-+ tempfile=ii41-MUpf3gHU
-+ outputdirfile=ii41-MUpf3gHU.gz
-+ cp ../../install-info/tests/ii-0041-input-dir-file.gz ii41-MUpf3gHU.gz
-+ chmod u+rw ii41-MUpf3gHU.gz
-+ ../../install-info/ginstall-info ../../install-info/tests/ii-0041-input-info-file ii41-MUpf3gHU.gz
++ tempfile=ii41-cZt0lYVX
++ outputdirfile=ii41-cZt0lYVX.gz
++ cp ../../install-info/tests/ii-0041-input-dir-file.gz ii41-cZt0lYVX.gz
++ chmod u+rw ii41-cZt0lYVX.gz
++ ../../install-info/ginstall-info ../../install-info/tests/ii-0041-input-info-file ii41-cZt0lYVX.gz
 + findprog zdiff
 + local 'saveIFS= 	
 '
@@ -44,11 +49,16 @@
 + for dir in $PATH
 + IFS=' 	
 '
-+ test -f /tools/bin/zdiff
-+ test -x /tools/bin/zdiff
++ test -f /bin/zdiff
++ test -f /bin/zdiff.exe
++ for dir in $PATH
++ IFS=' 	
+'
++ test -f /usr/bin/zdiff
++ test -x /usr/bin/zdiff
 + return 0
-+ zdiff ../../install-info/tests/ii-0041-expected-dir-file.gz ii41-MUpf3gHU.gz
++ zdiff ../../install-info/tests/ii-0041-expected-dir-file.gz ii41-cZt0lYVX.gz
 + retval=0
-+ rm -f ii41-MUpf3gHU ii41-MUpf3gHU.gz
++ rm -f ii41-cZt0lYVX ii41-cZt0lYVX.gz
 + exit 0
 PASS ii-0041-test (exit status: 0)

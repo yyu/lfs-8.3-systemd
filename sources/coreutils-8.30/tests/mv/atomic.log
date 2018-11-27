@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-atomic.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-atomic.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-atomic.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
++++ d=/sources/coreutils-8.30/gt-atomic.sh.uUOg
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH'
++++ test -d /sources/coreutils-8.30/gt-atomic.sh.uUOg
+++++ ls -dgo /sources/coreutils-8.30/gt-atomic.sh.uUOg
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-atomic.sh.uUOg'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
++++ echo /sources/coreutils-8.30/gt-atomic.sh.uUOg
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
+++ test_dir_=/sources/coreutils-8.30/gt-atomic.sh.uUOg
+++ cd /sources/coreutils-8.30/gt-atomic.sh.uUOg
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -81,31 +81,25 @@ Written by Mike Parker, David MacKenzie, and Jim Meyering.
 + require_strace_ unlink
 + test 1 = 1
 + strace -V
-+ strace -qe unlink echo
-+ strace -o log-help ls --help
-++ wc -l
-+ n_lines_help=61
-+ rm -f log-help
-+ test 61 = 0
-+ test 61 = 1
-+ ln -s t1 s1
-+ ln -s t2 s2
-+ strace -qe unlink mv -T s1 s2
-+ /bin/grep -E 'unlink.*"s1"' out
-+ ls -dl s1
-++ readlink s2
-+ test t1 = t1
-+ Exit 0
++ skip_ 'no strace program'
++ warn_ 'atomic.sh: skipped test: no strace program'
++ case $IFS in
++ printf '%s\n' 'atomic.sh: skipped test: no strace program'
+atomic.sh: skipped test: no strace program
++ test 9 = 2
++ printf '%s\n' 'atomic.sh: skipped test: no strace program'
++ sed 1q
++ Exit 77
 + set +e
-+ exit 0
-+ exit 0
++ exit 77
++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-atomic.sh.sODH
-+ exit 0
-PASS tests/mv/atomic.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-atomic.sh.uUOg
++ rm -rf /sources/coreutils-8.30/gt-atomic.sh.uUOg
++ exit 77
+SKIP tests/mv/atomic.sh (exit status: 77)

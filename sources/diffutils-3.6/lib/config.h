@@ -1846,7 +1846,7 @@
 #define PROMOTED_MODE_T mode_t
 
 /* Name of "pr" program. */
-#define PR_PROGRAM "/tools/bin/pr"
+#define PR_PROGRAM "/usr/bin/pr"
 
 /* Define to l, ll, u, ul, ull, etc., as suitable for constants of type
    'ptrdiff_t'. */

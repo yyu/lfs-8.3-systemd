@@ -23,42 +23,42 @@ srcdir = .
 top_srcdir = ..
 
 
-prefix = /tools
+prefix = /usr
 exec_prefix = ${prefix}
 datarootdir = ${prefix}/share
 datadir = ${datarootdir}
 localedir = ${datarootdir}/locale
 gettextsrcdir = $(datadir)/gettext/po
 
-INSTALL = /tools/bin/install -c
+INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 
 # We use $(mkdir_p).
 # In automake <= 1.9.x, $(mkdir_p) is defined either as "mkdir -p --" or as
 # "$(mkinstalldirs)" or as "$(install_sh) -d". For these automake versions,
-# ${SHELL} /mnt/lfs/sources/make-4.2.1/config/install-sh does not start with $(SHELL), so we add it.
+# ${SHELL} /sources/make-4.2.1/config/install-sh does not start with $(SHELL), so we add it.
 # In automake >= 1.10, $(MKDIR_P) is derived from ${MKDIR_P}, which is defined
 # either as "/path/to/mkdir -p" or ".../install-sh -c -d". For these automake
 # versions, $(mkinstalldirs) and $(install_sh) are unused.
-mkinstalldirs = $(SHELL) ${SHELL} /mnt/lfs/sources/make-4.2.1/config/install-sh -d
-install_sh = $(SHELL) ${SHELL} /mnt/lfs/sources/make-4.2.1/config/install-sh
-MKDIR_P = /tools/bin/mkdir -p
+mkinstalldirs = $(SHELL) ${SHELL} /sources/make-4.2.1/config/install-sh -d
+install_sh = $(SHELL) ${SHELL} /sources/make-4.2.1/config/install-sh
+MKDIR_P = /bin/mkdir -p
 mkdir_p = $(MKDIR_P)
 
-GMSGFMT_ = /tools/bin/msgfmt
-GMSGFMT_no = /tools/bin/msgfmt
-GMSGFMT_yes = /tools/bin/msgfmt
+GMSGFMT_ = /usr/bin/msgfmt
+GMSGFMT_no = /usr/bin/msgfmt
+GMSGFMT_yes = /usr/bin/msgfmt
 GMSGFMT = $(GMSGFMT_$(USE_MSGCTXT))
-MSGFMT_ = /tools/bin/msgfmt
-MSGFMT_no = /tools/bin/msgfmt
-MSGFMT_yes = /tools/bin/msgfmt
+MSGFMT_ = /usr/bin/msgfmt
+MSGFMT_no = /usr/bin/msgfmt
+MSGFMT_yes = /usr/bin/msgfmt
 MSGFMT = $(MSGFMT_$(USE_MSGCTXT))
-XGETTEXT_ = /tools/bin/xgettext
-XGETTEXT_no = /tools/bin/xgettext
-XGETTEXT_yes = /tools/bin/xgettext
+XGETTEXT_ = /usr/bin/xgettext
+XGETTEXT_no = /usr/bin/xgettext
+XGETTEXT_yes = /usr/bin/xgettext
 XGETTEXT = $(XGETTEXT_$(USE_MSGCTXT))
 MSGMERGE = msgmerge
-MSGMERGE_UPDATE = /tools/bin/msgmerge --update
+MSGMERGE_UPDATE = /usr/bin/msgmerge --update
 MSGINIT = msginit
 MSGCONV = msgconv
 MSGFILTER = msgfilter

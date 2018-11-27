@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-sparse-to-pipe.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-sparse-to-pipe.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-sparse-to-pipe.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++++ d=/sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji'
++++ test -d /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
+++++ ls -dgo /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++++ echo /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
+++ test_dir_=/sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
+++ cd /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -80,21 +80,21 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
 + require_sparse_support_
 + test 0 = 0
-+ t=sparse.38218
-+ dd bs=1 seek=128K of=sparse.38218
-++ du -sk sparse.38218
-+ set x 0 sparse.38218
++ t=sparse.53951
++ dd bs=1 seek=128K of=sparse.53951
+++ du -sk sparse.53951
++ set x 0 sparse.53951
 + kb_size=0
-+ rm -f sparse.38218
++ rm -f sparse.53951
 + test 0 -ge 128
 + mkfifo_or_skip_ pipe
 + test 1 = 1
 + mkfifo pipe
-+ pid=38257
++ pid=53992
 + truncate -s1M sparse
 + timeout 10 cat pipe
 + cp sparse pipe
-+ wait 38257
++ wait 53992
 + cmp sparse copy
 + Exit 0
 + set +e
@@ -103,10 +103,10 @@ Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 38257
++ kill 53992
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-sparse-to-pipe.sh.G1ji
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
++ rm -rf /sources/coreutils-8.30/gt-sparse-to-pipe.sh.jas0
 + exit 0
 PASS tests/cp/sparse-to-pipe.sh (exit status: 0)

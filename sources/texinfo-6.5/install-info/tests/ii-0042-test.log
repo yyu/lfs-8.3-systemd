@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii42-XXXXXXXX
-+ outputdirfile=ii42-7jACtHCz
-+ cp ../../install-info/tests/ii-0042-input-dir-file ii42-7jACtHCz
++ outputdirfile=ii42-6Nmf9PQP
++ cp ../../install-info/tests/ii-0042-input-dir-file ii42-6Nmf9PQP
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info ../../install-info/tests/ii-0042-input-info-file ii42-7jACtHCz
++ ../../install-info/ginstall-info ../../install-info/tests/ii-0042-input-info-file ii42-6Nmf9PQP
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0042-expected-dir-file ii42-7jACtHCz
++ diff ../../install-info/tests/ii-0042-expected-dir-file ii42-6Nmf9PQP
 + retval=0
-+ rm -f ii42-7jACtHCz
++ rm -f ii42-6Nmf9PQP
 + exit 0
 PASS ii-0042-test (exit status: 0)

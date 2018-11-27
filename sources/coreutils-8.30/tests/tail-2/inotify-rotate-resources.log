@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-inotify-rotate-resources.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-inotify-rotate-resources.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-inotify-rotate-resources.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
++++ d=/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9'
++++ test -d /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
+++++ ls -dgo /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
++++ perms='drwx------ 2 4096 Nov 26 23:46 /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
++++ echo /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
+++ test_dir_=/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
+++ cd /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -87,145 +87,29 @@ and Jim Meyering.
 + is_local_dir_ .
 + test 1 = 1
 + df --local .
-+ grep '^#define HAVE_INOTIFY 1' /mnt/lfs/sources/coreutils-8.30/lib/config.h
++ grep '^#define HAVE_INOTIFY 1' /sources/coreutils-8.30/lib/config.h
 + require_strace_ inotify_add_watch,inotify_rm_watch
 + test 1 = 1
 + strace -V
-+ strace -qe inotify_add_watch,inotify_rm_watch echo
-+ strace -o log-help ls --help
-++ wc -l
-+ n_lines_help=61
-+ rm -f log-help
-+ test 61 = 0
-+ test 61 = 1
-+ fastpoll='-s.1 --max-unchanged-stats=1'
-+ touch k
-+ pid=33927
-+ reverted_to_polling_=0
-+ timeout 180 strace -e inotify_add_watch,inotify_rm_watch -o strace.out tail -F -s.1 --max-unchanged-stats=1 k
-++ seq 2
-+ for i in $(seq 2)
-+ echo 1
-1
-+ echo tailed
-+ strace_re='inotify_add_watch.*MODIFY'
-+ retry_delay_ check_strace .1 8
-+ local test_func=check_strace
-+ local init_delay=.1
-+ local max_n_tries=8
-+ shift 3
-+ local attempt=1
-+ local num_sleeps=1
-+ local time_fail
-+ test 1 -le 8
-++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
-+ local delay=0.1
-+ check_strace 0.1
-+ local delay=0.1
-+ grep 'inotify_add_watch.*MODIFY' strace.out
-+ time_fail=0
-+ break
-+ test 0 = 0
-+ grep -F 'reverting to polling' out
-+ test ''
-+ mv k k.tmp
-+ grep_timeout inaccessible
-+ tail_re=inaccessible
-+ retry_delay_ check_tail_output .1 8
-+ local test_func=check_tail_output
-+ local init_delay=.1
-+ local max_n_tries=8
-+ shift 3
-+ local attempt=1
-+ local num_sleeps=1
-+ local time_fail
-+ test 1 -le 8
-++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
-+ local delay=0.1
-+ check_tail_output 0.1
-+ local delay=0.1
-+ grep inaccessible out
-+ time_fail=0
-+ break
-+ test 0 = 0
-+ test 1 -gt 1
-+ for i in $(seq 2)
-+ echo 2
-2
-+ echo tailed
-+ strace_re='inotify_add_watch.*MODIFY'
-+ retry_delay_ check_strace .1 8
-+ local test_func=check_strace
-+ local init_delay=.1
-+ local max_n_tries=8
-+ shift 3
-+ local attempt=1
-+ local num_sleeps=1
-+ local time_fail
-+ test 1 -le 8
-++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
-+ local delay=0.1
-+ check_strace 0.1
-+ local delay=0.1
-+ grep 'inotify_add_watch.*MODIFY' strace.out
-+ time_fail=0
-+ break
-+ test 0 = 0
-+ grep -F 'reverting to polling' out
-+ test ''
-+ mv k k.tmp
-+ grep_timeout inaccessible
-+ tail_re=inaccessible
-+ retry_delay_ check_tail_output .1 8
-+ local test_func=check_tail_output
-+ local init_delay=.1
-+ local max_n_tries=8
-+ shift 3
-+ local attempt=1
-+ local num_sleeps=1
-+ local time_fail
-+ test 1 -le 8
-++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
-+ local delay=0.1
-+ check_tail_output 0.1
-+ local delay=0.1
-+ grep inaccessible out
-+ time_fail=0
-+ break
-+ test 0 = 0
-+ test 2 -gt 1
-+ strace_re=inotify_rm_watch
-+ retry_delay_ check_strace .1 8
-+ local test_func=check_strace
-+ local init_delay=.1
-+ local max_n_tries=8
-+ shift 3
-+ local attempt=1
-+ local num_sleeps=1
-+ local time_fail
-+ test 1 -le 8
-++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
-+ local delay=0.1
-+ check_strace 0.1
-+ local delay=0.1
-+ grep inotify_rm_watch strace.out
-+ time_fail=0
-+ break
-+ test 0 = 0
-+ cleanup_
-+ kill 33927
-+ wait 33927
-+ Exit 0
++ skip_ 'no strace program'
++ warn_ 'inotify-rotate-resources.sh: skipped test: no strace program'
++ case $IFS in
++ printf '%s\n' 'inotify-rotate-resources.sh: skipped test: no strace program'
+inotify-rotate-resources.sh: skipped test: no strace program
++ test 9 = 2
++ sed 1q
++ printf '%s\n' 'inotify-rotate-resources.sh: skipped test: no strace program'
++ Exit 77
 + set +e
-+ exit 0
-+ exit 0
++ exit 77
++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
-+ kill 33927
++ :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-inotify-rotate-resources.sh.ova9
-+ exit 0
-PASS tests/tail-2/inotify-rotate-resources.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
++ rm -rf /sources/coreutils-8.30/gt-inotify-rotate-resources.sh.80mM
++ exit 77
+SKIP tests/tail-2/inotify-rotate-resources.sh (exit status: 77)

@@ -141,7 +141,7 @@ TESTS = test-accept$(EXEEXT) test-alloca-opt$(EXEEXT) \
 	test-isnanl-nolibm$(EXEEXT) test-iswblank$(EXEEXT) \
 	test-langinfo$(EXEEXT) test-listen$(EXEEXT) \
 	test-locale$(EXEEXT) test-localeconv$(EXEEXT) \
-	test-localename$(EXEEXT) test-lock$(EXEEXT) test-lseek.sh \
+	test-localename$(EXEEXT)  test-lseek.sh \
 	test-lstat$(EXEEXT) test-malloc-gnu$(EXEEXT) \
 	test-malloca$(EXEEXT) test-math$(EXEEXT) test-mbrtowc1.sh \
 	test-mbrtowc2.sh test-mbrtowc3.sh test-mbrtowc4.sh \
@@ -242,7 +242,7 @@ check_PROGRAMS = test-accept$(EXEEXT) test-alloca-opt$(EXEEXT) \
 	test-iswblank$(EXEEXT) test-langinfo$(EXEEXT) \
 	test-listen$(EXEEXT) test-locale$(EXEEXT) \
 	test-localeconv$(EXEEXT) test-localename$(EXEEXT) \
-	test-lock$(EXEEXT) test-lseek$(EXEEXT) test-lstat$(EXEEXT) \
+	 test-lseek$(EXEEXT) test-lstat$(EXEEXT) \
 	test-malloc-gnu$(EXEEXT) test-malloca$(EXEEXT) \
 	test-math$(EXEEXT) test-mbrtowc$(EXEEXT) \
 	test-mbrtowc-w32$(EXEEXT) test-mbscasestr1$(EXEEXT) \
@@ -3819,8 +3819,8 @@ test-localename$(EXEEXT): $(test_localename_OBJECTS) $(test_localename_DEPENDENC
 	@rm -f test-localename$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(test_localename_OBJECTS) $(test_localename_LDADD) $(LIBS)
 
-test-lock$(EXEEXT): $(test_lock_OBJECTS) $(test_lock_DEPENDENCIES) $(EXTRA_test_lock_DEPENDENCIES) 
-	@rm -f test-lock$(EXEEXT)
+: $(test_lock_OBJECTS) $(test_lock_DEPENDENCIES) $(EXTRA_test_lock_DEPENDENCIES) 
+	@rm -f 
 	$(AM_V_CCLD)$(LINK) $(test_lock_OBJECTS) $(test_lock_LDADD) $(LIBS)
 
 test-lseek$(EXEEXT): $(test_lseek_OBJECTS) $(test_lseek_DEPENDENCIES) $(EXTRA_test_lseek_DEPENDENCIES) 
@@ -5455,8 +5455,8 @@ test-localename.log: test-localename$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-test-lock.log: test-lock$(EXEEXT)
-	@p='test-lock$(EXEEXT)'; \
+test-lock.log: 
+	@p=''; \
 	b='test-lock'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \

@@ -1,5 +1,3 @@
-D: coverage//diffs/formatting.diff
-D: coverage//diffs/formatting_info.diff
 testdir: coverage/
 driving_file: ./coverage//tests-parser.txt
 found special first line, commands now: : :_info
@@ -9,22 +7,12 @@ made result dir: ./coverage//res_parser_info/
 doing test formatting, src_file ./coverage//formatting.texi
 format_option: --set-customization-variable=TEXI2HTML
 texi2any.pl formatting -> coverage//out_parser/formatting
- /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./coverage/ -I coverage// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output coverage//out_parser/formatting/ --internal-links=coverage//out_parser/formatting/internal_links_formatting.txt ./coverage//formatting.texi > coverage//out_parser/formatting/formatting.1 2>coverage//out_parser/formatting/formatting.2
+ /usr/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./coverage/ -I coverage// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output coverage//out_parser/formatting/ --internal-links=coverage//out_parser/formatting/internal_links_formatting.txt ./coverage//formatting.texi > coverage//out_parser/formatting/formatting.1 2>coverage//out_parser/formatting/formatting.2
 
 doing test formatting, src_file ./coverage//formatting.texi
 format_option: --info
 texi2any.pl formatting -> coverage//out_parser_info/formatting
- /tools/bin/perl -w ./..//texi2any.pl --info --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./coverage/ -I coverage// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output coverage//out_parser_info/formatting/ --internal-links=coverage//out_parser_info/formatting/internal_links_formatting.txt ./coverage//formatting.texi > coverage//out_parser_info/formatting/formatting.1 2>coverage//out_parser_info/formatting/formatting.2
+ /usr/bin/perl -w ./..//texi2any.pl --info --force --conf-dir ./../t/init/ --conf-dir ./../init -I ./coverage/ -I coverage// -I ./ -I . --set-customization-variable L2H_FILE=./../t/init/l2h.init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0  --output coverage//out_parser_info/formatting/ --internal-links=coverage//out_parser_info/formatting/internal_links_formatting.txt ./coverage//formatting.texi > coverage//out_parser_info/formatting/formatting.1 2>coverage//out_parser_info/formatting/formatting.2
 
-all done, exiting with status 1
-
-diff -a -u -r coverage//diffs/staging_res/formatting/formatting.2 coverage//out_parser/formatting/formatting.2
---- coverage//diffs/staging_res/formatting/formatting.2	2017-08-27 10:45:46.000000000 +0000
-+++ coverage//out_parser/formatting/formatting.2	2018-11-26 23:59:33.361169246 +0000
-@@ -1,3 +1,5 @@
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
- formatting.texi:25: warning: @ctrl is obsolete. (possibly involving @mymacro)
- formatting.texi:25: warning: missing name for @deffnx (possibly involving @mymacro)
- formatting.texi:25: warning: missing category for @deffnx (possibly involving @mymacro)
-FAIL test_scripts/coverage_formatting.sh (exit status: 1)
+all done, exiting with status 0
+PASS test_scripts/coverage_formatting.sh (exit status: 0)

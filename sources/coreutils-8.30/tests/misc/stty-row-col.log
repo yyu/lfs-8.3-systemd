@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-stty-row-col.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-stty-row-col.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-stty-row-col.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
++++ d=/sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ'
++++ test -d /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
+++++ ls -dgo /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
++++ echo /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
+++ test_dir_=/sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
+++ cd /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -102,18 +102,18 @@ NA LAST NA
 '
 + set 1 rows_40_columns_80 40_80 2 rows_1_columns_1 1_1 3 rows_40_columns_80 40_80 4 rows_1 1_80 5 columns_1 1_1 6 rows_40 40_1 7 rows_1 1_1 8 columns_80 1_80 9 rows_30 30_80 10 rows_0x1E 30_80 11 rows_036 30_80 NA LAST NA
 ++ stty size
-+ saved_size='92 179'
-+ test -n '92 179'
-+ test 'x92 179' '!=' 'x0 0'
-++ echo 92 179
++ saved_size='93 179'
++ test -n '93 179'
++ test 'x93 179' '!=' 'x0 0'
+++ echo 93 179
 ++ cut -d ' ' -f1
-+ srow=92
-++ echo 92 179
++ srow=93
+++ echo 93 179
 ++ cut -d ' ' -f2
 + scol=179
-++ expr 92 + 1
+++ expr 93 + 1
 ++ expr 179 + 1
-+ stty rows 93 cols 180
++ stty rows 94 cols 180
 + :
 + test_name=1
 + args=rows_40_columns_80
@@ -173,8 +173,8 @@ ok
 + test rows_40_columns_80 = empty
 + test xrows_40_columns_80 = xLAST
 ++ echo xrows_40_columns_80
-++ tr _ ' '
 ++ sed 's/^x//'
+++ tr _ ' '
 + args='rows 40 columns 80'
 + test yes = yes
 + echo 'test 3... '
@@ -198,8 +198,8 @@ ok
 + test rows_1 = empty
 + test xrows_1 = xLAST
 ++ echo xrows_1
-++ tr _ ' '
 ++ sed 's/^x//'
+++ tr _ ' '
 + args='rows 1'
 + test yes = yes
 + echo 'test 4... '
@@ -347,8 +347,8 @@ ok
 + expected_result='30 80'
 + test rows_0x1E = empty
 + test xrows_0x1E = xLAST
-++ echo xrows_0x1E
 ++ tr _ ' '
+++ echo xrows_0x1E
 ++ sed 's/^x//'
 + args='rows 0x1E'
 + test yes = yes
@@ -398,8 +398,8 @@ ok
 + test LAST = empty
 + test xLAST = xLAST
 + break
-+ set x 92 179
-+ stty rows 92 columns 179
++ set x 93 179
++ stty rows 93 columns 179
 + Exit 0
 + set +e
 + exit 0
@@ -409,8 +409,8 @@ ok
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-stty-row-col.sh.TcQQ
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
++ rm -rf /sources/coreutils-8.30/gt-stty-row-col.sh.1gDx
 + exit 0
 PASS tests/misc/stty-row-col.sh (exit status: 0)

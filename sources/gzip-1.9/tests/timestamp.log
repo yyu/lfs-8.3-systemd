@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/gzip-1.9/tests
+++ initial_cwd_=/sources/gzip-1.9/tests
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/gzip-1.9/tests gt-timestamp.XXXX
++++ mktempd_ /sources/gzip-1.9/tests gt-timestamp.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/gzip-1.9/tests
++++ destdir_=/sources/gzip-1.9/tests
 +++ template_=gt-timestamp.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/gzip-1.9/tests/
++++ destdir_slash_=/sources/gzip-1.9/tests/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
++++ d=/sources/gzip-1.9/tests/gt-timestamp.jU0X
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
-++++ ls -dgo /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
-+++ perms='drwx------ 2 4096 Nov 26 23:49 /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz'
++++ test -d /sources/gzip-1.9/tests/gt-timestamp.jU0X
+++++ ls -dgo /sources/gzip-1.9/tests/gt-timestamp.jU0X
++++ perms='drwx------ 2 4096 Nov 27 00:05 /sources/gzip-1.9/tests/gt-timestamp.jU0X'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
++++ echo /sources/gzip-1.9/tests/gt-timestamp.jU0X
 +++ return
-++ test_dir_=/mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
-++ cd /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
+++ test_dir_=/sources/gzip-1.9/tests/gt-timestamp.jU0X
+++ cd /sources/gzip-1.9/tests/gt-timestamp.jU0X
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=..
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/gzip-1.9/tests/..
++ abs_path_dir_=/sources/gzip-1.9/tests/..
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/gzip-1.9/tests/..:/mnt/lfs/sources/gzip-1.9:/tools/bin:/bin:/usr/bin
-+ create_exe_shims_ /mnt/lfs/sources/gzip-1.9/tests/..
++ PATH=/sources/gzip-1.9/tests/..:/sources/gzip-1.9:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/gzip-1.9/tests/..
 + case $EXEEXT in
 + return 0
 + shift
@@ -74,7 +74,7 @@
 '
 + touch -t 190101010000 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Jan  1  1901 in'
++ ls_l='-rw-r--r-- 1 root root 0 Jan  1  1901 in'
 + case $ls_l in
 + returns_ 2 gzip in
 gzip: in: warning: file timestamp out of range for gzip format
@@ -88,7 +88,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 196912312359.59 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Dec 31  1969 in'
++ ls_l='-rw-r--r-- 1 root root 0 Dec 31  1969 in'
 + case $ls_l in
 + returns_ 2 gzip in
 gzip: in: warning: file timestamp out of range for gzip format
@@ -102,7 +102,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 197001010000 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Jan  1  1970 in'
++ ls_l='-rw-r--r-- 1 root root 0 Jan  1  1970 in'
 + case $ls_l in
 + returns_ 2 gzip in
 gzip: in: warning: file timestamp out of range for gzip format
@@ -116,7 +116,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 210602070628.16 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Feb  7  2106 in'
++ ls_l='-rw-r--r-- 1 root root 0 Feb  7  2106 in'
 + case $ls_l in
 + returns_ 2 gzip in
 gzip: in: warning: file timestamp out of range for gzip format
@@ -130,7 +130,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 197001010000.01 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Jan  1  1970 in'
++ ls_l='-rw-r--r-- 1 root root 0 Jan  1  1970 in'
 + case $ls_l in
 + gzip in
 + rm -f in.gz in
@@ -143,7 +143,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 203801190314.07 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Jan 19  2038 in'
++ ls_l='-rw-r--r-- 1 root root 0 Jan 19  2038 in'
 + case $ls_l in
 + gzip in
 + rm -f in.gz in
@@ -156,7 +156,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 203801190314.08 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Jan 19  2038 in'
++ ls_l='-rw-r--r-- 1 root root 0 Jan 19  2038 in'
 + case $ls_l in
 + gzip in
 + rm -f in.gz in
@@ -169,7 +169,7 @@ gzip: in: warning: file timestamp out of range for gzip format
 '
 + touch -t 210602070628.15 in
 ++ ls -l in
-+ ls_l='-rw-r--r-- 1 lfs lfs 0 Feb  7  2106 in'
++ ls_l='-rw-r--r-- 1 root root 0 Feb  7  2106 in'
 + case $ls_l in
 + gzip in
 + rm -f in.gz in
@@ -190,8 +190,8 @@ defla 00000000 Feb  7 06:28                  20                   0   0.0% stdou
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/gzip-1.9/tests
-+ chmod -R u+rwx /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
-+ rm -rf /mnt/lfs/sources/gzip-1.9/tests/gt-timestamp.pHvz
++ cd /sources/gzip-1.9/tests
++ chmod -R u+rwx /sources/gzip-1.9/tests/gt-timestamp.jU0X
++ rm -rf /sources/gzip-1.9/tests/gt-timestamp.jU0X
 + exit 0
 PASS timestamp (exit status: 0)

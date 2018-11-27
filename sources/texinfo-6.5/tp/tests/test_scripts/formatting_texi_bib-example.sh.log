@@ -1,4 +1,3 @@
-D: formatting//diffs/texi_bib-example.diff
 testdir: formatting/
 driving_file: ./formatting//tests-parser.txt
 made result dir: ./formatting//res_parser/
@@ -10,7 +9,7 @@ doing test texi, src_file ./formatting//bib-example.texi
 format_option: --set-customization-variable=TEXI2HTML
 doing special texi case, dir: texi_bib-example
 texi2any.pl texi_bib-example
- /tools/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0 --output formatting//out_parser/texi_bib-example/ -I ./testdir -I formatting// -I ./ -I . --set-customization-variable=DUMP_TEXI=1 --macro-expand=formatting//out_parser/texi_bib-example/bib-example.texi  ./formatting//bib-example.texi 2>formatting//out_parser/texi_bib-example/bib-example.2
+ /usr/bin/perl -w ./..//texi2any.pl --set-customization-variable=TEXI2HTML --force --conf-dir ./../t/init/ --conf-dir ./../init --error-limit=1000 --set-customization-variable TEST=1 --set-customization-variable L2H_CLEAN=0 --output formatting//out_parser/texi_bib-example/ -I ./testdir -I formatting// -I ./ -I . --set-customization-variable=DUMP_TEXI=1 --macro-expand=formatting//out_parser/texi_bib-example/bib-example.texi  ./formatting//bib-example.texi 2>formatting//out_parser/texi_bib-example/bib-example.2
 
 doing test texi, src_file ./formatting//cond.texi
 format_option: --set-customization-variable=TEXI2HTML
@@ -18,13 +17,5 @@ format_option: --set-customization-variable=TEXI2HTML
 doing test texi, src_file ./formatting//ignore_and_comments.texi
 format_option: --set-customization-variable=TEXI2HTML
 
-all done, exiting with status 1
-
-diff -a -u -r formatting//diffs/staging_res/texi_bib-example/bib-example.2 formatting//out_parser/texi_bib-example/bib-example.2
---- formatting//diffs/staging_res/texi_bib-example/bib-example.2	2017-08-27 10:45:45.000000000 +0000
-+++ formatting//out_parser/texi_bib-example/bib-example.2	2018-11-26 23:59:04.580713179 +0000
-@@ -1 +1,3 @@
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*/ at ../../tp/Texinfo/Parser.pm line 5481.
-+Unescaped left brace in regex is deprecated here (and will be fatal in Perl 5.32), passed through in regex; marked by <-- HERE in m/^\s+@([[:alnum:]][[:alnum:]\-]*)({ <-- HERE })?\s*(\@(c|comment)((\@|\s+).*)?)?/ at ../../tp/Texinfo/Parser.pm line 5485.
- bib-example.texi:44: warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
-FAIL test_scripts/formatting_texi_bib-example.sh (exit status: 1)
+all done, exiting with status 0
+PASS test_scripts/formatting_texi_bib-example.sh (exit status: 0)

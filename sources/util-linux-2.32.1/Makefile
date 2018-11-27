@@ -207,21 +207,21 @@ am__append_26 = -I$(ul_libuuid_incdir)
 am__append_27 = $(VSCRIPT_LDFLAGS),$(top_srcdir)/libblkid/src/libblkid.sym
 am__append_28 = libblkid/src/libblkid.sym \
 	libblkid/COPYING
-am__append_29 = \
-	test_blkid_cache \
-	test_blkid_config \
-	test_blkid_dev \
-	test_blkid_devname \
-	test_blkid_devno \
-	test_blkid_evaluate \
-	test_blkid_read \
-	test_blkid_resolve \
-	test_blkid_save \
-	test_blkid_tag \
-	test_blkid_verify
+#am__append_29 = \
+#	test_blkid_cache \
+#	test_blkid_config \
+#	test_blkid_dev \
+#	test_blkid_devname \
+#	test_blkid_devno \
+#	test_blkid_evaluate \
+#	test_blkid_read \
+#	test_blkid_resolve \
+#	test_blkid_save \
+#	test_blkid_tag \
+#	test_blkid_verify
 
-am__append_30 = libuuid.la
-am__append_31 = $(LDADD)
+#am__append_30 = libuuid.la
+#am__append_31 = $(LDADD)
 am__append_32 = install-exec-hook-libblkid
 am__append_33 = uninstall-hook-libblkid
 am__append_34 = \
@@ -248,20 +248,20 @@ am__append_41 = libmount/src/btrfs.c
 am__append_42 = $(VSCRIPT_LDFLAGS),$(top_srcdir)/libmount/src/libmount.sym
 am__append_43 = libmount/src/libmount.sym \
 	libmount/COPYING
-am__append_44 = \
-	test_mount_cache \
-	test_mount_lock \
-	test_mount_optstr \
-	test_mount_tab \
-	test_mount_tab_diff \
-	test_mount_tab_update \
-	test_mount_utils \
-	test_mount_version \
-	test_mount_debug
+#am__append_44 = \
+#	test_mount_cache \
+#	test_mount_lock \
+#	test_mount_optstr \
+#	test_mount_tab \
+#	test_mount_tab_diff \
+#	test_mount_tab_update \
+#	test_mount_utils \
+#	test_mount_version \
+#	test_mount_debug
 
-am__append_45 = test_mount_context \
-	test_mount_monitor
-#am__append_46 = $(SELINUX_LIBS)
+#am__append_45 = test_mount_context \
+#	test_mount_monitor
+##am__append_46 = $(SELINUX_LIBS)
 am__append_47 = install-exec-hook-libmount
 am__append_48 = uninstall-hook-libmount
 #am__append_49 = libmount/python/context.c
@@ -299,15 +299,15 @@ am__append_66 = libblkid.la
 am__append_67 = -I$(ul_libblkid_incdir)
 am__append_68 = libfdisk/src/libfdisk.sym \
 	libfdisk/COPYING
-am__append_69 = \
-	test_fdisk_ask \
-	test_fdisk_gpt \
-	test_fdisk_script \
-	test_fdisk_utils \
-	test_fdisk_version \
-	test_fdisk_item
+#am__append_69 = \
+#	test_fdisk_ask \
+#	test_fdisk_gpt \
+#	test_fdisk_script \
+#	test_fdisk_utils \
+#	test_fdisk_version \
+#	test_fdisk_item
 
-am__append_70 = libblkid.la
+#am__append_70 = libblkid.la
 am__append_71 = install-exec-hook-libfdisk
 am__append_72 = uninstall-hook-libfdisk
 am__append_73 = \
@@ -374,10 +374,10 @@ am__append_126 = mesg
 am__append_127 = term-utils/mesg.1
 am__append_128 = wall
 am__append_129 = term-utils/wall.1
-#am__append_130 = install-exec-hook-wall
+am__append_130 = install-exec-hook-wall
 #am__append_131 = write
 #am__append_132 = term-utils/write.1
-##am__append_133 = install-exec-hook-write
+#am__append_133 = install-exec-hook-write
 am__append_134 = last
 am__append_135 = \
 	login-utils/last.1 \
@@ -394,8 +394,8 @@ am__append_141 = test_consoles
 ##am__append_144 = -lpam_misc
 ##am__append_145 = -laudit
 ##am__append_146 = -lselinux
-am__append_147 = nologin
-am__append_148 = login-utils/nologin.8
+#am__append_147 = nologin
+#am__append_148 = login-utils/nologin.8
 am__append_149 = utmpdump
 am__append_150 = login-utils/utmpdump.1
 #am__append_151 = chfn chsh
@@ -440,8 +440,8 @@ am__append_150 = login-utils/utmpdump.1
 am__append_173 = lslogins
 am__append_174 = login-utils/lslogins.1
 #am__append_175 = -lselinux
-#am__append_176 = $(SYSTEMD_LIBS) $(SYSTEMD_JOURNAL_LIBS)
-#am__append_177 = $(SYSTEMD_CFLAGS) $(SYSTEMD_JOURNAL_CFLAGS)
+am__append_176 = $(SYSTEMD_LIBS) $(SYSTEMD_JOURNAL_LIBS)
+am__append_177 = $(SYSTEMD_CFLAGS) $(SYSTEMD_JOURNAL_CFLAGS)
 #am__append_178 = vipw
 #am__append_179 = \
 #	login-utils/vigr.8 \
@@ -475,9 +475,9 @@ am__append_203 = sys-utils/readprofile.8
 #am__append_205 = sys-utils/tunelp.8
 am__append_206 = fstrim
 am__append_207 = sys-utils/fstrim.8
-#am__append_208 = \
-#		sys-utils/fstrim.service \
-#		sys-utils/fstrim.timer
+am__append_208 = \
+		sys-utils/fstrim.service \
+		sys-utils/fstrim.timer
 
 am__append_209 = dmesg
 am__append_210 = sys-utils/dmesg.1
@@ -571,8 +571,8 @@ am__append_289 = $(NCURSES_CFLAGS)
 am__append_290 = test_cal
 am__append_291 = logger
 am__append_292 = misc-utils/logger.1
-#am__append_293 = $(SYSTEMD_LIBS) $(SYSTEMD_DAEMON_LIBS) $(SYSTEMD_JOURNAL_LIBS)
-#am__append_294 = $(SYSTEMD_CFLAGS) $(SYSTEMD_DAEMON_CFLAGS) $(SYSTEMD_JOURNAL_CFLAGS)
+am__append_293 = $(SYSTEMD_LIBS) $(SYSTEMD_DAEMON_LIBS) $(SYSTEMD_JOURNAL_LIBS)
+am__append_294 = $(SYSTEMD_CFLAGS) $(SYSTEMD_DAEMON_CFLAGS) $(SYSTEMD_JOURNAL_CFLAGS)
 am__append_295 = test_logger
 am__append_296 = look
 am__append_297 = misc-utils/look.1
@@ -586,18 +586,18 @@ am__append_304 = lslocks
 am__append_305 = misc-utils/lslocks.8
 am__append_306 = lsblk
 am__append_307 = misc-utils/lsblk.8
-#am__append_308 = -ludev
+am__append_308 = -ludev
 am__append_309 = uuidgen
 am__append_310 = misc-utils/uuidgen.1
 am__append_311 = uuidparse
 am__append_312 = misc-utils/uuidparse.1
 am__append_313 = uuidd
 am__append_314 = misc-utils/uuidd.8
-#am__append_315 = $(SYSTEMD_LIBS) $(SYSTEMD_DAEMON_LIBS)
-#am__append_316 = $(SYSTEMD_CFLAGS) $(SYSTEMD_DAEMON_CFLAGS)
-#am__append_317 = \
-#	misc-utils/uuidd.service \
-#	misc-utils/uuidd.socket
+am__append_315 = $(SYSTEMD_LIBS) $(SYSTEMD_DAEMON_LIBS)
+am__append_316 = $(SYSTEMD_CFLAGS) $(SYSTEMD_DAEMON_CFLAGS)
+am__append_317 = \
+	misc-utils/uuidd.service \
+	misc-utils/uuidd.socket
 
 am__append_318 = test_uuidd
 am__append_319 = blkid
@@ -609,7 +609,7 @@ am__append_324 = wipefs
 am__append_325 = misc-utils/wipefs.8
 am__append_326 = findmnt
 am__append_327 = misc-utils/findmnt.8
-#am__append_328 = -ludev
+am__append_328 = -ludev
 am__append_329 = kill
 am__append_330 = misc-utils/kill.1
 am__append_331 = rename
@@ -643,9 +643,9 @@ am__append_357 = fsck
 am__append_358 = disk-utils/fsck.8
 am__append_359 = raw
 am__append_360 = disk-utils/raw.8
-#am__append_361 = fsck.cramfs mkfs.cramfs
-#am__append_362 = disk-utils/fsck.cramfs.8 \
-#	disk-utils/mkfs.cramfs.8
+am__append_361 = fsck.cramfs mkfs.cramfs
+am__append_362 = disk-utils/fsck.cramfs.8 \
+	disk-utils/mkfs.cramfs.8
 am__append_363 = fdformat
 am__append_364 = disk-utils/fdformat.8
 am__append_365 = blockdev
@@ -709,9 +709,9 @@ am__append_417 = \
 	bash-completion/fsck.minix \
 	bash-completion/mkfs.minix
 
-#am__append_418 = \
-#	bash-completion/fsck.cramfs \
-#	bash-completion/mkfs.cramfs
+am__append_418 = \
+	bash-completion/fsck.cramfs \
+	bash-completion/mkfs.cramfs
 
 am__append_419 = \
 	bash-completion/addpart \
@@ -1243,44 +1243,44 @@ am__EXEEXT_15 = test_sysfs$(EXEEXT) test_pager$(EXEEXT)
 am__EXEEXT_16 = test_procutils$(EXEEXT)
 am__EXEEXT_17 = test_linux_version$(EXEEXT)
 am__EXEEXT_18 = test_uuid_parser$(EXEEXT)
-am__EXEEXT_19 = test_blkid_cache$(EXEEXT) \
-	test_blkid_config$(EXEEXT) \
-	test_blkid_dev$(EXEEXT) \
-	test_blkid_devname$(EXEEXT) \
-	test_blkid_devno$(EXEEXT) \
-	test_blkid_evaluate$(EXEEXT) \
-	test_blkid_read$(EXEEXT) \
-	test_blkid_resolve$(EXEEXT) \
-	test_blkid_save$(EXEEXT) \
-	test_blkid_tag$(EXEEXT) \
-	test_blkid_verify$(EXEEXT)
+#am__EXEEXT_19 = test_blkid_cache$(EXEEXT) \
+#	test_blkid_config$(EXEEXT) \
+#	test_blkid_dev$(EXEEXT) \
+#	test_blkid_devname$(EXEEXT) \
+#	test_blkid_devno$(EXEEXT) \
+#	test_blkid_evaluate$(EXEEXT) \
+#	test_blkid_read$(EXEEXT) \
+#	test_blkid_resolve$(EXEEXT) \
+#	test_blkid_save$(EXEEXT) \
+#	test_blkid_tag$(EXEEXT) \
+#	test_blkid_verify$(EXEEXT)
 am__EXEEXT_20 = sample-mkfs$(EXEEXT) \
 	sample-partitions$(EXEEXT) \
 	sample-superblocks$(EXEEXT) \
 	sample-topology$(EXEEXT)
-am__EXEEXT_21 = test_mount_cache$(EXEEXT) \
-	test_mount_lock$(EXEEXT) \
-	test_mount_optstr$(EXEEXT) \
-	test_mount_tab$(EXEEXT) \
-	test_mount_tab_diff$(EXEEXT) \
-	test_mount_tab_update$(EXEEXT) \
-	test_mount_utils$(EXEEXT) \
-	test_mount_version$(EXEEXT) \
-	test_mount_debug$(EXEEXT)
-am__EXEEXT_22 = test_mount_context$(EXEEXT) \
-	test_mount_monitor$(EXEEXT)
+#am__EXEEXT_21 = test_mount_cache$(EXEEXT) \
+#	test_mount_lock$(EXEEXT) \
+#	test_mount_optstr$(EXEEXT) \
+#	test_mount_tab$(EXEEXT) \
+#	test_mount_tab_diff$(EXEEXT) \
+#	test_mount_tab_update$(EXEEXT) \
+#	test_mount_utils$(EXEEXT) \
+#	test_mount_version$(EXEEXT) \
+#	test_mount_debug$(EXEEXT)
+#am__EXEEXT_22 = test_mount_context$(EXEEXT) \
+#	test_mount_monitor$(EXEEXT)
 am__EXEEXT_23 = sample-scols-title$(EXEEXT) \
 	sample-scols-wrap$(EXEEXT) \
 	sample-scols-continuous$(EXEEXT) \
 	sample-scols-fromfile$(EXEEXT) \
 	sample-scols-maxout$(EXEEXT)
 am__EXEEXT_24 = sample-scols-tree$(EXEEXT)
-am__EXEEXT_25 = test_fdisk_ask$(EXEEXT) \
-	test_fdisk_gpt$(EXEEXT) \
-	test_fdisk_script$(EXEEXT) \
-	test_fdisk_utils$(EXEEXT) \
-	test_fdisk_version$(EXEEXT) \
-	test_fdisk_item$(EXEEXT)
+#am__EXEEXT_25 = test_fdisk_ask$(EXEEXT) \
+#	test_fdisk_gpt$(EXEEXT) \
+#	test_fdisk_script$(EXEEXT) \
+#	test_fdisk_utils$(EXEEXT) \
+#	test_fdisk_version$(EXEEXT) \
+#	test_fdisk_item$(EXEEXT)
 am__EXEEXT_26 = sample-fdisk-mkpart$(EXEEXT) \
 	sample-fdisk-mkpart-fullspec$(EXEEXT)
 am__EXEEXT_27 = test_more$(EXEEXT)
@@ -1293,7 +1293,7 @@ am__EXEEXT_33 = test_uuidd$(EXEEXT)
 am__EXEEXT_34 = test_mkfs_minix$(EXEEXT)
 am__EXEEXT_35 = agetty$(EXEEXT)
 am__EXEEXT_36 = sulogin$(EXEEXT)
-am__EXEEXT_37 = nologin$(EXEEXT)
+#am__EXEEXT_37 = nologin$(EXEEXT)
 #am__EXEEXT_38 = runuser$(EXEEXT)
 am__EXEEXT_39 = fstrim$(EXEEXT)
 am__EXEEXT_40 = ctrlaltdel$(EXEEXT)
@@ -1319,8 +1319,8 @@ am__EXEEXT_58 = mkswap$(EXEEXT)
 am__EXEEXT_59 = swaplabel$(EXEEXT)
 am__EXEEXT_60 = fsck$(EXEEXT)
 am__EXEEXT_61 = raw$(EXEEXT)
-#am__EXEEXT_62 = fsck.cramfs$(EXEEXT) \
-#	mkfs.cramfs$(EXEEXT)
+am__EXEEXT_62 = fsck.cramfs$(EXEEXT) \
+	mkfs.cramfs$(EXEEXT)
 am__EXEEXT_63 = blockdev$(EXEEXT)
 am__EXEEXT_64 = fdisk$(EXEEXT)
 #am__EXEEXT_65 = fdisk.static$(EXEEXT)
@@ -1684,14 +1684,14 @@ fsck_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am__fsck_cramfs_SOURCES_DIST = disk-utils/fsck.cramfs.c \
 	disk-utils/cramfs.h disk-utils/cramfs_common.c
-#am__objects_22 =  \
-#	disk-utils/cramfs_common.$(OBJEXT)
-#am_fsck_cramfs_OBJECTS =  \
-#	disk-utils/fsck.cramfs.$(OBJEXT) \
-#	$(am__objects_22)
+am__objects_22 =  \
+	disk-utils/cramfs_common.$(OBJEXT)
+am_fsck_cramfs_OBJECTS =  \
+	disk-utils/fsck.cramfs.$(OBJEXT) \
+	$(am__objects_22)
 fsck_cramfs_OBJECTS = $(am_fsck_cramfs_OBJECTS)
-#fsck_cramfs_DEPENDENCIES = $(am__DEPENDENCIES_4) \
-#	libcommon.la
+fsck_cramfs_DEPENDENCIES = $(am__DEPENDENCIES_4) \
+	libcommon.la
 am__fsck_minix_SOURCES_DIST = disk-utils/fsck.minix.c \
 	disk-utils/minix_programs.h
 am_fsck_minix_OBJECTS =  \
@@ -1795,10 +1795,10 @@ am_logger_OBJECTS =  \
 	lib/logger-strutils.$(OBJEXT) \
 	lib/logger-strv.$(OBJEXT)
 logger_OBJECTS = $(am_logger_OBJECTS)
-#am__DEPENDENCIES_10 =  \
-#	$(am__DEPENDENCIES_1) \
-#	$(am__DEPENDENCIES_1) \
-#	$(am__DEPENDENCIES_1)
+am__DEPENDENCIES_10 =  \
+	$(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 logger_DEPENDENCIES = $(am__DEPENDENCIES_4) \
 	$(am__DEPENDENCIES_10)
 logger_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
@@ -1883,9 +1883,9 @@ am_lslogins_OBJECTS =  \
 	login-utils/lslogins-lslogins.$(OBJEXT) \
 	login-utils/lslogins-logindefs.$(OBJEXT)
 lslogins_OBJECTS = $(am_lslogins_OBJECTS)
-#am__DEPENDENCIES_12 =  \
-#	$(am__DEPENDENCIES_1) \
-#	$(am__DEPENDENCIES_1)
+am__DEPENDENCIES_12 =  \
+	$(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 lslogins_DEPENDENCIES = $(am__DEPENDENCIES_4) \
 	libcommon.la libsmartcols.la \
 	$(am__DEPENDENCIES_1) \
@@ -1932,12 +1932,12 @@ mkfs_bfs_DEPENDENCIES = $(am__DEPENDENCIES_4) \
 	libcommon.la
 am__mkfs_cramfs_SOURCES_DIST = disk-utils/mkfs.cramfs.c \
 	disk-utils/cramfs.h disk-utils/cramfs_common.c
-#am_mkfs_cramfs_OBJECTS =  \
-#	disk-utils/mkfs.cramfs.$(OBJEXT) \
-#	$(am__objects_22)
+am_mkfs_cramfs_OBJECTS =  \
+	disk-utils/mkfs.cramfs.$(OBJEXT) \
+	$(am__objects_22)
 mkfs_cramfs_OBJECTS = $(am_mkfs_cramfs_OBJECTS)
-#mkfs_cramfs_DEPENDENCIES = $(am__DEPENDENCIES_4) \
-#	libcommon.la
+mkfs_cramfs_DEPENDENCIES = $(am__DEPENDENCIES_4) \
+	libcommon.la
 am__mkfs_minix_SOURCES_DIST = disk-utils/minix_programs.h \
 	disk-utils/mkfs.minix.c
 am_mkfs_minix_OBJECTS =  \
@@ -2016,8 +2016,8 @@ newgrp_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(newgrp_CFLAGS) $(CFLAGS) \
 	$(newgrp_LDFLAGS) $(LDFLAGS) -o $@
 am__nologin_SOURCES_DIST = login-utils/nologin.c
-am_nologin_OBJECTS =  \
-	login-utils/nologin.$(OBJEXT)
+#am_nologin_OBJECTS =  \
+#	login-utils/nologin.$(OBJEXT)
 nologin_OBJECTS = $(am_nologin_OBJECTS)
 nologin_LDADD = $(LDADD)
 nologin_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -2393,93 +2393,93 @@ test_blkdev_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(test_blkdev_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_cache_SOURCES_DIST = libblkid/src/cache.c
-am_test_blkid_cache_OBJECTS = libblkid/src/test_blkid_cache-cache.$(OBJEXT)
+#am_test_blkid_cache_OBJECTS = libblkid/src/test_blkid_cache-cache.$(OBJEXT)
 test_blkid_cache_OBJECTS = $(am_test_blkid_cache_OBJECTS)
-am__DEPENDENCIES_22 = $(am__DEPENDENCIES_4)
-am__DEPENDENCIES_23 =  \
-	libblkid.la \
-	$(am__DEPENDENCIES_22)
-test_blkid_cache_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#am__DEPENDENCIES_22 = $(am__DEPENDENCIES_4)
+#am__DEPENDENCIES_23 =  \
+#	libblkid.la \
+#	$(am__DEPENDENCIES_22)
+#test_blkid_cache_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_cache_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_cache_CFLAGS) $(CFLAGS) \
 	$(test_blkid_cache_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_config_SOURCES_DIST = libblkid/src/config.c
-am_test_blkid_config_OBJECTS = libblkid/src/test_blkid_config-config.$(OBJEXT)
+#am_test_blkid_config_OBJECTS = libblkid/src/test_blkid_config-config.$(OBJEXT)
 test_blkid_config_OBJECTS = $(am_test_blkid_config_OBJECTS)
-test_blkid_config_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_config_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_config_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_config_CFLAGS) $(CFLAGS) \
 	$(test_blkid_config_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_dev_SOURCES_DIST = libblkid/src/dev.c
-am_test_blkid_dev_OBJECTS = libblkid/src/test_blkid_dev-dev.$(OBJEXT)
+#am_test_blkid_dev_OBJECTS = libblkid/src/test_blkid_dev-dev.$(OBJEXT)
 test_blkid_dev_OBJECTS = $(am_test_blkid_dev_OBJECTS)
-test_blkid_dev_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_dev_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_dev_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_dev_CFLAGS) $(CFLAGS) $(test_blkid_dev_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_blkid_devname_SOURCES_DIST = libblkid/src/devname.c
-am_test_blkid_devname_OBJECTS = libblkid/src/test_blkid_devname-devname.$(OBJEXT)
+#am_test_blkid_devname_OBJECTS = libblkid/src/test_blkid_devname-devname.$(OBJEXT)
 test_blkid_devname_OBJECTS = $(am_test_blkid_devname_OBJECTS)
-test_blkid_devname_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_devname_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_devname_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_devname_CFLAGS) $(CFLAGS) \
 	$(test_blkid_devname_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_devno_SOURCES_DIST = libblkid/src/devno.c
-am_test_blkid_devno_OBJECTS = libblkid/src/test_blkid_devno-devno.$(OBJEXT)
+#am_test_blkid_devno_OBJECTS = libblkid/src/test_blkid_devno-devno.$(OBJEXT)
 test_blkid_devno_OBJECTS = $(am_test_blkid_devno_OBJECTS)
-test_blkid_devno_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_devno_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_devno_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_devno_CFLAGS) $(CFLAGS) \
 	$(test_blkid_devno_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_evaluate_SOURCES_DIST = libblkid/src/evaluate.c
-am_test_blkid_evaluate_OBJECTS = libblkid/src/test_blkid_evaluate-evaluate.$(OBJEXT)
+#am_test_blkid_evaluate_OBJECTS = libblkid/src/test_blkid_evaluate-evaluate.$(OBJEXT)
 test_blkid_evaluate_OBJECTS = $(am_test_blkid_evaluate_OBJECTS)
-test_blkid_evaluate_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_evaluate_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_evaluate_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_evaluate_CFLAGS) $(CFLAGS) \
 	$(test_blkid_evaluate_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_read_SOURCES_DIST = libblkid/src/read.c
-am_test_blkid_read_OBJECTS = libblkid/src/test_blkid_read-read.$(OBJEXT)
+#am_test_blkid_read_OBJECTS = libblkid/src/test_blkid_read-read.$(OBJEXT)
 test_blkid_read_OBJECTS = $(am_test_blkid_read_OBJECTS)
-test_blkid_read_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_read_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_read_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_read_CFLAGS) $(CFLAGS) $(test_blkid_read_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_blkid_resolve_SOURCES_DIST = libblkid/src/resolve.c
-am_test_blkid_resolve_OBJECTS = libblkid/src/test_blkid_resolve-resolve.$(OBJEXT)
+#am_test_blkid_resolve_OBJECTS = libblkid/src/test_blkid_resolve-resolve.$(OBJEXT)
 test_blkid_resolve_OBJECTS = $(am_test_blkid_resolve_OBJECTS)
-test_blkid_resolve_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_resolve_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_resolve_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_resolve_CFLAGS) $(CFLAGS) \
 	$(test_blkid_resolve_LDFLAGS) $(LDFLAGS) -o $@
 am__test_blkid_save_SOURCES_DIST = libblkid/src/save.c
-am_test_blkid_save_OBJECTS = libblkid/src/test_blkid_save-save.$(OBJEXT)
+#am_test_blkid_save_OBJECTS = libblkid/src/test_blkid_save-save.$(OBJEXT)
 test_blkid_save_OBJECTS = $(am_test_blkid_save_OBJECTS)
-test_blkid_save_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_save_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_save_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_save_CFLAGS) $(CFLAGS) $(test_blkid_save_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_blkid_tag_SOURCES_DIST = libblkid/src/tag.c
-am_test_blkid_tag_OBJECTS = libblkid/src/test_blkid_tag-tag.$(OBJEXT)
+#am_test_blkid_tag_OBJECTS = libblkid/src/test_blkid_tag-tag.$(OBJEXT)
 test_blkid_tag_OBJECTS = $(am_test_blkid_tag_OBJECTS)
-test_blkid_tag_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_tag_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_tag_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_tag_CFLAGS) $(CFLAGS) $(test_blkid_tag_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_blkid_verify_SOURCES_DIST = libblkid/src/verify.c
-am_test_blkid_verify_OBJECTS = libblkid/src/test_blkid_verify-verify.$(OBJEXT)
+#am_test_blkid_verify_OBJECTS = libblkid/src/test_blkid_verify-verify.$(OBJEXT)
 test_blkid_verify_OBJECTS = $(am_test_blkid_verify_OBJECTS)
-test_blkid_verify_DEPENDENCIES = $(am__DEPENDENCIES_23)
+#test_blkid_verify_DEPENDENCIES = $(am__DEPENDENCIES_23)
 test_blkid_verify_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_blkid_verify_CFLAGS) $(CFLAGS) \
@@ -2545,52 +2545,52 @@ test_dmesg_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(test_dmesg_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am__test_fdisk_ask_SOURCES_DIST = libfdisk/src/ask.c
-am_test_fdisk_ask_OBJECTS = libfdisk/src/test_fdisk_ask-ask.$(OBJEXT)
+#am_test_fdisk_ask_OBJECTS = libfdisk/src/test_fdisk_ask-ask.$(OBJEXT)
 test_fdisk_ask_OBJECTS = $(am_test_fdisk_ask_OBJECTS)
-am__DEPENDENCIES_26 =  \
-	libfdisk.la \
-	$(am__DEPENDENCIES_4)
-test_fdisk_ask_DEPENDENCIES = $(am__DEPENDENCIES_26)
+#am__DEPENDENCIES_26 =  \
+#	libfdisk.la \
+#	$(am__DEPENDENCIES_4)
+#test_fdisk_ask_DEPENDENCIES = $(am__DEPENDENCIES_26)
 test_fdisk_ask_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_fdisk_ask_CFLAGS) $(CFLAGS) $(test_fdisk_ask_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_fdisk_gpt_SOURCES_DIST = libfdisk/src/gpt.c
-am_test_fdisk_gpt_OBJECTS = libfdisk/src/test_fdisk_gpt-gpt.$(OBJEXT)
+#am_test_fdisk_gpt_OBJECTS = libfdisk/src/test_fdisk_gpt-gpt.$(OBJEXT)
 test_fdisk_gpt_OBJECTS = $(am_test_fdisk_gpt_OBJECTS)
-test_fdisk_gpt_DEPENDENCIES = $(am__DEPENDENCIES_26)
+#test_fdisk_gpt_DEPENDENCIES = $(am__DEPENDENCIES_26)
 test_fdisk_gpt_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_fdisk_gpt_CFLAGS) $(CFLAGS) $(test_fdisk_gpt_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_fdisk_item_SOURCES_DIST = libfdisk/src/item.c
-am_test_fdisk_item_OBJECTS = libfdisk/src/test_fdisk_item-item.$(OBJEXT)
+#am_test_fdisk_item_OBJECTS = libfdisk/src/test_fdisk_item-item.$(OBJEXT)
 test_fdisk_item_OBJECTS = $(am_test_fdisk_item_OBJECTS)
-test_fdisk_item_DEPENDENCIES = $(am__DEPENDENCIES_26)
+#test_fdisk_item_DEPENDENCIES = $(am__DEPENDENCIES_26)
 test_fdisk_item_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_fdisk_item_CFLAGS) $(CFLAGS) $(test_fdisk_item_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_fdisk_script_SOURCES_DIST = libfdisk/src/script.c
-am_test_fdisk_script_OBJECTS = libfdisk/src/test_fdisk_script-script.$(OBJEXT)
+#am_test_fdisk_script_OBJECTS = libfdisk/src/test_fdisk_script-script.$(OBJEXT)
 test_fdisk_script_OBJECTS = $(am_test_fdisk_script_OBJECTS)
-test_fdisk_script_DEPENDENCIES = $(am__DEPENDENCIES_26)
+#test_fdisk_script_DEPENDENCIES = $(am__DEPENDENCIES_26)
 test_fdisk_script_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_fdisk_script_CFLAGS) $(CFLAGS) \
 	$(test_fdisk_script_LDFLAGS) $(LDFLAGS) -o $@
 am__test_fdisk_utils_SOURCES_DIST = libfdisk/src/utils.c
-am_test_fdisk_utils_OBJECTS = libfdisk/src/test_fdisk_utils-utils.$(OBJEXT)
+#am_test_fdisk_utils_OBJECTS = libfdisk/src/test_fdisk_utils-utils.$(OBJEXT)
 test_fdisk_utils_OBJECTS = $(am_test_fdisk_utils_OBJECTS)
-test_fdisk_utils_DEPENDENCIES = $(am__DEPENDENCIES_26)
+#test_fdisk_utils_DEPENDENCIES = $(am__DEPENDENCIES_26)
 test_fdisk_utils_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_fdisk_utils_CFLAGS) $(CFLAGS) \
 	$(test_fdisk_utils_LDFLAGS) $(LDFLAGS) -o $@
 am__test_fdisk_version_SOURCES_DIST = libfdisk/src/version.c
-am_test_fdisk_version_OBJECTS = libfdisk/src/test_fdisk_version-version.$(OBJEXT)
+#am_test_fdisk_version_OBJECTS = libfdisk/src/test_fdisk_version-version.$(OBJEXT)
 test_fdisk_version_OBJECTS = $(am_test_fdisk_version_OBJECTS)
-test_fdisk_version_DEPENDENCIES = $(am__DEPENDENCIES_26)
+#test_fdisk_version_DEPENDENCIES = $(am__DEPENDENCIES_26)
 test_fdisk_version_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_fdisk_version_CFLAGS) $(CFLAGS) \
@@ -2682,95 +2682,95 @@ test_more_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(test_more_CFLAGS) \
 	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_cache_SOURCES_DIST = libmount/src/cache.c
-am_test_mount_cache_OBJECTS = libmount/src/test_mount_cache-cache.$(OBJEXT)
+#am_test_mount_cache_OBJECTS = libmount/src/test_mount_cache-cache.$(OBJEXT)
 test_mount_cache_OBJECTS = $(am_test_mount_cache_OBJECTS)
-#am__DEPENDENCIES_30 = $(am__DEPENDENCIES_1)
-am__DEPENDENCIES_31 =  \
-	libmount.la \
-	$(am__DEPENDENCIES_4) \
-	$(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_30)
-test_mount_cache_DEPENDENCIES = $(am__DEPENDENCIES_31)
+##am__DEPENDENCIES_30 = $(am__DEPENDENCIES_1)
+#am__DEPENDENCIES_31 =  \
+#	libmount.la \
+#	$(am__DEPENDENCIES_4) \
+#	$(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_30)
+#test_mount_cache_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_cache_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_cache_CFLAGS) $(CFLAGS) \
 	$(test_mount_cache_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_context_SOURCES_DIST = libmount/src/context.c
-am_test_mount_context_OBJECTS = libmount/src/test_mount_context-context.$(OBJEXT)
+#am_test_mount_context_OBJECTS = libmount/src/test_mount_context-context.$(OBJEXT)
 test_mount_context_OBJECTS = $(am_test_mount_context_OBJECTS)
-test_mount_context_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_context_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_context_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_context_CFLAGS) $(CFLAGS) \
 	$(test_mount_context_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_debug_SOURCES_DIST = libmount/src/init.c
-am_test_mount_debug_OBJECTS = libmount/src/test_mount_debug-init.$(OBJEXT)
+#am_test_mount_debug_OBJECTS = libmount/src/test_mount_debug-init.$(OBJEXT)
 test_mount_debug_OBJECTS = $(am_test_mount_debug_OBJECTS)
-test_mount_debug_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_debug_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_debug_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_debug_CFLAGS) $(CFLAGS) \
 	$(test_mount_debug_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_lock_SOURCES_DIST = libmount/src/lock.c
-am_test_mount_lock_OBJECTS = libmount/src/test_mount_lock-lock.$(OBJEXT)
+#am_test_mount_lock_OBJECTS = libmount/src/test_mount_lock-lock.$(OBJEXT)
 test_mount_lock_OBJECTS = $(am_test_mount_lock_OBJECTS)
-test_mount_lock_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_lock_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_lock_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_lock_CFLAGS) $(CFLAGS) $(test_mount_lock_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_mount_monitor_SOURCES_DIST = libmount/src/monitor.c
-am_test_mount_monitor_OBJECTS = libmount/src/test_mount_monitor-monitor.$(OBJEXT)
+#am_test_mount_monitor_OBJECTS = libmount/src/test_mount_monitor-monitor.$(OBJEXT)
 test_mount_monitor_OBJECTS = $(am_test_mount_monitor_OBJECTS)
-test_mount_monitor_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_monitor_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_monitor_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_monitor_CFLAGS) $(CFLAGS) \
 	$(test_mount_monitor_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_optstr_SOURCES_DIST = libmount/src/optstr.c
-am_test_mount_optstr_OBJECTS = libmount/src/test_mount_optstr-optstr.$(OBJEXT)
+#am_test_mount_optstr_OBJECTS = libmount/src/test_mount_optstr-optstr.$(OBJEXT)
 test_mount_optstr_OBJECTS = $(am_test_mount_optstr_OBJECTS)
-test_mount_optstr_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_optstr_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_optstr_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_optstr_CFLAGS) $(CFLAGS) \
 	$(test_mount_optstr_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_tab_SOURCES_DIST = libmount/src/tab.c
-am_test_mount_tab_OBJECTS = libmount/src/test_mount_tab-tab.$(OBJEXT)
+#am_test_mount_tab_OBJECTS = libmount/src/test_mount_tab-tab.$(OBJEXT)
 test_mount_tab_OBJECTS = $(am_test_mount_tab_OBJECTS)
-test_mount_tab_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_tab_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_tab_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_tab_CFLAGS) $(CFLAGS) $(test_mount_tab_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__test_mount_tab_diff_SOURCES_DIST = libmount/src/tab_diff.c
-am_test_mount_tab_diff_OBJECTS = libmount/src/test_mount_tab_diff-tab_diff.$(OBJEXT)
+#am_test_mount_tab_diff_OBJECTS = libmount/src/test_mount_tab_diff-tab_diff.$(OBJEXT)
 test_mount_tab_diff_OBJECTS = $(am_test_mount_tab_diff_OBJECTS)
-test_mount_tab_diff_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_tab_diff_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_tab_diff_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_tab_diff_CFLAGS) $(CFLAGS) \
 	$(test_mount_tab_diff_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_tab_update_SOURCES_DIST = libmount/src/tab_update.c
-am_test_mount_tab_update_OBJECTS = libmount/src/test_mount_tab_update-tab_update.$(OBJEXT)
+#am_test_mount_tab_update_OBJECTS = libmount/src/test_mount_tab_update-tab_update.$(OBJEXT)
 test_mount_tab_update_OBJECTS = $(am_test_mount_tab_update_OBJECTS)
-test_mount_tab_update_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_tab_update_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_tab_update_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_tab_update_CFLAGS) $(CFLAGS) \
 	$(test_mount_tab_update_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_utils_SOURCES_DIST = libmount/src/utils.c
-am_test_mount_utils_OBJECTS = libmount/src/test_mount_utils-utils.$(OBJEXT)
+#am_test_mount_utils_OBJECTS = libmount/src/test_mount_utils-utils.$(OBJEXT)
 test_mount_utils_OBJECTS = $(am_test_mount_utils_OBJECTS)
-test_mount_utils_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_utils_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_utils_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_utils_CFLAGS) $(CFLAGS) \
 	$(test_mount_utils_LDFLAGS) $(LDFLAGS) -o $@
 am__test_mount_version_SOURCES_DIST = libmount/src/version.c
-am_test_mount_version_OBJECTS = libmount/src/test_mount_version-version.$(OBJEXT)
+#am_test_mount_version_OBJECTS = libmount/src/test_mount_version-version.$(OBJEXT)
 test_mount_version_OBJECTS = $(am_test_mount_version_OBJECTS)
-test_mount_version_DEPENDENCIES = $(am__DEPENDENCIES_31)
+#test_mount_version_DEPENDENCIES = $(am__DEPENDENCIES_31)
 test_mount_version_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
 	$(test_mount_version_CFLAGS) $(CFLAGS) \
@@ -2968,9 +2968,9 @@ am_uuidd_OBJECTS = misc-utils/uuidd-uuidd.$(OBJEXT) \
 	lib/uuidd-monotonic.$(OBJEXT) \
 	lib/uuidd-timer.$(OBJEXT)
 uuidd_OBJECTS = $(am_uuidd_OBJECTS)
-#am__DEPENDENCIES_37 =  \
-#	$(am__DEPENDENCIES_1) \
-#	$(am__DEPENDENCIES_1)
+am__DEPENDENCIES_37 =  \
+	$(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 uuidd_DEPENDENCIES = $(am__DEPENDENCIES_4) \
 	libuuid.la libcommon.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_37)
@@ -3558,14 +3558,14 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /mnt/lfs/sources/util-linux-2.32.1/config/missing aclocal-1.15
-ADJTIME_PATH = /etc/adjtime
+ACLOCAL = ${SHELL} /sources/util-linux-2.32.1/config/missing aclocal-1.15
+ADJTIME_PATH = /var/lib/hwclock/adjtime
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = ar
-AUTOCONF = ${SHELL} /mnt/lfs/sources/util-linux-2.32.1/config/missing autoconf
-AUTOHEADER = ${SHELL} /mnt/lfs/sources/util-linux-2.32.1/config/missing autoheader
-AUTOMAKE = ${SHELL} /mnt/lfs/sources/util-linux-2.32.1/config/missing automake-1.15
+AUTOCONF = ${SHELL} /sources/util-linux-2.32.1/config/missing autoconf
+AUTOHEADER = ${SHELL} /sources/util-linux-2.32.1/config/missing autoheader
+AUTOMAKE = ${SHELL} /sources/util-linux-2.32.1/config/missing automake-1.15
 AWK = gawk
 BSD_WARN_CFLAGS =  -Wno-clobbered
 CC = gcc
@@ -3584,23 +3584,23 @@ DUMPBIN =
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
-EGREP = /tools/bin/grep -E
+EGREP = /bin/grep -E
 EXEEXT = 
-FGREP = /tools/bin/grep -F
+FGREP = /bin/grep -F
 GETTEXT_MACRO_VERSION = 0.18
-GMSGFMT = /tools/bin/msgfmt
-GMSGFMT_015 = /tools/bin/msgfmt
-GREP = /tools/bin/grep
+GMSGFMT = /usr/bin/msgfmt
+GMSGFMT_015 = /usr/bin/msgfmt
+GREP = /bin/grep
 GTKDOC_CHECK = 
 HTML_DIR = ${datadir}/gtk-doc/html
-INSTALL = /tools/bin/install -c
+INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 INTLLIBS = 
 INTL_MACOSX_LIBS = 
-LD = /mnt/lfs/tools/x86_64-pc-linux-gnu/bin/ld -m elf_x86_64
+LD = /usr/bin/ld -m elf_x86_64
 LDFLAGS = 
 LIBBLKID_DATE = 16-Jul-2018
 LIBBLKID_VERSION = 2.32.1
@@ -3633,22 +3633,22 @@ LTLIBICONV = -liconv
 LTLIBINTL = 
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-MAKEINFO = ${SHELL} /mnt/lfs/sources/util-linux-2.32.1/config/missing makeinfo
+MAKEINFO = ${SHELL} /sources/util-linux-2.32.1/config/missing makeinfo
 MANIFEST_TOOL = :
 MATH_LIBS = 
-MKDIR_P = /tools/bin/mkdir -p
-MSGFMT = /tools/bin/msgfmt
-MSGFMT_015 = /tools/bin/msgfmt
-MSGMERGE = /tools/bin/msgmerge
+MKDIR_P = /bin/mkdir -p
+MSGFMT = /usr/bin/msgfmt
+MSGFMT_015 = /usr/bin/msgfmt
+MSGMERGE = /usr/bin/msgmerge
 NCURSES5_CONFIG = 
 NCURSES6_CONFIG = 
 NCURSESW5_CONFIG = 
 NCURSESW6_CONFIG = ncursesw6-config
 NCURSESW_CFLAGS = 
 NCURSESW_LIBS = 
-NCURSES_CFLAGS = -D_GNU_SOURCE -D_DEFAULT_SOURCE -I/tools/include
-NCURSES_LIBS = -L/tools/lib -lncursesw
-NM = /tools/bin/nm -B
+NCURSES_CFLAGS = -D_GNU_SOURCE -D_DEFAULT_SOURCE
+NCURSES_LIBS = -lncursesw
+NM = /usr/bin/nm -B
 NMEDIT = 
 NO_UNUSED_WARN_CFLAGS =  -Wno-unused-parameter
 OBJDUMP = objdump
@@ -3663,7 +3663,7 @@ PACKAGE_TARNAME = util-linux
 PACKAGE_URL = http://www.kernel.org/pub/linux/utils/util-linux/
 PACKAGE_VERSION = 2.32.1
 PATH_SEPARATOR = :
-PKG_CONFIG = 
+PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
 POSUB = po
@@ -3675,11 +3675,11 @@ PYTHON_PLATFORM =
 PYTHON_PREFIX = 
 PYTHON_VERSION = 
 RANLIB = ranlib
-READLINE_LIBS = 
-READLINE_LIBS_STATIC = 
+READLINE_LIBS = -lreadline
+READLINE_LIBS_STATIC = -lreadline 
 REALTIME_LIBS = -lrt
 RTAS_LIBS = 
-SED = /tools/bin/sed
+SED = /bin/sed
 SELINUX_CFLAGS = 
 SELINUX_LIBS = 
 SELINUX_LIBS_STATIC = 
@@ -3696,7 +3696,7 @@ SYSTEMD_DAEMON_CFLAGS =
 SYSTEMD_DAEMON_LIBS = 
 SYSTEMD_JOURNAL_CFLAGS = 
 SYSTEMD_JOURNAL_LIBS = 
-SYSTEMD_LIBS = 
+SYSTEMD_LIBS = -lsystemd
 TINFOW_CFLAGS = 
 TINFOW_LIBS = 
 TINFO_CFLAGS = 
@@ -3706,16 +3706,16 @@ USE_NLS = yes
 VERSION = 2.32.1
 VSCRIPT_LDFLAGS = -Wl,--version-script
 WARN_CFLAGS =  -fno-common -Wall -Werror=sequence-point -Wextra -Wmissing-declarations -Wmissing-parameter-type -Wmissing-prototypes -Wno-missing-field-initializers -Wredundant-decls -Wsign-compare -Wtype-limits -Wuninitialized -Wunused-but-set-parameter -Wunused-but-set-variable -Wunused-parameter -Wunused-result -Wunused-variable -Wnested-externs -Wpointer-arith -Wstrict-prototypes -Wimplicit-function-declaration
-XGETTEXT = /tools/bin/xgettext
-XGETTEXT_015 = /tools/bin/xgettext
+XGETTEXT = /usr/bin/xgettext
+XGETTEXT_015 = /usr/bin/xgettext
 XGETTEXT_EXTRA_OPTIONS = 
 XSLTPROC = 
 YACC = bison -y
 YFLAGS = 
-abs_builddir = /mnt/lfs/sources/util-linux-2.32.1
-abs_srcdir = /mnt/lfs/sources/util-linux-2.32.1
-abs_top_builddir = /mnt/lfs/sources/util-linux-2.32.1
-abs_top_srcdir = /mnt/lfs/sources/util-linux-2.32.1
+abs_builddir = /sources/util-linux-2.32.1
+abs_srcdir = /sources/util-linux-2.32.1
+abs_top_builddir = /sources/util-linux-2.32.1
+abs_top_srcdir = /sources/util-linux-2.32.1
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -3725,7 +3725,7 @@ am__quote =
 am__tar = tar --format=posix -chf - "$$tardir"
 am__untar = tar -xf -
 bashcompletiondir = ${datarootdir}/bash-completion/completions
-bindir = ${exec_prefix}/bin
+bindir = /bin
 build = x86_64-pc-linux-gnu
 build_alias = 
 build_cpu = x86_64
@@ -3734,7 +3734,7 @@ build_vendor = pc
 builddir = .
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
-docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
+docdir = /usr/share/doc/util-linux-2.32.1
 dvidir = ${docdir}
 exec_prefix = ${prefix}
 host = x86_64-pc-linux-gnu
@@ -3745,8 +3745,8 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /mnt/lfs/sources/util-linux-2.32.1/config/install-sh
-libdir = ${exec_prefix}/lib
+install_sh = ${SHELL} /sources/util-linux-2.32.1/config/install-sh
+libdir = /lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
@@ -3756,17 +3756,17 @@ oldincludedir = /usr/include
 pdfdir = ${docdir}
 pkgpyexecdir = 
 pkgpythondir = 
-prefix = /tools
+prefix = /usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 pyexecdir = 
 pythondir = 
 runstatedir = ${localstatedir}/run
-sbindir = ${exec_prefix}/sbin
+sbindir = /sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
-systemdsystemunitdir = 
+systemdsystemunitdir = /lib/systemd/system
 target_alias = 
 top_build_prefix = 
 top_builddir = .
@@ -4126,56 +4126,56 @@ libblkid_la_CFLAGS = $(AM_CFLAGS) $(SOLIB_CFLAGS) \
 libblkid_la_LDFLAGS = $(SOLIB_LDFLAGS) \
 	$(am__append_27) -version-info \
 	$(LIBBLKID_VERSION_INFO)
-blkid_tests_cflags = -DTEST_PROGRAM $(libblkid_la_CFLAGS)
-blkid_tests_ldflags = $(am__append_30) \
-	-static
-blkid_tests_ldadd =  \
-	libblkid.la \
-	$(am__append_31)
-test_blkid_cache_SOURCES = libblkid/src/cache.c
-test_blkid_cache_CFLAGS = $(blkid_tests_cflags)
-test_blkid_cache_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_cache_LDADD = $(blkid_tests_ldadd)
-test_blkid_config_SOURCES = libblkid/src/config.c
-test_blkid_config_CFLAGS = $(blkid_tests_cflags)
-test_blkid_config_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_config_LDADD = $(blkid_tests_ldadd)
-test_blkid_dev_SOURCES = libblkid/src/dev.c
-test_blkid_dev_CFLAGS = $(blkid_tests_cflags)
-test_blkid_dev_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_dev_LDADD = $(blkid_tests_ldadd)
-test_blkid_devname_SOURCES = libblkid/src/devname.c
-test_blkid_devname_CFLAGS = $(blkid_tests_cflags)
-test_blkid_devname_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_devname_LDADD = $(blkid_tests_ldadd)
-test_blkid_devno_SOURCES = libblkid/src/devno.c
-test_blkid_devno_CFLAGS = $(blkid_tests_cflags)
-test_blkid_devno_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_devno_LDADD = $(blkid_tests_ldadd)
-test_blkid_evaluate_SOURCES = libblkid/src/evaluate.c
-test_blkid_evaluate_CFLAGS = $(blkid_tests_cflags)
-test_blkid_evaluate_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_evaluate_LDADD = $(blkid_tests_ldadd)
-test_blkid_read_SOURCES = libblkid/src/read.c
-test_blkid_read_CFLAGS = $(blkid_tests_cflags)
-test_blkid_read_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_read_LDADD = $(blkid_tests_ldadd)
-test_blkid_resolve_SOURCES = libblkid/src/resolve.c
-test_blkid_resolve_CFLAGS = $(blkid_tests_cflags)
-test_blkid_resolve_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_resolve_LDADD = $(blkid_tests_ldadd)
-test_blkid_save_SOURCES = libblkid/src/save.c
-test_blkid_save_CFLAGS = $(blkid_tests_cflags)
-test_blkid_save_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_save_LDADD = $(blkid_tests_ldadd)
-test_blkid_tag_SOURCES = libblkid/src/tag.c
-test_blkid_tag_CFLAGS = $(blkid_tests_cflags)
-test_blkid_tag_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_tag_LDADD = $(blkid_tests_ldadd)
-test_blkid_verify_SOURCES = libblkid/src/verify.c
-test_blkid_verify_CFLAGS = $(blkid_tests_cflags)
-test_blkid_verify_LDFLAGS = $(blkid_tests_ldflags)
-test_blkid_verify_LDADD = $(blkid_tests_ldadd)
+#blkid_tests_cflags = -DTEST_PROGRAM $(libblkid_la_CFLAGS)
+#blkid_tests_ldflags = $(am__append_30) \
+#	-static
+#blkid_tests_ldadd =  \
+#	libblkid.la \
+#	$(am__append_31)
+#test_blkid_cache_SOURCES = libblkid/src/cache.c
+#test_blkid_cache_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_cache_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_cache_LDADD = $(blkid_tests_ldadd)
+#test_blkid_config_SOURCES = libblkid/src/config.c
+#test_blkid_config_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_config_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_config_LDADD = $(blkid_tests_ldadd)
+#test_blkid_dev_SOURCES = libblkid/src/dev.c
+#test_blkid_dev_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_dev_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_dev_LDADD = $(blkid_tests_ldadd)
+#test_blkid_devname_SOURCES = libblkid/src/devname.c
+#test_blkid_devname_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_devname_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_devname_LDADD = $(blkid_tests_ldadd)
+#test_blkid_devno_SOURCES = libblkid/src/devno.c
+#test_blkid_devno_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_devno_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_devno_LDADD = $(blkid_tests_ldadd)
+#test_blkid_evaluate_SOURCES = libblkid/src/evaluate.c
+#test_blkid_evaluate_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_evaluate_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_evaluate_LDADD = $(blkid_tests_ldadd)
+#test_blkid_read_SOURCES = libblkid/src/read.c
+#test_blkid_read_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_read_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_read_LDADD = $(blkid_tests_ldadd)
+#test_blkid_resolve_SOURCES = libblkid/src/resolve.c
+#test_blkid_resolve_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_resolve_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_resolve_LDADD = $(blkid_tests_ldadd)
+#test_blkid_save_SOURCES = libblkid/src/save.c
+#test_blkid_save_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_save_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_save_LDADD = $(blkid_tests_ldadd)
+#test_blkid_tag_SOURCES = libblkid/src/tag.c
+#test_blkid_tag_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_tag_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_tag_LDADD = $(blkid_tests_ldadd)
+#test_blkid_verify_SOURCES = libblkid/src/verify.c
+#test_blkid_verify_CFLAGS = $(blkid_tests_cflags)
+#test_blkid_verify_LDFLAGS = $(blkid_tests_ldflags)
+#test_blkid_verify_LDADD = $(blkid_tests_ldadd)
 sample_mkfs_SOURCES = libblkid/samples/mkfs.c
 sample_mkfs_LDADD = libblkid.la $(LDADD)
 sample_mkfs_CFLAGS = $(AM_CFLAGS) -I$(ul_libblkid_incdir)
@@ -4223,57 +4223,57 @@ EXTRA_libmount_la_DEPENDENCIES = \
 libmount_la_LDFLAGS = $(SOLIB_LDFLAGS) \
 	$(am__append_42) -version-info \
 	$(LIBMOUNT_VERSION_INFO)
-libmount_tests_cflags = -DTEST_PROGRAM $(libmount_la_CFLAGS) $(NO_UNUSED_WARN_CFLAGS)
-libmount_tests_ldflags = libblkid.la -static
-libmount_tests_ldadd =  \
-	libmount.la \
-	$(LDADD) \
-	$(REALTIME_LIBS) \
-	$(am__append_46)
-test_mount_cache_SOURCES = libmount/src/cache.c
-test_mount_cache_CFLAGS = $(libmount_tests_cflags)
-test_mount_cache_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_cache_LDADD = $(libmount_tests_ldadd)
-test_mount_context_SOURCES = libmount/src/context.c
-test_mount_context_CFLAGS = $(libmount_tests_cflags)
-test_mount_context_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_context_LDADD = $(libmount_tests_ldadd)
-test_mount_lock_SOURCES = libmount/src/lock.c
-test_mount_lock_CFLAGS = $(libmount_tests_cflags)
-test_mount_lock_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_lock_LDADD = $(libmount_tests_ldadd)
-test_mount_optstr_SOURCES = libmount/src/optstr.c
-test_mount_optstr_CFLAGS = $(libmount_tests_cflags)
-test_mount_optstr_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_optstr_LDADD = $(libmount_tests_ldadd)
-test_mount_tab_SOURCES = libmount/src/tab.c
-test_mount_tab_CFLAGS = $(libmount_tests_cflags)
-test_mount_tab_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_tab_LDADD = $(libmount_tests_ldadd)
-test_mount_tab_diff_SOURCES = libmount/src/tab_diff.c
-test_mount_tab_diff_CFLAGS = $(libmount_tests_cflags)
-test_mount_tab_diff_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_tab_diff_LDADD = $(libmount_tests_ldadd)
-test_mount_monitor_SOURCES = libmount/src/monitor.c
-test_mount_monitor_CFLAGS = $(libmount_tests_cflags)
-test_mount_monitor_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_monitor_LDADD = $(libmount_tests_ldadd)
-test_mount_tab_update_SOURCES = libmount/src/tab_update.c
-test_mount_tab_update_CFLAGS = $(libmount_tests_cflags)
-test_mount_tab_update_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_tab_update_LDADD = $(libmount_tests_ldadd)
-test_mount_utils_SOURCES = libmount/src/utils.c
-test_mount_utils_CFLAGS = $(libmount_tests_cflags)
-test_mount_utils_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_utils_LDADD = $(libmount_tests_ldadd)
-test_mount_version_SOURCES = libmount/src/version.c
-test_mount_version_CFLAGS = $(libmount_tests_cflags)
-test_mount_version_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_version_LDADD = $(libmount_tests_ldadd)
-test_mount_debug_SOURCES = libmount/src/init.c
-test_mount_debug_CFLAGS = $(libmount_tests_cflags)
-test_mount_debug_LDFLAGS = $(libmount_tests_ldflags)
-test_mount_debug_LDADD = $(libmount_tests_ldadd)
+#libmount_tests_cflags = -DTEST_PROGRAM $(libmount_la_CFLAGS) $(NO_UNUSED_WARN_CFLAGS)
+#libmount_tests_ldflags = libblkid.la -static
+#libmount_tests_ldadd =  \
+#	libmount.la \
+#	$(LDADD) \
+#	$(REALTIME_LIBS) \
+#	$(am__append_46)
+#test_mount_cache_SOURCES = libmount/src/cache.c
+#test_mount_cache_CFLAGS = $(libmount_tests_cflags)
+#test_mount_cache_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_cache_LDADD = $(libmount_tests_ldadd)
+#test_mount_context_SOURCES = libmount/src/context.c
+#test_mount_context_CFLAGS = $(libmount_tests_cflags)
+#test_mount_context_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_context_LDADD = $(libmount_tests_ldadd)
+#test_mount_lock_SOURCES = libmount/src/lock.c
+#test_mount_lock_CFLAGS = $(libmount_tests_cflags)
+#test_mount_lock_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_lock_LDADD = $(libmount_tests_ldadd)
+#test_mount_optstr_SOURCES = libmount/src/optstr.c
+#test_mount_optstr_CFLAGS = $(libmount_tests_cflags)
+#test_mount_optstr_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_optstr_LDADD = $(libmount_tests_ldadd)
+#test_mount_tab_SOURCES = libmount/src/tab.c
+#test_mount_tab_CFLAGS = $(libmount_tests_cflags)
+#test_mount_tab_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_tab_LDADD = $(libmount_tests_ldadd)
+#test_mount_tab_diff_SOURCES = libmount/src/tab_diff.c
+#test_mount_tab_diff_CFLAGS = $(libmount_tests_cflags)
+#test_mount_tab_diff_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_tab_diff_LDADD = $(libmount_tests_ldadd)
+#test_mount_monitor_SOURCES = libmount/src/monitor.c
+#test_mount_monitor_CFLAGS = $(libmount_tests_cflags)
+#test_mount_monitor_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_monitor_LDADD = $(libmount_tests_ldadd)
+#test_mount_tab_update_SOURCES = libmount/src/tab_update.c
+#test_mount_tab_update_CFLAGS = $(libmount_tests_cflags)
+#test_mount_tab_update_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_tab_update_LDADD = $(libmount_tests_ldadd)
+#test_mount_utils_SOURCES = libmount/src/utils.c
+#test_mount_utils_CFLAGS = $(libmount_tests_cflags)
+#test_mount_utils_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_utils_LDADD = $(libmount_tests_ldadd)
+#test_mount_version_SOURCES = libmount/src/version.c
+#test_mount_version_CFLAGS = $(libmount_tests_cflags)
+#test_mount_version_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_version_LDADD = $(libmount_tests_ldadd)
+#test_mount_debug_SOURCES = libmount/src/init.c
+#test_mount_debug_CFLAGS = $(libmount_tests_cflags)
+#test_mount_debug_LDFLAGS = $(libmount_tests_ldflags)
+#test_mount_debug_LDADD = $(libmount_tests_ldadd)
 #pylibmountexecdir = $(pyexecdir)/libmount
 
 # Please, don't use $pythondir for the scripts. We have to use the same
@@ -4393,36 +4393,36 @@ EXTRA_libfdisk_la_DEPENDENCIES = \
 libfdisk_la_LDFLAGS = $(SOLIB_LDFLAGS) \
 	$(am__append_65) -version-info \
 	$(LIBFDISK_VERSION_INFO)
-libfdisk_tests_cflags = -DTEST_PROGRAM $(libfdisk_la_CFLAGS) $(NO_UNUSED_WARN_CFLAGS)
-libfdisk_tests_ldflags =  \
-	libuuid.la \
-	-static \
-	$(am__append_70)
-libfdisk_tests_ldadd = libfdisk.la $(LDADD)
-test_fdisk_ask_SOURCES = libfdisk/src/ask.c
-test_fdisk_ask_CFLAGS = $(libfdisk_tests_cflags)
-test_fdisk_ask_LDFLAGS = $(libfdisk_tests_ldflags)
-test_fdisk_ask_LDADD = $(libfdisk_tests_ldadd)
-test_fdisk_gpt_SOURCES = libfdisk/src/gpt.c
-test_fdisk_gpt_CFLAGS = $(libfdisk_tests_cflags)
-test_fdisk_gpt_LDFLAGS = $(libfdisk_tests_ldflags)
-test_fdisk_gpt_LDADD = $(libfdisk_tests_ldadd)
-test_fdisk_utils_SOURCES = libfdisk/src/utils.c
-test_fdisk_utils_CFLAGS = $(libfdisk_tests_cflags)
-test_fdisk_utils_LDFLAGS = $(libfdisk_tests_ldflags)
-test_fdisk_utils_LDADD = $(libfdisk_tests_ldadd)
-test_fdisk_script_SOURCES = libfdisk/src/script.c
-test_fdisk_script_CFLAGS = $(libfdisk_tests_cflags)
-test_fdisk_script_LDFLAGS = $(libfdisk_tests_ldflags)
-test_fdisk_script_LDADD = $(libfdisk_tests_ldadd)
-test_fdisk_version_SOURCES = libfdisk/src/version.c
-test_fdisk_version_CFLAGS = $(libfdisk_tests_cflags)
-test_fdisk_version_LDFLAGS = $(libfdisk_tests_ldflags)
-test_fdisk_version_LDADD = $(libfdisk_tests_ldadd)
-test_fdisk_item_SOURCES = libfdisk/src/item.c
-test_fdisk_item_CFLAGS = $(libfdisk_tests_cflags)
-test_fdisk_item_LDFLAGS = $(libfdisk_tests_ldflags)
-test_fdisk_item_LDADD = $(libfdisk_tests_ldadd)
+#libfdisk_tests_cflags = -DTEST_PROGRAM $(libfdisk_la_CFLAGS) $(NO_UNUSED_WARN_CFLAGS)
+#libfdisk_tests_ldflags =  \
+#	libuuid.la \
+#	-static \
+#	$(am__append_70)
+#libfdisk_tests_ldadd = libfdisk.la $(LDADD)
+#test_fdisk_ask_SOURCES = libfdisk/src/ask.c
+#test_fdisk_ask_CFLAGS = $(libfdisk_tests_cflags)
+#test_fdisk_ask_LDFLAGS = $(libfdisk_tests_ldflags)
+#test_fdisk_ask_LDADD = $(libfdisk_tests_ldadd)
+#test_fdisk_gpt_SOURCES = libfdisk/src/gpt.c
+#test_fdisk_gpt_CFLAGS = $(libfdisk_tests_cflags)
+#test_fdisk_gpt_LDFLAGS = $(libfdisk_tests_ldflags)
+#test_fdisk_gpt_LDADD = $(libfdisk_tests_ldadd)
+#test_fdisk_utils_SOURCES = libfdisk/src/utils.c
+#test_fdisk_utils_CFLAGS = $(libfdisk_tests_cflags)
+#test_fdisk_utils_LDFLAGS = $(libfdisk_tests_ldflags)
+#test_fdisk_utils_LDADD = $(libfdisk_tests_ldadd)
+#test_fdisk_script_SOURCES = libfdisk/src/script.c
+#test_fdisk_script_CFLAGS = $(libfdisk_tests_cflags)
+#test_fdisk_script_LDFLAGS = $(libfdisk_tests_ldflags)
+#test_fdisk_script_LDADD = $(libfdisk_tests_ldadd)
+#test_fdisk_version_SOURCES = libfdisk/src/version.c
+#test_fdisk_version_CFLAGS = $(libfdisk_tests_cflags)
+#test_fdisk_version_LDFLAGS = $(libfdisk_tests_ldflags)
+#test_fdisk_version_LDADD = $(libfdisk_tests_ldadd)
+#test_fdisk_item_SOURCES = libfdisk/src/item.c
+#test_fdisk_item_CFLAGS = $(libfdisk_tests_cflags)
+#test_fdisk_item_LDFLAGS = $(libfdisk_tests_ldflags)
+#test_fdisk_item_LDADD = $(libfdisk_tests_ldadd)
 sample_fdisk_cflags = $(AM_CFLAGS) $(NO_UNUSED_WARN_CFLAGS) \
                       -I$(ul_libfdisk_incdir)
 
@@ -4522,7 +4522,7 @@ test_consoles_LDADD = $(LDADD) libcommon.la
 #login_LDADD = $(LDADD) libcommon.la -lpam \
 #	$(am__append_144) $(am__append_145) \
 #	$(am__append_146)
-nologin_SOURCES = login-utils/nologin.c
+#nologin_SOURCES = login-utils/nologin.c
 utmpdump_SOURCES = login-utils/utmpdump.c
 utmpdump_LDADD = $(LDADD) libcommon.la
 #chfn_chsh_sources = login-utils/ch-common.h \
@@ -4883,11 +4883,11 @@ fsck_SOURCES = disk-utils/fsck.c lib/monotonic.c
 fsck_LDADD = $(LDADD) libmount.la libblkid.la libcommon.la $(REALTIME_LIBS)
 fsck_CFLAGS = $(AM_CFLAGS) -I$(ul_libmount_incdir) -I$(ul_libblkid_incdir)
 raw_SOURCES = disk-utils/raw.c
-#cramfs_common_sources = disk-utils/cramfs.h disk-utils/cramfs_common.c
-#fsck_cramfs_SOURCES = disk-utils/fsck.cramfs.c $(cramfs_common_sources)
-#fsck_cramfs_LDADD = $(LDADD) -lz libcommon.la
-#mkfs_cramfs_SOURCES = disk-utils/mkfs.cramfs.c $(cramfs_common_sources)
-#mkfs_cramfs_LDADD = $(LDADD) -lz libcommon.la
+cramfs_common_sources = disk-utils/cramfs.h disk-utils/cramfs_common.c
+fsck_cramfs_SOURCES = disk-utils/fsck.cramfs.c $(cramfs_common_sources)
+fsck_cramfs_LDADD = $(LDADD) -lz libcommon.la
+mkfs_cramfs_SOURCES = disk-utils/mkfs.cramfs.c $(cramfs_common_sources)
+mkfs_cramfs_LDADD = $(LDADD) -lz libcommon.la
 fdformat_SOURCES = disk-utils/fdformat.c
 fdformat_LDADD = $(LDADD) libcommon.la
 blockdev_SOURCES = disk-utils/blockdev.c
@@ -12711,13 +12711,13 @@ install-exec-hook-libfdisk:
 
 uninstall-hook-libfdisk:
 	rm -f $(DESTDIR)$(libdir)/libfdisk.so*
-#install-exec-hook-wall::
-#	chgrp tty $(DESTDIR)$(usrbin_execdir)/wall
-#	chmod g+s $(DESTDIR)$(usrbin_execdir)/wall
+install-exec-hook-wall::
+	chgrp tty $(DESTDIR)$(usrbin_execdir)/wall
+	chmod g+s $(DESTDIR)$(usrbin_execdir)/wall
 
-##install-exec-hook-write::
-##	chgrp tty $(DESTDIR)$(usrbin_execdir)/write
-##	chmod g+s $(DESTDIR)$(usrbin_execdir)/write
+#install-exec-hook-write::
+#	chgrp tty $(DESTDIR)$(usrbin_execdir)/write
+#	chmod g+s $(DESTDIR)$(usrbin_execdir)/write
 
 install-exec-hook-last:
 	cd $(DESTDIR)$(usrbin_execdir) && ln -sf last lastb
@@ -12725,7 +12725,7 @@ install-exec-hook-last:
 #	cd $(DESTDIR)$(usrsbin_execdir) && ln -sf vipw vigr
 
 install-exec-hook:
-##	chown root:root $(DESTDIR)$(bindir)/su
+#	chown root:root $(DESTDIR)$(bindir)/su
 #	chmod 4755 $(DESTDIR)$(bindir)/su
 #	cd $(DESTDIR)$(usrsbin_execdir) && ln -sf vipw vigr
 
@@ -12744,9 +12744,9 @@ uninstall-hook-setarch:
 	done
 
 install-exec-hook-mount:
-#	chown root:root $(DESTDIR)$(bindir)/mount
+	chown root:root $(DESTDIR)$(bindir)/mount
 	chmod 4755 $(DESTDIR)$(bindir)/mount
-#	chown root:root $(DESTDIR)$(bindir)/umount
+	chown root:root $(DESTDIR)$(bindir)/umount
 	chmod 4755 $(DESTDIR)$(bindir)/umount
 
 #install-data-hook-bashcomp-runuser::

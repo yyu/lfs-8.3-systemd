@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-misc.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-misc.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-misc.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
++++ d=/sources/coreutils-8.30/gt-misc.sh.xsql
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x'
++++ test -d /sources/coreutils-8.30/gt-misc.sh.xsql
+++++ ls -dgo /sources/coreutils-8.30/gt-misc.sh.xsql
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-misc.sh.xsql'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
++++ echo /sources/coreutils-8.30/gt-misc.sh.xsql
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
+++ test_dir_=/sources/coreutils-8.30/gt-misc.sh.xsql
+++ cd /sources/coreutils-8.30/gt-misc.sh.xsql
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -164,7 +164,7 @@ diff -u /dev/null err
 + dd if=/dev/stdin of=dd-out
 0+1 records in
 0+1 records out
-5 bytes copied, 2.8218e-05 s, 177 kB/s
+5 bytes copied, 3.5083e-05 s, 143 kB/s
 + compare dd-in dd-out
 + compare_dev_null_ dd-in dd-out
 + test 2 = 2
@@ -180,12 +180,12 @@ diff -u /dev/null err
 + dd iflag=directory count=0
 + returns_ 1 dd iflag=directory count=0
 ++ ls -u --full-time dd-in
-+ old_ls='-rw-r--r-- 2 lfs lfs 5 2018-11-26 23:40:05.386122517 +0000 dd-in'
++ old_ls='-rw-r--r-- 2 nobody nogroup 5 2018-11-26 23:50:00.249612814 -0800 dd-in'
 + sleep 1
 + dd iflag=noatime if=dd-in of=dd-out
 ++ ls -u --full-time dd-in
-+ new_ls='-rw-r--r-- 2 lfs lfs 5 2018-11-26 23:40:05.386122517 +0000 dd-in'
-+ test 'x-rw-r--r-- 2 lfs lfs 5 2018-11-26 23:40:05.386122517 +0000 dd-in' '!=' 'x-rw-r--r-- 2 lfs lfs 5 2018-11-26 23:40:05.386122517 +0000 dd-in'
++ new_ls='-rw-r--r-- 2 nobody nogroup 5 2018-11-26 23:50:00.249612814 -0800 dd-in'
++ test 'x-rw-r--r-- 2 nobody nogroup 5 2018-11-26 23:50:00.249612814 -0800 dd-in' '!=' 'x-rw-r--r-- 2 nobody nogroup 5 2018-11-26 23:50:00.249612814 -0800 dd-in'
 + dd oflag=nolinks if=dd-in of=dd-out
 ++ echo x
 ++ dd bs=3 ibs=10 obs=10 conv=sync
@@ -239,8 +239,8 @@ diff -u /dev/null err
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-misc.sh.JP8x
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-misc.sh.xsql
++ rm -rf /sources/coreutils-8.30/gt-misc.sh.xsql
 + exit 0
 PASS tests/dd/misc.sh (exit status: 0)

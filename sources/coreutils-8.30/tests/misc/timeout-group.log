@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-timeout-group.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-timeout-group.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-timeout-group.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
++++ d=/sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01'
++++ test -d /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
+++++ ls -dgo /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
++++ echo /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
+++ test_dir_=/sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
+++ cd /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -88,7 +88,7 @@ Written by Padraig Brady.
 + chmod a+x timeout.cmd
 + cat
 + chmod a+x group.sh
-+ pid=24164
++ pid=37819
 + retry_delay_ check_timeout_cmd_running .1 6
 + local test_func=check_timeout_cmd_running
 + local init_delay=.1
@@ -120,15 +120,14 @@ Written by Padraig Brady.
 + time_fail=0
 + break
 + test 0 = 0
-+ kill -INT -- -24164
++ kill -INT -- -37819
 + wait
 + test -e int.received
 + rm -f int.received timeout.running
 ++ date +%s
-+ start=1543275586
-+ pid=24177
++ start=1543304964
++ pid=37832
 + retry_delay_ check_timeout_cmd_running .1 6
-+ timeout -sALRM 30 timeout -sINT 25 ./timeout.cmd 20
 + local test_func=check_timeout_cmd_running
 + local init_delay=.1
 + local max_n_tries=6
@@ -137,6 +136,7 @@ Written by Padraig Brady.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 6
++ timeout -sALRM 30 timeout -sINT 25 ./timeout.cmd 20
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_timeout_cmd_running 0.1
@@ -158,14 +158,14 @@ Written by Padraig Brady.
 + time_fail=0
 + break
 + test 0 = 0
-+ kill -ALRM 24177
-+ wait 24177
++ kill -ALRM 37832
++ wait 37832
 + ret=124
 + test 124 -eq 124
 + test -e int.received
 ++ date +%s
-+ end=1543275586
-++ expr 1543275586 - 1543275586
++ end=1543304964
+++ expr 1543304964 - 1543304964
 + test 0 -lt 20
 + Exit 0
 + set +e
@@ -174,10 +174,10 @@ Written by Padraig Brady.
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 24177
++ kill 37832
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-timeout-group.sh.sl01
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
++ rm -rf /sources/coreutils-8.30/gt-timeout-group.sh.9B5Y
 + exit 0
 PASS tests/misc/timeout-group.sh (exit status: 0)

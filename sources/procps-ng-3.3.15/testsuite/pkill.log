@@ -1,0 +1,35 @@
+Test run by root on Tue Nov 27 07:40:19 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== pkill tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./pkill.test/pkill.exp ...
+spawn /sources/procps-ng-3.3.15/pkill
+lt-pkill: no matching criteria specified
+Try `lt-pkill --help' for more information.
+PASS: pkill with no arguments
+spawn readlink /tmp/tmp.HqwRY5w36w
+/sources/procps-ng-3.3.15//lib/test_process
+spawn /sources/procps-ng-3.3.15/pkill -0 -e spcorp
+spcorp killed (pid 68042)
+spcorp killed (pid 68043)
+PASS: pkill find both test pids
+spawn /sources/procps-ng-3.3.15/pkill -e spcorp -0
+spcorp killed (pid 68042)
+spcorp killed (pid 68043)
+PASS: pkill signal option order
+testcase ./pkill.test/pkill.exp completed in 0 seconds
+
+		=== pkill Summary ===
+
+# of expected passes		3
+/sources/procps-ng-3.3.15/pkill version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:19 2018

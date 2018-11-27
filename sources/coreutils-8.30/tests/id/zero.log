@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-zero.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-zero.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-zero.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
++++ d=/sources/coreutils-8.30/gt-zero.sh.f9aM
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB'
++++ test -d /sources/coreutils-8.30/gt-zero.sh.f9aM
+++++ ls -dgo /sources/coreutils-8.30/gt-zero.sh.f9aM
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-zero.sh.f9aM'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
++++ echo /sources/coreutils-8.30/gt-zero.sh.f9aM
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
+++ test_dir_=/sources/coreutils-8.30/gt-zero.sh.f9aM
+++ cd /sources/coreutils-8.30/gt-zero.sh.f9aM
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -79,11 +79,11 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by Arnold Robbins and David MacKenzie.
 ++ id -nu
-+ u=lfs
++ u=nobody
 + id
-uid=1001(lfs) gid=1001(lfs) groups=1001(lfs)
-+ id lfs
-uid=1001(lfs) gid=1001(lfs) groups=1001(lfs)
+uid=99(nobody) gid=99(nogroup) groups=99(nogroup),1000(dummy)
++ id nobody
+uid=99(nobody) gid=99(nogroup) groups=99(nogroup),1000(dummy)
 + echo 'id: option --zero not permitted in default format'
 + id --zero
 + compare /dev/null out
@@ -102,101 +102,99 @@ uid=1001(lfs) gid=1001(lfs) groups=1001(lfs)
 + case $? in
 + compare_ err-exp err
 + diff -u err-exp err
-+ users=lfs
++ users=nobody
 + for u in root man postfix sshd nobody
 + id root
-+ users='lfs root'
++ users='nobody root'
 + for u in root man postfix sshd nobody
 + id man
-+ users='lfs root man'
 + for u in root man postfix sshd nobody
 + id postfix
 + for u in root man postfix sshd nobody
 + id sshd
-+ users='lfs root man sshd'
 + for u in root man postfix sshd nobody
 + id nobody
-+ users='lfs root man sshd nobody'
-+ printf '%s\n' lfs root man sshd nobody ''
++ users='nobody root nobody'
++ printf '%s\n' nobody root nobody ''
 + printf '\n'
 + read u
 + for o in g gr G Gr u ur
 + for n in '' n
-+ printf '%s: ' 'id -g[z] lfs'
-+ printf '\n%s: ' 'id -g[z] lfs'
-+ id -g lfs
-+ id -gz lfs
++ printf '%s: ' 'id -g[z] nobody'
++ printf '\n%s: ' 'id -g[z] nobody'
++ id -g nobody
++ id -gz nobody
 + head -c-1
 + for n in '' n
-+ printf '%s: ' 'id -gn[z] lfs'
-+ printf '\n%s: ' 'id -gn[z] lfs'
-+ id -gn lfs
-+ id -gnz lfs
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -gr[z] lfs'
-+ printf '\n%s: ' 'id -gr[z] lfs'
-+ id -gr lfs
-+ id -grz lfs
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -grn[z] lfs'
-+ printf '\n%s: ' 'id -grn[z] lfs'
-+ id -grn lfs
-+ id -grnz lfs
++ printf '%s: ' 'id -gn[z] nobody'
++ printf '\n%s: ' 'id -gn[z] nobody'
++ id -gn nobody
++ id -gnz nobody
 + head -c-1
 + for o in g gr G Gr u ur
 + for n in '' n
-+ printf '%s: ' 'id -G[z] lfs'
-+ printf '\n%s: ' 'id -G[z] lfs'
-+ id -G lfs
-+ id -Gz lfs
++ printf '%s: ' 'id -gr[z] nobody'
++ printf '\n%s: ' 'id -gr[z] nobody'
++ id -gr nobody
++ id -grz nobody
 + head -c-1
 + for n in '' n
-+ printf '%s: ' 'id -Gn[z] lfs'
-+ printf '\n%s: ' 'id -Gn[z] lfs'
-+ id -Gn lfs
-+ id -Gnz lfs
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -Gr[z] lfs'
-+ printf '\n%s: ' 'id -Gr[z] lfs'
-+ id -Gr lfs
-+ id -Grz lfs
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -Grn[z] lfs'
-+ printf '\n%s: ' 'id -Grn[z] lfs'
-+ id -Grn lfs
-+ id -Grnz lfs
++ printf '%s: ' 'id -grn[z] nobody'
++ printf '\n%s: ' 'id -grn[z] nobody'
++ id -grn nobody
++ id -grnz nobody
 + head -c-1
 + for o in g gr G Gr u ur
 + for n in '' n
-+ printf '%s: ' 'id -u[z] lfs'
-+ printf '\n%s: ' 'id -u[z] lfs'
-+ id -u lfs
-+ id -uz lfs
++ printf '%s: ' 'id -G[z] nobody'
++ printf '\n%s: ' 'id -G[z] nobody'
++ id -G nobody
++ id -Gz nobody
 + head -c-1
 + for n in '' n
-+ printf '%s: ' 'id -un[z] lfs'
-+ printf '\n%s: ' 'id -un[z] lfs'
-+ id -un lfs
-+ id -unz lfs
++ printf '%s: ' 'id -Gn[z] nobody'
++ printf '\n%s: ' 'id -Gn[z] nobody'
++ id -Gn nobody
++ id -Gnz nobody
 + head -c-1
 + for o in g gr G Gr u ur
 + for n in '' n
-+ printf '%s: ' 'id -ur[z] lfs'
-+ printf '\n%s: ' 'id -ur[z] lfs'
-+ id -ur lfs
-+ id -urz lfs
++ printf '%s: ' 'id -Gr[z] nobody'
++ printf '\n%s: ' 'id -Gr[z] nobody'
++ id -Gr nobody
++ id -Grz nobody
 + head -c-1
 + for n in '' n
-+ printf '%s: ' 'id -urn[z] lfs'
-+ printf '\n%s: ' 'id -urn[z] lfs'
-+ id -urn lfs
-+ id -urnz lfs
++ printf '%s: ' 'id -Grn[z] nobody'
++ printf '\n%s: ' 'id -Grn[z] nobody'
++ id -Grn nobody
++ id -Grnz nobody
++ head -c-1
++ for o in g gr G Gr u ur
++ for n in '' n
++ printf '%s: ' 'id -u[z] nobody'
++ printf '\n%s: ' 'id -u[z] nobody'
++ id -u nobody
++ id -uz nobody
++ head -c-1
++ for n in '' n
++ printf '%s: ' 'id -un[z] nobody'
++ printf '\n%s: ' 'id -un[z] nobody'
++ id -un nobody
++ id -unz nobody
++ head -c-1
++ for o in g gr G Gr u ur
++ for n in '' n
++ printf '%s: ' 'id -ur[z] nobody'
++ printf '\n%s: ' 'id -ur[z] nobody'
++ id -ur nobody
++ id -urz nobody
++ head -c-1
++ for n in '' n
++ printf '%s: ' 'id -urn[z] nobody'
++ printf '\n%s: ' 'id -urn[z] nobody'
++ id -urn nobody
++ id -urnz nobody
 + head -c-1
 + read u
 + for o in g gr G Gr u ur
@@ -276,164 +274,6 @@ uid=1001(lfs) gid=1001(lfs) groups=1001(lfs)
 + printf '\n%s: ' 'id -urn[z] root'
 + id -urn root
 + id -urnz root
-+ head -c-1
-+ read u
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -g[z] man'
-+ printf '\n%s: ' 'id -g[z] man'
-+ id -g man
-+ id -gz man
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -gn[z] man'
-+ printf '\n%s: ' 'id -gn[z] man'
-+ id -gn man
-+ id -gnz man
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -gr[z] man'
-+ printf '\n%s: ' 'id -gr[z] man'
-+ id -gr man
-+ id -grz man
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -grn[z] man'
-+ printf '\n%s: ' 'id -grn[z] man'
-+ id -grn man
-+ id -grnz man
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -G[z] man'
-+ printf '\n%s: ' 'id -G[z] man'
-+ id -G man
-+ id -Gz man
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -Gn[z] man'
-+ printf '\n%s: ' 'id -Gn[z] man'
-+ id -Gn man
-+ id -Gnz man
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -Gr[z] man'
-+ printf '\n%s: ' 'id -Gr[z] man'
-+ id -Gr man
-+ id -Grz man
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -Grn[z] man'
-+ printf '\n%s: ' 'id -Grn[z] man'
-+ id -Grn man
-+ id -Grnz man
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -u[z] man'
-+ printf '\n%s: ' 'id -u[z] man'
-+ id -u man
-+ id -uz man
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -un[z] man'
-+ printf '\n%s: ' 'id -un[z] man'
-+ id -un man
-+ id -unz man
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -ur[z] man'
-+ printf '\n%s: ' 'id -ur[z] man'
-+ id -ur man
-+ id -urz man
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -urn[z] man'
-+ printf '\n%s: ' 'id -urn[z] man'
-+ id -urn man
-+ id -urnz man
-+ head -c-1
-+ read u
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -g[z] sshd'
-+ printf '\n%s: ' 'id -g[z] sshd'
-+ id -g sshd
-+ id -gz sshd
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -gn[z] sshd'
-+ printf '\n%s: ' 'id -gn[z] sshd'
-+ id -gn sshd
-+ id -gnz sshd
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -gr[z] sshd'
-+ printf '\n%s: ' 'id -gr[z] sshd'
-+ id -gr sshd
-+ id -grz sshd
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -grn[z] sshd'
-+ printf '\n%s: ' 'id -grn[z] sshd'
-+ id -grn sshd
-+ id -grnz sshd
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -G[z] sshd'
-+ printf '\n%s: ' 'id -G[z] sshd'
-+ id -G sshd
-+ id -Gz sshd
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -Gn[z] sshd'
-+ printf '\n%s: ' 'id -Gn[z] sshd'
-+ id -Gn sshd
-+ id -Gnz sshd
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -Gr[z] sshd'
-+ printf '\n%s: ' 'id -Gr[z] sshd'
-+ id -Gr sshd
-+ id -Grz sshd
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -Grn[z] sshd'
-+ printf '\n%s: ' 'id -Grn[z] sshd'
-+ id -Grn sshd
-+ id -Grnz sshd
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -u[z] sshd'
-+ printf '\n%s: ' 'id -u[z] sshd'
-+ id -u sshd
-+ id -uz sshd
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -un[z] sshd'
-+ printf '\n%s: ' 'id -un[z] sshd'
-+ id -un sshd
-+ id -unz sshd
-+ head -c-1
-+ for o in g gr G Gr u ur
-+ for n in '' n
-+ printf '%s: ' 'id -ur[z] sshd'
-+ printf '\n%s: ' 'id -ur[z] sshd'
-+ id -ur sshd
-+ id -urz sshd
-+ head -c-1
-+ for n in '' n
-+ printf '%s: ' 'id -urn[z] sshd'
-+ printf '\n%s: ' 'id -urn[z] sshd'
-+ id -urn sshd
-+ id -urnz sshd
 + head -c-1
 + read u
 + for o in g gr G Gr u ur
@@ -614,8 +454,8 @@ uid=1001(lfs) gid=1001(lfs) groups=1001(lfs)
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-zero.sh.h7qB
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-zero.sh.f9aM
++ rm -rf /sources/coreutils-8.30/gt-zero.sh.f9aM
 + exit 0
 PASS tests/id/zero.sh (exit status: 0)

@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-recurse.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-recurse.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-recurse.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
++++ d=/sources/coreutils-8.30/gt-recurse.sh.YOew
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc'
++++ test -d /sources/coreutils-8.30/gt-recurse.sh.YOew
+++++ ls -dgo /sources/coreutils-8.30/gt-recurse.sh.YOew
++++ perms='drwx------ 2 4096 Nov 26 23:47 /sources/coreutils-8.30/gt-recurse.sh.YOew'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
++++ echo /sources/coreutils-8.30/gt-recurse.sh.YOew
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
+++ test_dir_=/sources/coreutils-8.30/gt-recurse.sh.YOew
+++ cd /sources/coreutils-8.30/gt-recurse.sh.YOew
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -80,72 +80,60 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by David MacKenzie and Jim Meyering.
 + require_membership_in_two_groups_
 + test 0 = 0
-+ groups=1001
++ groups='99 1000'
 + case "$groups" in
-+ skip_ 'requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id' '-G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ warn_ 'recurse.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id' '-G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ case $IFS in
-+ printf '%s\n' 'recurse.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-recurse.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='users cdrom' make check
-
-
-+ test 9 = 2
-+ printf '%s\n' 'recurse.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ sed 1q
-+ Exit 77
++ require_local_dir_
++ require_mount_list_
++ local 'mount_list_fail=cannot read table of mounted file systems'
++ df --local
++ grep -F 'cannot read table of mounted file systems'
++ is_local_dir_ .
++ test 1 = 1
++ df --local .
++ set _ 99 1000
++ shift
++ g1=99
++ g2=1000
++ mkdir d e
++ touch d/dd e/ee
++ ln -s ../e d/s
++ chgrp -R 99 e/ee
++ chgrp -R 1000 d
+++ ls -ln e/ee
++ set _ -rw-r--r-- 1 99 99 0 Nov 26 23:47 e/ee
++ g=99
++ test 99 = 99
++ chgrp -L -R 1000 d
+++ ls -ln e/ee
++ set _ -rw-r--r-- 1 99 1000 0 Nov 26 23:47 e/ee
++ g=1000
++ test 1000 = 1000
++ chgrp -H -R 99 d
+++ ls -ln e/ee
++ set _ -rw-r--r-- 1 99 1000 0 Nov 26 23:47 e/ee
++ g=1000
++ test 1000 = 1000
++ ln -s d link
++ chgrp -H -R 99 link
+++ ls -ln e/ee
++ set _ -rw-r--r-- 1 99 1000 0 Nov 26 23:47 e/ee
++ g=1000
++ test 1000 = 1000
+++ ls -ln d/dd
++ set _ -rw-r--r-- 1 99 99 0 Nov 26 23:47 d/dd
++ g=99
++ test 99 = 99
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-recurse.sh.40sc
-+ exit 77
-SKIP tests/chgrp/recurse.sh (exit status: 77)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-recurse.sh.YOew
++ rm -rf /sources/coreutils-8.30/gt-recurse.sh.YOew
++ exit 0
+PASS tests/chgrp/recurse.sh (exit status: 0)

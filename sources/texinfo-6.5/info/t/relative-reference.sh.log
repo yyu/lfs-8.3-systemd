@@ -1,0 +1,140 @@
+++ srcdir=.
+++ GINFO='./ginfo --init-file ./t/Infokey-config'
+++ GINFO_NAME=ginfo
+++ infodir=./t/infodir
+++ export infodir
+++ INFOPATH=./t/infodir
+++ export INFOPATH
+++ t=./t
+++ export t
++++ basename ./t/relative-reference.sh.out
+++ GINFO_OUTPUT=t/relative-reference.sh.out
++++ basename ./t/relative-reference.sh.pipein
+++ PIPEIN=t/relative-reference.sh.pipein
++++ basename ./t/relative-reference.sh.pipeout
+++ PTY_TYPE=t/relative-reference.sh.pipeout
+++ rm -f t/relative-reference.sh.out
+++ INFO_PRINT_COMMAND='>t/relative-reference.sh.out'
+++ export INFO_PRINT_COMMAND
+++ PTY_PID=0
+++ LC_ALL=C
+++ export LC_ALL
+++ TERM=dumb
+++ export TERM
+++ STTY=true
+++ reset_required=no
+++ trap cleanup 2
++ . ./t/Init-inter.inc
+++ test -x pseudotty
+++ path_sep=:
+++ TERM=vt100
+++ export TERM
+++ findprog stty
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/stty
+++ test -x /bin/stty
+++ return 0
+++ STTY=stty
+++ reset_required=yes
+++ test yes=yes
+++ stty
+++ grep '[-]echo'
+++ rm -f t/relative-reference.sh.pipein t/relative-reference.sh.pipeout
+++ findprog mkfifo
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/mkfifo
+++ test -f /bin/mkfifo.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mkfifo
+++ test -x /usr/bin/mkfifo
+++ return 0
+++ mkfifo t/relative-reference.sh.pipein
+++ mkfifo t/relative-reference.sh.pipeout
+++ test '!' -r t/relative-reference.sh.pipein
+++ test '!' -r t/relative-reference.sh.pipeout
+++ PTY_PID=1261
+++ read PTS_DEVICE
+++ exec ./pseudotty t/relative-reference.sh.pipeout
+./pseudotty: getting pty master fd
+./pseudotty: unlocking slave device
+./pseudotty: getting file name of slave device...
+./pseudotty: /dev/pts/0
+./pseudotty: opening slave device
+./pseudotty: attempting to set window size
+./pseudotty: ...succeeded
+./pseudotty: opening control channel
+++ exec
+./pseudotty: entering main loop
+++ LIBC_FATAL_STDERR_=1
+++ export LIBC_FATAL_STDERR
++ run_ginfo -f file-menu
++ GINFO_PID=1262
++ printf '\0302\t\t\t\r'
++ printf '\030o\0301\t\t\t\rq'
++ timeout_test
++ sh -c '
+    exec 7>&- ; # Close fd from parent shell
+
+    (sleep 3 ; kill $$) &
+./pseudotty: + wait 1262
+    exec ./ginfo --init-file ./t/Infokey-config  -f file-menu 0<>/dev/pts/0 1<&0 ;'
+trying to read
+./pseudotty: read byte 0x18
+./pseudotty: trying to read
+./pseudotty: read byte 0x32
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+./pseudotty: trying to read
+./pseudotty: read byte 0x0D
+./pseudotty: trying to read
+./pseudotty: read byte 0x18
+./pseudotty: trying to read
+./pseudotty: read byte 0x6F
+./pseudotty: trying to read
+./pseudotty: read byte 0x18
+./pseudotty: trying to read
+./pseudotty: read byte 0x31
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+./pseudotty: trying to read
+./pseudotty: read byte 0x0D
+./pseudotty: trying to read
+./pseudotty: read byte 0x71
+info: "./t/Infokey-config", line 2: unknown action `xxx-not-recognized'
+info: "./t/Infokey-config", line 3: cannot bind key sequence to menu-digit
++ status=0
++ RETVAL=0
++ test 0 '!=' 0
++ GINFO_PID=0
++ cleanup
++ test 1261 -ne 0
++ kill 1261
++ rm -f t/relative-reference.sh.out
+./t/Init-test.inc: line 70:  1261 Terminated              ( exec ./pseudotty "$PTY_TYPE" > $PIPEIN )
++ rm -f t/relative-reference.sh.pipein t/relative-reference.sh.pipeout
++ test yes = yes
++ stty
++ grep '[-]echo'
++ exit 0
+sh: line 3: kill: (1262) - No such process
+0)

@@ -19,6 +19,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <sys/types.h>
+#include <mbfile.h>
 #include "system.h"
 #include "die.h"
 #include "error.h"
@@ -124,6 +125,119 @@ set_increment_size (uintmax_t tabval)
   increment_size = tabval;
 
   return ok;
+}
+
+extern int
+set_utf_locale (void)
+{
+      /*try using some predefined locale */
+      const char* predef_locales[] = {"C.UTF8","en_US.UTF8","en_GB.UTF8"};
+
+      const int predef_locales_count=3;
+      for (int i=0;i<predef_locales_count;i++)
+        {
+          if (setlocale(LC_ALL,predef_locales[i])!=NULL)
+          {
+            break;
+          }
+          else if (i==predef_locales_count-1)
+          {
+            return 1;
+            error (EXIT_FAILURE, errno, _("cannot set UTF-8 locale"));
+          }
+        }
+        return 0;
+}
+
+extern bool
+check_utf_locale(void)
+{
+  char* locale = setlocale (LC_CTYPE , NULL);
+  if (locale == NULL)
+  {
+    return false;
+  }
+  else if (strcasestr(locale, "utf8") == NULL && strcasestr(locale, "utf-8") == NULL)
+  {
+    return false;
+  }
+  return true;
+}
+
+extern bool
+check_bom(FILE* fp, mb_file_t *mbf)
+{
+  int c;
+
+
+  c=fgetc(fp);
+
+  /*test BOM header of the first file */
+  mbf->bufcount=0;
+  if (c == 0xEF)
+  {
+    c=fgetc(fp);
+  }
+  else
+  {
+    if (c != EOF)
+    {
+      ungetc(c,fp);
+    }
+    return false;
+  }
+
+  if (c == 0xBB)
+  {
+    c=fgetc(fp);
+  }
+  else
+  {
+    if ( c!= EOF )
+    {
+      mbf->buf[0]=(unsigned char) 0xEF;
+      mbf->bufcount=1;
+      ungetc(c,fp);
+      return false;
+    }
+    else
+    {
+      ungetc(0xEF,fp);
+      return false;
+    }
+  }
+  if (c == 0xBF)
+  {
+    mbf->bufcount=0;
+    return true;
+  }
+  else
+  {
+    if (c != EOF)
+    {
+      mbf->buf[0]=(unsigned char) 0xEF;
+      mbf->buf[1]=(unsigned char) 0xBB;
+      mbf->bufcount=2;
+      ungetc(c,fp);
+      return false;
+    }
+    else
+    {
+      mbf->buf[0]=(unsigned char) 0xEF;
+      mbf->bufcount=1;
+      ungetc(0xBB,fp);
+      return false;
+    }
+  }
+  return false;
+}
+
+extern void
+print_bom(void)
+{
+  putc (0xEF, stdout);
+  putc (0xBB, stdout);
+  putc (0xBF, stdout);
 }
 
 /* Add the comma or blank separated list of tab stops STOPS

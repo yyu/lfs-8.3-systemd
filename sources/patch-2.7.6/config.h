@@ -67,7 +67,7 @@
 #define D_INO_IN_DIRENT 1
 
 /* Name of editor program. */
-#define EDITOR_PROGRAM "/bin/ed"
+#define EDITOR_PROGRAM "ed"
 
 /* Define to 1 if your platform has fchownat, but it does not reject an empty
    file name. */
@@ -384,16 +384,16 @@
 #define HAVE_ALLOCA_H 1
 
 /* Define to 1 if you have the `attr_copy_action' function. */
-/* #undef HAVE_ATTR_COPY_ACTION */
+#define HAVE_ATTR_COPY_ACTION 1
 
 /* Define to 1 if you have the `attr_copy_file' function. */
-/* #undef HAVE_ATTR_COPY_FILE */
+#define HAVE_ATTR_COPY_FILE 1
 
 /* Define to 1 if you have the <attr/error_context.h> header file. */
-/* #undef HAVE_ATTR_ERROR_CONTEXT_H */
+#define HAVE_ATTR_ERROR_CONTEXT_H 1
 
 /* Define to 1 if you have the <attr/libattr.h> header file. */
-/* #undef HAVE_ATTR_LIBATTR_H */
+#define HAVE_ATTR_LIBATTR_H 1
 
 /* Define to 1 if you have the <bp-sym.h> header file. */
 /* #undef HAVE_BP_SYM_H */
@@ -1773,7 +1773,7 @@
 
 
 /* Define if you want extended attribute support. */
-#define USE_XATTR 0
+#define USE_XATTR 1
 
 /* Version number of package */
 #define VERSION "2.7.6"

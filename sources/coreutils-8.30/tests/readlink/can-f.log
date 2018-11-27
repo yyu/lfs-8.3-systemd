@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-can-f.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-can-f.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-can-f.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
++++ d=/sources/coreutils-8.30/gt-can-f.sh.nY1q
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX'
++++ test -d /sources/coreutils-8.30/gt-can-f.sh.nY1q
+++++ ls -dgo /sources/coreutils-8.30/gt-can-f.sh.nY1q
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-can-f.sh.nY1q'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
++++ echo /sources/coreutils-8.30/gt-can-f.sh.nY1q
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
+++ test_dir_=/sources/coreutils-8.30/gt-can-f.sh.nY1q
+++ cd /sources/coreutils-8.30/gt-can-f.sh.nY1q
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -90,9 +90,9 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Written by Jim Meyering.
 ++ pwd
-+ pwd=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
++ pwd=/sources/coreutils-8.30/gt-can-f.sh.nY1q
 ++ env pwd -P
-+ my_pwd=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
++ my_pwd=/sources/coreutils-8.30/gt-can-f.sh.nY1q
 + tmp=d
 + mkdir d
 + cd d
@@ -103,16 +103,16 @@ Written by Jim Meyering.
 + ln -s missing link3
 + ln -s subdir/missing link4
 + ln -s link5 link5
-+ cd /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/removed
++ cd /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/removed
 + rmdir ../removed
 ++ returns_ 1 readlink -e .
 + v=
 + test -z ''
-+ cd /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d
++ cd /sources/coreutils-8.30/gt-can-f.sh.nY1q/d
 + for p in "" "$pwd/$tmp/"
 ++ readlink -f regfile
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
 ++ returns_ 1 readlink -f ./regfile/
 + v=
 + test -z ''
@@ -123,23 +123,23 @@ Written by Jim Meyering.
 + v=
 + test -z ''
 ++ readlink -f subdir
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
 ++ readlink -f ./subdir/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
 ++ readlink -f subdir/more
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
 ++ readlink -f ./subdir/more/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
 ++ readlink -f missing
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
 ++ readlink -f ./missing/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
 ++ returns_ 1 readlink -f missing/more
 + v=
 + test -z ''
@@ -147,8 +147,8 @@ Written by Jim Meyering.
 + v=
 + test -z ''
 ++ readlink -f link1
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
 ++ returns_ 1 readlink -f ./link1/
 + v=
 + test -z ''
@@ -159,17 +159,17 @@ Written by Jim Meyering.
 + v=
 + test -z ''
 ++ readlink -f link2
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
 ++ readlink -f ./link2/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
 ++ readlink -f link2/more
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
 ++ readlink -f ./link2/more/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
 ++ returns_ 1 readlink -f link2/more/more2
 + v=
 + test -z ''
@@ -177,11 +177,11 @@ Written by Jim Meyering.
 + v=
 + test -z ''
 ++ readlink -f link3
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
 ++ readlink -f ./link3/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
 ++ returns_ 1 readlink -f link3/more
 + v=
 + test -z ''
@@ -189,11 +189,11 @@ Written by Jim Meyering.
 + v=
 + test -z ''
 ++ readlink -f link4
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
 ++ readlink -f ./link4/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
 ++ returns_ 1 readlink -f link4/more
 + v=
 + test -z ''
@@ -213,106 +213,106 @@ Written by Jim Meyering.
 + v=
 + test -z ''
 + for p in "" "$pwd/$tmp/"
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./regfile/
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./regfile/
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile/more
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./regfile/more/
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./regfile/more/
 + v=
 + test -z ''
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./subdir/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./subdir/more/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./missing/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing/more
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./subdir/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./subdir/more/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./missing/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./missing/more/
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./missing/more/
 + v=
 + test -z ''
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link1
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/regfile
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link1/
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link1
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/regfile
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link1/
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link1/more
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link1/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link1/more/
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link1/more/
 + v=
 + test -z ''
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link2
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link2/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link2/more
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link2/more/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/more
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link2/more/more2
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link2
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link2/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link2/more
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link2/more/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/more
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link2/more/more2
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link2/more/more2/
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link2/more/more2/
 + v=
 + test -z ''
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link3
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link3/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/missing
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link3/more
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link3
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link3/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/missing
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link3/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link3/more/
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link3/more/
 + v=
 + test -z ''
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link4
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
-++ readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link4/
-+ v=/mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
-+ test /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing = /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/subdir/missing
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link4/more
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link4
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
+++ readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link4/
++ v=/sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
++ test /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing = /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/subdir/missing
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link4/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link4/more
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link4/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link5
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link5
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link5/
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link5/
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/link5/more
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/link5/more
 + v=
 + test -z ''
-++ returns_ 1 readlink -f /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX/d/./link5/more
+++ returns_ 1 readlink -f /sources/coreutils-8.30/gt-can-f.sh.nY1q/d/./link5/more
 + v=
 + test -z ''
 + Exit 0
@@ -324,8 +324,8 @@ Written by Jim Meyering.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-can-f.sh.IhxX
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-can-f.sh.nY1q
++ rm -rf /sources/coreutils-8.30/gt-can-f.sh.nY1q
 + exit 0
 PASS tests/readlink/can-f.sh (exit status: 0)

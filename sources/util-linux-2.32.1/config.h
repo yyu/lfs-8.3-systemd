@@ -11,7 +11,7 @@
 #define CHFN_CHSH_PASSWORD 1
 
 /* Path to hwclock adjtime file */
-#define CONFIG_ADJTIME_PATH "/etc/adjtime"
+#define CONFIG_ADJTIME_PATH "/var/lib/hwclock/adjtime"
 
 /* Define to 1 if translation of program messages to the user's native
    language is requested. */
@@ -208,7 +208,7 @@
 #define HAVE_LIBNCURSESW 1
 
 /* Define to 1 if you have the `readline' library (-lreadline). */
-/* #undef HAVE_LIBREADLINE */
+#define HAVE_LIBREADLINE 1
 
 /* Define if librtas exists */
 /* #undef HAVE_LIBRTAS */
@@ -217,13 +217,13 @@
 /* #undef HAVE_LIBSELINUX */
 
 /* Define if libsystemd is available */
-/* #undef HAVE_LIBSYSTEMD */
+#define HAVE_LIBSYSTEMD 1
 
 /* Define if libtinfo or libtinfow available. */
 /* #undef HAVE_LIBTINFO */
 
 /* Define to 1 if you have the `udev' library (-ludev). */
-/* #undef HAVE_LIBUDEV */
+#define HAVE_LIBUDEV 1
 
 /* Define if libuser is available */
 /* #undef HAVE_LIBUSER */

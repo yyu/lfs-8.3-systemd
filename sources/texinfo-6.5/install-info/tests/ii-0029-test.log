@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii29-XXXXXXXX
-+ outputdirfile=ii29-6Wjx9zTG
-+ cp ../../install-info/tests/ii-0029-input-dir-file ii29-6Wjx9zTG
++ outputdirfile=ii29-IhNDrnQd
++ cp ../../install-info/tests/ii-0029-input-dir-file ii29-IhNDrnQd
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info --name=Wildebeest ../../install-info/tests/ii-0029-input-info-file ii29-6Wjx9zTG
++ ../../install-info/ginstall-info --name=Wildebeest ../../install-info/tests/ii-0029-input-info-file ii29-IhNDrnQd
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0029-expected-dir-file ii29-6Wjx9zTG
++ diff ../../install-info/tests/ii-0029-expected-dir-file ii29-IhNDrnQd
 + retval=0
-+ rm -f ii29-6Wjx9zTG
++ rm -f ii29-IhNDrnQd
 + exit 0
 PASS ii-0029-test (exit status: 0)

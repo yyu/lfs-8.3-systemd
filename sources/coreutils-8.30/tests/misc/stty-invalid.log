@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-stty-invalid.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-stty-invalid.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-stty-invalid.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
++++ d=/sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q'
++++ test -d /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
+++++ ls -dgo /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
++++ echo /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
+++ test_dir_=/sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
+++ cd /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -90,25 +90,14 @@ Written by David MacKenzie.
 + saved_state=4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 + stty 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 + hex_2_64=10000000000000000
-++ echo 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 ++ sed 's/^[^:]*:/10000000000000000:/'
+++ echo 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 + returns_ 1 stty 10000000000000000:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 ++ echo 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 ++ sed 's/:[0-9a-f]*$/:10000000000000000/'
 + returns_ 1 stty 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:10000000000000000
 + tty -s
-+ returns_ 1 stty eol -F /dev/tty
-stty: missing argument to 'eol'
-Try 'stty --help' for more information.
-+ returns_ 1 stty -F /dev/tty eol
-stty: missing argument to 'eol'
-Try 'stty --help' for more information.
-+ returns_ 1 stty -F/dev/tty eol
-stty: missing argument to 'eol'
-Try 'stty --help' for more information.
-+ returns_ 1 stty eol -F/dev/tty eol
-stty: missing argument to 'eol'
-Try 'stty --help' for more information.
+./tests/misc/stty-invalid.sh: line 46: /dev/tty: No such device or address
 + stty 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
 + Exit 0
 + set +e
@@ -119,8 +108,8 @@ Try 'stty --help' for more information.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-stty-invalid.sh.zh4Q
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
++ rm -rf /sources/coreutils-8.30/gt-stty-invalid.sh.ys2B
 + exit 0
 PASS tests/misc/stty-invalid.sh (exit status: 0)

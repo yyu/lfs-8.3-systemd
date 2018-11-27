@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-od-endian.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-od-endian.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-od-endian.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
++++ d=/sources/coreutils-8.30/gt-od-endian.sh.imGN
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF'
++++ test -d /sources/coreutils-8.30/gt-od-endian.sh.imGN
+++++ ls -dgo /sources/coreutils-8.30/gt-od-endian.sh.imGN
++++ perms='drwx------ 2 4096 Nov 26 23:47 /sources/coreutils-8.30/gt-od-endian.sh.imGN'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
++++ echo /sources/coreutils-8.30/gt-od-endian.sh.imGN
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
+++ test_dir_=/sources/coreutils-8.30/gt-od-endian.sh.imGN
+++ cd /sources/coreutils-8.30/gt-od-endian.sh.imGN
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -95,17 +95,17 @@ Written by Jim Meyering.
 + sed 's/.\{1\}/&\
 /g'
 + rev
++ read line
 + tr -d '\n'
-+ read line
++ sed 's/./&\
+/g'
 + printf %s 0
-+ sed 's/./&\
-/g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
-+ printf %s 1
 + sed 's/./&\
 /g'
++ printf %s 1
 + tac
 + paste -s -d ''
 + read line
@@ -142,37 +142,37 @@ Written by Jim Meyering.
 + printf %s 7
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + printf %s 8
++ tac
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
 + read line
-+ sed 's/./&\
-/g'
 + printf %s 9
-+ tac
-+ paste -s -d ''
-+ read line
-+ printf %s a
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
++ read line
++ sed 's/./&\
+/g'
++ printf %s a
++ paste -s -d ''
++ tac
 + read line
 + printf %s b
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + printf %s c
++ tac
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
 + read line
 + printf %s d
@@ -181,11 +181,11 @@ Written by Jim Meyering.
 + tac
 + paste -s -d ''
 + read line
-+ printf %s e
 + sed 's/./&\
 /g'
-+ tac
++ printf %s e
 + paste -s -d ''
++ tac
 + read line
 + printf %s f
 + sed 's/./&\
@@ -208,10 +208,10 @@ Written by Jim Meyering.
 + for s in 1 2 4 8 16
 + for t in x f
 + od -t x2 --endian=little /dev/null
-+ od -An -t x2 --endian=little
 + printf %s 0123456789abcdef
-+ in_swapped 2
++ od -An -t x2 --endian=little
 + od -An -t x2 --endian=big
++ in_swapped 2
 + printf %s 0123456789abcdef
 + sed 's/.\{2\}/&\
 /g'
@@ -257,14 +257,14 @@ Written by Jim Meyering.
 + printf %s cd
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
-+ printf %s ef
 + sed 's/./&\
 /g'
-+ paste -s -d ''
++ printf %s ef
 + tac
++ paste -s -d ''
 + read line
 + compare out1 out2
 + compare_dev_null_ out1 out2
@@ -292,9 +292,9 @@ Written by Jim Meyering.
 + read line
 + tr -d '\n'
 + printf %s 0123
-+ tac
 + sed 's/./&\
 /g'
++ tac
 + paste -s -d ''
 + read line
 + printf %s 4567
@@ -310,9 +310,9 @@ Written by Jim Meyering.
 + paste -s -d ''
 + read line
 + printf %s cdef
++ tac
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
 + read line
 + compare out1 out2
@@ -336,9 +336,9 @@ Written by Jim Meyering.
 + rev
 + read line
 + tr -d '\n'
-+ printf %s 0123
 + sed 's/./&\
 /g'
++ printf %s 0123
 + tac
 + paste -s -d ''
 + read line
@@ -351,8 +351,8 @@ Written by Jim Meyering.
 + printf %s 89ab
 + sed 's/./&\
 /g'
-+ paste -s -d ''
 + tac
++ paste -s -d ''
 + read line
 + printf %s cdef
 + sed 's/./&\
@@ -385,8 +385,8 @@ Written by Jim Meyering.
 + printf %s 01234567
 + sed 's/./&\
 /g'
-+ paste -s -d ''
 + tac
++ paste -s -d ''
 + read line
 + printf %s 89abcdef
 + sed 's/./&\
@@ -407,8 +407,8 @@ Written by Jim Meyering.
 + od -t f8 --endian=little /dev/null
 + printf %s 0123456789abcdef
 + od -An -t f8 --endian=little
-+ in_swapped 8
 + od -An -t f8 --endian=big
++ in_swapped 8
 + printf %s 0123456789abcdef
 + sed 's/.\{8\}/&\
 /g'
@@ -444,19 +444,19 @@ Written by Jim Meyering.
 + od -t f16 --endian=little /dev/null
 + printf %s 0123456789abcdef
 + od -An -t f16 --endian=little
-+ in_swapped 16
 + od -An -t f16 --endian=big
++ in_swapped 16
 + printf %s 0123456789abcdef
 + sed 's/.\{16\}/&\
 /g'
++ tr -d '\n'
 + rev
 + read line
-+ tr -d '\n'
 + printf %s 0123456789abcdef
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + compare out1 out2
 + compare_dev_null_ out1 out2
@@ -498,8 +498,8 @@ Written by Jim Meyering.
 + printf %s 2
 + sed 's/./&\
 /g'
-+ paste -s -d ''
 + tac
++ paste -s -d ''
 + read line
 + printf %s 3
 + sed 's/./&\
@@ -516,20 +516,20 @@ Written by Jim Meyering.
 + printf %s 5
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + printf %s 6
 + sed 's/./&\
 /g'
-+ paste -s -d ''
 + tac
++ paste -s -d ''
 + read line
 + printf %s 7
-+ sed 's/./&\
-/g'
 + tac
++ sed 's/./&\
 + paste -s -d ''
+/g'
 + read line
 + printf %s 8
 + sed 's/./&\
@@ -540,14 +540,14 @@ Written by Jim Meyering.
 + printf %s 9
 + sed 's/./&\
 /g'
-+ paste -s -d ''
 + tac
++ paste -s -d ''
 + read line
 + printf %s a
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + printf %s b
 + sed 's/./&\
@@ -556,9 +556,9 @@ Written by Jim Meyering.
 + paste -s -d ''
 + read line
 + printf %s c
-+ tac
 + sed 's/./&\
 /g'
++ tac
 + paste -s -d ''
 + read line
 + printf %s d
@@ -568,10 +568,10 @@ Written by Jim Meyering.
 + paste -s -d ''
 + read line
 + printf %s e
-+ tac
-+ paste -s -d ''
 + sed 's/./&\
 /g'
++ tac
++ paste -s -d ''
 + read line
 + printf %s f
 + sed 's/./&\
@@ -597,16 +597,16 @@ Written by Jim Meyering.
 + printf %s 0123456789abcdef
 + od -An -t x2 --endian=big
 + in_swapped 2
-+ od -An -t x2 --endian=little
 + printf %s 0123456789abcdef
-+ sed 's/.\{2\}/&\
-/g'
++ od -An -t x2 --endian=little
 + rev
 + read line
++ sed 's/.\{2\}/&\
+/g'
 + tr -d '\n'
-+ printf %s 01
 + sed 's/./&\
 /g'
++ printf %s 01
 + tac
 + paste -s -d ''
 + read line
@@ -628,17 +628,17 @@ Written by Jim Meyering.
 + tac
 + paste -s -d ''
 + read line
-+ printf %s 89
 + sed 's/./&\
 /g'
++ printf %s 89
 + tac
 + paste -s -d ''
 + read line
 + printf %s ab
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + printf %s cd
 + sed 's/./&\
@@ -669,25 +669,25 @@ Written by Jim Meyering.
 + od -t x4 --endian=big /dev/null
 + printf %s 0123456789abcdef
 + od -An -t x4 --endian=big
-+ od -An -t x4 --endian=little
 + in_swapped 4
++ od -An -t x4 --endian=little
 + printf %s 0123456789abcdef
-+ sed 's/.\{4\}/&\
-/g'
 + rev
 + read line
++ sed 's/.\{4\}/&\
+/g'
 + tr -d '\n'
 + printf %s 0123
-+ tac
 + sed 's/./&\
 /g'
++ tac
 + paste -s -d ''
 + read line
 + printf %s 4567
 + sed 's/./&\
 /g'
-+ tac
 + paste -s -d ''
++ tac
 + read line
 + printf %s 89ab
 + sed 's/./&\
@@ -722,17 +722,17 @@ Written by Jim Meyering.
 + rev
 + read line
 + tr -d '\n'
-+ printf %s 0123
 + sed 's/./&\
 /g'
++ printf %s 0123
 + tac
 + paste -s -d ''
 + read line
++ printf %s 4567
 + sed 's/./&\
 /g'
-+ printf %s 4567
-+ paste -s -d ''
 + tac
++ paste -s -d ''
 + read line
 + printf %s 89ab
 + sed 's/./&\
@@ -768,17 +768,17 @@ Written by Jim Meyering.
 + rev
 + read line
 + tr -d '\n'
++ printf %s 01234567
 + sed 's/./&\
 /g'
-+ printf %s 01234567
 + tac
 + paste -s -d ''
 + read line
 + printf %s 89abcdef
-+ sed 's/./&\
-/g'
 + tac
++ sed 's/./&\
 + paste -s -d ''
+/g'
 + read line
 + compare out1 out2
 + compare_dev_null_ out1 out2
@@ -793,12 +793,12 @@ Written by Jim Meyering.
 + od -t f8 --endian=big /dev/null
 + printf %s 0123456789abcdef
 + od -An -t f8 --endian=big
-+ in_swapped 8
 + od -An -t f8 --endian=little
++ in_swapped 8
 + printf %s 0123456789abcdef
-+ rev
 + sed 's/.\{8\}/&\
 /g'
++ rev
 + read line
 + tr -d '\n'
 + printf %s 01234567
@@ -830,14 +830,14 @@ Written by Jim Meyering.
 + od -t f16 --endian=big /dev/null
 + printf %s 0123456789abcdef
 + od -An -t f16 --endian=big
-+ in_swapped 16
 + od -An -t f16 --endian=little
++ in_swapped 16
 + printf %s 0123456789abcdef
 + sed 's/.\{16\}/&\
 /g'
++ tr -d '\n'
 + rev
 + read line
-+ tr -d '\n'
 + printf %s 0123456789abcdef
 + sed 's/./&\
 /g'
@@ -862,8 +862,8 @@ Written by Jim Meyering.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-od-endian.sh.erOF
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-od-endian.sh.imGN
++ rm -rf /sources/coreutils-8.30/gt-od-endian.sh.imGN
 + exit 0
 PASS tests/misc/od-endian.sh (exit status: 0)

@@ -1,4 +1,4 @@
-Test run by lfs on Mon Nov 26 23:45:09 2018
+Test run by root on Tue Nov 27 08:01:21 2018
 Native configuration is x86_64-pc-linux-gnu
 
 		=== locate tests ===
@@ -11,145 +11,152 @@ Using /tools/share/dejagnu/baseboards/unix.exp as board description file for tar
 Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
 Using ./config/unix.exp as tool-and-target-specific interface file.
 Running ./locate.gnu/bigendian.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  -d ./locate.gnu/locateddb.old.powerpc.xi -r . > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  -d ./locate.gnu/locateddb.old.powerpc.xi -r . > locate.out
 cmp locate.out ./locate.gnu/bigendian.xo
 PASS: bigendian
 testcase ./locate.gnu/bigendian.exp completed in 0 seconds
 Running ./locate.gnu/bigprefix1.exp ...
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r . 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r . 
 PASS: bigprefix1-0
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r . 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r . 
 PASS: bigprefix1-1
 testcase ./locate.gnu/bigprefix1.exp completed in 0 seconds
 Running ./locate.gnu/exceedshort.exp ...
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i 00 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i 00 
 PASS: exceedshort-0
 testcase ./locate.gnu/exceedshort.exp completed in 0 seconds
 Running ./locate.gnu/exists1.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/exists1.xo
 PASS: exists1
 testcase ./locate.gnu/exists1.exp completed in 0 seconds
 Running ./locate.gnu/exists2.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/exists2.xo
 PASS: exists2
 testcase ./locate.gnu/exists2.exp completed in 0 seconds
 Running ./locate.gnu/exists3.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/exists3.xo
 PASS: exists3
 testcase ./locate.gnu/exists3.exp completed in 0 seconds
 Running ./locate.gnu/ignore_case1.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -i FRed < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -i FRed < /dev/null > locate.out
 cmp locate.out ./locate.gnu/ignore_case1.xo
 PASS: ignore_case1
-testcase ./locate.gnu/ignore_case1.exp completed in 0 seconds
+testcase ./locate.gnu/ignore_case1.exp completed in 1 seconds
 Running ./locate.gnu/ignore_case2.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb FRed < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb FRed < /dev/null > locate.out
 child process exited abnormally
 PASS: ignore_case2
 testcase ./locate.gnu/ignore_case2.exp completed in 0 seconds
 Running ./locate.gnu/ignore_case3.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/ignore_case3.xo
 PASS: ignore_case3
 testcase ./locate.gnu/ignore_case3.exp completed in 0 seconds
 Running ./locate.gnu/littleendian.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  -d ./locate.gnu/locateddb.old.x86.xi -r . > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  -d ./locate.gnu/locateddb.old.x86.xi -r . > locate.out
 cmp locate.out ./locate.gnu/littleendian.xo
 PASS: littleendian
 testcase ./locate.gnu/littleendian.exp completed in 0 seconds
 Running ./locate.gnu/notexists1.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -E fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -E fred < /dev/null > locate.out
 child process exited abnormally
 PASS: notexists1
 testcase ./locate.gnu/notexists1.exp completed in 0 seconds
 Running ./locate.gnu/notexists2.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -E fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -E fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/notexists2.xo
 PASS: notexists2
 testcase ./locate.gnu/notexists2.exp completed in 0 seconds
 Running ./locate.gnu/notexists3.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --localpaths=tmp/subdir/ < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -E fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -E fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/notexists3.xo
 PASS: notexists3
 testcase ./locate.gnu/notexists3.exp completed in 0 seconds
 Running ./locate.gnu/old_prefix.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --old-format  --localpaths=tmp/subdir 2>/dev/null < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --old-format  --localpaths=tmp/subdir 2>/dev/null < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb tmp < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb tmp < /dev/null > locate.out
 cmp locate.out ./locate.gnu/old_prefix.xo
 PASS: old_prefix
 testcase ./locate.gnu/old_prefix.exp completed in 0 seconds
 Running ./locate.gnu/oldformat.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --old-format  --localpaths=tmp/subdir/ 2>/dev/null < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --old-format  --localpaths=tmp/subdir/ 2>/dev/null < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e fred < /dev/null > locate.out
 cmp locate.out ./locate.gnu/oldformat.xo
 PASS: oldformat
 testcase ./locate.gnu/oldformat.exp completed in 0 seconds
 Running ./locate.gnu/regex1.exp ...
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db ? 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db ? 
 PASS: regex1-0
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r . 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r . 
 PASS: regex1-1
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r X 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r X 
 PASS: regex1-2
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r n 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r n 
 PASS: regex1-3
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i -r BIN 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i -r BIN 
 PASS: regex1-4
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r bin$ 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r bin$ 
 PASS: regex1-5
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r ^\[^/\] 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r ^\[^/\] 
 PASS: regex1-6
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r ^\[^X\] 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -r ^\[^X\] 
 PASS: regex1-7
 testcase ./locate.gnu/regex1.exp completed in 0 seconds
 Running ./locate.gnu/slocate.exp ...
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --dbformat=slocate --localpaths=tmp/subdi* < /dev/null
+/sources/findutils-4.6.0/locate/testsuite/../updatedb  --changecwd=. --output=tmp/locatedb --dbformat=slocate --localpaths=tmp/subdi* < /dev/null
 updatedb: OK.
-/mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e subdi 2>/dev/null < /dev/null > locate.out
+/sources/findutils-4.6.0/locate/testsuite/../locate  --database=tmp/locatedb -e subdi 2>/dev/null < /dev/null > locate.out
 cmp locate.out ./locate.gnu/slocate.xo
 PASS: slocate
 testcase ./locate.gnu/slocate.exp completed in 0 seconds
 Running ./locate.gnu/space1st.exp ...
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i fred 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i fred 
 PASS: space1st-0
 testcase ./locate.gnu/space1st.exp completed in 0 seconds
 Running ./locate.gnu/sv-bug-14535.exp ...
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i teste 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i teste 
 PASS: sv-bug-14535-a
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testE 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testE 
 PASS: sv-bug-14535-b
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i teste 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i teste 
 PASS: sv-bug-14535-c
-Running /mnt/lfs/sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testE 
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testE 
 PASS: sv-bug-14535-d
-WARNING: Four tests have been skipped because I cannot find a UTF-8 locale configured on your system
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testé 
+PASS: sv-bug-14535-0
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testé 
+PASS: sv-bug-14535-1
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testÉ 
+PASS: sv-bug-14535-2
+Running /sources/findutils-4.6.0/locate/testsuite/../locate -d locate.db -i testÉ 
+PASS: sv-bug-14535-3
 testcase ./locate.gnu/sv-bug-14535.exp completed in 0 seconds
 
 		=== locate Summary ===
 
-# of expected passes		30
+# of expected passes		34
 locate (GNU findutils) 4.6.0
-runtest completed at Mon Nov 26 23:45:09 2018
+runtest completed at Tue Nov 27 08:01:22 2018

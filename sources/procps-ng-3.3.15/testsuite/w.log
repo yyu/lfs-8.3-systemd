@@ -1,0 +1,47 @@
+Test run by root on Tue Nov 27 07:40:20 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== w tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./w.test/w.exp ...
+spawn /sources/procps-ng-3.3.15/w
+ 23:40:20 up 3 days,  9:47,  0 users,  load average: 2.88, 1.46, 0.78
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+PASS: w with no arguments
+spawn /sources/procps-ng-3.3.15/w -h
+PASS: w with no headers
+spawn /sources/procps-ng-3.3.15/w -u
+ 23:40:20 up 3 days,  9:47,  0 users,  load average: 2.88, 1.46, 0.78
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+PASS: w with -u flag
+spawn /sources/procps-ng-3.3.15/w -s
+ 23:40:20 up 3 days,  9:47,  0 users,  load average: 2.88, 1.46, 0.78
+USER     TTY         IDLE WHAT
+PASS: w with short output
+spawn /sources/procps-ng-3.3.15/w -f
+ 23:40:20 up 3 days,  9:47,  0 users,  load average: 2.88, 1.46, 0.78
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+PASS: w with from flag
+spawn /sources/procps-ng-3.3.15/w -fs
+ 23:40:20 up 3 days,  9:47,  0 users,  load average: 2.88, 1.46, 0.78
+USER     TTY      FROM              IDLE WHAT
+PASS: w with from and short flags
+spawn /sources/procps-ng-3.3.15/w -sf
+ 23:40:20 up 3 days,  9:47,  0 users,  load average: 2.88, 1.46, 0.78
+USER     TTY      FROM              IDLE WHAT
+PASS: w with short and from flags
+testcase ./w.test/w.exp completed in 0 seconds
+
+		=== w Summary ===
+
+# of expected passes		7
+/sources/procps-ng-3.3.15/w version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:20 2018

@@ -1,0 +1,50 @@
++ SHELL=/bin/sh
++ export SHELL
++ CDPATH=
++ unset CDPATH
++ test -z .
++ texindex=./texindex
++ TEXINDEX_SCRIPT=./texindex.awk
++ export TEXINDEX_SCRIPT
+++ ./texindex --version
++ out='texindex (GNU texinfo) 6.5
+
+Copyright (C) 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.'
++ test 0 -ne 0
++ test -z 'texindex (GNU texinfo) 6.5
+
+Copyright (C) 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.'
+++ ./texindex --help
++ out='Usage: ./texindex [OPTION]... FILE...
+Generate a sorted index for each TeX output FILE.
+Usually FILE... is specified as `foo.??'\'' for a document `foo.texi'\''.
+
+Options:
+ -h, --help   display this help and exit
+ --version    display version information and exit
+ --           end option processing
+
+Email bug reports to bug-texinfo@gnu.org,
+general questions and discussion to help-texinfo@gnu.org.
+Texinfo home page: http://www.gnu.org/software/texinfo/'
++ test 0 -ne 0
++ test -z 'Usage: ./texindex [OPTION]... FILE...
+Generate a sorted index for each TeX output FILE.
+Usually FILE... is specified as `foo.??'\'' for a document `foo.texi'\''.
+
+Options:
+ -h, --help   display this help and exit
+ --version    display version information and exit
+ --           end option processing
+
+Email bug reports to bug-texinfo@gnu.org,
+general questions and discussion to help-texinfo@gnu.org.
+Texinfo home page: http://www.gnu.org/software/texinfo/'
++ exit 0
+PASS tests/ti-helpversion.sh (exit status: 0)

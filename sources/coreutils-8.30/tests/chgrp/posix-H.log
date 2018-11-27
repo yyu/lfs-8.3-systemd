@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-posix-H.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-posix-H.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-posix-H.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
++++ d=/sources/coreutils-8.30/gt-posix-H.sh.VzMG
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
-+++ perms='drwx------ 2 4096 Nov 26 23:38 /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW'
++++ test -d /sources/coreutils-8.30/gt-posix-H.sh.VzMG
+++++ ls -dgo /sources/coreutils-8.30/gt-posix-H.sh.VzMG
++++ perms='drwx------ 2 4096 Nov 26 23:47 /sources/coreutils-8.30/gt-posix-H.sh.VzMG'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
++++ echo /sources/coreutils-8.30/gt-posix-H.sh.VzMG
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
+++ test_dir_=/sources/coreutils-8.30/gt-posix-H.sh.VzMG
+++ cd /sources/coreutils-8.30/gt-posix-H.sh.VzMG
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -80,72 +80,97 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by David MacKenzie and Jim Meyering.
 + require_membership_in_two_groups_
 + test 0 = 0
-+ groups=1001
++ groups='99 1000'
 + case "$groups" in
-+ skip_ 'requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id' '-G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
++ require_local_dir_
++ require_mount_list_
++ local 'mount_list_fail=cannot read table of mounted file systems'
++ df --local
++ grep -F 'cannot read table of mounted file systems'
++ is_local_dir_ .
++ test 1 = 1
++ df --local .
++ set _ 99 1000
++ shift
++ g1=99
++ g2=1000
++ mkdir 1 2 3
++ touch 1/1F 2/2F 3/3F
++ ln -s 1 1s
++ ln -s ../3 2/2s
++ chgrp -R 99 1 2 3
++ chgrp --preserve-root -H -R 1000 1s 2
++ changed='
+1
+1/1F
+2
+2/2F
+3
 '
-+ warn_ 'posix-H.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id' '-G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
++ for i in $changed
++ case $i in
+++ ls -dgn 1
++ set _ drwxr-xr-x 2 1000 4096 Nov 26 23:47 1
++ shift
++ group=1000
++ test 1000 = 1000
++ for i in $changed
++ case $i in
+++ ls -dgn 1/1F
++ set _ -rw-r--r-- 1 1000 0 Nov 26 23:47 1/1F
++ shift
++ group=1000
++ test 1000 = 1000
++ for i in $changed
++ case $i in
+++ ls -dgn 2
++ set _ drwxr-xr-x 2 1000 4096 Nov 26 23:47 2
++ shift
++ group=1000
++ test 1000 = 1000
++ for i in $changed
++ case $i in
+++ ls -dgn 2/2F
++ set _ -rw-r--r-- 1 1000 0 Nov 26 23:47 2/2F
++ shift
++ group=1000
++ test 1000 = 1000
++ for i in $changed
++ case $i in
+++ ls -dgn 3
++ set _ drwxr-xr-x 2 1000 4096 Nov 26 23:47 3
++ shift
++ group=1000
++ test 1000 = 1000
++ not_changed='
+1s
+2/2s
+3/3F
 '
-+ case $IFS in
-+ printf '%s\n' 'posix-H.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-posix-H.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='users cdrom' make check
-
-
-+ test 9 = 2
-+ printf '%s\n' 'posix-H.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ sed 1q
-+ Exit 77
++ for i in $not_changed
++ case $i in
++ continue
++ for i in $not_changed
++ case $i in
++ continue
++ for i in $not_changed
++ case $i in
+++ ls -dgn 3/3F
++ set _ -rw-r--r-- 1 99 0 Nov 26 23:47 3/3F
++ shift
++ group=99
++ test 99 = 99
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-posix-H.sh.evPW
-+ exit 77
-SKIP tests/chgrp/posix-H.sh (exit status: 77)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-posix-H.sh.VzMG
++ rm -rf /sources/coreutils-8.30/gt-posix-H.sh.VzMG
++ exit 0
+PASS tests/chgrp/posix-H.sh (exit status: 0)

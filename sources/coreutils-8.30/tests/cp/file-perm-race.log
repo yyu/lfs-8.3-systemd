@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-file-perm-race.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-file-perm-race.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-file-perm-race.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
++++ d=/sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD'
++++ test -d /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
+++++ ls -dgo /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
++++ echo /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
+++ test_dir_=/sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
+++ cd /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -90,14 +90,14 @@ Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
 + mkfifo_or_skip_ fifo
 + test 1 = 1
 + mkfifo fifo
-+ pid=34303
++ pid=49986
 + cp -p --copy-contents fifo fifo-copy
 + test '!' -f fifo-copy
 + ls -l fifo-copy
 + echo foo
 + case $(cat ls.out) in
 ++ cat ls.out
-+ wait 34303
++ wait 49986
 + Exit 0
 + set +e
 + exit 0
@@ -105,10 +105,10 @@ Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 34303
++ kill 49986
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-file-perm-race.sh.mydD
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
++ rm -rf /sources/coreutils-8.30/gt-file-perm-race.sh.I7Tb
 + exit 0
 PASS tests/cp/file-perm-race.sh (exit status: 0)

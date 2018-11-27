@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-stty.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-stty.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-stty.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
++++ d=/sources/coreutils-8.30/gt-stty.sh.dG7L
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P'
++++ test -d /sources/coreutils-8.30/gt-stty.sh.dG7L
+++++ ls -dgo /sources/coreutils-8.30/gt-stty.sh.dG7L
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-stty.sh.dG7L'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
++++ echo /sources/coreutils-8.30/gt-stty.sh.dG7L
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
+++ test_dir_=/sources/coreutils-8.30/gt-stty.sh.dG7L
+++ cd /sources/coreutils-8.30/gt-stty.sh.dG7L
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -88,510 +88,25 @@ Written by David MacKenzie.
 + require_strace_ ioctl
 + test 1 = 1
 + strace -V
-+ strace -qe ioctl echo
-+ strace -o log-help ls --help
-++ wc -l
-+ n_lines_help=61
-+ rm -f log-help
-+ test 61 = 0
-+ test 61 = 1
-+ trap '' TTOU
-+ stty_reversible_init_
-++ perl -lne '/^ *{"(.*?)",.*\bREV\b/ and print $1' /mnt/lfs/sources/coreutils-8.30/src/stty.c
-++ tr '\n' ' '
-+ stty_reversible_=' parenb parodd cmspar hupcl hup cstopb cread clocal crtscts cdtrdsr ignbrk brkint ignpar parmrk inpck istrip inlcr igncr icrnl ixon ixoff tandem iuclc ixany imaxbel iutf8 opost olcuc ocrnl onlcr onocr onlret ofill ofdel isig icanon iexten echo echoe crterase echok echonl noflsh xcase tostop echoprt prterase echoctl ctlecho echoke crtkill flusho extproc extproc evenp parity oddp nl cooked raw pass8 litout cbreak decctlq tabs lcase LCASE '
-++ echo ' parenb parodd cmspar hupcl hup cstopb cread clocal crtscts cdtrdsr ignbrk brkint ignpar parmrk inpck istrip inlcr igncr icrnl ixon ixoff tandem iuclc ixany imaxbel iutf8 opost olcuc ocrnl onlcr onocr onlret ofill ofdel isig icanon iexten echo echoe crterase echok echonl noflsh xcase tostop echoprt prterase echoctl ctlecho echoke crtkill flusho extproc extproc evenp parity oddp nl cooked raw pass8 litout cbreak decctlq tabs lcase LCASE '
-++ wc -w
-+ test 62 -le 67
-+ saved_state=.saved-state
-+ stty --save
-++ cat .saved-state
-+ stty 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
-+ stty erase -
-+ for mode in '-drain' 'drain'
-+ for opt in 'echo' ''
-+ stty -drain echo
-+ for opt in 'echo' ''
-+ stty -drain
-speed 38400 baud; line = 0;
-erase = -; eol = M-^?; eol2 = M-^?;
--brkint -imaxbel iutf8
-+ for mode in '-drain' 'drain'
-+ for opt in 'echo' ''
-+ stty drain echo
-+ for opt in 'echo' ''
-+ stty drain
-speed 38400 baud; line = 0;
-erase = -; eol = M-^?; eol2 = M-^?;
--brkint -imaxbel iutf8
-+ returns_ 1 stty -F
-+ returns_ 1 stty -raw -F no/such/file
-+ returns_ 1 stty -raw -a
-+ sed_del='/^speed/d;/^rows/d;/^columns/d;/ = /d'
-++ tr -s ';' '\n'
-++ stty -a
-++ sed 's/^ //;/^speed/d;/^rows/d;/^columns/d;/ = /d;s/-//g'
-+ options='parenb parodd cmspar cs8 hupcl cstopb cread clocal crtscts
-ignbrk brkint ignpar parmrk inpck istrip inlcr igncr icrnl ixon ixoff
-iuclc ixany imaxbel iutf8
-opost olcuc ocrnl onlcr onocr onlret ofill ofdel nl0 cr0 tab0 bs0 vt0 ff0
-isig icanon iexten echo echoe echok echonl noflsh xcase tostop echoprt
-echoctl echoke flusho extproc'
-+ for opt in $options
-+ case $opt in
-+ continue
-+ for opt in $options
-+ case $opt in
-+ continue
-+ for opt in $options
-+ case $opt in
-+ continue
-+ for opt in $options
-+ case $opt in
-+ test cs8 = extproc
-+ stty cs8
-+ test cs8 = cread
-+ stty_reversible_query_ cs8
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test hupcl = extproc
-+ stty hupcl
-+ test hupcl = cread
-+ stty_reversible_query_ hupcl
-+ case $stty_reversible_ in
-+ return 0
-+ stty -hupcl
-+ for opt in $options
-+ case $opt in
-+ continue
-+ for opt in $options
-+ case $opt in
-+ test cread = extproc
-+ stty cread
-+ test cread = cread
-+ continue
-+ for opt in $options
-+ case $opt in
-+ test clocal = extproc
-+ stty clocal
-+ test clocal = cread
-+ stty_reversible_query_ clocal
-+ case $stty_reversible_ in
-+ return 0
-+ stty -clocal
-+ for opt in $options
-+ case $opt in
-+ continue
-+ for opt in $options
-+ case $opt in
-+ test ignbrk = extproc
-+ stty ignbrk
-+ test ignbrk = cread
-+ stty_reversible_query_ ignbrk
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ignbrk
-+ for opt in $options
-+ case $opt in
-+ test brkint = extproc
-+ stty brkint
-+ test brkint = cread
-+ stty_reversible_query_ brkint
-+ case $stty_reversible_ in
-+ return 0
-+ stty -brkint
-+ for opt in $options
-+ case $opt in
-+ test ignpar = extproc
-+ stty ignpar
-+ test ignpar = cread
-+ stty_reversible_query_ ignpar
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ignpar
-+ for opt in $options
-+ case $opt in
-+ test parmrk = extproc
-+ stty parmrk
-+ test parmrk = cread
-+ stty_reversible_query_ parmrk
-+ case $stty_reversible_ in
-+ return 0
-+ stty -parmrk
-+ for opt in $options
-+ case $opt in
-+ test inpck = extproc
-+ stty inpck
-+ test inpck = cread
-+ stty_reversible_query_ inpck
-+ case $stty_reversible_ in
-+ return 0
-+ stty -inpck
-+ for opt in $options
-+ case $opt in
-+ test istrip = extproc
-+ stty istrip
-+ test istrip = cread
-+ stty_reversible_query_ istrip
-+ case $stty_reversible_ in
-+ return 0
-+ stty -istrip
-+ for opt in $options
-+ case $opt in
-+ test inlcr = extproc
-+ stty inlcr
-+ test inlcr = cread
-+ stty_reversible_query_ inlcr
-+ case $stty_reversible_ in
-+ return 0
-+ stty -inlcr
-+ for opt in $options
-+ case $opt in
-+ test igncr = extproc
-+ stty igncr
-+ test igncr = cread
-+ stty_reversible_query_ igncr
-+ case $stty_reversible_ in
-+ return 0
-+ stty -igncr
-+ for opt in $options
-+ case $opt in
-+ test icrnl = extproc
-+ stty icrnl
-+ test icrnl = cread
-+ stty_reversible_query_ icrnl
-+ case $stty_reversible_ in
-+ return 0
-+ stty -icrnl
-+ for opt in $options
-+ case $opt in
-+ test ixon = extproc
-+ stty ixon
-+ test ixon = cread
-+ stty_reversible_query_ ixon
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ixon
-+ for opt in $options
-+ case $opt in
-+ test ixoff = extproc
-+ stty ixoff
-+ test ixoff = cread
-+ stty_reversible_query_ ixoff
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ixoff
-+ for opt in $options
-+ case $opt in
-+ test iuclc = extproc
-+ stty iuclc
-+ test iuclc = cread
-+ stty_reversible_query_ iuclc
-+ case $stty_reversible_ in
-+ return 0
-+ stty -iuclc
-+ for opt in $options
-+ case $opt in
-+ test ixany = extproc
-+ stty ixany
-+ test ixany = cread
-+ stty_reversible_query_ ixany
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ixany
-+ for opt in $options
-+ case $opt in
-+ test imaxbel = extproc
-+ stty imaxbel
-+ test imaxbel = cread
-+ stty_reversible_query_ imaxbel
-+ case $stty_reversible_ in
-+ return 0
-+ stty -imaxbel
-+ for opt in $options
-+ case $opt in
-+ test iutf8 = extproc
-+ stty iutf8
-+ test iutf8 = cread
-+ stty_reversible_query_ iutf8
-+ case $stty_reversible_ in
-+ return 0
-+ stty -iutf8
-+ for opt in $options
-+ case $opt in
-+ test opost = extproc
-+ stty opost
-+ test opost = cread
-+ stty_reversible_query_ opost
-+ case $stty_reversible_ in
-+ return 0
-+ stty -opost
-+ for opt in $options
-+ case $opt in
-+ test olcuc = extproc
-+ stty olcuc
-+ test olcuc = cread
-+ stty_reversible_query_ olcuc
-+ case $stty_reversible_ in
-+ return 0
-+ stty -olcuc
-+ for opt in $options
-+ case $opt in
-+ test ocrnl = extproc
-+ stty ocrnl
-+ test ocrnl = cread
-+ stty_reversible_query_ ocrnl
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ocrnl
-+ for opt in $options
-+ case $opt in
-+ test onlcr = extproc
-+ stty onlcr
-+ test onlcr = cread
-+ stty_reversible_query_ onlcr
-+ case $stty_reversible_ in
-+ return 0
-+ stty -onlcr
-+ for opt in $options
-+ case $opt in
-+ test onocr = extproc
-+ stty onocr
-+ test onocr = cread
-+ stty_reversible_query_ onocr
-+ case $stty_reversible_ in
-+ return 0
-+ stty -onocr
-+ for opt in $options
-+ case $opt in
-+ test onlret = extproc
-+ stty onlret
-+ test onlret = cread
-+ stty_reversible_query_ onlret
-+ case $stty_reversible_ in
-+ return 0
-+ stty -onlret
-+ for opt in $options
-+ case $opt in
-+ test ofill = extproc
-+ stty ofill
-+ test ofill = cread
-+ stty_reversible_query_ ofill
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ofill
-+ for opt in $options
-+ case $opt in
-+ test ofdel = extproc
-+ stty ofdel
-+ test ofdel = cread
-+ stty_reversible_query_ ofdel
-+ case $stty_reversible_ in
-+ return 0
-+ stty -ofdel
-+ for opt in $options
-+ case $opt in
-+ test nl0 = extproc
-+ stty nl0
-+ test nl0 = cread
-+ stty_reversible_query_ nl0
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test cr0 = extproc
-+ stty cr0
-+ test cr0 = cread
-+ stty_reversible_query_ cr0
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test tab0 = extproc
-+ stty tab0
-+ test tab0 = cread
-+ stty_reversible_query_ tab0
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test bs0 = extproc
-+ stty bs0
-+ test bs0 = cread
-+ stty_reversible_query_ bs0
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test vt0 = extproc
-+ stty vt0
-+ test vt0 = cread
-+ stty_reversible_query_ vt0
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test ff0 = extproc
-+ stty ff0
-+ test ff0 = cread
-+ stty_reversible_query_ ff0
-+ case $stty_reversible_ in
-+ return 1
-+ for opt in $options
-+ case $opt in
-+ test isig = extproc
-+ stty isig
-+ test isig = cread
-+ stty_reversible_query_ isig
-+ case $stty_reversible_ in
-+ return 0
-+ stty -isig
-+ for opt in $options
-+ case $opt in
-+ continue
-+ for opt in $options
-+ case $opt in
-+ test iexten = extproc
-+ stty iexten
-+ test iexten = cread
-+ stty_reversible_query_ iexten
-+ case $stty_reversible_ in
-+ return 0
-+ stty -iexten
-+ for opt in $options
-+ case $opt in
-+ test echo = extproc
-+ stty echo
-+ test echo = cread
-+ stty_reversible_query_ echo
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echo
-+ for opt in $options
-+ case $opt in
-+ test echoe = extproc
-+ stty echoe
-+ test echoe = cread
-+ stty_reversible_query_ echoe
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echoe
-+ for opt in $options
-+ case $opt in
-+ test echok = extproc
-+ stty echok
-+ test echok = cread
-+ stty_reversible_query_ echok
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echok
-+ for opt in $options
-+ case $opt in
-+ test echonl = extproc
-+ stty echonl
-+ test echonl = cread
-+ stty_reversible_query_ echonl
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echonl
-+ for opt in $options
-+ case $opt in
-+ test noflsh = extproc
-+ stty noflsh
-+ test noflsh = cread
-+ stty_reversible_query_ noflsh
-+ case $stty_reversible_ in
-+ return 0
-+ stty -noflsh
-+ for opt in $options
-+ case $opt in
-+ test xcase = extproc
-+ stty xcase
-+ test xcase = cread
-+ stty_reversible_query_ xcase
-+ case $stty_reversible_ in
-+ return 0
-+ stty -xcase
-+ for opt in $options
-+ case $opt in
-+ test tostop = extproc
-+ stty tostop
-+ test tostop = cread
-+ stty_reversible_query_ tostop
-+ case $stty_reversible_ in
-+ return 0
-+ stty -tostop
-+ for opt in $options
-+ case $opt in
-+ test echoprt = extproc
-+ stty echoprt
-+ test echoprt = cread
-+ stty_reversible_query_ echoprt
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echoprt
-+ for opt in $options
-+ case $opt in
-+ test echoctl = extproc
-+ stty echoctl
-+ test echoctl = cread
-+ stty_reversible_query_ echoctl
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echoctl
-+ for opt in $options
-+ case $opt in
-+ test echoke = extproc
-+ stty echoke
-+ test echoke = cread
-+ stty_reversible_query_ echoke
-+ case $stty_reversible_ in
-+ return 0
-+ stty -echoke
-+ for opt in $options
-+ case $opt in
-+ test flusho = extproc
-+ stty flusho
-+ test flusho = cread
-+ stty_reversible_query_ flusho
-+ case $stty_reversible_ in
-+ return 0
-+ stty -flusho
-+ for opt in $options
-+ case $opt in
-+ test extproc = extproc
-+ continue
-++ cat .saved-state
-+ stty 4500:5:bf:8a3b:3:1c:7f:15:4:0:1:0:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
-+ strace -o log1 -e ioctl stty --version
-stty (GNU coreutils) 8.30
-Copyright (C) 2018 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-
-Written by David MacKenzie.
-++ wc -l
-+ n_ioctl1=1
-+ returns_ 1 strace -o log2 -e ioctl stty -blahblah
-stty: invalid argument '-blahblah'
-Try 'stty --help' for more information.
-++ wc -l
-+ n_ioctl2=1
-+ test 1 = 1
-+ Exit 0
++ skip_ 'no strace program'
++ warn_ 'stty.sh: skipped test: no strace program'
++ case $IFS in
++ printf '%s\n' 'stty.sh: skipped test: no strace program'
+stty.sh: skipped test: no strace program
++ test 9 = 2
++ printf '%s\n' 'stty.sh: skipped test: no strace program'
++ sed 1q
++ Exit 77
 + set +e
-+ exit 0
-+ exit 0
++ exit 77
++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-stty.sh.eO7P
-+ exit 0
-PASS tests/misc/stty.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-stty.sh.dG7L
++ rm -rf /sources/coreutils-8.30/gt-stty.sh.dG7L
++ exit 77
+SKIP tests/misc/stty.sh (exit status: 77)

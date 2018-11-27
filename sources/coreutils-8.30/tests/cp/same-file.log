@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-same-file.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-same-file.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-same-file.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
++++ d=/sources/coreutils-8.30/gt-same-file.sh.CWpq
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN'
++++ test -d /sources/coreutils-8.30/gt-same-file.sh.CWpq
+++++ ls -dgo /sources/coreutils-8.30/gt-same-file.sh.CWpq
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-same-file.sh.CWpq'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
++++ echo /sources/coreutils-8.30/gt-same-file.sh.CWpq
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
+++ test_dir_=/sources/coreutils-8.30/gt-same-file.sh.CWpq
+++ cd /sources/coreutils-8.30/gt-same-file.sh.CWpq
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -143,9 +143,9 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
++ cp -d foo symlink
 + sed 's/  *$//'
 + tr '\n' ' '
-+ cp -d foo symlink
 + echo 1 -d
 + test -s _err
 + sed '
@@ -370,8 +370,8 @@ symlink.~1~ -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -bf foo symlink
++ tr '\n' ' '
 + echo 0 -bf
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -521,8 +521,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ cp -fl foo symlink
 + sed 's/  *$//'
++ cp -fl foo symlink
 + tr '\n' ' '
 + echo 0 -fl
 + test -s _err
@@ -626,8 +626,8 @@ symlink.~1~ -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bdl foo symlink
 + tr '\n' ' '
++ cp -bdl foo symlink
 + echo 0 -bdl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -662,8 +662,8 @@ symlink.~1~ -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bfl foo symlink
 + tr '\n' ' '
++ cp -bfl foo symlink
 + echo 0 -bfl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -698,8 +698,8 @@ symlink.~1~ -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bdfl foo symlink
 + tr '\n' ' '
++ cp -bdfl foo symlink
 + echo 0 -bdfl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -810,8 +810,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp symlink foo
 + tr '\n' ' '
++ cp symlink foo
 + echo 1
 + test -s _err
 + sed '
@@ -850,8 +850,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -d symlink foo
 + tr '\n' ' '
++ cp -d symlink foo
 + echo 1 -d
 + test -s _err
 + sed '
@@ -900,8 +900,8 @@ symlink -> foo)'
             1s/^/[/
             $s/$/]/
           ' _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 symlink -> foo'
 + echo '(foo
@@ -1083,9 +1083,9 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
++ cp -bf symlink foo
 + sed 's/  *$//'
 + tr '\n' ' '
-+ cp -bf symlink foo
 + echo 1 -bf
 + test -s _err
 + sed '
@@ -1123,8 +1123,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ sed 's/  *$//'
 + cp -bdf symlink foo
++ sed 's/  *$//'
 + tr '\n' ' '
 + echo 0 -bdf
 + test -s _err
@@ -1263,8 +1263,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bl symlink foo
 + tr '\n' ' '
++ cp -bl symlink foo
 + echo 0 -bl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -1337,8 +1337,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -s symlink foo
++ tr '\n' ' '
 + echo 1 -s
 + test -s _err
 + sed '
@@ -1376,8 +1376,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ cp -sf symlink foo
 + sed 's/  *$//'
++ cp -sf symlink foo
 + tr '\n' ' '
 + echo 1 -sf
 + test -s _err
@@ -1418,8 +1418,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp foo foo
 + tr '\n' ' '
++ cp foo foo
 + echo 1
 + test -s _err
 + sed '
@@ -1529,8 +1529,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -df foo foo
++ tr '\n' ' '
 + echo 1 -df
 + test -s _err
 + sed '
@@ -1603,8 +1603,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -b foo foo
++ tr '\n' ' '
 + echo 1 -b
 + test -s _err
 + sed '
@@ -1650,8 +1650,8 @@ symlink -> foo)'
             1s/^/[/
             $s/$/]/
           ' _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls=foo
 + echo '(foo)'
 + for f in $args
@@ -1677,8 +1677,8 @@ symlink -> foo)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -bf foo foo
++ tr '\n' ' '
 + echo 0 -bf
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -1714,8 +1714,8 @@ foo.~1~)'
 + tr '\n' ' '
 + echo 0 -bdf
 + test -s _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 foo.~1~'
 + echo '(foo
@@ -1898,8 +1898,8 @@ foo.~1~)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bdl foo foo
 + tr '\n' ' '
++ cp -bdl foo foo
 + echo 0 -bdl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -1928,8 +1928,8 @@ foo.~1~)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ cp -bfl foo foo
 + sed 's/  *$//'
++ cp -bfl foo foo
 + tr '\n' ' '
 + echo 0 -bfl
 + test -s _err
@@ -2032,8 +2032,8 @@ foo.~1~)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp -sf foo foo
 + tr '\n' ' '
++ cp -sf foo foo
 + echo 1 -sf
 + test -s _err
 + sed '
@@ -2309,12 +2309,12 @@ sl2.~1~ -> foo)'
 + ln -s foo sl2
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bd sl1 sl2
 + tr '\n' ' '
++ cp -bd sl1 sl2
 + echo 0 -bd
 + test -s _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 sl1 -> foo
 sl2 -> foo
@@ -2387,8 +2387,8 @@ sl2.~1~ -> foo)'
 + ln -s foo sl2
 + case "$args" in
 + sed 's/  *$//'
-+ cp -bdf sl1 sl2
 + tr '\n' ' '
++ cp -bdf sl1 sl2
 + echo 0 -bdf
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -2677,8 +2677,8 @@ sl2 -> sl1)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ cp foo hardlink
 + tr '\n' ' '
++ cp foo hardlink
 + echo 1
 + test -s _err
 + sed '
@@ -2717,8 +2717,8 @@ hardlink)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -d foo hardlink
++ tr '\n' ' '
 + echo 1 -d
 + test -s _err
 + sed '
@@ -2756,8 +2756,8 @@ hardlink)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ cp -f foo hardlink
 + sed 's/  *$//'
++ cp -f foo hardlink
 + tr '\n' ' '
 + echo 1 -f
 + test -s _err
@@ -2837,12 +2837,12 @@ hardlink)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp --rem foo hardlink
++ tr '\n' ' '
 + echo 0 --rem
 + test -s _err
-++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 ++ ls -gG --ignore=_err .
+++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 + ls='foo
 hardlink'
 + echo '(foo
@@ -2942,8 +2942,8 @@ hardlink.~1~)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ sed 's/  *$//'
 + cp -bf foo hardlink
++ sed 's/  *$//'
 + tr '\n' ' '
 + echo 0 -bf
 + test -s _err
@@ -3019,8 +3019,8 @@ hardlink.~1~)'
 + tr '\n' ' '
 + echo 0 -l
 + test -s _err
-++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 ++ ls -gG --ignore=_err .
+++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 + ls='foo
 hardlink'
 + echo '(foo
@@ -3150,8 +3150,8 @@ hardlink)'
 + case "$args" in
 + case "$args" in
 + case "$args" in
-+ sed 's/  *$//'
 + cp -bl foo hardlink
++ sed 's/  *$//'
 + tr '\n' ' '
 + echo 0 -bl
 + test -s _err
@@ -3189,8 +3189,8 @@ hardlink)'
 + cp -bdl foo hardlink
 + echo 0 -bdl
 + test -s _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 hardlink'
 + echo '(foo
@@ -3253,8 +3253,8 @@ hardlink)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -bdfl foo hardlink
++ tr '\n' ' '
 + echo 0 -bdfl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -3287,8 +3287,8 @@ hardlink)'
 + case "$args" in
 + case "$args" in
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -s foo hardlink
++ tr '\n' ' '
 + echo 1 -s
 + test -s _err
 + sed '
@@ -3297,8 +3297,8 @@ hardlink)'
             1s/^/[/
             $s/$/]/
           ' _err
-++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 ++ ls -gG --ignore=_err .
+++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 + ls='foo
 hardlink'
 + echo '(foo
@@ -3413,8 +3413,8 @@ sl2 -> foo)'
 + case "$args" in
 + ln sl2 hlsl
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -d hlsl sl2
++ tr '\n' ' '
 + echo 0 -d
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -3529,8 +3529,8 @@ sl2 -> foo)'
 + ln -s foo sl2
 + case "$args" in
 + ln sl2 hlsl
-+ cp --rem hlsl sl2
 + sed 's/  *$//'
++ cp --rem hlsl sl2
 + tr '\n' ' '
 + echo 0 --rem
 + test -s _err
@@ -3645,8 +3645,8 @@ sl2.~1~ -> foo)'
 + case "$args" in
 + ln sl2 hlsl
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -bf hlsl sl2
++ tr '\n' ' '
 + echo 0 -bf
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -3684,12 +3684,12 @@ sl2.~1~ -> foo)'
 + case "$args" in
 + ln sl2 hlsl
 + sed 's/  *$//'
-+ tr '\n' ' '
 + cp -bdf hlsl sl2
++ tr '\n' ' '
 + echo 0 -bdf
 + test -s _err
-++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 ++ ls -gG --ignore=_err .
+++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 + ls='foo
 hlsl -> foo
 sl2 -> foo
@@ -3766,12 +3766,12 @@ sl2 -> foo)'
 + case "$args" in
 + ln sl2 hlsl
 + sed 's/  *$//'
-+ cp -dl hlsl sl2
 + tr '\n' ' '
++ cp -dl hlsl sl2
 + echo 0 -dl
 + test -s _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 hlsl -> foo
 sl2 -> foo'
@@ -3807,8 +3807,8 @@ sl2 -> foo)'
 + tr '\n' ' '
 + echo 0 -fl
 + test -s _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 hlsl -> foo
 sl2'
@@ -3877,8 +3877,8 @@ sl2 -> foo)'
 + case "$args" in
 + ln sl2 hlsl
 + sed 's/  *$//'
-+ cp -bl hlsl sl2
 + tr '\n' ' '
++ cp -bl hlsl sl2
 + echo 0 -bl
 + test -s _err
 ++ ls -gG --ignore=_err .
@@ -3957,8 +3957,8 @@ sl2 -> foo)'
 + tr '\n' ' '
 + echo 0 -bfl
 + test -s _err
-++ ls -gG --ignore=_err .
 ++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
+++ ls -gG --ignore=_err .
 + ls='foo
 hlsl -> foo
 sl2
@@ -3996,8 +3996,8 @@ sl2.~1~ -> foo)'
 + tr '\n' ' '
 + echo 0 -bdfl
 + test -s _err
-++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 ++ ls -gG --ignore=_err .
+++ sed -e '/^total /d' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
 + ls='foo
 hlsl -> foo
 sl2 -> foo'
@@ -4116,8 +4116,8 @@ sl2 -> hlsl)'
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-same-file.sh.lCwN
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-same-file.sh.CWpq
++ rm -rf /sources/coreutils-8.30/gt-same-file.sh.CWpq
 + exit 0
 PASS tests/cp/same-file.sh (exit status: 0)

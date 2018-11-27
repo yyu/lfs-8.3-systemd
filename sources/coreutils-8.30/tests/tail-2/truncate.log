@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-truncate.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-truncate.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-truncate.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
++++ d=/sources/coreutils-8.30/gt-truncate.sh.158i
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl'
++++ test -d /sources/coreutils-8.30/gt-truncate.sh.158i
+++++ ls -dgo /sources/coreutils-8.30/gt-truncate.sh.158i
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-truncate.sh.158i'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
++++ echo /sources/coreutils-8.30/gt-truncate.sh.158i
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
+++ test_dir_=/sources/coreutils-8.30/gt-truncate.sh.158i
+++ cd /sources/coreutils-8.30/gt-truncate.sh.158i
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -84,10 +84,11 @@ and Jim Meyering.
 + for mode in '' '---disable-inotify'
 + rm -f out
 + seq 10
-+ pid=31504
++ pid=47113
 + tail_re='^10$'
 + retry_delay_ check_tail_output .1 7
 + local test_func=check_tail_output
++ tail -f -s.1 --max-unchanged-stats=1 f
 + local init_delay=.1
 + local max_n_tries=7
 + shift 3
@@ -95,7 +96,6 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 7
-+ tail -f -s.1 --max-unchanged-stats=1 f
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -124,16 +124,15 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 31504
-+ wait 31504
++ kill 47113
++ wait 47113
 + for mode in '' '---disable-inotify'
 + rm -f out
 + seq 10
-+ pid=31512
++ pid=47121
 + tail_re='^10$'
 + retry_delay_ check_tail_output .1 7
 + local test_func=check_tail_output
-+ tail -f ---disable-inotify -s.1 --max-unchanged-stats=1 f
 + local init_delay=.1
 + local max_n_tries=7
 + shift 3
@@ -141,6 +140,7 @@ and Jim Meyering.
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 7
++ tail -f ---disable-inotify -s.1 --max-unchanged-stats=1 f
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -182,24 +182,24 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 31512
-+ wait 31512
++ kill 47121
++ wait 47121
 + for follow in '-f' '-F'
 + for mode in '' '---disable-inotify'
 + rm -f out
 + seq 10
-+ pid=31525
++ pid=47134
 + tail_re='^10$'
 + retry_delay_ check_tail_output .1 7
 + local test_func=check_tail_output
 + local init_delay=.1
-+ tail -F -s.1 --max-unchanged-stats=1 f
 + local max_n_tries=7
 + shift 3
 + local attempt=1
 + local num_sleeps=1
 + local time_fail
 + test 1 -le 7
++ tail -F -s.1 --max-unchanged-stats=1 f
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -228,12 +228,12 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 31525
-+ wait 31525
++ kill 47134
++ wait 47134
 + for mode in '' '---disable-inotify'
 + rm -f out
 + seq 10
-+ pid=31533
++ pid=47142
 + tail_re='^10$'
 + retry_delay_ check_tail_output .1 7
 + local test_func=check_tail_output
@@ -243,8 +243,8 @@ and Jim Meyering.
 + local attempt=1
 + local num_sleeps=1
 + local time_fail
-+ tail -F ---disable-inotify -s.1 --max-unchanged-stats=1 f
 + test 1 -le 7
++ tail -F ---disable-inotify -s.1 --max-unchanged-stats=1 f
 ++ gawk -v n=1 -v s=.1 'BEGIN { print s * n }'
 + local delay=0.1
 + check_tail_output 0.1
@@ -286,8 +286,8 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 31533
-+ wait 31533
++ kill 47142
++ wait 47142
 + Exit 0
 + set +e
 + exit 0
@@ -295,10 +295,10 @@ and Jim Meyering.
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 31533
++ kill 47142
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-truncate.sh.eNNl
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-truncate.sh.158i
++ rm -rf /sources/coreutils-8.30/gt-truncate.sh.158i
 + exit 0
 PASS tests/tail-2/truncate.sh (exit status: 0)

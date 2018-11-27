@@ -1,0 +1,139 @@
+++ srcdir=.
+++ GINFO='./ginfo --init-file ./t/Infokey-config'
+++ GINFO_NAME=ginfo
+++ infodir=./t/infodir
+++ export infodir
+++ INFOPATH=./t/infodir
+++ export INFOPATH
+++ t=./t
+++ export t
++++ basename ./t/replace-viewed.sh.out
+++ GINFO_OUTPUT=t/replace-viewed.sh.out
++++ basename ./t/replace-viewed.sh.pipein
+++ PIPEIN=t/replace-viewed.sh.pipein
++++ basename ./t/replace-viewed.sh.pipeout
+++ PTY_TYPE=t/replace-viewed.sh.pipeout
+++ rm -f t/replace-viewed.sh.out
+++ INFO_PRINT_COMMAND='>t/replace-viewed.sh.out'
+++ export INFO_PRINT_COMMAND
+++ PTY_PID=0
+++ LC_ALL=C
+++ export LC_ALL
+++ TERM=dumb
+++ export TERM
+++ STTY=true
+++ reset_required=no
+++ trap cleanup 2
++ . ./t/Init-inter.inc
+++ test -x pseudotty
+++ path_sep=:
+++ TERM=vt100
+++ export TERM
+++ findprog stty
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/stty
+++ test -x /bin/stty
+++ return 0
+++ STTY=stty
+++ reset_required=yes
+++ test yes=yes
+++ stty
+++ grep '[-]echo'
+++ rm -f t/replace-viewed.sh.pipein t/replace-viewed.sh.pipeout
+++ findprog mkfifo
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/mkfifo
+++ test -f /bin/mkfifo.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mkfifo
+++ test -x /usr/bin/mkfifo
+++ return 0
+++ mkfifo t/replace-viewed.sh.pipein
+++ mkfifo t/replace-viewed.sh.pipeout
+++ test '!' -r t/replace-viewed.sh.pipein
+++ test '!' -r t/replace-viewed.sh.pipeout
+++ PTY_PID=1323
+++ read PTS_DEVICE
+++ exec ./pseudotty t/replace-viewed.sh.pipeout
+./pseudotty: getting pty master fd
+./pseudotty: unlocking slave device
+./pseudotty: getting file name of slave device...
+./pseudotty: /dev/pts/0
+./pseudotty: opening slave device
+./pseudotty: attempting to set window size
+./pseudotty: ...succeeded
+./pseudotty: opening control channel
+++ exec
+./pseudotty: entering main loop
+++ LIBC_FATAL_STDERR_=1
+++ export LIBC_FATAL_STDERR
++ rm -f t/replace-viewed.info
++ cp ./t/infodir/sample.info t/replace-viewed.info
++ run_ginfo -f t/replace-viewed.info
++ GINFO_PID=1326
++ test 1326 = unknown
++ printf D
++ sh -c '
+    exec 7>&- ; # Close fd from parent shell
+
+    (sleep 3 ; kill $$) &
+    exec ./ginfo --init-file ./t/Infokey-config  -f t/replace-viewed.info 0<>/dev/pts/0 1<&0 ;'
++ test '!' -f t/replace-viewed.sh.out
++ sleep 1
+./pseudotty: trying to read
+./pseudotty: read byte 0x44
+info: "./t/Infokey-config", line 2: unknown action `xxx-not-recognized'
+info: "./t/Infokey-config", line 3: cannot bind key sequence to menu-digit
++ test '!' -f t/replace-viewed.sh.out
++ cat t/replace-viewed.sh.out
+File: sample.info,  Node: Top,  Up: (DIR)
+
+This is a simple Info file.
++ rm -f t/replace-viewed.info
++ cp ./t/infodir/sample.info t/replace-viewed.info
++ printf '/what\r'
++ printf q
++ rm -f t/replace-viewed.info
+./pseudotty: trying to read
+./pseudotty: read byte 0x2F
+./pseudotty: trying to read
+./pseudotty: read byte 0x77
+./pseudotty: trying to read
+./pseudotty: read byte 0x68
+./pseudotty: trying to read
+./pseudotty: read byte 0x61
+./pseudotty: trying to read
+./pseudotty: read byte 0x74
+./pseudotty: trying to read
+./pseudotty: read byte 0x0D
+./pseudotty: trying to read
+./pseudotty: read byte 0x71
++ timeout_test
++ wait 1326
++ status=0
++ RETVAL=0
++ test 0 '!=' 0
++ GINFO_PID=0
++ cleanup
++ test 1323 -ne 0
++ kill 1323
++ rm -f t/replace-viewed.sh.out
+./t/Init-test.inc: line 70:  1323 Terminated              ( exec ./pseudotty "$PTY_TYPE" > $PIPEIN )
++ rm -f t/replace-viewed.sh.pipein t/replace-viewed.sh.pipeout
++ test yes = yes
++ stty
++ grep '[-]echo'
++ exit 0
+sh: line 3: kill: (1326) - No such process

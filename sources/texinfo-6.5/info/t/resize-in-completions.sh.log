@@ -1,0 +1,122 @@
+++ srcdir=.
+++ GINFO='./ginfo --init-file ./t/Infokey-config'
+++ GINFO_NAME=ginfo
+++ infodir=./t/infodir
+++ export infodir
+++ INFOPATH=./t/infodir
+++ export INFOPATH
+++ t=./t
+++ export t
++++ basename ./t/resize-in-completions.sh.out
+++ GINFO_OUTPUT=t/resize-in-completions.sh.out
++++ basename ./t/resize-in-completions.sh.pipein
+++ PIPEIN=t/resize-in-completions.sh.pipein
++++ basename ./t/resize-in-completions.sh.pipeout
+++ PTY_TYPE=t/resize-in-completions.sh.pipeout
+++ rm -f t/resize-in-completions.sh.out
+++ INFO_PRINT_COMMAND='>t/resize-in-completions.sh.out'
+++ export INFO_PRINT_COMMAND
+++ PTY_PID=0
+++ LC_ALL=C
+++ export LC_ALL
+++ TERM=dumb
+++ export TERM
+++ STTY=true
+++ reset_required=no
+++ trap cleanup 2
++ . ./t/Init-inter.inc
+++ test -x pseudotty
+++ path_sep=:
+++ TERM=vt100
+++ export TERM
+++ findprog stty
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/stty
+++ test -x /bin/stty
+++ return 0
+++ STTY=stty
+++ reset_required=yes
+++ test yes=yes
+++ stty
+++ grep '[-]echo'
+++ rm -f t/resize-in-completions.sh.pipein t/resize-in-completions.sh.pipeout
+++ findprog mkfifo
+++ saveIFS=' 	
+'
+++ IFS=:
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /bin/mkfifo
+++ test -f /bin/mkfifo.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mkfifo
+++ test -x /usr/bin/mkfifo
+++ return 0
+++ mkfifo t/resize-in-completions.sh.pipein
+++ mkfifo t/resize-in-completions.sh.pipeout
+++ test '!' -r t/resize-in-completions.sh.pipein
+++ test '!' -r t/resize-in-completions.sh.pipeout
+++ PTY_PID=1291
+++ read PTS_DEVICE
+++ exec ./pseudotty t/resize-in-completions.sh.pipeout
+./pseudotty: getting pty master fd
+./pseudotty: unlocking slave device
+./pseudotty: getting file name of slave device...
+./pseudotty: /dev/pts/0
+./pseudotty: opening slave device
+./pseudotty: attempting to set window size
+./pseudotty: ...succeeded
+./pseudotty: opening control channel
+++ exec
+./pseudotty: entering main loop
+++ LIBC_FATAL_STDERR_=1
+++ export LIBC_FATAL_STDERR
++ run_ginfo -f file-menu
++ GINFO_PID=1292
++ test 1292 = unknown
++ sh -c '
+    exec 7>&- ; # Close fd from parent shell
+
+    (sleep 3 ; kill $$) &
++ printf 'g\t'
+    exec ./ginfo --init-file ./t/Infokey-config  -f file-menu 0<>/dev/pts/0 1<&0 ;'
++ sleep 1
+./pseudotty: trying to read
+./pseudotty: read byte 0x67
+./pseudotty: trying to read
+./pseudotty: read byte 0x09
+info: "./t/Infokey-config", line 2: unknown action `xxx-not-recognized'
+info: "./t/Infokey-config", line 3: cannot bind key sequence to menu-digit
++ kill -s WINCH 1292
++ sleep 1
++ printf '\007q'
++ timeout_test
++ wait 1292
+./pseudotty: trying to read
+./pseudotty: read byte 0x07
+./pseudotty: trying to read
+./pseudotty: read byte 0x71
++ status=0
++ RETVAL=0
++ test 0 '!=' 0
++ GINFO_PID=0
++ cleanup
++ test 1291 -ne 0
++ kill 1291
++ rm -f t/resize-in-completions.sh.out
+./t/Init-test.inc: line 70:  1291 Terminated              ( exec ./pseudotty "$PTY_TYPE" > $PIPEIN )
++ rm -f t/resize-in-completions.sh.pipein t/resize-in-completions.sh.pipeout
++ test yes = yes
++ stty
++ grep '[-]echo'
++ exit 0
+sh: line 3: kill: (1292) - No such process
+s: 0)

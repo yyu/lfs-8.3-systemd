@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-existing-perm-race.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-existing-perm-race.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-existing-perm-race.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
++++ d=/sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH'
++++ test -d /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
+++++ ls -dgo /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
++++ echo /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
+++ test_dir_=/sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
+++ cd /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -80,72 +80,60 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
 + require_membership_in_two_groups_
 + test 0 = 0
-+ groups=1001
++ groups='99 1000'
 + case "$groups" in
-+ skip_ 'requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id' '-G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ warn_ 'existing-perm-race.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id' '-G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ case $IFS in
-+ printf '%s\n' 'existing-perm-race.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-existing-perm-race.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='users cdrom' make check
-
-
-+ test 9 = 2
-+ sed 1q
-+ printf '%s\n' 'existing-perm-race.sh: skipped test: requires membership in two groups
-this test requires that you be a member of more than one group,
-but running id -G\ either failed or found just one.  If you really
-are a member of at least two groups, then rerun this test with
-COREUTILS_GROUPS set in your environment to the space-separated list
-of group names or numbers.  E.g.,
-
-  env COREUTILS_GROUPS='\''users cdrom'\'' make check
-
-'
-+ Exit 77
++ require_local_dir_
++ require_mount_list_
++ local 'mount_list_fail=cannot read table of mounted file systems'
++ df --local
++ grep -F 'cannot read table of mounted file systems'
++ is_local_dir_ .
++ test 1 = 1
++ df --local .
++ require_no_default_acl_ .
++ getfacl --version
++ getfacl .
++ grep '^default:'
++ set _ 99 1000
++ shift
++ g1=99
++ g2=1000
++ umask 077
++ mkfifo_or_skip_ fifo
++ test 1 = 1
++ mkfifo fifo
++ touch fifo-copy
++ chgrp 99 fifo
++ chgrp 1000 fifo-copy
++ chmod g+r fifo-copy
++ pid=49607
++ cp -p --copy-contents fifo fifo-copy
++ test '!' -s fifo-copy
++ echo foo
++ test '!' -s fifo-copy
++ echo foo
++ test '!' -s fifo-copy
++ ls -l -n fifo-copy
++ echo foo
++ read mode links owner group etc
++ case $mode in
++ test 1000 = 99
++ wait 49607
++ ls -l -n fifo-copy
++ read mode links owner group etc
++ case $mode in
++ test 99 = 99
++ Exit 0
 + set +e
-+ exit 77
-+ exit 77
++ exit 0
++ exit 0
 + remove_tmp_
-+ __st=77
++ __st=0
 + cleanup_
-+ :
++ kill 49607
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-existing-perm-race.sh.8wKH
-+ exit 77
-SKIP tests/cp/existing-perm-race.sh (exit status: 77)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
++ rm -rf /sources/coreutils-8.30/gt-existing-perm-race.sh.iWG7
++ exit 0
+PASS tests/cp/existing-perm-race.sh (exit status: 0)

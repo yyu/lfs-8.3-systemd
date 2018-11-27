@@ -27,19 +27,24 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii43-XXXXXXXX
-+ outputdirfile=ii43-B5eaInqj
-+ cp ../../install-info/tests/ii-0043-input-dir-file ii43-B5eaInqj
++ outputdirfile=ii43-sRT5cGYG
++ cp ../../install-info/tests/ii-0043-input-dir-file ii43-sRT5cGYG
 + '[' x0 '!=' x0 ']'
-+ ../../install-info/ginstall-info ../../install-info/tests/ii-0043-input-info-file ii43-B5eaInqj
++ ../../install-info/ginstall-info ../../install-info/tests/ii-0043-input-info-file ii43-sRT5cGYG
 + retval=0
 + '[' x0 '!=' x0 ']'
-+ diff ../../install-info/tests/ii-0043-expected-dir-file ii43-B5eaInqj
++ diff ../../install-info/tests/ii-0043-expected-dir-file ii43-sRT5cGYG
 + retval=0
-+ rm -f ii43-B5eaInqj
++ rm -f ii43-sRT5cGYG
 + exit 0
 PASS ii-0043-test (exit status: 0)

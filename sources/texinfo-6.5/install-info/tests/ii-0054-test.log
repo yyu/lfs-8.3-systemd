@@ -27,17 +27,22 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 ++ mktemp ii54-XXXXXXXX
-+ outputdirfile=ii54-gSpO3mLv
-+ cp ../../install-info/tests/ii-0054-input-dir-file ii54-gSpO3mLv
++ outputdirfile=ii54-YbJlvuoU
++ cp ../../install-info/tests/ii-0054-input-dir-file ii54-YbJlvuoU
 + info_with_space='ii54 input.info.gz'
 + cp ../../install-info/tests/ii-0054-input-info-file.gz 'ii54 input.info.gz'
-+ ../../install-info/ginstall-info 'ii54 input.info.gz' ii54-gSpO3mLv
-+ diff ../../install-info/tests/ii-0054-expected-dir-file ii54-gSpO3mLv
-+ rm -f 'ii54 input.info.gz' ii54-gSpO3mLv
++ ../../install-info/ginstall-info 'ii54 input.info.gz' ii54-YbJlvuoU
++ diff ../../install-info/tests/ii-0054-expected-dir-file ii54-YbJlvuoU
++ rm -f 'ii54 input.info.gz' ii54-YbJlvuoU
 + exit
 PASS ii-0054-test (exit status: 0)

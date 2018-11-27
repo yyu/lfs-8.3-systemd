@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-symlink.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-symlink.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-symlink.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
++++ d=/sources/coreutils-8.30/gt-symlink.sh.Db9D
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
-+++ perms='drwx------ 2 4096 Nov 26 23:39 /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw'
++++ test -d /sources/coreutils-8.30/gt-symlink.sh.Db9D
+++++ ls -dgo /sources/coreutils-8.30/gt-symlink.sh.Db9D
++++ perms='drwx------ 2 4096 Nov 26 23:49 /sources/coreutils-8.30/gt-symlink.sh.Db9D'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
++++ echo /sources/coreutils-8.30/gt-symlink.sh.Db9D
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
+++ test_dir_=/sources/coreutils-8.30/gt-symlink.sh.Db9D
+++ cd /sources/coreutils-8.30/gt-symlink.sh.Db9D
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -81,11 +81,11 @@ Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
 and Jim Meyering.
 + fastpoll='-s.1 --max-unchanged-stats=1'
 + ln -nsf target symlink
-+ pid=31311
++ pid=46906
 + retry_delay_ wait4lines_ .1 6 1
-+ timeout 10 tail -s.1 --max-unchanged-stats=1 -F symlink
 + local test_func=wait4lines_
 + local init_delay=.1
++ timeout 10 tail -s.1 --max-unchanged-stats=1 -F symlink
 + local max_n_tries=6
 + shift 3
 + local attempt=1
@@ -120,8 +120,8 @@ and Jim Meyering.
 + local delay=0.1
 + local elc=3
 ++ countlines_
-++ grep -Ev 'inotify (resources exhausted|cannot be used)' out
 ++ wc -l
+++ grep -Ev 'inotify (resources exhausted|cannot be used)' out
 + '[' 1 -ge 3 ']'
 + sleep 0.1
 + return 1
@@ -161,8 +161,8 @@ and Jim Meyering.
 + break
 + test 0 = 0
 + cleanup_
-+ kill 31311
-+ wait 31311
++ kill 46906
++ wait 46906
 ++ countlines_
 ++ grep -Ev 'inotify (resources exhausted|cannot be used)' out
 ++ wc -l
@@ -176,7 +176,7 @@ X
 + rm -f target out
 + echo X1
 + ln -nsf target1 symlink
-+ pid=31343
++ pid=46941
 + retry_delay_ wait4lines_ .1 6 1
 + timeout 10 tail -s.1 --max-unchanged-stats=1 -F symlink
 + local test_func=wait4lines_
@@ -295,8 +295,8 @@ X
 + break
 + test 0 = 0
 + cleanup_
-+ kill 31343
-+ wait 31343
++ kill 46941
++ wait 46941
 ++ countlines_
 ++ grep -Ev 'inotify (resources exhausted|cannot be used)' out
 ++ wc -l
@@ -317,10 +317,10 @@ X2
 + remove_tmp_
 + __st=0
 + cleanup_
-+ kill 31343
++ kill 46941
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-symlink.sh.Zxsw
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-symlink.sh.Db9D
++ rm -rf /sources/coreutils-8.30/gt-symlink.sh.Db9D
 + exit 0
 PASS tests/tail-2/symlink.sh (exit status: 0)

@@ -38,6 +38,9 @@
 #include <stdio.h>
 #include <getopt.h>
 #include <sys/types.h>
+
+#include <mbfile.h>
+
 #include "system.h"
 #include "die.h"
 #include "xstrndup.h"
@@ -107,24 +110,47 @@ unexpand (void)
 {
   /* Input stream.  */
   FILE *fp = next_file (NULL);
+  mb_file_t mbf;
 
   /* The array of pending blanks.  In non-POSIX locales, blanks can
      include characters other than spaces, so the blanks must be
      stored, not merely counted.  */
-  char *pending_blank;
+  mbf_char_t *pending_blank;
+  /* True if the starting locale is utf8.  */
+  bool using_utf_locale;
+
+  /* True if the first file contains BOM header.  */
+  bool found_bom;
+  using_utf_locale=check_utf_locale();
 
   if (!fp)
     return;
+  mbf_init (mbf, fp);
+  found_bom=check_bom(fp,&mbf);
 
+  if (using_utf_locale == false && found_bom == true)
+  {
+    /*try using some predefined locale */
+
+    if (set_utf_locale () != 0)
+    {
+      error (EXIT_FAILURE, errno, _("cannot set UTF-8 locale"));
+    }
+  }
   /* The worst case is a non-blank character, then one blank, then a
      tab stop, then MAX_COLUMN_WIDTH - 1 blanks, then a non-blank; so
      allocate MAX_COLUMN_WIDTH bytes to store the blanks.  */
-  pending_blank = xmalloc (max_column_width);
+  pending_blank = xmalloc (max_column_width * sizeof (mbf_char_t));
+
+  if (found_bom == true)
+  {
+    print_bom();
+  }
 
   while (true)
     {
       /* Input character, or EOF.  */
-      int c;
+      mbf_char_t c;
 
       /* If true, perform translations.  */
       bool convert = true;
@@ -158,12 +184,44 @@ unexpand (void)
 
       do
         {
-          while ((c = getc (fp)) < 0 && (fp = next_file (fp)))
-            continue;
+          while (true) {
+            mbf_getc (c, mbf);
+            if ((mb_iseof (c)) && (fp = next_file (fp)))
+              {
+                mbf_init (mbf, fp);
+                if (fp!=NULL)
+                {
+                  if (check_bom(fp,&mbf)==true)
+                  {
+                    /*Not the first file - check BOM header*/
+                    if (using_utf_locale==false && found_bom==false)
+                    {
+                      /*BOM header in subsequent file but not in the first one. */
+                      error (EXIT_FAILURE, errno, _("combination of files with and without BOM header"));
+                    }
+                  }
+                  else
+                  {
+                    if(using_utf_locale==false && found_bom==true)
+                    {
+                      /*First file conatined BOM header - locale was switched to UTF
+                      /*all subsequent files should contain BOM. */
+                      error (EXIT_FAILURE, errno, _("combination of files with and without BOM header"));
+                    }
+                  }
+                }
+                continue;
+              }
+            else
+              {
+                break;
+              }
+            }
+
 
           if (convert)
             {
-              bool blank = !! isblank (c);
+              bool blank = mb_isblank (c);
 
               if (blank)
                 {
@@ -180,16 +238,16 @@ unexpand (void)
                       if (next_tab_column < column)
                         die (EXIT_FAILURE, 0, _("input line is too long"));
 
-                      if (c == '\t')
+                      if (mb_iseq (c, '\t'))
                         {
                           column = next_tab_column;
 
                           if (pending)
-                            pending_blank[0] = '\t';
+                            mb_setascii (&pending_blank[0], '\t');
                         }
                       else
                         {
-                          column++;
+                          column += mb_width (c);
 
                           if (! (prev_blank && column == next_tab_column))
                             {
@@ -197,13 +255,14 @@ unexpand (void)
                                  will be replaced by tabs.  */
                               if (column == next_tab_column)
                                 one_blank_before_tab_stop = true;
-                              pending_blank[pending++] = c;
+                              mb_copy (&pending_blank[pending++], &c);
                               prev_blank = true;
                               continue;
                             }
 
                           /* Replace the pending blanks by a tab or two.  */
-                          pending_blank[0] = c = '\t';
+                          mb_setascii (&c, '\t');
+                          mb_setascii (&pending_blank[0], '\t');
                         }
 
                       /* Discard pending blanks, unless it was a single
@@ -211,7 +270,7 @@ unexpand (void)
                       pending = one_blank_before_tab_stop;
                     }
                 }
-              else if (c == '\b')
+              else if (mb_iseq (c, '\b'))
                 {
                   /* Go back one column, and force recalculation of the
                      next tab stop.  */
@@ -219,9 +278,9 @@ unexpand (void)
                   next_tab_column = column;
                   tab_index -= !!tab_index;
                 }
-              else
+              else if (!mb_iseq (c, '\n'))
                 {
-                  column++;
+                  column += mb_width (c);
                   if (!column)
                     die (EXIT_FAILURE, 0, _("input line is too long"));
                 }
@@ -229,8 +288,11 @@ unexpand (void)
               if (pending)
                 {
                   if (pending > 1 && one_blank_before_tab_stop)
-                    pending_blank[0] = '\t';
-                  if (fwrite (pending_blank, 1, pending, stdout) != pending)
+                    mb_setascii (&pending_blank[0], '\t');
+
+                  for (int n = 0; n < pending; ++n)
+                    mb_putc (pending_blank[n], stdout);
+                  if (ferror (stdout))
                     die (EXIT_FAILURE, errno, _("write error"));
                   pending = 0;
                   one_blank_before_tab_stop = false;
@@ -240,16 +302,17 @@ unexpand (void)
               convert &= convert_entire_line || blank;
             }
 
-          if (c < 0)
+          if (mb_iseof (c))
             {
               free (pending_blank);
               return;
             }
 
-          if (putchar (c) < 0)
+          mb_putc (c, stdout);
+          if (ferror (stdout))
             die (EXIT_FAILURE, errno, _("write error"));
         }
-      while (c != '\n');
+      while (!mb_iseq (c, '\n'));
     }
 }
 

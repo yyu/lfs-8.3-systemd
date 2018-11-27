@@ -35,7 +35,7 @@ OBJEXT='o'
 EXEEXT=''
 
 # Common prefix for machine-independent installed files.
-prefix='/tools'
+prefix='/usr'
 # Common prefix for machine-dependent installed files.
 exec_prefix=`eval echo ${prefix}`
 # Directory to find libraries in for '-lXXX'.

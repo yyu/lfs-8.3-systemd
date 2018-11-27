@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-inaccessible-cwd.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-inaccessible-cwd.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-inaccessible-cwd.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
++++ d=/sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7'
++++ test -d /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
+++++ ls -dgo /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
++++ echo /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
+++ test_dir_=/sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
+++ cd /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -80,9 +80,9 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by Torbjorn Granlund, David MacKenzie, Paul Eggert,
 and Jim Meyering.
 + require_openat_support_
-+ test -z /mnt/lfs/sources/coreutils-8.30/lib/config.h
++ test -z /sources/coreutils-8.30/lib/config.h
 + _skip=yes
-+ grep '^#define HAVE_OPENAT' /mnt/lfs/sources/coreutils-8.30/lib/config.h
++ grep '^#define HAVE_OPENAT' /sources/coreutils-8.30/lib/config.h
 + _skip=no
 + test -d /proc/self/fd
 + _skip=no
@@ -90,15 +90,15 @@ and Jim Meyering.
 + skip_if_root_
 + uid_is_privileged_
 ++ id -u
-+ my_uid=1001
++ my_uid=99
 + case $my_uid in
 + return 1
 ++ pwd
-+ cwd=/mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
++ cwd=/sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
 + mkdir -p no-x a/b
 + cd no-x
 + chmod 0 .
-+ du /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7/a
++ du /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT/a
 + Exit 0
 + set +e
 + exit 0
@@ -108,8 +108,8 @@ and Jim Meyering.
 + cleanup_
 + :
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-inaccessible-cwd.sh.m3Z7
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
++ rm -rf /sources/coreutils-8.30/gt-inaccessible-cwd.sh.JVbT
 + exit 0
 PASS tests/du/inaccessible-cwd.sh (exit status: 0)

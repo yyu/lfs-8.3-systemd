@@ -1,28 +1,28 @@
-++ initial_cwd_=/mnt/lfs/sources/coreutils-8.30
+++ initial_cwd_=/sources/coreutils-8.30
 +++ testdir_prefix_
 +++ printf gt
 ++ pfx_=gt
-+++ mktempd_ /mnt/lfs/sources/coreutils-8.30 gt-part-hardlink.sh.XXXX
++++ mktempd_ /sources/coreutils-8.30 gt-part-hardlink.sh.XXXX
 +++ case $# in
-+++ destdir_=/mnt/lfs/sources/coreutils-8.30
++++ destdir_=/sources/coreutils-8.30
 +++ template_=gt-part-hardlink.sh.XXXX
 +++ MAX_TRIES_=4
 +++ case $destdir_ in
-+++ destdir_slash_=/mnt/lfs/sources/coreutils-8.30/
++++ destdir_slash_=/sources/coreutils-8.30/
 +++ case $template_ in
 ++++ unset TMPDIR
-+++ d=/mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
++++ d=/sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
 +++ case $d in
 +++ :
-+++ test -d /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
-++++ ls -dgo /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
-+++ perms='drwx------ 2 4096 Nov 26 23:40 /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs'
++++ test -d /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
+++++ ls -dgo /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
++++ perms='drwx------ 2 4096 Nov 26 23:50 /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S'
 +++ case $perms in
 +++ :
-+++ echo /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
++++ echo /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
 +++ return
-++ test_dir_=/mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
-++ cd /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
+++ test_dir_=/sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
+++ cd /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
 ++ gl_init_sh_nl_='
 '
 ++ IFS=' 	
@@ -52,10 +52,10 @@
 + test 1 '!=' 0
 + path_dir_=./src
 + case $path_dir_ in
-+ abs_path_dir_=/mnt/lfs/sources/coreutils-8.30/./src
++ abs_path_dir_=/sources/coreutils-8.30/./src
 + case $abs_path_dir_ in
-+ PATH=/mnt/lfs/sources/coreutils-8.30/./src:/mnt/lfs/sources/coreutils-8.30/src:/tools/bin:/bin:/usr/bin:/sbin:/usr/sbin
-+ create_exe_shims_ /mnt/lfs/sources/coreutils-8.30/./src
++ PATH=/sources/coreutils-8.30/./src:/sources/coreutils-8.30/src:/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin
++ create_exe_shims_ /sources/coreutils-8.30/./src
 + case $EXEEXT in
 + return 0
 + shift
@@ -78,48 +78,82 @@ This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
 Written by Mike Parker, David MacKenzie, and Jim Meyering.
-+ . /mnt/lfs/sources/coreutils-8.30/tests/other-fs-tmpdir
++ . /sources/coreutils-8.30/tests/other-fs-tmpdir
 ++ test '' = set
-++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /home/lfs'
+++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null'
 ++ other_partition_tmpdir=
 +++ stat -c %d .
 ++ dot_mount_point=1797
 ++ for d in $CANDIDATE_TMP_DIRS
 ++ test -d /tmp
 +++ stat -L -c %d /tmp
-++ d_mount_point=66305
-++ test x66305 = x1797
-++ mkdir /tmp/tmp51962
-++ other_partition_tmpdir=/tmp/tmp51962
-++ break
-++ test -z /tmp/tmp51962
-++ test yes = yes
-++ set -x
-+ touch f
-+ ln f g
-+ mkdir a b
-+ touch a/1
-+ ln a/1 b/1
-+ mv f g /tmp/tmp51962
-+ mv a b /tmp/tmp51962
-+ cd /tmp/tmp51962
-++ ls -Ci f g
-+ set 1819592 f 1819592 g
-+ test 1819592 = 1819592
-++ ls -Ci a/1 b/1
-+ set 1819594 a/1 1819594 b/1
-+ test 1819594 = 1819594
-+ Exit 0
-+ set +e
-+ exit 0
-+ exit 0
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /dev/shm
++++ stat -L -c %d /dev/shm
+++ d_mount_point=6
+++ test x6 = x1797
+++ mkdir /dev/shm/tmp67520
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /var/tmp
++++ stat -L -c %d /var/tmp
+++ d_mount_point=1797
+++ test x1797 = x1797
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /usr/tmp
+++ continue
+++ for d in $CANDIDATE_TMP_DIRS
+++ test -d /dev/null
+++ continue
+++ test -z ''
+++ skip_ 'requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ warn_ 'part-hardlink.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ case $IFS in
+++ printf '%s\n' 'part-hardlink.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+part-hardlink.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn't find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.
+++ test 9 = 2
+++ printf '%s\n' 'part-hardlink.sh: skipped test: requires a writable directory on a different disk partition,
+and I couldn'\''t find one.  I tried these:
+  /tmp /tmp /dev/shm /var/tmp /usr/tmp /dev/null
+Set your environment variable CANDIDATE_TMP_DIRS to make
+this test use a different list.'
+++ sed 1q
+++ Exit 77
+++ set +e
+++ exit 77
+++ exit 77
 + remove_tmp_
-+ __st=0
++ __st=77
 + cleanup_
-+ rm -rf /tmp/tmp51962
++ rm -rf ''
 + test '' = yes
-+ cd /mnt/lfs/sources/coreutils-8.30
-+ chmod -R u+rwx /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
-+ rm -rf /mnt/lfs/sources/coreutils-8.30/gt-part-hardlink.sh.eEgs
-+ exit 0
-PASS tests/mv/part-hardlink.sh (exit status: 0)
++ cd /sources/coreutils-8.30
++ chmod -R u+rwx /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
++ rm -rf /sources/coreutils-8.30/gt-part-hardlink.sh.Bg9S
++ exit 77
+SKIP tests/mv/part-hardlink.sh (exit status: 77)

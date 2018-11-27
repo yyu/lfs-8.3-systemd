@@ -27,17 +27,22 @@
 ++ for dir in $PATH
 ++ IFS=' 	
 '
-++ test -f /tools/bin/mktemp
-++ test -x /tools/bin/mktemp
+++ test -f /bin/mktemp
+++ test -f /bin/mktemp.exe
+++ for dir in $PATH
+++ IFS=' 	
+'
+++ test -f /usr/bin/mktemp
+++ test -x /usr/bin/mktemp
 ++ return 0
 ++ :
 + testnum=0055
 ++ mktemp ii0055-XXXXXXXX
-+ outputdirfile=ii0055-XXWz8Pwk
-+ cp ../../install-info/tests/ii-0055-input-dir-file ii0055-XXWz8Pwk
-+ ../../install-info/ginstall-info '--defsection=Antlered Animals' '--entry=* Gnu: (gnu).  Wildebeest native to Africa.' ../../install-info/tests/ii-0055-input-info-file ii0055-XXWz8Pwk
-+ diff ../../install-info/tests/ii-0055-expected-dir-file ii0055-XXWz8Pwk
++ outputdirfile=ii0055-zCASmBXn
++ cp ../../install-info/tests/ii-0055-input-dir-file ii0055-zCASmBXn
++ ../../install-info/ginstall-info '--defsection=Antlered Animals' '--entry=* Gnu: (gnu).  Wildebeest native to Africa.' ../../install-info/tests/ii-0055-input-info-file ii0055-zCASmBXn
++ diff ../../install-info/tests/ii-0055-expected-dir-file ii0055-zCASmBXn
 + retval=0
-+ rm -f ii0055-XXWz8Pwk
++ rm -f ii0055-zCASmBXn
 + exit 0
 PASS ii-0055-test (exit status: 0)

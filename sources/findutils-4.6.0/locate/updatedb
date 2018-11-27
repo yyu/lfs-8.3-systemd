@@ -85,7 +85,7 @@ esac
 if test "$old" = yes || test "$dbformat" = "old" ; then
     echo "Warning: future versions of findutils will shortly discontinue support for the old locate database format." >&2
     old=yes
-    sort="/tools/bin/sort"
+    sort="/usr/bin/sort"
     print_option="-print"
     frcode_options=""
 else
@@ -108,11 +108,11 @@ else
 
     if true
     then
-        sort="/tools/bin/sort -z"
+        sort="/usr/bin/sort -z"
         print_option="-print0"
         frcode_options="$frcode_options -0"
     else
-        sort="/tools/bin/sort"
+        sort="/usr/bin/sort"
         print_option="-print"
     fi
 fi
@@ -183,7 +183,7 @@ test -z "$PRUNEREGEX" &&
   PRUNEREGEX=`echo $PRUNEPATHS|sed -e 's,^,\\\(^,' -e 's, ,$\\\)\\\|\\\(^,g' -e 's,$,$\\\),'`
 
 # The database file to build.
-: ${LOCATE_DB=/tools/var/locatedb}
+: ${LOCATE_DB=/var/lib/locate/locatedb}
 
 # Directory to hold intermediate files.
 if test -d /var/tmp; then
@@ -202,14 +202,14 @@ export TMPDIR
 if test -n "$LIBEXECDIR" ; then
     : LIBEXECDIR already set, do nothing
 else
-    : ${LIBEXECDIR=/tools/libexec}
+    : ${LIBEXECDIR=/usr/libexec}
 fi
 
 # The directory containing find.
 if test -n "$BINDIR" ; then
     : BINDIR already set, do nothing
 else
-    : ${BINDIR=/tools/bin}
+    : ${BINDIR=/usr/bin}
 fi
 
 # The names of the utilities to run to build the database.

@@ -1,0 +1,998 @@
+Test run by root on Tue Nov 27 07:40:17 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== slabtop tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./slabtop.test/slabtop.exp ...
+spawn /sources/procps-ng-3.3.15/slabtop --help
+
+Usage:
+ lt-slabtop [options]
+
+Options:
+ -d, --delay <secs>  delay updates
+ -o, --once          only display once, then exit
+ -s, --sort <char>   specify sort criteria by character (see below)
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+The following are valid sort criteria:
+ a: sort by number of active objects
+ b: sort by objects per slab
+ c: sort by cache size
+ l: sort by number of slabs
+ v: sort by number of active slabs
+ n: sort by name
+ o: sort by number of objects (the default)
+ p: sort by pages per slab
+ s: sort by object size
+ u: sort by cache utilization
+
+For more details see slabtop(1).
+PASS: slabtop help
+spawn /sources/procps-ng-3.3.15/slabtop -o -s a
+ Active / Total Objects (% used)    : 43990310 / 44063990 (99.8%)
+ Active / Total Slabs (% used)      : 1062228 / 1062228 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818132.59K / 6836189.38K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+32126523 32126187  99%    0.10K 823757       39   3295028K buffer_head            
+3981684 3973314  99%    0.19K  94802       42    758416K dentry                 
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+236480 236096  99%    0.06K   3695       64     14780K pid                    
+175617 174955  99%    0.20K   4503       39     36024K vm_area_struct         
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+ 91264  90454  99%    0.25K   2852       32     22816K filp                   
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+ 38912  38643  99%    0.50K   1216       32     19456K kmalloc-512            
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+   124    124 100%    0.26K      2       62        32K numa_policy            
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+    51     51 100%    0.31K      1       51        16K bio-3                  
+    42     42 100%    0.75K      1       42        32K dax_cache              
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+    30     30 100%    2.08K      2       15        64K request_queue          
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+     0      0   0%    0.04K      0      102         0K fat_cache              
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+PASS: slabtop sorted by active objects
+spawn /sources/procps-ng-3.3.15/slabtop -o -s b
+ Active / Total Objects (% used)    : 43989965 / 44063606 (99.8%)
+ Active / Total Slabs (% used)      : 1062216 / 1062216 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818040.84K / 6836085.38K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+     0      0   0%    0.04K      0      102         0K fat_cache              
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+236480 236160  99%    0.06K   3695       64     14780K pid                    
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+   124    124 100%    0.26K      2       62        32K numa_policy            
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+    51     51 100%    0.31K      1       51        16K bio-3                  
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+3981684 3973314  99%    0.19K  94802       42    758416K dentry                 
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+    42     42 100%    0.75K      1       42        32K dax_cache              
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+175617 174955  99%    0.20K   4503       39     36024K vm_area_struct         
+32126523 32126187  99%    0.10K 823757       39   3295028K buffer_head            
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+ 38880  38669  99%    0.50K   1215       32     19440K kmalloc-512            
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+ 90912  90019  99%    0.25K   2841       32     22728K filp                   
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+    30     30 100%    2.08K      2       15        64K request_queue          
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+PASS: slabtop sorted by objects per slab
+spawn /sources/procps-ng-3.3.15/slabtop -o -s c
+ Active / Total Objects (% used)    : 43990141 / 44063709 (99.8%)
+ Active / Total Slabs (% used)      : 1062219 / 1062219 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818117.27K / 6836125.30K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+32126523 32126187  99%    0.10K 823757       39   3295028K buffer_head            
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+3981684 3973314  99%    0.19K  94802       42    758416K dentry                 
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+175656 174994  99%    0.20K   4504       39     36032K vm_area_struct         
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+ 90912  90019  99%    0.25K   2841       32     22728K filp                   
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+ 38944  38806  99%    0.50K   1217       32     19472K kmalloc-512            
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+236480 236160  99%    0.06K   3695       64     14780K pid                    
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+    30     30 100%    2.08K      2       15        64K request_queue          
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+   124    124 100%    0.26K      2       62        32K numa_policy            
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+    42     42 100%    0.75K      1       42        32K dax_cache              
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+    51     51 100%    0.31K      1       51        16K bio-3                  
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+     0      0   0%    0.04K      0      102         0K fat_cache              
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+PASS: slabtop sorted by cache size
+spawn /sources/procps-ng-3.3.15/slabtop -o -s l
+ Active / Total Objects (% used)    : 43990344 / 44063869 (99.8%)
+ Active / Total Slabs (% used)      : 1062223 / 1062223 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818186.52K / 6836177.30K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+32126523 32126187  99%    0.10K 823757       39   3295028K buffer_head            
+3981684 3973314  99%    0.19K  94802       42    758416K dentry                 
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+175656 174994  99%    0.20K   4504       39     36032K vm_area_struct         
+236544 236224  99%    0.06K   3696       64     14784K pid                    
+ 90912  90036  99%    0.25K   2841       32     22728K filp                   
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+ 39040  38928  99%    0.50K   1220       32     19520K kmalloc-512            
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+   124    124 100%    0.26K      2       62        32K numa_policy            
+    30     30 100%    2.08K      2       15        64K request_queue          
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+    42     42 100%    0.75K      1       42        32K dax_cache              
+    51     51 100%    0.31K      1       51        16K bio-3                  
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+     0      0   0%    0.04K      0      102         0K fat_cache              
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+PASS: slabtop sorted by number of slabs
+spawn /sources/procps-ng-3.3.15/slabtop -o -s o
+ Active / Total Objects (% used)    : 43990672 / 44064189 (99.8%)
+ Active / Total Slabs (% used)      : 1062230 / 1062230 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818266.52K / 6836253.30K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+32126523 32126187  99%    0.10K 823757       39   3295028K buffer_head            
+3981684 3973314  99%    0.19K  94802       42    758416K dentry                 
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+236736 236416  99%    0.06K   3699       64     14796K pid                    
+175656 174994  99%    0.20K   4504       39     36032K vm_area_struct         
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+ 90912  90036  99%    0.25K   2841       32     22728K filp                   
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+ 39168  39064  99%    0.50K   1224       32     19584K kmalloc-512            
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+   124    124 100%    0.26K      2       62        32K numa_policy            
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+    51     51 100%    0.31K      1       51        16K bio-3                  
+    42     42 100%    0.75K      1       42        32K dax_cache              
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+    30     30 100%    2.08K      2       15        64K request_queue          
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+     0      0   0%    0.04K      0      102         0K fat_cache              
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+PASS: slabtop sorted by object count
+spawn /sources/procps-ng-3.3.15/slabtop -o -s s
+ Active / Total Objects (% used)    : 43991095 / 44064604 (99.8%)
+ Active / Total Slabs (% used)      : 1062240 / 1062240 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818374.16K / 6836356.94K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+    30     30 100%    2.08K      2       15        64K request_queue          
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+    42     42 100%    0.75K      1       42        32K dax_cache              
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+ 39296  39200  99%    0.50K   1228       32     19648K kmalloc-512            
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+    51     51 100%    0.31K      1       51        16K bio-3                  
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+   124    124 100%    0.26K      2       62        32K numa_policy            
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+ 90912  90036  99%    0.25K   2841       32     22728K filp                   
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+175773 175111  99%    0.20K   4507       39     36056K vm_area_struct         
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+3981726 3973356  99%    0.19K  94803       42    758424K dentry                 
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+32126523 32126187  99%    0.10K 823757       39   3295028K buffer_head            
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+236864 236544  99%    0.06K   3701       64     14804K pid                    
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+     0      0   0%    0.04K      0      102         0K fat_cache              
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+PASS: slabtop sorted by object size
+spawn /sources/procps-ng-3.3.15/slabtop -o -s u
+ Active / Total Objects (% used)    : 43991436 / 44064931 (99.8%)
+ Active / Total Slabs (% used)      : 1062248 / 1062248 (100.0%)
+ Active / Total Caches (% used)     : 84 / 127 (66.1%)
+ Active / Total Size (% used)       : 6818461.94K / 6836452.86K (99.7%)
+ Minimum / Average / Maximum Object : 0.01K / 0.15K / 8.00K
+
+  OBJS ACTIVE  USE OBJ SIZE  SLABS OBJ/SLAB CACHE SIZE NAME                   
+  3528   3528 100%    0.38K     84       42      1344K kmem_cache             
+108800 108800 100%    0.02K    425      256      1700K kmalloc-16             
+  4032   4032 100%    0.56K     72       56      2304K task_group             
+1371815 1371815 100%    0.05K  16139       85     64556K ftrace_event_field     
+  1978   1978 100%    0.09K     43       46       172K trace_event_file       
+   124    124 100%    0.26K      2       62        32K numa_policy            
+  2244   2244 100%    0.04K     22      102        88K Acpi-Namespace         
+  6222   6222 100%    0.08K    122       51       488K Acpi-State             
+  5256   5256 100%    0.05K     72       73       288K Acpi-Parse             
+ 19392  19392 100%    1.00K    606       32     19392K signal_cache           
+ 15456  15456 100%    0.69K    336       46     10752K files_cache            
+ 24310  24310 100%    0.02K    143      170       572K lsm_file_cache         
+  4200   4200 100%    0.38K    100       42      1600K mnt_cache              
+   429    429 100%    0.81K     11       39       352K bdev_cache             
+  3825   3825 100%    0.16K     75       51       600K sigqueue               
+  3528   3528 100%    0.32K     72       49      1152K taskstats              
+   175    175 100%    5.94K     35        5      1120K net_namespace          
+  2880   2880 100%    0.20K     72       40       576K file_lock_cache        
+    30     30 100%    1.06K      1       30        32K dmaengine-unmap-128    
+    15     15 100%    2.06K      1       15        32K dmaengine-unmap-256    
+    30     30 100%    2.08K      2       15        64K request_queue          
+    42     42 100%    0.75K      1       42        32K dax_cache              
+ 11200  11200 100%    0.12K    350       32      1400K eventpoll_epi          
+ 18200  18200 100%    0.07K    325       56      1300K eventpoll_pwq          
+  2336   2336 100%    0.25K     73       32       584K dquot                  
+   104    104 100%    0.61K      2       52        64K hugetlbfs_inode_cache  
+  3816   3816 100%    0.30K     72       53      1152K request_sock_TCP       
+  5100   5100 100%    0.94K    150       34      4800K RAW                    
+  3185   3185 100%    0.23K     91       35       728K posix_timers_cache     
+    78     78 100%    0.20K      2       39        16K pid_namespace          
+  1632   1632 100%    0.62K     32       51      1024K dio                    
+  6120   6120 100%    0.05K     72       85       288K fscrypt_ctx            
+ 10560  10560 100%    0.06K    165       64       660K ext4_io_end            
+  2304   2304 100%    0.12K     72       32       288K ext4_allocation_context
+   768    768 100%    0.02K      3      256        12K jbd2_revoke_table_s    
+  6942   6942 100%    0.81K    178       39      5696K fuse_inode             
+  1800   1800 100%    0.39K     45       40       720K fuse_request           
+   680    680 100%    0.94K     20       34       640K mqueue_inode_cache     
+  1080   1080 100%    2.12K     72       15      2304K TCPv6                  
+  2597   2597 100%    0.30K     49       53       784K request_sock_TCPv6     
+  1666   1666 100%    0.23K     49       34       392K tw_sock_TCPv6          
+  2632   2632 100%    1.12K     94       28      3008K RAWv6                  
+  8288   8288 100%    0.14K    148       56      1184K ext4_groupinfo_4k      
+    51     51 100%    0.31K      1       51        16K bio-3                  
+ 63488  63034  99%    0.01K    124      512       496K kmalloc-8              
+137600 137345  99%    0.03K   1075      128      4300K kmalloc-32             
+147136 146025  99%    0.06K   2299       64      9196K kmalloc-64             
+  7008   6977  99%    0.12K    219       32       876K kmalloc-128            
+ 17724  17683  99%    0.19K    422       42      3376K kmalloc-192            
+ 39456  39336  99%    0.50K   1233       32     19728K kmalloc-512            
+  7296   7242  99%    2.00K    456       16     14592K kmalloc-2048           
+1116248 1108454  99%    0.57K  19933       56    637856K radix_tree_node        
+236992 236672  99%    0.06K   3703       64     14812K pid                    
+127466 127328  99%    0.09K   2771       46     11084K anon_vma               
+ 69930  69681  99%    0.19K   1665       42     13320K cred_jar               
+  8475   8400  99%    2.06K    565       15     18080K sighand_cache          
+  9180   9165  99%    2.06K    612       15     19584K mm_struct              
+175812 175150  99%    0.20K   4508       39     36064K vm_area_struct         
+32126523 32126225  99%    0.10K 823757       39   3295028K buffer_head            
+3981726 3973356  99%    0.19K  94803       42    758424K dentry                 
+ 90912  90036  99%    0.25K   2841       32     22728K filp                   
+ 88560  88164  99%    0.13K   1476       60     11808K kernfs_node_cache      
+ 38688  38552  99%    0.66K    806       48     25792K proc_inode_cache       
+ 39055  38763  99%    0.05K    535       73      2140K mbcache                
+1501590 1498639  99%    1.06K  50053       30   1601696K ext4_inode_cache       
+  6656   6535  98%    0.06K    104       64       416K kmem_cache_node        
+ 27968  27467  98%    0.25K    874       32      6992K kmalloc-256            
+  2352   2313  98%    0.07K     42       56       168K Acpi-Operand           
+ 29164  28717  98%    0.69K    634       46     20288K sock_inode_cache       
+  2847   2808  98%    0.10K     73       39       292K blkdev_ioc             
+2074680 2038188  98%    0.04K  20340      102     81360K ext4_extent_status     
+  1120   1088  97%    8.00K    280        4      8960K kmalloc-8192           
+ 50816  49664  97%    0.03K    397      128      1588K fscrypt_info           
+  2678   2600  97%    1.19K    103       26      3296K UDPv6                  
+ 19616  18873  96%    1.00K    613       32     19616K kmalloc-1024           
+  1712   1656  96%    4.00K    214        8      6848K kmalloc-4096           
+  3732   3613  96%    7.44K    933        4     29856K task_struct            
+ 28152  27295  96%    0.12K    828       34      3312K jbd2_journal_head      
+  3956   3783  95%    0.69K     86       46      2752K squashfs_inode_cache   
+ 54325  51229  94%    0.59K   1025       53     32800K inode_cache            
+ 19780  18343  92%    0.70K    430       46     13760K shmem_inode_cache      
+  3706   3434  92%    0.23K    109       34       872K tw_sock_TCP            
+  1536   1408  91%    2.00K     96       16      3072K TCP                    
+ 29820  26745  89%    0.09K    710       42      2840K kmalloc-96             
+     0      0   0%    0.09K      0       42         0K dma-kmalloc-96         
+     0      0   0%    0.19K      0       42         0K dma-kmalloc-192        
+     0      0   0%    0.01K      0      512         0K dma-kmalloc-8          
+     0      0   0%    0.02K      0      256         0K dma-kmalloc-16         
+     0      0   0%    0.03K      0      128         0K dma-kmalloc-32         
+     0      0   0%    0.06K      0       64         0K dma-kmalloc-64         
+     0      0   0%    0.12K      0       32         0K dma-kmalloc-128        
+     0      0   0%    0.25K      0       32         0K dma-kmalloc-256        
+     0      0   0%    0.50K      0       32         0K dma-kmalloc-512        
+     0      0   0%    1.00K      0       32         0K dma-kmalloc-1024       
+     0      0   0%    2.00K      0       16         0K dma-kmalloc-2048       
+     0      0   0%    4.00K      0        8         0K dma-kmalloc-4096       
+     0      0   0%    8.00K      0        4         0K dma-kmalloc-8192       
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.08K      0       51         0K iint_cache             
+     0      0   0%    0.44K      0       36         0K xfrm_dst_cache         
+     0      0   0%    0.17K      0       46         0K ip4-frags              
+     0      0   0%    0.19K      0       42         0K userfaultfd_ctx_cache  
+     0      0   0%    0.04K      0      102         0K fat_cache              
+     0      0   0%    0.73K      0       44         0K fat_inode_cache        
+     0      0   0%    0.81K      0       39         0K ecryptfs_auth_tok_list_item
+     0      0   0%    1.00K      0       32         0K ecryptfs_inode_cache   
+     0      0   0%    0.21K      0       37         0K bsg_cmd                
+     0      0   0%    0.23K      0       34         0K cfq_queue              
+     0      0   0%    0.12K      0       34         0K cfq_io_cq              
+     0      0   0%    2.57K      0       12         0K dm_uevent              
+     0      0   0%    3.23K      0        9         0K kcopyd_job             
+     0      0   0%    1.11K      0       28         0K btrfs_inode            
+     0      0   0%    0.12K      0       34         0K btrfs_trans_handle     
+     0      0   0%    0.11K      0       36         0K btrfs_path             
+     0      0   0%    0.27K      0       58         0K btrfs_extent_buffer    
+     0      0   0%    0.14K      0       56         0K btrfs_extent_map       
+     0      0   0%    0.41K      0       39         0K btrfs_ordered_extent   
+     0      0   0%    0.29K      0       55         0K btrfs_delayed_node     
+     0      0   0%    0.15K      0       53         0K btrfs_delayed_ref_head 
+     0      0   0%    0.18K      0       44         0K xfs_log_ticket         
+     0      0   0%    0.47K      0       34         0K xfs_da_state           
+     0      0   0%    0.24K      0       33         0K xfs_buf_item           
+     0      0   0%    0.94K      0       34         0K xfs_inode              
+     0      0   0%    0.16K      0       48         0K xfs_ili                
+     0      0   0%    0.66K      0       48         0K xfs_rui_item           
+     0      0   0%    0.52K      0       62         0K xfs_dqtrx              
+     0      0   0%    0.79K      0       40         0K ufs_inode_cache        
+PASS: slabtop sorted by utilisation
+testcase ./slabtop.test/slabtop.exp completed in 0 seconds
+
+		=== slabtop Summary ===
+
+# of expected passes		8
+runtest completed at Tue Nov 27 07:40:17 2018

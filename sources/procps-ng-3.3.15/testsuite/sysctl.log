@@ -1,0 +1,63 @@
+Test run by root on Tue Nov 27 07:40:17 2018
+Native configuration is x86_64-pc-linux-gnu
+
+		=== sysctl tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using /tools/share/dejagnu/baseboards/unix.exp as board description file for target.
+Using /tools/share/dejagnu/config/unix.exp as generic interface file for target.
+Using ./config/unix.exp as tool-and-target-specific interface file.
+Running ./sysctl.test/sysctl_read.exp ...
+spawn /sources/procps-ng-3.3.15/sysctl
+
+Usage:
+ lt-sysctl [options] [variable[=value] ...]
+
+Options:
+  -a, --all            display all variables
+  -A                   alias of -a
+  -X                   alias of -a
+      --deprecated     include deprecated parameters to listing
+  -b, --binary         print value without new line
+  -e, --ignore         ignore unknown variables errors
+  -N, --names          print variable names without values
+  -n, --values         print only values of the given variable(s)
+  -p, --load[=<file>]  read values from file
+  -f                   alias of -p
+      --system         read values from all system directories
+  -r, --pattern <expression>
+                       select setting that match expression
+  -q, --quiet          do not echo variable set
+  -w, --write          enable writing a value to variable
+  -o                   does nothing
+  -x                   does nothing
+  -d                   alias of -h
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see sysctl(8).
+PASS: sysctl with no arguments
+spawn /sources/procps-ng-3.3.15/sysctl kernel/hostname
+kernel.hostname = ip-172-31-5-17
+PASS: sysctl reading a variable using slash delimiter
+spawn /sources/procps-ng-3.3.15/sysctl kernel.hostname
+kernel.hostname = ip-172-31-5-17
+PASS: sysctl reading a variable using dot delimiter
+spawn /sources/procps-ng-3.3.15/sysctl -n kernel.hostname
+ip-172-31-5-17
+PASS: sysctl reading a variable suppress key
+spawn /sources/procps-ng-3.3.15/sysctl -N kernel.hostname
+kernel.hostname
+PASS: sysctl reading a variable suppress value
+testcase ./sysctl.test/sysctl_read.exp completed in 0 seconds
+
+		=== sysctl Summary ===
+
+# of expected passes		5
+/sources/procps-ng-3.3.15/sysctl version 3.3.15
+
+runtest completed at Tue Nov 27 07:40:17 2018

@@ -84,7 +84,7 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have fully functional mpfr and gmp libraries. */
-/* #undef HAVE_MPFR */
+#define HAVE_MPFR 1
 
 /* Define to 1 if you have the `nanosleep' function. */
 #define HAVE_NANOSLEEP 1
