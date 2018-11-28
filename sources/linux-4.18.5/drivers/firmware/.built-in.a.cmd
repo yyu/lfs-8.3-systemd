@@ -1,0 +1,1 @@
+cmd_drivers/firmware/built-in.a := rm -f drivers/firmware/built-in.a; ar rcSTPD drivers/firmware/built-in.a drivers/firmware/dmi_scan.o drivers/firmware/dmi-id.o drivers/firmware/memmap.o drivers/firmware/broadcom/built-in.a drivers/firmware/meson/built-in.a drivers/firmware/efi/built-in.a drivers/firmware/tegra/built-in.a

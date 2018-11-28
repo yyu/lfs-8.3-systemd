@@ -3260,3 +3260,273 @@
     Create a new file systems:
     
 ................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    8.3. Linux-4.18.5 (4.4-66 (typically~6) SBU; 960-4250 (typically~1100) MB)
+
+    8.3.1. Installation of the kernel
+
+    Building the kernel involves a few steps—configuration, compilation, and installation.
+    Read the README file in the kernel source tree for alternative methods to the way this book configures the kernel.
+
+    Prepare for compilation by running the following command:
+
+    make mrproper
+
+    This ensures that the kernel tree is absolutely clean.
+    The kernel team recommends that this command be issued prior to each kernel compilation.
+    Do not rely on the source tree being clean after un-tarring.
+
+    Configure the kernel via a menu-driven interface.
+    For general information on kernel configuration see
+    http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt.
+    BLFS has some information regarding particular kernel configuration requirements of packages outside of LFS
+    at http://www.linuxfromscratch.org/blfs/view/8.3/longindex.html#kernel-config-index.
+    Additional information about configuring and building the kernel can be found at http://www.kroah.com/lkn/
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    A good starting place for setting up the kernel configuration is to run make defconfig.
+    This will set the base configuration to a good state that takes your current system architecture into account.
+
+    Be sure to enable/disable/set the following features or the system might not work correctly or boot at all:
+    
+[0;1;33m
+    General setup -->
+       [ ] Enable deprecated sysfs features to support old userspace tools [CONFIG_SYSFS_DEPRECATED]
+       [ ] Enable deprecated sysfs features by default [CONFIG_SYSFS_DEPRECATED_V2]
+       [*] open by fhandle syscalls [CONFIG_FHANDLE]
+       [ ] Auditing support [CONFIG_AUDIT]
+       [*] Control Group support [CONFIG_CGROUPS]
+    Processor type and features  --->
+       [*] Enable seccomp to safely compute untrusted bytecode [CONFIG_SECCOMP]
+    Networking support  --->
+      Networking options  --->
+       <*> The IPv6 protocol [CONFIG_IPV6]
+    Device Drivers  --->
+      Generic Driver Options  --->
+       [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
+       [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
+       [ ] Fallback user-helper invocation for firmware loading [CONFIG_FW_LOADER_USER_HELPER]
+    Firmware Drivers  --->
+       [*] Export DMI identification via sysfs to userspace [CONFIG_DMIID]
+    File systems  --->
+       [*] Inotify support for userspace [CONFIG_INOTIFY_USER]
+       <*> Kernel automounter version 4 support (also supports v3) [CONFIG_AUTOFS4_FS]
+      Pseudo filesystems  --->
+       [*] Tmpfs POSIX Access Control Lists [CONFIG_TMPFS_POSIX_ACL]
+       [*] Tmpfs extended attributes [CONFIG_TMPFS_XATTR]
+    Kernel hacking  --->
+           Choose kernel unwinder (Frame pointer unwinder)  ---> [CONFIG_UNWINDER_FRAME_POINTER]
+    
+[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    While "The IPv6 Protocol" is not strictly required,
+[0;1;33m
+    it is highly recommended by the systemd developers.
+    
+[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    If your host hardware is using UEFI, then the make defconfig above should automatically add in some EFI-related kernel options.
+
+    In order to allow your LFS kernel to be booted from within your host s UEFI boot environment,
+    your kernel must have this option selected
+    (A fuller description of managing UEFI environments from within LFS is covered by the lfs-uefi.txt hint
+     at http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt):
+    
+[0;1;33m
+    Processor type and features  --->
+       [*]   EFI stub support  [CONFIG_EFI_STUB]
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    8.3. Linux-4.18.5 (4.4-66 (typically~6) SBU; 960-4250 (typically~1100) MB)
+
+    8.3.1. Installation of the kernel
+
+    Building the kernel involves a few steps—configuration, compilation, and installation.
+    Read the README file in the kernel source tree for alternative methods to the way this book configures the kernel.
+
+    Prepare for compilation by running the following command:
+
+    make mrproper
+
+    This ensures that the kernel tree is absolutely clean.
+    The kernel team recommends that this command be issued prior to each kernel compilation.
+    Do not rely on the source tree being clean after un-tarring.
+
+    Configure the kernel via a menu-driven interface.
+    For general information on kernel configuration see
+    http://www.linuxfromscratch.org/hints/downloads/files/kernel-configuration.txt.
+    BLFS has some information regarding particular kernel configuration requirements of packages outside of LFS
+    at http://www.linuxfromscratch.org/blfs/view/8.3/longindex.html#kernel-config-index.
+    Additional information about configuring and building the kernel can be found at http://www.kroah.com/lkn/
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    A good starting place for setting up the kernel configuration is to run make defconfig.
+    This will set the base configuration to a good state that takes your current system architecture into account.
+
+    Be sure to enable/disable/set the following features or the system might not work correctly or boot at all:
+    
+[0;1;33m
+    General setup -->
+       [ ] Enable deprecated sysfs features to support old userspace tools [CONFIG_SYSFS_DEPRECATED]
+       [ ] Enable deprecated sysfs features by default [CONFIG_SYSFS_DEPRECATED_V2]
+       [*] open by fhandle syscalls [CONFIG_FHANDLE]
+       [ ] Auditing support [CONFIG_AUDIT]
+       [*] Control Group support [CONFIG_CGROUPS]
+    Processor type and features  --->
+       [*] Enable seccomp to safely compute untrusted bytecode [CONFIG_SECCOMP]
+    Networking support  --->
+      Networking options  --->
+       <*> The IPv6 protocol [CONFIG_IPV6]
+    Device Drivers  --->
+      Generic Driver Options  --->
+       [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
+       [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
+       [ ] Fallback user-helper invocation for firmware loading [CONFIG_FW_LOADER_USER_HELPER]
+    Firmware Drivers  --->
+       [*] Export DMI identification via sysfs to userspace [CONFIG_DMIID]
+    File systems  --->
+       [*] Inotify support for userspace [CONFIG_INOTIFY_USER]
+       <*> Kernel automounter version 4 support (also supports v3) [CONFIG_AUTOFS4_FS]
+      Pseudo filesystems  --->
+       [*] Tmpfs POSIX Access Control Lists [CONFIG_TMPFS_POSIX_ACL]
+       [*] Tmpfs extended attributes [CONFIG_TMPFS_XATTR]
+    Kernel hacking  --->
+           Choose kernel unwinder (Frame pointer unwinder)  ---> [CONFIG_UNWINDER_FRAME_POINTER]
+    
+[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    While "The IPv6 Protocol" is not strictly required,
+[0;1;33m
+    it is highly recommended by the systemd developers.
+    
+[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    If your host hardware is using UEFI, then the make defconfig above should automatically add in some EFI-related kernel options.
+
+    In order to allow your LFS kernel to be booted from within your host s UEFI boot environment,
+    your kernel must have this option selected
+    (A fuller description of managing UEFI environments from within LFS is covered by the lfs-uefi.txt hint
+     at http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt):
+    
+[0;1;33m
+    Processor type and features  --->
+       [*]   EFI stub support  [CONFIG_EFI_STUB]
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+    these should be disabled:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+    these should be enabled:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+    these should be disabled:
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+    disabled:
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+    these should be enabled:
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    After kernel compilation is complete, additional steps are required to complete the installation.
+    Some files need to be copied to the /boot directory.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    The path to the kernel image may vary depending on the platform being used.
+    The filename below can be changed to suit your taste, but the stem of the filename
+    should be vmlinuz to be compatible with the automatic setup of the boot process described in the next section.
+    The following command assumes an x86 architecture:
+    cp -iv arch/x86/boot/bzImage /boot/vmlinuz-4.18.5-lfs-8.3-systemd
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    System.map is a symbol file for the kernel.
+    It maps the function entry points of every function in the kernel API,
+    as well as the addresses of the kernel data structures for the running kernel.
+    It is used as a resource when investigating kernel problems. Issue the following command to install the map file:
+    cp -iv System.map /boot/System.map-4.18.5
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    The kernel configuration file .config produced by the make menuconfig step above contains
+    all the configuration selections for the kernel that was just compiled.
+    It is a good idea to keep this file for future reference:
+
+    cp -iv .config /boot/config-4.18.5
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Install the documentation for the Linux kernel:
+    install -d /usr/share/doc/linux-4.18.5
+    cp -r Documentation/* /usr/share/doc/linux-4.18.5
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    It is important to note that the files in the kernel source directory are not owned by root.
+    Whenever a package is unpacked as user root (like we did inside chroot),
+    the files have the user and group IDs of whatever they were on the packager s computer.
+    This is usually not a problem for any other package to be installed because the source tree is removed after the installation.
+    However, the Linux source tree is often retained for a long time.
+    Because of this, there is a chance that whatever user ID the packager used will be assigned to somebody on the machine.
+    That person would then have write access to the kernel source.
+
+    In many cases, the configuration of the kernel will need to be updated for packages that will be installed later in BLFS.
+    Unlike other packages, it is not necessary to remove the kernel source tree after the newly built kernel is installed.
+
+    If the kernel source tree is going to be retained, run
+        chown -R 0:0
+    on the linux-4.18.5 directory to ensure all files are owned by user root.
+    
+[0;1;33m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    [0;35mSome kernel documentation recommends creating a symlink from /usr/src/linux pointing to the kernel source directory.
+    This is specific to kernels prior to the 2.6 series and [1;31mmust not[0;35m be created on an LFS system
+    as it can cause problems for packages you may wish to build once your base LFS system is complete.
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    The headers in the system s include directory (/usr/include) should always be the ones against which Glibc was compiled,
+    that is, the sanitised headers installed in Section 6.7, “Linux-4.18.5 API Headers”.
+    Therefore, they should never be replaced by either the raw kernel headers or any other kernel sanitized headers.
+    
+[0;1;33m
+[0m

@@ -1,0 +1,1 @@
+cmd_net/ipv4/netfilter/nf_nat_ipv4.o := ld -m elf_x86_64  -z max-page-size=0x200000   -r -o net/ipv4/netfilter/nf_nat_ipv4.o net/ipv4/netfilter/nf_nat_l3proto_ipv4.o net/ipv4/netfilter/nf_nat_proto_icmp.o net/ipv4/netfilter/nf_nat_masquerade_ipv4.o 

@@ -1,0 +1,1 @@
+cmd_block/partitions/built-in.a := rm -f block/partitions/built-in.a; ar rcSTPD block/partitions/built-in.a block/partitions/check.o block/partitions/amiga.o block/partitions/mac.o block/partitions/msdos.o block/partitions/osf.o block/partitions/sgi.o block/partitions/sun.o block/partitions/efi.o block/partitions/karma.o
