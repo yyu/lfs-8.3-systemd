@@ -3530,3 +3530,145 @@
     
 [0;1;33m
 [0m
+[1;3;32m________________________________________________________________________________
+
+    8.3.2. Configuring Linux Module Load Order
+
+    Most of the time Linux modules are loaded automatically, but sometimes it needs some specific direction.
+    The program that loads modules, modprobe or insmod, uses /etc/modprobe.d/usb.conf for this purpose.
+    This file needs to be created so that if the USB drivers (ehci_hcd, ohci_hcd and uhci_hcd) have been built as modules,
+    they will be loaded in the correct order;
+    ehci_hcd needs to be loaded prior to ohci_hcd and uhci_hcd in order to avoid a warning being output at boot time.
+
+    Create a new file /etc/modprobe.d/usb.conf:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    8.4.2. GRUB Naming Conventions
+    [0;32m
+    GRUB uses its own naming structure for drives and partitions in the form of
+        [1;32m(hdn,m)[0;32m,
+    where [1;32mn[0;32m is the hard drive number and [1;32mm[0;32m is the partition number.
+
+    The hard drive number starts from [1;32mzero[0;32m,
+    but the partition number starts from [1;32mone for normal partitions[0;32m and [1;32mfive for extended partitions[0;32m.
+    Note that this is different from earlier versions where both numbers started from zero.
+    For example, [1;32mpartition sda1 is (hd0,1) to GRUB[0;32m and [1;32msdb3 is (hd1,3)[0;32m.
+
+    In contrast to Linux, GRUB does not consider CD-ROM drives to be hard drives.
+    For example, if using a CD on hdb and a second hard drive on hdc, that second hard drive would still be (hd1).
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    8.4.3. Setting Up the Configuration
+
+    GRUB works by writing data to the first physical track of the hard disk.
+    This area is not part of any file system.
+    The programs there access GRUB modules in the boot partition.
+    The default location is /boot/grub/.
+
+    The location of the boot partition is a choice of the user that affects the configuration.
+    One recommendation is to have a separate small (suggested size is 100 MB) partition just for boot information.
+    That way each build, whether LFS or some commercial distro, can access the same boot files and access can be made from any booted system.
+    If you choose to do this, you will need to mount the separate partition,
+    move all files in the current /boot directory (e.g. the linux kernel you just built in the previous section) to the new partition.
+    You will then need to unmount the partition and remount it as /boot. If you do this, be sure to update /etc/fstab.
+
+    Using the current lfs partition will also work, but configuration for multiple systems is more difficult.
+
+    Using the above information, determine the appropriate designator for the root partition (or boot partition, if a separate one is used).
+    For the following example, it is assumed that the root (or separate boot) partition is [1;31msdc1[0;37m.
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Install the GRUB files into /boot/grub and set up the boot track:
+    grub-install /dev/sdc
+    
+................................................................................[0m
+[7;31mImportant[0m[31m__________________________________________________[0m
+[0;31m
+    Warning
+[0;1;31m
+    This command will overwrite the current boot loader.
+    Do not run the command if this is not desired,
+    for example, if using a third party boot manager to manage the Master Boot Record (MBR).
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    8.4.4. Creating the GRUB Configuration File
+
+    Generate /boot/grub/grub.cfg:
+    
+................................................................................[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    I got an "VFS unable to mount root fs on unknown-block(0 0)" error and it turned out
+    that was because I was using a SCSI storage device controller in my virtualbox config.
+
+    The problem went away after I changed it to SATA.
+
+    Analysis:
+
+    I got my clue from https://wiki.gentoo.org/wiki/Knowledge_Base:Unable_to_mount_root_fs :
+    The panic informs that the Linux kernel is unable to:
+    * Detect the controller for the hard disk (a likely candidate if the message says unknown-block(0,0));
+    * Detect the partition because it does not have support for the partition type (less likely, but still possible);
+    * Mount the partition because it does not know how to access the file system
+      (a likely candidate if the message gives a non-zero figure in the first number set, such as unknown-block(2,0));
+    * Detect the partition because the wrong device was passed in the boot loader configuration.
+
+    see also:
+    * https://www.linuxquestions.org/questions/linux-from-scratch-13/chapter-8-kernel-config-853146/
+    
+[0;1;33m
+[0m
+[7;33mNote[0m[33m__________________________________________________[0m
+[0;33m
+    From GRUB s perspective, the kernel files are relative to the partition used.
+    If you used a separate /boot partition, remove /boot from the above linux line.
+    You will also need to change the set root line to point to the boot partition.
+    
+[0;1;33m
+[0m
+[1;3;32m________________________________________________________________________________
+
+    GRUB is an extremely powerful program and it provides a tremendous number of options for
+    booting from a wide variety of devices, operating systems, and partition types.
+    There are also many options for customization such as graphical splash screens, playing sounds, mouse input, etc.
+    The details of these options are beyond the scope of this introduction.
+    
+................................................................................[0m
+[7;31mImportant[0m[31m__________________________________________________[0m
+[0;31m
+    Caution
+[0;1;31m
+    There is a command, grub-mkconfig, that can write a configuration file automatically.
+    It uses a set of scripts in /etc/grub.d/ and will destroy any customizations that you make.
+    These scripts are designed primarily for non-source distributions and are not recommended for LFS.
+    If you install a commercial Linux distribution, there is a good chance that this program will be run.
+    Be sure to back up your grub.cfg file.
+    
+[0m
+[1;3;32m________________________________________________________________________________
+
+    Create an /etc/os-release file required by systemd:
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    Creating the file /etc/lfs-release is recommended for compatibility with the non-systemd branch.
+    By having this file, it is very easy for you (and for us if you need to ask for help at some point)
+    to find out which LFS version is installed on the system. Create this file by running:
+
+    echo 8.3-systemd > /etc/lfs-release
+    
+................................................................................[0m
+[1;3;32m________________________________________________________________________________
+
+    It is also a good idea to create a file to show the status of your new system with respect to the Linux Standards Base (LSB).
+    
+................................................................................[0m

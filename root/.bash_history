@@ -1,23 +1,3 @@
-    install -d /usr/share/doc/linux-4.18.5
-    cp -r Documentation/* /usr/share/doc/linux-4.18.5
-    ________________________________________NOTE________________________________________ '
-    It is important to note that the files in the kernel source directory are not owned by root.
-    Whenever a package is unpacked as user root (like we did inside chroot),
-    the files have the user and group IDs of whatever they were on the packager s computer.
-    This is usually not a problem for any other package to be installed because the source tree is removed after the installation.
-    However, the Linux source tree is often retained for a long time.
-    Because of this, there is a chance that whatever user ID the packager used will be assigned to somebody on the machine.
-    That person would then have write access to the kernel source.
-
-    In many cases, the configuration of the kernel will need to be updated for packages that will be installed later in BLFS.
-    Unlike other packages, it is not necessary to remove the kernel source tree after the newly built kernel is installed.
-
-    If the kernel source tree is going to be retained, run
-        chown -R 0:0
-    on the linux-4.18.5 directory to ensure all files are owned by user root.
-    '
-    ________________________________________________________________________________ '
-    \033[0;35mSome kernel documentation recommends creating a symlink from /usr/src/linux pointing to the kernel source directory.
     This is specific to kernels prior to the 2.6 series and \033[1;31mmust not\033[0;35m be created on an LFS system
     as it can cause problems for packages you may wish to build once your base LFS system is complete.
     '
@@ -357,12 +337,12 @@ _lfs_basic_system_install_all_5() {
 #
 # . 000-functions.sh
 #
-# _lfs_get_target_triplets
-# _lfs_get_name_of_dynamic_linker
-# _lfs_get_ld_search_order
-# _lfs_show_linked_files_for_dummy_program
-# _lfs_show_linker_used_by_gcc
-# _lfs_gcc_dummy_program_verbose
+# # _lfs_get_target_triplets
+# # _lfs_get_name_of_dynamic_linker
+# # _lfs_get_ld_search_order
+# # _lfs_show_linked_files_for_dummy_program
+# # _lfs_show_linker_used_by_gcc
+# # _lfs_gcc_dummy_program_verbose
 #
 # _lfs_before_temp_system_build
 #
@@ -401,100 +381,120 @@ _lfs_basic_system_install_all_5() {
 # _lfs_basic_system_install_all_1
 # _lfs_basic_system_install_all_2
 # _lfs_basic_system_install_all_3
+#
+# . 000-functions.sh
+#
 # _lfs_basic_system_install_all_4
+# _lfs_basic_system_install_all_5
 #
 ################################################################################
 EEEEEOF
 
 . 000-functions.sh
-_lfs_basic_system_install_all_1 
-_lfs_basic_system_install_all_2 
-_lfs_basic_system_install_all_3 
-. ../000-functions.sh 
-_lfs_basic_system_install_all_4 
-_lfs_basic_system_install_all_5 
-cd ../autoconf-2.69
-make check TESTSUITEFLAGS=-j64 
-make
-make check TESTSUITEFLAGS=-j16
-cd ..
-mv autoconf-2.69 autoconf-2.69_
-tar xf autoconf-2.69.tar.xz 
-cd autoconf-2.69
-_lfs_basic_system_install_autoconf 
-_lfs_basic_system_install_libtool() {     ________________________________________________________________________________ '
-    libtool (1.9 SBU; 43 MB)
-    ';     package________name="libtool";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
-    # configure
-    ';     ./configure --prefix=/usr;     ________________________________________________________________________________ '
-    # make
-    ';     make;     ________________________________________________________________________________ '
-    The test time for libtool can be reduced significantly on a system with multiple cores.
-    To do this, append TESTSUITEFLAGS=-j<N> to the line below.
-    For instance, using -j4 can reduce the test time by over 60 percent.
-    ';     make check TESTSUITEFLAGS=-j64;     ________________________________________NOTE________________________________________ '
-    Five tests are known to fail in the LFS build environment due to a circular dependency,
-    but all tests pass if rechecked after automake is installed.
-    ';     ________________________________________________________________________________ '
-    # make install
-    ';     make install; }
-_lfs_basic_system_install_libtool
-cd ..
-mv autoconf-2.69 autoconf-2.69__
-tar xf autoconf-2.69.tar.xz 
-cd autoconf-2.69
-_lfs_basic_system_install_autoconf() {     ________________________________________________________________________________ '
-    autoconf (3.5 SBU; 17.3 MB)
-    ';     package________name="autoconf";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
-    # configure
-    ';     ./configure --prefix=/usr;     ________________________________________________________________________________ '
-    # make
-    ';     make;     ________________________________________________________________________________ '
-    # make check
-    several tests are skipped that use Automake.
-    For full test coverage, Autoconf can be re-tested after Automake has been installed.
-    In addition, two tests fail due to changes in libtool-2.4.3 and later.
-    ';     make check TESTSUITEFLAGS=-j64;     ________________________________________NOTE________________________________________ '
-    several tests are skipped that use Automake.
-    For full test coverage, Autoconf can be re-tested after Automake has been installed.' '
-    In addition, two tests fail due to changes in libtool-2.4.3 and later.
-    ';     ________________________________________________________________________________ '
-    # make install
-    ';     make install; }
-_lfs_basic_system_install_autoconf 
-_lfs_basic_system_install_automake() {     ________________________________________________________________________________ '
-    automake (8.9 SBU; 107 MB)
-    ';     package________name="automake";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
-    # configure
-    ';     ./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.16.1;     ________________________________________________________________________________ '
-    # make
-    ';     make;     ________________________________________________________________________________ '
-    # make check
-    ';     make -j64 check;     ________________________________________________________________________________ '
-    # make install
-    ';     make install; }
-_lfs_basic_system_install_automake 
-cd ..
-mv autoconf-2.69 autoconf-2.69___
-tar xf autoconf-2.69.tar.xz 
-cd autoconf-2.69
-_lfs_basic_system_install_autoconf() {     ________________________________________________________________________________ '
-    autoconf (3.5 SBU; 17.3 MB)
-    ';     package________name="autoconf";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
-    # configure
-    ';     ./configure --prefix=/usr;     ________________________________________________________________________________ '
-    # make
-    ';     make;     ________________________________________________________________________________ '
-    # make check
-    several tests are skipped that use Automake.
-    For full test coverage, Autoconf can be re-tested after Automake has been installed.
-    In addition, two tests fail due to changes in libtool-2.4.3 and later.
-    ';     make check TESTSUITEFLAGS=-j64;     ________________________________________NOTE________________________________________ '
-    several tests are skipped that use Automake.
-    For full test coverage, Autoconf can be re-tested after Automake has been installed.' '
-    In addition, two tests fail due to changes in libtool-2.4.3 and later.
-    ';     ________________________________________________________________________________ '
-    # make install
-    ';     make install; }
-_lfs_basic_system_install_autoconf
-exit
+pwd
+ls
+du -h --max-depth=1 .
+_lfs_basic_system_install_clean_up_3 
+du -h --max-depth=1 .
+_lfs_network_interface_configure_narrative
+_lfs_configure_dhcp
+_lfs_configure_dns
+_lfs_configure_hostname
+_lfs_configure_etc_hosts
+_lfs_is_hardware_clock_set_to_utc
+_lfs_configure_system_clock
+_lfs_configure_linux_console
+_lfs_create_etc_inputrc
+_lfs_create_etc_shells
+_lfs_configure_and_use_systemd
+_lfs_make_lfs_bootable_create_etc_fstab
+_lfs_kernel_build 
+cd sources/linux-4.18.5
+_lfs_kernel_build 
+ls .config 
+grep -i fhandle .config
+vi .config 
+make menuconfig
+fgrep CONFIG_SYSFS_DEPRECATED CONFIG_SYSFS_DEPRECATED_V2 .config
+man fgrep
+fgrep '
+CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2' .config
+fgrep 'CONFIG_FHANDLE
+CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2' .config
+fgrep --color 'CONFIG_FHANDLE
+CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2' .config
+fgrep --color 'CONFIG_FHANDLE
+CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2' .config
+fgrep --color 'CONFIG_FHANDLE
+CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2
+fgrep --color 'CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2
+CONFIG_AUDIT
+CONFIG_UEVENT_HELPER
+CONFIG_FW_LOADER_USER_HELPER
+' .config
+fgrep --color 'CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2
+CONFIG_AUDIT
+CONFIG_UEVENT_HELPER
+CONFIG_FW_LOADER_USER_HELPER' .config
+fgrep --color 'CONFIG_SYSFS_DEPRECATED
+CONFIG_SYSFS_DEPRECATED_V2
+CONFIG_AUDIT
+CONFIG_UEVENT_HELPER
+CONFIG_FW_LOADER_USER_HELPER' .config
+grep -E 'CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER' .config
+grep --color -E 'CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER' .config
+grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)=' .config
+grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+vi .config 
+vi .config 
+grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+_lfs_kernel_build_config_check() {     ________________________________________________________________________________ '
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+    these should be disabled:
+    '
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+    ________________________________________________________________________________ '
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+    '
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+    ________________________________________________________________________________ '
+    grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+    these should be enabled:
+    '
+    grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+}
+_lfs_kernel_build_config_check
+_lfs_kernel_build_config_check() {     ________________________________________________________________________________ "
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+    these should be disabled:
+    ";     grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config;     ________________________________________________________________________________ "
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+    ";     grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config;     ________________________________________________________________________________ "
+    grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+    these should be enabled:
+    ";     grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config; }
+_lfs_kernel_build_config_check
+_lfs_kernel_build_config_check() {     ________________________________________________________________________________ "
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config
+    these should be disabled:";     grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)\>' .config;     ________________________________________________________________________________ "
+    grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config
+    disabled:";     grep --color -E '(CONFIG_SYSFS_DEPRECATED|CONFIG_SYSFS_DEPRECATED_V2|CONFIG_AUDIT|CONFIG_UEVENT_HELPER|CONFIG_FW_LOADER_USER_HELPER)' .config;     ________________________________________________________________________________ "
+    grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config
+    these should be enabled:";     grep --color -E '(CONFIG_FHANDLE|CONFIG_CGROUPS|CONFIG_SECCOMP|CONFIG_IPV6|CONFIG_DEVTMPFS|CONFIG_DMIID|CONFIG_INOTIFY_USER|CONFIG_AUTOFS4_FS|CONFIG_TMPFS_POSIX_ACL|CONFIG_TMPFS_XATTR|CONFIG_UNWINDER_FRAME_POINTER)\>' .config; }
+_lfs_kernel_build_config_check
+_lfs_kernel_build() {     make;     make modules_install; }
+_lfs_kernel_build
+_lfs_kernel_post_build 
+_lfs_configure_linux_module_load_order 
+_lfs_get_target_triplets
