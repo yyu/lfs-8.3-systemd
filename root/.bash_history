@@ -1,91 +1,3 @@
-    ________________________________________NOTE________________________________________ '
-    A good starting place for setting up the kernel configuration is to run make defconfig.
-    This will set the base configuration to a good state that takes your current system architecture into account.
-
-    Be sure to enable/disable/set the following features or the system might not work correctly or boot at all:
-    ' '
-    General setup -->
-       [ ] Enable deprecated sysfs features to support old userspace tools [CONFIG_SYSFS_DEPRECATED]
-       [ ] Enable deprecated sysfs features by default [CONFIG_SYSFS_DEPRECATED_V2]
-       [*] open by fhandle syscalls [CONFIG_FHANDLE]
-       [ ] Auditing support [CONFIG_AUDIT]
-       [*] Control Group support [CONFIG_CGROUPS]
-    Processor type and features  --->
-       [*] Enable seccomp to safely compute untrusted bytecode [CONFIG_SECCOMP]
-    Networking support  --->
-      Networking options  --->
-       <*> The IPv6 protocol [CONFIG_IPV6]
-    Device Drivers  --->
-      Generic Driver Options  --->
-       [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
-       [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
-       [ ] Fallback user-helper invocation for firmware loading [CONFIG_FW_LOADER_USER_HELPER]
-    Firmware Drivers  --->
-       [*] Export DMI identification via sysfs to userspace [CONFIG_DMIID]
-    File systems  --->
-       [*] Inotify support for userspace [CONFIG_INOTIFY_USER]
-       <*> Kernel automounter version 4 support (also supports v3) [CONFIG_AUTOFS4_FS]
-      Pseudo filesystems  --->
-       [*] Tmpfs POSIX Access Control Lists [CONFIG_TMPFS_POSIX_ACL]
-       [*] Tmpfs extended attributes [CONFIG_TMPFS_XATTR]
-    Kernel hacking  --->
-           Choose kernel unwinder (Frame pointer unwinder)  ---> [CONFIG_UNWINDER_FRAME_POINTER]
-    '
-    make defconfig
-    ________________________________________NOTE________________________________________ '
-    While "The IPv6 Protocol" is not strictly required,' '
-    it is highly recommended by the systemd developers.
-    '
-    ________________________________________NOTE________________________________________ '
-    If your host hardware is using UEFI, then the make defconfig above should automatically add in some EFI-related kernel options.
-
-    In order to allow your LFS kernel to be booted from within your host s UEFI boot environment,
-    your kernel must have this option selected
-    (A fuller description of managing UEFI environments from within LFS is covered by the lfs-uefi.txt hint
-     at http://www.linuxfromscratch.org/hints/downloads/files/lfs-uefi.txt):
-    ' '
-    Processor type and features  --->
-       [*]   EFI stub support  [CONFIG_EFI_STUB]
-    '
-    make menuconfig
-    make
-    make modules_install
-}
-
-_lfs_kernel_post_build() {
-    ________________________________________________________________________________ '
-    After kernel compilation is complete, additional steps are required to complete the installation.
-    Some files need to be copied to the /boot directory.
-    '
-    ________________________________________________________________________________ '
-    The path to the kernel image may vary depending on the platform being used.
-    The filename below can be changed to suit your taste, but the stem of the filename
-    should be vmlinuz to be compatible with the automatic setup of the boot process described in the next section.
-    The following command assumes an x86 architecture:
-    cp -iv arch/x86/boot/bzImage /boot/vmlinuz-4.18.5-lfs-8.3-systemd
-    '
-    cp -iv arch/x86/boot/bzImage /boot/vmlinuz-4.18.5-lfs-8.3-systemd
-    ________________________________________________________________________________ '
-    System.map is a symbol file for the kernel.
-    It maps the function entry points of every function in the kernel API,
-    as well as the addresses of the kernel data structures for the running kernel.
-    It is used as a resource when investigating kernel problems. Issue the following command to install the map file:
-    cp -iv System.map /boot/System.map-4.18.5
-    '
-    cp -iv System.map /boot/System.map-4.18.5
-    ________________________________________________________________________________ '
-    The kernel configuration file .config produced by the make menuconfig step above contains
-    all the configuration selections for the kernel that was just compiled.
-    It is a good idea to keep this file for future reference:
-
-    cp -iv .config /boot/config-4.18.5
-    '
-    cp -iv .config /boot/config-4.18.5
-    ________________________________________________________________________________ '
-    Install the documentation for the Linux kernel:
-    install -d /usr/share/doc/linux-4.18.5
-    cp -r Documentation/* /usr/share/doc/linux-4.18.5
-    '
     install -d /usr/share/doc/linux-4.18.5
     cp -r Documentation/* /usr/share/doc/linux-4.18.5
     ________________________________________NOTE________________________________________ '
@@ -498,3 +410,91 @@ EEEEEOF
 _lfs_basic_system_install_all_1 
 _lfs_basic_system_install_all_2 
 _lfs_basic_system_install_all_3 
+. ../000-functions.sh 
+_lfs_basic_system_install_all_4 
+_lfs_basic_system_install_all_5 
+cd ../autoconf-2.69
+make check TESTSUITEFLAGS=-j64 
+make
+make check TESTSUITEFLAGS=-j16
+cd ..
+mv autoconf-2.69 autoconf-2.69_
+tar xf autoconf-2.69.tar.xz 
+cd autoconf-2.69
+_lfs_basic_system_install_autoconf 
+_lfs_basic_system_install_libtool() {     ________________________________________________________________________________ '
+    libtool (1.9 SBU; 43 MB)
+    ';     package________name="libtool";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
+    # configure
+    ';     ./configure --prefix=/usr;     ________________________________________________________________________________ '
+    # make
+    ';     make;     ________________________________________________________________________________ '
+    The test time for libtool can be reduced significantly on a system with multiple cores.
+    To do this, append TESTSUITEFLAGS=-j<N> to the line below.
+    For instance, using -j4 can reduce the test time by over 60 percent.
+    ';     make check TESTSUITEFLAGS=-j64;     ________________________________________NOTE________________________________________ '
+    Five tests are known to fail in the LFS build environment due to a circular dependency,
+    but all tests pass if rechecked after automake is installed.
+    ';     ________________________________________________________________________________ '
+    # make install
+    ';     make install; }
+_lfs_basic_system_install_libtool
+cd ..
+mv autoconf-2.69 autoconf-2.69__
+tar xf autoconf-2.69.tar.xz 
+cd autoconf-2.69
+_lfs_basic_system_install_autoconf() {     ________________________________________________________________________________ '
+    autoconf (3.5 SBU; 17.3 MB)
+    ';     package________name="autoconf";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
+    # configure
+    ';     ./configure --prefix=/usr;     ________________________________________________________________________________ '
+    # make
+    ';     make;     ________________________________________________________________________________ '
+    # make check
+    several tests are skipped that use Automake.
+    For full test coverage, Autoconf can be re-tested after Automake has been installed.
+    In addition, two tests fail due to changes in libtool-2.4.3 and later.
+    ';     make check TESTSUITEFLAGS=-j64;     ________________________________________NOTE________________________________________ '
+    several tests are skipped that use Automake.
+    For full test coverage, Autoconf can be re-tested after Automake has been installed.' '
+    In addition, two tests fail due to changes in libtool-2.4.3 and later.
+    ';     ________________________________________________________________________________ '
+    # make install
+    ';     make install; }
+_lfs_basic_system_install_autoconf 
+_lfs_basic_system_install_automake() {     ________________________________________________________________________________ '
+    automake (8.9 SBU; 107 MB)
+    ';     package________name="automake";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
+    # configure
+    ';     ./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.16.1;     ________________________________________________________________________________ '
+    # make
+    ';     make;     ________________________________________________________________________________ '
+    # make check
+    ';     make -j64 check;     ________________________________________________________________________________ '
+    # make install
+    ';     make install; }
+_lfs_basic_system_install_automake 
+cd ..
+mv autoconf-2.69 autoconf-2.69___
+tar xf autoconf-2.69.tar.xz 
+cd autoconf-2.69
+_lfs_basic_system_install_autoconf() {     ________________________________________________________________________________ '
+    autoconf (3.5 SBU; 17.3 MB)
+    ';     package________name="autoconf";     cd /sources/;     tar xf `ls $package________name-*tar*`;     cd $package________name-*[0-9]/;     ________________________________________________________________________________ '
+    # configure
+    ';     ./configure --prefix=/usr;     ________________________________________________________________________________ '
+    # make
+    ';     make;     ________________________________________________________________________________ '
+    # make check
+    several tests are skipped that use Automake.
+    For full test coverage, Autoconf can be re-tested after Automake has been installed.
+    In addition, two tests fail due to changes in libtool-2.4.3 and later.
+    ';     make check TESTSUITEFLAGS=-j64;     ________________________________________NOTE________________________________________ '
+    several tests are skipped that use Automake.
+    For full test coverage, Autoconf can be re-tested after Automake has been installed.' '
+    In addition, two tests fail due to changes in libtool-2.4.3 and later.
+    ';     ________________________________________________________________________________ '
+    # make install
+    ';     make install; }
+_lfs_basic_system_install_autoconf
+exit
